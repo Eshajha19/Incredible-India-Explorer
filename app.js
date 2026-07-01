@@ -906,6 +906,8 @@ function initCuisinePage() {
 
     function closeDrawer() {
         drawer.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+        document.documentElement.classList.remove('no-scroll');
     }
 
     function animateRender() {
@@ -988,6 +990,8 @@ function initCuisinePage() {
                 });
 
                 drawer.classList.add('open');
+                document.body.classList.add('no-scroll');
+                document.documentElement.classList.add('no-scroll');
             });
 
             cuisineGrid.appendChild(card);

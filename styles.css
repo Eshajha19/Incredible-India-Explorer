@@ -2841,8 +2841,8 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: var(--bg-dark-card);
+    height: max-content;
+    background: var(--bg-dark-modal);
     z-index: 10;
     display: flex;
     flex-direction: column;
@@ -2850,6 +2850,7 @@ button {
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     visibility: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .recipe-mode-overlay.active {
@@ -2912,7 +2913,6 @@ button {
 }
 
 .recipe-step-card {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
@@ -2949,13 +2949,17 @@ button {
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    margin-top: auto;
+    margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .recipe-controls button {
     flex: 1;
+}
+
+.no-scroll {
+    overflow: hidden !important;
 }
 
 .recipe-controls button:disabled {
