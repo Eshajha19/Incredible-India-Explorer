@@ -3468,12 +3468,12 @@ button {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--glass-bg);
+    background-color: var(--bg-dark-modal);
     min-width: 220px;
-    box-shadow: 0 8px 32px var(--shadow-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     z-index: 1000;
     padding: 0.5rem 0;
