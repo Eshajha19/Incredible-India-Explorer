@@ -4,7 +4,18 @@
 
 Welcome to the **Incredible India Explorer**—an immersive, interactive digital experience designed to showcase the rich culture, history, geography, and wildlife of India.
 
+## 📑 Table of Contents
+
+- [💡 The Idea Behind This](#-the-idea-behind-this)
+- [✨ Features](#-features)
+- [🚀 Getting Started](#-getting-started)
+- [Demo](#demo)
+- [Demo Link](#demo-link)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
 ## 💡 The Idea Behind This
+
 The Incredible India Explorer was born out of a desire to move beyond static encyclopedias and dry historical texts. India's culture, history, and geography are dynamic and alive. This project aims to build an immersive, interactive digital experience—using modern web technologies, gamification, and interactive storytelling—to let users truly *experience* India from their screens.
 
 ## ✨ Features
