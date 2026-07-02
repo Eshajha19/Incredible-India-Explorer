@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-                <a href="premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+                <a href="premium.html" class="nav-link premium-link">★ Premium</a>
             </nav>
         </div>
     </header>
@@ -70,7 +70,7 @@
 
         <!-- Hero Section -->
         <section id="home" class="hero-section scroll-section">
-            <video autoplay muted loop playsinline class="hero-video">
+            <video autoplay muted loop class="hero-video">
                 <source
                     src="https://assets.mixkit.co/videos/preview/mixkit-landscape-of-mountains-and-a-lake-at-sunset-31514-large.mp4"
                     type="video/mp4">
@@ -127,8 +127,7 @@
                                     major festivals, and unique history.
                                 </p>
                             </div>
-                            <div class="map-action-box"
-                                style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                            <div class="map-action-box">
                                 <button class="btn btn-gold ripple" id="btn-random-state">Explore a Random
                                     State</button>
 
@@ -311,9 +310,8 @@
             <!-- Left Side: Interactive Animation Canvas -->
             <div class="story-canvas" id="state-story-canvas">
                 <div class="canvas-visual-frame">
-                    <img id="state-story-img" src="" alt="State Map" style="display: none;">
-                    <div id="state-svg-container"
-                        style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <img id="state-story-img" src="" alt="State Map">
+                    <div id="state-svg-container">
                         <!-- The SVG path of the state will be injected here -->
                     </div>
                     <!-- Dynamic particles container -->
@@ -329,8 +327,7 @@
                     <span class="story-subtitle" id="state-story-subtitle">State Profile</span>
                     <h2 class="story-title" id="state-story-title">Rajasthan</h2>
 
-                    <p class="modal-capital-line"
-                        style="margin-top: -15px; margin-bottom: 25px; color: var(--text-muted); font-size: 1.1rem;">
+                    <p class="modal-capital-line">
                         Capital: <span id="state-story-capital" class="gold" style="font-weight: 600;">Jaipur</span>
                     </p>
 
@@ -391,10 +388,10 @@
                     <div class="chat-body" id="chat-body">
                     <div class="chat-message bot">Namaste! I am Bharat, your personalized AI Travel Planner and Story Narrator. How can I assist you in exploring India today?</div>
                     
-                    <div class="chat-chips" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
-                        <span class="chat-chip" style="background: rgba(255,153,51,0.2); border: 1px solid var(--saffron); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; color: var(--text-color);">🗺️ Plan a 5-day Kerala trip</span>
-                        <span class="chat-chip" style="background: rgba(255,153,51,0.2); border: 1px solid var(--saffron); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; color: var(--text-color);">📖 Tell me a Rajput story</span>
-                        <span class="chat-chip" style="background: rgba(255,153,51,0.2); border: 1px solid var(--saffron); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; color: var(--text-color);">🏛️ History of Taj Mahal</span>
+                    <div class="chat-chips">
+                        <span class="chat-chip">🗺️ Plan a 5-day Kerala trip</span>
+                        <span class="chat-chip">📖 Tell me a Rajput story</span>
+                        <span class="chat-chip">🏛️ History of Taj Mahal</span>
                     </div>
                 </div>
                 </div>

@@ -224,8 +224,8 @@ button {
 /* Glassmorphism Cards Base */
 .glass-card {
     background: var(--bg-dark-card);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-soft);
@@ -271,8 +271,8 @@ button {
     width: 100%;
     height: var(--navbar-height);
     background: rgba(9, 13, 22, 0.8);
-    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     z-index: 100;
     transition: var(--transition-snappy);
@@ -288,8 +288,7 @@ button {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0 40px;
-    /* Gives nice padding from the extreme edges */
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -306,7 +305,7 @@ button {
 
 .nav-menu {
     display: flex;
-    gap: 28px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -317,6 +316,9 @@ button {
     padding: 8px 4px;
     position: relative;
     transition: var(--transition-snappy);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
 
 .nav-link:hover {
@@ -428,6 +430,7 @@ button {
 .hero-title .highlight {
     background: var(--gradient-saffron-gold);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: var(--font-heading);
 }
@@ -513,6 +516,7 @@ button {
 
 .map-container {
     background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: var(--border-radius-lg);
@@ -582,6 +586,7 @@ button {
 
 .info-card {
     background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1.5px dashed rgba(255, 176, 31, 0.2);
     border-radius: var(--border-radius-lg);
@@ -794,6 +799,7 @@ button {
 
 .festival-card {
     background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius-lg);
@@ -837,6 +843,7 @@ button {
     color: var(--text-muted);
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -990,6 +997,7 @@ button {
     max-width: 680px;
     margin: 0 auto;
     background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border: 1.5px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius-lg);
@@ -1181,6 +1189,7 @@ button {
     margin-bottom: 15px;
     background: var(--gradient-saffron-gold);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1233,8 +1242,8 @@ button {
     width: 100%;
     height: 100%;
     background: rgba(9, 13, 22, 0.85);
-    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1505,7 +1514,7 @@ button {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     :root {
         --navbar-height: 70px;
     }
@@ -1548,6 +1557,9 @@ button {
     .menu-toggle.open .bar:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
     }
+}
+
+@media (max-width: 768px) {
 
     .hero-title {
         font-size: 2.6rem;
@@ -1742,6 +1754,7 @@ button {
     width: 100%;
     height: 100%;
     background: rgba(9, 13, 22, 0.7);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     z-index: 2000;
     opacity: 0;
@@ -3455,7 +3468,8 @@ button {
 /* Dropdown Menu Styles */
 .nav-dropdown {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-toggle {
@@ -3473,12 +3487,17 @@ button {
     background-color: var(--bg-dark-modal);
     min-width: 220px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     z-index: 1000;
     padding: 0.5rem 0;
+}
+
+.nav-dropdown:last-of-type .dropdown-menu {
+    left: auto;
+    right: 0;
 }
 
 .nav-dropdown:hover .dropdown-menu {
@@ -3501,7 +3520,7 @@ button {
     color: var(--saffron);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .dropdown-menu {
         position: static;
         display: none;
@@ -3837,6 +3856,7 @@ body.light-theme .story-step::before {
 
 .story-content {
     background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--border-radius-lg);
@@ -3906,6 +3926,7 @@ body.light-theme .story-content h3 {
 
 .path-card {
     background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius-lg);
@@ -4030,4 +4051,46 @@ body.light-theme .story-content h3 {
     justify-content: center;
     gap: 20px;
     margin-top: 50px;
+}
+/* Added classes to remove inline styles */
+.premium-link {
+    color: var(--primary-gold);
+    font-weight: bold;
+}
+.map-action-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+#state-story-img {
+    display: none;
+}
+#state-svg-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-capital-line {
+    margin-top: -15px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+.chat-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+.chat-chip {
+    background: rgba(255, 153, 51, 0.2);
+    border: 1px solid var(--primary-saffron);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--text-light);
 }
