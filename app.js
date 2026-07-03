@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    INCREDIBLE INDIA EXPLORER - APPLICATION LOGIC
    Pure Vanilla JavaScript for dynamic content, modals, sliders, and games.
    ========================================================================== */
@@ -19,15 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
         initCulturePage();
     } else if (pathname.includes('sports.html')) {
         initSportsPage();
+    } else if (pathname.includes('science.html')) {
+        initSciencePage();
     } else if (pathname.includes('personalities.html')) { 
         initScrollEffects();    
         initPersonalitiesPage();
     } else if (pathname.includes('startup.html')) {
         initStartupPage();
     } else if (pathname.includes('heritage.html')) {
-        console.log('✅ Heritage page loaded successfully');
+        console.log('âœ… Heritage page loaded successfully');
     } else if (pathname.includes('monuments.html')) {
-        console.log('✅ Monuments page loaded successfully');
+        console.log('âœ… Monuments page loaded successfully');
     } else {
         // Main landing page (index.html or root)
         initScrollEffects();
@@ -63,13 +65,21 @@ function initNavigation() {
         }
     });
 
-    // Keep the sports page available across the shared navigation pattern.
+    // Keep the sports and science pages available across the shared navigation pattern.
     if (exploreDropdown && !exploreDropdown.querySelector('a[href="sports.html"]')) {
         const sportsLink = document.createElement('a');
         sportsLink.href = 'sports.html';
         sportsLink.className = 'dropdown-item';
         sportsLink.textContent = 'Sports';
         exploreDropdown.appendChild(sportsLink);
+    }
+
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="science.html"]')) {
+        const scienceLink = document.createElement('a');
+        scienceLink.href = 'science.html';
+        scienceLink.className = 'dropdown-item';
+        scienceLink.textContent = 'Science';
+        exploreDropdown.appendChild(scienceLink);
     }
 
     // Mobile Hamburger Toggle
@@ -98,25 +108,41 @@ function initThemeToggle() {
     const themeBtn = document.getElementById('theme-toggle');
     if (!themeBtn) return;
 
+    const setThemeIcon = (isLightTheme) => {
+        if (isLightTheme) {
+            themeBtn.innerHTML = `
+                <svg class="theme-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 3v2M12 19v2M5 5l1.5 1.5M17.5 17.5L19 19M3 12h2M19 12h2M5 19l1.5-1.5M17.5 6.5L19 5" />
+                    <circle cx="12" cy="12" r="4.5" />
+                </svg>
+            `;
+            themeBtn.setAttribute('title', 'Toggle Dark Mode');
+            themeBtn.setAttribute('aria-label', 'Toggle Dark Mode');
+        } else {
+            themeBtn.innerHTML = `
+                <svg class="theme-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M21 12.8A8.8 8.8 0 0 1 11.2 3 8.8 8.8 0 1 0 21 12.8Z" fill="currentColor" />
+                </svg>
+            `;
+            themeBtn.setAttribute('title', 'Toggle Light Mode');
+            themeBtn.setAttribute('aria-label', 'Toggle Light Mode');
+        }
+    };
+
     // Check localStorage
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
         document.body.classList.add('light-theme');
-        themeBtn.innerText = '🌙';
-        themeBtn.setAttribute('title', 'Toggle Dark Mode');
+        setThemeIcon(true);
+    } else {
+        setThemeIcon(false);
     }
 
     themeBtn.addEventListener('click', () => {
         document.body.classList.toggle('light-theme');
-        let theme = 'dark';
-        if (document.body.classList.contains('light-theme')) {
-            theme = 'light';
-            themeBtn.innerText = '🌙';
-            themeBtn.setAttribute('title', 'Toggle Dark Mode');
-        } else {
-            themeBtn.innerText = '☀️';
-            themeBtn.setAttribute('title', 'Toggle Light Mode');
-        }
+        const isLightTheme = document.body.classList.contains('light-theme');
+        setThemeIcon(isLightTheme);
+        const theme = isLightTheme ? 'light' : 'dark';
         localStorage.setItem('theme', theme);
     });
 }
@@ -294,9 +320,9 @@ function initInteractiveMap() {
 
         // Set up highlights
         highlightsGrid.innerHTML = `
-            <div class="highlight-bullet"><span class="bullet-icon">📍</span><span>Capital: ${loc.capital}</span></div>
-            <div class="highlight-bullet"><span class="bullet-icon">🍛</span><span>Famous Food: ${loc.food}</span></div>
-            <div class="highlight-bullet"><span class="bullet-icon">🎉</span><span>Major Festival: ${loc.festival}</span></div>
+            <div class="highlight-bullet"><span class="bullet-icon">ðŸ“</span><span>Capital: ${loc.capital}</span></div>
+            <div class="highlight-bullet"><span class="bullet-icon">ðŸ›</span><span>Famous Food: ${loc.food}</span></div>
+            <div class="highlight-bullet"><span class="bullet-icon">ðŸŽ‰</span><span>Major Festival: ${loc.festival}</span></div>
         `;
 
         // Render SVG in canvas
@@ -318,7 +344,7 @@ function initInteractiveMap() {
         if (infoContent) {
             infoContent.innerHTML = `
                 <div class="info-card-header">
-                    <div class="icon-circle">📍</div>
+                    <div class="icon-circle">ðŸ“</div>
                     <h3>${loc.name}</h3>
                 </div>
                 <p class="info-card-text">
@@ -339,17 +365,17 @@ function initInteractiveMap() {
 
         // Bind audio button
         overlayAudioBtn.classList.remove('playing');
-        overlayAudioBtn.innerHTML = '<span class="audio-icon">🔊</span> Listen to Soundscape';
+        overlayAudioBtn.innerHTML = '<span class="audio-icon">ðŸ”Š</span> Listen to Soundscape';
         stopSoundscape();
 
         overlayAudioBtn.onclick = () => {
             if (overlayAudioBtn.classList.contains('playing')) {
                 overlayAudioBtn.classList.remove('playing');
-                overlayAudioBtn.innerHTML = '<span class="audio-icon">🔊</span> Listen to Soundscape';
+                overlayAudioBtn.innerHTML = '<span class="audio-icon">ðŸ”Š</span> Listen to Soundscape';
                 stopSoundscape();
             } else {
                 overlayAudioBtn.classList.add('playing');
-                overlayAudioBtn.innerHTML = '<span class="audio-icon">🔇</span> Stop Soundscape';
+                overlayAudioBtn.innerHTML = '<span class="audio-icon">ðŸ”‡</span> Stop Soundscape';
                 playStateSoundscape(loc.name);
             }
         };
@@ -604,7 +630,7 @@ function initCultureSlider() {
 
     // ------------------------------------------------------------------
     // TOUCH SWIPE SUPPORT (mobile)
-    // Uses touchstart / touchmove / touchend — no external libraries.
+    // Uses touchstart / touchmove / touchend â€” no external libraries.
     // Minimum threshold of 50px filters out accidental micro-drags.
     // The vertical guard prevents stealing vertical page-scroll gestures.
     // { passive: false } on touchmove lets us call preventDefault() to
@@ -639,17 +665,17 @@ function initCultureSlider() {
     }, { passive: false });
 
     sliderContainer.addEventListener('touchend', (e) => {
-        if (!isSwiping) return; // was a vertical scroll — do nothing
+        if (!isSwiping) return; // was a vertical scroll â€” do nothing
 
         const deltaX = e.changedTouches[0].screenX - touchStartX;
-        const SWIPE_THRESHOLD = 50; // px — ignore accidental micro-drags
+        const SWIPE_THRESHOLD = 50; // px â€” ignore accidental micro-drags
 
         if (Math.abs(deltaX) >= SWIPE_THRESHOLD) {
             if (deltaX < 0) {
-                // Swiped left → advance to next slide
+                // Swiped left â†’ advance to next slide
                 currentSlide++;
             } else {
-                // Swiped right → go back to previous slide
+                // Swiped right â†’ go back to previous slide
                 currentSlide--;
             }
             moveSlider();
@@ -791,11 +817,11 @@ function initQuiz() {
 
         if (isCorrect) {
             feedback.classList.add('correct');
-            feedbackIcon.innerText = '✅';
+            feedbackIcon.innerText = 'âœ…';
             feedbackText.innerText = 'Correct! Great job!';
         } else {
             feedback.classList.add('wrong');
-            feedbackIcon.innerText = '❌';
+            feedbackIcon.innerText = 'âŒ';
             feedbackText.innerText = `Incorrect. The answer is ${correctAnswer}`;
         }
     }
@@ -808,14 +834,14 @@ function initQuiz() {
 
         // Select message matching rank
         if (score === 8) {
-            resultMsg.innerText = "Incredible Mastermind! 🏆 You scored a perfect 8/8! You are an expert on India's vast culinary heritage!";
-            document.getElementById('quiz-result-icon').innerText = '🏆';
+            resultMsg.innerText = "Incredible Mastermind! ðŸ† You scored a perfect 8/8! You are an expert on India's vast culinary heritage!";
+            document.getElementById('quiz-result-icon').innerText = 'ðŸ†';
         } else if (score >= 5) {
-            resultMsg.innerText = `Great score! 🌟 You got ${score}/8 correct. You have a solid grasp of Indian cuisine!`;
-            document.getElementById('quiz-result-icon').innerText = '🌟';
+            resultMsg.innerText = `Great score! ðŸŒŸ You got ${score}/8 correct. You have a solid grasp of Indian cuisine!`;
+            document.getElementById('quiz-result-icon').innerText = 'ðŸŒŸ';
         } else {
-            resultMsg.innerText = `You scored ${score}/8. Keep exploring the interactive map and food lists to discover more flavors! 🍛`;
-            document.getElementById('quiz-result-icon').innerText = '🍛';
+            resultMsg.innerText = `You scored ${score}/8. Keep exploring the interactive map and food lists to discover more flavors! ðŸ›`;
+            document.getElementById('quiz-result-icon').innerText = 'ðŸ›';
         }
     }
 }
@@ -904,40 +930,40 @@ const cuisineDetails = {
 
 const festivalHighlights = {
     "Diwali": [
-        { icon: "🪔", text: "Clay Diyas & Lighting" },
-        { icon: "🎨", text: "Flower & Powder Rangoli" },
-        { icon: "🍬", text: "Sharing Mithai (Sweets)" },
-        { icon: "🎆", text: "Night Sparklers & Fireworks" }
+        { icon: "ðŸª”", text: "Clay Diyas & Lighting" },
+        { icon: "ðŸŽ¨", text: "Flower & Powder Rangoli" },
+        { icon: "ðŸ¬", text: "Sharing Mithai (Sweets)" },
+        { icon: "ðŸŽ†", text: "Night Sparklers & Fireworks" }
     ],
     "Holi": [
-        { icon: "🎨", text: "Organic Colors (Gulal)" },
-        { icon: "💦", text: "Pichkaris & Water Balloons" },
-        { icon: "🥛", text: "Thandai & Gujiya Sweets" },
-        { icon: "🔥", text: "Holika Dahan Bonfires" }
+        { icon: "ðŸŽ¨", text: "Organic Colors (Gulal)" },
+        { icon: "ðŸ’¦", text: "Pichkaris & Water Balloons" },
+        { icon: "ðŸ¥›", text: "Thandai & Gujiya Sweets" },
+        { icon: "ðŸ”¥", text: "Holika Dahan Bonfires" }
     ],
     "Eid": [
-        { icon: "🌙", text: "Crescent Moon Sighting" },
-        { icon: "🕌", text: "Congregational Prayers" },
-        { icon: "🥣", text: "Sweet Sheer Khurma Feast" },
-        { icon: "🎁", text: "Eidi (Gift-Giving)" }
+        { icon: "ðŸŒ™", text: "Crescent Moon Sighting" },
+        { icon: "ðŸ•Œ", text: "Congregational Prayers" },
+        { icon: "ðŸ¥£", text: "Sweet Sheer Khurma Feast" },
+        { icon: "ðŸŽ", text: "Eidi (Gift-Giving)" }
     ],
     "Pongal": [
-        { icon: "🌾", text: "Harvest Sugarcane Stalks" },
-        { icon: "🏺", text: "Decorated Clay Boiling Pots" },
-        { icon: "☀️", text: "Surya (Sun God) Worship" },
-        { icon: "🐄", text: "Decorating Cattle (Mattu)" }
+        { icon: "ðŸŒ¾", text: "Harvest Sugarcane Stalks" },
+        { icon: "ðŸº", text: "Decorated Clay Boiling Pots" },
+        { icon: "â˜€ï¸", text: "Surya (Sun God) Worship" },
+        { icon: "ðŸ„", text: "Decorating Cattle (Mattu)" }
     ],
     "Navratri": [
-        { icon: "💃", text: "Garba & Dandiya Dances" },
-        { icon: "🥻", text: "Chaniya Choli Dressups" },
-        { icon: "🕯️", text: "Ghatasthapana (Holy Jar)" },
-        { icon: "🔱", text: "Dussehra Effigy Burning" }
+        { icon: "ðŸ’ƒ", text: "Garba & Dandiya Dances" },
+        { icon: "ðŸ¥»", text: "Chaniya Choli Dressups" },
+        { icon: "ðŸ•¯ï¸", text: "Ghatasthapana (Holy Jar)" },
+        { icon: "ðŸ”±", text: "Dussehra Effigy Burning" }
     ],
     "Bihu": [
-        { icon: "🥁", text: "Dhol & Pepa Music" },
-        { icon: "🌾", text: "Rongali Spring Dance" },
-        { icon: "🥞", text: "Pitha Rice Cake Feasts" },
-        { icon: "🐃", text: "Community Bonfires" }
+        { icon: "ðŸ¥", text: "Dhol & Pepa Music" },
+        { icon: "ðŸŒ¾", text: "Rongali Spring Dance" },
+        { icon: "ðŸ¥ž", text: "Pitha Rice Cake Feasts" },
+        { icon: "ðŸƒ", text: "Community Bonfires" }
     ]
 };
 
@@ -1098,7 +1124,7 @@ function initCuisinePage() {
                 const ingredientsList = Array.from(dIngredients.querySelectorAll('li')).map(li => li.innerText);
                 currentRecipeSteps = [
                     { title: "1. Preparation", text: `Gather and prepare the following ingredients: ${ingredientsList.slice(0, 2).join(', ')}.` },
-                    { title: "2. Marination & Sauté", text: `Mix the spices with the base ingredients. Slowly cook the ${ingredientsList.length > 2 ? ingredientsList[2] : "spices"} to release the aromas.` },
+                    { title: "2. Marination & SautÃ©", text: `Mix the spices with the base ingredients. Slowly cook the ${ingredientsList.length > 2 ? ingredientsList[2] : "spices"} to release the aromas.` },
                     { title: "3. Simmer & Cook", text: `Add the main elements and let the dish simmer on low heat until fully cooked. Let the flavors meld.` },
                     { title: "4. Garnish & Serve", text: `Finish off with ${ingredientsList.length > 3 ? ingredientsList[3] : "fresh herbs"} and serve hot! Enjoy your authentic meal.` }
                 ];
@@ -1141,7 +1167,7 @@ function initCuisinePage() {
                 btnPrevStep.disabled = currentStepIndex === 0;
 
                 if (currentStepIndex === currentRecipeSteps.length - 1) {
-                    btnNextStep.innerText = "Finish 🎉";
+                    btnNextStep.innerText = "Finish ðŸŽ‰";
                 } else {
                     btnNextStep.innerHTML = "Next Step &rarr;";
                 }
@@ -1207,10 +1233,10 @@ function initFestivalsPage() {
             // Load highlights
             highlightsGrid.innerHTML = '';
             const highlights = festivalHighlights[fest.name] || [
-                { icon: "🎉", text: "Traditional Customs" },
-                { icon: "🥣", text: "Festive Meals" },
-                { icon: "✨", text: "Joyous Decorations" },
-                { icon: "🫂", text: "Community Gatherings" }
+                { icon: "ðŸŽ‰", text: "Traditional Customs" },
+                { icon: "ðŸ¥£", text: "Festive Meals" },
+                { icon: "âœ¨", text: "Joyous Decorations" },
+                { icon: "ðŸ«‚", text: "Community Gatherings" }
             ];
 
             highlights.forEach(hl => {
@@ -1297,17 +1323,17 @@ function initFestivalsPage() {
 
             // Bind soundscape controllers
             audioBtn.classList.remove('playing');
-            audioBtn.innerHTML = '<span class="audio-icon">🔊</span> Listen to Soundscape';
+            audioBtn.innerHTML = '<span class="audio-icon">ðŸ”Š</span> Listen to Soundscape';
             stopSoundscape();
 
             audioBtn.onclick = () => {
                 if (audioBtn.classList.contains('playing')) {
                     audioBtn.classList.remove('playing');
-                    audioBtn.innerHTML = '<span class="audio-icon">🔊</span> Listen to Soundscape';
+                    audioBtn.innerHTML = '<span class="audio-icon">ðŸ”Š</span> Listen to Soundscape';
                     stopSoundscape();
                 } else {
                     audioBtn.classList.add('playing');
-                    audioBtn.innerHTML = '<span class="audio-icon">🔇</span> Stop Soundscape';
+                    audioBtn.innerHTML = '<span class="audio-icon">ðŸ”‡</span> Stop Soundscape';
 
                     let drumEl = null;
                     if (fest.name === "Bihu") {
@@ -1393,7 +1419,7 @@ function spawnThemedParticles(festName, container) {
         for (let i = 0; i < 25; i++) {
             const p = document.createElement('div');
             p.className = 'star-particle';
-            p.innerText = '★';
+            p.innerText = 'â˜…';
             p.style.left = Math.random() * 100 + '%';
             p.style.top = Math.random() * 100 + '%';
             p.style.animationDelay = Math.random() * 3 + 's';
@@ -1414,7 +1440,7 @@ function spawnThemedParticles(festName, container) {
         for (let i = 0; i < 20; i++) {
             const p = document.createElement('div');
             p.className = 'leaf-particle';
-            p.innerText = festName === "Bihu" ? '🍃' : '🌸';
+            p.innerText = festName === "Bihu" ? 'ðŸƒ' : 'ðŸŒ¸';
             p.style.left = Math.random() * 100 + '%';
             p.style.setProperty('--x', (Math.random() * 80 - 40) + 'px');
             p.style.animationDelay = Math.random() * 5 + 's';
@@ -1951,13 +1977,13 @@ function initSportsPage() {
             name: 'Harmanpreet Kaur',
             subtitle: 'Modern match-winner',
             image: 'assets/sports/harmanpreet-kaur.png',
-            summary: 'An aggressive leader shaping the next era of Indian women’s cricket.',
-            story: 'Harmanpreet Kaur is one of the most influential voices in Indian women’s cricket. Her power hitting and leadership have helped expand the sport’s visibility and ambition.',
+            summary: 'An aggressive leader shaping the next era of Indian womenâ€™s cricket.',
+            story: 'Harmanpreet Kaur is one of the most influential voices in Indian womenâ€™s cricket. Her power hitting and leadership have helped expand the sportâ€™s visibility and ambition.',
             highlights: ['ICC tournament standout', 'India captain', 'Big-match temperament'],
             stats: [
                 { label: 'Role', value: 'Batting all-rounder' },
                 { label: 'Focus', value: 'Power play leader' },
-                { label: 'Impact', value: 'Women’s cricket growth' }
+                { label: 'Impact', value: 'Womenâ€™s cricket growth' }
             ]
         },
         {
@@ -1965,9 +1991,9 @@ function initSportsPage() {
             category: 'olympics',
             name: 'Abhinav Bindra',
             image: 'assets/sports/abhinav-bindra.png',
-            subtitle: 'India’s first individual Olympic gold medalist',
-            summary: 'A milestone figure in India’s Olympic story.',
-            story: 'At Beijing 2008, Abhinav Bindra won India’s first individual Olympic gold in shooting. That achievement changed the country’s expectations of what was possible in precision sport.',
+            subtitle: 'Indiaâ€™s first individual Olympic gold medalist',
+            summary: 'A milestone figure in Indiaâ€™s Olympic story.',
+            story: 'At Beijing 2008, Abhinav Bindra won Indiaâ€™s first individual Olympic gold in shooting. That achievement changed the countryâ€™s expectations of what was possible in precision sport.',
             highlights: ['2008 Olympic gold', 'World champion shooter', 'Enduring sporting benchmark'],
             stats: [
                 { label: 'Sport', value: 'Shooting' },
@@ -2026,8 +2052,8 @@ function initSportsPage() {
             name: 'Pardeep Narwal',
             subtitle: 'Record-setting raider',
             image: 'assets/sports/pradeep-narwal.png',
-            summary: 'One of kabaddi’s most feared scorers in the league era.',
-            story: 'Pardeep Narwal became a symbol of kabaddi’s fast, tactical evolution. His pace and scoring record helped the sport reach a wider audience through televised league play.',
+            summary: 'One of kabaddiâ€™s most feared scorers in the league era.',
+            story: 'Pardeep Narwal became a symbol of kabaddiâ€™s fast, tactical evolution. His pace and scoring record helped the sport reach a wider audience through televised league play.',
             highlights: ['Record raid totals', 'League standout', 'High-pressure scorer'],
             stats: [
                 { label: 'Sport', value: 'Kabaddi' },
@@ -2065,8 +2091,8 @@ function initSportsPage() {
             id: 'cricket-1983',
             category: 'cricket',
             year: '1983',
-            title: 'World Cup triumph at Lord’s',
-            summary: 'India’s first Cricket World Cup win transformed cricket into a national obsession.',
+            title: 'World Cup triumph at Lordâ€™s',
+            summary: 'Indiaâ€™s first Cricket World Cup win transformed cricket into a national obsession.',
             detail: 'The 1983 World Cup victory under Kapil Dev reshaped Indian cricket forever. It proved that India could beat the best on the world stage and inspired a generation of players and fans.'
         },
         {
@@ -2074,8 +2100,8 @@ function initSportsPage() {
             category: 'olympics',
             year: '2008',
             title: 'First individual Olympic gold',
-            summary: 'Abhinav Bindra’s shooting gold in Beijing became a defining Olympic breakthrough.',
-            detail: 'Bindra’s gold medal in 2008 changed the emotional ceiling of Indian sport. It showed that an individual Indian athlete could deliver gold at the highest level of global competition.'
+            summary: 'Abhinav Bindraâ€™s shooting gold in Beijing became a defining Olympic breakthrough.',
+            detail: 'Bindraâ€™s gold medal in 2008 changed the emotional ceiling of Indian sport. It showed that an individual Indian athlete could deliver gold at the highest level of global competition.'
         },
         {
             id: 'indigenous-2014',
@@ -2090,8 +2116,8 @@ function initSportsPage() {
             category: 'olympics',
             year: '2021',
             title: 'Neeraj Chopra wins javelin gold',
-            summary: 'India’s first Olympic athletics gold became a landmark moment for track and field.',
-            detail: 'Neeraj Chopra’s gold in javelin throw turned athletics into a real medal pathway for India. The victory inspired broader investment and interest in field events.'
+            summary: 'Indiaâ€™s first Olympic athletics gold became a landmark moment for track and field.',
+            detail: 'Neeraj Chopraâ€™s gold in javelin throw turned athletics into a real medal pathway for India. The victory inspired broader investment and interest in field events.'
         }
     ];
 
@@ -2359,6 +2385,349 @@ function initSportsPage() {
         return 'All';
     }
 }
+
+function initSciencePage() {
+    const scienceAsset = fileName => `assets/science/${encodeURIComponent(fileName)}`;
+    const statsGrid = document.getElementById('science-stats-grid');
+    const isroGrid = document.getElementById('science-isro-grid');
+    const scientistGrid = document.getElementById('science-scientist-grid');
+    const searchInput = document.getElementById('science-search-input');
+    const filterButtons = document.querySelectorAll('[data-science-filter]');
+    const timelineGrid = document.getElementById('science-timeline');
+    const timelineDetail = document.getElementById('science-timeline-detail');
+    const modal = document.getElementById('science-modal');
+    const modalClose = document.getElementById('science-modal-close');
+    const modalAvatar = document.getElementById('science-modal-avatar');
+    const modalCategory = document.getElementById('science-modal-category');
+    const modalTitle = document.getElementById('science-modal-title');
+    const modalSubtitle = document.getElementById('science-modal-subtitle');
+    const modalStory = document.getElementById('science-modal-story');
+    const modalHighlights = document.getElementById('science-modal-highlights');
+    const modalStats = document.getElementById('science-modal-stats');
+
+    if (!statsGrid || !isroGrid || !scientistGrid || !searchInput || !filterButtons.length || !timelineGrid || !timelineDetail || !modal || !modalClose) {
+        return;
+    }
+
+    document.querySelectorAll('.fade-in-section').forEach(section => {
+        section.classList.add('is-visible');
+    });
+
+    const statsData = [
+        {
+            label: 'Space missions',
+            value: '100+',
+            detail: 'India has built a deep track record across Earth orbit, lunar, Mars, and solar science missions.'
+        },
+        {
+            label: 'Nobel-winning discovery',
+            value: 'Raman Effect',
+            detail: "C. V. Raman's 1928 discovery reshaped physics and earned the 1930 Nobel Prize."
+        },
+        {
+            label: 'Satellites launched',
+            value: '400+',
+            detail: 'Indian launch systems have carried domestic and international payloads into orbit for decades.'
+        },
+        {
+            label: 'Research institutions',
+            value: '70+',
+            detail: 'Premier labs, councils, and universities continue to power discovery across the country.'
+        }
+    ];
+
+    const isroData = [
+        { id: 'chandrayaan-3', year: '2023', title: 'Chandrayaan-3', type: 'Lunar Mission', category: 'space', image: scienceAsset('chandrayaan-3.png'), summary: "India achieved a historic soft landing near the Moon's south polar region.", contribution: 'Precision landing, rover operations, and reusable landing systems.', highlights: ['South polar region', 'Pragyan rover', 'Soft landing milestone'] },
+        { id: 'mangalyaan', year: '2013', title: 'Mangalyaan', type: 'Mars Mission', category: 'space', image: scienceAsset('mangalyaan.png'), summary: 'The Mars Orbiter Mission proved India could reach another planet on a disciplined budget.', contribution: 'Reliable interplanetary navigation and deep-space operations.', highlights: ['Mars orbit insertion', 'Low-cost engineering', 'Global recognition'] },
+        { id: 'aryabhata', year: '1975', title: 'Aryabhata', type: 'First Satellite', category: 'space', image: scienceAsset('aryabhata.png'), summary: "India's first satellite opened the country's space era.", contribution: 'A foundation for later launch, communications, and observation programs.', highlights: ['First Indian satellite', '1975 launch', 'Space age milestone'] },
+        { id: 'aditya-l1', year: '2023', title: 'Aditya-L1', type: 'Solar Mission', category: 'space', image: scienceAsset('aditya-l1.png'), summary: "India's solar observatory studies the Sun from the L1 vantage point.", contribution: 'Solar corona, winds, and space-weather observations.', highlights: ['Sun monitoring', 'L1 halo orbit', 'Space weather'] }
+    ];
+
+    const scientistData = [
+        { id: 'cv-raman', category: 'physics', image: scienceAsset('cv-raman.png'), name: 'C. V. Raman', subtitle: 'Physics pioneer', achievement: 'Discovered the Raman Effect.', contribution: 'Showed how light changes wavelength while scattering through matter.', story: 'C. V. Raman transformed Indian science with the Raman Effect, a discovery that became one of the most famous results in modern physics. His work placed India on the global scientific map and inspired generations of researchers.', highlights: ['1930 Nobel Prize', 'Raman spectroscopy', 'Foundational physics'], stats: [{ label: 'Field', value: 'Physics' }, { label: 'Legacy', value: 'Light scattering' }, { label: 'Era', value: '1920s-1950s' }] },
+        { id: 'apj-abdul-kalam', category: 'space', image: scienceAsset('apj-abudal kalam.png'), name: 'A. P. J. Abdul Kalam', subtitle: 'Missile scientist and teacher', achievement: "Helped lead India's launch and missile programs.", contribution: 'Connected engineering, space systems, and national ambition.', story: "A. P. J. Abdul Kalam became one of India's most admired science leaders. His work in rockets, missile development, and public science communication made him a symbol of aspiration and possibility.", highlights: ['Launch systems', 'Missile development', 'Public science leader'], stats: [{ label: 'Field', value: 'Space' }, { label: 'Known for', value: 'Guiding large systems' }, { label: 'Legacy', value: "People's President" }] },
+        { id: 'vikram-sarabhai', category: 'space', image: scienceAsset('vikram-sarabhai.png'), name: 'Vikram Sarabhai', subtitle: 'Father of Indian space program', achievement: 'Built the vision that became ISRO.', contribution: 'Championed satellites, applications, and scientific institutions.', story: "Vikram Sarabhai argued that space technology should solve real problems on Earth. That vision shaped India's space program into a practical national platform for communication, weather, and science.", highlights: ['ISRO inspiration', 'Space applications', 'Institution builder'], stats: [{ label: 'Field', value: 'Space' }, { label: 'Role', value: 'Visionary' }, { label: 'Legacy', value: 'Institution builder' }] },
+        { id: 'homi-bhabha', category: 'physics', image: scienceAsset('homi-bhabha.png'), name: 'Homi J. Bhabha', subtitle: 'Architect of nuclear science', achievement: 'Founded major Indian research institutions.', contribution: 'Built long-term scientific capacity in physics and atomic research.', story: "Homi J. Bhabha helped establish a strong scientific foundation through TIFR and other research efforts. His work strengthened India's capacity in physics, energy, and advanced research.", highlights: ['TIFR founder', 'Atomic research', 'Scientific institution builder'], stats: [{ label: 'Field', value: 'Physics' }, { label: 'Focus', value: 'Research ecosystem' }, { label: 'Legacy', value: 'Foundational leader' }] },
+        { id: 'janaki-ammal', category: 'biology', image: scienceAsset('janaki-ammal.png'), name: 'Janaki Ammal', subtitle: 'Botanist and cytogeneticist', achievement: 'Advanced plant breeding and biodiversity research.', contribution: 'Improved understanding of Indian flora and agricultural genetics.', story: 'Janaki Ammal became a pioneering voice in botany and cytogenetics. Her work on plants, chromosomes, and biodiversity helped frame a more scientific approach to agriculture and conservation.', highlights: ['Botany pioneer', 'Plant genetics', 'Biodiversity research'], stats: [{ label: 'Field', value: 'Biology' }, { label: 'Focus', value: 'Plants' }, { label: 'Legacy', value: 'Trailblazing researcher' }] },
+        { id: 'ms-swaminathan', category: 'agriculture', image: scienceAsset('ms-swaminathan.png'), name: 'M. S. Swaminathan', subtitle: 'Green Revolution leader', achievement: 'Helped transform food security in India.', contribution: 'Improved crop productivity and agricultural resilience.', story: "M. S. Swaminathan played a defining role in India's Green Revolution. His research and advocacy improved agricultural output and made food security a central national priority.", highlights: ['Green Revolution', 'Food security', 'Crop science'], stats: [{ label: 'Field', value: 'Agriculture' }, { label: 'Focus', value: 'Crop systems' }, { label: 'Legacy', value: 'Food security' }] },
+        { id: 'srinivasa-ramanujan', category: 'mathematics', image: scienceAsset('srinivas-ramanujan.png'), name: 'Srinivasa Ramanujan', subtitle: 'Mathematical prodigy', achievement: 'Expanded number theory with deep new identities.', contribution: 'Left a lasting mark on pure mathematics and analytic number theory.', story: "Srinivasa Ramanujan's formulas and insights continue to influence mathematics worldwide. His work remains a reminder that original thinking can emerge far from established centers of power.", highlights: ['Number theory', 'Infinite series', 'Global mathematics icon'], stats: [{ label: 'Field', value: 'Mathematics' }, { label: 'Style', value: 'Pure insight' }, { label: 'Legacy', value: 'International influence' }] }
+    ];
+
+    const timelineData = [
+        { id: 'raman-effect', category: 'physics', year: '1928', title: 'Raman Effect discovered', summary: 'A landmark physics breakthrough in light scattering.', detail: 'C. V. Raman and K. S. Krishnan showed that light can change wavelength when it scatters through a medium. The result became a defining achievement for Indian science and a foundation for spectroscopy.' },
+        { id: 'tifr-founded', category: 'physics', year: '1945', title: 'TIFR is founded', summary: 'A leading center for advanced Indian research takes shape.', detail: 'Homi J. Bhabha helped establish the Tata Institute of Fundamental Research, creating a long-term home for physics, mathematics, and broader scientific inquiry.' },
+        { id: 'isro-founded', category: 'space', year: '1969', title: 'ISRO is founded', summary: 'India organizes a national space program for satellites and launch systems.', detail: "The Indian Space Research Organisation brought together launch, satellite, and research efforts under one national mission. It became the backbone of India's modern space capability." },
+        { id: 'aryabhata-launch', category: 'space', year: '1975', title: 'Aryabhata enters orbit', summary: 'India launches its first satellite and steps into the space age.', detail: "Aryabhata marked the country's first successful satellite mission and proved that India could design, build, and launch hardware for space exploration." },
+        { id: 'mangalyaan-launch', category: 'space', year: '2013', title: 'Mangalyaan launches', summary: 'The Mars Orbiter Mission earns global attention.', detail: 'Mangalyaan demonstrated precise interplanetary engineering and efficient mission design. Its success became a symbol of Indian scientific discipline and ambition.' },
+        { id: 'chandrayaan-3-landing', category: 'space', year: '2023', title: 'Chandrayaan-3 lands on the Moon', summary: 'India completes a historic soft landing near the lunar south pole.', detail: 'Chandrayaan-3’s landing created a defining scientific moment. The mission combined robotics, navigation, and lander control to achieve a feat that resonated across the world.' },
+        { id: 'aditya-l1-orbit', category: 'space', year: '2024', title: 'Aditya-L1 reaches orbit', summary: 'India turns its focus toward the Sun and space weather.', detail: "Aditya-L1 helps study the Sun's corona, winds, and solar activity from the L1 vantage point. It expanded India's portfolio from planetary exploration to solar science." }
+    ];
+
+    const categoryLabels = {
+        all: 'All',
+        space: 'Space',
+        physics: 'Physics',
+        medicine: 'Medicine',
+        agriculture: 'Agriculture',
+        mathematics: 'Mathematics',
+        biology: 'Biology'
+    };
+
+    let activeFilter = 'all';
+    let activeTimelineId = timelineData[0].id;
+    let lastFocusedTrigger = null;
+    let isModalOpen = false;
+
+    renderStats();
+    renderIsroCards();
+    renderTimeline();
+    renderTimelineDetail(timelineData[0]);
+    setActiveTimelineButton(timelineGrid.querySelector(`[data-science-timeline-id="${timelineData[0].id}"]`));
+    renderScientists();
+    setActiveFilterButton(activeFilter);
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            activeFilter = btn.getAttribute('data-science-filter') || 'all';
+            setActiveFilterButton(activeFilter);
+            renderScientists();
+        });
+    });
+
+    searchInput.addEventListener('input', () => {
+        renderScientists();
+    });
+
+    timelineGrid.addEventListener('click', event => {
+        const button = event.target.closest('[data-science-timeline-id]');
+        if (!button) return;
+
+        activeTimelineId = button.getAttribute('data-science-timeline-id') || timelineData[0].id;
+        const milestone = timelineData.find(item => item.id === activeTimelineId) || timelineData[0];
+        setActiveTimelineButton(button);
+        renderTimelineDetail(milestone);
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', event => {
+        if (!isModalOpen) return;
+
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeModal();
+            return;
+        }
+
+        if (event.key === 'Tab') {
+            trapModalFocus(event);
+        }
+    });
+
+    function renderStats() {
+        statsGrid.innerHTML = statsData.map(stat => `
+            <article class="science-stat-card glass-card">
+                <span class="science-stat-label">${stat.label}</span>
+                <strong class="science-stat-value">${stat.value}</strong>
+                <p class="science-stat-detail">${stat.detail}</p>
+            </article>
+        `).join('');
+    }
+
+    function renderIsroCards() {
+        isroGrid.innerHTML = isroData.map(item => `
+            <article class="science-isro-card glass-card" data-mission-type="${item.category}">
+                <div class="science-isro-card-top">
+                    <div class="science-mission-avatar science-avatar-frame" aria-hidden="true">
+                        <img class="science-avatar-image science-avatar-image-contain" src="${item.image}" alt="${item.title}" loading="lazy" decoding="async">
+                    </div>
+                    <div class="science-isro-card-head">
+                        <span class="science-badge ${item.category}">${categoryLabels[item.category] || 'Space'}</span>
+                        <span class="science-mission-year">${item.year}</span>
+                    </div>
+                </div>
+                <h3>${item.title}</h3>
+                <p class="science-mission-summary">${item.summary}</p>
+                <p class="science-mission-contribution">${item.contribution}</p>
+                <div class="science-chip-row">${item.highlights.map(highlight => `<span class="science-chip">${highlight}</span>`).join('')}</div>
+            </article>
+        `).join('');
+    }
+
+    function renderScientists() {
+        const query = searchInput.value.trim().toLowerCase();
+        const filteredScientists = scientistData.filter(scientist => {
+            const matchesFilter = activeFilter === 'all' || scientist.category === activeFilter;
+            const matchesSearch = !query || [scientist.name, scientist.subtitle, scientist.achievement, scientist.contribution, scientist.story, scientist.category, ...(scientist.highlights || [])].join(' ').toLowerCase().includes(query);
+            return matchesFilter && matchesSearch;
+        });
+
+        scientistGrid.innerHTML = '';
+
+        if (filteredScientists.length === 0) {
+            scientistGrid.innerHTML = `
+                <div class="science-empty-state glass-card">
+                    <h3>No scientists found</h3>
+                    <p>Try a different search term or switch back to All Fields.</p>
+                    <button type="button" class="btn btn-primary" id="science-reset-filters">Show All Scientists</button>
+                </div>
+            `;
+
+            document.getElementById('science-reset-filters')?.addEventListener('click', () => {
+                searchInput.value = '';
+                activeFilter = 'all';
+                setActiveFilterButton('all');
+                renderScientists();
+            });
+            return;
+        }
+
+        filteredScientists.forEach(scientist => {
+            const card = document.createElement('article');
+            card.className = 'science-scientist-card glass-card';
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', `View details for ${scientist.name}`);
+            card.setAttribute('data-category', scientist.category);
+            card.setAttribute('data-scientist-id', scientist.id);
+
+            card.innerHTML = `
+                <div class="science-scientist-card-head">
+                    <div class="science-scientist-avatar science-avatar-frame ${scientist.category} ${scientist.id}" aria-hidden="true">
+                        <img class="science-avatar-image science-avatar-image-cover" src="${scientist.image}" alt="${scientist.name}" loading="lazy" decoding="async">
+                    </div>
+                    <div class="science-scientist-title">
+                        <span class="science-badge ${scientist.category}">${categoryLabels[scientist.category] || scientist.category}</span>
+                        <h3>${scientist.name}</h3>
+                        <p>${scientist.subtitle}</p>
+                    </div>
+                </div>
+                <p class="science-scientist-achievement">${scientist.achievement}</p>
+                <p class="science-scientist-contribution">${scientist.contribution}</p>
+                <div class="science-chip-row">${scientist.highlights.map(item => `<span class="science-chip">${item}</span>`).join('')}</div>
+                <div class="science-scientist-footer">
+                    <span class="science-card-note">Click to explore achievements</span>
+                    <button type="button" class="btn btn-secondary science-view-btn">Open Details</button>
+                </div>
+            `;
+
+            card.addEventListener('click', () => openModal(scientist, card));
+            card.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openModal(scientist, card);
+                }
+            });
+
+            scientistGrid.appendChild(card);
+        });
+    }
+
+    function renderTimeline() {
+        timelineGrid.innerHTML = timelineData.map(item => `
+            <button type="button" class="science-timeline-item glass-card ${item.category}" data-science-timeline-id="${item.id}" aria-pressed="false">
+                <span class="timeline-year">${item.year}</span>
+                <span class="science-badge ${item.category}">${categoryLabels[item.category] || 'Science'}</span>
+                <h3>${item.title}</h3>
+                <p>${item.summary}</p>
+            </button>
+        `).join('');
+    }
+
+    function renderTimelineDetail(item) {
+        timelineDetail.innerHTML = `
+            <div class="timeline-detail-head">
+                <span class="science-badge ${item.category}">${categoryLabels[item.category] || 'Science'}</span>
+                <span class="timeline-detail-year">${item.year}</span>
+            </div>
+            <h3>${item.title}</h3>
+            <p>${item.detail}</p>
+        `;
+    }
+
+    function setActiveFilterButton(filterValue) {
+        filterButtons.forEach(btn => {
+            const isActive = (btn.getAttribute('data-science-filter') || 'all') === filterValue;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', String(isActive));
+        });
+    }
+
+    function setActiveTimelineButton(activeButton) {
+        const buttons = timelineGrid.querySelectorAll('[data-science-timeline-id]');
+        buttons.forEach(btn => {
+            const isActive = activeButton ? btn === activeButton : false;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', String(isActive));
+        });
+    }
+
+    function openModal(scientist, trigger) {
+        lastFocusedTrigger = trigger || document.activeElement;
+        isModalOpen = true;
+
+        modalCategory.className = `science-badge ${scientist.category}`;
+        modalCategory.textContent = categoryLabels[scientist.category] || scientist.category;
+        modalTitle.textContent = scientist.name;
+        modalSubtitle.textContent = scientist.subtitle;
+        modalStory.textContent = scientist.story;
+
+        modalHighlights.innerHTML = scientist.highlights.map(item => `<li>${item}</li>`).join('');
+        modalStats.innerHTML = scientist.stats.map(stat => `
+            <div class="modal-stat">
+                <span class="modal-stat-label">${stat.label}</span>
+                <span class="modal-stat-value">${stat.value}</span>
+            </div>
+        `).join('');
+
+        modalAvatar.className = `science-modal-avatar science-avatar-frame ${scientist.category} ${scientist.id}`;
+        modalAvatar.innerHTML = `<img class="science-avatar-image science-avatar-image-cover" src="${scientist.image}" alt="${scientist.name}" loading="lazy" decoding="async">`;
+
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        requestAnimationFrame(() => {
+            modalClose.focus();
+        });
+    }
+
+    function closeModal() {
+        if (!isModalOpen) return;
+
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        isModalOpen = false;
+
+        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+            lastFocusedTrigger.focus();
+        }
+    }
+
+    function trapModalFocus(event) {
+        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (!focusableElements.length) return;
+
+        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
+        if (!focusable.length) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    }
+}
+
 const startupCategoryThemes = {
     tech: {
         label: 'Tech',
@@ -2400,7 +2769,7 @@ const startupData = [
         founders: ['Sachin Bansal', 'Binny Bansal'],
         founded: 2007,
         city: 'Bengaluru',
-        description: 'One of India’s original e-commerce giants, known for scaling online shopping, logistics, and product discovery at national scale.',
+        description: 'One of Indiaâ€™s original e-commerce giants, known for scaling online shopping, logistics, and product discovery at national scale.',
         focus: 'E-commerce marketplace',
         unicorn: true
     },
@@ -2551,7 +2920,7 @@ const startupFounderProfiles = [
         startup: "Byju's",
         founderImage: 'assets/images/founders/byju-raveendran.png',
         founderImageAlt: 'Portrait photo of Byju Raveendran',
-        detail: 'Brought a mobile-first learning style to the center of India’s edtech boom.'
+        detail: 'Brought a mobile-first learning style to the center of Indiaâ€™s edtech boom.'
     },
     {
         name: 'Harshil Mathur',
@@ -2695,7 +3064,7 @@ function initStartupPage() {
                     <button class="startup-favorite-btn ${isFavorite ? 'is-favorite' : ''}" type="button"
                         aria-pressed="${isFavorite}" aria-label="${isFavorite ? 'Remove' : 'Add'} ${item.name} to favorites"
                         data-startup-id="${item.id}">
-                        <span class="favorite-icon" aria-hidden="true">❤</span>
+                        <span class="favorite-icon" aria-hidden="true">â¤</span>
                     </button>
                 </div>
                 <div class="startup-card-body">
@@ -2787,7 +3156,7 @@ function initStartupPage() {
 
         statVisible.textContent = items.length;
         statUnicorn.textContent = unicornCount;
-        statYear.textContent = averageYear || '—';
+        statYear.textContent = averageYear || 'â€”';
         statSaved.textContent = savedCount;
 
         if (heroTotal) heroTotal.textContent = startupData.length;
@@ -3121,3 +3490,5 @@ function initPersonalitiesPage() {
     // Show only Historical Legends by default on page load
     filterCards('historical');
 }
+
+
