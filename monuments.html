@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Monuments Explorer - Discover famous Indian monuments and architectural wonders.">
+    <title>Monuments of India | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .monuments-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1015/1920/1080') center/cover;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .filter-bar {
+            background: var(--bg-dark-modal);
+            padding: 20px;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .monuments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .monument-card {
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+        .monument-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-glow-active);
+            border-color: var(--primary-gold);
+        }
+        .monument-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .dynasty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="cuisine.html" class="nav-link">Cuisine</a>
+                <a href="festivals.html" class="nav-link">Festivals</a>
+                <a href="culture.html" class="nav-link">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle">☀️</button>
+                <a href="premium.html" class="nav-link premium-link">★ Premium</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="monuments-hero scroll-section">
+            <div class="hero-content" style="max-width: 800px; padding: 0 5%; color: white; text-align: center;">
+                <span class="hero-tagline animate-fade-in">Architectural Marvels</span>
+                <h1 class="hero-title animate-slide-up">Monuments of <span class="highlight">Incredible India</span></h1>
+                <p class="hero-description animate-fade-in-delayed">From grand Mughal tombs to ancient rock-cut temples — explore the timeless legacy of Indian architecture.</p>
+            </div>
+        </section>
+
+        <div class="container" style="padding: 40px 20px;">
+            <div class="filter-bar glass-card">
+                <input type="text" id="monument-search" placeholder="Search monuments..." style="flex:1; padding:12px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white; border-radius:8px;">
+                <select id="dynasty-filter" style="padding:12px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white; border-radius:8px;"></select>
+                <select id="state-filter" style="padding:12px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:white; border-radius:8px;"></select>
+                <button onclick="resetFilters()" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <div id="monuments-grid" class="monuments-grid"></div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="monument-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center;">
+        <div class="modal-content glass-card" style="max-width:800px; width:90%; max-height:90vh; overflow:auto;">
+            <span onclick="closeModal()" style="position:absolute; top:15px; right:25px; font-size:2rem; cursor:pointer; color:white;">×</span>
+            <div id="modal-image" style="height:300px; background-size:cover; background-position:center;"></div>
+            <div style="padding:30px;">
+                <h2 id="modal-title"></h2>
+                <p id="modal-dynasty" style="color:var(--primary-gold);"></p>
+                <p id="modal-state"></p>
+                <div id="modal-description" style="line-height:1.7; margin:20px 0;"></div>
+                <button onclick="closeModal()" class="btn btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const monumentsData = [
+            {
+                id: 1,
+                name: "Taj Mahal",
+                dynasty: "Mughal",
+                state: "Uttar Pradesh",
+                image: "https://picsum.photos/id/1015/600/400",
+                description: "The ivory-white marble mausoleum on the south bank of the Yamuna river, commissioned in 1632 by the Mughal emperor Shah Jahan.",
+                details: "UNESCO World Heritage Site and one of the New Seven Wonders of the World. Symbol of eternal love."
+            },
+            {
+                id: 2,
+                name: "Red Fort",
+                dynasty: "Mughal",
+                state: "Delhi",
+                image: "https://picsum.photos/id/133/600/400",
+                description: "Historic fort in the city of Delhi, India. Served as the main residence of the Mughal Emperors.",
+                details: "UNESCO World Heritage Site. Site of India's Independence Day celebrations."
+            },
+            {
+                id: 3,
+                name: "Konark Sun Temple",
+                dynasty: "Eastern Ganga",
+                state: "Odisha",
+                image: "https://picsum.photos/id/201/600/400",
+                description: "13th-century Sun Temple at Konark. Designed as a colossal chariot with the Sun God Surya.",
+                details: "UNESCO World Heritage Site. Architectural masterpiece of Kalinga style."
+            },
+            {
+                id: 4,
+                name: "Qutub Minar",
+                dynasty: "Delhi Sultanate",
+                state: "Delhi",
+                image: "https://picsum.photos/id/1016/600/400",
+                description: "The tallest brick minaret in the world. Built in 1193 by Qutb-ud-din Aibak.",
+                details: "UNESCO World Heritage Site. Standing 73 meters tall."
+            }
+        ];
+
+        function renderMonuments(filtered) {
+            const grid = document.getElementById('monuments-grid');
+            grid.innerHTML = '';
+            filtered.forEach(mon => {
+                const card = document.createElement('div');
+                card.className = 'monument-card';
+                card.innerHTML = `
+                    <img src="${mon.image}" alt="${mon.name}" loading="lazy">
+                    <div style="padding:20px;">
+                        <span class="dynasty-badge">${mon.dynasty}</span>
+                        <h3>${mon.name}</h3>
+                        <p>${mon.state}</p>
+                        <p>${mon.description}</p>
+                    </div>
+                `;
+                card.addEventListener('click', () => showModal(mon));
+                grid.appendChild(card);
+            });
+        }
+
+        function filterMonuments() {
+            const search = document.getElementById('monument-search').value.toLowerCase();
+            const dynasty = document.getElementById('dynasty-filter').value;
+            const state = document.getElementById('state-filter').value;
+
+            const filtered = monumentsData.filter(m => 
+                (!search || m.name.toLowerCase().includes(search) || m.description.toLowerCase().includes(search)) &&
+                (!dynasty || m.dynasty === dynasty) &&
+                (!state || m.state === state)
+            );
+            renderMonuments(filtered);
+        }
+
+        function showModal(mon) {
+            document.getElementById('modal-image').style.backgroundImage = `url('${mon.image}')`;
+            document.getElementById('modal-title').textContent = mon.name;
+            document.getElementById('modal-dynasty').textContent = mon.dynasty;
+            document.getElementById('modal-state').textContent = mon.state;
+            document.getElementById('modal-description').innerHTML = `<p>${mon.details}</p><p>${mon.description}</p>`;
+            document.getElementById('monument-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('monument-modal').style.display = 'none';
+        }
+
+        function resetFilters() {
+            document.getElementById('monument-search').value = '';
+            document.getElementById('dynasty-filter').value = '';
+            document.getElementById('state-filter').value = '';
+            renderMonuments(monumentsData);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            const dynasties = [...new Set(monumentsData.map(m => m.dynasty))];
+            const dynastySelect = document.getElementById('dynasty-filter');
+            dynasties.forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d;
+                opt.textContent = d;
+                dynastySelect.appendChild(opt);
+            });
+
+            const states = [...new Set(monumentsData.map(m => m.state))];
+            const stateSelect = document.getElementById('state-filter');
+            states.forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s;
+                opt.textContent = s;
+                stateSelect.appendChild(opt);
+            });
+
+            renderMonuments(monumentsData);
+
+            document.getElementById('monument-search').addEventListener('input', filterMonuments);
+            document.getElementById('dynasty-filter').addEventListener('change', filterMonuments);
+            document.getElementById('state-filter').addEventListener('change', filterMonuments);
+
+            // Close modal on escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+        });
+    </script>
+</body>
+</html>
