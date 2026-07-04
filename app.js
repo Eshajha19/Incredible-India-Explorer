@@ -17,20 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
         initFestivalsPage();
     } else if (pathname.includes('culture.html')) {
         initCulturePage();
+    } else if (pathname.includes('sports.html')) {
+        initSportsPage();
+    } else if (pathname.includes('science.html')) {
+        initSciencePage();    
     } else if (pathname.includes('personalities.html')) { 
         initScrollEffects();    
         initPersonalitiesPage();
-<<<<<<< HEAD
     } else if (pathname.includes('spiritual.html')) {
         initScrollEffects();
-        initSpiritualCarousel();    
-=======
+        initSpiritualCarousel();  
     } else if (pathname.includes('startup.html')) {
         initStartupPage();
     } else if (pathname.includes('heritage.html')) {
-        // Heritage page has its own inline initialization in heritage.html
-        console.log('✅ Heritage page loaded successfully');
->>>>>>> 13be122713a2d566d3ff69cbf30683564eb9dca7
+        console.log('âœ… Heritage page loaded successfully');
+    } else if (pathname.includes('monuments.html')) {
+        console.log('âœ… Monuments page loaded successfully');      
     } else {
         // Main landing page (index.html or root)
         initScrollEffects();
