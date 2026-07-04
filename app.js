@@ -254,15 +254,28 @@ function initInteractiveMap() {
         pathElement.setAttribute('data-id', loc.id);
         pathElement.setAttribute('data-name', loc.name);
 
-        // Hover effect listeners
+        // Hover effect listeners — rich tooltip
         pathElement.addEventListener('mouseenter', (e) => {
-            tooltip.innerText = loc.name;
+            document.getElementById('tooltip-state-name').innerText = loc.name;
+            document.getElementById('tooltip-capital').innerText = loc.capital;
+            document.getElementById('tooltip-food').innerText = loc.food;
+            document.getElementById('tooltip-festival').innerText = loc.festival;
+            document.getElementById('tooltip-description').innerText = loc.description.substring(0, 120) + (loc.description.length > 120 ? '…' : '');
             tooltip.style.opacity = '1';
         });
 
         pathElement.addEventListener('mousemove', (e) => {
-            tooltip.style.left = (e.clientX + 15) + 'px';
-            tooltip.style.top = (e.clientY + 15) + 'px';
+            const tooltipW = 300;
+            const tooltipH = tooltip.offsetHeight || 220;
+            let x = e.clientX + 18;
+            let y = e.clientY + 18;
+            // Keep tooltip within viewport bounds
+            if (x + tooltipW > window.innerWidth) x = e.clientX - tooltipW - 12;
+            if (y + tooltipH > window.innerHeight) y = e.clientY - tooltipH - 12;
+            if (x < 4) x = 4;
+            if (y < 4) y = 4;
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
         });
 
         pathElement.addEventListener('mouseleave', () => {

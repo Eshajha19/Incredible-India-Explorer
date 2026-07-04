@@ -362,8 +362,32 @@
         </div>
     </div>
 
-    <!-- Floating Map Tooltip -->
-    <div class="map-tooltip" id="map-tooltip">State Name</div>
+    <!-- Floating Map Tooltip (Rich Interactive Card) -->
+    <div class="map-tooltip" id="map-tooltip">
+        <div class="tooltip-header">
+            <span class="tooltip-icon">📍</span>
+            <span class="tooltip-state-name" id="tooltip-state-name">State Name</span>
+        </div>
+        <div class="tooltip-divider"></div>
+        <div class="tooltip-details">
+            <div class="tooltip-row">
+                <span class="tooltip-label">🏛️ Capital</span>
+                <span class="tooltip-value" id="tooltip-capital">—</span>
+            </div>
+            <div class="tooltip-row">
+                <span class="tooltip-label">🍛 Famous Food</span>
+                <span class="tooltip-value" id="tooltip-food">—</span>
+            </div>
+            <div class="tooltip-row">
+                <span class="tooltip-label">🎉 Festival</span>
+                <span class="tooltip-value" id="tooltip-festival">—</span>
+            </div>
+        </div>
+        <div class="tooltip-footer" id="tooltip-description">
+            Hover over a state to explore!
+        </div>
+        <div class="tooltip-cta">Click to explore →</div>
+    </div>
 
     <!-- Scroll To Top Button -->
     <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
