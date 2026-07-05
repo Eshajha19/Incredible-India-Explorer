@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore historic and modern lighthouses along India's coastline.">
+  <title>Indian Lighthouses Explorer | Incredible India</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .lighthouse-hero {
+      min-height: 66vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(180deg, rgba(4, 16, 27, .22), rgba(4, 16, 27, .9)),
+        url("assets/travel_beaches.png") center/cover no-repeat;
+    }
+
+    .lighthouse-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 18% 25%, rgba(255, 153, 51, .28), transparent 30%),
+        radial-gradient(circle at 82% 30%, rgba(30, 144, 255, .22), transparent 32%);
+    }
+
+    .lighthouse-hero-content {
+      width: min(900px, 92%);
+      text-align: center;
+      color: #fff;
+      padding: 105px 0 78px;
+    }
+
+    .lighthouse-kicker {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(10px);
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .lighthouse-hero h1 {
+      margin: 0 0 18px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.7rem, 7vw, 5.4rem);
+      line-height: 1.04;
+    }
+
+    .lighthouse-hero h1 span {
+      color: var(--saffron);
+    }
+
+    .lighthouse-hero p {
+      margin: 0 auto;
+      max-width: 740px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,.9);
+    }
+
+    .lighthouse-section {
+      padding: 82px 0 100px;
+    }
+
+    .lighthouse-container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .lighthouse-heading {
+      max-width: 780px;
+      margin-bottom: 30px;
+    }
+
+    .lighthouse-heading h2 {
+      margin: 8px 0 10px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+    }
+
+    .lighthouse-heading p {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .explorer-controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(210px, 280px);
+      gap: 16px;
+      margin: 28px 0 18px;
+    }
+
+    .control-field {
+      position: relative;
+    }
+
+    .control-field label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+      font-size: .84rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .control-field input,
+    .control-field select {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      font: inherit;
+      padding: 0 15px;
+      outline: none;
+      backdrop-filter: blur(10px);
+      transition: border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .control-field input:focus,
+    .control-field select:focus {
+      border-color: var(--saffron);
+      box-shadow: 0 0 0 3px rgba(255, 153, 51, .14);
+    }
+
+    .control-field select option {
+      color: #111;
+    }
+
+    .result-status {
+      min-height: 24px;
+      margin: 0 0 20px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .lighthouse-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .lighthouse-card {
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      border-radius: 22px;
+      background: var(--glass-bg);
+      box-shadow: 0 16px 40px rgba(0,0,0,.14);
+      backdrop-filter: blur(12px);
+      transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease;
+    }
+
+    .lighthouse-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 153, 51, .55);
+      box-shadow: 0 22px 56px rgba(0,0,0,.23);
+    }
+
+    .lighthouse-card[hidden] {
+      display: none;
+    }
+
+    .lighthouse-media {
+      position: relative;
+      height: 230px;
+      overflow: hidden;
+      background: rgba(255,255,255,.04);
+    }
+
+    .lighthouse-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+    }
+
+    .lighthouse-card:hover .lighthouse-media img {
+      transform: scale(1.06);
+    }
+
+    .state-badge,
+    .era-badge {
+      position: absolute;
+      top: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .state-badge {
+      left: 14px;
+      background: rgba(4, 16, 27, .78);
+    }
+
+    .era-badge {
+      right: 14px;
+      background: var(--saffron);
+    }
+
+    .lighthouse-body {
+      padding: 22px;
+    }
+
+    .lighthouse-title {
+      margin: 0 0 5px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.72rem;
+    }
+
+    .lighthouse-location {
+      margin: 0 0 16px;
+      color: var(--saffron);
+      font-weight: 700;
+    }
+
+    .lighthouse-year {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 8px 11px;
+      border: 1px solid var(--glass-border);
+      border-radius: 11px;
+      color: var(--text-primary);
+      font-weight: 700;
+      background: rgba(255,255,255,.025);
+    }
+
+    .lighthouse-significance {
+      margin: 0;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 52px 20px;
+      border: 1px dashed var(--glass-border);
+      border-radius: 18px;
+      color: var(--text-secondary);
+    }
+
+    .empty-state.visible {
+      display: block;
+    }
+
+    .maritime-note {
+      margin-top: 34px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--saffron);
+      border-radius: 0 14px 14px 0;
+      background: var(--glass-bg);
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .lighthouse-footer {
+      padding: 42px 0;
+      border-top: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .lighthouse-footer a {
+      color: var(--saffron);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .lighthouse-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .explorer-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .lighthouse-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lighthouse-section {
+        padding: 60px 0 78px;
+      }
+
+      .lighthouse-media {
+        height: 220px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lighthouse-card,
+      .lighthouse-media img {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+        <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+        <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+        <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+        <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+          <div class="dropdown-menu">
+            <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="lighthouses.html" class="dropdown-item" style="color: var(--saffron)">Lighthouses</a>
+            <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+            <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+            <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+            <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
+          <div class="dropdown-menu">
+            <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+            <a href="languages.html" class="dropdown-item">Languages of India</a>
+            <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+            <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+          </div>
+        </div>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+        <a href="premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 80px;">
+    <section class="lighthouse-hero">
+      <div class="lighthouse-hero-content">
+        <span class="lighthouse-kicker">🌊 Beacons of India's Coast</span>
+        <h1>Indian Lighthouses <span>Explorer</span></h1>
+        <p>
+          Discover historic towers, island beacons, and modern navigational landmarks
+          that have guided mariners along India's long and diverse coastline.
+        </p>
+      </div>
+    </section>
+
+    <section class="lighthouse-section" id="explorer">
+      <div class="lighthouse-container">
+        <div class="lighthouse-heading">
+          <span class="section-badge">Maritime Heritage</span>
+          <h2>Search the coast, one beacon at a time</h2>
+          <p>
+            Search by lighthouse, city, or keyword, and narrow the collection by state or union territory.
+          </p>
+        </div>
+
+        <div class="explorer-controls">
+          <div class="control-field">
+            <label for="lighthouse-search">Search lighthouses</label>
+            <input
+              type="search"
+              id="lighthouse-search"
+              placeholder="Try Chennai, heritage, island..."
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="control-field">
+            <label for="state-filter">Filter by state</label>
+            <select id="state-filter">
+              <option value="all">All states & UTs</option>
+              <option value="goa">Goa</option>
+              <option value="gujarat">Gujarat</option>
+              <option value="kerala">Kerala</option>
+              <option value="maharashtra">Maharashtra</option>
+              <option value="odisha">Odisha</option>
+              <option value="tamil-nadu">Tamil Nadu</option>
+              <option value="west-bengal">West Bengal</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="result-status" id="result-status" aria-live="polite">Showing all 12 lighthouses</p>
+
+        <div class="lighthouse-grid" id="lighthouse-grid">
+          <article class="lighthouse-card" data-state="tamil-nadu" data-search="mahabalipuram mammallapuram tamil nadu heritage temple historic beacon">
+            <div class="lighthouse-media">
+              <img src="assets/travel_beaches.png" alt="Coastal scenery representing Mahabalipuram Lighthouse" loading="lazy">
+              <span class="state-badge">Tamil Nadu</span>
+              <span class="era-badge">Historic</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Mahabalipuram Lighthouse</h3>
+              <p class="lighthouse-location">Mahabalipuram, Tamil Nadu</p>
+              <div class="lighthouse-year">🗓 Established: 1887</div>
+              <p class="lighthouse-significance">A landmark in a historic coastal town, connected with the evolution from older beacon traditions to conventional lighthouse service.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="kerala" data-search="alappuzha alleppey kerala historic port coir maritime trade">
+            <div class="lighthouse-media">
+              <img src="assets/travel_islands.png" alt="Coastal scenery representing Alappuzha Lighthouse" loading="lazy">
+              <span class="state-badge">Kerala</span>
+              <span class="era-badge">Historic</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Alappuzha Lighthouse</h3>
+              <p class="lighthouse-location">Alappuzha, Kerala</p>
+              <div class="lighthouse-year">🗓 Established: 1862</div>
+              <p class="lighthouse-significance">A surviving reminder of Alappuzha's importance as a historic port and coastal trading centre in the former Travancore region.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="tamil-nadu" data-search="chennai marina tamil nadu urban modern lighthouse city coast">
+            <div class="lighthouse-media">
+              <img src="assets/travel_beaches.png" alt="Coastal city scenery representing Chennai Lighthouse" loading="lazy">
+              <span class="state-badge">Tamil Nadu</span>
+              <span class="era-badge">Modern</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Chennai Lighthouse</h3>
+              <p class="lighthouse-location">Chennai, Tamil Nadu</p>
+              <div class="lighthouse-year">🗓 Current tower: 1977</div>
+              <p class="lighthouse-significance">One of India's best-known urban lighthouses, standing beside the Marina shoreline and representing modern coastal navigation.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="kerala" data-search="vizhinjam kovalam kerala modern red white tower tourism coast">
+            <div class="lighthouse-media">
+              <img src="assets/travel_beaches.png" alt="Coastal scenery representing Vizhinjam Lighthouse" loading="lazy">
+              <span class="state-badge">Kerala</span>
+              <span class="era-badge">Modern</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Vizhinjam Lighthouse</h3>
+              <p class="lighthouse-location">Kovalam, Kerala</p>
+              <div class="lighthouse-year">🗓 Established: 1972</div>
+              <p class="lighthouse-significance">A prominent red-and-white coastal beacon near Kovalam, associated with one of Kerala's most visited seaside areas.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="kerala" data-search="tangasseri thangassery kollam kerala historic 1902">
+            <div class="lighthouse-media">
+              <img src="assets/travel_islands.png" alt="Coastal scenery representing Tangasseri Lighthouse" loading="lazy">
+              <span class="state-badge">Kerala</span>
+              <span class="era-badge">Historic</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Tangasseri Lighthouse</h3>
+              <p class="lighthouse-location">Kollam, Kerala</p>
+              <div class="lighthouse-year">🗓 Established: 1902</div>
+              <p class="lighthouse-significance">A prominent heritage lighthouse on Kerala's coast, closely associated with Kollam's long maritime and trading history.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="tamil-nadu" data-search="pamban rameswaram tamil nadu island channel historic navigation">
+            <div class="lighthouse-media">
+              <img src="assets/travel_islands.png" alt="Island coast scenery representing Pamban Lighthouse" loading="lazy">
+              <span class="state-badge">Tamil Nadu</span>
+              <span class="era-badge">Historic</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Pamban Lighthouse</h3>
+              <p class="lighthouse-location">Pamban Island, Tamil Nadu</p>
+              <div class="lighthouse-year">🗓 Light station roots: 1840s</div>
+              <p class="lighthouse-significance">A navigational landmark for vessels moving through the Pamban area, linking island geography with India's maritime history.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="gujarat" data-search="okha gujarat gulf kutch modern navigation radio beacon dgps">
+            <div class="lighthouse-media">
+              <img src="assets/travel_beaches.png" alt="Arabian Sea coast representing Okha Lighthouse" loading="lazy">
+              <span class="state-badge">Gujarat</span>
+              <span class="era-badge">Modern</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Okha Lighthouse</h3>
+              <p class="lighthouse-location">Okha, Gujarat</p>
+              <div class="lighthouse-year">🗓 Commissioned: 1956</div>
+              <p class="lighthouse-significance">An important navigational station serving the Gulf of Kutch–Okha region and later expanded with radio and positioning systems.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="gujarat" data-search="diu head gujarat union territory historic sandstone tower modern replacement">
+            <div class="lighthouse-media">
+              <img src="assets/travel_islands.png" alt="Coastal fort-like scenery representing Diu Head Lighthouse" loading="lazy">
+              <span class="state-badge">Diu</span>
+              <span class="era-badge">Historic roots</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Diu Head Lighthouse</h3>
+              <p class="lighthouse-location">Diu</p>
+              <div class="lighthouse-year">🗓 Old tower: 1882</div>
+              <p class="lighthouse-significance">The site preserves a layered lighthouse history, from an older sandstone tower to a later modern light station.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="maharashtra" data-search="murud janjira maharashtra raigad fishing harbour hill maritime">
+            <div class="lighthouse-media">
+              <img src="assets/travel_beaches.png" alt="Konkan coast scenery representing Murud Janjira Lighthouse" loading="lazy">
+              <span class="state-badge">Maharashtra</span>
+              <span class="era-badge">Coastal</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Murud Janjira Lighthouse</h3>
+              <p class="lighthouse-location">Raigad, Maharashtra</p>
+              <div class="lighthouse-year">🗓 Navigational station</div>
+              <p class="lighthouse-significance">Positioned above the Konkan coast to support vessels and fishing boats operating around the Murud-Janjira harbour area.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="goa" data-search="aguada goa fort portuguese heritage mandovi arabian sea lighthouse">
+            <div class="lighthouse-media">
+              <img src="assets/travel_beaches.png" alt="Goa coast scenery representing Aguada Lighthouse" loading="lazy">
+              <span class="state-badge">Goa</span>
+              <span class="era-badge">Heritage</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Aguada Lighthouse</h3>
+              <p class="lighthouse-location">Sinquerim, Goa</p>
+              <div class="lighthouse-year">🗓 Heritage light site</div>
+              <p class="lighthouse-significance">Part of Goa's celebrated Fort Aguada landscape, where coastal defence and maritime navigation meet tourism and heritage.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="odisha" data-search="gopalpur odisha bay bengal port lighthouse coastal trade">
+            <div class="lighthouse-media">
+              <img src="assets/travel_beaches.png" alt="Bay of Bengal coast representing Gopalpur Lighthouse" loading="lazy">
+              <span class="state-badge">Odisha</span>
+              <span class="era-badge">Coastal</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Gopalpur Lighthouse</h3>
+              <p class="lighthouse-location">Gopalpur, Odisha</p>
+              <div class="lighthouse-year">🗓 Coastal light station</div>
+              <p class="lighthouse-significance">A Bay of Bengal navigational landmark associated with Gopalpur's seafaring character and historic port connections.</p>
+            </div>
+          </article>
+
+          <article class="lighthouse-card" data-state="west-bengal" data-search="sagar island west bengal gangasagar bengal delta island lighthouse">
+            <div class="lighthouse-media">
+              <img src="assets/travel_islands.png" alt="Delta island scenery representing Sagar Island Lighthouse" loading="lazy">
+              <span class="state-badge">West Bengal</span>
+              <span class="era-badge">Island</span>
+            </div>
+            <div class="lighthouse-body">
+              <h3 class="lighthouse-title">Sagar Island Lighthouse</h3>
+              <p class="lighthouse-location">Sagar Island, West Bengal</p>
+              <div class="lighthouse-year">🗓 Delta light station</div>
+              <p class="lighthouse-significance">A beacon in the complex Ganga delta environment, where riverine and maritime navigation converge near the Bay of Bengal.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state" id="empty-state">
+          <h3>No lighthouse found</h3>
+          <p>Try another search term or choose a different state.</p>
+        </div>
+
+        <div class="maritime-note">
+          <strong>Maritime note:</strong> Establishment dates refer to the beginning of a light station or a notable tower phase where specified. Lighthouse sites may have older beacons, rebuilt towers, and later technological upgrades.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lighthouse-footer">
+    <div class="lighthouse-container">
+      <p>Part of <a href="index.html">Incredible India Explorer</a> · Explore India's maritime heritage.</p>
+    </div>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.getElementById("lighthouse-search");
+      const stateFilter = document.getElementById("state-filter");
+      const cards = [...document.querySelectorAll(".lighthouse-card")];
+      const status = document.getElementById("result-status");
+      const emptyState = document.getElementById("empty-state");
+      const menuToggle = document.getElementById("menu-toggle");
+
+      function filterLighthouses() {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const selectedState = stateFilter.value;
+        let visibleCount = 0;
+
+        cards.forEach((card) => {
+          const matchesSearch = card.dataset.search.includes(searchTerm);
+          const matchesState = selectedState === "all" || card.dataset.state === selectedState;
+          const isVisible = matchesSearch && matchesState;
+
+          card.hidden = !isVisible;
+          if (isVisible) visibleCount += 1;
+        });
+
+        const filtersActive = searchTerm || selectedState !== "all";
+        status.textContent = filtersActive
+          ? `Found ${visibleCount} lighthouse${visibleCount === 1 ? "" : "s"}`
+          : `Showing all ${visibleCount} lighthouses`;
+
+        emptyState.classList.toggle("visible", visibleCount === 0);
+      }
+
+      searchInput.addEventListener("input", filterLighthouses);
+      stateFilter.addEventListener("change", filterLighthouses);
+
+      if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+          const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+          menuToggle.setAttribute("aria-expanded", String(!expanded));
+        });
+      }
+    });
+  </script>
+</body>
+</html>
