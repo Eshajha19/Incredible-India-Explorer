@@ -3139,6 +3139,793 @@ button {
     align-items: center;
 }
 
+/* ========================================================================== 
+   DANCE PAGE STYLES
+   ========================================================================== */
+.dance-page-body {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 176, 31, 0.1) 0%, transparent 26%),
+        radial-gradient(circle at 84% 16%, rgba(18, 136, 7, 0.09) 0%, transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255, 153, 51, 0.08) 0%, transparent 32%),
+        var(--bg-dark-deep);
+}
+
+.dance-hero {
+    position: relative;
+    min-height: 430px;
+    height: auto;
+    padding: 100px 0 62px;
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 176, 31, 0.22) 0%, transparent 22%),
+        radial-gradient(circle at 82% 28%, rgba(18, 136, 7, 0.16) 0%, transparent 22%),
+        radial-gradient(circle at 50% 84%, rgba(255, 153, 51, 0.14) 0%, transparent 26%),
+        linear-gradient(160deg, #10182a 0%, #09111d 50%, #071410 100%);
+}
+
+.dance-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(180deg, transparent 0 18%, rgba(255, 255, 255, 0.035) 18% 19%, transparent 19% 36%, rgba(255, 255, 255, 0.035) 36% 37%, transparent 37% 54%, rgba(255, 255, 255, 0.035) 54% 55%, transparent 55% 72%, rgba(255, 255, 255, 0.035) 72% 73%, transparent 73% 100%);
+    background-size: 84px 84px, 84px 84px, 100% 100%;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.dance-hero .sub-hero-overlay {
+    background: linear-gradient(180deg, rgba(7, 13, 23, 0.22) 0%, rgba(7, 13, 23, 0.92) 100%);
+}
+
+.dance-hero .sub-hero-content {
+    max-width: 940px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+
+.dance-hero h1 {
+    max-width: 13ch;
+    line-height: 1.04;
+    margin-bottom: 8px;
+}
+
+.dance-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.dance-hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.dance-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.dance-pill.classical {
+    color: var(--primary-gold);
+    border-color: rgba(255, 176, 31, 0.3);
+}
+
+.dance-pill.folk {
+    color: var(--primary-saffron);
+    border-color: rgba(255, 153, 51, 0.3);
+}
+
+.dance-pill.regional {
+    color: var(--primary-green);
+    border-color: rgba(18, 136, 7, 0.3);
+}
+
+.dance-catalog-section {
+    background: linear-gradient(to bottom, rgba(7, 13, 23, 0.96) 0%, rgba(9, 13, 22, 1) 100%);
+}
+
+.dance-filters-bar {
+    align-items: flex-end;
+}
+
+.dance-filters-bar .tab-container {
+    margin-bottom: 0;
+}
+
+.dance-filter-controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.dance-filter-controls .search-box-wrapper {
+    width: min(100%, 340px);
+}
+
+.dance-select {
+    width: min(100%, 260px);
+    height: 56px;
+    padding: 0 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font: inherit;
+    font-size: 0.95rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dance-select:focus {
+    outline: 2px solid rgba(255, 176, 31, 0.34);
+    border-color: rgba(255, 176, 31, 0.34);
+}
+
+.dance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px;
+}
+
+.dance-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    min-height: 100%;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.dance-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: var(--dance-accent, var(--primary-gold));
+    z-index: 1;
+}
+
+.dance-card.classical {
+    --dance-accent: var(--primary-gold);
+}
+
+.dance-card.folk {
+    --dance-accent: var(--primary-saffron);
+}
+
+.dance-card:hover,
+.dance-card:focus-visible {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-glow-active);
+    border-color: rgba(255, 176, 31, 0.28);
+}
+
+.dance-card:focus-visible {
+    outline: 2px solid rgba(255, 176, 31, 0.45);
+    outline-offset: 3px;
+}
+
+.dance-card-media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.12) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.16), rgba(255, 153, 51, 0.1));
+}
+
+.dance-card-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(7, 13, 23, 0.08) 100%);
+    pointer-events: none;
+}
+
+.dance-card-media.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.12) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.2), rgba(255, 153, 51, 0.12));
+}
+
+.dance-card-media.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.12) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 153, 51, 0.2), rgba(18, 136, 7, 0.12));
+}
+
+.dance-card-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.45s ease, opacity 0.35s ease;
+    transform: scale(1.001);
+}
+
+.dance-card-media:hover .dance-card-image,
+.dance-card:focus-visible .dance-card-image {
+    transform: scale(1.05);
+}
+
+.dance-image-fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 30%),
+        linear-gradient(145deg, rgba(11, 17, 30, 0.6), rgba(255, 176, 31, 0.18));
+}
+
+.dance-image-fallback::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.dance-card-media.is-loaded .dance-image-fallback,
+.dance-modal-visual.is-loaded .dance-image-fallback {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dance-card-media.is-missing .dance-card-image,
+.dance-modal-visual.is-missing .dance-modal-image {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dance-card-monogram,
+.dance-fallback-monogram {
+    position: relative;
+    z-index: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.dance-fallback-label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(7, 13, 23, 0.22);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dance-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px;
+}
+
+.dance-card-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.dance-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.dance-badge.classical {
+    color: var(--primary-gold);
+    background: rgba(255, 176, 31, 0.12);
+    border-color: rgba(255, 176, 31, 0.22);
+}
+
+.dance-badge.folk {
+    color: var(--primary-saffron);
+    background: rgba(255, 153, 51, 0.12);
+    border-color: rgba(255, 153, 51, 0.22);
+}
+
+.dance-state-chip {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dance-card h3 {
+    font-size: 1.45rem;
+    margin: 0;
+}
+
+.dance-card-region {
+    color: var(--primary-gold);
+    font-size: 0.79rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dance-card-description {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.dance-feature-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dance-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dance-card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dance-card-note {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.dance-details-btn {
+    padding: 10px 18px;
+    font-size: 0.92rem;
+}
+
+.dance-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 34px 24px;
+}
+
+.dance-empty-state h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.dance-empty-state p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.dance-videos-section {
+    background: linear-gradient(to bottom, rgba(9, 13, 22, 1) 0%, rgba(7, 13, 23, 0.96) 100%);
+}
+
+.dance-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+.dance-video-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.dance-video-card.classical {
+    --dance-accent: var(--primary-gold);
+}
+
+.dance-video-card.folk {
+    --dance-accent: var(--primary-saffron);
+}
+
+.dance-video-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: var(--dance-accent, var(--primary-gold));
+    z-index: 1;
+}
+
+.dance-video-card.is-selected {
+    border-color: rgba(255, 176, 31, 0.28);
+    box-shadow: var(--shadow-glow-active);
+}
+
+.dance-video-stage {
+    position: relative;
+    min-height: 240px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.12) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(17, 27, 45, 1) 0%, rgba(7, 17, 29, 1) 55%, rgba(6, 20, 15, 1) 100%);
+}
+
+.dance-video-stage.classical {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.12) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 176, 31, 0.2) 0%, rgba(17, 27, 45, 1) 42%, rgba(7, 17, 29, 1) 100%);
+}
+
+.dance-video-stage.folk {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.12) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 153, 51, 0.18) 0%, rgba(17, 27, 45, 1) 42%, rgba(6, 20, 15, 1) 100%);
+}
+
+.dance-video-stage strong {
+    position: relative;
+    z-index: 1;
+    font-size: 1.45rem;
+    line-height: 1.15;
+}
+
+.dance-video-stage p,
+.dance-video-label {
+    position: relative;
+    z-index: 1;
+}
+
+.dance-video-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.dance-video-stage p {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.6;
+}
+
+.dance-video-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 18px 20px 0;
+}
+
+.dance-preview-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    white-space: nowrap;
+}
+
+.dance-preview-btn:hover,
+.dance-preview-btn:focus-visible {
+    background: rgba(255, 176, 31, 0.12);
+    border-color: rgba(255, 176, 31, 0.24);
+}
+
+.dance-preview-icon {
+    font-size: 0.85rem;
+    width: 14px;
+    display: inline-block;
+    text-align: center;
+}
+
+.dance-video-status {
+    padding: 14px 20px 20px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.dance-quiz-section {
+    background: linear-gradient(to bottom, rgba(7, 13, 23, 0.96) 0%, rgba(9, 13, 22, 1) 100%);
+}
+
+.dance-quiz-card {
+    padding: 28px;
+}
+
+.dance-quiz-form {
+    display: grid;
+    gap: 20px;
+}
+
+.dance-quiz-questions {
+    display: grid;
+    gap: 18px;
+}
+
+.dance-quiz-question {
+    padding: 22px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dance-quiz-question legend {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.dance-quiz-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    background: rgba(255, 176, 31, 0.12);
+    color: var(--primary-gold);
+    border: 1px solid rgba(255, 176, 31, 0.2);
+    flex-shrink: 0;
+}
+
+.dance-quiz-options {
+    display: grid;
+    gap: 10px;
+}
+
+.dance-quiz-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: var(--transition-snappy);
+}
+
+.dance-quiz-option:hover {
+    border-color: rgba(255, 176, 31, 0.22);
+}
+
+.dance-quiz-option input {
+    margin-top: 3px;
+    accent-color: var(--primary-gold);
+}
+
+.dance-quiz-option span {
+    line-height: 1.45;
+}
+
+.dance-quiz-option.is-correct {
+    border-color: rgba(18, 136, 7, 0.35);
+    background: rgba(18, 136, 7, 0.08);
+}
+
+.dance-quiz-option.is-incorrect {
+    border-color: rgba(255, 153, 51, 0.35);
+    background: rgba(255, 153, 51, 0.08);
+}
+
+.dance-question-feedback {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.dance-quiz-question.is-correct {
+    box-shadow: 0 0 0 1px rgba(18, 136, 7, 0.14);
+}
+
+.dance-quiz-question.is-incorrect {
+    box-shadow: 0 0 0 1px rgba(255, 153, 51, 0.12);
+}
+
+.dance-quiz-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dance-quiz-result {
+    min-height: 44px;
+    color: var(--text-light);
+}
+
+.dance-quiz-result strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.dance-quiz-result p {
+    color: var(--text-muted);
+}
+
+.dance-modal .modal-card {
+    max-width: 900px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.dance-modal-layout {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    min-height: 100%;
+}
+
+.dance-modal-hero {
+    padding: 42px 34px;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.1) 0%, transparent 28%),
+        linear-gradient(160deg, rgba(17, 27, 45, 1) 0%, rgba(7, 17, 29, 1) 55%, rgba(6, 20, 15, 1) 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dance-modal-visual {
+    width: 118px;
+    aspect-ratio: 1 / 1;
+    border-radius: 30px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.dance-modal-visual.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.2), rgba(255, 153, 51, 0.12));
+}
+
+.dance-modal-visual.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 153, 51, 0.2), rgba(18, 136, 7, 0.12));
+}
+
+.dance-modal-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.dance-modal-monogram {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.dance-modal-hero h3 {
+    font-size: 2.1rem;
+    margin: 6px 0 0;
+}
+
+.dance-modal-hero p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.dance-modal-body {
+    padding: 42px 34px;
+}
+
+.dance-modal-section {
+    margin-bottom: 24px;
+}
+
+.dance-modal-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+}
+
+.dance-modal-section p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.dance-modal-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 @keyframes musicBars {
     0%,
     100% {
@@ -3204,6 +3991,52 @@ button {
     .music-modal-meta {
         grid-template-columns: 1fr;
     }
+
+    .dance-hero {
+        min-height: 390px;
+        padding: 92px 0 56px;
+    }
+
+    .dance-hero h1 {
+        max-width: 11ch;
+        font-size: 2.9rem;
+    }
+
+    .dance-hero-actions {
+        width: min(100%, 380px);
+    }
+
+    .dance-hero-actions .btn {
+        width: 100%;
+    }
+
+    .dance-filter-controls {
+        justify-content: flex-start;
+    }
+
+    .dance-filter-controls .search-box-wrapper,
+    .dance-select {
+        width: 100%;
+    }
+
+    .dance-grid,
+    .dance-video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-modal-hero,
+    .dance-modal-body {
+        padding: 28px 20px;
+    }
+
+    .dance-modal-hero {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
 }
 
 @media (max-width: 640px) {
@@ -3237,6 +4070,41 @@ button {
 
     .music-instrument-grid {
         grid-template-columns: 1fr;
+    }
+
+    .dance-hero {
+        min-height: 360px;
+        padding: 88px 0 50px;
+    }
+
+    .dance-hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .dance-card-body,
+    .dance-quiz-card {
+        padding: 20px;
+    }
+
+    .dance-video-meta {
+        padding: 16px 18px 0;
+    }
+
+    .dance-video-status {
+        padding: 12px 18px 18px;
+    }
+
+    .dance-quiz-question {
+        padding: 18px;
+    }
+
+    .dance-quiz-question legend {
+        font-size: 1rem;
+    }
+
+    .dance-modal-hero,
+    .dance-modal-body {
+        padding: 24px 18px;
     }
 }
 
@@ -6582,6 +7450,11 @@ button {
     color: var(--saffron);
 }
 
+.dropdown-item.active {
+    background-color: rgba(255, 153, 51, 0.12);
+    color: var(--saffron);
+}
+
 @media (max-width: 1024px) {
     .dropdown-menu {
         position: static;
@@ -6709,6 +7582,10 @@ body.light-theme .dropdown-item:hover {
     background: rgba(0, 0, 0, 0.04);
 }
 
+body.light-theme .dropdown-item.active {
+    background: rgba(255, 153, 51, 0.12);
+}
+
 body.light-theme .menu-toggle .bar {
     background: var(--text-light);
 }
@@ -6820,6 +7697,143 @@ body.light-theme .footer-links h4 {
 
 body.light-theme .footer-credits p {
     color: var(--text-muted);
+}
+
+body.light-theme .dance-page-body {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 176, 31, 0.08) 0%, transparent 28%),
+        radial-gradient(circle at 84% 16%, rgba(18, 136, 7, 0.06) 0%, transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255, 153, 51, 0.05) 0%, transparent 32%),
+        var(--bg-dark-deep);
+}
+
+body.light-theme .dance-hero {
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 176, 31, 0.15) 0%, transparent 22%),
+        radial-gradient(circle at 82% 28%, rgba(18, 136, 7, 0.1) 0%, transparent 22%),
+        radial-gradient(circle at 50% 84%, rgba(255, 153, 51, 0.08) 0%, transparent 26%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.98) 55%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-hero::before {
+    background:
+        linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(180deg, transparent 0 18%, rgba(15, 23, 42, 0.04) 18% 19%, transparent 19% 36%, rgba(15, 23, 42, 0.04) 36% 37%, transparent 37% 54%, rgba(15, 23, 42, 0.04) 54% 55%, transparent 55% 72%, rgba(15, 23, 42, 0.04) 72% 73%, transparent 73% 100%);
+    opacity: 0.24;
+}
+
+body.light-theme .dance-hero .sub-hero-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.84) 100%);
+}
+
+body.light-theme .dance-pill {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+body.light-theme .dance-catalog-section {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, hsl(210, 22%, 94%) 100%);
+}
+
+body.light-theme .dance-videos-section {
+    background: linear-gradient(to bottom, hsl(210, 22%, 94%) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+body.light-theme .dance-quiz-section {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, hsl(210, 22%, 94%) 100%);
+}
+
+body.light-theme .dance-select {
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--text-light);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+body.light-theme .dance-card,
+body.light-theme .dance-video-card,
+body.light-theme .dance-quiz-question {
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-card-description,
+body.light-theme .dance-card-note,
+body.light-theme .dance-empty-state p,
+body.light-theme .dance-video-stage p,
+body.light-theme .dance-video-status,
+body.light-theme .dance-quiz-result p,
+body.light-theme .dance-quiz-result,
+body.light-theme .dance-modal-hero p,
+body.light-theme .dance-modal-section p,
+body.light-theme .dance-question-feedback {
+    color: var(--text-muted);
+}
+
+body.light-theme .dance-chip,
+body.light-theme .dance-state-chip,
+body.light-theme .dance-pill,
+body.light-theme .dance-quiz-option {
+    background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-video-stage {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.22) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.98) 52%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-video-stage.classical {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.22) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 246, 219, 0.98) 0%, rgba(247, 249, 252, 0.98) 52%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-video-stage.folk {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.22) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 241, 225, 0.98) 0%, rgba(247, 249, 252, 0.98) 52%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-modal .modal-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-modal-hero {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.82) 0%, transparent 28%),
+        linear-gradient(160deg, rgba(255, 247, 231, 0.96) 0%, rgba(247, 249, 252, 0.98) 55%, rgba(238, 247, 241, 0.98) 100%);
+    border-right-color: rgba(15, 23, 42, 0.08);
+    border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-modal-visual {
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-modal-visual.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.8) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 246, 219, 0.98), rgba(255, 236, 196, 0.95));
+}
+
+body.light-theme .dance-modal-visual.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.8) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 241, 225, 0.98), rgba(238, 247, 241, 0.95));
+}
+
+body.light-theme .dance-modal-monogram {
+    color: var(--text-light);
+}
+
+body.light-theme .dance-modal-section h4,
+body.light-theme .dance-card-region,
+body.light-theme .dance-video-label {
+    color: var(--primary-gold);
 }
 
 /* Science page light mode */
