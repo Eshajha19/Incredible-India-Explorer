@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Explore India's rock-cut caves and cave temples by region, historical period, and religious tradition."
+    >
+    <title>Indian Rock-Cut Caves Explorer | Incredible India</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="caves.css">
+</head>
+
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Toggle Menu"
+                aria-expanded="false"
+            >
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+
+                <div class="nav-dropdown">
+                    <button
+                        class="nav-link dropdown-toggle"
+                        id="link-explore-more"
+                        style="color: var(--saffron)"
+                    >
+                        Explore More ▾
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="caves.html" class="dropdown-item" style="color: var(--saffron)">Cave Temples</a>
+                        <a href="lighthouses.html" class="dropdown-item">Lighthouses</a>
+                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button
+                    id="theme-toggle"
+                    class="btn-theme-toggle"
+                    aria-label="Toggle Dark/Light Mode"
+                    title="Toggle Light Mode"
+                >
+                    ☀️
+                </button>
+
+                <a
+                    href="premium.html"
+                    class="nav-link"
+                    style="color: var(--gold); font-weight: bold;"
+                >
+                    ★ Premium
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="caves-page">
+        <section class="caves-hero" aria-labelledby="caves-hero-title">
+            <div class="caves-hero-overlay"></div>
+
+            <div class="caves-hero-content">
+                <span class="caves-kicker">Stone, Story & Spirituality</span>
+
+                <h1 id="caves-hero-title">
+                    Indian Rock-Cut Caves
+                    <span>Explorer</span>
+                </h1>
+
+                <p>
+                    Journey through monuments carved directly into living rock—monasteries,
+                    prayer halls, sanctuaries, sculptures, and painted interiors shaped across
+                    centuries of Buddhist, Hindu, Jain, and Ajivika traditions.
+                </p>
+
+                <div class="hero-stats" aria-label="Explorer overview">
+                    <div class="hero-stat">
+                        <strong id="hero-site-count">12</strong>
+                        <span>heritage sites</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>5</strong>
+                        <span>regions</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>4+</strong>
+                        <span>traditions</span>
+                    </div>
+                </div>
+
+                <a class="caves-hero-cta" href="#explorer">
+                    Start exploring
+                    <span aria-hidden="true">↓</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="caves-section" id="explorer">
+            <div class="caves-container">
+                <div class="caves-heading">
+                    <span class="section-badge">Rock-Cut Heritage</span>
+                    <h2>Search across centuries carved in stone</h2>
+                    <p>
+                        Find sites by cave name, city, or state, then narrow the collection
+                        by region, historical period, or religious tradition.
+                    </p>
+                </div>
+
+                <div class="caves-controls" aria-label="Cave explorer filters">
+                    <div class="control-field control-search">
+                        <label for="cave-search">Search cave sites</label>
+                        <input
+                            type="search"
+                            id="cave-search"
+                            placeholder="Try Ajanta, Mumbai, Karnataka..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="control-field">
+                        <label for="region-filter">Region</label>
+                        <select id="region-filter">
+                            <option value="all">All regions</option>
+                            <option value="north">North</option>
+                            <option value="south">South</option>
+                            <option value="east">East</option>
+                            <option value="west">West</option>
+                            <option value="central">Central</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="period-filter">Historical period</label>
+                        <select id="period-filter">
+                            <option value="all">All periods</option>
+                            <option value="ancient">Ancient</option>
+                            <option value="late-ancient">Late Ancient</option>
+                            <option value="early-medieval">Early Medieval</option>
+                            <option value="medieval">Medieval</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="religion-filter">Religious tradition</label>
+                        <select id="religion-filter">
+                            <option value="all">All traditions</option>
+                            <option value="buddhist">Buddhist</option>
+                            <option value="hindu">Hindu</option>
+                            <option value="jain">Jain</option>
+                            <option value="ajivika">Ajivika</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="results-toolbar">
+                    <p
+                        class="result-status"
+                        id="result-status"
+                        aria-live="polite"
+                    >
+                        Showing all 12 cave sites
+                    </p>
+
+                    <button class="clear-filters-btn" id="clear-filters" type="button">
+                        Clear filters
+                    </button>
+                </div>
+
+                <div class="cave-grid" id="cave-grid" aria-live="polite"></div>
+
+                <div class="empty-state" id="empty-state" role="status">
+                    <span class="empty-icon" aria-hidden="true">⌕</span>
+                    <h3>No cave sites found</h3>
+                    <p>Try another search term or adjust one of the filters.</p>
+                    <button type="button" id="empty-reset">Reset filters</button>
+                </div>
+
+                <div class="heritage-note">
+                    <strong>Explorer note:</strong>
+                    The period labels are broad guide categories. Many cave complexes were
+                    created, expanded, reused, or patronised across more than one century or dynasty.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="caves-footer">
+        <div class="caves-container">
+            <p>
+                Part of <a href="index.html">Incredible India Explorer</a>
+                · Discover architecture shaped from living rock.
+            </p>
+        </div>
+    </footer>
+
+    <div
+        class="gallery-modal"
+        id="gallery-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gallery-title"
+        aria-describedby="gallery-caption"
+        hidden
+    >
+        <div class="gallery-backdrop" data-close-gallery></div>
+
+        <div class="gallery-dialog" role="document">
+            <button
+                type="button"
+                class="gallery-close"
+                id="gallery-close"
+                aria-label="Close gallery"
+            >
+                ×
+            </button>
+
+            <div class="gallery-visual">
+                <img id="gallery-image" src="" alt="">
+                <div class="gallery-counter" id="gallery-counter">1 / 3</div>
+            </div>
+
+            <div class="gallery-copy">
+                <span class="gallery-eyebrow" id="gallery-location"></span>
+                <h2 id="gallery-title"></h2>
+                <p id="gallery-caption"></p>
+
+                <div class="gallery-actions">
+                    <button type="button" id="gallery-prev" class="gallery-nav-btn">
+                        ← Previous
+                    </button>
+
+                    <button type="button" id="gallery-next" class="gallery-nav-btn">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <script src="app.js"></script>
+    <script src="caves.js"></script>
+</body>
+</html>
