@@ -1,0 +1,756 @@
+:root {
+    --caves-accent: var(--saffron, #ff9933);
+    --caves-gold: var(--gold, #f6c453);
+    --caves-surface: var(--glass-bg, rgba(255, 255, 255, 0.08));
+    --caves-border: var(--glass-border, rgba(255, 255, 255, 0.14));
+    --caves-text: var(--text-primary, #f6f1e7);
+    --caves-muted: var(--text-secondary, #b8b0a2);
+}
+
+.caves-page {
+    min-height: 100vh;
+    color: var(--caves-text);
+}
+
+.caves-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 76vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(120deg, rgba(18, 10, 5, 0.94), rgba(19, 34, 40, 0.72)),
+        url("assets/travel_hidden.png") center / cover no-repeat;
+}
+
+.caves-hero::before,
+.caves-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.caves-hero::before {
+    width: 380px;
+    height: 380px;
+    top: -130px;
+    left: -110px;
+    background: radial-gradient(circle, rgba(255, 153, 51, 0.32), transparent 68%);
+}
+
+.caves-hero::after {
+    width: 440px;
+    height: 440px;
+    right: -150px;
+    bottom: -160px;
+    background: radial-gradient(circle, rgba(19, 136, 8, 0.24), transparent 68%);
+}
+
+.caves-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(to bottom, rgba(4, 8, 12, 0.12), rgba(4, 8, 12, 0.72)),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 0,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px,
+            transparent 76px
+        );
+}
+
+.caves-hero-content {
+    width: min(920px, 92%);
+    padding: 150px 0 88px;
+    text-align: center;
+    color: #fff;
+}
+
+.caves-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 9px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(12px);
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+
+.caves-kicker::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--caves-accent);
+    box-shadow: 0 0 0 6px rgba(255, 153, 51, 0.16);
+}
+
+.caves-hero h1 {
+    margin: 0 0 20px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3rem, 7.5vw, 6.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+}
+
+.caves-hero h1 span {
+    display: block;
+    color: var(--caves-accent);
+}
+
+.caves-hero p {
+    max-width: 780px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.75;
+}
+
+.hero-stats {
+    width: min(650px, 100%);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 34px auto 28px;
+}
+
+.hero-stat {
+    padding: 15px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    background: rgba(4, 8, 12, 0.34);
+    backdrop-filter: blur(12px);
+}
+
+.hero-stat strong {
+    display: block;
+    color: var(--caves-gold);
+    font-family: "Playfair Display", serif;
+    font-size: 1.9rem;
+}
+
+.hero-stat span {
+    display: block;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.caves-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    border-bottom: 2px solid var(--caves-accent);
+}
+
+.caves-hero-cta span {
+    transition: transform 0.25s ease;
+}
+
+.caves-hero-cta:hover span {
+    transform: translateY(4px);
+}
+
+.caves-section {
+    padding: 86px 0 104px;
+}
+
+.caves-container {
+    width: min(1220px, 92%);
+    margin: 0 auto;
+}
+
+.caves-heading {
+    max-width: 780px;
+    margin-bottom: 30px;
+}
+
+.caves-heading h2 {
+    margin: 10px 0 12px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    line-height: 1.1;
+}
+
+.caves-heading p {
+    margin: 0;
+    color: var(--caves-muted);
+    line-height: 1.75;
+}
+
+.caves-controls {
+    display: grid;
+    grid-template-columns: minmax(270px, 1.45fr) repeat(3, minmax(170px, 0.8fr));
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.control-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-field label {
+    color: var(--caves-muted);
+    font-size: 0.83rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.control-field input,
+.control-field select {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid var(--caves-border);
+    border-radius: 14px;
+    background: var(--caves-surface);
+    color: var(--caves-text);
+    font: inherit;
+    padding: 0 15px;
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.control-field input:focus,
+.control-field select:focus {
+    border-color: var(--caves-accent);
+    box-shadow: 0 0 0 3px rgba(255, 153, 51, 0.14);
+    transform: translateY(-1px);
+}
+
+.control-field select option {
+    color: #111;
+}
+
+.results-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    min-height: 44px;
+    margin-bottom: 18px;
+}
+
+.result-status {
+    margin: 0;
+    color: var(--caves-muted);
+    font-weight: 700;
+}
+
+.clear-filters-btn,
+#empty-reset {
+    border: 1px solid var(--caves-border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--caves-text);
+    padding: 9px 14px;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.clear-filters-btn:hover,
+#empty-reset:hover {
+    border-color: var(--caves-accent);
+    background: rgba(255, 153, 51, 0.1);
+    transform: translateY(-1px);
+}
+
+.cave-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.cave-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--caves-border);
+    border-radius: 22px;
+    background: var(--caves-surface);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+    transition:
+        transform 0.32s ease,
+        box-shadow 0.32s ease,
+        border-color 0.32s ease;
+}
+
+.cave-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 153, 51, 0.58);
+    box-shadow: 0 24px 58px rgba(0, 0, 0, 0.24);
+}
+
+.cave-card[hidden] {
+    display: none;
+}
+
+.cave-media {
+    position: relative;
+    height: 238px;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(255, 153, 51, 0.18), rgba(19, 136, 8, 0.12)),
+        rgba(255, 255, 255, 0.03);
+}
+
+.cave-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5, 8, 11, 0.72), transparent 55%);
+    pointer-events: none;
+}
+
+.cave-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s ease, filter 0.55s ease;
+}
+
+.cave-card:hover .cave-media img {
+    transform: scale(1.065);
+    filter: saturate(1.08) contrast(1.03);
+}
+
+.cave-badges {
+    position: absolute;
+    inset: 14px 14px auto;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.state-badge,
+.tradition-badge {
+    padding: 7px 10px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    backdrop-filter: blur(9px);
+}
+
+.state-badge {
+    background: rgba(4, 16, 27, 0.78);
+}
+
+.tradition-badge {
+    max-width: 58%;
+    text-align: right;
+    background: rgba(255, 153, 51, 0.92);
+}
+
+.gallery-trigger {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(4, 8, 12, 0.66);
+    color: #fff;
+    padding: 8px 11px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.gallery-trigger:hover {
+    background: var(--caves-accent);
+    transform: translateY(-2px);
+}
+
+.cave-body {
+    padding: 22px;
+}
+
+.cave-title {
+    margin: 0 0 6px;
+    font-family: "Playfair Display", serif;
+    font-size: 1.72rem;
+    line-height: 1.15;
+}
+
+.cave-location {
+    margin: 0 0 15px;
+    color: var(--caves-accent);
+    font-weight: 800;
+}
+
+.cave-meta {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.meta-pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: var(--caves-text);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.meta-icon {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border-radius: 7px;
+    background: rgba(255, 153, 51, 0.13);
+    color: var(--caves-accent);
+    font-size: 0.78rem;
+}
+
+.cave-significance {
+    margin: 0;
+    color: var(--caves-muted);
+    line-height: 1.68;
+}
+
+.empty-state {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    border: 1px dashed var(--caves-border);
+    border-radius: 20px;
+    color: var(--caves-muted);
+}
+
+.empty-state.visible {
+    display: block;
+}
+
+.empty-state h3 {
+    margin: 10px 0 6px;
+    color: var(--caves-text);
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+}
+
+.empty-state p {
+    margin: 0 0 18px;
+}
+
+.empty-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: rgba(255, 153, 51, 0.12);
+    color: var(--caves-accent);
+    font-size: 2rem;
+}
+
+.heritage-note {
+    margin-top: 34px;
+    padding: 18px 20px;
+    border-left: 4px solid var(--caves-accent);
+    border-radius: 0 14px 14px 0;
+    background: var(--caves-surface);
+    color: var(--caves-muted);
+    line-height: 1.65;
+}
+
+.heritage-note strong {
+    color: var(--caves-text);
+}
+
+.caves-footer {
+    padding: 42px 0;
+    border-top: 1px solid var(--caves-border);
+    color: var(--caves-muted);
+    text-align: center;
+}
+
+.caves-footer a {
+    color: var(--caves-accent);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.gallery-modal[hidden] {
+    display: none;
+}
+
+.gallery-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.gallery-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 4, 7, 0.82);
+    backdrop-filter: blur(12px);
+}
+
+.gallery-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(980px, 96vw);
+    max-height: min(760px, 90vh);
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    background: #0d1318;
+    color: #fff;
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.48);
+}
+
+.gallery-close {
+    position: absolute;
+    z-index: 4;
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(4, 8, 12, 0.68);
+    color: #fff;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.gallery-visual {
+    position: relative;
+    min-height: 510px;
+    background: #06090c;
+}
+
+.gallery-visual img {
+    width: 100%;
+    height: 100%;
+    min-height: 510px;
+    object-fit: cover;
+}
+
+.gallery-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5, 8, 11, 0.65), transparent 40%);
+    pointer-events: none;
+}
+
+.gallery-counter {
+    position: absolute;
+    z-index: 2;
+    left: 18px;
+    bottom: 18px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(4, 8, 12, 0.68);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.8rem;
+    font-weight: 800;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 46px 34px 34px;
+}
+
+.gallery-eyebrow {
+    color: var(--caves-accent);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.gallery-copy h2 {
+    margin: 9px 0 14px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.04;
+}
+
+.gallery-copy p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+}
+
+.gallery-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.gallery-nav-btn {
+    flex: 1;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    padding: 11px 12px;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.gallery-nav-btn:hover {
+    border-color: var(--caves-accent);
+    background: rgba(255, 153, 51, 0.14);
+}
+
+body.gallery-open {
+    overflow: hidden;
+}
+
+body.light-theme .gallery-dialog {
+    background: #fbf7ef;
+    color: #17120e;
+}
+
+body.light-theme .gallery-copy p {
+    color: rgba(23, 18, 14, 0.7);
+}
+
+body.light-theme .gallery-nav-btn {
+    border-color: rgba(23, 18, 14, 0.18);
+    background: rgba(23, 18, 14, 0.04);
+    color: #17120e;
+}
+
+@media (max-width: 1100px) {
+    .caves-controls {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cave-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .caves-hero {
+        min-height: 70vh;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+    }
+
+    .gallery-dialog {
+        grid-template-columns: 1fr;
+        max-height: 92vh;
+        overflow-y: auto;
+    }
+
+    .gallery-visual,
+    .gallery-visual img {
+        min-height: 320px;
+        height: 42vh;
+    }
+
+    .gallery-copy {
+        padding: 28px 24px 24px;
+    }
+}
+
+@media (max-width: 680px) {
+    .caves-hero-content {
+        padding-top: 132px;
+    }
+
+    .caves-section {
+        padding: 62px 0 78px;
+    }
+
+    .caves-controls,
+    .cave-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cave-media {
+        height: 225px;
+    }
+
+    .results-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .gallery-modal {
+        padding: 10px;
+    }
+
+    .gallery-actions {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cave-card,
+    .cave-media img,
+    .gallery-trigger,
+    .caves-hero-cta span {
+        transition: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
