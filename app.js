@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('âœ… Heritage page loaded successfully');
     } else if (pathname.includes('monuments.html')) {
         console.log('âœ… Monuments page loaded successfully');
+    } else if (pathname.includes('hidden-gems.html')) {
+        console.log('âœ… Hidden Gems page loaded successfully');
     } else if (pathname.includes('railways.html')) {
         console.log('âœ… Railways Explorer page loaded successfully');
     } else if (pathname.includes('adventure.html')) {
