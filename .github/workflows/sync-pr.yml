@@ -1,0 +1,119 @@
+name: Sync PR Labels and Assignees
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  sync-pr-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sync labels and assignees
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+
+            if (!pr) {
+              console.log("No PR found.");
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            console.log(`Processing PR #${pr.number}`);
+
+            const body = pr.body || "";
+
+            const matches = [
+              ...body.matchAll(
+                /(fixes|closes|resolves)\s*:?\s+#(\d+)/gi
+              )
+            ];
+
+            const issueNumbers = [
+              ...new Set(matches.map(m => Number(m[2])))
+            ];
+
+            console.log("Linked Issues:", issueNumbers);
+
+            if (issueNumbers.length === 0) {
+              console.log("No linked issues found.");
+              return;
+            }
+
+            let labels = [];
+            let assignees = [];
+
+            for (const issue_number of issueNumbers) {
+
+              try {
+
+                const { data: issue } =
+                  await github.rest.issues.get({
+                    owner,
+                    repo,
+                    issue_number
+                  });
+
+                if (issue.pull_request) continue;
+
+                labels.push(
+                  ...issue.labels.map(l => l.name)
+                );
+
+                assignees.push(
+                  ...issue.assignees.map(a => a.login)
+                );
+
+              } catch (error) {
+
+                console.log(
+                  `Error fetching issue #${issue_number}:`,
+                  error.message
+                );
+              }
+            }
+
+            labels = [...new Set(labels)];
+            assignees = [...new Set(assignees)];
+
+            console.log("Labels:", labels);
+            console.log("Assignees:", assignees);
+
+            // Add labels
+            if (labels.length > 0) {
+
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: pr.number,
+                labels
+              });
+
+              console.log("Labels added.");
+            }
+
+            // Add assignees
+            if (assignees.length > 0) {
+
+              await github.rest.issues.addAssignees({
+                owner,
+                repo,
+                issue_number: pr.number,
+                assignees
+              });
+
+              console.log("Assignees added.");
+            }
