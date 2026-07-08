@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('âœ… Heritage page loaded successfully');
     } else if (pathname.includes('monuments.html')) {
         console.log('âœ… Monuments page loaded successfully');
+    } else if (pathname.includes('adventure.html')) {
+        console.log('Adventure page loaded successfully');
     } else {
         // Main landing page (index.html or root)
         initScrollEffects();

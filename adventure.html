@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adventure Tourism in Incredible India - Trekking, Rafting, Scuba and more.">
+    <title>Adventure | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .adventure-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1016/1920/1080') center/cover;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .activity-card {
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+        .activity-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-glow-active);
+            border-color: var(--primary-gold);
+        }
+        .activity-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .difficulty-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .easy { background: rgba(16,185,129,0.2); color: #10b981; }
+        .medium { background: rgba(245,158,11,0.2); color: #f59e0b; }
+        .hard { background: rgba(239,68,68,0.2); color: #ef4444; }
+    </style>
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="cuisine.html" class="nav-link">Cuisine</a>
+                <a href="festivals.html" class="nav-link">Festivals</a>
+                <a href="culture.html" class="nav-link">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="adventure.html" class="dropdown-item">Adventure</a>
+                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle">☀️</button>
+                <a href="premium.html" class="nav-link premium-link">★ Premium</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="adventure-hero">
+            <div class="hero-content" style="max-width:800px; padding:0 5%; color:white; text-align:center;">
+                <span class="hero-tagline">Thrill & Nature</span>
+                <h1 class="hero-title">Adventure in Incredible India</h1>
+                <p class="hero-description">From Himalayan treks to underwater wonders - find your next adrenaline rush.</p>
+            </div>
+        </section>
+
+        <div class="container" style="padding:40px 20px;">
+            <div class="filter-bar glass-card">
+                <input type="text" id="adventure-search" placeholder="Search adventures..." style="flex:1;padding:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:8px;">
+                <select id="type-filter" style="padding:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:8px;"></select>
+                <select id="difficulty-filter" style="padding:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:8px;"></select>
+                <button onclick="resetFilters()" class="btn btn-secondary">Reset</button>
+            </div>
+            <div id="adventure-grid" class="activity-grid"></div>
+        </div>
+    </main>
+
+    <script>
+        const adventureData = [
+            {
+                id: 1,
+                name: "Roopkund Trek",
+                type: "Trekking",
+                difficulty: "Hard",
+                state: "Uttarakhand",
+                image: "https://picsum.photos/id/1016/600/400",
+                description: "The mysterious skeleton lake trek in the Himalayas."
+            },
+            {
+                id: 2,
+                name: "Rishikesh Rafting",
+                type: "Rafting",
+                difficulty: "Medium",
+                state: "Uttarakhand",
+                image: "https://picsum.photos/id/133/600/400",
+                description: "White water rafting on the holy Ganges."
+            },
+            {
+                id: 3,
+                name: "Andaman Scuba Diving",
+                type: "Scuba",
+                difficulty: "Easy",
+                state: "Andaman & Nicobar",
+                image: "https://picsum.photos/id/201/600/400",
+                description: "Explore vibrant coral reefs and marine life."
+            },
+            {
+                id: 4,
+                name: "Paragliding in Bir Billing",
+                type: "Paragliding",
+                difficulty: "Medium",
+                state: "Himachal Pradesh",
+                image: "https://picsum.photos/id/1018/600/400",
+                description: "Soar like an eagle over the Himalayas."
+            }
+        ];
+
+        function renderAdventures(filtered) {
+            const grid = document.getElementById('adventure-grid');
+            grid.innerHTML = '';
+            filtered.forEach(act => {
+                const card = document.createElement('div');
+                card.className = 'activity-card';
+                card.innerHTML = `
+                    <img src="${act.image}" alt="${act.name}" loading="lazy">
+                    <div style="padding:20px;">
+                        <span class="difficulty-badge ${act.difficulty.toLowerCase()}">${act.difficulty}</span>
+                        <h3>${act.name}</h3>
+                        <p>${act.state}</p>
+                        <p>${act.description}</p>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    alert(`More details about ${act.name} coming soon!`);
+                });
+                grid.appendChild(card);
+            });
+        }
+
+        function filterAdventures() {
+            const search = document.getElementById('adventure-search').value.toLowerCase();
+            const type = document.getElementById('type-filter').value;
+            const difficulty = document.getElementById('difficulty-filter').value;
+
+            const filtered = adventureData.filter(a => 
+                (!search || a.name.toLowerCase().includes(search) || a.description.toLowerCase().includes(search)) &&
+                (!type || a.type === type) &&
+                (!difficulty || a.difficulty === difficulty)
+            );
+            renderAdventures(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('adventure-search').value = '';
+            document.getElementById('type-filter').value = '';
+            document.getElementById('difficulty-filter').value = '';
+            renderAdventures(adventureData);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Populate filters
+            const types = [...new Set(adventureData.map(a => a.type))];
+            const typeSelect = document.getElementById('type-filter');
+            types.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = t;
+                typeSelect.appendChild(opt);
+            });
+
+            const difficulties = [...new Set(adventureData.map(a => a.difficulty))];
+            const diffSelect = document.getElementById('difficulty-filter');
+            difficulties.forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d;
+                opt.textContent = d;
+                diffSelect.appendChild(opt);
+            });
+
+            renderAdventures(adventureData);
+
+            document.getElementById('adventure-search').addEventListener('input', filterAdventures);
+            document.getElementById('type-filter').addEventListener('change', filterAdventures);
+            document.getElementById('difficulty-filter').addEventListener('change', filterAdventures);
+        });
+    </script>
+</body>
+</html>
