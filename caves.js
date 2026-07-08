@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("app:route-changed", () => {
     const fallbackImage = "assets/hero_banner.png";
 
     const caveSites = [

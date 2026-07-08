@@ -326,7 +326,7 @@ let currentType = 'all';
 let searchQuery = '';
 
 // Initialize
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('app:route-changed', () => {
     renderGames(traditionalGames);
     setupEventListeners();
 });

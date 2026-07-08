@@ -8657,3 +8657,12 @@ body.light-theme .hero-title .rotating-text {
     color: transparent !important;
     text-shadow: none !important; /* text-shadow can mess with text-fill-color */
 }
+
+/* SPA Transitions */
+#app-root {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+#app-root.page-transitioning {
+    opacity: 0;
+    transform: translateY(10px);
+}

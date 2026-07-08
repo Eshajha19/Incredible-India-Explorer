@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("app:route-changed", () => {
   const searchInput = document.getElementById("stepwell-search");
   const filters = [...document.querySelectorAll(".stepwell-filter")];
   const cards = [...document.querySelectorAll(".stepwell-card")];

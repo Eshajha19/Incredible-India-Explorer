@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("app:route-changed", () => {
     const assets = [
         "assets/travel_hidden.png",
         "assets/travel_mountains.png",

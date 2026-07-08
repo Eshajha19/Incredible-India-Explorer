@@ -37,7 +37,7 @@ const storyData = {
 let currentPath = null;
 let currentEventIndex = -1;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('app:route-changed', () => {
     const crossroadsScreen = document.getElementById('crossroads-screen');
     const journeyScreen = document.getElementById('journey-screen');
     const pathCards = document.querySelectorAll('.path-card');

@@ -419,4 +419,4 @@ function setupEventListeners() {
 }
 
 // Initialize on DOM content loaded
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('app:route-changed', init);

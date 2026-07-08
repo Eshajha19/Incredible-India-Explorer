@@ -2,7 +2,7 @@
    STATE INDIVIDUAL PAGE - INTERACTIVE & ANIMATED EXPERIENCE
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('app:route-changed', () => {
     initNavigation();
     initStatePage();
 });

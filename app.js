@@ -3,7 +3,7 @@
    Pure Vanilla JavaScript for dynamic content, modals, sliders, and games.
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('app:route-changed', () => {
     initNavigation();
     initThemeToggle();
     initRotatingText();

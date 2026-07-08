@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("app:route-changed", () => {
   const categoryFilter = document.getElementById("category-filter");
   const yearFilter = document.getElementById("year-filter");
   const stampsGrid = document.getElementById("stamps-grid");

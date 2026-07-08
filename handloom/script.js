@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("app:route-changed", () => {
   const searchInput = document.getElementById("handloom-search");
   const filterButtons = [...document.querySelectorAll(".handloom-filter")];
   const cards = [...document.querySelectorAll(".handloom-card")];

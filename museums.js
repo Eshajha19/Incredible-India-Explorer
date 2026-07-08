@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("app:route-changed", () => {
   const searchInput = document.getElementById("museum-search");
   const filterButtons = [...document.querySelectorAll(".museum-filter")];
   const cards = [...document.querySelectorAll(".museum-card")];

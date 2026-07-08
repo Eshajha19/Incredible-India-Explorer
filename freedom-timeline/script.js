@@ -453,4 +453,4 @@ function setupScrollAnimation() {
 }
 
 // Initialize on DOM load
-document.addEventListener('DOMContentLoaded', initTimeline);
+document.addEventListener('app:route-changed', initTimeline);

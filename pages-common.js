@@ -4,7 +4,7 @@
    Pure Vanilla JavaScript - no external dependencies.
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('app:route-changed', () => {
     initSiteChrome();
 
     const page = document.body.dataset.page;
