@@ -2454,6 +2454,1660 @@ button {
     font-size: 0.95rem;
 }
 
+/* ==========================================================================
+   MUSIC PAGE STYLES
+   ========================================================================== */
+.music-page-body {
+    background:
+        radial-gradient(circle at 14% 10%, rgba(255, 176, 31, 0.09) 0%, transparent 26%),
+        radial-gradient(circle at 84% 16%, rgba(18, 136, 7, 0.08) 0%, transparent 24%),
+        radial-gradient(circle at 52% 94%, rgba(255, 153, 51, 0.08) 0%, transparent 30%),
+        var(--bg-dark-deep);
+}
+
+.music-hero {
+    position: relative;
+    min-height: 430px;
+    height: auto;
+    padding: 100px 0 62px;
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 176, 31, 0.22) 0%, transparent 22%),
+        radial-gradient(circle at 82% 28%, rgba(18, 136, 7, 0.16) 0%, transparent 22%),
+        radial-gradient(circle at 50% 84%, rgba(255, 153, 51, 0.14) 0%, transparent 26%),
+        linear-gradient(160deg, #10182a 0%, #09111d 50%, #071410 100%);
+}
+
+.music-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, transparent 0 18%, rgba(255, 255, 255, 0.035) 18% 19%, transparent 19% 36%, rgba(255, 255, 255, 0.035) 36% 37%, transparent 37% 54%, rgba(255, 255, 255, 0.035) 54% 55%, transparent 55% 72%, rgba(255, 255, 255, 0.035) 72% 73%, transparent 73% 100%);
+    background-size: 84px 84px, 84px 84px, 100% 100%;
+    opacity: 0.34;
+    z-index: 0;
+}
+
+.music-hero .sub-hero-overlay {
+    background: linear-gradient(180deg, rgba(7, 13, 23, 0.22) 0%, rgba(7, 13, 23, 0.92) 100%);
+}
+
+.music-hero .sub-hero-content {
+    max-width: 940px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+
+.music-hero h1 {
+    max-width: 13ch;
+    line-height: 1.04;
+    margin-bottom: 8px;
+}
+
+.music-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.music-tabs-section {
+    background: linear-gradient(to bottom, rgba(7, 13, 23, 0.96) 0%, rgba(9, 13, 22, 1) 100%);
+}
+
+.music-filters-bar {
+    align-items: flex-end;
+}
+
+.music-filters-bar .tab-container {
+    margin-bottom: 0;
+}
+
+.music-filters-bar .search-box-wrapper {
+    width: min(100%, 340px);
+}
+
+.music-genre-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.9fr);
+    gap: 24px;
+    padding: 28px;
+    margin-bottom: 28px;
+}
+
+.music-genre-summary-copy h3 {
+    font-size: clamp(1.7rem, 2vw, 2.1rem);
+    margin-bottom: 10px;
+}
+
+.music-genre-summary-copy p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.music-summary-badge {
+    margin-bottom: 12px;
+}
+
+.music-chips,
+.music-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.music-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.music-summary-stats {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+}
+
+.music-summary-stat {
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.music-summary-stat strong {
+    display: block;
+    font-size: 1.45rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+}
+
+.music-summary-stat span {
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.music-artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.music-artist-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    min-height: 100%;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.music-artist-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: var(--music-accent, var(--primary-gold));
+}
+
+.music-artist-card.classical {
+    --music-accent: var(--primary-gold);
+}
+
+.music-artist-card.folk {
+    --music-accent: var(--primary-saffron);
+}
+
+.music-artist-card.modern {
+    --music-accent: var(--primary-green);
+}
+
+.music-artist-card:hover,
+.music-artist-card:focus-visible {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-glow-active);
+    border-color: rgba(255, 176, 31, 0.28);
+}
+
+.music-artist-card:focus-visible {
+    outline: 2px solid rgba(255, 176, 31, 0.45);
+    outline-offset: 3px;
+}
+
+.music-artist-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.music-avatar {
+    width: 84px;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 10px 26px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.18) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.music-avatar-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.music-avatar.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.18), rgba(255, 153, 51, 0.12));
+}
+
+.music-avatar.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 153, 51, 0.18), rgba(18, 136, 7, 0.12));
+}
+
+.music-avatar.modern {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(18, 136, 7, 0.18), rgba(255, 176, 31, 0.1));
+}
+
+.music-artist-title h3 {
+    font-size: 1.45rem;
+    margin: 10px 0 6px;
+}
+
+.music-artist-title p {
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.music-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.music-badge.classical {
+    color: var(--primary-gold);
+    background: rgba(255, 176, 31, 0.12);
+    border-color: rgba(255, 176, 31, 0.22);
+}
+
+.music-badge.folk {
+    color: var(--primary-saffron);
+    background: rgba(255, 153, 51, 0.12);
+    border-color: rgba(255, 153, 51, 0.22);
+}
+
+.music-badge.modern {
+    color: var(--primary-green);
+    background: rgba(18, 136, 7, 0.12);
+    border-color: rgba(18, 136, 7, 0.22);
+}
+
+.music-artist-contribution {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.music-meta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 4px;
+}
+
+.music-meta-label {
+    color: var(--primary-gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.music-meta-value {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.music-audio-placeholder {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition-snappy);
+}
+
+.music-audio-placeholder[data-audio-state="playing"] {
+    background: rgba(255, 176, 31, 0.08);
+    border-color: rgba(255, 176, 31, 0.22);
+    box-shadow: 0 0 0 1px rgba(255, 176, 31, 0.08);
+}
+
+.music-play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    white-space: nowrap;
+}
+
+.music-play-btn:hover,
+.music-play-btn:focus-visible {
+    background: rgba(255, 176, 31, 0.12);
+    border-color: rgba(255, 176, 31, 0.24);
+}
+
+.music-play-icon {
+    font-size: 0.85rem;
+    width: 14px;
+    display: inline-block;
+    text-align: center;
+}
+
+.music-audio-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.music-audio-label {
+    color: var(--primary-gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.music-audio-status {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.45;
+}
+
+.music-audio-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    width: 28px;
+    height: 24px;
+}
+
+.music-audio-bars span {
+    width: 5px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 176, 31, 0.55);
+    transform-origin: bottom center;
+}
+
+.music-artist-card.is-playing .music-audio-bars span {
+    animation: musicBars 1.05s ease-in-out infinite;
+}
+
+.music-artist-card.is-playing .music-audio-bars span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.music-artist-card.is-playing .music-audio-bars span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.music-card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.music-card-note {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.music-details-btn {
+    padding: 10px 18px;
+    font-size: 0.92rem;
+}
+
+.music-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 34px 24px;
+}
+
+.music-empty-state h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.music-empty-state p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.music-instruments-section {
+    background: linear-gradient(to bottom, rgba(9, 13, 22, 1) 0%, rgba(7, 13, 23, 0.96) 100%);
+}
+
+.music-instrument-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.music-instrument-card {
+    position: relative;
+    padding: 22px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.music-instrument-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: var(--music-accent, var(--primary-gold));
+}
+
+.music-instrument-card.classical {
+    --music-accent: var(--primary-gold);
+}
+
+.music-instrument-card.folk {
+    --music-accent: var(--primary-saffron);
+}
+
+.music-instrument-card.modern {
+    --music-accent: var(--primary-green);
+}
+
+.music-instrument-visual {
+    width: 96px;
+    aspect-ratio: 1 / 1;
+    border-radius: 22px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.16), rgba(255, 153, 51, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.music-instrument-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(1.18);
+    transform-origin: center center;
+}
+
+.music-instrument-card.folk .music-instrument-visual {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 153, 51, 0.16), rgba(18, 136, 7, 0.1));
+}
+
+.music-instrument-card.modern .music-instrument-visual {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(18, 136, 7, 0.16), rgba(255, 176, 31, 0.1));
+}
+
+.music-instrument-symbol {
+    font-size: 1.05rem;
+}
+
+.music-instrument-body h3 {
+    font-size: 1.4rem;
+    margin: 10px 0 8px;
+}
+
+.music-instrument-body p {
+    color: var(--text-muted);
+    line-height: 1.68;
+    font-size: 0.95rem;
+}
+
+.music-instrument-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.music-modal .modal-card {
+    max-width: 860px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.music-modal-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    min-height: 100%;
+}
+
+.music-modal-hero {
+    padding: 42px 34px;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.1) 0%, transparent 28%),
+        linear-gradient(160deg, rgba(17, 27, 45, 1) 0%, rgba(7, 17, 29, 1) 55%, rgba(6, 20, 15, 1) 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.music-modal-avatar {
+    width: 118px;
+    aspect-ratio: 1 / 1;
+    border-radius: 30px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.2), rgba(255, 153, 51, 0.12));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.music-modal-avatar.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.2), rgba(255, 153, 51, 0.12));
+}
+
+.music-modal-avatar.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 153, 51, 0.2), rgba(18, 136, 7, 0.12));
+}
+
+.music-modal-avatar.modern {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(18, 136, 7, 0.2), rgba(255, 176, 31, 0.12));
+}
+
+.music-modal-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.music-modal-hero h3 {
+    font-size: 2.1rem;
+    margin: 6px 0 0;
+}
+
+.music-modal-hero p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.music-modal-body {
+    padding: 42px 34px;
+}
+
+.music-modal-section {
+    margin-bottom: 28px;
+}
+
+.music-modal-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+}
+
+.music-modal-section p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.music-highlight-list {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-muted);
+    display: grid;
+    gap: 10px;
+}
+
+.music-modal-meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.music-modal-meta-item {
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.music-modal-meta-label {
+    display: block;
+    color: var(--primary-gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.music-modal-meta-value {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+/* ========================================================================== 
+   DANCE PAGE STYLES
+   ========================================================================== */
+.dance-page-body {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 176, 31, 0.1) 0%, transparent 26%),
+        radial-gradient(circle at 84% 16%, rgba(18, 136, 7, 0.09) 0%, transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255, 153, 51, 0.08) 0%, transparent 32%),
+        var(--bg-dark-deep);
+}
+
+.dance-hero {
+    position: relative;
+    min-height: 430px;
+    height: auto;
+    padding: 100px 0 62px;
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 176, 31, 0.22) 0%, transparent 22%),
+        radial-gradient(circle at 82% 28%, rgba(18, 136, 7, 0.16) 0%, transparent 22%),
+        radial-gradient(circle at 50% 84%, rgba(255, 153, 51, 0.14) 0%, transparent 26%),
+        linear-gradient(160deg, #10182a 0%, #09111d 50%, #071410 100%);
+}
+
+.dance-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(180deg, transparent 0 18%, rgba(255, 255, 255, 0.035) 18% 19%, transparent 19% 36%, rgba(255, 255, 255, 0.035) 36% 37%, transparent 37% 54%, rgba(255, 255, 255, 0.035) 54% 55%, transparent 55% 72%, rgba(255, 255, 255, 0.035) 72% 73%, transparent 73% 100%);
+    background-size: 84px 84px, 84px 84px, 100% 100%;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.dance-hero .sub-hero-overlay {
+    background: linear-gradient(180deg, rgba(7, 13, 23, 0.22) 0%, rgba(7, 13, 23, 0.92) 100%);
+}
+
+.dance-hero .sub-hero-content {
+    max-width: 940px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+
+.dance-hero h1 {
+    max-width: 13ch;
+    line-height: 1.04;
+    margin-bottom: 8px;
+}
+
+.dance-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.dance-hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.dance-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.dance-pill.classical {
+    color: var(--primary-gold);
+    border-color: rgba(255, 176, 31, 0.3);
+}
+
+.dance-pill.folk {
+    color: var(--primary-saffron);
+    border-color: rgba(255, 153, 51, 0.3);
+}
+
+.dance-pill.regional {
+    color: var(--primary-green);
+    border-color: rgba(18, 136, 7, 0.3);
+}
+
+.dance-catalog-section {
+    background: linear-gradient(to bottom, rgba(7, 13, 23, 0.96) 0%, rgba(9, 13, 22, 1) 100%);
+}
+
+.dance-filters-bar {
+    align-items: flex-end;
+}
+
+.dance-filters-bar .tab-container {
+    margin-bottom: 0;
+}
+
+.dance-filter-controls {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.dance-filter-controls .search-box-wrapper {
+    width: min(100%, 340px);
+}
+
+.dance-select {
+    width: min(100%, 260px);
+    height: 56px;
+    padding: 0 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font: inherit;
+    font-size: 0.95rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dance-select:focus {
+    outline: 2px solid rgba(255, 176, 31, 0.34);
+    border-color: rgba(255, 176, 31, 0.34);
+}
+
+.dance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 24px;
+}
+
+.dance-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    min-height: 100%;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+.dance-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: var(--dance-accent, var(--primary-gold));
+    z-index: 1;
+}
+
+.dance-card.classical {
+    --dance-accent: var(--primary-gold);
+}
+
+.dance-card.folk {
+    --dance-accent: var(--primary-saffron);
+}
+
+.dance-card:hover,
+.dance-card:focus-visible {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-glow-active);
+    border-color: rgba(255, 176, 31, 0.28);
+}
+
+.dance-card:focus-visible {
+    outline: 2px solid rgba(255, 176, 31, 0.45);
+    outline-offset: 3px;
+}
+
+.dance-card-media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.12) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.16), rgba(255, 153, 51, 0.1));
+}
+
+.dance-card-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(7, 13, 23, 0.08) 100%);
+    pointer-events: none;
+}
+
+.dance-card-media.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.12) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.2), rgba(255, 153, 51, 0.12));
+}
+
+.dance-card-media.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.12) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 153, 51, 0.2), rgba(18, 136, 7, 0.12));
+}
+
+.dance-card-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.45s ease, opacity 0.35s ease;
+    transform: scale(1.001);
+}
+
+.dance-card-media:hover .dance-card-image,
+.dance-card:focus-visible .dance-card-image {
+    transform: scale(1.05);
+}
+
+.dance-image-fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 30%),
+        linear-gradient(145deg, rgba(11, 17, 30, 0.6), rgba(255, 176, 31, 0.18));
+}
+
+.dance-image-fallback::before {
+    content: '';
+    position: absolute;
+    inset: 14px;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.dance-card-media.is-loaded .dance-image-fallback,
+.dance-modal-visual.is-loaded .dance-image-fallback {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dance-card-media.is-missing .dance-card-image,
+.dance-modal-visual.is-missing .dance-modal-image {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dance-card-monogram,
+.dance-fallback-monogram {
+    position: relative;
+    z-index: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.dance-fallback-label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(7, 13, 23, 0.22);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dance-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 22px;
+}
+
+.dance-card-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.dance-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+}
+
+.dance-badge.classical {
+    color: var(--primary-gold);
+    background: rgba(255, 176, 31, 0.12);
+    border-color: rgba(255, 176, 31, 0.22);
+}
+
+.dance-badge.folk {
+    color: var(--primary-saffron);
+    background: rgba(255, 153, 51, 0.12);
+    border-color: rgba(255, 153, 51, 0.22);
+}
+
+.dance-state-chip {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dance-card h3 {
+    font-size: 1.45rem;
+    margin: 0;
+}
+
+.dance-card-region {
+    color: var(--primary-gold);
+    font-size: 0.79rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dance-card-description {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.dance-feature-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dance-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dance-card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dance-card-note {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.dance-details-btn {
+    padding: 10px 18px;
+    font-size: 0.92rem;
+}
+
+.dance-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 34px 24px;
+}
+
+.dance-empty-state h3 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.dance-empty-state p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.dance-videos-section {
+    background: linear-gradient(to bottom, rgba(9, 13, 22, 1) 0%, rgba(7, 13, 23, 0.96) 100%);
+}
+
+.dance-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+.dance-video-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.dance-video-card.classical {
+    --dance-accent: var(--primary-gold);
+}
+
+.dance-video-card.folk {
+    --dance-accent: var(--primary-saffron);
+}
+
+.dance-video-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: var(--dance-accent, var(--primary-gold));
+    z-index: 1;
+}
+
+.dance-video-card.is-selected {
+    border-color: rgba(255, 176, 31, 0.28);
+    box-shadow: var(--shadow-glow-active);
+}
+
+.dance-video-stage {
+    position: relative;
+    min-height: 240px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.12) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(17, 27, 45, 1) 0%, rgba(7, 17, 29, 1) 55%, rgba(6, 20, 15, 1) 100%);
+}
+
+.dance-video-stage.classical {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.12) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 176, 31, 0.2) 0%, rgba(17, 27, 45, 1) 42%, rgba(7, 17, 29, 1) 100%);
+}
+
+.dance-video-stage.folk {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.12) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 153, 51, 0.18) 0%, rgba(17, 27, 45, 1) 42%, rgba(6, 20, 15, 1) 100%);
+}
+
+.dance-video-stage strong {
+    position: relative;
+    z-index: 1;
+    font-size: 1.45rem;
+    line-height: 1.15;
+}
+
+.dance-video-stage p,
+.dance-video-label {
+    position: relative;
+    z-index: 1;
+}
+
+.dance-video-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.dance-video-stage p {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.6;
+}
+
+.dance-video-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 18px 20px 0;
+}
+
+.dance-preview-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    white-space: nowrap;
+}
+
+.dance-preview-btn:hover,
+.dance-preview-btn:focus-visible {
+    background: rgba(255, 176, 31, 0.12);
+    border-color: rgba(255, 176, 31, 0.24);
+}
+
+.dance-preview-icon {
+    font-size: 0.85rem;
+    width: 14px;
+    display: inline-block;
+    text-align: center;
+}
+
+.dance-video-status {
+    padding: 14px 20px 20px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.dance-quiz-section {
+    background: linear-gradient(to bottom, rgba(7, 13, 23, 0.96) 0%, rgba(9, 13, 22, 1) 100%);
+}
+
+.dance-quiz-card {
+    padding: 28px;
+}
+
+.dance-quiz-form {
+    display: grid;
+    gap: 20px;
+}
+
+.dance-quiz-questions {
+    display: grid;
+    gap: 18px;
+}
+
+.dance-quiz-question {
+    padding: 22px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dance-quiz-question legend {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.dance-quiz-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    background: rgba(255, 176, 31, 0.12);
+    color: var(--primary-gold);
+    border: 1px solid rgba(255, 176, 31, 0.2);
+    flex-shrink: 0;
+}
+
+.dance-quiz-options {
+    display: grid;
+    gap: 10px;
+}
+
+.dance-quiz-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: var(--transition-snappy);
+}
+
+.dance-quiz-option:hover {
+    border-color: rgba(255, 176, 31, 0.22);
+}
+
+.dance-quiz-option input {
+    margin-top: 3px;
+    accent-color: var(--primary-gold);
+}
+
+.dance-quiz-option span {
+    line-height: 1.45;
+}
+
+.dance-quiz-option.is-correct {
+    border-color: rgba(18, 136, 7, 0.35);
+    background: rgba(18, 136, 7, 0.08);
+}
+
+.dance-quiz-option.is-incorrect {
+    border-color: rgba(255, 153, 51, 0.35);
+    background: rgba(255, 153, 51, 0.08);
+}
+
+.dance-question-feedback {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.dance-quiz-question.is-correct {
+    box-shadow: 0 0 0 1px rgba(18, 136, 7, 0.14);
+}
+
+.dance-quiz-question.is-incorrect {
+    box-shadow: 0 0 0 1px rgba(255, 153, 51, 0.12);
+}
+
+.dance-quiz-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dance-quiz-result {
+    min-height: 44px;
+    color: var(--text-light);
+}
+
+.dance-quiz-result strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.dance-quiz-result p {
+    color: var(--text-muted);
+}
+
+.dance-modal .modal-card {
+    max-width: 900px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.dance-modal-layout {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    min-height: 100%;
+}
+
+.dance-modal-hero {
+    padding: 42px 34px;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.1) 0%, transparent 28%),
+        linear-gradient(160deg, rgba(17, 27, 45, 1) 0%, rgba(7, 17, 29, 1) 55%, rgba(6, 20, 15, 1) 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dance-modal-visual {
+    width: 118px;
+    aspect-ratio: 1 / 1;
+    border-radius: 30px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.dance-modal-visual.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 176, 31, 0.2), rgba(255, 153, 51, 0.12));
+}
+
+.dance-modal-visual.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.16) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 153, 51, 0.2), rgba(18, 136, 7, 0.12));
+}
+
+.dance-modal-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.dance-modal-monogram {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.dance-modal-hero h3 {
+    font-size: 2.1rem;
+    margin: 6px 0 0;
+}
+
+.dance-modal-hero p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.dance-modal-body {
+    padding: 42px 34px;
+}
+
+.dance-modal-section {
+    margin-bottom: 24px;
+}
+
+.dance-modal-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+}
+
+.dance-modal-section p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.dance-modal-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+@keyframes musicBars {
+    0%,
+    100% {
+        height: 8px;
+        opacity: 0.45;
+    }
+
+    50% {
+        height: 22px;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .music-hero {
+        min-height: 390px;
+        padding: 92px 0 56px;
+    }
+
+    .music-hero h1 {
+        max-width: 11ch;
+        font-size: 2.9rem;
+    }
+
+    .music-hero-actions {
+        width: min(100%, 360px);
+    }
+
+    .music-hero-actions .btn {
+        width: 100%;
+    }
+
+    .music-genre-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .music-summary-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .music-artist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .music-instrument-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .music-modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .music-modal-hero,
+    .music-modal-body {
+        padding: 28px 20px;
+    }
+
+    .music-modal-hero {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .music-modal-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-hero {
+        min-height: 390px;
+        padding: 92px 0 56px;
+    }
+
+    .dance-hero h1 {
+        max-width: 11ch;
+        font-size: 2.9rem;
+    }
+
+    .dance-hero-actions {
+        width: min(100%, 380px);
+    }
+
+    .dance-hero-actions .btn {
+        width: 100%;
+    }
+
+    .dance-filter-controls {
+        justify-content: flex-start;
+    }
+
+    .dance-filter-controls .search-box-wrapper,
+    .dance-select {
+        width: 100%;
+    }
+
+    .dance-grid,
+    .dance-video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-modal-hero,
+    .dance-modal-body {
+        padding: 28px 20px;
+    }
+
+    .dance-modal-hero {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+}
+
+@media (max-width: 640px) {
+    .music-hero {
+        min-height: 360px;
+        padding: 88px 0 50px;
+    }
+
+    .music-hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .music-genre-summary,
+    .music-artist-card,
+    .music-instrument-card {
+        padding: 20px;
+    }
+
+    .music-audio-placeholder {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .music-audio-bars {
+        width: 44px;
+    }
+
+    .music-card-footer {
+        align-items: flex-start;
+    }
+
+    .music-instrument-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-hero {
+        min-height: 360px;
+        padding: 88px 0 50px;
+    }
+
+    .dance-hero h1 {
+        font-size: 2.45rem;
+    }
+
+    .dance-card-body,
+    .dance-quiz-card {
+        padding: 20px;
+    }
+
+    .dance-video-meta {
+        padding: 16px 18px 0;
+    }
+
+    .dance-video-status {
+        padding: 12px 18px 18px;
+    }
+
+    .dance-quiz-question {
+        padding: 18px;
+    }
+
+    .dance-quiz-question legend {
+        font-size: 1rem;
+    }
+
+    .dance-modal-hero,
+    .dance-modal-body {
+        padding: 24px 18px;
+    }
+}
+
 /* ========================================================================== 
    SCIENCE PAGE STYLES
    ========================================================================== */
@@ -5796,6 +7450,11 @@ button {
     color: var(--saffron);
 }
 
+.dropdown-item.active {
+    background-color: rgba(255, 153, 51, 0.12);
+    color: var(--saffron);
+}
+
 @media (max-width: 1024px) {
     .dropdown-menu {
         position: static;
@@ -5864,16 +7523,36 @@ button {
    LIGHT THEME OVERRIDES
    ========================================================================== */
 body.light-theme {
-    --bg-dark-deep: hsl(0, 0%, 98%);
-    --bg-dark-card: rgba(255, 255, 255, 0.85);
-    --bg-dark-modal: hsl(0, 0%, 100%);
+    /* Backgrounds */
+    --bg-dark-deep: #FFFFFF;
+    --bg-secondary: #F8FAFC;
+    --bg-dark-card: #FFFFFF;
+    --bg-dark-modal: #FFFFFF;
 
-    --text-light: hsl(222, 47%, 12%);
-    --text-muted: hsl(215, 15%, 40%);
+    /* Text */
+    --text-light: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6B7280;
+    --text-disabled: #9CA3AF;
 
-    --gradient-card-border: linear-gradient(135deg, rgba(255, 153, 51, 0.3) 0%, rgba(18, 136, 7, 0.3) 100%);
-    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
-    --shadow-glow: 0 0 20px rgba(255, 176, 31, 0.3);
+    /* Primary Accent */
+    --primary: #F59E0B;
+
+    /* Borders & Inputs */
+    --border-color: #E5E7EB;
+    --input-bg: #FFFFFF;
+    --input-border: #D1D5DB;
+
+    /* Buttons & Links */
+    --btn-primary-text: #FFFFFF;
+    --btn-secondary-text: #111827;
+    --link-color: #1D4ED8;
+    --link-hover: #1E40AF;
+
+    /* Gradients and Shadows */
+    --gradient-card-border: linear-gradient(135deg, rgba(229, 231, 235, 1) 0%, rgba(209, 213, 219, 1) 100%);
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.3);
 }
 
 body.light-theme .navbar {
@@ -5901,6 +7580,10 @@ body.light-theme .dropdown-item {
 
 body.light-theme .dropdown-item:hover {
     background: rgba(0, 0, 0, 0.04);
+}
+
+body.light-theme .dropdown-item.active {
+    background: rgba(255, 153, 51, 0.12);
 }
 
 body.light-theme .menu-toggle .bar {
@@ -6016,6 +7699,143 @@ body.light-theme .footer-credits p {
     color: var(--text-muted);
 }
 
+body.light-theme .dance-page-body {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 176, 31, 0.08) 0%, transparent 28%),
+        radial-gradient(circle at 84% 16%, rgba(18, 136, 7, 0.06) 0%, transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255, 153, 51, 0.05) 0%, transparent 32%),
+        var(--bg-dark-deep);
+}
+
+body.light-theme .dance-hero {
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 176, 31, 0.15) 0%, transparent 22%),
+        radial-gradient(circle at 82% 28%, rgba(18, 136, 7, 0.1) 0%, transparent 22%),
+        radial-gradient(circle at 50% 84%, rgba(255, 153, 51, 0.08) 0%, transparent 26%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.98) 55%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-hero::before {
+    background:
+        linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+        linear-gradient(180deg, transparent 0 18%, rgba(15, 23, 42, 0.04) 18% 19%, transparent 19% 36%, rgba(15, 23, 42, 0.04) 36% 37%, transparent 37% 54%, rgba(15, 23, 42, 0.04) 54% 55%, transparent 55% 72%, rgba(15, 23, 42, 0.04) 72% 73%, transparent 73% 100%);
+    opacity: 0.24;
+}
+
+body.light-theme .dance-hero .sub-hero-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.84) 100%);
+}
+
+body.light-theme .dance-pill {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+body.light-theme .dance-catalog-section {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, hsl(210, 22%, 94%) 100%);
+}
+
+body.light-theme .dance-videos-section {
+    background: linear-gradient(to bottom, hsl(210, 22%, 94%) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+body.light-theme .dance-quiz-section {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, hsl(210, 22%, 94%) 100%);
+}
+
+body.light-theme .dance-select {
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--text-light);
+    border-color: rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+body.light-theme .dance-card,
+body.light-theme .dance-video-card,
+body.light-theme .dance-quiz-question {
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-card-description,
+body.light-theme .dance-card-note,
+body.light-theme .dance-empty-state p,
+body.light-theme .dance-video-stage p,
+body.light-theme .dance-video-status,
+body.light-theme .dance-quiz-result p,
+body.light-theme .dance-quiz-result,
+body.light-theme .dance-modal-hero p,
+body.light-theme .dance-modal-section p,
+body.light-theme .dance-question-feedback {
+    color: var(--text-muted);
+}
+
+body.light-theme .dance-chip,
+body.light-theme .dance-state-chip,
+body.light-theme .dance-pill,
+body.light-theme .dance-quiz-option {
+    background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-video-stage {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.22) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 249, 252, 0.98) 52%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-video-stage.classical {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.22) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 246, 219, 0.98) 0%, rgba(247, 249, 252, 0.98) 52%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-video-stage.folk {
+    background:
+        radial-gradient(circle at 20% 24%, rgba(255, 255, 255, 0.22) 0%, transparent 18%),
+        linear-gradient(160deg, rgba(255, 241, 225, 0.98) 0%, rgba(247, 249, 252, 0.98) 52%, rgba(242, 247, 243, 0.98) 100%);
+}
+
+body.light-theme .dance-modal .modal-card {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-modal-hero {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.82) 0%, transparent 28%),
+        linear-gradient(160deg, rgba(255, 247, 231, 0.96) 0%, rgba(247, 249, 252, 0.98) 55%, rgba(238, 247, 241, 0.98) 100%);
+    border-right-color: rgba(15, 23, 42, 0.08);
+    border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-modal-visual {
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .dance-modal-visual.classical {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.8) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 246, 219, 0.98), rgba(255, 236, 196, 0.95));
+}
+
+body.light-theme .dance-modal-visual.folk {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.8) 0%, transparent 28%),
+        linear-gradient(135deg, rgba(255, 241, 225, 0.98), rgba(238, 247, 241, 0.95));
+}
+
+body.light-theme .dance-modal-monogram {
+    color: var(--text-light);
+}
+
+body.light-theme .dance-modal-section h4,
+body.light-theme .dance-card-region,
+body.light-theme .dance-video-label {
+    color: var(--primary-gold);
+}
+
 /* Science page light mode */
 body.light-theme .science-page-body {
     background:
@@ -6113,6 +7933,65 @@ body.light-theme .science-badge.physics,
 body.light-theme .science-badge.medicine,
 body.light-theme .science-badge.biology {
     background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .music-page-body {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 176, 31, 0.08) 0%, transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(18, 136, 7, 0.06) 0%, transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(255, 153, 51, 0.06) 0%, transparent 30%),
+        var(--bg-dark-deep);
+}
+
+body.light-theme .music-hero {
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255, 176, 31, 0.16) 0%, transparent 22%),
+        radial-gradient(circle at 82% 28%, rgba(18, 136, 7, 0.1) 0%, transparent 22%),
+        radial-gradient(circle at 50% 84%, rgba(255, 153, 51, 0.08) 0%, transparent 26%),
+        linear-gradient(160deg, hsl(0, 0%, 99%) 0%, hsl(210, 22%, 94%) 48%, hsl(210, 22%, 90%) 100%);
+}
+
+body.light-theme .music-hero .sub-hero-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.84) 100%);
+}
+
+body.light-theme .music-hero::before {
+    opacity: 0.18;
+}
+
+body.light-theme .music-tabs-section {
+    background: linear-gradient(to bottom, hsl(0, 0%, 99%) 0%, hsl(210, 22%, 94%) 100%);
+}
+
+body.light-theme .music-instruments-section {
+    background: linear-gradient(to bottom, hsl(210, 22%, 94%) 0%, hsl(0, 0%, 99%) 100%);
+}
+
+body.light-theme .music-chip,
+body.light-theme .music-instrument-badge {
+    background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .music-audio-placeholder,
+body.light-theme .music-summary-stat {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .music-modal-hero {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0%, transparent 28%),
+        linear-gradient(160deg, hsl(220, 24%, 18%) 0%, hsl(220, 35%, 14%) 55%, hsl(170, 35%, 13%) 100%);
+}
+
+body.light-theme .music-modal-body {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+body.light-theme .music-modal-meta-item {
+    background: rgba(15, 23, 42, 0.03);
     border-color: rgba(15, 23, 42, 0.08);
 }
 
@@ -6508,4 +8387,273 @@ body.light-theme .story-content h3 {
     font-size: 0.8rem;
     cursor: pointer;
     color: var(--text-light);
+}
+
+/* ==========================================================================
+   COMPREHENSIVE LIGHT THEME OVERRIDES (WCAG AA Compliance Fixes)
+   ========================================================================== */
+
+/* Hero Section */
+body.light-theme .hero-overlay,
+body.light-theme .sub-hero-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)) !important;
+}
+body.light-theme .hero-title,
+body.light-theme .hero-tagline,
+body.light-theme .science-hero h1,
+body.light-theme .music-hero h1 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+body.light-theme .hero-description,
+body.light-theme .science-hero p,
+body.light-theme .music-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Navigation */
+body.light-theme .navbar {
+    background: #FFFFFF !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+body.light-theme .nav-link,
+body.light-theme .nav-logo .explorer {
+    color: var(--text-light) !important;
+}
+body.light-theme .dropdown-menu {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border-color) !important;
+}
+body.light-theme .dropdown-item {
+    color: var(--text-secondary) !important;
+}
+body.light-theme .dropdown-item:hover {
+    background: var(--bg-secondary) !important;
+    color: var(--text-light) !important;
+}
+
+/* Search Bar */
+body.light-theme .search-input {
+    background: var(--input-bg) !important;
+    border: 1px solid var(--input-border) !important;
+    color: var(--text-light) !important;
+}
+body.light-theme .search-input::placeholder {
+    color: var(--text-muted) !important;
+}
+body.light-theme .search-input:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2) !important;
+}
+
+/* Category Filter Buttons */
+body.light-theme .tab-btn,
+body.light-theme .filter-btn,
+body.light-theme .science-chip,
+body.light-theme .music-chip {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-secondary) !important;
+}
+body.light-theme .tab-btn.active,
+body.light-theme .filter-btn.active,
+body.light-theme .science-chip.active,
+body.light-theme .music-chip.active {
+    background: var(--primary) !important;
+    color: #FFFFFF !important;
+    border-color: var(--primary) !important;
+}
+body.light-theme .tab-btn:hover:not(.active),
+body.light-theme .filter-btn:hover:not(.active) {
+    background: #FFFFFF !important;
+    border-color: var(--text-muted) !important;
+    color: var(--text-light) !important;
+}
+
+/* Cards */
+body.light-theme .glass-card,
+body.light-theme .info-card,
+body.light-theme .state-card,
+body.light-theme .science-modal-card {
+    background: var(--bg-dark-card) !important;
+    border: 1px solid var(--border-color) !important;
+}
+body.light-theme .card-title,
+body.light-theme .glass-card h3,
+body.light-theme .info-card h3 {
+    color: var(--text-light) !important;
+}
+body.light-theme .card-description,
+body.light-theme .glass-card p,
+body.light-theme .info-card p,
+body.light-theme .story-content p {
+    color: var(--text-secondary) !important;
+}
+body.light-theme .card-meta {
+    color: var(--text-muted) !important;
+}
+body.light-theme .story-content h3 {
+    color: var(--text-light) !important;
+}
+
+/* Buttons */
+body.light-theme .btn-primary {
+    color: var(--btn-primary-text) !important;
+}
+body.light-theme .btn-secondary {
+    background: #FFFFFF !important;
+    color: var(--btn-secondary-text) !important;
+    border: 1px solid var(--input-border) !important;
+}
+body.light-theme .btn-secondary:hover {
+    background: var(--bg-secondary) !important;
+    border-color: var(--text-muted) !important;
+}
+
+/* Forms & Chat */
+body.light-theme .chat-input-wrapper {
+    background: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color) !important;
+}
+body.light-theme .chat-input {
+    background: var(--input-bg) !important;
+    border: 1px solid var(--input-border) !important;
+    color: var(--text-light) !important;
+}
+body.light-theme .chat-input::placeholder {
+    color: var(--text-muted) !important;
+}
+body.light-theme .chat-message.user {
+    background: var(--bg-secondary) !important;
+    color: var(--text-light) !important;
+    border: 1px solid var(--border-color) !important;
+}
+body.light-theme .chat-message.bot {
+    background: #FFFFFF !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+body.light-theme .chat-chip {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-secondary) !important;
+}
+body.light-theme .chat-chip:hover {
+    background: #FFFFFF !important;
+    border-color: var(--primary) !important;
+    color: var(--text-light) !important;
+}
+
+/* Footer */
+body.light-theme .footer {
+    background: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color) !important;
+    color: var(--text-secondary) !important;
+}
+body.light-theme .footer h4 {
+    color: var(--text-light) !important;
+}
+body.light-theme .footer a {
+    color: var(--link-color) !important;
+}
+body.light-theme .footer a:hover {
+    color: var(--link-hover) !important;
+}
+body.light-theme .footer p {
+    color: var(--text-secondary) !important;
+}
+body.light-theme .footer-credits {
+    border-top: 1px solid var(--border-color) !important;
+    color: var(--text-muted) !important;
+}
+
+
+/* Additional Specific Page Fixes (Cuisine, Festivals, Culture, Travel, Sports, Spiritual) */
+
+/* Sub Hero Sections */
+body.light-theme .sub-hero h1,
+body.light-theme .sub-hero p {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Cuisine Cards */
+body.light-theme .cuisine-card-body,
+body.light-theme .cuisine-card {
+    background: var(--bg-dark-card) !important;
+    border: 1px solid var(--border-color) !important;
+}
+body.light-theme .cuisine-card-body h3 {
+    color: var(--text-light) !important;
+}
+body.light-theme .cuisine-origin {
+    color: var(--text-secondary) !important;
+}
+
+/* Festival Cards */
+body.light-theme .festival-card-content,
+body.light-theme .festival-card {
+    background: var(--bg-dark-card) !important;
+    border: 1px solid var(--border-color) !important;
+}
+body.light-theme .festival-card-content h3 {
+    color: var(--text-light) !important;
+}
+body.light-theme .festival-card-content .subtitle {
+    color: var(--text-secondary) !important;
+}
+
+/* Slider Cards (Culture, Travel) */
+body.light-theme .slider-card-body,
+body.light-theme .slider-card {
+    background: var(--bg-dark-card) !important;
+    border: 1px solid var(--border-color) !important;
+}
+body.light-theme .slider-card-body h3 {
+    color: var(--text-light) !important;
+}
+body.light-theme .slider-card-body p {
+    color: var(--text-secondary) !important;
+}
+body.light-theme .slider-card-category {
+    color: var(--primary) !important;
+}
+
+/* Sports/Athlete Cards */
+body.light-theme .athlete-card,
+body.light-theme .athlete-card-header,
+body.light-theme .athlete-card-footer {
+    background: var(--bg-dark-card) !important;
+    border-color: var(--border-color) !important;
+}
+body.light-theme .athlete-card-title h3 {
+    color: var(--text-light) !important;
+}
+body.light-theme .card-sport-note {
+    color: var(--text-muted) !important;
+}
+
+/* Spiritual Cards */
+body.light-theme .spiritual-card-overlay {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7)) !important;
+}
+body.light-theme .spiritual-card-overlay h4 {
+    color: var(--text-light) !important;
+}
+body.light-theme .spiritual-card-loc,
+body.light-theme .spiritual-card-rating {
+    color: var(--text-secondary) !important;
+}
+
+
+/* Fix Rotating Text in Hero */
+body.light-theme .hero-title .highlight,
+body.light-theme .hero-title .rotating-text {
+    background: var(--gradient-saffron-gold) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    text-shadow: none !important; /* text-shadow can mess with text-fill-color */
 }

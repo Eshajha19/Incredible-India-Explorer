@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indian Railways Explorer | railways.html</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #FF4D00;
+      --dark: #1a1a1a;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                  url('https://source.unsplash.com/random/1600x900/?indian-railway') center/cover no-repeat;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .search-bar {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 18px 25px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .filters {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin: -30px auto 40px;
+      max-width: 1100px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 10px 22px;
+      border: 2px solid var(--primary);
+      background: white;
+      color: var(--primary);
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .trains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+    .train-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .train-card:hover {
+      transform: translateY(-12px);
+    }
+    .train-header {
+      background: linear-gradient(135deg, #FF4D00, #FF8C00);
+      color: white;
+      padding: 18px;
+    }
+    .train-body {
+      padding: 20px;
+    }
+    .route {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+    }
+    .status {
+      padding: 6px 14px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .timeline {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 40px auto;
+      max-width: 900px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1><i class="fas fa-train"></i> Indian Railways Explorer</h1>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Explore India's Pride</h1>
+      <p>Real-time train status, routes &amp; booking information</p>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search by train name, number or station..." />
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <div class="container">
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterCategory('all')">All Trains</button>
+      <button class="filter-btn" onclick="filterCategory('express')">Express</button>
+      <button class="filter-btn" onclick="filterCategory('luxury')">Luxury</button>
+      <button class="filter-btn" onclick="filterCategory('heritage')">Heritage</button>
+    </div>
+  </div>
+
+  <!-- Train Cards -->
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:30px;">Popular Trains</h2>
+    <div class="trains-grid" id="trainsGrid"></div>
+  </div>
+
+  <!-- Route Visualization -->
+  <div class="container">
+    <div class="timeline">
+      <h2 style="text-align:center; margin-bottom:25px;">Vande Bharat Express Route</h2>
+      <div style="display:flex; justify-content:space-between; position:relative;">
+        <div style="text-align:center;">
+          <h3>Delhi</h3>
+          <p>06:00 AM</p>
+        </div>
+        <div style="text-align:center;">
+          <h3>Agra Cantt</h3>
+          <p>08:50 AM</p>
+        </div>
+        <div style="text-align:center;">
+          <h3>Jaipur</h3>
+          <p>12:40 PM</p>
+        </div>
+        <div style="text-align:center;">
+          <h3>Mumbai</h3>
+          <p>08:15 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const trains = [
+      {
+        name: "Vande Bharat Express",
+        number: "22401",
+        from: "New Delhi",
+        to: "Mumbai Central",
+        departure: "06:00",
+        arrival: "20:45",
+        duration: "14h 45m",
+        type: "express",
+        status: "On Time"
+      },
+      {
+        name: "Rajdhani Express",
+        number: "12952",
+        from: "New Delhi",
+        to: "Mumbai Central",
+        departure: "16:55",
+        arrival: "08:15",
+        duration: "15h 20m",
+        type: "express",
+        status: "Running"
+      },
+      {
+        name: "Palace on Wheels",
+        number: "POW01",
+        from: "Delhi",
+        to: "Jodhpur",
+        departure: "18:00",
+        arrival: "Next Day",
+        duration: "24h",
+        type: "luxury",
+        status: "Scheduled"
+      },
+      {
+        name: "Darjeeling Himalayan Toy Train",
+        number: "DHT01",
+        from: "Siliguri",
+        to: "Darjeeling",
+        departure: "08:30",
+        arrival: "16:45",
+        duration: "8h 15m",
+        type: "heritage",
+        status: "On Time"
+      }
+    ];
+
+    function renderTrains(data) {
+      const grid = document.getElementById('trainsGrid');
+      grid.innerHTML = '';
+
+      data.forEach(train => {
+        const card = document.createElement('div');
+        card.className = 'train-card';
+        card.innerHTML = `
+          <div class="train-header">
+            <h3>${train.name}</h3>
+            <p style="margin-top:5px;">${train.number}</p>
+          </div>
+          <div class="train-body">
+            <div class="route">
+              <div>
+                <strong>${train.from}</strong><br>
+                <small>${train.departure}</small>
+              </div>
+              <div style="text-align:center; color:#666;">
+                <i class="fas fa-arrow-right"></i><br>
+                <small>${train.duration}</small>
+              </div>
+              <div style="text-align:right;">
+                <strong>${train.to}</strong><br>
+                <small>${train.arrival}</small>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:15px;">
+              <span class="status">${train.status}</span>
+              <button onclick="bookTrain('${train.name}')" 
+                      style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">
+                Book Now
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterCategory(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      
+      if (category === 'all') {
+        renderTrains(trains);
+      } else {
+        const filtered = trains.filter(t => t.type === category);
+        renderTrains(filtered);
+      }
+    }
+
+    function bookTrain(name) {
+      alert(`Booking opened for ${name} 🚂\n(Frontend Demo)`);
+    }
+
+    // Search
+    document.getElementById('searchInput').addEventListener('keyup', (e) => {
+      const term = e.target.value.toLowerCase();
+      const filtered = trains.filter(train => 
+        train.name.toLowerCase().includes(term) || 
+        train.from.toLowerCase().includes(term) || 
+        train.to.toLowerCase().includes(term)
+      );
+      renderTrains(filtered);
+    });
+
+    // Initial Load
+    renderTrains(trains);
+  </script>
+</body>
+</html>

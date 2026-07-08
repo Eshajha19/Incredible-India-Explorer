@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore India's famous handloom traditions by state, weaving techniques, and cultural significance.">
+  <title>Indian Handloom Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+        <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+        <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+        <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+        <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+          <div class="dropdown-menu">
+            <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="../wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+            <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+            <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+            <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+            <a href="index.html" class="dropdown-item" style="color: var(--saffron)">Handloom</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
+          <div class="dropdown-menu">
+            <a href="../smart-cities.html" class="dropdown-item">Smart Cities</a>
+            <a href="../languages.html" class="dropdown-item">Languages of India</a>
+            <a href="../data-india.html" class="dropdown-item">Data & Statistics</a>
+            <a href="../learn.html" class="dropdown-item">Learn & Quiz</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+        <a href="../premium.html" class="nav-link premium-link">★ Premium</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="handloom-main">
+    <section class="handloom-hero">
+      <div class="handloom-hero-content">
+        <span class="handloom-kicker">🧵 Threads of Tradition</span>
+        <h1>Indian Handloom <span>Explorer</span></h1>
+        <p>Discover India's rich weaving heritage spanning centuries, where every thread tells a story of culture, craftsmanship, and regional identity.</p>
+        <a href="#explorer" class="hero-button">Explore Handlooms</a>
+      </div>
+    </section>
+
+    <section class="handloom-section" id="explorer">
+      <div class="handloom-container">
+        <div class="handloom-heading">
+          <span class="section-badge">Regional Weaving Traditions</span>
+          <h2>Discover handloom styles by state</h2>
+          <p>Explore the diverse weaving techniques, patterns, and cultural significance of India's handloom heritage across different regions.</p>
+        </div>
+
+        <div class="handloom-search-wrap">
+          <label for="handloom-search">Search handlooms</label>
+          <input type="search" id="handloom-search" placeholder="Try Banarasi, Kanchipuram, Pashmina, silk..." autocomplete="off">
+        </div>
+
+        <div class="handloom-filters" role="group" aria-label="Filter handlooms by region">
+          <button class="handloom-filter active" type="button" data-region="all" aria-pressed="true">All Regions</button>
+          <button class="handloom-filter" type="button" data-region="north" aria-pressed="false">North</button>
+          <button class="handloom-filter" type="button" data-region="east" aria-pressed="false">East</button>
+          <button class="handloom-filter" type="button" data-region="south" aria-pressed="false">South</button>
+          <button class="handloom-filter" type="button" data-region="west" aria-pressed="false">West</button>
+          <button class="handloom-filter" type="button" data-region="northeast" aria-pressed="false">Northeast</button>
+        </div>
+
+        <p class="handloom-status" id="handloom-status" aria-live="polite">Showing all 12 handloom traditions</p>
+
+        <div class="handloom-grid">
+          <article class="handloom-card" data-region="north" data-search="banarasi silk brocade varanasi uttar pradesh zari gold silver motifs mughal">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Banarasi silk fabric representing intricate weaving" loading="lazy"><span class="handloom-region">North</span></div>
+            <div class="handloom-body"><h3>Banarasi Silk</h3><p class="handloom-location">Varanasi, Uttar Pradesh</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Brocade & Zari</strong></div><p class="handloom-description">Luxurious silk fabrics featuring intricate brocade work with gold and silver zari, inspired by Mughal designs and Persian motifs.</p><button class="details-button" type="button" data-name="Banarasi Silk" data-location="Varanasi, Uttar Pradesh" data-technique="Brocade & Zari" data-region-label="North" data-significance="Royal patronage, wedding attire, cultural heritage" data-details="Banarasi silk is one of India's finest textiles, known for its elaborate brocade work and zari (metal thread) embroidery. The weaving technique involves creating intricate patterns using gold and silver threads on silk fabric. Traditional motifs include floral designs, paisley patterns, and Mughal-inspired scenes. Each saree can take 15 days to 6 months to weave depending on complexity.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="north" data-search="kashmir pashmina cashmere wool shawls embroidery kani jamawar">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Pashmina shawl representing Kashmiri craftsmanship" loading="lazy"><span class="handloom-region">North</span></div>
+            <div class="handloom-body"><h3>Kashmir Pashmina</h3><p class="handloom-location">Kashmir Valley</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Hand-spun Cashmere</strong></div><p class="handloom-description">Exquisite cashmere wool shawls known for exceptional softness, warmth, and intricate embroidery including Kani and Sozni work.</p><button class="details-button" type="button" data-name="Kashmir Pashmina" data-location="Kashmir Valley" data-technique="Hand-spun Cashmere" data-region-label="North" data-significance="Luxury heritage, royal gifting, winter elegance" data-details="Pashmina comes from the undercoat of Himalayan mountain goats, hand-spun and woven on traditional looms. The finest pashmina is so light it can pass through a ring. Kashmiri artisans create masterpieces using Kani (twill tapestry) and Sozni (fine needlework) embroidery techniques. A single Kani shawl can take 1-3 years to complete.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="east" data-search="baluchari silk bishnupur west bengal pallu mythological scenes ramayana mahabharata">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Baluchari silk depicting mythological scenes" loading="lazy"><span class="handloom-region">East</span></div>
+            <div class="handloom-body"><h3>Baluchari Silk</h3><p class="handloom-location">Bishnupur, West Bengal</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Jacquard Weaving</strong></div><p class="handloom-description">Silk sarees featuring elaborate pallu designs depicting scenes from epics like Ramayana and Mahabharata, showcasing narrative art.</p><button class="details-button" type="button" data-name="Baluchari Silk" data-location="Bishnupur, West Bengal" data-technique="Jacquard Weaving" data-region-label="East" data-significance="Narrative art, temple heritage, cultural storytelling" data-details="Baluchari sarees are known for their distinctive pallu (end piece) that tells stories through woven images. Using the Jacquard technique, weavers create detailed scenes from Indian epics, mythology, and rural life. The tradition dates back to the 18th century under Malla dynasty patronage. Each saree represents hours of meticulous weaving.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="east" data-search="kantha silk west bengal embroidery running stitch nakshi kantha recycled saris">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Kantha embroidery showing running stitch patterns" loading="lazy"><span class="handloom-region">East</span></div>
+            <div class="handloom-body"><h3>Kantha Embroidery</h3><p class="handloom-location">West Bengal & Odisha</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Running Stitch Embroidery</strong></div><p class="handloom-description">Traditional embroidery using simple running stitches to create elaborate patterns on recycled sarees, transforming old fabrics into art.</p><button class="details-button" type="button" data-name="Kantha Embroidery" data-location="West Bengal & Odisha" data-technique="Running Stitch Embroidery" data-region-label="East" data-significance="Sustainable craft, women's empowerment, rural art" data-details="Kantha is a traditional embroidery style where old sarees are layered and stitched together with intricate running stitch patterns. The word 'kantha' means 'rags' in Sanskrit, reflecting its origins in repurposing old textiles. Motifs include flowers, birds, animals, and geometric patterns. This craft has been practiced by rural women for generations as a form of creative expression and resourcefulness.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="south" data-search="kanchipuram silk kanjeevaram tamil nadu temple borders zari korvai technique">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Kanchipuram silk saree with temple border" loading="lazy"><span class="handloom-region">South</span></div>
+            <div class="handloom-body"><h3>Kanchipuram Silk</h3><p class="handloom-location">Kanchipuram, Tamil Nadu</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Korvai & Zari</strong></div><p class="handloom-description">Revered as the 'Queen of Silks', featuring distinctive temple borders, contrasting body and pallu, and heavy zari work.</p><button class="details-button" type="button" data-name="Kanchipuram Silk" data-location="Kanchipuram, Tamil Nadu" data-technique="Korvai & Zari" data-region-label="South" data-significance="Bridal tradition, temple heritage, South Indian culture" data-details="Kanchipuram silk sarees are known for their durability, luster, and distinctive temple borders. The Korvai technique interlocks the body and pallu using different colored threads. These sarees use mulberry silk and real zari (gold thread). The weaving tradition dates back over 400 years and is protected as a Geographical Indication. Each saree represents 10-15 days of dedicated weaving by skilled artisans.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="south" data-search="pochampally ikat telangana tie-dye yarn resist dyeing geometric patterns">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Pochampally Ikat with geometric patterns" loading="lazy"><span class="handloom-region">South</span></div>
+            <div class="handloom-body"><h3>Pochampally Ikat</h3><p class="handloom-location">Pochampally, Telangana</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Tie-dye Resist</strong></div><p class="handloom-description">Double Ikat technique where yarns are tie-dyed before weaving, creating distinctive blurred geometric patterns in vibrant colors.</p><button class="details-button" type="button" data-name="Pochampally Ikat" data-location="Pochampally, Telangana" data-technique="Tie-dye Resist" data-region-label="South" data-significance="UNESCO recognition, geometric art, modern adaptation" data-details="Pochampally is famous for its double Ikat technique where both warp and weft threads are tie-dyed before weaving. This creates complex geometric patterns with the characteristic 'blurred' edges that Ikat is known for. The craft has been practiced for centuries and received GI status. The process requires precise calculation and skill, as the dyed patterns must align perfectly during weaving.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="south" data-search="kasavu kerala mundu cotton gold border temple saree onam">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Kasavu cotton saree with gold border" loading="lazy"><span class="handloom-region">South</span></div>
+            <div class="handloom-body"><h3>Kasavu Mundu</h3><p class="handloom-location">Kerala</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Cotton with Zari Border</strong></div><p class="handloom-description">Cream or white cotton fabrics with distinctive golden zari borders, traditionally worn during festivals and religious ceremonies.</p><button class="details-button" type="button" data-name="Kasavu Mundu" data-location="Kerala" data-technique="Cotton with Zari Border" data-region-label="South" data-significance="Festival wear, temple tradition, Kerala identity" data-details="Kasavu refers to the golden zari border on traditional Kerala cotton textiles. The classic Kerala saree (mundu neriyathu) is cream or white with a simple gold border, representing simplicity and elegance. These handlooms are lightweight, breathable, and perfect for Kerala's tropical climate. They are essential attire for Onam, Vishu, and temple visits. The weaving tradition has been passed down through generations in Balaramapuram and other centers.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="west" data-search="patola silk gujarat double ikat geometric patterns patan saree">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Patola silk with intricate double ikat" loading="lazy"><span class="handloom-region">West</span></div>
+            <div class="handloom-body"><h3>Patola Silk</h3><p class="handloom-location">Patan, Gujarat</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Double Ikat</strong></div><p class="handloom-description">One of the most complex textiles in the world, featuring double Ikat with precise geometric patterns and vibrant natural dyes.</p><button class="details-button" type="button" data-name="Patola Silk" data-location="Patan, Gujarat" data-technique="Double Ikat" data-region-label="West" data-significance="Royal heritage, expensive luxury, master craftsmanship" data-details="Patola is among the most difficult textiles to create, requiring both warp and weft threads to be tie-dyed with extreme precision before weaving. A single mistake can ruin months of work. The Salvi weavers of Patan have kept this 900-year-old tradition alive. Traditional Patola uses natural dyes and features geometric, floral, and figurative motifs. A genuine Patola can take 4-6 months to complete and is considered a family heirloom.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="west" data-search="bandhani tie-dye gujarat rajasthan kutch dots patterns leheriya gharchola">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Bandhani tie-dye with dotted patterns" loading="lazy"><span class="handloom-region">West</span></div>
+            <div class="handloom-body"><h3>Bandhani</h3><p class="handloom-location">Gujarat & Rajasthan</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Tie-dye Resist</strong></div><p class="handloom-description">Ancient tie-dye technique creating intricate patterns of dots, used in wedding attire and festive celebrations across western India.</p><button class="details-button" type="button" data-name="Bandhani" data-location="Gujarat & Rajasthan" data-technique="Tie-dye Resist" data-region-label="West" data-significance="Wedding tradition, festive wear, community identity" data-details="Bandhani (from 'bandhan' meaning to tie) involves plucking the fabric with fingernails and tying tiny knots before dyeing. The tied areas resist the dye, creating distinctive dot patterns. Different regions have specialized styles: Leheriya (wave patterns), Gharchola (grid with auspicious symbols), and Munari (ring patterns). Bandhani textiles are essential for Gujarati and Rajasthani weddings, with specific patterns for different ceremonies.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="west" data-search="paithani silk maharashtra peacock motifs zari borders auranagabad">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Paithani silk with peacock motifs" loading="lazy"><span class="handloom-region">West</span></div>
+            <div class="handloom-body"><h3>Paithani Silk</h3><p class="handloom-location">Paithan, Maharashtra</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Interlocking Weft</strong></div><p class="handloom-description">Magnificent silk sarees featuring peacock and lotus motifs, with colorful pallu and distinctive zari borders, inspired by Ajanta paintings.</p><button class="details-button" type="button" data-name="Paithani Silk" data-location="Paithan, Maharashtra" data-technique="Interlocking Weft" data-region-label="West" data-significance="Maharashtrian heritage, bridal tradition, royal patronage" data-details="Paithani sarees are known for their colorful peacock motifs (mor), lotus designs (kamal), and intricate pallu work. The weaving technique involves interlocking weft threads to create borders without separate joins. Colors are derived from natural sources. The tradition dates back to the Satavahana era (200 BCE). A single Paithani can take 6-18 months to weave, making it a prized possession and traditional Maharashtrian bridal wear.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="northeast" data-search="muga silk assam golden silk ahom tradition mekhela chador">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Muga silk with golden sheen" loading="lazy"><span class="handloom-region">Northeast</span></div>
+            <div class="handloom-body"><h3>Muga Silk</h3><p class="handloom-location">Assam</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Golden Silk Weaving</strong></div><p class="handloom-description">Rare golden silk produced only in Assam, known for its natural golden sheen, durability, and use in traditional Mekhela Chador.</p><button class="details-button" type="button" data-name="Muga Silk" data-location="Assam" data-technique="Golden Silk Weaving" data-region-label="Northeast" data-significance="Ahom heritage, Assamese identity, natural luxury" data-details="Muga silk is produced from semi-domesticated silkworms found only in Assam. It has a natural golden color that increases with washing and is known for its durability - Muga garments can last for generations. The tradition dates back to the Ahom kingdom and is protected as a Geographical Indication. Muga is used to make the traditional Mekhela Chador, the Assamese women's attire. The silk is organic, eco-friendly, and one of the most expensive in the world.">View Details</button></div>
+          </article>
+
+          <article class="handloom-card" data-region="northeast" data-search="eri silk assam meghalaya peace silk vegan ahimsa sustainable">
+            <div class="handloom-media"><img src="../assets/traditional_attires.png" alt="Eri silk fabric with soft texture" loading="lazy"><span class="handloom-region">Northeast</span></div>
+            <div class="handloom-body"><h3>Eri Silk</h3><p class="handloom-location">Assam & Meghalaya</p><div class="handloom-meta"><span>Weaving Technique</span><strong>Peace Silk Processing</strong></div><p class="handloom-description">Also known as 'Peace Silk' or 'Ahimsa Silk', produced without killing silkworms, known for warmth and wool-like texture.</p><button class="details-button" type="button" data-name="Eri Silk" data-location="Assam & Meghalaya" data-technique="Peace Silk Processing" data-region-label="Northeast" data-significance="Vegan textile, sustainable fashion, ethical production" data-details="Eri silk is unique because the silkworms are allowed to emerge from cocoons naturally, making it 'Ahimsa' or non-violent silk. The fabric has a wool-like texture and provides excellent warmth. Eri is spun rather than reeled, giving it a matte finish. It's popular among vegans and those seeking ethical fashion. The silk is naturally thermal, keeping warm in winter and cool in summer. Eri cultivation supports rural livelihoods in Northeast India.">View Details</button></div>
+          </article>
+        </div>
+
+        <div class="handloom-empty" id="handloom-empty"><h3>No handloom found</h3><p>Try a different search term or select another region.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="handloom-modal" id="handloom-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="handloom-modal-card">
+      <button class="handloom-modal-close" id="handloom-modal-close" type="button" aria-label="Close details">×</button>
+      <span class="modal-region" id="modal-region"></span>
+      <h2 id="modal-title"></h2>
+      <p class="modal-location" id="modal-location"></p>
+      <div class="modal-info-grid">
+        <div><span>Weaving Technique</span><strong id="modal-technique"></strong></div>
+        <div><span>Cultural Significance</span><strong id="modal-significance"></strong></div>
+      </div>
+      <p class="modal-description" id="modal-description"></p>
+    </div>
+  </div>
+
+  <footer class="handloom-footer"><div class="handloom-container"><p>Part of <a href="../index.html">Incredible India Explorer</a> · Explore India's handloom heritage and weaving traditions.</p></div></footer>
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

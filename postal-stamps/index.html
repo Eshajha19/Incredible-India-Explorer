@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore commemorative Indian postage stamps celebrating historical events, personalities, monuments, festivals, wildlife, and achievements.">
+  <title>Indian Postal Stamps Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+        <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+        <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+        <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+        <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+          <div class="dropdown-menu">
+            <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="../wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+            <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+            <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+            <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+            <a href="../museums.html" class="dropdown-item">Museums</a>
+            <a href="index.html" class="dropdown-item" style="color: var(--saffron)">Postal Stamps</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
+          <div class="dropdown-menu">
+            <a href="../smart-cities.html" class="dropdown-item">Smart Cities</a>
+            <a href="../languages.html" class="dropdown-item">Languages of India</a>
+            <a href="../data-india.html" class="dropdown-item">Data & Statistics</a>
+            <a href="../learn.html" class="dropdown-item">Learn & Quiz</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+        <a href="../premium.html" class="nav-link premium-link">★ Premium</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="stamps-main">
+    <section class="stamps-hero">
+      <div class="stamps-hero-content">
+        <span class="stamps-kicker">📮 Philately & Heritage</span>
+        <h1>Indian Postal <span>Stamps Explorer</span></h1>
+        <p>Discover commemorative stamps that celebrate India's historical events, legendary personalities, magnificent monuments, vibrant festivals, diverse wildlife, and remarkable achievements.</p>
+        <a href="#explorer" class="hero-button">Explore Stamps</a>
+      </div>
+    </section>
+
+    <section class="stamps-section" id="explorer">
+      <div class="stamps-container">
+        <div class="stamps-heading">
+          <span class="section-badge">Philatelic Collection</span>
+          <h2>Discover India Through Stamps</h2>
+          <p>Browse our collection of commemorative Indian postage stamps by category and year of issue.</p>
+        </div>
+
+        <div class="stamps-filters">
+          <div class="filter-group">
+            <label for="category-filter">Category</label>
+            <select id="category-filter" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="personalities">Personalities</option>
+              <option value="monuments">Monuments</option>
+              <option value="festivals">Festivals</option>
+              <option value="wildlife">Wildlife</option>
+              <option value="achievements">Achievements</option>
+              <option value="history">History</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="year-filter">Year</label>
+            <select id="year-filter" class="filter-select">
+              <option value="all">All Years</option>
+              <option value="1947-1960">1947-1960</option>
+              <option value="1961-1980">1961-1980</option>
+              <option value="1981-2000">1981-2000</option>
+              <option value="2001-2020">2001-2020</option>
+              <option value="2021-present">2021-Present</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="stamps-status" id="stamps-status" aria-live="polite">Showing all stamps</p>
+
+        <div class="stamps-grid" id="stamps-grid">
+          <!-- Stamp cards will be dynamically generated by JavaScript -->
+        </div>
+
+        <div class="stamps-empty" id="stamps-empty">
+          <h3>No stamps found</h3>
+          <p>Try selecting different filters to explore our collection.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="stamp-modal" id="stamp-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="stamp-modal-card">
+      <button class="stamp-modal-close" id="stamp-modal-close" type="button" aria-label="Close details">×</button>
+      <div class="modal-stamp-image">
+        <img id="modal-image" src="" alt="Stamp image">
+      </div>
+      <div class="modal-stamp-content">
+        <span class="modal-category" id="modal-category"></span>
+        <h2 id="modal-title"></h2>
+        <div class="modal-info-grid">
+          <div><span>Year of Issue</span><strong id="modal-year"></strong></div>
+          <div><span>Denomination</span><strong id="modal-denomination"></strong></div>
+        </div>
+        <p class="modal-description" id="modal-description"></p>
+        <div class="modal-theme">
+          <span>Theme</span>
+          <strong id="modal-theme"></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="stamps-footer">
+    <div class="stamps-container">
+      <p>Part of <a href="../index.html">Incredible India Explorer</a> · Explore India's philatelic heritage.</p>
+    </div>
+  </footer>
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

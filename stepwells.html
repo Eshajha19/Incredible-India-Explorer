@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore historic stepwells across India by region, dynasty, architecture, and significance.">
+  <title>Indian Stepwells Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stepwells.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#map" class="nav-link">Interactive Map</a>
+        <a href="cuisine.html" class="nav-link">Cuisine</a>
+        <a href="festivals.html" class="nav-link">Festivals</a>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" style="color: var(--saffron)">Explore More ▾</button>
+          <div class="dropdown-menu">
+            <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="heritage.html" class="dropdown-item">Heritage</a>
+            <a href="monuments.html" class="dropdown-item">Monuments</a>
+            <a href="stepwells.html" class="dropdown-item" style="color: var(--saffron)">Stepwells</a>
+            <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        <a href="premium.html" class="nav-link premium-link">★ Premium</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="stepwells-main">
+    <section class="stepwell-hero">
+      <div class="stepwell-hero-content">
+        <span class="stepwell-kicker">💧 Water, Architecture & Memory</span>
+        <h1>Indian Stepwells <span>Explorer</span></h1>
+        <p>
+          Discover extraordinary underground structures where engineering, architecture,
+          community life, and water conservation came together.
+        </p>
+        <a href="#explorer" class="hero-button">Explore Stepwells</a>
+      </div>
+    </section>
+
+    <section class="stepwell-section" id="explorer">
+      <div class="stepwell-container">
+        <div class="stepwell-heading">
+          <span class="section-badge">Water Heritage</span>
+          <h2>Explore India's architectural wells</h2>
+          <p>Search by stepwell, city, state, dynasty, or architectural detail and filter by region.</p>
+        </div>
+
+        <div class="stepwell-search-wrap">
+          <label for="stepwell-search">Search stepwells</label>
+          <input id="stepwell-search" type="search" placeholder="Try Gujarat, Solanki, Delhi, geometric..." autocomplete="off">
+        </div>
+
+        <div class="stepwell-filters" role="group" aria-label="Filter stepwells by region">
+          <button class="stepwell-filter active" data-region="all" aria-pressed="true">All Regions</button>
+          <button class="stepwell-filter" data-region="west" aria-pressed="false">West India</button>
+          <button class="stepwell-filter" data-region="north" aria-pressed="false">North India</button>
+          <button class="stepwell-filter" data-region="central" aria-pressed="false">Central India</button>
+        </div>
+
+        <p class="stepwell-status" id="stepwell-status" aria-live="polite">Showing all 10 stepwells</p>
+
+        <div class="stepwell-grid">
+          <article class="stepwell-card" data-region="west" data-search="rani ki vav patan gujarat solanki chaulukya queen udayamati unesco sculpture inverted temple">
+            <div class="stepwell-media">
+              <img src="assets/Taj_Mahal.png" alt="Indian heritage visual representing Rani ki Vav" loading="lazy">
+              <span class="region-badge">West India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Rani ki Vav</h3>
+              <p class="stepwell-location">Patan, Gujarat</p>
+              <div class="stepwell-meta"><span>Period</span><strong>11th century</strong></div>
+              <p class="stepwell-style">Solanki / Maru-Gurjara tradition</p>
+              <p class="stepwell-description">A richly sculpted multi-storey stepwell conceived as an inverted temple celebrating the sanctity of water.</p>
+              <button class="details-button"
+                data-name="Rani ki Vav"
+                data-location="Patan, Gujarat"
+                data-period="11th century"
+                data-dynasty="Solanki / Chaulukya period"
+                data-style="Highly sculpted stepped corridor with pillared pavilions"
+                data-significance="One of India's most celebrated stepwells, known for its elaborate iconographic programme and temple-like spatial design.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="north" data-search="chand baori abhaneri dausa rajasthan pratihara nikumbha geometric 3500 steps">
+            <div class="stepwell-media">
+              <img src="assets/travel_deserts.png" alt="Rajasthan heritage visual representing Chand Baori" loading="lazy">
+              <span class="region-badge">North India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Chand Baori</h3>
+              <p class="stepwell-location">Abhaneri, Rajasthan</p>
+              <div class="stepwell-meta"><span>Period</span><strong>8th–9th century</strong></div>
+              <p class="stepwell-style">Geometric stepped design</p>
+              <p class="stepwell-description">Famous for its dramatic symmetrical flights of steps descending toward a deep central water reservoir.</p>
+              <button class="details-button"
+                data-name="Chand Baori"
+                data-location="Abhaneri, Rajasthan"
+                data-period="8th–9th century"
+                data-dynasty="Early medieval Rajasthan"
+                data-style="Dense geometric stair pattern arranged around a deep square well"
+                data-significance="A visually striking example of climate-responsive water architecture and one of Rajasthan's best-known baoris.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="west" data-search="adalaj stepwell gandhinagar gujarat vaghela rudabai indo islamic hindu islamic architecture">
+            <div class="stepwell-media">
+              <img src="assets/Jama_Masjid.png" alt="Architectural heritage visual representing Adalaj Stepwell" loading="lazy">
+              <span class="region-badge">West India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Adalaj Stepwell</h3>
+              <p class="stepwell-location">Adalaj, Gujarat</p>
+              <div class="stepwell-meta"><span>Period</span><strong>15th century</strong></div>
+              <p class="stepwell-style">Indo-Islamic & Hindu synthesis</p>
+              <p class="stepwell-description">A five-storey stepwell known for intricately carved pillars, shaded galleries, and layered cultural influences.</p>
+              <button class="details-button"
+                data-name="Adalaj Stepwell"
+                data-location="Adalaj, Gujarat"
+                data-period="15th century"
+                data-dynasty="Late Vaghela / Gujarat Sultanate context"
+                data-style="Five-storey octagonal entry with carved pillared galleries"
+                data-significance="A major example of architectural synthesis and community-oriented water infrastructure in western India.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="north" data-search="agrasen ki baoli delhi new delhi medieval stepwell urban stone arches">
+            <div class="stepwell-media">
+              <img src="assets/travel_hidden.png" alt="Historic stone structure visual representing Agrasen ki Baoli" loading="lazy">
+              <span class="region-badge">North India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Agrasen ki Baoli</h3>
+              <p class="stepwell-location">New Delhi, Delhi</p>
+              <div class="stepwell-meta"><span>Period</span><strong>Medieval</strong></div>
+              <p class="stepwell-style">Linear urban baoli</p>
+              <p class="stepwell-description">A long stone stairway descending through arched levels, now one of Delhi's most recognizable water monuments.</p>
+              <button class="details-button"
+                data-name="Agrasen ki Baoli"
+                data-location="New Delhi, Delhi"
+                data-period="Medieval period"
+                data-dynasty="Traditional attribution varies"
+                data-style="Linear stair corridor with arcaded side walls"
+                data-significance="An important surviving urban baoli that reveals how water architecture once formed part of Delhi's social landscape.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="north" data-search="toorji ka jhalra jodhpur rajasthan marwar 18th century sandstone queen tanwar">
+            <div class="stepwell-media">
+              <img src="assets/travel_deserts.png" alt="Rajasthan stone architecture visual representing Toorji ka Jhalra" loading="lazy">
+              <span class="region-badge">North India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Toorji Ka Jhalra</h3>
+              <p class="stepwell-location">Jodhpur, Rajasthan</p>
+              <div class="stepwell-meta"><span>Period</span><strong>18th century</strong></div>
+              <p class="stepwell-style">Marwar sandstone architecture</p>
+              <p class="stepwell-description">A restored urban stepwell whose symmetrical stair geometry and red sandstone create a dramatic public space.</p>
+              <button class="details-button"
+                data-name="Toorji Ka Jhalra"
+                data-location="Jodhpur, Rajasthan"
+                data-period="18th century"
+                data-dynasty="Marwar kingdom"
+                data-style="Symmetrical sandstone steps and carved water architecture"
+                data-significance="A strong example of renewed public engagement with historic water infrastructure through conservation and adaptive urban reuse.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="west" data-search="dada harir stepwell bai harir asarwa ahmedabad gujarat sultanate sandstone spiral">
+            <div class="stepwell-media">
+              <img src="assets/culture_default.png" alt="Architectural heritage visual representing Dada Harir Stepwell" loading="lazy">
+              <span class="region-badge">West India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Dada Harir Stepwell</h3>
+              <p class="stepwell-location">Ahmedabad, Gujarat</p>
+              <div class="stepwell-meta"><span>Period</span><strong>15th century</strong></div>
+              <p class="stepwell-style">Sultanate-era carved stone</p>
+              <p class="stepwell-description">A deep, atmospheric stepwell with carved pillars, galleries, and changing patterns of light across multiple levels.</p>
+              <button class="details-button"
+                data-name="Dada Harir Stepwell"
+                data-location="Ahmedabad, Gujarat"
+                data-period="15th century"
+                data-dynasty="Gujarat Sultanate period"
+                data-style="Carved sandstone galleries arranged around a deep stepped shaft"
+                data-significance="A refined example of late medieval water architecture in Ahmedabad, combining utility with sophisticated stone craftsmanship.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="west" data-search="navghan kuvo uparkot junagadh gujarat rock cut spiral medieval">
+            <div class="stepwell-media">
+              <img src="assets/travel_mountains.png" alt="Rock-cut heritage visual representing Navghan Kuvo" loading="lazy">
+              <span class="region-badge">West India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Navghan Kuvo</h3>
+              <p class="stepwell-location">Junagadh, Gujarat</p>
+              <div class="stepwell-meta"><span>Period</span><strong>Medieval</strong></div>
+              <p class="stepwell-style">Rock-cut spiral descent</p>
+              <p class="stepwell-description">A distinctive rock-cut well inside Uparkot Fort, reached through a spiralling passage carved into the stone.</p>
+              <button class="details-button"
+                data-name="Navghan Kuvo"
+                data-location="Junagadh, Gujarat"
+                data-period="Medieval period"
+                data-dynasty="Associated with Uparkot's long defensive history"
+                data-style="Rock-cut shaft with spiral descending passage"
+                data-significance="Its defensive setting and rock-cut construction distinguish it from pavilion-based stepwells of Gujarat.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="central" data-search="udaigiri baoli madhya pradesh central india stepwell heritage sandstone">
+            <div class="stepwell-media">
+              <img src="assets/travel_forests.png" alt="Central Indian heritage visual representing a historic baoli" loading="lazy">
+              <span class="region-badge">Central India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Historic Baolis of Central India</h3>
+              <p class="stepwell-location">Madhya Pradesh</p>
+              <div class="stepwell-meta"><span>Period</span><strong>Medieval</strong></div>
+              <p class="stepwell-style">Regional masonry traditions</p>
+              <p class="stepwell-description">Central India preserves varied baoli traditions connected to forts, settlements, pilgrimage routes, and seasonal water storage.</p>
+              <button class="details-button"
+                data-name="Historic Baolis of Central India"
+                data-location="Madhya Pradesh"
+                data-period="Medieval to early modern"
+                data-dynasty="Multiple regional kingdoms"
+                data-style="Masonry stepwells adapted to local geology and settlement patterns"
+                data-significance="These structures demonstrate the wide geographic spread of stepped water architecture beyond Rajasthan and Gujarat.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="north" data-search="panna meena ka kund amber jaipur rajasthan geometric ceremonial community">
+            <div class="stepwell-media">
+              <img src="assets/travel_deserts.png" alt="Rajasthan step architecture visual representing Panna Meena ka Kund" loading="lazy">
+              <span class="region-badge">North India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Panna Meena Ka Kund</h3>
+              <p class="stepwell-location">Amer, Rajasthan</p>
+              <div class="stepwell-meta"><span>Period</span><strong>16th century</strong></div>
+              <p class="stepwell-style">Symmetrical geometric stairs</p>
+              <p class="stepwell-description">A compact kund celebrated for its repeated diagonal stair pattern and strong relationship to the historic landscape of Amer.</p>
+              <button class="details-button"
+                data-name="Panna Meena Ka Kund"
+                data-location="Amer, Rajasthan"
+                data-period="16th century"
+                data-dynasty="Kachwaha-era Amer context"
+                data-style="Geometric criss-cross stair composition around a square tank"
+                data-significance="A highly photogenic example of how ritual, community use, and precise geometry shaped historic water spaces.">
+                View Details
+              </button>
+            </div>
+          </article>
+
+          <article class="stepwell-card" data-region="west" data-search="modhera surya kund sun temple gujarat solanki stepped tank ritual architecture">
+            <div class="stepwell-media">
+              <img src="assets/Meenakshi_Temple.png" alt="Temple architecture visual representing Surya Kund at Modhera" loading="lazy">
+              <span class="region-badge">West India</span>
+            </div>
+            <div class="stepwell-body">
+              <h3>Surya Kund</h3>
+              <p class="stepwell-location">Modhera, Gujarat</p>
+              <div class="stepwell-meta"><span>Period</span><strong>11th century</strong></div>
+              <p class="stepwell-style">Temple tank with stepped geometry</p>
+              <p class="stepwell-description">A monumental stepped ritual tank forming part of the sacred architectural sequence of the Sun Temple complex.</p>
+              <button class="details-button"
+                data-name="Surya Kund"
+                data-location="Modhera, Gujarat"
+                data-period="11th century"
+                data-dynasty="Solanki / Chaulukya period"
+                data-style="Large stepped ritual tank articulated by terraces and shrines"
+                data-significance="The kund demonstrates the close relationship between sacred architecture, ritual movement, and water in western India.">
+                View Details
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="stepwell-empty" id="stepwell-empty">
+          <h3>No stepwell found</h3>
+          <p>Try another search term or select a different region.</p>
+        </div>
+
+        <section class="gallery-section">
+          <div class="stepwell-heading">
+            <span class="section-badge">Image Gallery</span>
+            <h2>Patterns of stone and water</h2>
+            <p>Open a gallery tile to view a larger heritage image preview.</p>
+          </div>
+          <div class="gallery-grid">
+            <figure class="gallery-item" tabindex="0" data-caption="Temple-like heritage and sculptural traditions">
+              <img src="assets/Taj_Mahal.png" alt="Indian stone heritage">
+              <figcaption>Stone & Sculpture</figcaption>
+            </figure>
+            <figure class="gallery-item" tabindex="0" data-caption="Arid-region architecture and geometric water design">
+              <img src="assets/travel_deserts.png" alt="Rajasthan desert architecture">
+              <figcaption>Geometry & Climate</figcaption>
+            </figure>
+            <figure class="gallery-item" tabindex="0" data-caption="Layered architectural traditions of western India">
+              <img src="assets/Jama_Masjid.png" alt="Historic Indian architecture">
+              <figcaption>Architectural Synthesis</figcaption>
+            </figure>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div class="stepwell-modal" id="stepwell-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="stepwell-modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Close details">×</button>
+      <span class="modal-eyebrow">Stepwell Details</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-location" class="modal-location"></p>
+      <div class="modal-grid">
+        <div><span>Period</span><strong id="modal-period"></strong></div>
+        <div><span>Dynasty / Context</span><strong id="modal-dynasty"></strong></div>
+        <div><span>Architectural Style</span><strong id="modal-style"></strong></div>
+      </div>
+      <p id="modal-significance" class="modal-significance"></p>
+    </div>
+  </div>
+
+  <div class="gallery-modal" id="gallery-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="gallery-modal-card">
+      <img id="gallery-modal-image" src="" alt="">
+      <div class="gallery-modal-footer">
+        <p id="gallery-modal-caption"></p>
+        <button id="gallery-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="stepwell-footer">
+    <div class="stepwell-container">
+      <p>Part of <a href="index.html">Incredible India Explorer</a> · Exploring India's water architecture.</p>
+    </div>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="stepwells.js"></script>
+</body>
+</html>

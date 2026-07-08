@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indian Forts Explorer - Discover famous forts across India with their rich history and architecture.">
+    <title>Indian Forts Explorer | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#map" class="nav-link">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link">Cuisine</a>
+                <a href="../festivals.html" class="nav-link">Festivals</a>
+                <a href="../culture.html" class="nav-link">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="index.html" class="dropdown-item">Forts</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle">☀️</button>
+                <a href="../premium.html" class="nav-link premium-link">★ Premium</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="forts-hero scroll-section">
+            <div class="hero-content">
+                <span class="hero-tagline animate-fade-in">Architectural Grandeur</span>
+                <h1 class="hero-title animate-slide-up">Majestic Forts of <span class="highlight">India</span></h1>
+                <p class="hero-description animate-fade-in-delayed">Explore the formidable fortresses that stand as testaments to India's rich history, strategic brilliance, and architectural excellence.</p>
+            </div>
+        </section>
+
+        <section class="forts-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Historical Fortresses</span>
+                    <h2>Discover India's Forts</h2>
+                    <p class="section-subtitle">From hilltop citadels to desert strongholds, explore the stories behind these magnificent structures.</p>
+                </div>
+
+                <div class="filter-bar glass-card">
+                    <div class="search-wrapper">
+                        <input type="text" id="fort-search" placeholder="Search forts by name, location, or history...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <div class="filter-group">
+                        <select id="state-filter">
+                            <option value="">All States</option>
+                        </select>
+                        <select id="architecture-filter">
+                            <option value="">All Architectural Styles</option>
+                        </select>
+                        <select id="era-filter">
+                            <option value="">All Eras</option>
+                        </select>
+                    </div>
+                    <button id="reset-filters" class="btn btn-secondary">Reset Filters</button>
+                </div>
+
+                <div id="forts-grid" class="forts-grid">
+                    <!-- Fort cards will be dynamically inserted here -->
+                </div>
+
+                <div id="no-results" class="no-results hidden">
+                    <div class="no-results-icon">🏰</div>
+                    <h3>No forts found</h3>
+                    <p>Try adjusting your search or filter criteria</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fort Detail Modal -->
+    <div id="fort-modal" class="fort-modal">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-header">
+                <div class="modal-image" id="modal-image"></div>
+                <div class="modal-title-section">
+                    <span class="modal-badge" id="modal-era"></span>
+                    <h2 id="modal-name"></h2>
+                    <div class="modal-location">
+                        <span class="location-icon">📍</span>
+                        <span id="modal-location"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-info-grid">
+                    <div class="info-item">
+                        <span class="info-label">State</span>
+                        <span class="info-value" id="modal-state"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Built</span>
+                        <span class="info-value" id="modal-built"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Architectural Style</span>
+                        <span class="info-value" id="modal-architecture"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Built By</span>
+                        <span class="info-value" id="modal-builder"></span>
+                    </div>
+                </div>
+                <div class="modal-description">
+                    <h3>Historical Background</h3>
+                    <p id="modal-history"></p>
+                </div>
+                <div class="modal-highlights">
+                    <h3>Key Features</h3>
+                    <ul id="modal-highlights"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

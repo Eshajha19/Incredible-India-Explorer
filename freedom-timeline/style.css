@@ -1,0 +1,773 @@
+/* ==========================================================================
+   INDIAN FREEDOM TIMELINE - STYLESHEET
+   Extends the main styles.css with timeline-specific styles
+   ========================================================================== */
+
+/* Timeline Hero Section */
+.timeline-hero {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.1) 0%, rgba(18, 136, 7, 0.1) 100%);
+    overflow: hidden;
+}
+
+.timeline-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.5;
+}
+
+.timeline-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(9, 13, 22, 0.3) 0%, rgba(9, 13, 22, 0.8) 100%);
+    z-index: 1;
+}
+
+.timeline-hero .hero-content {
+    position: relative;
+    max-width: 900px;
+    text-align: center;
+    z-index: 2;
+}
+
+.timeline-hero .hero-tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-gold);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.timeline-hero .hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.timeline-hero .hero-title .highlight {
+    background: var(--gradient-saffron-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--font-heading);
+}
+
+.timeline-hero .hero-description {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+/* Timeline Section */
+.timeline-section {
+    background: var(--bg-dark-deep);
+    padding: 80px 0;
+}
+
+/* Timeline Navigation */
+.timeline-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: rgba(255, 176, 31, 0.1);
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.era-indicator {
+    padding: 12px 30px;
+    background: rgba(255, 176, 31, 0.1);
+    border: 1px solid rgba(255, 176, 31, 0.3);
+    border-radius: 30px;
+}
+
+.era-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Era Filter Tabs */
+.era-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+.era-tab {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 25px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    white-space: nowrap;
+}
+
+.era-tab:hover {
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.era-tab.active {
+    background: var(--gradient-saffron-gold);
+    color: #000;
+    border-color: transparent;
+    box-shadow: var(--shadow-glow);
+}
+
+/* Timeline Container */
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Timeline vertical line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-saffron), var(--primary-gold), var(--primary-green));
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(255, 176, 31, 0.3);
+}
+
+/* Timeline Event Card */
+.timeline-event {
+    position: relative;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.timeline-event.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-event:nth-child(odd) {
+    padding-right: calc(50% + 40px);
+    text-align: right;
+}
+
+.timeline-event:nth-child(even) {
+    padding-left: calc(50% + 40px);
+    text-align: left;
+}
+
+/* Timeline dot */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    background: var(--primary-gold);
+    border: 4px solid var(--bg-dark-deep);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 176, 31, 0.5);
+    z-index: 10;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+}
+
+.timeline-dot:hover {
+    transform: translateX(-50%) scale(1.3);
+    background: var(--primary-saffron);
+}
+
+/* Timeline Event Card */
+.event-card {
+    background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-saffron-gold);
+    opacity: 0;
+    transition: var(--transition-snappy);
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 176, 31, 0.3);
+    box-shadow: var(--shadow-glow-active);
+}
+
+.event-card:hover::before {
+    opacity: 1;
+}
+
+.event-year {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255, 176, 31, 0.15);
+    border: 1px solid rgba(255, 176, 31, 0.3);
+    border-radius: 20px;
+    color: var(--primary-gold);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.event-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.event-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.event-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.event-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.event-location::before {
+    content: '📍';
+}
+
+.event-fighters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--primary-saffron);
+    font-weight: 600;
+}
+
+.event-fighters::before {
+    content: '👥';
+}
+
+.event-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    color: var(--primary-gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition-snappy);
+}
+
+.event-cta::after {
+    content: '→';
+    transition: var(--transition-snappy);
+}
+
+.event-card:hover .event-cta::after {
+    transform: translateX(5px);
+}
+
+/* Event Modal */
+.event-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 13, 22, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+}
+
+.event-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: var(--transition-smooth);
+}
+
+.event-modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-snappy);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+.modal-header {
+    padding: 40px 40px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-year {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--gradient-saffron-gold);
+    border-radius: 25px;
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.modal-body {
+    padding: 30px 40px;
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 300px;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.modal-freedom-fighters {
+    margin-bottom: 30px;
+}
+
+.modal-freedom-fighters h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--primary-gold);
+}
+
+.fighters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.fighter-mini-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: var(--transition-snappy);
+}
+
+.fighter-mini-card:hover {
+    background: rgba(255, 176, 31, 0.1);
+    border-color: rgba(255, 176, 31, 0.3);
+}
+
+.fighter-mini-card .fighter-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.fighter-mini-card .fighter-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.fighter-mini-card .fighter-role {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.modal-significance h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-green);
+}
+
+.modal-significance p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* Freedom Fighters Spotlight Section */
+.fighters-spotlight {
+    background: linear-gradient(to bottom, var(--bg-dark-deep) 0%, hsl(222, 47%, 6%) 100%);
+    padding: 100px 0;
+}
+
+#fighters-spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.fighter-card {
+    background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
+    text-align: center;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.fighter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-saffron-gold);
+    transform: scaleX(0);
+    transition: var(--transition-snappy);
+}
+
+.fighter-card:hover::before {
+    transform: scaleX(1);
+}
+
+.fighter-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 176, 31, 0.3);
+    box-shadow: var(--shadow-glow-active);
+}
+
+.fighter-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255, 176, 31, 0.1);
+    border: 3px solid rgba(255, 176, 31, 0.3);
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: var(--transition-snappy);
+}
+
+.fighter-card:hover .fighter-avatar {
+    background: rgba(255, 176, 31, 0.2);
+    border-color: var(--primary-gold);
+    transform: scale(1.1);
+}
+
+.fighter-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.fighter-card .fighter-title {
+    font-size: 0.85rem;
+    color: var(--primary-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.fighter-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.fighter-card .fighter-years {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline-hero {
+        min-height: 50vh;
+        padding: 100px 20px 60px;
+    }
+
+    .timeline-hero .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .timeline-hero .hero-description {
+        font-size: 1rem;
+    }
+
+    .timeline-navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .era-tabs {
+        gap: 8px;
+    }
+
+    .era-tab {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+
+    .timeline-container::before {
+        left: 20px;
+    }
+
+    .timeline-event:nth-child(odd),
+    .timeline-event:nth-child(even) {
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .event-card {
+        padding: 20px;
+    }
+
+    .event-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .modal-content {
+        max-height: 95vh;
+        margin: 10px;
+    }
+
+    .modal-header {
+        padding: 30px 25px 20px;
+    }
+
+    .modal-title {
+        font-size: 1.6rem;
+    }
+
+    .modal-body {
+        padding: 20px 25px;
+    }
+
+    .modal-image-container {
+        height: 200px;
+    }
+
+    .fighters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    #fighters-spotlight-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .era-tabs {
+        display: none;
+    }
+
+    .timeline-navigation {
+        display: none;
+    }
+
+    .event-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .event-card p {
+        font-size: 0.85rem;
+    }
+
+    .fighter-card {
+        padding: 20px;
+    }
+
+    .fighter-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+}
+
+/* Scrollbar for modal */
+.event-modal .modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.event-modal .modal-content::-webkit-scrollbar-track {
+    background: var(--bg-dark-deep);
+}
+
+.event-modal .modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 176, 31, 0.3);
+    border-radius: 4px;
+}
+
+.event-modal .modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-gold);
+}
+
+/* Animation for timeline events */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-event.animate {
+    animation: fadeInUp 0.6s ease forwards;
+}

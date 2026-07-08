@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's UNESCO World Heritage Sites by category, region, state, and inscription year.">
+    <title>UNESCO World Heritage Explorer | Incredible India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="unesco.css">
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="heritage.html" class="nav-link">Heritage</a>
+                <a href="unesco.html" class="nav-link" style="color: var(--saffron)">UNESCO Sites</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="unesco-page">
+        <section class="unesco-hero">
+            <div class="unesco-hero-content">
+                <span class="hero-kicker">Outstanding Universal Value</span>
+                <h1>India's UNESCO World Heritage Sites</h1>
+                <p>
+                    Explore cultural monuments, natural landscapes, and mixed heritage sites
+                    recognized for their significance to humanity.
+                </p>
+                <div class="hero-stats">
+                    <div><strong>44</strong><span>Total properties</span></div>
+                    <div><strong>36</strong><span>Cultural</span></div>
+                    <div><strong>7</strong><span>Natural</span></div>
+                    <div><strong>1</strong><span>Mixed</span></div>
+                </div>
+                <a href="#explorer" class="hero-cta">Explore all sites ↓</a>
+            </div>
+        </section>
+
+        <section class="unesco-section" id="explorer">
+            <div class="unesco-container">
+                <div class="section-heading">
+                    <span class="section-badge">World Heritage Explorer</span>
+                    <h2>Discover heritage across India</h2>
+                    <p>Search by site or state, then narrow the collection by UNESCO category and region.</p>
+                </div>
+
+                <div class="filter-panel">
+                    <div class="field search-field">
+                        <label for="site-search">Search</label>
+                        <input id="site-search" type="search" placeholder="Try Taj Mahal, Assam, Hampi...">
+                    </div>
+                    <div class="field">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="all">All categories</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="natural">Natural</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="region-filter">Region</label>
+                        <select id="region-filter">
+                            <option value="all">All regions</option>
+                            <option value="north">North</option>
+                            <option value="south">South</option>
+                            <option value="east">East</option>
+                            <option value="west">West</option>
+                            <option value="central">Central</option>
+                            <option value="northeast">Northeast</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="results-row">
+                    <p id="result-status" aria-live="polite">Showing all 44 sites</p>
+                    <button id="clear-filters" type="button">Clear filters</button>
+                </div>
+
+                <div class="site-grid" id="site-grid"></div>
+
+                <div class="empty-state" id="empty-state">
+                    <span>⌕</span>
+                    <h3>No UNESCO sites found</h3>
+                    <p>Try a different search term or change the filters.</p>
+                    <button id="reset-empty" type="button">Reset filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="gallery-modal" id="gallery-modal" hidden role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+        <div class="gallery-backdrop" data-close-gallery></div>
+        <div class="gallery-dialog">
+            <button class="gallery-close" id="gallery-close" type="button" aria-label="Close gallery">×</button>
+            <div class="gallery-visual">
+                <img id="gallery-image" src="" alt="">
+                <span id="gallery-counter"></span>
+            </div>
+            <div class="gallery-copy">
+                <span id="gallery-meta" class="gallery-meta"></span>
+                <h2 id="gallery-title"></h2>
+                <p id="gallery-caption"></p>
+                <div class="gallery-actions">
+                    <button id="gallery-prev" type="button">← Previous</button>
+                    <button id="gallery-next" type="button">Next →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="unesco-footer">
+        <p>Part of <a href="index.html">Incredible India Explorer</a> · Celebrating India's world heritage.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="unesco.js"></script>
+</body>
+</html>

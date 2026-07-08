@@ -1,15 +1,66 @@
-name: Check Duplicate Issues
+name: ECSoC26 Label + Duplicate Handler
+
 on:
   issues:
-    types: [opened, edited]
+    types: [opened]
+
+permissions:
+  issues: write
 
 jobs:
-  find_duplicates:
+  manage-issues:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions-cool/issues-similarity-analysis@v1
+      - name: Add label and handle duplicates
+        uses: actions/github-script@v7
         with:
-          filter-threshold: 0.8
-          title-excludes: 'bug, feature'
-          comment-title: '### 🔎 Potential duplicate issues found'
-          comment-body: 'Please check if these issues have already addressed your problem.'
+          script: |
+            const issue = context.payload.issue;
+            const issueTitle = issue.title.toLowerCase();
+
+            // ✅ Add label
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: ["ECSoC26"]
+            });
+
+            // 🔍 Get issues
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open"
+            });
+
+            const similar = issues.find(i =>
+              i.number !== issue.number &&
+              i.title.toLowerCase().includes(issueTitle)
+            );
+
+            if (similar) {
+              // 💬 Comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: "⚠️ Duplicate of #" + similar.number + ". Closing this issue."
+              });
+
+              // 🏷️ Label
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ["duplicate"]
+              });
+
+              // ❌ Close
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: "closed"
+              });
+            }

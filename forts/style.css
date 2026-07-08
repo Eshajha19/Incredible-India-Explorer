@@ -1,0 +1,553 @@
+/* ==========================================================================
+   INDIAN FORTS EXPLORER - STYLESHEET
+   ========================================================================== */
+
+/* Hero Section */
+.forts-hero {
+    background: linear-gradient(rgba(9, 13, 22, 0.85), rgba(9, 13, 22, 0.9)), 
+                url('https://images.unsplash.com/photo-1599661046289-e31897846e41?w=1920&q=80') center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 400px;
+}
+
+.forts-hero .hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    color: var(--text-light);
+}
+
+/* Forts Section */
+.forts-section {
+    background: var(--bg-dark-deep);
+    padding: 60px 20px;
+}
+
+/* Filter Bar */
+.filter-bar {
+    background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-lg);
+    padding: 25px 30px;
+    margin-bottom: 50px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.search-wrapper {
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 14px 45px 14px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: var(--transition-snappy);
+}
+
+.search-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 176, 31, 0.1);
+}
+
+.search-wrapper input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.filter-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-group select {
+    padding: 14px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    min-width: 160px;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.filter-group select option {
+    background: var(--bg-dark-modal);
+    color: var(--text-light);
+}
+
+/* Forts Grid */
+.forts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Fort Card */
+.fort-card {
+    background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-soft);
+}
+
+.fort-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 176, 31, 0.3);
+    box-shadow: var(--shadow-glow-active);
+}
+
+.fort-card-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.fort-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fort-card:hover .fort-card-image img {
+    transform: scale(1.1);
+}
+
+.fort-era-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 14px;
+    background: rgba(255, 176, 31, 0.9);
+    color: #000;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fort-card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.fort-location {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fort-location::before {
+    content: '📍';
+}
+
+.fort-card-body h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+}
+
+.fort-architecture {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fort-card-body p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.fort-card-footer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fort-built {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.fort-built strong {
+    color: var(--text-light);
+}
+
+.view-details-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition-snappy);
+}
+
+.fort-card:hover .view-details-btn {
+    gap: 10px;
+}
+
+.view-details-btn::after {
+    content: '→';
+    transition: var(--transition-snappy);
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+}
+
+.no-results.hidden {
+    display: none;
+}
+
+.no-results-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.no-results h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+.no-results p {
+    font-size: 1.1rem;
+}
+
+/* Modal */
+.fort-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 13, 22, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.fort-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modal-slide-in 0.3s ease;
+}
+
+@keyframes modal-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(239, 68, 68, 0.8);
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.modal-image {
+    width: 100%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.modal-title-section {
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(255, 176, 31, 0.1), rgba(255, 153, 51, 0.05));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--primary-gold);
+    color: #000;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.modal-title-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.modal-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.location-icon {
+    font-size: 1.2rem;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.info-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.modal-description {
+    margin-bottom: 30px;
+}
+
+.modal-description h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary-gold);
+}
+
+.modal-description p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.modal-highlights h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary-gold);
+}
+
+.modal-highlights ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.modal-highlights li {
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-highlights li::before {
+    content: '✦';
+    color: var(--primary-gold);
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .forts-hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+
+    .forts-hero .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+    }
+
+    .search-wrapper {
+        min-width: 100%;
+    }
+
+    .filter-group {
+        flex-direction: column;
+    }
+
+    .filter-group select {
+        min-width: 100%;
+    }
+
+    .forts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-image {
+        height: 250px;
+    }
+
+    .modal-title-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .modal-info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-highlights ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .forts-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .forts-hero .hero-description {
+        font-size: 1rem;
+    }
+
+    .fort-card-image {
+        height: 200px;
+    }
+
+    .fort-card-body h3 {
+        font-size: 1.3rem;
+    }
+
+    .modal-info-grid {
+        grid-template-columns: 1fr;
+    }
+}

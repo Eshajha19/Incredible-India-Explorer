@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore popular and lesser-known hill stations across India by region, altitude, season, and attractions.">
+  <title>Hill Stations Explorer | Incredible India</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Page-scoped styles: Hill Stations Explorer */
+    .hill-hero {
+      position: relative;
+      min-height: 68vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hill-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7, 16, 22, 0.25), rgba(7, 16, 22, 0.88)),
+        url("assets/travel_mountains.png") center/cover no-repeat;
+      z-index: -2;
+      transform: scale(1.02);
+    }
+
+    .hill-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 25%, rgba(255, 153, 51, 0.24), transparent 32%),
+        radial-gradient(circle at 82% 30%, rgba(19, 136, 8, 0.22), transparent 34%);
+      z-index: -1;
+    }
+
+    .hill-hero-content {
+      width: min(900px, 92%);
+      text-align: center;
+      color: #fff;
+      padding: 110px 0 80px;
+    }
+
+    .hill-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 999px;
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(10px);
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .hill-hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 1.04;
+      margin: 0 0 18px;
+    }
+
+    .hill-hero h1 span {
+      color: var(--saffron);
+    }
+
+    .hill-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,.9);
+    }
+
+    .hill-section {
+      padding: 85px 0 100px;
+    }
+
+    .hill-container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .hill-section-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .hill-section-head h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin: 8px 0 10px;
+    }
+
+    .hill-section-head p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .region-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 30px 0 38px;
+    }
+
+    .region-filter button {
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      border-radius: 999px;
+      padding: 11px 18px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease, color .25s ease;
+    }
+
+    .region-filter button:hover,
+    .region-filter button:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--saffron);
+      outline: none;
+    }
+
+    .region-filter button.active {
+      background: var(--saffron);
+      border-color: var(--saffron);
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(255, 153, 51, .2);
+    }
+
+    .result-status {
+      min-height: 24px;
+      margin-bottom: 18px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .hill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .hill-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,.14);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .hill-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 153, 51, .55);
+      box-shadow: 0 22px 55px rgba(0,0,0,.23);
+    }
+
+    .hill-card[hidden] {
+      display: none;
+    }
+
+    .hill-card-media {
+      position: relative;
+      height: 235px;
+      overflow: hidden;
+      background: rgba(255,255,255,.04);
+    }
+
+    .hill-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+
+    .hill-card:hover .hill-card-media img {
+      transform: scale(1.075);
+    }
+
+    .region-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(10,18,24,.78);
+      color: #fff;
+      backdrop-filter: blur(8px);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .hidden-gem {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .hill-card-body {
+      padding: 23px;
+    }
+
+    .hill-card-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin: 0 0 4px;
+    }
+
+    .hill-state {
+      color: var(--saffron);
+      font-weight: 700;
+      margin-bottom: 17px;
+    }
+
+    .hill-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .meta-box {
+      padding: 11px 12px;
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .meta-label {
+      display: block;
+      color: var(--text-secondary);
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 3px;
+    }
+
+    .meta-value {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .attractions-title {
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-secondary);
+      margin: 0 0 9px;
+    }
+
+    .attraction-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .attraction-list li {
+      padding: 6px 9px;
+      border-radius: 10px;
+      background: rgba(255, 153, 51, .1);
+      color: var(--text-primary);
+      font-size: .84rem;
+    }
+
+    .hill-empty {
+      display: none;
+      text-align: center;
+      padding: 50px 20px;
+      border: 1px dashed var(--glass-border);
+      border-radius: 18px;
+      color: var(--text-secondary);
+    }
+
+    .hill-empty.visible {
+      display: block;
+    }
+
+    .hill-note {
+      margin-top: 34px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--saffron);
+      border-radius: 0 14px 14px 0;
+      background: var(--glass-bg);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .hill-footer {
+      padding: 42px 0;
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    .hill-footer a {
+      color: var(--saffron);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .hill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hill-section {
+        padding: 60px 0 75px;
+      }
+
+      .hill-hero {
+        min-height: 60vh;
+      }
+
+      .hill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hill-card-media {
+        height: 225px;
+      }
+
+      .region-filter {
+        gap: 8px;
+      }
+
+      .region-filter button {
+        padding: 9px 13px;
+        font-size: .9rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hill-card,
+      .hill-card-media img,
+      .region-filter button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+        <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+        <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+        <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+        <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+          <div class="dropdown-menu">
+            <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="hill-stations.html" class="dropdown-item" style="color: var(--saffron)">Hill Stations</a>
+            <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+            <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+            <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+            <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
+          <div class="dropdown-menu">
+            <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+            <a href="languages.html" class="dropdown-item">Languages of India</a>
+            <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+            <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+          </div>
+        </div>
+
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+        <a href="premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="padding-top: 80px;">
+    <section class="hill-hero">
+      <div class="hill-hero-content">
+        <span class="hill-eyebrow">🏔️ Mountains, mist & quiet escapes</span>
+        <h1>Indian Hill Stations <span>Explorer</span></h1>
+        <p>
+          Journey from Himalayan towns to the green folds of the Western Ghats.
+          Discover celebrated mountain escapes and quieter gems, then filter them by region.
+        </p>
+      </div>
+    </section>
+
+    <section class="hill-section" id="destinations">
+      <div class="hill-container">
+        <div class="hill-section-head">
+          <span class="section-badge">Discover</span>
+          <h2>Find your mountain escape</h2>
+          <p>
+            Compare destinations by state, approximate altitude, ideal travel season,
+            and signature attractions.
+          </p>
+        </div>
+
+        <div class="region-filter" role="group" aria-label="Filter hill stations by region">
+          <button class="active" type="button" data-region="all" aria-pressed="true">All Regions</button>
+          <button type="button" data-region="north" aria-pressed="false">North</button>
+          <button type="button" data-region="south" aria-pressed="false">South</button>
+          <button type="button" data-region="east" aria-pressed="false">East & Northeast</button>
+          <button type="button" data-region="west" aria-pressed="false">West</button>
+          <button type="button" data-region="central" aria-pressed="false">Central</button>
+        </div>
+
+        <p class="result-status" id="result-status" aria-live="polite">Showing all 15 destinations</p>
+
+        <div class="hill-grid" id="hill-grid">
+          <article class="hill-card" data-region="north">
+            <div class="hill-card-media">
+              <img src="assets/travel_mountains.png" alt="Mountain scenery representing Shimla" loading="lazy">
+              <span class="region-badge">North</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Shimla</h3>
+              <p class="hill-state">Himachal Pradesh</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 2,200 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Mar–Jun, Dec–Feb</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>The Ridge</li><li>Mall Road</li><li>Jakhu Temple</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="north">
+            <div class="hill-card-media">
+              <img src="assets/travel_hidden.png" alt="Mountain valley scenery representing Manali" loading="lazy">
+              <span class="region-badge">North</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Manali</h3>
+              <p class="hill-state">Himachal Pradesh</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 2,050 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Mar–Jun, Oct–Feb</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Solang Valley</li><li>Hadimba Temple</li><li>Old Manali</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="north">
+            <div class="hill-card-media">
+              <img src="assets/travel_forests.png" alt="Forest and mountain scenery representing Lansdowne" loading="lazy">
+              <span class="region-badge">North</span>
+              <span class="hidden-gem">Hidden gem</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Lansdowne</h3>
+              <p class="hill-state">Uttarakhand</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,700 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Mar–Jun, Oct–Nov</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Tip-n-Top</li><li>Bhulla Tal</li><li>St. Mary's Church</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="south">
+            <div class="hill-card-media">
+              <img src="assets/travel_forests.png" alt="Lush green hills representing Munnar" loading="lazy">
+              <span class="region-badge">South</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Munnar</h3>
+              <p class="hill-state">Kerala</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,600 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Sep–Mar</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Eravikulam NP</li><li>Mattupetty Dam</li><li>Tea estates</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="south">
+            <div class="hill-card-media">
+              <img src="assets/travel_mountains.png" alt="Nilgiri mountain scenery representing Ooty" loading="lazy">
+              <span class="region-badge">South</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Ooty</h3>
+              <p class="hill-state">Tamil Nadu</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 2,240 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Oct–Jun</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Botanical Garden</li><li>Ooty Lake</li><li>Doddabetta Peak</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="south">
+            <div class="hill-card-media">
+              <img src="assets/travel_hidden.png" alt="Misty highland scenery representing Coorg" loading="lazy">
+              <span class="region-badge">South</span>
+              <span class="hidden-gem">Coffee country</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Coorg</h3>
+              <p class="hill-state">Karnataka</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 900–1,750 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Oct–Mar</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Abbey Falls</li><li>Raja's Seat</li><li>Coffee estates</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="east">
+            <div class="hill-card-media">
+              <img src="assets/travel_mountains.png" alt="Eastern Himalayan scenery representing Darjeeling" loading="lazy">
+              <span class="region-badge">East</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Darjeeling</h3>
+              <p class="hill-state">West Bengal</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 2,045 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Mar–May, Oct–Dec</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Tiger Hill</li><li>Toy Train</li><li>Tea gardens</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="east">
+            <div class="hill-card-media">
+              <img src="assets/travel_forests.png" alt="Misty green hills representing Shillong" loading="lazy">
+              <span class="region-badge">Northeast</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Shillong</h3>
+              <p class="hill-state">Meghalaya</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,525 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Sep–May</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Shillong Peak</li><li>Ward's Lake</li><li>Elephant Falls</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="east">
+            <div class="hill-card-media">
+              <img src="assets/travel_hidden.png" alt="Mountain town scenery representing Pelling" loading="lazy">
+              <span class="region-badge">Northeast</span>
+              <span class="hidden-gem">Hidden gem</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Pelling</h3>
+              <p class="hill-state">Sikkim</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 2,150 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Mar–May, Sep–Dec</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Pemayangtse Monastery</li><li>Skywalk</li><li>Khecheopalri Lake</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="west">
+            <div class="hill-card-media">
+              <img src="assets/travel_mountains.png" alt="Aravalli hill scenery representing Mount Abu" loading="lazy">
+              <span class="region-badge">West</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Mount Abu</h3>
+              <p class="hill-state">Rajasthan</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,220 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Nov–Mar</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Dilwara Temples</li><li>Nakki Lake</li><li>Guru Shikhar</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="west">
+            <div class="hill-card-media">
+              <img src="assets/travel_forests.png" alt="Green Sahyadri scenery representing Mahabaleshwar" loading="lazy">
+              <span class="region-badge">West</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Mahabaleshwar</h3>
+              <p class="hill-state">Maharashtra</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,370 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Oct–Jun</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Arthur's Seat</li><li>Venna Lake</li><li>Pratapgad</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="west">
+            <div class="hill-card-media">
+              <img src="assets/travel_hidden.png" alt="Green plateau scenery representing Saputara" loading="lazy">
+              <span class="region-badge">West</span>
+              <span class="hidden-gem">Hidden gem</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Saputara</h3>
+              <p class="hill-state">Gujarat</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,000 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Oct–Feb</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Saputara Lake</li><li>Sunset Point</li><li>Artist Village</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="central">
+            <div class="hill-card-media">
+              <img src="assets/travel_forests.png" alt="Satpura forest scenery representing Pachmarhi" loading="lazy">
+              <span class="region-badge">Central</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Pachmarhi</h3>
+              <p class="hill-state">Madhya Pradesh</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,067 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Oct–Jun</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Bee Falls</li><li>Dhupgarh</li><li>Jata Shankar Caves</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="central">
+            <div class="hill-card-media">
+              <img src="assets/travel_hidden.png" alt="Wooded plateau scenery representing Mainpat" loading="lazy">
+              <span class="region-badge">Central</span>
+              <span class="hidden-gem">Hidden gem</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Mainpat</h3>
+              <p class="hill-state">Chhattisgarh</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,100 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Oct–Mar</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Tiger Point</li><li>Fish Point</li><li>Tibetan settlements</li></ul>
+            </div>
+          </article>
+
+          <article class="hill-card" data-region="central">
+            <div class="hill-card-media">
+              <img src="assets/travel_forests.png" alt="Forested hill scenery representing Amarkantak" loading="lazy">
+              <span class="region-badge">Central</span>
+            </div>
+            <div class="hill-card-body">
+              <h3 class="hill-card-title">Amarkantak</h3>
+              <p class="hill-state">Madhya Pradesh</p>
+              <div class="hill-meta">
+                <div class="meta-box"><span class="meta-label">Altitude</span><span class="meta-value">≈ 1,048 m</span></div>
+                <div class="meta-box"><span class="meta-label">Best season</span><span class="meta-value">Oct–Mar</span></div>
+              </div>
+              <p class="attractions-title">Top attractions</p>
+              <ul class="attraction-list"><li>Narmada Udgam</li><li>Kapil Dhara</li><li>Ancient temples</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="hill-empty" id="hill-empty">
+          No hill stations match this region yet.
+        </div>
+
+        <div class="hill-note">
+          <strong>Travel note:</strong> Altitudes are approximate and weather in mountain regions can change quickly.
+          Check local weather, road, and access advisories before travel.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="hill-footer">
+    <div class="hill-container">
+      <p>Part of <a href="index.html">Incredible India Explorer</a> · Built with Vanilla HTML, CSS & JavaScript.</p>
+    </div>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const buttons = document.querySelectorAll(".region-filter button");
+      const cards = document.querySelectorAll(".hill-card");
+      const status = document.getElementById("result-status");
+      const emptyState = document.getElementById("hill-empty");
+      const menuToggle = document.getElementById("menu-toggle");
+
+      const regionNames = {
+        all: "all regions",
+        north: "North India",
+        south: "South India",
+        east: "East & Northeast India",
+        west: "West India",
+        central: "Central India"
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selectedRegion = button.dataset.region;
+          let visibleCount = 0;
+
+          buttons.forEach((item) => {
+            const isActive = item === button;
+            item.classList.toggle("active", isActive);
+            item.setAttribute("aria-pressed", String(isActive));
+          });
+
+          cards.forEach((card) => {
+            const matches = selectedRegion === "all" || card.dataset.region === selectedRegion;
+            card.hidden = !matches;
+            if (matches) visibleCount += 1;
+          });
+
+          status.textContent = selectedRegion === "all"
+            ? `Showing all ${visibleCount} destinations`
+            : `Showing ${visibleCount} destination${visibleCount === 1 ? "" : "s"} in ${regionNames[selectedRegion]}`;
+
+          emptyState.classList.toggle("visible", visibleCount === 0);
+        });
+      });
+
+      // Keep aria-expanded aligned with the shared mobile menu interaction.
+      if (menuToggle) {
+        menuToggle.addEventListener("click", () => {
+          const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+          menuToggle.setAttribute("aria-expanded", String(!expanded));
+        });
+      }
+    });
+  </script>
+</body>
+</html>
