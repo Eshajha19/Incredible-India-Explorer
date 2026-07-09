@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore butterfly species found across India with region filters, habitats, seasonal visibility, conservation notes, and interactive galleries.">
+  <title>Indian Butterfly Species Explorer | Incredible India</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="butterfly.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="wildlife.html" class="nav-link">Nature & Wildlife</a>
+        <a href="travel.html" class="nav-link">Travel</a>
+        <a href="butterfly.html" class="nav-link" style="color:var(--saffron)">Butterflies</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="butterfly-page">
+    <section class="butterfly-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Wings · habitats · seasons</span>
+        <h1>Indian Butterfly <span>Species Explorer</span></h1>
+        <p>Discover colourful butterfly species from forests, gardens, coasts, wetlands, mountains, and open landscapes across India.</p>
+        <div class="hero-stats">
+          <div><strong id="hero-count">12</strong><span>Featured species</span></div>
+          <div><strong>5+</strong><span>Regional patterns</span></div>
+          <div><strong>∞</strong><span>Reasons to observe gently</span></div>
+        </div>
+        <a href="#explorer" class="hero-cta">Start exploring ↓</a>
+      </div>
+    </section>
+
+    <section class="butterfly-section" id="explorer">
+      <div class="butterfly-container">
+        <div class="section-heading">
+          <span class="section-badge">Butterfly Field Explorer</span>
+          <h2>Search by species, habitat, or season</h2>
+          <p>Use region filters and search to learn where species occur, when they are visible, and what habitats they prefer.</p>
+        </div>
+
+        <div class="conservation-note">
+          <strong>About conservation status:</strong>
+          This explorer uses simple field-guide style notes such as “Widespread,” “Common,” or “Range-restricted.”
+          These are not substitutes for formal legal protection schedules or IUCN Red List assessments.
+        </div>
+
+        <div class="explorer-controls">
+          <div class="control-field">
+            <label for="butterfly-search">Search species</label>
+            <input id="butterfly-search" type="search" placeholder="Try Blue Mormon, garden, monsoon..." autocomplete="off">
+          </div>
+          <div class="control-field">
+            <label for="region-filter">Region</label>
+            <select id="region-filter"><option value="all">All regions</option></select>
+          </div>
+        </div>
+
+        <div class="results-toolbar">
+          <p id="result-status" aria-live="polite">Showing all 12 species</p>
+          <button id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="butterfly-grid" id="butterfly-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>⌕</span>
+          <h3>No butterfly found</h3>
+          <p>Try another species, habitat, season, or region.</p>
+          <button id="empty-reset" type="button">Reset filters</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="butterfly-modal" id="butterfly-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close butterfly details">×</button>
+      <div class="modal-gallery">
+        <img id="modal-image" src="" alt="">
+        <span id="modal-counter" class="modal-counter"></span>
+        <div class="modal-nav">
+          <button id="modal-prev" type="button" aria-label="Previous image">←</button>
+          <button id="modal-next" type="button" aria-label="Next image">→</button>
+        </div>
+      </div>
+      <div class="modal-copy">
+        <span class="modal-kicker" id="modal-region"></span>
+        <h2 id="modal-title"></h2>
+        <p class="scientific-name" id="modal-scientific"></p>
+
+        <div class="detail-block">
+          <span>Habitat</span>
+          <p id="modal-habitat"></p>
+        </div>
+
+        <div class="detail-grid">
+          <div>
+            <span>Conservation note</span>
+            <strong id="modal-status"></strong>
+          </div>
+          <div>
+            <span>Seasonal visibility</span>
+            <strong id="modal-season"></strong>
+          </div>
+        </div>
+
+        <div class="fact-box">
+          <span>Field note</span>
+          <p id="modal-description"></p>
+        </div>
+
+        <div class="fact-box accent">
+          <span>Interesting fact</span>
+          <p id="modal-fact"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="butterfly-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Observe wildlife respectfully and avoid disturbing butterflies or host plants.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="butterfly.js"></script>
+</body>
+</html>
