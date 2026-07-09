@@ -41,17 +41,28 @@ self.addEventListener('activate', event => {
 
 // Fetch Event
 self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+  const shouldBypassCache =
+    event.request.mode === 'navigate' ||
+    url.pathname.includes('/api/firebase-config') ||
+    url.pathname.includes('/auth') ||
+    url.pathname.includes('/firebase-config') ||
+    event.request.destination === 'script' ||
+    event.request.destination === 'style';
+
+  if (shouldBypassCache) {
+    event.respondWith(fetch(event.request).catch(() => caches.match('./index.html')));
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Return cached response if found
         if (response) {
           return response;
         }
-        
-        // Otherwise fetch from network
+
         return fetch(event.request).then(networkResponse => {
-          // Dynamically cache new assets requested (optional, but good for offline PWA)
           if (event.request.method === 'GET' && networkResponse.status === 200) {
             const responseToCache = networkResponse.clone();
             caches.open(CACHE_NAME).then(cache => {
@@ -60,7 +71,6 @@ self.addEventListener('fetch', event => {
           }
           return networkResponse;
         }).catch(() => {
-          // Fallback if offline and not in cache
           if (event.request.mode === 'navigate') {
             return caches.match('./index.html');
           }
