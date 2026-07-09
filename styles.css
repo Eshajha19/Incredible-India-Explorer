@@ -1503,8 +1503,8 @@ button {
 
 .btn-scroll-top {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 110px;      /* above chatbot */
+    right: 24px;
     width: 46px;
     height: 46px;
     border-radius: 50%;
@@ -1522,6 +1522,19 @@ button {
     transform: translateY(10px);
     transition: var(--transition-smooth);
     z-index: 90;
+}
+
+.btn-scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.btn-scroll-top:hover {
+    background: var(--primary-gold);
+    color: #000;
+    border-color: transparent;
+    box-shadow: var(--shadow-glow-active);
 }
 
 .btn-scroll-top.visible {
