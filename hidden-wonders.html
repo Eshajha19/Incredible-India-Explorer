@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore India's lesser-known natural wonders with search, state filters, image galleries and fun facts.">
+  <title>Hidden Natural Wonders Explorer | Incredible India</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hidden-wonders.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#map" class="nav-link">Interactive Map</a>
+        <a href="travel.html" class="nav-link">Travel</a>
+        <a href="wildlife.html" class="nav-link">Wildlife</a>
+        <a href="hidden-wonders.html" class="nav-link" style="color:var(--saffron)">Hidden Wonders</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wonders-page">
+    <section class="wonders-hero">
+      <div class="wonders-hero-content">
+        <span class="hero-kicker">Beyond the usual map pins</span>
+        <h1>Hidden Natural Wonders <span>of India</span></h1>
+        <p>Discover meteor-impact lakes, marble canyons, living bridges, alpine flower valleys, salt deserts and more.</p>
+        <div class="hero-stats">
+          <div><strong id="hero-total">12</strong><span>Natural wonders</span></div>
+          <div><strong id="hero-states">10</strong><span>States & UTs</span></div>
+          <div><strong>∞</strong><span>Reasons to explore</span></div>
+        </div>
+        <a href="#explorer" class="hero-cta">Discover the unusual ↓</a>
+      </div>
+    </section>
+
+    <section class="wonders-section" id="explorer">
+      <div class="wonders-container">
+        <div class="section-heading">
+          <span class="section-badge">Nature's Unexpected Side</span>
+          <h2>Search for a wonder worth the detour</h2>
+          <p>Search by place or landscape type, then filter by state.</p>
+        </div>
+
+        <div class="explorer-controls">
+          <div class="control-field">
+            <label for="wonder-search">Search wonders</label>
+            <input id="wonder-search" type="search" placeholder="Try lake, gorge, flowers, Ladakh..." autocomplete="off">
+          </div>
+          <div class="control-field">
+            <label for="state-filter">Filter by state</label>
+            <select id="state-filter"><option value="all">All states</option></select>
+          </div>
+        </div>
+
+        <div class="results-toolbar">
+          <p id="result-status" aria-live="polite">Showing all 12 wonders</p>
+          <button id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="wonder-grid" id="wonder-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>⌕</span>
+          <h3>No natural wonder found</h3>
+          <p>Try another search term or choose a different state.</p>
+          <button id="empty-reset" type="button">Reset filters</button>
+        </div>
+
+        <div class="explorer-note">
+          <strong>Travel gently:</strong> Many natural sites are ecologically or culturally sensitive. Follow local access rules, avoid littering, and respect community guidance.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="wonder-modal" id="wonder-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close details">×</button>
+      <div class="modal-gallery">
+        <img id="modal-image" src="" alt="">
+        <span id="modal-counter"></span>
+        <div class="modal-gallery-actions">
+          <button id="modal-prev" type="button" aria-label="Previous image">←</button>
+          <button id="modal-next" type="button" aria-label="Next image">→</button>
+        </div>
+      </div>
+      <div class="modal-copy">
+        <span class="modal-kicker" id="modal-location"></span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <div class="fun-fact-box">
+          <span>Did you know?</span>
+          <p id="modal-fact"></p>
+        </div>
+        <div class="modal-meta">
+          <div><span>Landscape</span><strong id="modal-type"></strong></div>
+          <div><span>Best season</span><strong id="modal-season"></strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="wonders-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Look closer. Nature is full of surprises.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="hidden-wonders.js"></script>
+</body>
+</html>
