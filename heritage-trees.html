@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore historically and culturally significant heritage trees across India.">
+  <title>Indian Heritage Trees Explorer | Incredible India</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="heritage-trees.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="heritage.html" class="nav-link">Heritage</a>
+        <a href="wildlife.html" class="nav-link">Nature & Wildlife</a>
+        <a href="heritage-trees.html" class="nav-link" style="color:var(--saffron)">Heritage Trees</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="trees-page">
+    <section class="trees-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Living monuments · cultural memory</span>
+        <h1>Indian Heritage <span>Trees Explorer</span></h1>
+        <p>Discover ancient banyans, sacred peepals, historic chinars, baobabs, and community-protected forest traditions across India.</p>
+
+        <div class="hero-stats">
+          <div><strong id="hero-count">12</strong><span>Heritage tree stories</span></div>
+          <div><strong id="hero-state-count">10</strong><span>States represented</span></div>
+          <div><strong>Centuries</strong><span>of living history</span></div>
+        </div>
+
+        <a href="#explorer" class="hero-cta">Explore living heritage ↓</a>
+      </div>
+    </section>
+
+    <section class="trees-section" id="explorer">
+      <div class="trees-container">
+        <div class="section-heading">
+          <span class="section-badge">Living Heritage</span>
+          <h2>Search India's historic and sacred trees</h2>
+          <p>Search by tree name, scientific name, place, or cultural story, then filter by state.</p>
+        </div>
+
+        <div class="age-note">
+          <strong>About estimated ages:</strong>
+          Exact ages of very old trees are often difficult to verify.
+          The explorer presents broad estimates or heritage-tradition descriptions where precise dating is uncertain.
+        </div>
+
+        <div class="explorer-controls">
+          <div class="control-field">
+            <label for="tree-search">Search trees</label>
+            <input id="tree-search" type="search" placeholder="Try banyan, Bodh Gaya, baobab, Kashmir..." autocomplete="off">
+          </div>
+
+          <div class="control-field">
+            <label for="state-filter">State</label>
+            <select id="state-filter"><option value="all">All states</option></select>
+          </div>
+        </div>
+
+        <div class="results-toolbar">
+          <p id="result-status" aria-live="polite">Showing all 12 heritage stories</p>
+          <button id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="tree-grid" id="tree-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>⌕</span>
+          <h3>No heritage tree found</h3>
+          <p>Try another tree, place, scientific name, or state.</p>
+          <button id="empty-reset" type="button">Reset filters</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="tree-modal" id="tree-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close tree details">×</button>
+
+      <div class="modal-gallery">
+        <img id="modal-image" src="" alt="">
+        <span id="modal-counter" class="modal-counter"></span>
+
+        <div class="modal-nav">
+          <button id="modal-prev" type="button" aria-label="Previous image">←</button>
+          <button id="modal-next" type="button" aria-label="Next image">→</button>
+        </div>
+      </div>
+
+      <div class="modal-copy">
+        <span class="modal-kicker" id="modal-state"></span>
+        <h2 id="modal-title"></h2>
+        <p class="scientific-name" id="modal-scientific"></p>
+
+        <div class="detail-grid">
+          <div>
+            <span>Location</span>
+            <strong id="modal-location"></strong>
+          </div>
+
+          <div>
+            <span>Estimated age</span>
+            <strong id="modal-age"></strong>
+          </div>
+        </div>
+
+        <div class="detail-block">
+          <span>Cultural significance</span>
+          <p id="modal-significance"></p>
+        </div>
+
+        <div class="fact-box">
+          <span>Interesting fact</span>
+          <p id="modal-fact"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="trees-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Celebrate living heritage and protect old trees.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="app.js"></script>
+  <script src="heritage-trees.js"></script>
+</body>
+</html>
