@@ -766,3 +766,339 @@ function initCoinsPage() {
     });
 }
  
+/* ==========================================================================
+   3. RIVERS OF INDIA PAGE
+   Appended for river.html. river.html includes app.js/data.js itself for the
+   real site navbar/footer, so this file only needs to boot the rivers page
+   content — it does not rely on the app:route-changed dispatcher above.
+   ========================================================================== */
+
+const RIVERS_DATA = [
+    {
+        id: 'ganga',
+        name: 'Ganga',
+        region: 'north',
+        image: 'assets/river1.png',
+        cardDesc: 'The sacred river that purifies souls and nourishes millions.',
+        origin: 'Gangotri Glacier',
+        originFull: 'Gangotri Glacier, Uttarakhand',
+        mouth: 'Bay of Bengal',
+        length: '2,525 km',
+        statesCount: 5,
+        overview: 'Revered as Mother Ganga, this holy river holds immense mythological, spiritual and cultural significance in India. It is not just a water source but a symbol of purity, life and salvation.',
+        highlights: [
+            { icon: 'fa-om', label: 'Divine Significance', text: 'Believed to have descended from heaven to earth, Ganga is worshipped as a goddess.' },
+            { icon: 'fa-leaf', label: 'Ecological Value', text: 'Supports diverse flora and fauna and sustains millions of livelihoods along its course.' },
+            { icon: 'fa-landmark', label: 'Cultural Heritage', text: 'Source of inspiration for art, literature, festivals and ancient traditions.' }
+        ],
+        statesCovered: ['Uttarakhand', 'Uttar Pradesh', 'Bihar', 'West Bengal', 'Jharkhand'],
+        majorCities: ['Rishikesh', 'Varanasi', 'Haridwar', 'Patna', 'Prayagraj', 'Kolkata'],
+        majorTributaries: ['Yamuna', 'Ghaghara', 'Kosi', 'Gandak'],
+        quote: 'Ganga is not merely a river, it is a way of life, a flow of devotion that connects generations.'
+    },
+    {
+        id: 'yamuna',
+        name: 'Yamuna',
+        region: 'north',
+        image: 'assets/river2.png',
+        cardDesc: 'The eternal companion of Ganga, flowing through heritage and history.',
+        origin: 'Yamunotri Glacier',
+        originFull: 'Yamunotri Glacier, Uttarakhand',
+        mouth: 'Confluence at Prayagraj',
+        length: '1,376 km',
+        statesCount: 4,
+        overview: 'Yamuna is Ganga\u2019s eternal companion, weaving through the heartland of Indian history from the hills of Uttarakhand to the plains of Uttar Pradesh, nourishing civilizations along its banks.',
+        highlights: [
+            { icon: 'fa-om', label: 'Divine Significance', text: 'Worshipped as Goddess Yamuna, daughter of the Sun God, and linked to the legends of Lord Krishna.' },
+            { icon: 'fa-leaf', label: 'Ecological Value', text: 'Sustains agriculture across the Delhi-Agra corridor despite mounting pollution pressures.' },
+            { icon: 'fa-landmark', label: 'Cultural Heritage', text: 'Home to the Taj Mahal, Krishna\u2019s Braj Bhoomi and centuries of layered heritage.' }
+        ],
+        statesCovered: ['Uttarakhand', 'Haryana', 'Delhi', 'Uttar Pradesh'],
+        majorCities: ['Delhi', 'Mathura', 'Agra', 'Prayagraj'],
+        majorTributaries: ['Chambal', 'Betwa', 'Ken', 'Sindh'],
+        quote: 'Yamuna carries the songs of Krishna and the whispers of empires long past.'
+    },
+    {
+        id: 'brahmaputra',
+        name: 'Brahmaputra',
+        region: 'north',
+        image: 'assets/river3.png',
+        cardDesc: 'The mighty river with unmatched power and grace.',
+        origin: 'Angsi Glacier (Tibet)',
+        originFull: 'Angsi Glacier, Tibet',
+        mouth: 'Bay of Bengal',
+        length: '2,900 km',
+        statesCount: 4,
+        overview: 'One of the mightiest rivers in Asia, the Brahmaputra carves through the Himalayas into Assam, shaping fertile plains, islands and a way of life built around its immense power.',
+        highlights: [
+            { icon: 'fa-om', label: 'Divine Significance', text: 'Uniquely regarded as a male river-god in Hindu tradition, unlike most other Indian rivers.' },
+            { icon: 'fa-leaf', label: 'Ecological Value', text: 'Feeds the biodiverse floodplains of Kaziranga and the world\u2019s largest river island, Majuli.' },
+            { icon: 'fa-landmark', label: 'Cultural Heritage', text: 'Central to Assamese identity, festivals and the region\u2019s riverine trade history.' }
+        ],
+        statesCovered: ['Arunachal Pradesh', 'Assam', 'Meghalaya', 'West Bengal'],
+        majorCities: ['Dibrugarh', 'Guwahati', 'Tezpur', 'Dhubri'],
+        majorTributaries: ['Dibang', 'Lohit', 'Subansiri', 'Teesta'],
+        quote: 'The Brahmaputra does not merely flow, it thunders with the strength of the mountains it descends.'
+    },
+    {
+        id: 'godavari',
+        name: 'Godavari',
+        region: 'south',
+        image: 'assets/river4.png',
+        cardDesc: 'Dakshina Ganga \u2013 the lifeline of the Deccan Plateau.',
+        origin: 'Trimbakeshwar',
+        originFull: 'Trimbakeshwar, Maharashtra',
+        mouth: 'Bay of Bengal',
+        length: '1,465 km',
+        statesCount: 6,
+        overview: 'Known as the Dakshina Ganga, the Godavari is the lifeline of the Deccan Plateau, sustaining vast agricultural belts across peninsular India.',
+        highlights: [
+            { icon: 'fa-om', label: 'Divine Significance', text: 'Revered as the southern Ganga, hosting the sacred Nashik Kumbh Mela on its banks.' },
+            { icon: 'fa-leaf', label: 'Ecological Value', text: 'Irrigates one of India\u2019s largest river basins, supporting rice and cotton farming.' },
+            { icon: 'fa-landmark', label: 'Cultural Heritage', text: 'Anchors centuries of temple towns, classical arts and pilgrimage traditions.' }
+        ],
+        statesCovered: ['Maharashtra', 'Telangana', 'Andhra Pradesh', 'Chhattisgarh', 'Odisha', 'Karnataka'],
+        majorCities: ['Nashik', 'Nanded', 'Rajahmundry', 'Bhadrachalam'],
+        majorTributaries: ['Penganga', 'Manjira', 'Indravati', 'Sabari'],
+        quote: 'Godavari carries the Ganga\u2019s grace southward, blessing every field it touches.'
+    },
+    {
+        id: 'krishna',
+        name: 'Krishna',
+        region: 'south',
+        image: 'assets/river5.png',
+        cardDesc: 'A giver of life, prosperity and abundant harvests.',
+        origin: 'Mahabaleshwar',
+        originFull: 'Mahabaleshwar, Maharashtra',
+        mouth: 'Bay of Bengal',
+        length: '1,400 km',
+        statesCount: 5,
+        overview: 'Rising in the Western Ghats, the Krishna river sustains a vast basin of farmland, powering irrigation and prosperity across the Deccan interior.',
+        highlights: [
+            { icon: 'fa-om', label: 'Divine Significance', text: 'Associated with legends of Lord Krishna and revered at temple towns along its course.' },
+            { icon: 'fa-leaf', label: 'Ecological Value', text: 'Powers major irrigation projects and hydroelectric dams supporting millions of farmers.' },
+            { icon: 'fa-landmark', label: 'Cultural Heritage', text: 'Nurtures a rich heritage of temple architecture, classical music and Deccan cuisine.' }
+        ],
+        statesCovered: ['Maharashtra', 'Karnataka', 'Telangana', 'Andhra Pradesh', 'Goa'],
+        majorCities: ['Sangli', 'Vijayawada', 'Raichur', 'Amravati'],
+        majorTributaries: ['Tungabhadra', 'Bhima', 'Koyna', 'Ghataprabha'],
+        quote: 'Krishna flows quietly, yet no harvest in the Deccan forgets its gift.'
+    },
+    {
+        id: 'mahanadi',
+        name: 'Mahanadi',
+        region: 'east',
+        image: 'assets/river6.png',
+        cardDesc: 'The heart of Odisha, sustaining farms and people.',
+        origin: 'Sihawa Hills',
+        originFull: 'Sihawa Hills, Chhattisgarh',
+        mouth: 'Bay of Bengal',
+        length: '851 km',
+        statesCount: 2,
+        overview: 'The Mahanadi is the beating heart of Odisha, weaving through Chhattisgarh\u2019s forests before nourishing the fertile delta that has sustained farming communities for generations.',
+        highlights: [
+            { icon: 'fa-om', label: 'Divine Significance', text: 'Celebrated in Odia folklore and worshipped during regional harvest festivals.' },
+            { icon: 'fa-leaf', label: 'Ecological Value', text: 'Sustains the vast Hirakud Dam reservoir, one of the largest earthen dams in the world.' },
+            { icon: 'fa-landmark', label: 'Cultural Heritage', text: 'Shapes Odisha\u2019s rice-farming traditions, festivals and riverside temple towns.' }
+        ],
+        statesCovered: ['Chhattisgarh', 'Odisha'],
+        majorCities: ['Raipur', 'Sambalpur', 'Cuttack', 'Bhubaneswar'],
+        majorTributaries: ['Seonath', 'Hasdeo', 'Ib', 'Tel'],
+        quote: 'Mahanadi is the quiet heartbeat of Odisha, patient and endlessly giving.'
+    }
+];
+
+function initRiversPage() {
+    const cardsGrid = document.getElementById('rivers-cards-grid');
+    const filterTabs = document.getElementById('rivers-filter-tabs');
+    const searchInput = document.getElementById('rivers-search-input');
+    const modalBackdrop = document.getElementById('rivers-modal-backdrop');
+    const detailPanel = document.getElementById('rivers-detail-panel');
+
+    if (!cardsGrid || !filterTabs || !detailPanel) return;
+
+    let activeRegion = 'all';
+
+    /* ---------- Small decorative wave-with-dots SVG for the popup map path ---------- */
+    function waveSvg() {
+        return `
+            <svg viewBox="0 0 200 16" preserveAspectRatio="none">
+                <path d="M0,8 C25,-4 45,20 70,8 C95,-4 115,20 140,8 C155,2 170,2 200,8"
+                      fill="none" stroke="var(--primary-gold)" stroke-width="1.5" opacity="0.65"/>
+                <circle cx="65" cy="9" r="3" fill="var(--primary-gold)"/>
+                <circle cx="135" cy="9" r="3" fill="var(--primary-gold)"/>
+            </svg>
+        `;
+    }
+
+    /* ---------- Render: Cards Grid ---------- */
+    function renderCards() {
+        const query = (searchInput?.value || '').trim().toLowerCase();
+
+        const list = RIVERS_DATA.filter(r => {
+            const matchesRegion = activeRegion === 'all' || r.region === activeRegion;
+            const matchesQuery = !query ||
+                r.name.toLowerCase().includes(query) ||
+                r.origin.toLowerCase().includes(query) ||
+                r.statesCovered.join(' ').toLowerCase().includes(query);
+            return matchesRegion && matchesQuery;
+        });
+
+        if (!list.length) {
+            cardsGrid.innerHTML = `<p class="rivers-no-results">No rivers match your search. Try a different name or region.</p>`;
+            return;
+        }
+
+        cardsGrid.innerHTML = list.map(r => `
+            <div class="rivers-card" data-id="${r.id}">
+                <div class="rivers-card-img-wrap">
+                    <img src="${r.image}" alt="${r.name} river">
+                    <div class="rivers-card-img-overlay"></div>
+                    <span class="rivers-card-badge region-${r.region}">${r.region}</span>
+                    <h3 class="rivers-card-title">${r.name}</h3>
+                </div>
+                <div class="rivers-card-body">
+                    <p class="rivers-card-desc">${r.cardDesc}</p>
+                    <div class="rivers-card-stats">
+                        <div class="rivers-card-stat">
+                            <span class="rivers-card-stat-label"><i class="fa-solid fa-location-dot"></i> Origin</span>
+                            <span class="rivers-card-stat-value">${r.origin}</span>
+                        </div>
+                        <div class="rivers-card-stat">
+                            <span class="rivers-card-stat-label"><i class="fa-solid fa-ruler-horizontal"></i> Length</span>
+                            <span class="rivers-card-stat-value">${r.length}</span>
+                        </div>
+                        <div class="rivers-card-stat">
+                            <span class="rivers-card-stat-label"><i class="fa-solid fa-map"></i> States</span>
+                            <span class="rivers-card-stat-value">${r.statesCount}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        cardsGrid.querySelectorAll('.rivers-card').forEach(card => {
+            card.addEventListener('click', () => openRiverDetail(card.dataset.id));
+        });
+    }
+
+    /* ---------- Render: Detail Popup ---------- */
+    function openRiverDetail(riverId) {
+        const r = RIVERS_DATA.find(rv => rv.id === riverId);
+        if (!r) return;
+
+        const highlightsHtml = r.highlights.map(h => `
+            <div class="rivers-highlight-item">
+                <div class="rivers-highlight-icon"><i class="fa-solid ${h.icon}"></i></div>
+                <span class="rivers-highlight-label">${h.label}</span>
+                <p class="rivers-highlight-text">${h.text}</p>
+            </div>
+        `).join('');
+
+        const citiesHtml = r.majorCities.map(c => `<li><i class="fa-solid fa-building-columns"></i>${c}</li>`).join('');
+        const tributariesHtml = r.majorTributaries.map(t => `<li>${t}</li>`).join('');
+        const tagsHtml = r.statesCovered.map(s => `<span class="rivers-stat-tag">${s}</span>`).join('');
+
+        detailPanel.style.backgroundImage = `url('${r.image}')`;
+
+        detailPanel.innerHTML = `
+            <div class="rivers-detail-panel-overlay">
+                <button class="rivers-detail-close" id="rivers-detail-close" aria-label="Close">✕</button>
+
+                <div class="rivers-detail-top">
+                    <h2>${r.name}</h2>
+                    <p class="rivers-detail-tagline">${r.cardDesc}</p>
+                </div>
+
+                <p class="rivers-detail-desc">${r.overview}</p>
+
+                <div class="rivers-detail-row">
+                    <div class="rivers-detail-highlights">${highlightsHtml}</div>
+
+                    <div class="rivers-detail-mappath">
+                        <div class="rivers-mappath-row">
+                            <div class="rivers-mappath-point">
+                                <div class="rivers-mappath-icon"><i class="fa-solid fa-mountain"></i></div>
+                                <span class="rivers-mappath-label">Origin</span>
+                                <span class="rivers-mappath-value">${r.originFull}</span>
+                            </div>
+                            <div class="rivers-mappath-line">${waveSvg()}</div>
+                            <div class="rivers-mappath-point">
+                                <div class="rivers-mappath-icon"><i class="fa-solid fa-water"></i></div>
+                                <span class="rivers-mappath-label">Mouth</span>
+                                <span class="rivers-mappath-value">${r.mouth}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rivers-detail-statsbox">
+                        <div>
+                            <span class="rivers-stat-block-label">Length</span>
+                            <span class="rivers-stat-length-value">${r.length}</span>
+                        </div>
+                        <div class="rivers-stat-divider"></div>
+                        <div>
+                            <span class="rivers-stat-block-label">States Covered</span>
+                            <div class="rivers-stat-tags">${tagsHtml}</div>
+                        </div>
+                        <div class="rivers-stat-divider"></div>
+                        <div>
+                            <span class="rivers-stat-block-label">Major Cities</span>
+                            <ul class="rivers-stat-list">${citiesHtml}</ul>
+                        </div>
+                        <div class="rivers-stat-divider"></div>
+                        <div>
+                            <span class="rivers-stat-block-label">Major Tributaries</span>
+                            <ul class="rivers-stat-list">${tributariesHtml}</ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rivers-detail-quote">
+                    <p><span class="quote-mark">\u201c</span>${r.quote}<span class="quote-mark">\u201d</span></p>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('rivers-detail-close')?.addEventListener('click', closeRiverDetail);
+
+        modalBackdrop.classList.add('open');
+        detailPanel.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeRiverDetail() {
+        modalBackdrop.classList.remove('open');
+        detailPanel.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    modalBackdrop?.addEventListener('click', closeRiverDetail);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeRiverDetail();
+    });
+
+    /* ---------- Filter tab clicks ---------- */
+    filterTabs.querySelectorAll('.rivers-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            activeRegion = btn.dataset.region;
+            filterTabs.querySelectorAll('.rivers-filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+            renderCards();
+        });
+    });
+
+    /* ---------- Search ---------- */
+    searchInput?.addEventListener('input', renderCards);
+
+    /* ---------- Init ---------- */
+    renderCards();
+}
+
+/* river.html loads its real navbar/footer via app.js (like the rest of the
+   site), so this page boots itself directly on DOMContentLoaded rather than
+   waiting on the app:route-changed event used by the dispatcher above. */
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.body.dataset.page === 'rivers') {
+        initRiversPage();
+    }
+});

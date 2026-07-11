@@ -1464,3 +1464,776 @@ body.coins-page-body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ==========================================================================
+   RIVERS OF INDIA PAGE - PAGE SPECIFIC STYLES
+   Uses global variables/reset/navbar/footer from styles.css
+   ========================================================================== */
+
+body.rivers-page-body {
+    background: var(--bg-dark-deep);
+}
+
+.rivers-page-body .section-container {
+    padding: 50px 24px;
+}
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.rivers-hero {
+    position: relative;
+    width: 100%;
+    min-height: 620px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.rivers-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.rivers-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 68% center;
+}
+
+.rivers-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg,
+            hsl(222, 47%, 4%) 0%,
+            hsla(222, 47%, 4%, 0.92) 30%,
+            hsla(222, 47%, 4%, 0.5) 58%,
+            hsla(222, 47%, 4%, 0.22) 78%,
+            hsla(222, 47%, 4%, 0.3) 100%);
+}
+
+.rivers-hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+.rivers-hero-content {
+    max-width: 640px;
+}
+
+.rivers-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--primary-gold);
+    border: 1px solid rgba(255, 176, 31, 0.45);
+    border-radius: 999px;
+    padding: 9px 22px;
+    margin-bottom: 26px;
+    background: hsla(28, 40%, 10%, 0.35);
+}
+
+.rivers-badge .badge-diamond {
+    font-size: 0.7rem;
+    opacity: 0.85;
+}
+
+.rivers-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.6rem;
+    line-height: 1.12;
+    color: var(--text-light);
+    font-weight: 700;
+    margin: 0 0 22px;
+}
+
+.rivers-hero-content p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 460px;
+}
+
+.rivers-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.rivers-divider .line {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary-gold), transparent);
+}
+
+.rivers-divider .dot {
+    color: var(--primary-gold);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   2. FILTER / SEARCH BAR
+   ========================================================================== */
+.rivers-filter-section .section-container {
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.rivers-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-dark-card);
+    border: 1px solid rgba(255, 176, 31, 0.18);
+    border-radius: 999px;
+    padding: 10px 14px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-soft);
+    flex-wrap: wrap;
+}
+
+.rivers-filter-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.rivers-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    white-space: nowrap;
+}
+
+.rivers-filter-btn i {
+    font-size: 0.9rem;
+}
+
+.rivers-filter-btn:hover {
+    color: var(--text-light);
+}
+
+.rivers-filter-btn.active {
+    background: var(--primary-gold);
+    color: var(--bg-dark-deep);
+}
+
+.rivers-filter-btn.active i {
+    color: var(--bg-dark-deep) !important;
+}
+
+.rivers-search-box {
+    flex: 1 1 260px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: hsla(222, 40%, 10%, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 10px 18px;
+}
+
+.rivers-search-box .search-icon {
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+.rivers-search-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+.rivers-search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   3. RIVER CARDS GRID
+   ========================================================================== */
+.rivers-grid-section .section-container {
+    padding-top: 10px;
+    padding-bottom: 60px;
+}
+
+.rivers-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+.rivers-card {
+    position: relative;
+    background: var(--bg-dark-card);
+    border: 1px solid rgba(255, 176, 31, 0.3);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.rivers-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary-gold);
+    box-shadow: var(--shadow-glow-active);
+}
+
+.rivers-card-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+}
+
+.rivers-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+.rivers-card:hover .rivers-card-img-wrap img {
+    transform: scale(1.06);
+}
+
+.rivers-card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 35%, hsla(222, 47%, 4%, 0.9) 100%);
+    pointer-events: none;
+}
+
+.rivers-card-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 999px;
+}
+
+.rivers-card-badge.region-north {
+    background: hsl(205, 75%, 48%);
+}
+
+.rivers-card-badge.region-south {
+    background: hsl(142, 55%, 36%);
+}
+
+.rivers-card-badge.region-east {
+    background: hsl(28, 85%, 48%);
+}
+
+.rivers-card-badge.region-west {
+    background: hsl(355, 65%, 48%);
+}
+
+.rivers-card-title {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-shadow: 0 2px 12px hsla(222, 47%, 2%, 0.7);
+}
+
+.rivers-card-body {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.rivers-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+.rivers-card-stats {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rivers-card-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rivers-card-stat-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.rivers-card-stat-label i {
+    color: var(--primary-gold);
+    font-size: 0.78rem;
+}
+
+.rivers-card-stat-value {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.rivers-no-results {
+    grid-column: 1 / -1;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   4. DETAIL POPUP (modal, shown on card click)
+   ========================================================================== */
+.rivers-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: hsla(222, 47%, 4%, 0.8);
+    backdrop-filter: blur(6px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.rivers-modal-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.rivers-detail-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%);
+    width: min(1200px, 94vw);
+    max-height: 88vh;
+    overflow-y: auto;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--primary-gold);
+    box-shadow: 0 25px 70px hsla(222, 47%, 2%, 0.6), var(--shadow-glow-active);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.rivers-detail-panel.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+}
+
+.rivers-detail-panel-overlay {
+    position: relative;
+    min-height: 100%;
+    background: linear-gradient(120deg,
+            hsla(222, 47%, 4%, 0.82) 0%,
+            hsla(222, 47%, 5%, 0.74) 45%,
+            hsla(222, 47%, 6%, 0.6) 100%);
+    padding: 34px 40px 40px;
+}
+
+/* Extra scrim just behind the text blocks so copy stays readable
+   even with the lighter overlay above letting more of the photo through */
+.rivers-detail-top,
+.rivers-detail-desc {
+    text-shadow: 0 2px 10px hsla(222, 47%, 2%, 0.85);
+}
+
+.rivers-detail-highlights .rivers-highlight-text,
+.rivers-mappath-value,
+.rivers-stat-list li,
+.rivers-stat-tag {
+    text-shadow: 0 1px 6px hsla(222, 47%, 2%, 0.6);
+}
+
+.rivers-detail-close {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: hsla(222, 47%, 6%, 0.5);
+    color: var(--text-light);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-snappy);
+    z-index: 5;
+}
+
+.rivers-detail-close:hover {
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+}
+
+.rivers-detail-top {
+    max-width: 640px;
+    padding-right: 40px;
+    margin-bottom: 16px;
+}
+
+.rivers-detail-top h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    margin: 0 0 8px;
+}
+
+.rivers-detail-tagline {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    opacity: 0.85;
+}
+
+.rivers-detail-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 780px;
+    margin-bottom: 30px;
+}
+
+.rivers-detail-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 320px;
+    gap: 34px;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+.rivers-detail-highlights {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.rivers-highlight-item {
+    flex: 1 1 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.rivers-highlight-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: hsla(43, 85%, 52%, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-gold);
+    font-size: 1.05rem;
+}
+
+.rivers-highlight-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.rivers-highlight-text {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+.rivers-detail-mappath {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-top: 6px;
+}
+
+.rivers-mappath-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+}
+
+.rivers-mappath-point {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    width: 108px;
+}
+
+.rivers-mappath-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--primary-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-gold);
+    font-size: 0.95rem;
+    background: var(--bg-dark-modal);
+    box-shadow: var(--shadow-glow);
+}
+
+.rivers-mappath-label {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.rivers-mappath-value {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.35;
+}
+
+.rivers-mappath-line {
+    flex: 1;
+    height: 16px;
+}
+
+.rivers-mappath-line svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.rivers-detail-statsbox {
+    border: 1px solid rgba(255, 176, 31, 0.25);
+    border-radius: var(--border-radius-lg);
+    padding: 22px 24px;
+    background: hsla(222, 40%, 8%, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.rivers-stat-block-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.rivers-stat-length-value {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+}
+
+.rivers-stat-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.rivers-stat-tag {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 4px 11px;
+}
+
+.rivers-stat-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.rivers-stat-list li {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rivers-stat-list li i {
+    color: var(--primary-gold);
+    font-size: 0.68rem;
+}
+
+.rivers-stat-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.rivers-detail-quote {
+    text-align: center;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 176, 31, 0.15);
+}
+
+.rivers-detail-quote p {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--primary-gold);
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.rivers-detail-quote .quote-mark {
+    font-size: 1.3rem;
+    opacity: 0.7;
+    vertical-align: -4px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 1150px) {
+    .rivers-detail-row {
+        grid-template-columns: 1fr;
+    }
+
+    .rivers-detail-mappath {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .rivers-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .rivers-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .rivers-detail-highlights {
+        flex-direction: column;
+    }
+
+    .rivers-highlight-item {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .rivers-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rivers-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: var(--border-radius-lg);
+    }
+
+    .rivers-filter-tabs {
+        justify-content: center;
+    }
+
+    .rivers-detail-panel-overlay {
+        padding: 26px 20px 30px;
+    }
+
+    .rivers-detail-top {
+        padding-right: 30px;
+    }
+
+    .rivers-stat-list {
+        grid-template-columns: 1fr;
+    }
+}

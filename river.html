@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover India's artistic soul: classical dance forms, classical music instruments, and colorful traditional attires.">
-    <title>Arts, Dance & Music | Incredible India</title>
-    
-    <!-- Google Fonts -->
+    <meta name="description" content="Explore the great rivers of India — their origins, sacred significance, ecology and the states, cities and civilizations they nourish.">
+    <title>Rivers of India | Incredible India</title>
+
+    <!-- Google Fonts (same as rest of site) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="culture-page-body">
 
-    <!-- Sticky Navigation Bar -->
+    <!-- Font Awesome (icons used by this page's cards/filters/popup) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages-common.css">
+</head>
+<body class="rivers-page-body" data-page="rivers">
+
     <header class="navbar scrolled" id="navbar">
         <div class="nav-container">
             <a href="index.html#home" class="nav-logo" id="nav-logo">
@@ -44,8 +47,8 @@
                         <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
                         <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
                         <a href="tribes.html" class="dropdown-item">Tribes</a>
-                        <a href="river.html" class="dropdown-item">Rivers</a>
                         <a href="coin.html" class="dropdown-item">Evolution of Currency</a>
+                        <a href="river.html" class="dropdown-item">Rivers</a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
@@ -64,58 +67,71 @@
         </div>
     </header>
 
-    <main id="app-root" class="page-padding">
-        <!-- Sub-page Hero Section -->
-        <section class="sub-hero culture-hero">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-a-woman-dancing-in-a-studio-5110-large.mp4" type="video/mp4">
-            </video>
-            <div class="sub-hero-overlay"></div>
-            <div class="sub-hero-content animate-slide-up">
-                <span class="sub-hero-badge green-bg">Rhythm & Grace</span>
-                <h1>Arts & Traditions</h1>
-                <p>Explore India's aesthetic expressions. From classical dances dating back thousands of years to strings that resonate across eras and vibrant fabrics handwoven by masters.</p>
+    <main class="page-padding">
+
+        <!-- ================= HERO ================= -->
+        <section class="rivers-hero">
+            <div class="rivers-hero-bg">
+                <img src="assets/heroriver.png" alt="Rivers of India">
+            </div>
+            <div class="rivers-hero-overlay"></div>
+            <div class="rivers-hero-inner">
+                <div class="rivers-hero-content">
+                    <span class="rivers-badge">
+                        <span class="badge-diamond">◈</span>
+                        Lifelines of a Nation
+                        <span class="badge-diamond">◈</span>
+                    </span>
+                    <h1>Rivers of India</h1>
+                    <p>From the Himalayas to the Ocean, our rivers shape civilization, nourish the land, and inspire millions.</p>
+                    <div class="rivers-divider"><span class="line"></span><span class="dot">❖</span><span class="line"></span></div>
+                </div>
             </div>
         </section>
 
-        <!-- Culture Catalog Section -->
-        <section class="culture-catalog-section">
+        <!-- ================= FILTER / SEARCH BAR ================= -->
+        <section class="rivers-filter-section">
             <div class="section-container">
-                <!-- Category Filters -->
-                <div class="tab-container">
-                    <button class="tab-btn active" data-category="all" id="tab-all">All Arts</button>
-                    <button class="tab-btn" data-category="dance" id="tab-dance">Classical & Folk Dance</button>
-                    <button class="tab-btn" data-category="music" id="tab-music">Classical Instruments</button>
-                    <button class="tab-btn" data-category="clothing" id="tab-clothing">Traditional Garments</button>
-                </div>
-
-                <!-- Culture Cards Grid -->
-                <div class="culture-grid-container" id="culture-grid-container">
-                    <!-- Dynamic culture cards injected here by app.js -->
+                <div class="rivers-filter-bar">
+                    <div class="rivers-filter-tabs" id="rivers-filter-tabs">
+                        <button class="rivers-filter-btn active" data-region="all">
+                            <i class="fa-solid fa-table-cells-large"></i> All
+                        </button>
+                        <button class="rivers-filter-btn" data-region="north">
+                            <i class="fa-solid fa-mountain" style="color:hsl(205,75%,58%);"></i> North
+                        </button>
+                        <button class="rivers-filter-btn" data-region="south">
+                            <i class="fa-solid fa-leaf" style="color:hsl(142,60%,50%);"></i> South
+                        </button>
+                        <button class="rivers-filter-btn" data-region="east">
+                            <i class="fa-solid fa-water" style="color:hsl(28,90%,58%);"></i> East
+                        </button>
+                        <button class="rivers-filter-btn" data-region="west">
+                            <i class="fa-solid fa-compass" style="color:hsl(355,70%,60%);"></i> West
+                        </button>
+                    </div>
+                    <div class="rivers-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="rivers-search-input" placeholder="Search river by name...">
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- ================= RIVER CARDS GRID ================= -->
+        <section class="rivers-grid-section">
+            <div class="section-container">
+                <div class="rivers-cards-grid" id="rivers-cards-grid">
+                    <!-- Cards are rendered here by pages-common.js -->
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Details Dialog Modal -->
-    <div class="modal-backdrop" id="culture-modal">
-        <div class="modal-card">
-            <button class="modal-close" id="culture-modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-header">
-                <span class="modal-badge green-bg" id="culture-modal-badge">Dance</span>
-                <h3 id="culture-modal-title">Bharatanatyam</h3>
-            </div>
-            <div class="modal-body">
-                <div class="culture-modal-img-wrapper" style="margin-bottom: 25px; border-radius: 12px; overflow: hidden; height: 300px;">
-                    <img id="culture-modal-img" src="assets/culture_default.png" alt="Art Form" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <div class="modal-section">
-                    <h4>About the Art</h4>
-                    <p id="culture-modal-description">Detailed description of the art form goes here.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- ================= DETAIL POPUP (hidden until a card is clicked) ================= -->
+    <div class="rivers-modal-backdrop" id="rivers-modal-backdrop"></div>
+    <div class="rivers-detail-panel" id="rivers-detail-panel"></div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -149,10 +165,6 @@
     <!-- JavaScript Files -->
     <script src="data.js"></script>
     <script src="app.js"></script>
-    <script type="module" src="firebase-config.js"></script>
-    <script type="module" src="auth.js"></script>
-    <script src="router.js"></script>
+    <script src="pages-common.js"></script>
 </body>
 </html>
-
-
