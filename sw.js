@@ -1,4 +1,4 @@
-const CACHE_NAME = 'india-explorer-v1';
+const CACHE_NAME = 'india-explorer-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -44,6 +44,7 @@ self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
   const shouldBypassCache =
     event.request.mode === 'navigate' ||
+    url.pathname.endsWith('.html') ||
     url.pathname.includes('/api/firebase-config') ||
     url.pathname.includes('/auth') ||
     url.pathname.includes('/firebase-config') ||

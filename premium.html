@@ -14,164 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .premium-hero {
-            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%), linear-gradient(-45deg, #FF9933, #138808, #000080) center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .timeline-container {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 153, 51, 0.3);
-            border-radius: 4px;
-            outline: none;
-            margin: 30px 0;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: var(--saffron);
-            cursor: pointer;
-            box-shadow: 0 0 10px var(--saffron);
-            transition: transform 0.2s;
-        }
-
-        input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
-
-        .timeline-labels {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            color: var(--text-muted);
-            padding: 0 10px;
-        }
-
-        .era-content {
-            margin-top: 30px;
-            padding: 30px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 16px;
-            border-left: 5px solid var(--gold);
-            text-align: left;
-            min-height: 150px;
-        }
-
-        .globe-section {
-            background: #050505;
-            padding: 60px 0;
-            color: white;
-            position: relative;
-        }
-
-        #globe-container {
-            width: 100%;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            background: radial-gradient(circle at center, #111 0%, #000 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .globe-overlay {
-            position: absolute;
-            top: 100px;
-            left: 5%;
-            pointer-events: none;
-        }
-
-        .netflix-row {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scrollbar-width: none;
-        }
-        
-        .netflix-row::-webkit-scrollbar { display: none; }
-
-        .netflix-card {
-            min-width: 300px;
-            height: 170px;
-            background: var(--glass-bg);
-            border-radius: 12px;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            overflow: hidden;
-        }
-
-        .netflix-card:hover {
-            transform: scale(1.05);
-            z-index: 10;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .netflix-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .netflix-info {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 15px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .netflix-card:hover .netflix-info {
-            opacity: 1;
-        }
-
-        .metaverse-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .metaverse-card {
-            text-align: center;
-            padding: 40px 20px;
-            background: rgba(255, 153, 51, 0.05);
-            border: 1px solid var(--saffron);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .metaverse-card:hover {
-            background: rgba(255, 153, 51, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .meta-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="premium.css">
 </head>
 <body>
     <header class="navbar scrolled" id="navbar">
@@ -217,84 +60,160 @@
         </div>
     </header>
 
-    <main id="app-root" style="padding-top: 80px;">
+    <main id="app-root" style="padding-top: 70px;">
         <section class="premium-hero scroll-section">
-            <div class="section-container">
-                <div class="hero-content" style="text-align: left; margin: 0;">
-                    <span class="hero-tagline animate-fade-in" style="color: var(--gold);">🚀 Next-Gen Exploration</span>
-                    <h1 class="hero-title animate-slide-up" style="color: white; font-size: 4rem;">Premium <span style="color: var(--gold);">Features</span></h1>
-                    <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px;">
-                        Step into the future with 3D models, Metaverse walks, cinematic documentaries, and time-travel experiences.
+            <div class="hero-overlay"></div>
+            <div class="premium-hero-glow"></div>
+            
+            <!-- Floating gold dust particles -->
+            <div class="gold-dust-container">
+                <span class="dust-particle particle-1"></span>
+                <span class="dust-particle particle-2"></span>
+                <span class="dust-particle particle-3"></span>
+                <span class="dust-particle particle-4"></span>
+                <span class="dust-particle particle-5"></span>
+            </div>
+
+            <div class="section-container" style="position: relative; z-index: 2;">
+                <div class="hero-content" style="text-align: left; margin: 0; width: 100%;">
+                    <span class="hero-tagline animate-fade-up-1">
+                        <span class="badge-star">★</span> EXCLUSIVE EXPERIENCE
+                    </span>
+                    <h1 class="hero-title animate-fade-up-2">
+                        Premium <span class="highlight">Features</span>
+                    </h1>
+                    <p class="hero-description animate-fade-up-3">
+                        Step into the future of cultural discovery. Explore interactive 3D structures, stroll through historical eras, traverse the metaverse, and view award-winning cinematic documentaries.
                     </p>
+                    <div style="margin-top: 30px;" class="animate-fade-up-4">
+                        <a href="#globe-section-anchor" class="btn-premium-cta">Start Free Tour <span class="btn-arrow">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtle Scroll Indicator -->
+            <div class="scroll-indicator animate-fade-up-4">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow-scroll">
+                    <span class="scroll-arrow-span"></span>
                 </div>
             </div>
         </section>
 
-        <!-- India Through Time Slider -->
-        <section class="fade-in-section" style="padding: 60px 0;">
+        <!-- India Through Time Timeline -->
+        <section class="fade-in-section" style="padding: 80px 0; border-bottom: 1px solid var(--border-color);">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge gold-bg">Time Travel</span>
+                    <span class="section-badge" style="background: rgba(255, 176, 31, 0.1); color: var(--primary-gold); border: 1px solid rgba(255, 176, 31, 0.3);">Time Travel</span>
                     <h2>India Through Time</h2>
-                    <p class="section-subtitle">Move the slider to witness the transformation of the Indian subcontinent.</p>
+                    <p class="section-subtitle">Navigate through the defining historical eras of the Indian subcontinent.</p>
                 </div>
 
                 <div class="timeline-container">
-                    <input type="range" id="eraSlider" min="1" max="4" value="1" step="1">
-                    <div class="timeline-labels">
-                        <span id="label-1" style="color: var(--gold);">Ancient India</span>
-                        <span id="label-2">Medieval India</span>
-                        <span id="label-3">Colonial India</span>
-                        <span id="label-4">Modern India</span>
+                    <input type="range" id="eraSlider" min="1" max="4" value="1" step="1" style="display: none;">
+                    
+                    <div class="custom-timeline">
+                        <div class="timeline-progress-bar">
+                            <div class="timeline-progress" id="timelineProgress"></div>
+                        </div>
+                        <div class="timeline-milestones">
+                            <button class="milestone-node active" data-step="1" id="node-1">
+                                <span class="node-dot"></span>
+                                <span class="node-year">3300 BCE</span>
+                                <span class="node-title">Ancient</span>
+                            </button>
+                            <button class="milestone-node" data-step="2" id="node-2">
+                                <span class="node-dot"></span>
+                                <span class="node-year">500 CE</span>
+                                <span class="node-title">Medieval</span>
+                            </button>
+                            <button class="milestone-node" data-step="3" id="node-3">
+                                <span class="node-dot"></span>
+                                <span class="node-year">1500 CE</span>
+                                <span class="node-title">Colonial</span>
+                            </button>
+                            <button class="milestone-node" data-step="4" id="node-4">
+                                <span class="node-dot"></span>
+                                <span class="node-year">1947 CE</span>
+                                <span class="node-title">Modern</span>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="era-content" id="eraContent">
-                        <h3 style="color: var(--gold); font-family: 'Playfair Display', serif; font-size: 2rem;">Ancient India (3300 BCE - 500 CE)</h3>
-                        <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.6; color: #ddd;">
-                            The era of the Indus Valley Civilization, the writing of the Vedas, and the majestic Mauryan and Gupta Empires. A golden age of science, mathematics, and philosophy.
-                        </p>
+                        <div class="era-grid">
+                            <div class="era-info">
+                                <h3 class="era-title">Ancient India (3300 BCE - 500 CE)</h3>
+                                <p class="era-desc">The golden age of science, mathematics, and philosophy. Home to the Indus Valley Civilization, the composition of the Vedas, and the legendary Mauryan and Gupta Empires.</p>
+                                <div class="era-tags">
+                                    <span class="era-tag">Indus Valley</span>
+                                    <span class="era-tag">Vedas</span>
+                                    <span class="era-tag">Gupta Golden Age</span>
+                                    <span class="era-tag">Aryabhata</span>
+                                </div>
+                            </div>
+                            <div class="era-image-container">
+                                <img class="era-image" src="assets/ancient_india_illustration.png" alt="Ancient India">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 3D India Globe -->
-        <section class="globe-section fade-in-section">
+        <section id="globe-section-anchor" class="globe-section fade-in-section" style="padding: 80px 0; border-bottom: 1px solid var(--border-color);">
             <div class="section-container">
-                <div class="globe-overlay">
-                    <span class="section-badge" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">Interactive</span>
-                    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem;">3D India Globe</h2>
-                    <p style="color: #aaa; max-width: 400px; margin-top: 10px;">Drag to rotate the Earth and discover India from space in high fidelity.</p>
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <span class="section-badge" style="background: rgba(255,153,51,0.1); color: var(--primary-saffron); border: 1px solid rgba(255,153,51,0.3);">Satellite Tour</span>
+                    <h2 style="font-size: 2.5rem; line-height: 1.2;">3D India Globe</h2>
+                    <p style="margin-top: 10px; color: var(--text-muted);">Explore the geographical beauty of India from high orbit.</p>
                 </div>
-                <div id="globe-container"></div>
+
+                <div style="max-width: 800px; margin: 0 auto; position: relative;">
+                    <div class="globe-viewport-wrapper">
+                        <!-- Controls overlay -->
+                        <div class="globe-controls">
+                            <button class="btn-globe-ctrl" id="btn-globe-spin" title="Toggle Auto-Spin">🔄 Auto Spin</button>
+                            <button class="btn-globe-ctrl" id="btn-globe-zoom-in" title="Zoom In">➕</button>
+                            <button class="btn-globe-ctrl" id="btn-globe-zoom-out" title="Zoom Out">➖</button>
+                            <button class="btn-globe-ctrl" id="btn-globe-reset" title="Reset View">↩️</button>
+                        </div>
+                        
+                        <div id="globe-container"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- India Metaverse -->
-        <section class="fade-in-section" style="padding: 60px 0;">
+        <section class="fade-in-section" style="padding: 80px 0; border-bottom: 1px solid var(--border-color);">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge" style="background: #8A2BE2; color: white;">Virtual Reality</span>
+                    <span class="section-badge" style="background: rgba(138, 43, 226, 0.1); color: #8A2BE2; border: 1px solid rgba(138, 43, 226, 0.3);">Virtual Reality</span>
                     <h2>India Metaverse</h2>
+                    <p class="section-subtitle">Walk through history in immersive web-VR environments.</p>
                 </div>
 
                 <div class="metaverse-grid">
                     <div class="metaverse-card">
                         <div class="meta-icon">🏛️</div>
-                        <h3 style="font-family: 'Playfair Display', serif;">Virtual Heritage Walks</h3>
-                        <p style="color: var(--text-muted); margin: 15px 0;">Put on your VR headset and walk through the corridors of the Taj Mahal and Ajanta Caves.</p>
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Virtual Heritage Walks</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Walk through the corridors of the Taj Mahal and Ajanta Caves in fully rendered 3D environments.</p>
                         <button class="btn btn-primary ripple">Enter World</button>
                     </div>
                     <div class="metaverse-card">
                         <div class="meta-icon">🏺</div>
-                        <h3 style="font-family: 'Playfair Display', serif;">Digital Museums</h3>
-                        <p style="color: var(--text-muted); margin: 15px 0;">Inspect 3D scanned artifacts and historical relics up close in our digital gallery.</p>
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Digital Museums</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Inspect 3D scanned artifacts and historical relics up close in our high-fidelity digital gallery.</p>
                         <button class="btn btn-primary ripple">Browse Museum</button>
                     </div>
                     <div class="metaverse-card">
                         <div class="meta-icon">🎭</div>
-                        <h3 style="font-family: 'Playfair Display', serif;">Cultural Exhibitions</h3>
-                        <p style="color: var(--text-muted); margin: 15px 0;">Attend live virtual festivals and classical dance performances in the metaverse.</p>
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Cultural Exhibitions</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Attend live virtual festivals and classical dance performances directly inside the browser metaverse.</p>
                         <button class="btn btn-primary ripple">View Schedule</button>
                     </div>
                 </div>
@@ -302,46 +221,89 @@
         </section>
 
         <!-- Documentary Hub -->
-        <section class="fade-in-section" style="padding: 60px 0 100px;">
+        <section class="fade-in-section" style="padding: 80px 0 100px;">
             <div class="section-container">
-                <div class="section-header" style="text-align: left;">
-                    <span class="section-badge" style="background: #E50914; color: white;">Cinematic Hub</span>
-                    <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem;">Documentary Hub</h2>
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <span class="section-badge" style="background: rgba(229, 9, 20, 0.1); color: #E50914; border: 1px solid rgba(229, 9, 20, 0.3);">Cinematic Hub</span>
+                    <h2 style="font-size: 2.5rem;">Documentary Hub</h2>
+                    <p class="section-subtitle">Award-winning documentaries detailing India's geography, nature, and culture.</p>
                 </div>
 
-                <h3 style="margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Wildlife Films</h3>
+                <h3 style="margin-bottom: 15px; font-family: var(--font-body); font-weight: 700; color: var(--primary-gold);">Wildlife Films</h3>
                 <div class="netflix-row">
                     <div class="netflix-card">
-                        <div class="animated-placeholder netflix-img"></div>
-                        <div class="netflix-info"><h4>Tigers of Bandhavgarh</h4><p style="font-size: 0.8rem;">45m • 4K HDR</p></div>
+                        <img class="netflix-img" src="assets/travel_forests.png" alt="Tigers of Bandhavgarh">
+                        <div class="netflix-info">
+                            <h4>Tigers of Bandhavgarh</h4>
+                            <p>
+                                <span>45m • 4K HDR</span>
+                                <button class="btn-preview">Preview</button>
+                            </p>
+                        </div>
                     </div>
                     <div class="netflix-card">
-                        <div class="animated-placeholder netflix-img"></div>
-                        <div class="netflix-info"><h4>Elephant Whisperers</h4><p style="font-size: 0.8rem;">40m • Documentary</p></div>
+                        <img class="netflix-img" src="assets/travel_beaches.png" alt="Elephant Whisperers">
+                        <div class="netflix-info">
+                            <h4>Elephant Whisperers</h4>
+                            <p>
+                                <span>40m • Documentary</span>
+                                <button class="btn-preview">Preview</button>
+                            </p>
+                        </div>
                     </div>
                     <div class="netflix-card">
-                        <div class="animated-placeholder netflix-img"></div>
-                        <div class="netflix-info"><h4>Ghost of the Himalayas</h4><p style="font-size: 0.8rem;">52m • Nature</p></div>
+                        <img class="netflix-img" src="assets/travel_mountains.png" alt="Ghost of the Himalayas">
+                        <div class="netflix-info">
+                            <h4>Ghost of the Himalayas</h4>
+                            <p>
+                                <span>52m • Nature</span>
+                                <button class="btn-preview">Preview</button>
+                            </p>
+                        </div>
                     </div>
                     <div class="netflix-card">
-                        <div class="animated-placeholder netflix-img"></div>
-                        <div class="netflix-info"><h4>Kaziranga Diaries</h4><p style="font-size: 0.8rem;">48m • 4K HDR</p></div>
+                        <img class="netflix-img" src="assets/travel_islands.png" alt="Kaziranga Diaries">
+                        <div class="netflix-info">
+                            <h4>Kaziranga Diaries</h4>
+                            <p>
+                                <span>48m • 4K HDR</span>
+                                <button class="btn-preview">Preview</button>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <h3 style="margin: 40px 0 15px; font-family: 'Outfit', sans-serif;">State Documentaries</h3>
+                <h3 style="margin: 45px 0 15px; font-family: var(--font-body); font-weight: 700; color: var(--primary-gold);">State Documentaries</h3>
                 <div class="netflix-row">
                     <div class="netflix-card">
-                        <div class="animated-placeholder netflix-img"></div>
-                        <div class="netflix-info"><h4>Rajasthan: The Royal Sand</h4><p style="font-size: 0.8rem;">1h 10m • Culture</p></div>
+                        <img class="netflix-img" src="assets/travel_deserts.png" alt="Rajasthan: The Royal Sand">
+                        <div class="netflix-info">
+                            <h4>Rajasthan: The Royal Sand</h4>
+                            <p>
+                                <span>1h 10m • Culture</span>
+                                <button class="btn-preview">Preview</button>
+                            </p>
+                        </div>
                     </div>
                     <div class="netflix-card">
-                        <div class="animated-placeholder netflix-img"></div>
-                        <div class="netflix-info"><h4>Kerala: God's Own Country</h4><p style="font-size: 0.8rem;">55m • Nature</p></div>
+                        <img class="netflix-img" src="assets/travel_beaches.png" alt="Kerala: God's Own Country">
+                        <div class="netflix-info">
+                            <h4>Kerala: God's Own Country</h4>
+                            <p>
+                                <span>55m • Nature</span>
+                                <button class="btn-preview">Preview</button>
+                            </p>
+                        </div>
                     </div>
                     <div class="netflix-card">
-                        <div class="animated-placeholder netflix-img"></div>
-                        <div class="netflix-info"><h4>Meghalaya: Living Bridges</h4><p style="font-size: 0.8rem;">45m • Travel</p></div>
+                        <img class="netflix-img" src="assets/travel_hidden.png" alt="Meghalaya: Living Bridges">
+                        <div class="netflix-info">
+                            <h4>Meghalaya: Living Bridges</h4>
+                            <p>
+                                <span>45m • Travel</span>
+                                <button class="btn-preview">Preview</button>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -357,111 +319,344 @@
     </footer>
 
     <script>
-        // Timeline Logic
-        const eraData = {
-            1: { title: "Ancient India (3300 BCE - 500 CE)", desc: "The era of the Indus Valley Civilization, the writing of the Vedas, and the majestic Mauryan and Gupta Empires. A golden age of science, mathematics, and philosophy." },
-            2: { title: "Medieval India (500 CE - 1500 CE)", desc: "Marked by the rise of the Chola Dynasty, the Delhi Sultanate, and the early Mughal Empire. A period of magnificent architectural achievements and cultural synthesis." },
-            3: { title: "Colonial India (1500 CE - 1947 CE)", desc: "The arrival of European traders, the establishment of the British Raj, and the monumental struggle for independence led by valiant freedom fighters." },
-            4: { title: "Modern India (1947 CE - Present)", desc: "A rapidly developing democratic republic. A global IT powerhouse, an agricultural giant, and a cultural exporter, continuously reaching new heights like the Mars and Moon missions." }
+        (() => {
+            // Timeline Logic
+            const eraData = {
+            1: { 
+                title: "Ancient India (3300 BCE - 500 CE)", 
+                desc: "The golden age of science, mathematics, and philosophy. Home to the Indus Valley Civilization, the composition of the Vedas, and the legendary Mauryan and Gupta Empires.",
+                tags: ["Indus Valley", "Vedas", "Gupta Golden Age", "Aryabhata"],
+                image: "assets/ancient_india_illustration.png"
+            },
+            2: { 
+                title: "Medieval India (500 CE - 1500 CE)", 
+                desc: "Marked by the rise of majestic dynasties, architectural marvels, and cultural synthesis. Renowned for the Chola maritime empire, dynamic trade, and grand temples.",
+                tags: ["Chola Empire", "Mughal Architecture", "Bhakti Movement", "Grand Temples"],
+                image: "assets/Brihadeeswara_Temple.png"
+            },
+            3: { 
+                title: "Colonial India (1500 CE - 1947 CE)", 
+                desc: "A period of foreign traders, the establishment of the British Raj, and a monumental, unified struggle for freedom led by valiant revolutionaries.",
+                tags: ["East India Company", "British Raj", "Freedom Movement", "Satyagraha"],
+                image: "assets/Victoria_Memorial.png"
+            },
+            4: { 
+                title: "Modern India (1947 CE - Present)", 
+                desc: "A rapidly developing democratic republic. A global IT powerhouse, space exploration leader (Chandrayaan & Mangalyaan), and a cultural exporter, continuously reaching new heights.",
+                tags: ["Independence", "Space Exploration", "IT Powerhouse", "Green Revolution"],
+                image: "assets/Abdul_kalam.png"
+            }
         };
 
         const slider = document.getElementById('eraSlider');
         const content = document.getElementById('eraContent');
-        const labels = document.querySelectorAll('.timeline-labels span');
+        const nodes = document.querySelectorAll('.milestone-node');
+        const progressBar = document.getElementById('timelineProgress');
+
+        // Click handler for nodes
+        nodes.forEach(node => {
+            node.addEventListener('click', () => {
+                const step = node.getAttribute('data-step');
+                slider.value = step;
+                slider.dispatchEvent(new Event('input'));
+            });
+        });
+
+        // Initialize progress bar
+        progressBar.style.width = '0%';
 
         slider.addEventListener('input', (e) => {
             const val = e.target.value;
-            labels.forEach((lbl, idx) => {
-                lbl.style.color = (idx + 1 == val) ? 'var(--gold)' : 'var(--text-muted)';
+            
+            // Highlight nodes
+            nodes.forEach((n, idx) => {
+                if (idx + 1 == val) {
+                    n.classList.add('active');
+                } else {
+                    n.classList.remove('active');
+                }
             });
+
+            // Update Progress Bar
+            const pct = ((val - 1) / 3) * 100;
+            progressBar.style.width = pct + '%';
+
             content.style.opacity = 0;
             setTimeout(() => {
-                content.innerHTML = `<h3 style="color: var(--gold); font-family: 'Playfair Display', serif; font-size: 2rem;">${eraData[val].title}</h3>
-                                     <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.6; color: #ddd;">${eraData[val].desc}</p>`;
+                const tagsHTML = eraData[val].tags.map(t => `<span class="era-tag">${t}</span>`).join('');
+                content.innerHTML = `
+                    <div class="era-grid">
+                        <div class="era-info">
+                            <h3 class="era-title">${eraData[val].title}</h3>
+                            <p class="era-desc">${eraData[val].desc}</p>
+                            <div class="era-tags">
+                                ${tagsHTML}
+                            </div>
+                        </div>
+                        <div class="era-image-container">
+                            <img class="era-image" src="${eraData[val].image}" alt="${eraData[val].title}">
+                        </div>
+                    </div>
+                `;
                 content.style.opacity = 1;
             }, 300);
         });
 
         // Simple Three.js Globe implementation
         const container = document.getElementById('globe-container');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
-        renderer.setSize(container.clientWidth, container.clientHeight);
-        container.appendChild(renderer.domElement);
+        let activeRender = true;
+        let renderer, scene, camera, globe, animationFrameId;
 
-        // Add a sphere to represent the Earth
-        const geometry = new THREE.SphereGeometry(5, 50, 50);
-        
-        // Load an earth texture from a public CDN
-        const textureLoader = new THREE.TextureLoader();
-        textureLoader.setCrossOrigin('anonymous');
-        const material = new THREE.MeshPhongMaterial({
-            map: textureLoader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg'),
-            bumpScale: 0.05,
-            specular: new THREE.Color('grey')
-        });
+        function initGlobe() {
+            if (!container) return;
+            container.innerHTML = '';
+            
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
 
-        const globe = new THREE.Mesh(geometry, material);
-        // Rotate to show India roughly
-        globe.rotation.y = -Math.PI / 2.5; 
-        globe.rotation.x = Math.PI / 8;
-        scene.add(globe);
+            // Add a sphere to represent the Earth
+            const geometry = new THREE.SphereGeometry(5, 50, 50);
+            
+            // Procedural texture generator (fallback / security-bypass)
+            function createProceduralTexture() {
+                const canvas = document.createElement('canvas');
+                canvas.width = 1024;
+                canvas.height = 512;
+                const ctx = canvas.getContext('2d');
+                
+                // Dark slate background
+                ctx.fillStyle = '#0f172a';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Grid lines (latitudes / longitudes)
+                ctx.strokeStyle = 'rgba(255, 176, 31, 0.15)';
+                ctx.lineWidth = 1;
+                const spacing = 32;
+                for (let x = 0; x < canvas.width; x += spacing) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, canvas.height);
+                    ctx.stroke();
+                }
+                for (let y = 0; y < canvas.height; y += spacing) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(canvas.width, y);
+                    ctx.stroke();
+                }
+                
+                // Abstract continent outlines for context
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+                // Americas
+                ctx.fillRect(100, 100, 150, 180);
+                // Eurasia
+                ctx.fillRect(400, 80, 250, 150);
+                // Africa
+                ctx.fillRect(450, 200, 120, 180);
+                // Australia
+                ctx.fillRect(750, 280, 100, 100);
+                
+                // India highlight
+                const indiaX = Math.round(1024 * (180 + 78) / 360);
+                const indiaY = Math.round(512 * (90 - 22) / 180);
+                
+                // Glow gradient around India
+                const grad = ctx.createRadialGradient(indiaX, indiaY, 5, indiaX, indiaY, 45);
+                grad.addColorStop(0, 'rgba(255, 153, 51, 0.85)'); // Saffron
+                grad.addColorStop(0.5, 'rgba(255, 176, 31, 0.4)'); // Gold
+                grad.addColorStop(1, 'rgba(19, 136, 8, 0)'); // Fade
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(indiaX, indiaY, 45, 0, Math.PI * 2);
+                ctx.fill();
 
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
-        scene.add(ambientLight);
-        const pointLight = new THREE.PointLight(0xffffff, 1);
-        pointLight.position.set(10, 10, 10);
-        scene.add(pointLight);
-
-        camera.position.z = 12;
-
-        let isDragging = false;
-        let previousMousePosition = { x: 0, y: 0 };
-
-        container.addEventListener('mousedown', () => isDragging = true);
-        container.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const deltaMove = { x: e.offsetX - previousMousePosition.x, y: e.offsetY - previousMousePosition.y };
-                globe.rotation.y += deltaMove.x * 0.01;
-                globe.rotation.x += deltaMove.y * 0.01;
+                // Marker dot for India
+                ctx.fillStyle = '#FF9933';
+                ctx.beginPath();
+                ctx.arc(indiaX, indiaY, 8, 0, Math.PI * 2);
+                ctx.fill();
+                
+                return new THREE.CanvasTexture(canvas);
             }
-            previousMousePosition = { x: e.offsetX, y: e.offsetY };
-        });
-        container.addEventListener('mouseup', () => isDragging = false);
-        container.addEventListener('mouseleave', () => isDragging = false);
 
-        // Handle touch for mobile
-        container.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        });
-        container.addEventListener('touchmove', (e) => {
-            if(isDragging) {
-                const deltaMove = { x: e.touches[0].clientX - previousMousePosition.x, y: e.touches[0].clientY - previousMousePosition.y };
-                globe.rotation.y += deltaMove.x * 0.01;
-                globe.rotation.x += deltaMove.y * 0.01;
-            }
-            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-        });
-        container.addEventListener('touchend', () => isDragging = false);
+            const material = new THREE.MeshPhongMaterial({
+                bumpScale: 0.05,
+                specular: new THREE.Color('grey')
+            });
 
-        function animate() {
-            requestAnimationFrame(animate);
-            if (!isDragging) {
-                globe.rotation.y += 0.002; // slow auto-rotation
+            // Load an earth texture from a public CDN with procedural fallback
+            const textureLoader = new THREE.TextureLoader();
+            textureLoader.setCrossOrigin('anonymous');
+            textureLoader.load(
+                'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
+                function (texture) {
+                    material.map = texture;
+                    material.needsUpdate = true;
+                },
+                undefined,
+                function (err) {
+                    console.warn('CORS/Offline texture load blocked. Switching to premium procedural holographic texture.');
+                    material.map = createProceduralTexture();
+                    material.needsUpdate = true;
+                }
+            );
+
+            globe = new THREE.Mesh(geometry, material);
+            // Rotate to show India roughly
+            globe.rotation.y = Math.PI / 2.5; 
+            globe.rotation.x = Math.PI / 8;
+            scene.add(globe);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+
+            camera.position.z = 12;
+
+            // Tweening State for focus transitions
+            let targetRotX = Math.PI / 8;
+            let targetRotY = Math.PI / 2.5;
+            let targetZoom = 12;
+            let isTweening = false;
+
+            // HUD and controls wiring
+            let autoRotate = true;
+            const btnSpin = document.getElementById('btn-globe-spin');
+            const btnZoomIn = document.getElementById('btn-globe-zoom-in');
+            const btnZoomOut = document.getElementById('btn-globe-zoom-out');
+            const btnReset = document.getElementById('btn-globe-reset');
+
+            if (btnSpin) {
+                btnSpin.addEventListener('click', () => {
+                    autoRotate = !autoRotate;
+                    isTweening = false; // Stop active camera transition
+                    btnSpin.style.background = autoRotate ? 'rgba(15, 23, 42, 0.6)' : 'var(--primary-saffron)';
+                    btnSpin.style.color = autoRotate ? 'var(--text-light)' : 'white';
+                    btnSpin.textContent = autoRotate ? '🔄 Auto Spin' : '⏹️ Paused';
+                });
             }
-            renderer.render(scene, camera);
+
+            if (btnZoomIn) {
+                btnZoomIn.addEventListener('click', () => {
+                    isTweening = false;
+                    camera.position.z = Math.max(7, camera.position.z - 1.5);
+                });
+            }
+
+            if (btnZoomOut) {
+                btnZoomOut.addEventListener('click', () => {
+                    isTweening = false;
+                    camera.position.z = Math.min(22, camera.position.z + 1.5);
+                });
+            }
+
+            if (btnReset) {
+                btnReset.addEventListener('click', () => {
+                    targetRotX = Math.PI / 8;
+                    targetRotY = Math.PI / 2.5;
+                    targetZoom = 12;
+                    isTweening = true;
+                    autoRotate = true;
+
+                    if (btnSpin) {
+                        btnSpin.style.background = 'rgba(15, 23, 42, 0.6)';
+                        btnSpin.style.color = 'var(--text-light)';
+                        btnSpin.textContent = '🔄 Auto Spin';
+                    }
+                });
+            }
+
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+
+            container.addEventListener('mousedown', () => {
+                isDragging = true;
+                isTweening = false; // Disable auto-aligning if user manually drags
+            });
+            container.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const deltaMove = { x: e.offsetX - previousMousePosition.x, y: e.offsetY - previousMousePosition.y };
+                    globe.rotation.y += deltaMove.x * 0.01;
+                    globe.rotation.x += deltaMove.y * 0.01;
+                }
+                previousMousePosition = { x: e.offsetX, y: e.offsetY };
+            });
+            container.addEventListener('mouseup', () => isDragging = false);
+            container.addEventListener('mouseleave', () => isDragging = false);
+
+            // Handle touch for mobile
+            container.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                isTweening = false;
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            });
+            container.addEventListener('touchmove', (e) => {
+                if(isDragging) {
+                    const deltaMove = { x: e.touches[0].clientX - previousMousePosition.x, y: e.touches[0].clientY - previousMousePosition.y };
+                    globe.rotation.y += deltaMove.x * 0.01;
+                    globe.rotation.x += deltaMove.y * 0.01;
+                }
+                previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            });
+            container.addEventListener('touchend', () => isDragging = false);
+
+            function animate() {
+                if (!activeRender) return;
+                animationFrameId = requestAnimationFrame(animate);
+                
+                if (isTweening) {
+                    // Smoothly interpolate (lerp) position
+                    globe.rotation.x += (targetRotX - globe.rotation.x) * 0.08;
+                    globe.rotation.y += (targetRotY - globe.rotation.y) * 0.08;
+                    camera.position.z += (targetZoom - camera.position.z) * 0.08;
+
+                    // Stop tweening once camera aligns
+                    if (Math.abs(globe.rotation.x - targetRotX) < 0.001 && 
+                        Math.abs(globe.rotation.y - targetRotY) < 0.001 &&
+                        Math.abs(camera.position.z - targetZoom) < 0.01) {
+                        isTweening = false;
+                    }
+                } else if (!isDragging && globe && autoRotate) {
+                    globe.rotation.y += 0.002;
+                }
+                
+                renderer.render(scene, camera);
+            }
+            animate();
         }
-        animate();
 
-        window.addEventListener('resize', () => {
+        initGlobe();
+
+        // Responsive resize
+        const handleResize = () => {
+            if (!container || !camera || !renderer) return;
             camera.aspect = container.clientWidth / container.clientHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(container.clientWidth, container.clientHeight);
-        });
+        };
+        window.addEventListener('resize', handleResize);
+
+        // Register router cleanup to stop animation loop and window listener
+        if (window.appLifecycle) {
+            window.appLifecycle.registerCleanup(() => {
+                activeRender = false;
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                window.removeEventListener('resize', handleResize);
+                if (renderer) {
+                    renderer.dispose();
+                }
+            });
+        }
+        })();
     </script>
     <script src="app.js"></script>
     <script type="module" src="firebase-config.js"></script>

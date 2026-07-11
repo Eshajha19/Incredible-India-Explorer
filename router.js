@@ -142,10 +142,12 @@ class Router {
                 // Wait for fade out animation
                 await new Promise(r => setTimeout(r, 300));
                 
+                // Process and wait for new styles to finish loading before rendering
+                await this.processHead(doc);
+                
                 this.appRoot.innerHTML = newMain.innerHTML;
                 
-                // Process new scripts and styles
-                this.processHead(doc);
+                // Process new scripts
                 this.processBodyScripts(doc);
 
                 if (push) {
@@ -182,6 +184,7 @@ class Router {
     }
 
     processHead(doc) {
+        const promises = [];
         // Extract and inject new stylesheets
         doc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
             const href = link.getAttribute('href');
@@ -189,10 +192,18 @@ class Router {
                 const newLink = document.createElement('link');
                 newLink.rel = 'stylesheet';
                 newLink.href = href;
+                
+                const p = new Promise(resolve => {
+                    newLink.onload = () => resolve();
+                    newLink.onerror = () => resolve();
+                });
+                promises.push(p);
+
                 document.head.appendChild(newLink);
                 this.loadedStyles.add(href);
             }
         });
+        return Promise.all(promises);
     }
 
     processBodyScripts(doc) {
