@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Innovation Timeline</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Indian Innovation Timeline</h1>
+            <p class="subtitle">A Journey Through India's Scientific and Technological Contributions</p>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ancient">Ancient</button>
+            <button class="filter-btn" data-filter="medieval">Medieval</button>
+            <button class="filter-btn" data-filter="modern">Modern</button>
+            <button class="filter-btn" data-filter="space">Space</button>
+            <button class="filter-btn" data-filter="digital">Digital</button>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item" data-category="ancient" data-year="500 BCE">
+                <div class="timeline-content">
+                    <div class="timeline-icon">0</div>
+                    <h3>Zero</h3>
+                    <p class="timeline-year">500 BCE</p>
+                    <p class="timeline-desc">The concept of zero as a number was developed by Indian mathematician Aryabhata, revolutionizing mathematics.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="ancient" data-year="5000 BCE">
+                <div class="timeline-content">
+                    <div class="timeline-icon">🌿</div>
+                    <h3>Ayurveda</h3>
+                    <p class="timeline-year">5000 BCE</p>
+                    <p class="timeline-desc">World's oldest medical system, focusing on holistic healing and natural remedies.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="ancient" data-year="600 CE">
+                <div class="timeline-content">
+                    <div class="timeline-icon">♟️</div>
+                    <h3>Chess</h3>
+                    <p class="timeline-year">600 CE</p>
+                    <p class="timeline-desc">Originated as Chaturanga in ancient India, the precursor to modern chess.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="medieval" data-year="400 CE">
+                <div class="timeline-content">
+                    <div class="timeline-icon">🏛️</div>
+                    <h3>Iron Pillar</h3>
+                    <p class="timeline-year">400 CE</p>
+                    <p class="timeline-desc">A 7-meter tall iron pillar in Delhi that has resisted corrosion for over 1600 years.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="modern" data-year="1969">
+                <div class="timeline-content">
+                    <div class="timeline-icon">🚀</div>
+                    <h3>ISRO</h3>
+                    <p class="timeline-year">1969</p>
+                    <p class="timeline-desc">Indian Space Research Organisation, India's premier space agency achieving remarkable milestones.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="space" data-year="2008">
+                <div class="timeline-content">
+                    <div class="timeline-icon">🌙</div>
+                    <h3>Chandrayaan</h3>
+                    <p class="timeline-year">2008</p>
+                    <p class="timeline-desc">India's first lunar mission, discovering water molecules on the Moon's surface.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="space" data-year="2013">
+                <div class="timeline-content">
+                    <div class="timeline-icon">🔴</div>
+                    <h3>Mangalyaan</h3>
+                    <p class="timeline-year">2013</p>
+                    <p class="timeline-desc">India's first interplanetary mission to Mars, achieved at the lowest cost ever.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-category="digital" data-year="2015">
+                <div class="timeline-content">
+                    <div class="timeline-icon">💻</div>
+                    <h3>Digital India</h3>
+                    <p class="timeline-year">2015</p>
+                    <p class="timeline-desc">A flagship program to transform India into a digitally empowered society.</p>
+                    <button class="detail-btn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalYear"></p>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
