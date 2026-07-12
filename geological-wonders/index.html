@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Geological Wonders Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Indian Geological Wonders Explorer</h1>
+        <p>Discover India's unique geological formations</p>
+    </header>
+
+    <main>
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search geological wonders...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="crater">Craters</button>
+                <button class="filter-btn" data-filter="canyon">Canyons</button>
+                <button class="filter-btn" data-filter="volcanic">Volcanic</button>
+                <button class="filter-btn" data-filter="rock">Rock Formations</button>
+            </div>
+        </div>
+
+        <div class="wonders-grid" id="wondersGrid">
+            <!-- Cards will be dynamically generated -->
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body" id="modalBody">
+                    <!-- Modal content will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Explore the geological marvels of India</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
