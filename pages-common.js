@@ -4,6 +4,54 @@
    Pure Vanilla JavaScript - no external dependencies.
    ========================================================================== */
 
+if (typeof window.setupFocusTrap !== 'function') {
+    window.setupFocusTrap = function(modalElement) {
+        if (!modalElement) return null;
+        const focusableSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+        const focusableElements = Array.from(modalElement.querySelectorAll(focusableSelector));
+        const previousActiveElement = document.activeElement;
+        
+        if (focusableElements.length > 0) {
+            setTimeout(() => focusableElements[0].focus(), 50);
+        } else {
+            modalElement.setAttribute('tabindex', '-1');
+            setTimeout(() => modalElement.focus(), 50);
+        }
+        
+        const keydownHandler = function(e) {
+            if (e.key === 'Tab') {
+                const elements = Array.from(modalElement.querySelectorAll(focusableSelector));
+                if (elements.length === 0) return;
+                const first = elements[0];
+                const last = elements[elements.length - 1];
+                
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === first || document.activeElement === modalElement) {
+                        last.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === last) {
+                        first.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        };
+        
+        modalElement.addEventListener('keydown', keydownHandler);
+        
+        return {
+            deactivate: function() {
+                modalElement.removeEventListener('keydown', keydownHandler);
+                if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+                    setTimeout(() => previousActiveElement.focus(), 50);
+                }
+            }
+        };
+    };
+}
+
 document.addEventListener('app:route-changed', () => {
     initSiteChrome();
 
@@ -301,6 +349,8 @@ function initTribesPage() {
     const resetBtn = document.getElementById('tribes-reset-btn');
     const rowArrow = document.getElementById('tribes-row-arrow');
 
+    let detailPanelFocusTrap = null;
+
     if (!regionGrid || !cardsRow || !detailPanel) return;
 
     let currentList = [...TRIBES_DATA];
@@ -476,17 +526,24 @@ function initTribesPage() {
         modalBackdrop.classList.add('open');
         detailPanel.classList.add('open');
         document.body.style.overflow = 'hidden';
+        detailPanelFocusTrap = window.setupFocusTrap(detailPanel);
     }
 
     function closeTribeDetail() {
         modalBackdrop.classList.remove('open');
         detailPanel.classList.remove('open');
         document.body.style.overflow = '';
+        if (detailPanelFocusTrap) {
+            detailPanelFocusTrap.deactivate();
+            detailPanelFocusTrap = null;
+        }
     }
 
     modalBackdrop?.addEventListener('click', closeTribeDetail);
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeTribeDetail();
+        if (e.key === 'Escape') {
+            closeTribeDetail();
+        }
     });
 
     /* ---------- Filtering ---------- */
@@ -915,6 +972,8 @@ function initRiversPage() {
     const modalBackdrop = document.getElementById('rivers-modal-backdrop');
     const detailPanel = document.getElementById('rivers-detail-panel');
 
+    let riversDetailFocusTrap = null;
+
     if (!cardsGrid || !filterTabs || !detailPanel) return;
 
     let activeRegion = 'all';
@@ -1065,17 +1124,24 @@ function initRiversPage() {
         modalBackdrop.classList.add('open');
         detailPanel.classList.add('open');
         document.body.style.overflow = 'hidden';
+        riversDetailFocusTrap = window.setupFocusTrap(detailPanel);
     }
 
     function closeRiverDetail() {
         modalBackdrop.classList.remove('open');
         detailPanel.classList.remove('open');
         document.body.style.overflow = '';
+        if (riversDetailFocusTrap) {
+            riversDetailFocusTrap.deactivate();
+            riversDetailFocusTrap = null;
+        }
     }
 
     modalBackdrop?.addEventListener('click', closeRiverDetail);
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeRiverDetail();
+        if (e.key === 'Escape') {
+            closeRiverDetail();
+        }
     });
 
     /* ---------- Filter tab clicks ---------- */
