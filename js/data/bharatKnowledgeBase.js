@@ -1,9 +1,4 @@
-/**
- * BHARAT AI - Knowledge Base
- * A robust simulated database of facts, descriptions, and answers about India.
- */
-
-const bharatKnowledgeBase = [
+export const bharatKnowledgeBase = [
     {
         keywords: ["hello", "hi", "namaste", "hey"],
         response: "Namaste! 🙏 I am Bharat AI, your ultimate guide to Incredible India. I can answer questions about Indian states, culture, festivals, wildlife, travel destinations, food, and famous personalities. What would you like to know?"
@@ -57,38 +52,3 @@ const bharatKnowledgeBase = [
         response: "Our Premium Features page includes a stunning 3D Interactive Globe, an 'India Through Time' slider that lets you explore historical eras, and a documentary hub with Netflix-style cinematic layouts. Check it out from the navigation menu!"
     }
 ];
-
-// Fallback responses for when the AI isn't sure
-const fallbackResponses = [
-    "That is a fascinating topic! India's diversity means there is always more to learn about it. Could you specify a particular state, food, or historical era?",
-    "I'm still learning about that specific detail! Try asking me about famous monuments, wildlife safaris, traditional foods, or popular tourist destinations.",
-    "Incredible India has endless stories. While I search my archives for that, would you like to know about the majestic Himalayas or the serene backwaters of Kerala?"
-];
-
-function findBestResponse(userInput) {
-    const text = userInput.toLowerCase();
-    
-    let bestMatch = null;
-    let maxMatches = 0;
-
-    for (const entry of bharatKnowledgeBase) {
-        let matchCount = 0;
-        for (const keyword of entry.keywords) {
-            if (text.includes(keyword)) {
-                matchCount++;
-            }
-        }
-        if (matchCount > maxMatches) {
-            maxMatches = matchCount;
-            bestMatch = entry.response;
-        }
-    }
-
-    if (bestMatch) {
-        return bestMatch;
-    }
-
-    // Return a random fallback
-    const randomIndex = Math.floor(Math.random() * fallbackResponses.length);
-    return fallbackResponses[randomIndex];
-}
