@@ -1,408 +1,302 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore important museums across India by city, state, and category.">
-    <title>Indian Architecture Explorer | Incredible India</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="architecture.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Explore important museums across India by city, state, and category." name="description"/>
+<title>Indian Architecture Explorer | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="architecture.css" rel="stylesheet"/>
 </head>
-
 <body>
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span><span class="gold">India</span><span
-                    class="green">Explorer</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
-                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-                <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-                <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
-                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more"
-                        style="color: var(--saffron)">Explore More ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
-                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
-                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        <a href="museums.html" class="dropdown-item" style="color: var(--saffron)">Museums</a>
-                    </div>
+<header class="navbar scrolled" id="navbar">
+<div class="nav-container">
+<a class="nav-logo" href="index.html#home" id="nav-logo">
+<span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span>
+</a>
+<button aria-expanded="false" aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
+<span class="bar"></span><span class="bar"></span><span class="bar"></span>
+</button>
+<nav class="nav-menu" id="nav-menu">
+<a class="nav-link" href="index.html#home" id="link-home">Home</a>
+<a class="nav-link" href="index.html#map" id="link-map">Interactive Map</a>
+<a class="nav-link" href="cuisine.html" id="link-cuisine">Cuisine</a>
+<a class="nav-link" href="festivals.html" id="link-festivals">Festivals</a>
+<a class="nav-link" href="culture.html" id="link-culture">Culture</a>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="travel.html">Travel &amp; Destinations</a>
+<a class="dropdown-item" href="wildlife.html">Nature &amp; Wildlife</a>
+<a class="dropdown-item" href="personalities.html">Famous Personalities</a>
+<a class="dropdown-item" href="spiritual.html">Spiritual India</a>
+<a class="dropdown-item" href="arts-crafts.html">Arts &amp; Crafts</a>
+<a class="dropdown-item" href="museums.html" style="color: var(--saffron)">Museums</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="smart-cities.html">Smart Cities</a>
+<a class="dropdown-item" href="languages.html">Languages of India</a>
+<a class="dropdown-item" href="data-india.html">Data &amp; Statistics</a>
+<a class="dropdown-item" href="learn.html">Learn &amp; Quiz</a>
+</div>
+</div>
+<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
+<a class="nav-link premium-link" href="premium.html">★ Premium</a>
+<div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
-                    </div>
-                </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode"
-                    title="Toggle Light Mode">☀️</button>
-                <a href="premium.html" class="nav-link premium-link">★ Premium</a>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
             </nav>
-        </div>
-    </header>
-
-    <main class="architecture-main">
-        <section class="architecture-hero">
-            <div class="architecture-hero-content">
-                <span class="architecture-kicker">🏛️ Temple • Mughal • Colonial • Dravidian</span>
-                <h1>Indian Architecture <span>Explorer</span></h1>
-                <p>Explore India's architectural heritage through magnificent temples, forts, palaces, monuments, and
+</div>
+</header>
+<main class="architecture-main">
+<section class="architecture-hero">
+<div class="architecture-hero-content">
+<span class="architecture-kicker">🏛️ Temple • Mughal • Colonial • Dravidian</span>
+<h1>Indian Architecture <span>Explorer</span></h1>
+<p>Explore India's architectural heritage through magnificent temples, forts, palaces, monuments, and
                     colonial landmarks built across centuries..</p>
-                <a href="#explorer" class="hero-button">Explore Architecture</a>
-            </div>
-        </section>
-
-        <section class="architecture-section" id="explorer">
-            <div class="architecture-container">
-                <div class="architecture-heading">
-                    <span class="section-badge">Discover Collections</span>
-                    <h2> Discover India's Architectural Wonders</h2>
-                    <p>Browse architectural styles, search famous monuments, and explore India's rich architectural
+<a class="hero-button" href="#explorer">Explore Architecture</a>
+</div>
+</section>
+<section class="architecture-section" id="explorer">
+<div class="architecture-container">
+<div class="architecture-heading">
+<span class="section-badge">Discover Collections</span>
+<h2> Discover India's Architectural Wonders</h2>
+<p>Browse architectural styles, search famous monuments, and explore India's rich architectural
                         heritage.</p>
-                </div>
-
-                <div class="architecture-search-wrap">
-                    <label for="architecture-search">Search architecture</label>
-                    <input type="search" id="architecture-search" placeholder="Search Taj Mahal, Temple, Mughal..."
-                        autocomplete="off">
-                </div>
-
-                <div class="architecture-filters" role="group" aria-label="Filter architecture by category">
-                    <button class="architecture-filter active" type="button" data-category="Temple" aria-pressed="true">
+</div>
+<div class="architecture-search-wrap">
+<label for="architecture-search">Search architecture</label>
+<input autocomplete="off" id="architecture-search" placeholder="Search Taj Mahal, Temple, Mughal..." type="search"/>
+</div>
+<div aria-label="Filter architecture by category" class="architecture-filters" role="group">
+<button aria-pressed="true" class="architecture-filter active" data-category="Temple" type="button">
                         Temple </button>
-                    <button class="architecture-filter" type="button" data-category="Mughal" aria-pressed="false">
+<button aria-pressed="false" class="architecture-filter" data-category="Mughal" type="button">
                         Mughal </button>
-                    <button class="architecture-filter" type="button" data-category="Colonial" aria-pressed="false">
+<button aria-pressed="false" class="architecture-filter" data-category="Colonial" type="button">
                         Colonial </button>
-                    <button class="architecture-filter" type="button" data-category="Dravidian"
-                        aria-pressed="false">Dravidian</button>
-                    <button class="architecture-filter" type="button" data-category="Rajput" aria-pressed="false">
+<button aria-pressed="false" class="architecture-filter" data-category="Dravidian" type="button">Dravidian</button>
+<button aria-pressed="false" class="architecture-filter" data-category="Rajput" type="button">
                         Rajput </button>
-                    <button class="architecture-filter" type="button" data-category="Indo-Saracenic"
-                        aria-pressed="false">Indo-Saracenic</button>
-                </div>
-
-                <p class="architecture-status" id="architecture-status" aria-live="polite">Showing all 6 Architectural
+<button aria-pressed="false" class="architecture-filter" data-category="Indo-Saracenic" type="button">Indo-Saracenic</button>
+</div>
+<p aria-live="polite" class="architecture-status" id="architecture-status">Showing all 6 Architectural
                     wonders </p>
-
-                <div class="architecture-grid">
-                    <article class="architecture-card" data-category="Mughal"
-                        data-search="taj mahal agra mughal">
-
-                        <div class="architecture-media">
-                            <img src="assets/Taj_Mahal1.png" alt="Taj Mahal" class="architecture-image" loading="lazy">
-
-                            <span class="architecture-category">
+<div class="architecture-grid">
+<article class="architecture-card" data-category="Mughal" data-id="architecture-taj-mahal" data-search="taj mahal agra mughal">
+<div class="architecture-media">
+<img alt="Taj Mahal" class="architecture-image" loading="lazy" src="assets/Taj_Mahal1.png"/>
+<span class="architecture-category">
                                 Mughal
                             </span>
-                        </div>
-
-                        <div class="architecture-body">
-
-                            <h3 class="architecture-title">
+<button aria-label="Save Taj Mahal to My Journey" aria-pressed="false" class="architecture-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="architecture-taj-mahal" type="button">♡</button></div>
+<div class="architecture-body">
+<h3 class="architecture-title">
                                 Taj Mahal
                             </h3>
-
-                            <p class="architecture-location">
+<p class="architecture-location">
                                 Agra, Uttar Pradesh
                             </p>
-
-                            <div class="architecture-meta">
-                                <span>Built</span>
-                                <strong>1653</strong>
-                            </div>
-
-                            <p class="architecture-description">
+<div class="architecture-meta">
+<span>Built</span>
+<strong>1653</strong>
+</div>
+<p class="architecture-description">
                                 The Taj Mahal is one of the world's most iconic monuments, built by Emperor Shah Jahan
                                 in memory of Mumtaz Mahal. It is celebrated for its stunning white marble design and
                                 exceptional Mughal craftsmanship.
                             </p>
-
-                            <button class="architecture-button" type="button" data-name="Taj Mahal"
-                                data-location="Agra, Uttar Pradesh" data-year="1653" data-style="Mughal Architecture"
-                                data-highlights="White Marble, UNESCO World Heritage Site"
-                                data-description="Built on the banks of the Yamuna River, the Taj Mahal is regarded as the finest example of Mughal architecture, blending Persian, Islamic and Indian architectural styles. It is also a UNESCO World Heritage Site and one of the New Seven Wonders of the World.It is renowned for its symmetrical design, intricate carvings, and beautiful gardens.">
+<button class="architecture-button" data-description="Built on the banks of the Yamuna River, the Taj Mahal is regarded as the finest example of Mughal architecture, blending Persian, Islamic and Indian architectural styles. It is also a UNESCO World Heritage Site and one of the New Seven Wonders of the World.It is renowned for its symmetrical design, intricate carvings, and beautiful gardens." data-highlights="White Marble, UNESCO World Heritage Site" data-location="Agra, Uttar Pradesh" data-name="Taj Mahal" data-style="Mughal Architecture" data-year="1653" type="button">
 
                                 View Details
                             </button>
-
-                        </div>
-                    </article>
-                    <article class="architecture-card" data-category="Rajput"
-                        data-search="hawa mahal jaipur rajput architecture">
-
-                        <div class="architecture-media">
-                            <img src="assets/Hawa_Mahal.png" alt="Hawa Mahal" class="architecture-image" loading="lazy">
-
-                            <span class="architecture-category">
+</div>
+</article>
+<article class="architecture-card" data-category="Rajput" data-id="architecture-hawa-mahal" data-search="hawa mahal jaipur rajput architecture">
+<div class="architecture-media">
+<img alt="Hawa Mahal" class="architecture-image" loading="lazy" src="assets/Hawa_Mahal.png"/>
+<span class="architecture-category">
                                 Rajput
                             </span>
-                        </div>
-
-                        <div class="architecture-body">
-
-                            <h3 class="architecture-title">
+<button aria-label="Save Hawa Mahal to My Journey" aria-pressed="false" class="architecture-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="architecture-hawa-mahal" type="button">♡</button></div>
+<div class="architecture-body">
+<h3 class="architecture-title">
                                 Hawa Mahal
                             </h3>
-
-                            <p class="architecture-location">
+<p class="architecture-location">
                                 Jaipur, Rajasthan
                             </p>
-
-                            <div class="architecture-meta">
-                                <span>Built</span>
-                                <strong>1799</strong>
-                            </div>
-
-                            <p class="architecture-description">
+<div class="architecture-meta">
+<span>Built</span>
+<strong>1799</strong>
+</div>
+<p class="architecture-description">
                                 Known as the Palace of Winds, Hawa Mahal is famous for its unique honeycomb façade with
                                 953 windows designed for royal women.
                             </p>
-
-                            <button class="architecture-button" type="button" data-name="Hawa Mahal"
-                                data-location="Jaipur, Rajasthan" data-year="1799" data-style="Rajput Architecture"
-                                data-highlights="953 Windows, Pink Sandstone"
-                                data-description="Built by Maharaja Sawai Pratap Singh, Hawa Mahal is one of Jaipur's most recognizable landmarks and a masterpiece of Rajput architecture.">
+<button class="architecture-button" data-description="Built by Maharaja Sawai Pratap Singh, Hawa Mahal is one of Jaipur's most recognizable landmarks and a masterpiece of Rajput architecture." data-highlights="953 Windows, Pink Sandstone" data-location="Jaipur, Rajasthan" data-name="Hawa Mahal" data-style="Rajput Architecture" data-year="1799" type="button">
 
                                 View Details
 
                             </button>
-
-                        </div>
-
-                    </article>
-                    <article class="architecture-card" data-category="Dravidian Temple" 
-                        data-search="brihadeeswara temple thanjavur dravidian architecture">
-
-                        <div class="architecture-media">
-                            <img src="assets/Brihadeeswara_Temple.png" alt="Brihadeeswara Temple"
-                                class="architecture-image" loading="lazy">
-
-                            <span class="architecture-category">
+</div>
+</article>
+<article class="architecture-card" data-category="Dravidian Temple" data-id="architecture-brihadeeswara-temple" data-search="brihadeeswara temple thanjavur dravidian architecture">
+<div class="architecture-media">
+<img alt="Brihadeeswara Temple" class="architecture-image" loading="lazy" src="assets/Brihadeeswara_Temple.png"/>
+<span class="architecture-category">
                                 Dravidian
                             </span>
-                        </div>
-
-                        <div class="architecture-body">
-
-                            <h3 class="architecture-title">
+<button aria-label="Save Brihadeeswara Temple to My Journey" aria-pressed="false" class="architecture-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="architecture-brihadeeswara-temple" type="button">♡</button></div>
+<div class="architecture-body">
+<h3 class="architecture-title">
                                 Brihadeeswara Temple
                             </h3>
-
-                            <p class="architecture-location">
+<p class="architecture-location">
                                 Thanjavur, Tamil Nadu
                             </p>
-
-                            <div class="architecture-meta">
-                                <span>Built</span>
-                                <strong>1010 CE</strong>
-                            </div>
-
-                            <p class="architecture-description">
+<div class="architecture-meta">
+<span>Built</span>
+<strong>1010 CE</strong>
+</div>
+<p class="architecture-description">
                                 Built during the Chola dynasty, this UNESCO World Heritage Site is one of the greatest
                                 achievements of Dravidian architecture.
                             </p>
-
-                            <button class="architecture-button" type="button" data-name="Brihadeeswara Temple"
-                                data-location="Thanjavur, Tamil Nadu" data-year="1010 CE"
-                                data-style="Dravidian Architecture" data-highlights="UNESCO Site, Chola Dynasty"
-                                data-description="Commissioned by Raja Raja Chola I, the temple is renowned for its towering vimana, granite construction, and remarkable sculptures.">
+<button class="architecture-button" data-description="Commissioned by Raja Raja Chola I, the temple is renowned for its towering vimana, granite construction, and remarkable sculptures." data-highlights="UNESCO Site, Chola Dynasty" data-location="Thanjavur, Tamil Nadu" data-name="Brihadeeswara Temple" data-style="Dravidian Architecture" data-year="1010 CE" type="button">
 
                                 View Details
 
                             </button>
-
-                        </div>
-
-                    </article>
-
-                    <article class="architecture-card" data-category="Colonial"
-                        data-search="victoria memorial kolkata colonial architecture">
-
-                        <div class="architecture-media">
-                            <img src="assets/Victoria_Memorial.png" alt="Victoria Memorial" class="architecture-image"
-                                loading="lazy">
-
-                            <span class="architecture-category">
+</div>
+</article>
+<article class="architecture-card" data-category="Colonial" data-id="architecture-victoria-memorial" data-search="victoria memorial kolkata colonial architecture">
+<div class="architecture-media">
+<img alt="Victoria Memorial" class="architecture-image" loading="lazy" src="assets/Victoria_Memorial.png"/>
+<span class="architecture-category">
                                 Colonial
                             </span>
-                        </div>
-
-                        <div class="architecture-body">
-
-                            <h3 class="architecture-title">
+<button aria-label="Save Victoria Memorial to My Journey" aria-pressed="false" class="architecture-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="architecture-victoria-memorial" type="button">♡</button></div>
+<div class="architecture-body">
+<h3 class="architecture-title">
                                 Victoria Memorial
                             </h3>
-
-                            <p class="architecture-location">
+<p class="architecture-location">
                                 Kolkata, West Bengal
                             </p>
-
-                            <div class="architecture-meta">
-                                <span>Built</span>
-                                <strong>1921</strong>
-                            </div>
-
-                            <p class="architecture-description">
+<div class="architecture-meta">
+<span>Built</span>
+<strong>1921</strong>
+</div>
+<p class="architecture-description">
                                 Built in memory of Queen Victoria, this marble monument blends British and Mughal
                                 architectural influences.
                             </p>
-
-                            <button class="architecture-button" type="button" data-name="Victoria Memorial"
-                                data-location="Kolkata, West Bengal" data-year="1921" data-style="Colonial Architecture"
-                                data-highlights="White Marble, Museum"
-                                data-description="The Victoria Memorial is an iconic colonial-era landmark surrounded by beautiful gardens and historical galleries.">
+<button class="architecture-button" data-description="The Victoria Memorial is an iconic colonial-era landmark surrounded by beautiful gardens and historical galleries." data-highlights="White Marble, Museum" data-location="Kolkata, West Bengal" data-name="Victoria Memorial" data-style="Colonial Architecture" data-year="1921" type="button">
 
                                 View Details
 
                             </button>
-
-                        </div>
-
-                    </article>
-
-                    <article class="architecture-card" data-category="Temple"
-                        data-search="konark sun temple odisha temple architecture">
-
-                        <div class="architecture-media">
-                            <img src="assets/Konark_Sun_Temple.png" alt="Konark Sun Temple" class="architecture-image"
-                                loading="lazy">
-
-                            <span class="architecture-category">
+</div>
+</article>
+<article class="architecture-card" data-category="Temple" data-id="architecture-konark-sun-temple" data-search="konark sun temple odisha temple architecture">
+<div class="architecture-media">
+<img alt="Konark Sun Temple" class="architecture-image" loading="lazy" src="assets/Konark_Sun_Temple.png"/>
+<span class="architecture-category">
                                 Temple
                             </span>
-                        </div>
-
-                        <div class="architecture-body">
-
-                            <h3 class="architecture-title">
+<button aria-label="Save Konark Sun Temple to My Journey" aria-pressed="false" class="architecture-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="architecture-konark-sun-temple" type="button">♡</button></div>
+<div class="architecture-body">
+<h3 class="architecture-title">
                                 Konark Sun Temple
                             </h3>
-
-                            <p class="architecture-location">
+<p class="architecture-location">
                                 Konark, Odisha
                             </p>
-
-                            <div class="architecture-meta">
-                                <span>Built</span>
-                                <strong>1250 CE</strong>
-                            </div>
-
-                            <p class="architecture-description">
+<div class="architecture-meta">
+<span>Built</span>
+<strong>1250 CE</strong>
+</div>
+<p class="architecture-description">
                                 Designed as a colossal stone chariot dedicated to the Sun God, Konark is celebrated for
                                 its intricate carvings.
                             </p>
-
-                            <button class="architecture-button" type="button" data-name="Konark Sun Temple"
-                                data-location="Konark, Odisha" data-year="1250 CE" data-style="Temple Architecture"
-                                data-highlights="Stone Chariot, UNESCO Site"
-                                data-description="The Konark Sun Temple is one of India's finest examples of temple architecture, renowned for its detailed stone sculptures and symbolic design.">
+<button class="architecture-button" data-description="The Konark Sun Temple is one of India's finest examples of temple architecture, renowned for its detailed stone sculptures and symbolic design." data-highlights="Stone Chariot, UNESCO Site" data-location="Konark, Odisha" data-name="Konark Sun Temple" data-style="Temple Architecture" data-year="1250 CE" type="button">
 
                                 View Details
 
                             </button>
-
-                        </div>
-
-                    </article>
-
-                    <article class="architecture-card" data-category="Indo-Saracenic"
-                        data-search="mysore palace mysuru indo saracenic architecture">
-
-                        <div class="architecture-media">
-                            <img src="assets/Mysore_Palace.png" alt="Mysore Palace" class="architecture-image"
-                                loading="lazy">
-
-                            <span class="architecture-category">
+</div>
+</article>
+<article class="architecture-card" data-category="Indo-Saracenic" data-id="architecture-mysore-palace" data-search="mysore palace mysuru indo saracenic architecture">
+<div class="architecture-media">
+<img alt="Mysore Palace" class="architecture-image" loading="lazy" src="assets/Mysore_Palace.png"/>
+<span class="architecture-category">
                                 Indo-Saracenic
                             </span>
-                        </div>
-
-                        <div class="architecture-body">
-
-                            <h3 class="architecture-title">
+<button aria-label="Save Mysore Palace to My Journey" aria-pressed="false" class="architecture-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="architecture-mysore-palace" type="button">♡</button></div>
+<div class="architecture-body">
+<h3 class="architecture-title">
                                 Mysore Palace
                             </h3>
-
-                            <p class="architecture-location">
+<p class="architecture-location">
                                 Mysuru, Karnataka
                             </p>
-
-                            <div class="architecture-meta">
-                                <span>Built</span>
-                                <strong>1912</strong>
-                            </div>
-
-                            <p class="architecture-description">
+<div class="architecture-meta">
+<span>Built</span>
+<strong>1912</strong>
+</div>
+<p class="architecture-description">
                                 One of India's grandest royal residences, Mysore Palace is famous for its Indo-Saracenic
                                 architecture and dazzling illumination.
                             </p>
-
-                            <button class="architecture-button" type="button" data-name="Mysore Palace"
-                                data-location="Mysuru, Karnataka" data-year="1912"
-                                data-style="Indo-Saracenic Architecture"
-                                data-highlights="Royal Palace, Illuminated Facade"
-                                data-description="The palace served as the residence of the Wadiyar dynasty and is among India's most visited heritage monuments.">
+<button class="architecture-button" data-description="The palace served as the residence of the Wadiyar dynasty and is among India's most visited heritage monuments." data-highlights="Royal Palace, Illuminated Facade" data-location="Mysuru, Karnataka" data-name="Mysore Palace" data-style="Indo-Saracenic Architecture" data-year="1912" type="button">
 
                                 View Details
 
                             </button>
-
-                        </div>
-
-                    </article>
-
-                    <div class="architecture-empty" id="architecture-empty">
-                        <h3>No architecture found</h3>
-                        <p>Try a different search term or select another category.</p>
-                    </div>
-                </div>
-        </section>
-    </main>
-
-    <div class="architecture-modal" id="architecture-modal" role="dialog" aria-modal="true"
-        aria-labelledby="modal-title" aria-hidden="true">
-        <div class="architecture-modal-card">
-            <button class="architecture-modal-close" id="architecture-modal-close" type="button"
-                aria-label="Close details">×</button>
-            <span class="modal-category" id="modal-category"></span>
-            <h2 id="modal-title"></h2>
-            <p class="modal-location" id="modal-location"></p>
-            <div class="modal-info-grid">
-                <div><span>Built </span><strong id="modal-year"></strong></div>
-                <div><span>Architectural Highlights</span><strong id="modal-highlights"></strong></div>
-            </div>
-            <p class="modal-description" id="modal-description"></p>
-        </div>
-    </div>
-
-    <footer class="architecture-footer">
-        <div class="architecture-container">
-            <p>Part of <a href="index.html">Incredible India Explorer</a> · Explore India's timeless architectural
+</div>
+</article>
+<div class="architecture-empty" id="architecture-empty">
+<h3>No architecture found</h3>
+<p>Try a different search term or select another category.</p>
+</div>
+</div>
+</div></section>
+</main>
+<div aria-hidden="true" aria-labelledby="modal-title" aria-modal="true" class="architecture-modal" id="architecture-modal" role="dialog">
+<div class="architecture-modal-card">
+<button aria-label="Close details" class="architecture-modal-close" id="architecture-modal-close" type="button">×</button>
+<span class="modal-category" id="modal-category"></span>
+<h2 id="modal-title"></h2>
+<p class="modal-location" id="modal-location"></p>
+<div class="modal-info-grid">
+<div><span>Built </span><strong id="modal-year"></strong></div>
+<div><span>Architectural Highlights</span><strong id="modal-highlights"></strong></div>
+</div>
+<p class="modal-description" id="modal-description"></p>
+</div>
+</div>
+<footer class="architecture-footer">
+<div class="architecture-container">
+<p>Part of <a href="index.html">Incredible India Explorer</a> · Explore India's timeless architectural
                 heritage.</p>
-        </div>
-    </footer>
-    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-    <script type="module" src="app.js"></script>
-    <script src="architecture.js"></script>
+</div>
+</footer>
+<button aria-label="Scroll to top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
+<script src="app.js"></script>
+<script src="architecture.js"></script>
+    <script src="architecture-journey.js"></script>
 </body>
-
 </html>

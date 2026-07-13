@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Indian traditional water conservation systems, climate adaptations, water-harvesting methods, and ecological importance.">
+  <title>Indian Traditional Water Conservation Systems Explorer | Incredible India</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="water-systems.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="heritage.html" class="nav-link">Heritage</a>
+        <a href="stepwells.html" class="nav-link">Stepwells</a>
+        <a href="water-systems.html" class="nav-link" style="color:var(--saffron)">Water Systems</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="water-page">
+    <section class="water-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Indigenous engineering · climate adaptation</span>
+        <h1>Traditional Water <span>Conservation Systems</span></h1>
+        <p>Explore how communities across India harvested rain, stored water, managed floods, recharged groundwater, and adapted to local terrain.</p>
+        <div class="hero-stats">
+          <div><strong id="hero-count">12</strong><span>Water systems</span></div>
+          <div><strong>6</strong><span>Regions covered</span></div>
+          <div><strong>∞</strong><span>Lessons in sustainability</span></div>
+        </div>
+        <a href="#explorer" class="hero-cta">Explore systems ↓</a>
+      </div>
+    </section>
+
+    <section class="water-section" id="explorer">
+      <div class="water-container">
+        <div class="section-heading">
+          <span class="section-badge">Traditional Ecological Knowledge</span>
+          <h2>Search water wisdom across India</h2>
+          <p>Search by system name, state, terrain, or method, then filter by region and water-system type.</p>
+        </div>
+
+        <div class="explorer-controls">
+          <div class="control-field search-field">
+            <label for="water-search">Search water systems</label>
+            <input id="water-search" type="search" placeholder="Try johad, desert, tank, Meghalaya..." autocomplete="off">
+          </div>
+          <div class="control-field">
+            <label for="region-filter">Region</label>
+            <select id="region-filter">
+              <option value="all">All regions</option>
+              <option value="north">North</option>
+              <option value="south">South</option>
+              <option value="east">East</option>
+              <option value="west">West</option>
+              <option value="northeast">Northeast</option>
+            </select>
+          </div>
+          <div class="control-field">
+            <label for="type-filter">System type</label>
+            <select id="type-filter"><option value="all">All types</option></select>
+          </div>
+        </div>
+
+        <div class="results-toolbar">
+          <p id="result-status" aria-live="polite">Showing all 12 systems</p>
+          <button id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="water-grid" id="water-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>⌕</span>
+          <h3>No water system found</h3>
+          <p>Try another name, state, terrain, region, or type.</p>
+          <button id="empty-reset" type="button">Reset filters</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="water-modal" id="water-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close system details">×</button>
+      <div class="modal-gallery">
+        <img id="modal-image" src="" alt="">
+        <span id="modal-counter" class="modal-counter"></span>
+        <div class="modal-nav">
+          <button id="modal-prev" type="button" aria-label="Previous image">←</button>
+          <button id="modal-next" type="button" aria-label="Next image">→</button>
+        </div>
+      </div>
+      <div class="modal-copy">
+        <span class="modal-kicker" id="modal-state"></span>
+        <h2 id="modal-title"></h2>
+        <div class="detail-grid">
+          <div><span>Climate / terrain</span><strong id="modal-terrain"></strong></div>
+          <div><span>System type</span><strong id="modal-type"></strong></div>
+        </div>
+        <div class="detail-block">
+          <span>How it works</span>
+          <p id="modal-how"></p>
+        </div>
+        <div class="detail-block">
+          <span>Cultural and ecological importance</span>
+          <p id="modal-importance"></p>
+        </div>
+        <div class="fact-box">
+          <span>Interesting fact</span>
+          <p id="modal-fact"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="water-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Learning from traditional sustainability systems.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="water-systems.js"></script>
+</body>
+</html>

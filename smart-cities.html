@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart City Explorer - Dashboards and statistics of major Indian cities.">
-    <title>Smart Cities | Incredible India</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Smart City Explorer - Dashboards and statistics of major Indian cities." name="description"/>
+<title>Smart Cities | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>
         .cities-hero {
             background: linear-gradient(to right, rgba(10,20,40,0.9) 0%, rgba(10,20,40,0.6) 100%), linear-gradient(-45deg, #FF9933, #138808, #000080) center/cover;
             height: 50vh;
@@ -95,181 +94,179 @@
     </style>
 </head>
 <body>
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
-                <a href="index.html#map" class="nav-link" id="link-map">Map</a>
-                <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
-                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
-                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        <a href="tribes.html" class="dropdown-item">Tribes</a>
-                    </div>
+<header class="navbar scrolled" id="navbar">
+<div class="nav-container">
+<a class="nav-logo" href="index.html#home" id="nav-logo">
+<span class="saffron">Incredible</span>
+<span class="gold">India</span>
+<span class="green">Explorer</span>
+</a>
+<button aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<nav class="nav-menu" id="nav-menu">
+<a class="nav-link" href="index.html#home" id="link-home">Home</a>
+<a class="nav-link" href="index.html#map" id="link-map">Map</a>
+<a class="nav-link" href="cuisine.html" id="link-cuisine">Cuisine</a>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-explore-more">Explore ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="travel.html">Travel &amp; Destinations</a>
+<a class="dropdown-item" href="wildlife.html">Nature &amp; Wildlife</a>
+<a class="dropdown-item" href="personalities.html">Famous Personalities</a>
+<a class="dropdown-item" href="spiritual.html">Spiritual India</a>
+<a class="dropdown-item" href="arts-crafts.html">Arts &amp; Crafts</a>
+<a class="dropdown-item" href="tribes.html">Tribes</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" style="color: var(--saffron)">Learn &amp; Data ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="smart-cities.html" style="color: var(--saffron)">Smart Cities</a>
+<a class="dropdown-item" href="languages.html">Languages of India</a>
+<a class="dropdown-item" href="data-india.html">Data &amp; Statistics</a>
+<a class="dropdown-item" href="learn.html">Learn &amp; Quiz</a>
+</div>
+</div>
+<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
+<a class="nav-link" href="premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+<a class="nav-link" href="login.html" id="link-login">Login</a>
+<div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" style="color: var(--saffron)">Learn & Data ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="smart-cities.html" class="dropdown-item" style="color: var(--saffron)">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
-                    </div>
-                </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-                <a href="premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-                <a href="login.html" class="nav-link" id="link-login">Login</a>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
             </nav>
-        </div>
-    </header>
-
-    <main id="app-root" style="padding-top: 80px;">
-        <section class="cities-hero scroll-section">
-            <div class="section-container">
-                <div class="hero-content" style="text-align: left; margin: 0;">
-                    <span class="hero-tagline animate-fade-in" style="color: #4CAF50;">🏙️ Urban Evolution</span>
-                    <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Smart City <span style="color: #4CAF50;">Explorer</span></h1>
-                    <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px;">
+</div>
+</header>
+<main id="app-root" style="padding-top: 80px;">
+<section class="cities-hero scroll-section">
+<div class="section-container">
+<div class="hero-content" style="text-align: left; margin: 0;">
+<span class="hero-tagline animate-fade-in" style="color: #4CAF50;">🏙️ Urban Evolution</span>
+<h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Smart City <span style="color: #4CAF50;">Explorer</span></h1>
+<p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px;">
                         Discover the economic powerhouses, tech hubs, and cultural capitals driving modern India forward.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="fade-in-section" style="padding: 60px 0;">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Metropolises</span>
-                    <h2>City Dashboards</h2>
-                </div>
-
-                <div class="city-dashboard-grid">
-                    <!-- Mumbai -->
-                    <div class="city-card">
-                        <div class="city-header" style="background-image: linear-gradient(-45deg, #FF9933, #138808, #000080);">
-                            <div class="city-header-overlay">
-                                <h3>Mumbai</h3>
-                                <span style="color: var(--gold);">Financial Capital</span>
-                            </div>
-                        </div>
-                        <div class="city-stats">
-                            <div class="stat-box">
-                                <div class="stat-icon">👥</div>
-                                <div class="stat-value">20.9M</div>
-                                <div class="stat-label">Population</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">📈</div>
-                                <div class="stat-value">$310B</div>
-                                <div class="stat-label">GDP (Est)</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">🎬</div>
-                                <div class="stat-value">Bollywood</div>
-                                <div class="stat-label">Industry</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">🚆</div>
-                                <div class="stat-value">Local Train</div>
-                                <div class="stat-label">Transport</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Delhi -->
-                    <div class="city-card">
-                        <div class="city-header" style="background-image: linear-gradient(-45deg, #FF9933, #138808, #000080);">
-                            <div class="city-header-overlay">
-                                <h3>New Delhi</h3>
-                                <span style="color: var(--gold);">National Capital</span>
-                            </div>
-                        </div>
-                        <div class="city-stats">
-                            <div class="stat-box">
-                                <div class="stat-icon">👥</div>
-                                <div class="stat-value">32.0M</div>
-                                <div class="stat-label">Population</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">🏛️</div>
-                                <div class="stat-value">Govt Hub</div>
-                                <div class="stat-label">Economy</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">🚇</div>
-                                <div class="stat-value">390km+</div>
-                                <div class="stat-label">Metro Network</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">🥘</div>
-                                <div class="stat-value">Street Food</div>
-                                <div class="stat-label">Culture</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bengaluru -->
-                    <div class="city-card">
-                        <div class="city-header" style="background-image: linear-gradient(-45deg, #FF9933, #138808, #000080);">
-                            <div class="city-header-overlay">
-                                <h3>Bengaluru</h3>
-                                <span style="color: var(--gold);">Silicon Valley of India</span>
-                            </div>
-                        </div>
-                        <div class="city-stats">
-                            <div class="stat-box">
-                                <div class="stat-icon">👥</div>
-                                <div class="stat-value">13.1M</div>
-                                <div class="stat-label">Population</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">💻</div>
-                                <div class="stat-value">$110B</div>
-                                <div class="stat-label">IT Exports</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">🚀</div>
-                                <div class="stat-value">13000+</div>
-                                <div class="stat-label">Startups</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-icon">🌳</div>
-                                <div class="stat-value">Garden City</div>
-                                <div class="stat-label">Environment</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" style="padding: 0px 24px 30px;">
-        <div class="footer-credits" style="align-self: center; margin-top: 10px;">
-            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
-        </div>
-    </footer>
-
-    <script type="module" src="firebase-config.js"></script>
-    <script type="module" src="auth.js"></script>
-    <script type="module" src="app.js"></script>
-    <script src="router.js"></script>
+</div>
+</div>
+</section>
+<section class="fade-in-section" style="padding: 60px 0;">
+<div class="section-container">
+<div class="section-header">
+<span class="section-badge">Metropolises</span>
+<h2>City Dashboards</h2>
+</div>
+<div class="city-dashboard-grid">
+<!-- Mumbai -->
+<div class="city-card" data-id="smart-cities-mumbai"><button aria-label="Save Mumbai to My Journey" aria-pressed="false" class="city-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="smart-cities-mumbai" type="button">♡</button>
+<div class="city-header" style="background-image: linear-gradient(-45deg, #FF9933, #138808, #000080);">
+<div class="city-header-overlay">
+<h3>Mumbai</h3>
+<span style="color: var(--gold);">Financial Capital</span>
+</div>
+</div>
+<div class="city-stats">
+<div class="stat-box">
+<div class="stat-icon">👥</div>
+<div class="stat-value">20.9M</div>
+<div class="stat-label">Population</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">📈</div>
+<div class="stat-value">$310B</div>
+<div class="stat-label">GDP (Est)</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🎬</div>
+<div class="stat-value">Bollywood</div>
+<div class="stat-label">Industry</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🚆</div>
+<div class="stat-value">Local Train</div>
+<div class="stat-label">Transport</div>
+</div>
+</div>
+</div>
+<!-- Delhi -->
+<div class="city-card" data-id="smart-cities-new-delhi"><button aria-label="Save New Delhi to My Journey" aria-pressed="false" class="city-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="smart-cities-new-delhi" type="button">♡</button>
+<div class="city-header" style="background-image: linear-gradient(-45deg, #FF9933, #138808, #000080);">
+<div class="city-header-overlay">
+<h3>New Delhi</h3>
+<span style="color: var(--gold);">National Capital</span>
+</div>
+</div>
+<div class="city-stats">
+<div class="stat-box">
+<div class="stat-icon">👥</div>
+<div class="stat-value">32.0M</div>
+<div class="stat-label">Population</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🏛️</div>
+<div class="stat-value">Govt Hub</div>
+<div class="stat-label">Economy</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🚇</div>
+<div class="stat-value">390km+</div>
+<div class="stat-label">Metro Network</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🥘</div>
+<div class="stat-value">Street Food</div>
+<div class="stat-label">Culture</div>
+</div>
+</div>
+</div>
+<!-- Bengaluru -->
+<div class="city-card" data-id="smart-cities-bengaluru"><button aria-label="Save Bengaluru to My Journey" aria-pressed="false" class="city-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="smart-cities-bengaluru" type="button">♡</button>
+<div class="city-header" style="background-image: linear-gradient(-45deg, #FF9933, #138808, #000080);">
+<div class="city-header-overlay">
+<h3>Bengaluru</h3>
+<span style="color: var(--gold);">Silicon Valley of India</span>
+</div>
+</div>
+<div class="city-stats">
+<div class="stat-box">
+<div class="stat-icon">👥</div>
+<div class="stat-value">13.1M</div>
+<div class="stat-label">Population</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">💻</div>
+<div class="stat-value">$110B</div>
+<div class="stat-label">IT Exports</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🚀</div>
+<div class="stat-value">13000+</div>
+<div class="stat-label">Startups</div>
+</div>
+<div class="stat-box">
+<div class="stat-icon">🌳</div>
+<div class="stat-value">Garden City</div>
+<div class="stat-label">Environment</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="footer" style="padding: 0px 24px 30px;">
+<div class="footer-credits" style="align-self: center; margin-top: 10px;">
+<p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
+</div>
+</footer>
+<script src="app.js"></script>
+<script src="firebase-config.js" type="module"></script>
+<script src="auth.js" type="module"></script>
+<script src="router.js"></script>
+    <script src="smart-cities-journey.js"></script>
 </body>
 </html>
-

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive Freedom Story - Choose your path and experience the Indian Independence Movement.">
-    <title>Interactive Freedom Story | Incredible India</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Interactive Freedom Story - Choose your path and experience the Indian Independence Movement." name="description"/>
+<title>Interactive Freedom Story | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>
         body {
             background: linear-gradient(to bottom, #090D16 0%, #151b29 100%);
             min-height: 100vh;
@@ -40,60 +39,52 @@
     </style>
 </head>
 <body>
-
-    <div class="story-container">
-        <a href="personalities.html" class="back-link">← Back to Personalities</a>
-
-        <!-- Screen 1: The Crossroads -->
-        <div id="crossroads-screen" class="story-screen active">
-            <div class="section-header">
-                <span class="section-badge">Interactive Story</span>
-                <h2>Choose Your Path to Freedom</h2>
-                <p class="section-subtitle">The struggle for Indian independence was fought on many fronts. Step into history and experience the events through the philosophy of a legendary leader.</p>
-            </div>
-
-            <div class="crossroads-grid">
-                <div class="path-card" data-path="gandhi">
-                    <span class="path-icon">🕊️</span>
-                    <h3 style="color: var(--primary-saffron)">Mahatma Gandhi</h3>
-                    <p>The Path of Non-Violence & Satyagraha</p>
-                </div>
-                
-                <div class="path-card" data-path="bhagat">
-                    <span class="path-icon">🔥</span>
-                    <h3 style="color: var(--primary-gold)">Bhagat Singh</h3>
-                    <p>The Path of Uncompromising Revolution</p>
-                </div>
-
-                <div class="path-card" data-path="bose">
-                    <span class="path-icon">⚔️</span>
-                    <h3 style="color: var(--primary-green)">Subhas Chandra Bose</h3>
-                    <p>The Path of Armed Military Struggle</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Screen 2: The Journey -->
-        <div id="journey-screen" class="story-screen">
-            <div class="section-header" style="margin-bottom: 30px;">
-                <h2 id="journey-title" style="font-size: 3rem;">Path Title</h2>
-                <p class="section-subtitle">Unlock the historical events of this journey.</p>
-            </div>
-
-            <div id="interactive-timeline" class="interactive-timeline">
-                <!-- Events will be injected here by story-engine.js -->
-            </div>
-
-            <div class="story-actions">
-                <button id="btn-next-event" class="btn btn-primary ripple">Unlock First Event</button>
-                <button id="btn-reset-story" class="btn btn-secondary ripple">Choose Another Path</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Theme toggle logic from app.js -->
-    <script type="module" src="app.js"></script>
-    <script src="story-engine.js"></script>
-    <script src="router.js"></script>
+<div class="story-container">
+<a class="back-link" href="personalities.html">← Back to Personalities</a>
+<!-- Screen 1: The Crossroads -->
+<div class="story-screen active" id="crossroads-screen">
+<div class="section-header">
+<span class="section-badge">Interactive Story</span>
+<h2>Choose Your Path to Freedom</h2>
+<p class="section-subtitle">The struggle for Indian independence was fought on many fronts. Step into history and experience the events through the philosophy of a legendary leader.</p>
+</div>
+<div class="crossroads-grid">
+<div class="path-card" data-id="freedom-story-mahatma-gandhi" data-path="gandhi"><button aria-label="Save Mahatma Gandhi to My Journey" aria-pressed="false" class="path-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="freedom-story-mahatma-gandhi" type="button">♡</button>
+<span class="path-icon">🕊️</span>
+<h3 style="color: var(--primary-saffron)">Mahatma Gandhi</h3>
+<p>The Path of Non-Violence &amp; Satyagraha</p>
+</div>
+<div class="path-card" data-id="freedom-story-bhagat-singh" data-path="bhagat"><button aria-label="Save Bhagat Singh to My Journey" aria-pressed="false" class="path-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="freedom-story-bhagat-singh" type="button">♡</button>
+<span class="path-icon">🔥</span>
+<h3 style="color: var(--primary-gold)">Bhagat Singh</h3>
+<p>The Path of Uncompromising Revolution</p>
+</div>
+<div class="path-card" data-id="freedom-story-subhas-chandra-bose" data-path="bose"><button aria-label="Save Subhas Chandra Bose to My Journey" aria-pressed="false" class="path-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="freedom-story-subhas-chandra-bose" type="button">♡</button>
+<span class="path-icon">⚔️</span>
+<h3 style="color: var(--primary-green)">Subhas Chandra Bose</h3>
+<p>The Path of Armed Military Struggle</p>
+</div>
+</div>
+</div>
+<!-- Screen 2: The Journey -->
+<div class="story-screen" id="journey-screen">
+<div class="section-header" style="margin-bottom: 30px;">
+<h2 id="journey-title" style="font-size: 3rem;">Path Title</h2>
+<p class="section-subtitle">Unlock the historical events of this journey.</p>
+</div>
+<div class="interactive-timeline" id="interactive-timeline">
+<!-- Events will be injected here by story-engine.js -->
+</div>
+<div class="story-actions">
+<button class="btn btn-primary ripple" id="btn-next-event">Unlock First Event</button>
+<button class="btn btn-secondary ripple" id="btn-reset-story">Choose Another Path</button>
+</div>
+</div>
+</div>
+<!-- Theme toggle logic from app.js -->
+<script src="app.js"></script>
+<script src="story-engine.js"></script>
+<script src="router.js"></script>
+    <script src="freedom-story-journey.js"></script>
 </body>
 </html>

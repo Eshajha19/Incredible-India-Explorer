@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Famous Personalities - The legends, freedom fighters, and modern icons of India.">
-    <title>Famous Personalities | Incredible India</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Famous Personalities - The legends, freedom fighters, and modern icons of India." name="description"/>
+<title>Famous Personalities | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>
         .personalities-hero {
             background: linear-gradient(to bottom, rgba(20,20,20,0.7) 0%, rgba(10,10,10,0.9) 100%), linear-gradient(-45deg, #FF9933, #138808, #000080) center/cover;
             height: 50vh;
@@ -242,247 +241,233 @@
         }
     </style>
 </head>
-
 <body>
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
-                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-                <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-                <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
-                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
-                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="personalities.html" class="dropdown-item" style="color: var(--saffron)">Famous Personalities</a>
-                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        <a href="tribes.html" class="dropdown-item">Tribes</a>
-                    </div>
+<header class="navbar scrolled" id="navbar">
+<div class="nav-container">
+<a class="nav-logo" href="index.html#home" id="nav-logo">
+<span class="saffron">Incredible</span>
+<span class="gold">India</span>
+<span class="green">Explorer</span>
+</a>
+<button aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<nav class="nav-menu" id="nav-menu">
+<a class="nav-link" href="index.html#home" id="link-home">Home</a>
+<a class="nav-link" href="index.html#map" id="link-map">Interactive Map</a>
+<a class="nav-link" href="cuisine.html" id="link-cuisine">Cuisine</a>
+<a class="nav-link" href="festivals.html" id="link-festivals">Festivals</a>
+<a class="nav-link" href="culture.html" id="link-culture">Culture</a>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="travel.html">Travel &amp; Destinations</a>
+<a class="dropdown-item" href="wildlife.html">Nature &amp; Wildlife</a>
+<a class="dropdown-item" href="personalities.html" style="color: var(--saffron)">Famous Personalities</a>
+<a class="dropdown-item" href="spiritual.html">Spiritual India</a>
+<a class="dropdown-item" href="arts-crafts.html">Arts &amp; Crafts</a>
+<a class="dropdown-item" href="tribes.html">Tribes</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="smart-cities.html">Smart Cities</a>
+<a class="dropdown-item" href="languages.html">Languages of India</a>
+<a class="dropdown-item" href="data-india.html">Data &amp; Statistics</a>
+<a class="dropdown-item" href="learn.html">Learn &amp; Quiz</a>
+</div>
+</div>
+<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
+<a class="nav-link" href="premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+<a class="nav-link" href="login.html" id="link-login">Login</a>
+<div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
-                    </div>
-                </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-                <a href="premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-                <a href="login.html" class="nav-link" id="link-login">Login</a>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
             </nav>
-        </div>
-    </header>
-
-    <main id="app-root" style="padding-top: 80px;">
-        <section class="personalities-hero scroll-section">
-            <div class="hero-content">
-                <span class="hero-tagline animate-fade-in" style="color: var(--gold);">👑 The Icons</span>
-                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Famous <span class="highlight" style="color: var(--gold);">Personalities</span></h1>
-                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 700px; margin: 0 auto;">
+</div>
+</header>
+<main id="app-root" style="padding-top: 80px;">
+<section class="personalities-hero scroll-section">
+<div class="hero-content">
+<span class="hero-tagline animate-fade-in" style="color: var(--gold);">👑 The Icons</span>
+<h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Famous <span class="highlight" style="color: var(--gold);">Personalities</span></h1>
+<p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 700px; margin: 0 auto;">
                     Discover the leaders, warriors, scientists, and artists who shaped the history and future of India.
                 </p>
-            </div>
-        </section>
-
-        <section class="fade-in-section" style="padding: 40px 24px 0;">
-            <div class="section-container" style="background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(18, 136, 7, 0.1)); border: 2px solid var(--gold); border-radius: 20px; padding: 40px; text-align: center; box-shadow: var(--shadow-glow);">
-                <h2 style="font-size: 2.5rem; margin-bottom: 15px; font-family: 'Playfair Display', serif;">Interactive History</h2>
-                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">Step into the past. Choose your path and experience the Indian Independence Movement through an interactive, chronological storyline.</p>
-                <a href="freedom-story.html" class="btn btn-primary ripple" style="font-size: 1.1rem; padding: 15px 40px;">Launch Freedom Story ⚔️</a>
-            </div>
-        </section>
-
-        <section class="fade-in-section" style="padding: 40px 0;">
-            <div class="section-container">
-                <div class="category-tabs">
-                    <button class="category-tab active" data-category="historical">Historical Legends</button>
-                    <button class="category-tab" data-category="freedom-fighter">Freedom Fighters</button>
-                    <button class="category-tab" data-category="modern">Modern Icons</button>
-                </div>
-
-                <div class="person-grid">
-                    <div class="person-card" data-category="historical">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Ashoka.png"alt="Ashoka the Great" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Ashoka the Great</h3>
-                            <div class="person-title">Mauryan Emperor</div>
-                            <p class="person-desc">One of India's greatest emperors who ruled almost the entire Indian subcontinent and later spread Buddhism across Asia.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="historical">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Chhatrapati_Shivaji.png"alt="Chhatrapati Shivaji Maharaj" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Chhatrapati Shivaji Maharaj</h3>
-                            <div class="person-title">Maratha King</div>
-                            <p class="person-desc">The founder of the Maratha Empire, known for his progressive administration, military tactics, and valor.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="freedom-fighter">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Rani_Lakshmibai.png"alt="Rani Lakshmibai" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Rani Lakshmibai</h3>
-                            <div class="person-title">Queen of Jhansi</div>
-                            <p class="person-desc">A prominent figure of the Indian Rebellion of 1857 and a symbol of resistance to the British Raj.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="freedom-fighter">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Mahatma.png"alt="Mahatma Gandhi" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Mahatma Gandhi</h3>
-                            <div class="person-title">Father of the Nation</div>
-                            <p class="person-desc">Leader of India's independence movement who inspired millions through nonviolent resistance and civil disobedience.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="freedom-fighter">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Bhagat.png"alt="Bhagat Singh" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Bhagat Singh</h3>
-                            <div class="person-title">Revolutionary Freedom Fighter</div>
-                            <p class="person-desc">A fearless revolutionary who became a symbol of courage and sacrifice in India's struggle against British rule.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="freedom-fighter">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Subhas_Chandra.png"alt="Subhas Chandra Bose" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Subhas Chandra Bose</h3>
-                            <div class="person-title">Leader of the Indian National Army</div>
-                            <p class="person-desc">A visionary nationalist who led the Indian National Army to fight for India's independence from British rule.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="historical">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Maharana.png"alt="Maharana Pratap" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Maharana Pratap</h3>
-                            <div class="person-title">Rajput Warrior King of Mewar</div>
-                            <p class="person-desc">Renowned for his bravery and unwavering resistance against the Mughal Empire, becoming a lasting symbol of courage.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="modern">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Abdul_kalam.png"alt="Dr. A. P. J. Abdul Kalam" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Dr. A. P. J. Abdul Kalam</h3>
-                            <div class="person-title">Missile Man of India</div>
-                            <p class="person-desc">An eminent scientist and former President who inspired generations through innovation, education, and visionary leadership.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="modern">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Ratan_Tata.png"alt="Ratan Tata" class="person-img">
-                        </div>
-                       <div class="person-info">
-                            <h3 class="person-name">Ratan Tata</h3>
-                            <div class="person-title">Industrialist and Philanthropist</div>
-                            <p class="person-desc">A respected business leader whose vision, ethics, and philanthropy have shaped modern India's industrial and social progress.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="modern">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Sachin.png"alt="Sachin Tendulkar" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Sachin Tendulkar</h3>
-                            <div class="person-title">Master Blaster</div>
-                            <p class="person-desc">One of cricket's greatest legends, inspiring millions through exceptional achievements, humility, and dedication to the sport.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="modern">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Narayan.png"alt="N. R. Narayana Murthy" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">N. R. Narayana Murthy</h3>
-                            <div class="person-title">Co-founder of Infosys</div>
-                            <p class="person-desc">A pioneering entrepreneur whose leadership and vision helped establish India as a global hub for information technology.</p>
-                        </div>
-                    </div>
-
-                    <div class="person-card" data-category="historical">
-                        <div class="person-img-wrapper">
-                            <img src="assets/Akbar.png"alt="Akbar the Great" class="person-img">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-name">Akbar the Great</h3>
-                            <div class="person-title">Mughal Emperor</div>
-                            <p class="person-desc">Known for his vast empire, centralized administration, and policy of religious tolerance and cultural integration.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>Incredible India Explorer</h3>
-                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
+</div>
+</section>
+<section class="fade-in-section" style="padding: 40px 24px 0;">
+<div class="section-container" style="background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(18, 136, 7, 0.1)); border: 2px solid var(--gold); border-radius: 20px; padding: 40px; text-align: center; box-shadow: var(--shadow-glow);">
+<h2 style="font-size: 2.5rem; margin-bottom: 15px; font-family: 'Playfair Display', serif;">Interactive History</h2>
+<p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px;">Step into the past. Choose your path and experience the Indian Independence Movement through an interactive, chronological storyline.</p>
+<a class="btn btn-primary ripple" href="freedom-story.html" style="font-size: 1.1rem; padding: 15px 40px;">Launch Freedom Story ⚔️</a>
+</div>
+</section>
+<section class="fade-in-section" style="padding: 40px 0;">
+<div class="section-container">
+<div class="category-tabs">
+<button class="category-tab active" data-category="historical">Historical Legends</button>
+<button class="category-tab" data-category="freedom-fighter">Freedom Fighters</button>
+<button class="category-tab" data-category="modern">Modern Icons</button>
+</div>
+<div class="person-grid">
+<div class="person-card" data-category="historical" data-id="personalities-ashoka-the-great">
+<div class="person-img-wrapper">
+<img alt="Ashoka the Great" class="person-img" src="assets/Ashoka.png"/>
+<button aria-label="Save Ashoka the Great to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-ashoka-the-great" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Ashoka the Great</h3>
+<div class="person-title">Mauryan Emperor</div>
+<p class="person-desc">One of India's greatest emperors who ruled almost the entire Indian subcontinent and later spread Buddhism across Asia.</p>
+</div>
+</div>
+<div class="person-card" data-category="historical" data-id="personalities-chhatrapati-shivaji-maharaj">
+<div class="person-img-wrapper">
+<img alt="Chhatrapati Shivaji Maharaj" class="person-img" src="assets/Chhatrapati_Shivaji.png"/>
+<button aria-label="Save Chhatrapati Shivaji Maharaj to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-chhatrapati-shivaji-maharaj" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Chhatrapati Shivaji Maharaj</h3>
+<div class="person-title">Maratha King</div>
+<p class="person-desc">The founder of the Maratha Empire, known for his progressive administration, military tactics, and valor.</p>
+</div>
+</div>
+<div class="person-card" data-category="freedom-fighter" data-id="personalities-rani-lakshmibai">
+<div class="person-img-wrapper">
+<img alt="Rani Lakshmibai" class="person-img" src="assets/Rani_Lakshmibai.png"/>
+<button aria-label="Save Rani Lakshmibai to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-rani-lakshmibai" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Rani Lakshmibai</h3>
+<div class="person-title">Queen of Jhansi</div>
+<p class="person-desc">A prominent figure of the Indian Rebellion of 1857 and a symbol of resistance to the British Raj.</p>
+</div>
+</div>
+<div class="person-card" data-category="freedom-fighter" data-id="personalities-mahatma-gandhi">
+<div class="person-img-wrapper">
+<img alt="Mahatma Gandhi" class="person-img" src="assets/Mahatma.png"/>
+<button aria-label="Save Mahatma Gandhi to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-mahatma-gandhi" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Mahatma Gandhi</h3>
+<div class="person-title">Father of the Nation</div>
+<p class="person-desc">Leader of India's independence movement who inspired millions through nonviolent resistance and civil disobedience.</p>
+</div>
+</div>
+<div class="person-card" data-category="freedom-fighter" data-id="personalities-bhagat-singh">
+<div class="person-img-wrapper">
+<img alt="Bhagat Singh" class="person-img" src="assets/Bhagat.png"/>
+<button aria-label="Save Bhagat Singh to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-bhagat-singh" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Bhagat Singh</h3>
+<div class="person-title">Revolutionary Freedom Fighter</div>
+<p class="person-desc">A fearless revolutionary who became a symbol of courage and sacrifice in India's struggle against British rule.</p>
+</div>
+</div>
+<div class="person-card" data-category="freedom-fighter" data-id="personalities-subhas-chandra-bose">
+<div class="person-img-wrapper">
+<img alt="Subhas Chandra Bose" class="person-img" src="assets/Subhas_Chandra.png"/>
+<button aria-label="Save Subhas Chandra Bose to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-subhas-chandra-bose" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Subhas Chandra Bose</h3>
+<div class="person-title">Leader of the Indian National Army</div>
+<p class="person-desc">A visionary nationalist who led the Indian National Army to fight for India's independence from British rule.</p>
+</div>
+</div>
+<div class="person-card" data-category="historical" data-id="personalities-maharana-pratap">
+<div class="person-img-wrapper">
+<img alt="Maharana Pratap" class="person-img" src="assets/Maharana.png"/>
+<button aria-label="Save Maharana Pratap to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-maharana-pratap" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Maharana Pratap</h3>
+<div class="person-title">Rajput Warrior King of Mewar</div>
+<p class="person-desc">Renowned for his bravery and unwavering resistance against the Mughal Empire, becoming a lasting symbol of courage.</p>
+</div>
+</div>
+<div class="person-card" data-category="modern" data-id="personalities-dr-a-p-j-abdul-kalam">
+<div class="person-img-wrapper">
+<img alt="Dr. A. P. J. Abdul Kalam" class="person-img" src="assets/Abdul_kalam.png"/>
+<button aria-label="Save Dr. A. P. J. Abdul Kalam to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-dr-a-p-j-abdul-kalam" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Dr. A. P. J. Abdul Kalam</h3>
+<div class="person-title">Missile Man of India</div>
+<p class="person-desc">An eminent scientist and former President who inspired generations through innovation, education, and visionary leadership.</p>
+</div>
+</div>
+<div class="person-card" data-category="modern" data-id="personalities-ratan-tata">
+<div class="person-img-wrapper">
+<img alt="Ratan Tata" class="person-img" src="assets/Ratan_Tata.png"/>
+<button aria-label="Save Ratan Tata to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-ratan-tata" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Ratan Tata</h3>
+<div class="person-title">Industrialist and Philanthropist</div>
+<p class="person-desc">A respected business leader whose vision, ethics, and philanthropy have shaped modern India's industrial and social progress.</p>
+</div>
+</div>
+<div class="person-card" data-category="modern" data-id="personalities-sachin-tendulkar">
+<div class="person-img-wrapper">
+<img alt="Sachin Tendulkar" class="person-img" src="assets/Sachin.png"/>
+<button aria-label="Save Sachin Tendulkar to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-sachin-tendulkar" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Sachin Tendulkar</h3>
+<div class="person-title">Master Blaster</div>
+<p class="person-desc">One of cricket's greatest legends, inspiring millions through exceptional achievements, humility, and dedication to the sport.</p>
+</div>
+</div>
+<div class="person-card" data-category="modern" data-id="personalities-n-r-narayana-murthy">
+<div class="person-img-wrapper">
+<img alt="N. R. Narayana Murthy" class="person-img" src="assets/Narayan.png"/>
+<button aria-label="Save N. R. Narayana Murthy to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-n-r-narayana-murthy" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">N. R. Narayana Murthy</h3>
+<div class="person-title">Co-founder of Infosys</div>
+<p class="person-desc">A pioneering entrepreneur whose leadership and vision helped establish India as a global hub for information technology.</p>
+</div>
+</div>
+<div class="person-card" data-category="historical" data-id="personalities-akbar-the-great">
+<div class="person-img-wrapper">
+<img alt="Akbar the Great" class="person-img" src="assets/Akbar.png"/>
+<button aria-label="Save Akbar the Great to My Journey" aria-pressed="false" class="person-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="personalities-akbar-the-great" type="button">♡</button></div>
+<div class="person-info">
+<h3 class="person-name">Akbar the Great</h3>
+<div class="person-title">Mughal Emperor</div>
+<p class="person-desc">Known for his vast empire, centralized administration, and policy of religious tolerance and cultural integration.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-brand">
+<h3>Incredible India Explorer</h3>
+<p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
                     with passion and pure vanilla web technologies.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Navigation</h4>
-                <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#map">Interactive Map</a></li>
-                    <li><a href="cuisine.html">Cuisine</a></li>
-                    <li><a href="festivals.html">Festivals</a></li>
-                    <li><a href="culture.html">Culture</a></li>
-                    <li><a href="index.html#quiz">Quiz</a></li>
-                </ul>
-            </div>
-            
-        </div>
-        <div class="footer-credits" style="align-self: center;">
-            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
-        </div>
-    </footer>
-    <script type="module" src="firebase-config.js"></script>
-    <script type="module" src="auth.js"></script>
-    <script type="module" src="app.js"></script>
-    <script src="router.js"></script>
+</div>
+<div class="footer-links">
+<h4>Quick Navigation</h4>
+<ul>
+<li><a href="index.html#home">Home</a></li>
+<li><a href="index.html#map">Interactive Map</a></li>
+<li><a href="cuisine.html">Cuisine</a></li>
+<li><a href="festivals.html">Festivals</a></li>
+<li><a href="culture.html">Culture</a></li>
+<li><a href="index.html#quiz">Quiz</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-credits" style="align-self: center;">
+<p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
+</div>
+</footer>
+<script src="app.js"></script>
+<script src="firebase-config.js" type="module"></script>
+<script src="auth.js" type="module"></script>
+<script src="router.js"></script>
+    <script src="personalities-journey.js"></script>
 </body>
 </html>
-
-

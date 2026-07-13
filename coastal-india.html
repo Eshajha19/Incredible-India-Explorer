@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore famous beaches and coastal destinations across India by region, state, season, and nearby attractions.">
-  <title>Coastal India Explorer | Incredible India</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Explore famous beaches and coastal destinations across India by region, state, season, and nearby attractions." name="description"/>
+<title>Coastal India Explorer | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>
     .coastal-hero {
       min-height: 68vh;
       display: grid;
@@ -374,304 +373,276 @@
     }
   </style>
 </head>
-
 <body>
-  <header class="navbar scrolled" id="navbar">
-    <div class="nav-container">
-      <a href="index.html#home" class="nav-logo" id="nav-logo">
-        <span class="saffron">Incredible</span>
-        <span class="gold">India</span>
-        <span class="green">Explorer</span>
-      </a>
-
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <nav class="nav-menu" id="nav-menu">
-        <a href="index.html#home" class="nav-link" id="link-home">Home</a>
-        <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-        <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-        <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
-        <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
-
-        <div class="nav-dropdown">
-          <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-          <div class="dropdown-menu">
-            <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
-            <a href="coastal-india.html" class="dropdown-item" style="color: var(--saffron)">Coastal India</a>
-            <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-            <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
-            <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
-            <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-          </div>
-        </div>
-
-        <div class="nav-dropdown">
-          <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
-          <div class="dropdown-menu">
-            <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
-            <a href="languages.html" class="dropdown-item">Languages of India</a>
-            <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-            <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
-          </div>
-        </div>
-
-        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-        <a href="premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-        <a href="login.html" class="nav-link" id="link-login">Login</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="app-root" style="padding-top: 80px;">
-    <section class="coastal-hero">
-      <div class="coastal-hero-content">
-        <span class="coastal-kicker">🌊 Shores, Islands & Coastal Escapes</span>
-        <h1>Coastal India <span>Explorer</span></h1>
-        <p>
+<header class="navbar scrolled" id="navbar">
+<div class="nav-container">
+<a class="nav-logo" href="index.html#home" id="nav-logo">
+<span class="saffron">Incredible</span>
+<span class="gold">India</span>
+<span class="green">Explorer</span>
+</a>
+<button aria-expanded="false" aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<nav class="nav-menu" id="nav-menu">
+<a class="nav-link" href="index.html#home" id="link-home">Home</a>
+<a class="nav-link" href="index.html#map" id="link-map">Interactive Map</a>
+<a class="nav-link" href="cuisine.html" id="link-cuisine">Cuisine</a>
+<a class="nav-link" href="festivals.html" id="link-festivals">Festivals</a>
+<a class="nav-link" href="culture.html" id="link-culture">Culture</a>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="travel.html">Travel &amp; Destinations</a>
+<a class="dropdown-item" href="coastal-india.html" style="color: var(--saffron)">Coastal India</a>
+<a class="dropdown-item" href="wildlife.html">Nature &amp; Wildlife</a>
+<a class="dropdown-item" href="personalities.html">Famous Personalities</a>
+<a class="dropdown-item" href="spiritual.html">Spiritual India</a>
+<a class="dropdown-item" href="arts-crafts.html">Arts &amp; Crafts</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="smart-cities.html">Smart Cities</a>
+<a class="dropdown-item" href="languages.html">Languages of India</a>
+<a class="dropdown-item" href="data-india.html">Data &amp; Statistics</a>
+<a class="dropdown-item" href="learn.html">Learn &amp; Quiz</a>
+</div>
+</div>
+<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
+<a class="nav-link" href="premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+<a class="nav-link" href="login.html" id="link-login">Login</a>
+<div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+                </div>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
+            </nav>
+</div>
+</header>
+<main id="app-root" style="padding-top: 80px;">
+<section class="coastal-hero">
+<div class="coastal-hero-content">
+<span class="coastal-kicker">🌊 Shores, Islands &amp; Coastal Escapes</span>
+<h1>Coastal India <span>Explorer</span></h1>
+<p>
           Travel from Arabian Sea sunsets to Bay of Bengal pilgrim shores and island beaches.
           Search destinations and filter them by region to find your next coastal escape.
         </p>
-      </div>
-    </section>
-
-    <section class="coastal-section" id="destinations">
-      <div class="coastal-container">
-        <div class="coastal-heading">
-          <span class="section-badge">Discover the Coast</span>
-          <h2>Find your perfect seaside destination</h2>
-          <p>
+</div>
+</section>
+<section class="coastal-section" id="destinations">
+<div class="coastal-container">
+<div class="coastal-heading">
+<span class="section-badge">Discover the Coast</span>
+<h2>Find your perfect seaside destination</h2>
+<p>
             Explore famous beaches and coastal places by state, travel season, and nearby attractions.
           </p>
+</div>
+<div class="search-wrap">
+<label for="coastal-search">Search destinations</label>
+<input autocomplete="off" id="coastal-search" placeholder="Try Varkala, island, temple, fort..." type="search"/>
+</div>
+<div aria-label="Filter coastal destinations by region" class="region-filters" role="group">
+<button aria-pressed="true" class="region-filter active" data-region="all" type="button">All Regions</button>
+<button aria-pressed="false" class="region-filter" data-region="west" type="button">West Coast</button>
+<button aria-pressed="false" class="region-filter" data-region="south" type="button">South Coast</button>
+<button aria-pressed="false" class="region-filter" data-region="east" type="button">East Coast</button>
+<button aria-pressed="false" class="region-filter" data-region="islands" type="button">Islands</button>
+</div>
+<p aria-live="polite" class="result-status" id="result-status">Showing all 12 destinations</p>
+<div class="coastal-grid">
+<article class="coastal-card" data-id="coastal-india-calangute" data-region="west" data-search="calangute goa west beach nightlife fort aguada baga">
+<div class="coastal-media">
+<img alt="Beach scenery representing Calangute" loading="lazy" src="assets/travel_beaches.png"/>
+<span class="region-badge">West Coast</span>
+<span class="coast-badge">Popular</span>
+<button aria-label="Save Calangute to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-calangute" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Calangute</h3>
+<p class="coastal-state">Goa</p>
+<div class="season-box"><span>Best time</span><strong>November – February</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Baga Beach</li><li>Fort Aguada</li><li>Candolim</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-varkala" data-region="south" data-search="varkala kerala south cliff papanasam janardhana swamy sivagiri">
+<div class="coastal-media">
+<img alt="Cliff beach scenery representing Varkala" loading="lazy" src="assets/travel_beaches.png"/>
+<span class="region-badge">South Coast</span>
+<span class="coast-badge">Cliff Beach</span>
+<button aria-label="Save Varkala to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-varkala" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Varkala</h3>
+<p class="coastal-state">Kerala</p>
+<div class="season-box"><span>Best time</span><strong>October – March</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Varkala Cliff</li><li>Janardhana Temple</li><li>Sivagiri Mutt</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-kovalam" data-region="south" data-search="kovalam kerala lighthouse beach thiruvananthapuram hawa samudra">
+<div class="coastal-media">
+<img alt="Tropical beach scenery representing Kovalam" loading="lazy" src="assets/travel_beaches.png"/>
+<span class="region-badge">South Coast</span>
+<span class="coast-badge">Tropical</span>
+<button aria-label="Save Kovalam to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-kovalam" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Kovalam</h3>
+<p class="coastal-state">Kerala</p>
+<div class="season-box"><span>Best time</span><strong>September – March</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Lighthouse Beach</li><li>Hawa Beach</li><li>Vizhinjam</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-gokarna" data-region="west" data-search="gokarna karnataka west om beach kudle mahabaleshwar temple">
+<div class="coastal-media">
+<img alt="Quiet coastal scenery representing Gokarna" loading="lazy" src="assets/travel_hidden.png"/>
+<span class="region-badge">West Coast</span>
+<span class="coast-badge">Scenic</span>
+<button aria-label="Save Gokarna to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-gokarna" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Gokarna</h3>
+<p class="coastal-state">Karnataka</p>
+<div class="season-box"><span>Best time</span><strong>October – May</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Om Beach</li><li>Kudle Beach</li><li>Mahabaleshwar Temple</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-puri" data-region="east" data-search="puri odisha east jagannath temple beach konark chilika">
+<div class="coastal-media">
+<img alt="Bay of Bengal beach scenery representing Puri" loading="lazy" src="assets/travel_beaches.png"/>
+<span class="region-badge">East Coast</span>
+<span class="coast-badge">Heritage</span>
+<button aria-label="Save Puri to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-puri" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Puri</h3>
+<p class="coastal-state">Odisha</p>
+<div class="season-box"><span>Best time</span><strong>October – February</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Jagannath Temple</li><li>Konark</li><li>Chilika Lake</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-marina-beach" data-region="east" data-search="marina beach chennai tamil nadu east san thome kapaleeshwarar fort st george">
+<div class="coastal-media">
+<img alt="Urban coast scenery representing Marina Beach" loading="lazy" src="assets/travel_beaches.png"/>
+<span class="region-badge">East Coast</span>
+<span class="coast-badge">Urban Coast</span>
+<button aria-label="Save Marina Beach to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-marina-beach" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Marina Beach</h3>
+<p class="coastal-state">Tamil Nadu</p>
+<div class="season-box"><span>Best time</span><strong>November – February</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>San Thome Basilica</li><li>Fort St. George</li><li>Mylapore</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-radhanagar-beach" data-region="islands" data-search="radhanagar beach swaraj dweep havelock andaman islands elephant beach kalapathar">
+<div class="coastal-media">
+<img alt="Island beach scenery representing Radhanagar Beach" loading="lazy" src="assets/travel_islands.png"/>
+<span class="region-badge">Islands</span>
+<span class="coast-badge">Island Escape</span>
+<button aria-label="Save Radhanagar Beach to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-radhanagar-beach" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Radhanagar Beach</h3>
+<p class="coastal-state">Andaman &amp; Nicobar Islands</p>
+<div class="season-box"><span>Best time</span><strong>October – May</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Elephant Beach</li><li>Kalapathar Beach</li><li>Swaraj Dweep trails</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-tarkarli" data-region="west" data-search="tarkarli maharashtra west sindhudurg fort scuba malvan beach">
+<div class="coastal-media">
+<img alt="Clear coastal water representing Tarkarli" loading="lazy" src="assets/travel_hidden.png"/>
+<span class="region-badge">West Coast</span>
+<span class="coast-badge">Water Sports</span>
+<button aria-label="Save Tarkarli to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-tarkarli" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Tarkarli</h3>
+<p class="coastal-state">Maharashtra</p>
+<div class="season-box"><span>Best time</span><strong>October – March</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Sindhudurg Fort</li><li>Malvan</li><li>Devbag</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-diu" data-region="west" data-search="diu beach gujarat west nagao fort naida caves ghoghla">
+<div class="coastal-media">
+<img alt="Coastal scenery representing Diu" loading="lazy" src="assets/travel_beaches.png"/>
+<span class="region-badge">West Coast</span>
+<span class="coast-badge">Fort Coast</span>
+<button aria-label="Save Diu to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-diu" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Diu</h3>
+<p class="coastal-state">Dadra &amp; Nagar Haveli and Daman &amp; Diu</p>
+<div class="season-box"><span>Best time</span><strong>October – March</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Diu Fort</li><li>Naida Caves</li><li>Nagoa Beach</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-mandarmani" data-region="east" data-search="mandarmani west bengal east beach digha tajpur shankarpur">
+<div class="coastal-media">
+<img alt="Wide sandy beach scenery representing Mandarmani" loading="lazy" src="assets/travel_hidden.png"/>
+<span class="region-badge">East Coast</span>
+<span class="coast-badge">Relaxed</span>
+<button aria-label="Save Mandarmani to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-mandarmani" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Mandarmani</h3>
+<p class="coastal-state">West Bengal</p>
+<div class="season-box"><span>Best time</span><strong>October – February</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Digha</li><li>Tajpur</li><li>Shankarpur</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-rushikonda" data-region="east" data-search="rushikonda visakhapatnam andhra pradesh east beach kailasagiri submarine museum">
+<div class="coastal-media">
+<img alt="Bay coast scenery representing Rushikonda" loading="lazy" src="assets/travel_beaches.png"/>
+<span class="region-badge">East Coast</span>
+<span class="coast-badge">Adventure</span>
+<button aria-label="Save Rushikonda to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-rushikonda" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Rushikonda</h3>
+<p class="coastal-state">Andhra Pradesh</p>
+<div class="season-box"><span>Best time</span><strong>October – March</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Kailasagiri</li><li>RK Beach</li><li>Submarine Museum</li></ul>
+</div>
+</article>
+<article class="coastal-card" data-id="coastal-india-agatti-island" data-region="islands" data-search="agatti lakshadweep island lagoon coral reef snorkeling">
+<div class="coastal-media">
+<img alt="Lagoon and island scenery representing Agatti" loading="lazy" src="assets/travel_islands.png"/>
+<span class="region-badge">Islands</span>
+<span class="coast-badge">Lagoon</span>
+<button aria-label="Save Agatti Island to My Journey" aria-pressed="false" class="coastal-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="coastal-india-agatti-island" type="button">♡</button></div>
+<div class="coastal-body">
+<h3 class="coastal-title">Agatti Island</h3>
+<p class="coastal-state">Lakshadweep</p>
+<div class="season-box"><span>Best time</span><strong>October – March</strong></div>
+<p class="attractions-title">Nearby attractions</p>
+<ul class="attractions-list"><li>Coral reefs</li><li>Lagoon kayaking</li><li>Snorkelling zones</li></ul>
+</div>
+</article>
+</div>
+<div class="empty-state" id="empty-state">
+<h3>No coastal destination found</h3>
+<p>Try another search term or select a different region.</p>
+</div>
+<div class="travel-note">
+<strong>Travel note:</strong> Coastal weather, sea conditions, ferry schedules, and water-sport availability can vary seasonally. Check local advisories before travelling.
         </div>
-
-        <div class="search-wrap">
-          <label for="coastal-search">Search destinations</label>
-          <input
-            type="search"
-            id="coastal-search"
-            placeholder="Try Varkala, island, temple, fort..."
-            autocomplete="off"
-          >
-        </div>
-
-        <div class="region-filters" role="group" aria-label="Filter coastal destinations by region">
-          <button class="region-filter active" type="button" data-region="all" aria-pressed="true">All Regions</button>
-          <button class="region-filter" type="button" data-region="west" aria-pressed="false">West Coast</button>
-          <button class="region-filter" type="button" data-region="south" aria-pressed="false">South Coast</button>
-          <button class="region-filter" type="button" data-region="east" aria-pressed="false">East Coast</button>
-          <button class="region-filter" type="button" data-region="islands" aria-pressed="false">Islands</button>
-        </div>
-
-        <p class="result-status" id="result-status" aria-live="polite">Showing all 12 destinations</p>
-
-        <div class="coastal-grid">
-          <article class="coastal-card" data-region="west" data-search="calangute goa west beach nightlife fort aguada baga">
-            <div class="coastal-media">
-              <img src="assets/travel_beaches.png" alt="Beach scenery representing Calangute" loading="lazy">
-              <span class="region-badge">West Coast</span>
-              <span class="coast-badge">Popular</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Calangute</h3>
-              <p class="coastal-state">Goa</p>
-              <div class="season-box"><span>Best time</span><strong>November – February</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Baga Beach</li><li>Fort Aguada</li><li>Candolim</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="south" data-search="varkala kerala south cliff papanasam janardhana swamy sivagiri">
-            <div class="coastal-media">
-              <img src="assets/travel_beaches.png" alt="Cliff beach scenery representing Varkala" loading="lazy">
-              <span class="region-badge">South Coast</span>
-              <span class="coast-badge">Cliff Beach</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Varkala</h3>
-              <p class="coastal-state">Kerala</p>
-              <div class="season-box"><span>Best time</span><strong>October – March</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Varkala Cliff</li><li>Janardhana Temple</li><li>Sivagiri Mutt</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="south" data-search="kovalam kerala lighthouse beach thiruvananthapuram hawa samudra">
-            <div class="coastal-media">
-              <img src="assets/travel_beaches.png" alt="Tropical beach scenery representing Kovalam" loading="lazy">
-              <span class="region-badge">South Coast</span>
-              <span class="coast-badge">Tropical</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Kovalam</h3>
-              <p class="coastal-state">Kerala</p>
-              <div class="season-box"><span>Best time</span><strong>September – March</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Lighthouse Beach</li><li>Hawa Beach</li><li>Vizhinjam</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="west" data-search="gokarna karnataka west om beach kudle mahabaleshwar temple">
-            <div class="coastal-media">
-              <img src="assets/travel_hidden.png" alt="Quiet coastal scenery representing Gokarna" loading="lazy">
-              <span class="region-badge">West Coast</span>
-              <span class="coast-badge">Scenic</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Gokarna</h3>
-              <p class="coastal-state">Karnataka</p>
-              <div class="season-box"><span>Best time</span><strong>October – May</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Om Beach</li><li>Kudle Beach</li><li>Mahabaleshwar Temple</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="east" data-search="puri odisha east jagannath temple beach konark chilika">
-            <div class="coastal-media">
-              <img src="assets/travel_beaches.png" alt="Bay of Bengal beach scenery representing Puri" loading="lazy">
-              <span class="region-badge">East Coast</span>
-              <span class="coast-badge">Heritage</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Puri</h3>
-              <p class="coastal-state">Odisha</p>
-              <div class="season-box"><span>Best time</span><strong>October – February</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Jagannath Temple</li><li>Konark</li><li>Chilika Lake</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="east" data-search="marina beach chennai tamil nadu east san thome kapaleeshwarar fort st george">
-            <div class="coastal-media">
-              <img src="assets/travel_beaches.png" alt="Urban coast scenery representing Marina Beach" loading="lazy">
-              <span class="region-badge">East Coast</span>
-              <span class="coast-badge">Urban Coast</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Marina Beach</h3>
-              <p class="coastal-state">Tamil Nadu</p>
-              <div class="season-box"><span>Best time</span><strong>November – February</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>San Thome Basilica</li><li>Fort St. George</li><li>Mylapore</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="islands" data-search="radhanagar beach swaraj dweep havelock andaman islands elephant beach kalapathar">
-            <div class="coastal-media">
-              <img src="assets/travel_islands.png" alt="Island beach scenery representing Radhanagar Beach" loading="lazy">
-              <span class="region-badge">Islands</span>
-              <span class="coast-badge">Island Escape</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Radhanagar Beach</h3>
-              <p class="coastal-state">Andaman & Nicobar Islands</p>
-              <div class="season-box"><span>Best time</span><strong>October – May</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Elephant Beach</li><li>Kalapathar Beach</li><li>Swaraj Dweep trails</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="west" data-search="tarkarli maharashtra west sindhudurg fort scuba malvan beach">
-            <div class="coastal-media">
-              <img src="assets/travel_hidden.png" alt="Clear coastal water representing Tarkarli" loading="lazy">
-              <span class="region-badge">West Coast</span>
-              <span class="coast-badge">Water Sports</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Tarkarli</h3>
-              <p class="coastal-state">Maharashtra</p>
-              <div class="season-box"><span>Best time</span><strong>October – March</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Sindhudurg Fort</li><li>Malvan</li><li>Devbag</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="west" data-search="diu beach gujarat west nagao fort naida caves ghoghla">
-            <div class="coastal-media">
-              <img src="assets/travel_beaches.png" alt="Coastal scenery representing Diu" loading="lazy">
-              <span class="region-badge">West Coast</span>
-              <span class="coast-badge">Fort Coast</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Diu</h3>
-              <p class="coastal-state">Dadra & Nagar Haveli and Daman & Diu</p>
-              <div class="season-box"><span>Best time</span><strong>October – March</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Diu Fort</li><li>Naida Caves</li><li>Nagoa Beach</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="east" data-search="mandarmani west bengal east beach digha tajpur shankarpur">
-            <div class="coastal-media">
-              <img src="assets/travel_hidden.png" alt="Wide sandy beach scenery representing Mandarmani" loading="lazy">
-              <span class="region-badge">East Coast</span>
-              <span class="coast-badge">Relaxed</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Mandarmani</h3>
-              <p class="coastal-state">West Bengal</p>
-              <div class="season-box"><span>Best time</span><strong>October – February</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Digha</li><li>Tajpur</li><li>Shankarpur</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="east" data-search="rushikonda visakhapatnam andhra pradesh east beach kailasagiri submarine museum">
-            <div class="coastal-media">
-              <img src="assets/travel_beaches.png" alt="Bay coast scenery representing Rushikonda" loading="lazy">
-              <span class="region-badge">East Coast</span>
-              <span class="coast-badge">Adventure</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Rushikonda</h3>
-              <p class="coastal-state">Andhra Pradesh</p>
-              <div class="season-box"><span>Best time</span><strong>October – March</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Kailasagiri</li><li>RK Beach</li><li>Submarine Museum</li></ul>
-            </div>
-          </article>
-
-          <article class="coastal-card" data-region="islands" data-search="agatti lakshadweep island lagoon coral reef snorkeling">
-            <div class="coastal-media">
-              <img src="assets/travel_islands.png" alt="Lagoon and island scenery representing Agatti" loading="lazy">
-              <span class="region-badge">Islands</span>
-              <span class="coast-badge">Lagoon</span>
-            </div>
-            <div class="coastal-body">
-              <h3 class="coastal-title">Agatti Island</h3>
-              <p class="coastal-state">Lakshadweep</p>
-              <div class="season-box"><span>Best time</span><strong>October – March</strong></div>
-              <p class="attractions-title">Nearby attractions</p>
-              <ul class="attractions-list"><li>Coral reefs</li><li>Lagoon kayaking</li><li>Snorkelling zones</li></ul>
-            </div>
-          </article>
-        </div>
-
-        <div class="empty-state" id="empty-state">
-          <h3>No coastal destination found</h3>
-          <p>Try another search term or select a different region.</p>
-        </div>
-
-        <div class="travel-note">
-          <strong>Travel note:</strong> Coastal weather, sea conditions, ferry schedules, and water-sport availability can vary seasonally. Check local advisories before travelling.
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="coastal-footer">
-    <div class="coastal-container">
-      <p>Part of <a href="index.html">Incredible India Explorer</a> · Discover India's shores and islands.</p>
-    </div>
-  </footer>
-
-  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-
-  <script type="module" src="app.js"></script>
-  <script>
+</div>
+</section>
+</main>
+<footer class="coastal-footer">
+<div class="coastal-container">
+<p>Part of <a href="index.html">Incredible India Explorer</a> · Discover India's shores and islands.</p>
+</div>
+</footer>
+<button aria-label="Scroll to top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
+<script src="app.js"></script>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
       const searchInput = document.getElementById("coastal-search");
       const filterButtons = [...document.querySelectorAll(".region-filter")];
@@ -727,8 +698,9 @@
       }
     });
   </script>
-  <script type="module" src="firebase-config.js"></script>
-  <script type="module" src="auth.js"></script>
-    <script src="router.js"></script>
+<script src="firebase-config.js" type="module"></script>
+<script src="auth.js" type="module"></script>
+<script src="router.js"></script>
+    <script src="coastal-india-journey.js"></script>
 </body>
 </html>

@@ -1,18 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Travel Explorer - Discover the diverse destinations and breathtaking road trips of Incredible India.">
-    <title>Travel Explorer | Incredible India</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Travel Explorer - Discover the diverse destinations and breathtaking road trips of Incredible India." name="description"/>
+<title>Travel Explorer | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>
         /* Custom Styles for Travel Explorer */
         .travel-grid {
             display: grid;
@@ -224,312 +222,286 @@
         }
     </style>
 </head>
-
 <body>
-    <!-- Sticky Navigation Bar -->
-    <header class="navbar scrolled" id="navbar">
-        <div class="nav-container">
-            <a href="index.html#home" class="nav-logo" id="nav-logo">
-                <span class="saffron">Incredible</span>
-                <span class="gold">India</span>
-                <span class="green">Explorer</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="nav-menu" id="nav-menu">
-                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
-                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-                <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
-                <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
-                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="travel.html" class="dropdown-item" style="color: var(--saffron)">Travel & Destinations</a>
-                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
-                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
-                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
-                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                    </div>
+<!-- Sticky Navigation Bar -->
+<header class="navbar scrolled" id="navbar">
+<div class="nav-container">
+<a class="nav-logo" href="index.html#home" id="nav-logo">
+<span class="saffron">Incredible</span>
+<span class="gold">India</span>
+<span class="green">Explorer</span>
+</a>
+<button aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<nav class="nav-menu" id="nav-menu">
+<a class="nav-link" href="index.html#home" id="link-home">Home</a>
+<a class="nav-link" href="index.html#map" id="link-map">Interactive Map</a>
+<a class="nav-link" href="cuisine.html" id="link-cuisine">Cuisine</a>
+<a class="nav-link" href="festivals.html" id="link-festivals">Festivals</a>
+<a class="nav-link" href="culture.html" id="link-culture">Culture</a>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="travel.html" style="color: var(--saffron)">Travel &amp; Destinations</a>
+<a class="dropdown-item" href="wildlife.html">Nature &amp; Wildlife</a>
+<a class="dropdown-item" href="personalities.html">Famous Personalities</a>
+<a class="dropdown-item" href="spiritual.html">Spiritual India</a>
+<a class="dropdown-item" href="arts-crafts.html">Arts &amp; Crafts</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="smart-cities.html">Smart Cities</a>
+<a class="dropdown-item" href="languages.html">Languages of India</a>
+<a class="dropdown-item" href="data-india.html">Data &amp; Statistics</a>
+<a class="dropdown-item" href="learn.html">Learn &amp; Quiz</a>
+</div>
+</div>
+<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
+<a class="nav-link" href="premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+<a class="nav-link" href="login.html" id="link-login">Login</a>
+<div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
                 </div>
-                <div class="nav-dropdown">
-                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
-                    <div class="dropdown-menu">
-                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
-                        <a href="languages.html" class="dropdown-item">Languages of India</a>
-                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
-                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
-                    </div>
-                </div>
-                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
-                <a href="premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
-                <a href="login.html" class="nav-link" id="link-login">Login</a>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
             </nav>
-        </div>
-    </header>
-
-    <main id="app-root" style="padding-top: 80px;">
-        <!-- Hero Section -->
-        <section class="cuisine-hero scroll-section" style="height: 60vh;">
-            <img class="hero-video" src="assets/travel_hero.png" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <span class="hero-tagline animate-fade-in">🏔️ The Great Indian Journey</span>
-                <h1 class="hero-title animate-slide-up">Travel <span class="highlight rotating-text-container rotating-text-wrapper" data-words="Explorer, Destinations, Journeys, Adventures"></span></h1>
-                <p class="hero-description animate-fade-in-delayed" style="max-width: 800px; margin: 0 auto;">
+</div>
+</header>
+<main id="app-root" style="padding-top: 80px;">
+<!-- Hero Section -->
+<section class="cuisine-hero scroll-section" style="height: 60vh;">
+<img class="hero-video" src="assets/travel_hero.png" style="width: 100%; height: 100%; object-fit: cover;"/>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<span class="hero-tagline animate-fade-in">🏔️ The Great Indian Journey</span>
+<h1 class="hero-title animate-slide-up">Travel <span class="highlight rotating-text-container rotating-text-wrapper" data-words="Explorer, Destinations, Journeys, Adventures"></span></h1>
+<p class="hero-description animate-fade-in-delayed" style="max-width: 800px; margin: 0 auto;">
                     From snow-capped peaks in the north to sun-kissed beaches in the south. Discover your next adventure in Incredible India.
                 </p>
-            </div>
-        </section>
-
-        
-        <!-- The Great Indian Journey Storyline -->
-        <section class="fade-in-section" style="padding: 130px 0;">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Narrative</span>
-                    <h2>A Journey Down the Subcontinent</h2>
-                </div>
-                
-                <div class="narrative-storyline">
-                    <div class="story-step scroll-section">
-                        <span class="story-time">01 • The Northern Peaks</span>
-                        <div class="story-content">
-                            <h3>The Roof of the World</h3>
-                            <p>Our journey begins in the high-altitude deserts of Ladakh and the snow-capped peaks of Kashmir. Here, ancient Buddhist monasteries cling to sheer cliff faces, and the air is thin but pure. Trekking through the Himalayas offers an unmatched sense of spiritual and physical elevation.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="story-step scroll-section">
-                        <span class="story-time">02 • The Golden Heart</span>
-                        <div class="story-content">
-                            <h3>Sands of Time</h3>
-                            <p>Moving southwest, the landscape flattens into the golden expanse of the Thar Desert. Magnificent sandstone forts rise from the dunes like mirages in Rajasthan. The rich Rajput heritage is alive in the vibrant colors worn by locals, contrasting sharply with the arid surroundings.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="story-step scroll-section">
-                        <span class="story-time">03 • The Emerald Coast</span>
-                        <div class="story-content">
-                            <h3>Monsoon Canopies</h3>
-                            <p>Continuing south, we enter the dense, tropical rainforests of the Western Ghats. A UNESCO World Heritage site, these mountains catch the monsoon rains, feeding countless waterfalls and rivers. The air here is thick with the scent of wild cardamom, coffee, and pepper.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="story-step scroll-section">
-                        <span class="story-time">04 • The Ocean's Embrace</span>
-                        <div class="story-content">
-                            <h3>Where Three Seas Meet</h3>
-                            <p>Our journey concludes at Kanyakumari, the southernmost tip of mainland India. Here, the Arabian Sea, the Bay of Bengal, and the Indian Ocean converge. Watching the sunset and moonrise simultaneously over the vast ocean is a humbling end to the great Indian journey.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Destinations Section -->
-        <section class="fade-in-section" style="padding: 60px 0;">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Discover</span>
-                    <h2>Diverse Destinations</h2>
-                    <p class="section-subtitle">Explore India's varied landscapes and hidden geographical wonders.</p>
-                </div>
-
-                <div class="travel-grid">
-                    <div class="destination-card">
-                        <img src="assets/travel_mountains.png" alt="Mountains" class="destination-img">
-                        <div class="destination-content">
-                            <span class="destination-tag">Himalayas</span>
-                            <h3 class="destination-title">Mountains</h3>
-                            <p class="destination-desc">Experience the majestic peaks of the Himalayas, pristine valleys, and serene hill stations. The Indian Himalayas stretch across thousands of kilometers, offering world-class trekking routes, ancient Buddhist monasteries perched on cliffs, and high-altitude wildlife. From the snow-capped mountains of Kashmir to the rolling green hills of Darjeeling, the northern mountains are a haven for adventure seekers and spiritual wanderers alike.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="destination-card">
-                        <img src="assets/travel_beaches.png" alt="Beaches" class="destination-img">
-                        <div class="destination-content">
-                            <span class="destination-tag">Coastal Lines</span>
-                            <h3 class="destination-title">Beaches</h3>
-                            <p class="destination-desc">Relax on the sun-drenched shores of Goa, Kerala, and the Andaman Islands. India boasts over 7,500 km of coastline, featuring everything from bustling party beaches to secluded, pristine coves. Whether you are scuba diving in the crystal-clear waters of the Andamans, enjoying a tranquil sunset on the cliff beaches of Varkala, or exploring historic coastal forts, the beaches offer unparalleled beauty.</p>
-                        </div>
-                    </div>
-
-                    <div class="destination-card">
-                        <img src="assets/travel_deserts.png" alt="Deserts" class="destination-img">
-                        <div class="destination-content">
-                            <span class="destination-tag">Thar Desert</span>
-                            <h3 class="destination-title">Deserts</h3>
-                            <p class="destination-desc">Witness the golden dunes, camel safaris, and vibrant culture of Rajasthan. The mighty Thar Desert is an awe-inspiring expanse of rippling sand, punctuated by magnificent golden sandstone forts that rise like mirages. Experience a night under the stars in a luxury desert camp, enjoy traditional Kalbelia folk music by a roaring fire, and explore the ancient trading outposts of Jaisalmer.</p>
-                        </div>
-                    </div>
-
-                    <div class="destination-card">
-                        <img src="assets/travel_forests.png" alt="Forests" class="destination-img">
-                        <div class="destination-content">
-                            <span class="destination-tag">Western Ghats</span>
-                            <h3 class="destination-title">Forests</h3>
-                            <p class="destination-desc">Trek through lush green canopies, spot wildlife, and breathe in the fresh wilderness. The dense rainforests of the Western Ghats are older than the Himalayas and hold the status of a UNESCO World Heritage biodiversity hotspot. Discover secret waterfalls, rare endemic species like the Lion-Tailed Macaque, and endless trails draped in monsoon mist.</p>
-                        </div>
-                    </div>
-
-                    <div class="destination-card">
-                        <img src="assets/travel_islands.png" alt="Islands" class="destination-img">
-                        <div class="destination-content">
-                            <span class="destination-tag">Archipelagos</span>
-                            <h3 class="destination-title">Islands</h3>
-                            <p class="destination-desc">Dive into crystal clear waters and discover the coral reefs of Lakshadweep and Andaman. These remote archipelagos are India’s best-kept secrets, featuring white-sand beaches, bioluminescent waters, and vibrant underwater marine ecosystems. Explore historic penal colonies, trek through untouched island jungles, and witness sea turtle hatchlings make their way to the ocean.</p>
-                        </div>
-                    </div>
-
-                    <div class="destination-card">
-                        <img src="assets/travel_hidden.png" alt="Hidden Gems" class="destination-img">
-                        <div class="destination-content">
-                            <span class="destination-tag">Offbeat</span>
-                            <h3 class="destination-title">Hidden Gems</h3>
-                            <p class="destination-desc">Explore lesser-known villages and secret waterfalls untouched by commercial tourism. Step off the beaten path into the heart of rural India, where time stands still. Discover the living root bridges woven by indigenous tribes in Meghalaya, the misty, spice-scented valleys of Coorg, and the vibrant tribal art villages of Odisha, offering a truly authentic travel experience.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Road Trips Section -->
-        <section class="roadtrip-section fade-in-section">
-            <div class="section-container">
-                <div class="section-header" style="color: white;">
-                    <span class="section-badge gold-bg">Epic Journeys</span>
-                    <h2 style="color: white;">Iconic Road Trips</h2>
-                    <p class="section-subtitle" style="color: #ccc;">Hit the road and experience the changing landscapes through your windshield.</p>
-                </div>
-
-                <div class="roadtrip-grid">
-                    <div class="roadtrip-card-flip">
-                        <div class="roadtrip-card-inner">
-                            <div class="roadtrip-card roadtrip-card-front">
-                                <div class="roadtrip-route">
-                                    <span>Manali</span> ➔ <span>Leh</span>
-                                </div>
-                                <h3 class="gold" style="font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Leh-Ladakh Highway</h3>
-                                <p style="color: #ddd; margin-bottom: 20px;">A 474 km stretch of pure adrenaline, traversing high mountain passes, barren landscapes, and crystal clear lakes. This legendary highway is a rite of passage for bikers and road-trippers globally, scaling passes over 17,000 feet high. The journey takes you through the lunar-like landscapes of the Tibetan plateau, ending at the breathtaking turquoise waters of Pangong Lake.</p>
-                                <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
-                            </div>
-                            <div class="roadtrip-card-back">
-                                <img src="assets/Manalileh.png" alt="Leh-Ladakh Highway route map">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="roadtrip-card-flip">
-                        <div class="roadtrip-card-inner">
-                            <div class="roadtrip-card roadtrip-card-front">
-                                <div class="roadtrip-route">
-                                    <span>Shimla</span> ➔ <span>Kaza</span>
-                                </div>
-                                <h3 class="gold" style="font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Spiti Valley Circuit</h3>
-                                <p style="color: #ddd; margin-bottom: 20px;">Drive through the cold desert mountains of Himachal, visiting ancient monasteries and remote villages. Often called Little Tibet, Spiti Valley is a treacherous but mesmerizing loop of unpaved roads hanging over deep gorges. Witness the 1000-year-old Key Monastery perched on a rocky hill, interact with warm-hearted locals in Kibber, and experience extreme high-altitude serenity.             </p>
-                                <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
-                            </div>
-                            <div class="roadtrip-card-back">
-                                <img src="assets/Shimlakaza.png" alt="Leh-Ladakh Highway route map">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="roadtrip-card-flip">
-                        <div class="roadtrip-card-inner">
-                            <div class="roadtrip-card roadtrip-card-front">
-                                <div class="roadtrip-route">
-                                    <span>Kochi</span> ➔ <span>Trivandrum</span>
-                                </div>
-                                <h3 class="gold" style="font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Kerala Coastal Route</h3>
-                                <p style="color: #ddd; margin-bottom: 20px;">A scenic drive along the Arabian Sea coast, passing through backwaters, historic ports, and lush coconut groves. Start from the colonial spice port of Kochi, winding down a highway flanked by the ocean on one side and tranquil emerald backwaters on other. Enjoy fresh seafood , cruise on traditional houseboats, and end your trip at the majestic clifftop temples of Trivandrum.</p>
-                                <button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
-                            </div>
-                            <div class="roadtrip-card-back">
-                                <img src="assets/Kochitri.png" alt="Leh-Ladakh Highway route map">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Virtual Tours Section -->
-        <section class="fade-in-section" style="padding: 60px 0 100px;">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-badge">Immersive</span>
-                    <h2>Virtual Tours</h2>
-                    <p class="section-subtitle">Experience India from your home with cutting-edge immersive technology.</p>
-                </div>
-
-                <div class="vr-grid">
-                    <div class="vr-card">
-                        <div class="vr-icon">🕶️</div>
-                        <h3>360° Experiences</h3>
-                        <p>Look around freely in interactive 360-degree environments of famous monuments.</p>
-                        <button class="btn btn-secondary ripple" style="margin-top: 20px;">Launch VR</button>
-                    </div>
-
-                    <div class="vr-card">
-                        <div class="vr-icon">🚁</div>
-                        <h3>Drone Footage</h3>
-                        <p>Fly over majestic forts and sprawling landscapes in stunning 4K cinematic quality.</p>
-                        <button class="btn btn-secondary ripple" style="margin-top: 20px;">Watch Videos</button>
-                    </div>
-
-                    <div class="vr-card">
-                        <div class="vr-icon">🎧</div>
-                        <h3>Guided Narration</h3>
-                        <p>Listen to experts unfold the history and legends of ancient Indian sites.</p>
-                        <button class="btn btn-secondary ripple" style="margin-top: 20px;">Start Audio Tour</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>Incredible India Explorer</h3>
-                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
+</div>
+</section>
+<!-- The Great Indian Journey Storyline -->
+<section class="fade-in-section" style="padding: 130px 0;">
+<div class="section-container">
+<div class="section-header">
+<span class="section-badge">Narrative</span>
+<h2>A Journey Down the Subcontinent</h2>
+</div>
+<div class="narrative-storyline">
+<div class="story-step scroll-section">
+<span class="story-time">01 • The Northern Peaks</span>
+<div class="story-content">
+<h3>The Roof of the World</h3>
+<p>Our journey begins in the high-altitude deserts of Ladakh and the snow-capped peaks of Kashmir. Here, ancient Buddhist monasteries cling to sheer cliff faces, and the air is thin but pure. Trekking through the Himalayas offers an unmatched sense of spiritual and physical elevation.</p>
+</div>
+</div>
+<div class="story-step scroll-section">
+<span class="story-time">02 • The Golden Heart</span>
+<div class="story-content">
+<h3>Sands of Time</h3>
+<p>Moving southwest, the landscape flattens into the golden expanse of the Thar Desert. Magnificent sandstone forts rise from the dunes like mirages in Rajasthan. The rich Rajput heritage is alive in the vibrant colors worn by locals, contrasting sharply with the arid surroundings.</p>
+</div>
+</div>
+<div class="story-step scroll-section">
+<span class="story-time">03 • The Emerald Coast</span>
+<div class="story-content">
+<h3>Monsoon Canopies</h3>
+<p>Continuing south, we enter the dense, tropical rainforests of the Western Ghats. A UNESCO World Heritage site, these mountains catch the monsoon rains, feeding countless waterfalls and rivers. The air here is thick with the scent of wild cardamom, coffee, and pepper.</p>
+</div>
+</div>
+<div class="story-step scroll-section">
+<span class="story-time">04 • The Ocean's Embrace</span>
+<div class="story-content">
+<h3>Where Three Seas Meet</h3>
+<p>Our journey concludes at Kanyakumari, the southernmost tip of mainland India. Here, the Arabian Sea, the Bay of Bengal, and the Indian Ocean converge. Watching the sunset and moonrise simultaneously over the vast ocean is a humbling end to the great Indian journey.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Destinations Section -->
+<section class="fade-in-section" style="padding: 60px 0;">
+<div class="section-container">
+<div class="section-header">
+<span class="section-badge">Discover</span>
+<h2>Diverse Destinations</h2>
+<p class="section-subtitle">Explore India's varied landscapes and hidden geographical wonders.</p>
+</div>
+<div class="travel-grid">
+<div class="destination-card" data-id="travel-mountains">
+<img alt="Mountains" class="destination-img" src="assets/travel_mountains.png"/>
+<div class="destination-content">
+<span class="destination-tag">Himalayas</span>
+<h3 class="destination-title">Mountains</h3>
+<p class="destination-desc">Experience the majestic peaks of the Himalayas, pristine valleys, and serene hill stations. The Indian Himalayas stretch across thousands of kilometers, offering world-class trekking routes, ancient Buddhist monasteries perched on cliffs, and high-altitude wildlife. From the snow-capped mountains of Kashmir to the rolling green hills of Darjeeling, the northern mountains are a haven for adventure seekers and spiritual wanderers alike.</p>
+</div>
+<button aria-label="Save Mountains to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-mountains" type="button">♡</button></div>
+<div class="destination-card" data-id="travel-beaches">
+<img alt="Beaches" class="destination-img" src="assets/travel_beaches.png"/>
+<div class="destination-content">
+<span class="destination-tag">Coastal Lines</span>
+<h3 class="destination-title">Beaches</h3>
+<p class="destination-desc">Relax on the sun-drenched shores of Goa, Kerala, and the Andaman Islands. India boasts over 7,500 km of coastline, featuring everything from bustling party beaches to secluded, pristine coves. Whether you are scuba diving in the crystal-clear waters of the Andamans, enjoying a tranquil sunset on the cliff beaches of Varkala, or exploring historic coastal forts, the beaches offer unparalleled beauty.</p>
+</div>
+<button aria-label="Save Beaches to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-beaches" type="button">♡</button></div>
+<div class="destination-card" data-id="travel-deserts">
+<img alt="Deserts" class="destination-img" src="assets/travel_deserts.png"/>
+<div class="destination-content">
+<span class="destination-tag">Thar Desert</span>
+<h3 class="destination-title">Deserts</h3>
+<p class="destination-desc">Witness the golden dunes, camel safaris, and vibrant culture of Rajasthan. The mighty Thar Desert is an awe-inspiring expanse of rippling sand, punctuated by magnificent golden sandstone forts that rise like mirages. Experience a night under the stars in a luxury desert camp, enjoy traditional Kalbelia folk music by a roaring fire, and explore the ancient trading outposts of Jaisalmer.</p>
+</div>
+<button aria-label="Save Deserts to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-deserts" type="button">♡</button></div>
+<div class="destination-card" data-id="travel-forests">
+<img alt="Forests" class="destination-img" src="assets/travel_forests.png"/>
+<div class="destination-content">
+<span class="destination-tag">Western Ghats</span>
+<h3 class="destination-title">Forests</h3>
+<p class="destination-desc">Trek through lush green canopies, spot wildlife, and breathe in the fresh wilderness. The dense rainforests of the Western Ghats are older than the Himalayas and hold the status of a UNESCO World Heritage biodiversity hotspot. Discover secret waterfalls, rare endemic species like the Lion-Tailed Macaque, and endless trails draped in monsoon mist.</p>
+</div>
+<button aria-label="Save Forests to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-forests" type="button">♡</button></div>
+<div class="destination-card" data-id="travel-islands">
+<img alt="Islands" class="destination-img" src="assets/travel_islands.png"/>
+<div class="destination-content">
+<span class="destination-tag">Archipelagos</span>
+<h3 class="destination-title">Islands</h3>
+<p class="destination-desc">Dive into crystal clear waters and discover the coral reefs of Lakshadweep and Andaman. These remote archipelagos are India’s best-kept secrets, featuring white-sand beaches, bioluminescent waters, and vibrant underwater marine ecosystems. Explore historic penal colonies, trek through untouched island jungles, and witness sea turtle hatchlings make their way to the ocean.</p>
+</div>
+<button aria-label="Save Islands to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-islands" type="button">♡</button></div>
+<div class="destination-card" data-id="travel-hidden-gems">
+<img alt="Hidden Gems" class="destination-img" src="assets/travel_hidden.png"/>
+<div class="destination-content">
+<span class="destination-tag">Offbeat</span>
+<h3 class="destination-title">Hidden Gems</h3>
+<p class="destination-desc">Explore lesser-known villages and secret waterfalls untouched by commercial tourism. Step off the beaten path into the heart of rural India, where time stands still. Discover the living root bridges woven by indigenous tribes in Meghalaya, the misty, spice-scented valleys of Coorg, and the vibrant tribal art villages of Odisha, offering a truly authentic travel experience.</p>
+</div>
+<button aria-label="Save Hidden Gems to My Journey" aria-pressed="false" class="destination-card-bookmark-btn journey-bookmark-btn" data-bookmark-id="travel-hidden-gems" type="button">♡</button></div>
+</div>
+</div>
+</section>
+<!-- Road Trips Section -->
+<section class="roadtrip-section fade-in-section">
+<div class="section-container">
+<div class="section-header" style="color: white;">
+<span class="section-badge gold-bg">Epic Journeys</span>
+<h2 style="color: white;">Iconic Road Trips</h2>
+<p class="section-subtitle" style="color: #ccc;">Hit the road and experience the changing landscapes through your windshield.</p>
+</div>
+<div class="roadtrip-grid">
+<div class="roadtrip-card-flip">
+<div class="roadtrip-card-inner">
+<div class="roadtrip-card roadtrip-card-front">
+<div class="roadtrip-route">
+<span>Manali</span> ➔ <span>Leh</span>
+</div>
+<h3 class="gold" style="font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Leh-Ladakh Highway</h3>
+<p style="color: #ddd; margin-bottom: 20px;">A 474 km stretch of pure adrenaline, traversing high mountain passes, barren landscapes, and crystal clear lakes. This legendary highway is a rite of passage for bikers and road-trippers globally, scaling passes over 17,000 feet high. The journey takes you through the lunar-like landscapes of the Tibetan plateau, ending at the breathtaking turquoise waters of Pangong Lake.</p>
+<button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
+</div>
+<div class="roadtrip-card-back">
+<img alt="Leh-Ladakh Highway route map" src="assets/Manalileh.png"/>
+</div>
+</div>
+</div>
+<div class="roadtrip-card-flip">
+<div class="roadtrip-card-inner">
+<div class="roadtrip-card roadtrip-card-front">
+<div class="roadtrip-route">
+<span>Shimla</span> ➔ <span>Kaza</span>
+</div>
+<h3 class="gold" style="font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Spiti Valley Circuit</h3>
+<p style="color: #ddd; margin-bottom: 20px;">Drive through the cold desert mountains of Himachal, visiting ancient monasteries and remote villages. Often called Little Tibet, Spiti Valley is a treacherous but mesmerizing loop of unpaved roads hanging over deep gorges. Witness the 1000-year-old Key Monastery perched on a rocky hill, interact with warm-hearted locals in Kibber, and experience extreme high-altitude serenity.             </p>
+<button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
+</div>
+<div class="roadtrip-card-back">
+<img alt="Leh-Ladakh Highway route map" src="assets/Shimlakaza.png"/>
+</div>
+</div>
+</div>
+<div class="roadtrip-card-flip">
+<div class="roadtrip-card-inner">
+<div class="roadtrip-card roadtrip-card-front">
+<div class="roadtrip-route">
+<span>Kochi</span> ➔ <span>Trivandrum</span>
+</div>
+<h3 class="gold" style="font-size: 1.8rem; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Kerala Coastal Route</h3>
+<p style="color: #ddd; margin-bottom: 20px;">A scenic drive along the Arabian Sea coast, passing through backwaters, historic ports, and lush coconut groves. Start from the colonial spice port of Kochi, winding down a highway flanked by the ocean on one side and tranquil emerald backwaters on other. Enjoy fresh seafood , cruise on traditional houseboats, and end your trip at the majestic clifftop temples of Trivandrum.</p>
+<button class="btn btn-primary ripple roadtrip-flip-btn" style="width: 100%;">View Route Map</button>
+</div>
+<div class="roadtrip-card-back">
+<img alt="Leh-Ladakh Highway route map" src="assets/Kochitri.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Virtual Tours Section -->
+<section class="fade-in-section" style="padding: 60px 0 100px;">
+<div class="section-container">
+<div class="section-header">
+<span class="section-badge">Immersive</span>
+<h2>Virtual Tours</h2>
+<p class="section-subtitle">Experience India from your home with cutting-edge immersive technology.</p>
+</div>
+<div class="vr-grid">
+<div class="vr-card">
+<div class="vr-icon">🕶️</div>
+<h3>360° Experiences</h3>
+<p>Look around freely in interactive 360-degree environments of famous monuments.</p>
+<button class="btn btn-secondary ripple" style="margin-top: 20px;">Launch VR</button>
+</div>
+<div class="vr-card">
+<div class="vr-icon">🚁</div>
+<h3>Drone Footage</h3>
+<p>Fly over majestic forts and sprawling landscapes in stunning 4K cinematic quality.</p>
+<button class="btn btn-secondary ripple" style="margin-top: 20px;">Watch Videos</button>
+</div>
+<div class="vr-card">
+<div class="vr-icon">🎧</div>
+<h3>Guided Narration</h3>
+<p>Listen to experts unfold the history and legends of ancient Indian sites.</p>
+<button class="btn btn-secondary ripple" style="margin-top: 20px;">Start Audio Tour</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-brand">
+<h3>Incredible India Explorer</h3>
+<p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
                     with passion and pure vanilla web technologies.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Navigation</h4>
-                <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#map">Interactive Map</a></li>
-                    <li><a href="cuisine.html">Cuisine</a></li>
-                    <li><a href="festivals.html">Festivals</a></li>
-                    <li><a href="culture.html">Culture</a></li>
-                    <li><a href="index.html#quiz">Quiz</a></li>
-                </ul>
-            </div>
-            
-        </div>
-        <div class="footer-credits" style="align-self: center;">
-            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
-        </div>
-    </footer>
-
-    <!-- Scroll To Top Button -->
-    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
-
-    <script type="module" src="firebase-config.js"></script>
-    <script type="module" src="auth.js"></script>
-    <script type="module" src="app.js"></script>
-    <script src="router.js"></script>
+</div>
+<div class="footer-links">
+<h4>Quick Navigation</h4>
+<ul>
+<li><a href="index.html#home">Home</a></li>
+<li><a href="index.html#map">Interactive Map</a></li>
+<li><a href="cuisine.html">Cuisine</a></li>
+<li><a href="festivals.html">Festivals</a></li>
+<li><a href="culture.html">Culture</a></li>
+<li><a href="index.html#quiz">Quiz</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-credits" style="align-self: center;">
+<p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
+</div>
+</footer>
+<!-- Scroll To Top Button -->
+<button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
+<script src="app.js"></script>
+<script src="firebase-config.js" type="module"></script>
+<script src="auth.js" type="module"></script>
+<script src="router.js"></script>
+    <script src="travel-journey.js"></script>
 </body>
-
 </html>
-
-
-
