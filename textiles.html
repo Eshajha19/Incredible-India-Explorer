@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Indian textile traditions, weaving styles, materials, regions, and cultural significance.">
+  <title>Indian Textile Traditions Explorer | Incredible India</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="textiles.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="heritage.html" class="nav-link">Heritage</a>
+        <a href="textiles.html" class="nav-link" style="color:var(--saffron)">Textiles</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="textiles-page">
+    <section class="textiles-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Threads · regions · craft traditions</span>
+        <h1>Indian Textile <span>Traditions Explorer</span></h1>
+        <p>Explore famous fabrics, weaving styles, dyeing techniques, embroidery traditions, and the cultural stories woven into Indian textiles.</p>
+        <div class="hero-stats">
+          <div><strong id="hero-count">12</strong><span>Textile traditions</span></div>
+          <div><strong>6</strong><span>Regions covered</span></div>
+          <div><strong>∞</strong><span>Craft stories</span></div>
+        </div>
+        <a href="#explorer" class="hero-cta">Explore textiles ↓</a>
+      </div>
+    </section>
+
+    <section class="textiles-section" id="explorer">
+      <div class="textiles-container">
+        <div class="section-heading">
+          <span class="section-badge">Craft & Weaving Heritage</span>
+          <h2>Search textile traditions across India</h2>
+          <p>Search by textile name, state, material, or technique, then filter by region.</p>
+        </div>
+
+        <div class="explorer-controls">
+          <div class="control-field search-field">
+            <label for="textile-search">Search textiles</label>
+            <input id="textile-search" type="search" placeholder="Try Banarasi, silk, ikat, Gujarat..." autocomplete="off">
+          </div>
+          <div class="control-field">
+            <label for="region-filter">Region</label>
+            <select id="region-filter">
+              <option value="all">All regions</option>
+              <option value="north">North</option>
+              <option value="south">South</option>
+              <option value="east">East</option>
+              <option value="west">West</option>
+              <option value="central">Central</option>
+              <option value="northeast">Northeast</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="results-toolbar">
+          <p id="result-status" aria-live="polite">Showing all 12 textiles</p>
+          <button id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="textile-grid" id="textile-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>⌕</span>
+          <h3>No textile tradition found</h3>
+          <p>Try another textile, state, material, or technique.</p>
+          <button id="empty-reset" type="button">Reset filters</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="textile-modal" id="textile-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Close textile details">×</button>
+      <div class="modal-gallery">
+        <img id="modal-image" src="" alt="">
+        <span id="modal-counter" class="modal-counter"></span>
+        <div class="modal-nav">
+          <button id="modal-prev" type="button" aria-label="Previous image">←</button>
+          <button id="modal-next" type="button" aria-label="Next image">→</button>
+        </div>
+      </div>
+      <div class="modal-copy">
+        <span class="modal-kicker" id="modal-state"></span>
+        <h2 id="modal-title"></h2>
+        <div class="detail-grid">
+          <div><span>Material</span><strong id="modal-material"></strong></div>
+          <div><span>Technique</span><strong id="modal-technique"></strong></div>
+        </div>
+        <div class="detail-block">
+          <span>Cultural significance</span>
+          <p id="modal-significance"></p>
+        </div>
+        <div class="fact-box">
+          <span>Interesting fact</span>
+          <p id="modal-fact"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="textiles-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Celebrating Indian craft and textile diversity.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="textiles.js"></script>
+</body>
+</html>
