@@ -137,6 +137,9 @@ function initNavigation() {
     const exploreDropdown = navMenu?.querySelector('.nav-dropdown .dropdown-menu');
     const currentPath = window.location.pathname;
 
+    if (navbar && navbar.dataset.listenerBound) return;
+    if (navbar) navbar.dataset.listenerBound = "true";
+
     // Sticky navbar on scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -278,6 +281,9 @@ function initThemeToggle() {
     const themeBtn = document.getElementById('theme-toggle');
     if (!themeBtn) return;
 
+    if (themeBtn.dataset.listenerBound) return;
+    themeBtn.dataset.listenerBound = "true";
+
     const setThemeIcon = (isLightTheme) => {
         if (isLightTheme) {
             themeBtn.innerHTML = `
@@ -320,6 +326,11 @@ function initThemeToggle() {
 function initRotatingText() {
     const rotators = document.querySelectorAll('.rotating-text-wrapper');
     rotators.forEach(wrapper => {
+        // Clear any existing active interval to prevent background task memory leaks
+        if (wrapper.dataset.intervalId) {
+            clearInterval(parseInt(wrapper.dataset.intervalId, 10));
+        }
+
         const wordsStr = wrapper.getAttribute('data-words');
         if (!wordsStr) return;
 
@@ -329,15 +340,21 @@ function initRotatingText() {
         let currentIndex = 0;
         wrapper.innerHTML = `<span class="rotating-text">${words[0]}</span>`;
 
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             const currentSpan = wrapper.querySelector('.rotating-text');
-            currentSpan.style.animation = 'slideOutFade 0.5s ease-in forwards';
+            if (currentSpan) {
+                currentSpan.style.animation = 'slideOutFade 0.5s ease-in forwards';
+            }
 
             setTimeout(() => {
+                const innerSpan = wrapper.querySelector('.rotating-text');
+                if (!innerSpan) return; // Guard in case it was detached
                 currentIndex = (currentIndex + 1) % words.length;
                 wrapper.innerHTML = `<span class="rotating-text">${words[currentIndex]}</span>`;
             }, 500);
         }, 3500); // Rotate every 3.5 seconds
+
+        wrapper.dataset.intervalId = intervalId.toString();
     });
 }
 
@@ -5423,6 +5440,10 @@ function initBharatGuide() {
 
     if (!fabGuide) return; // Not on this page
 
+    // Prevent duplicate event listener registrations on SPA page transitions
+    if (fabGuide.dataset.listenerBound) return;
+    fabGuide.dataset.listenerBound = "true";
+
     // Knowledge Graph is now loaded from chatbot-data.js
 
     let isSynthesizing = false;
@@ -5549,15 +5570,316 @@ function initBharatGuide() {
 }
 
 
+/* ==========================================================================
+   PERSONALITIES TYPE CHANGE FUNC
+   ========================================================================== */
+function initPersonalitiesPage() {
+    const tabs = document.querySelectorAll('.category-tab');
+    const cards = document.querySelectorAll('.person-card');
+
+    function filterCards(category) {
+        cards.forEach(card => {
+            if (card.getAttribute('data-category') === category) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            filterCards(tab.getAttribute('data-category'));
+        });
+    });
+
+    // Show only Historical Legends by default on page load
+    filterCards('historical');
+}
+
+
+/* ==========================================================================
+   SPIRITUAL CARDS ANIMATION CARSOUL
+   ========================================================================== */
+
+const spiritualData = [
+
+    {
+        id: "s2",
+        name: "Taj Mahal",
+        location: "Agra, Uttar Pradesh",
+        rating: 4.9,
+        image: "assets/Taj_Mahal.png",
+        description: "An ivory-marble mausoleum built by Shah Jahan for Mumtaz Mahal — a monument to love recognized as one of the world's most extraordinary architectural achievements."
+    },
+    {
+        id: "s3",
+        name: "Golden Temple",
+        location: "Amritsar, Punjab",
+        rating: 4.9,
+        image: "assets/Golden_Temple.png",
+        description: "A spiritual sanctuary and one of the holiest Sikh shrines, symbolizing equality, devotion and human brotherhood."
+    },
+    {
+        id: "s6",
+        name: "Meenakshi Temple",
+        location: "Madurai, Tamil Nadu",
+        rating: 4.8,
+        image: "assets/Meenakshi_Temple.png",
+        description: "A Dravidian temple crowned with towering, painted gopurams depicting thousands of sculpted deities — a living center of worship for centuries."
+    },
+    {
+        id: "s7",
+        name: "Jama Masjid",
+        location: "New Delhi",
+        rating: 4.7,
+        image: "assets/Jama_Masjid.png",
+        description: "Commissioned by Shah Jahan, one of India's largest mosques, its red sandstone courtyard holding tens of thousands at Friday prayer."
+    },
+    {
+        id: "s8",
+        name: "Basilica of Bom Jesus",
+        location: "Old Goa",
+        rating: 4.6,
+        image: "assets/Basilica_of_Bom_Jesus.png",
+        description: "A UNESCO World Heritage Baroque church holding the mortal remains of St. Francis Xavier, its facade unplastered by design."
+    },
+    {
+        id: "s9",
+        name: "Kedarnath Temple",
+        location: "Uttarakhand",
+        rating: 4.9,
+        image: "assets/Kedarnath.png",
+        description: "Perched at 3,583m in the Garhwal Himalayas, one of the twelve Jyotirlingas — reached only on foot, mule, or by helicopter."
+    },
+    {
+        id: "s10",
+        name: "Hemis Monastery",
+        location: "Ladakh",
+        rating: 4.7,
+        image: "assets/Hemis_Monastery.png",
+        description: "The largest and wealthiest monastery in Ladakh, home to a masked Cham dance festival held once every twelve years."
+    }
+];
+
+function initSpiritualCarousel() {
+    const carousel = document.getElementById('spiritual-carousel');
+    const dotsContainer = document.getElementById('spiritual-dots');
+    const prevBtn = document.getElementById('spiritual-prev');
+    const nextBtn = document.getElementById('spiritual-next');
+    const detailTitle = document.getElementById('spiritual-detail-title');
+    const detailLoc = document.getElementById('spiritual-detail-location');
+    const detailDesc = document.getElementById('spiritual-detail-desc');
+    const exploreBtn = document.getElementById('spiritual-explore-btn');
+
+    if (!carousel) return;
+
+    const total = spiritualData.length;
+    let activeIndex = 2; // start on Golden Temple, matching the reference image
+    const VISIBLE_RANGE = 2; // shows activeIndex -2 ... +2 (5 cards)
+
+    // Build all card elements once; visibility/position is handled in render()
+    carousel.innerHTML = '';
+    spiritualData.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'spiritual-card';
+        card.setAttribute('data-index', index);
+        card.style.backgroundImage = `url(${item.image})`;
+        card.innerHTML = `
+            <div class="spiritual-card-rating">★ ${item.rating}</div>
+            <div class="spiritual-card-overlay">
+                <h4>${item.name}</h4>
+                <div class="spiritual-card-loc">📍 ${item.location}</div>
+            </div>
+        `;
+        card.addEventListener('click', () => {
+            activeIndex = index;
+            render();
+        });
+        carousel.appendChild(card);
+    });
+
+    // Circular distance from activeIndex, shortest path around the loop
+    function getCircularOffset(index) {
+        let diff = index - activeIndex;
+        if (diff > total / 2) diff -= total;
+        if (diff < -total / 2) diff += total;
+        return diff;
+    }
+
+    function render() {
+        const panel = document.querySelector('.spiritual-detail-panel');
+        panel.classList.add('updating');
+
+        const cards = carousel.querySelectorAll('.spiritual-card');
+
+        cards.forEach((card, index) => {
+            const offset = getCircularOffset(index);
+            const absOffset = Math.abs(offset);
+
+            card.classList.remove('is-active');
+
+            if (absOffset > VISIBLE_RANGE) {
+                card.style.display = 'none';
+                return;
+            }
+
+            card.style.display = 'block';
+
+            const spacing = 200;
+            const scale = offset === 0 ? 1 : absOffset === 1 ? 0.8 : 0.62;
+            const opacity = offset === 0 ? 1 : absOffset === 1 ? 0.7 : 0.35;
+            const zIndex = 10 - absOffset;
+            const translateX = offset * spacing;
+
+            card.style.zIndex = zIndex;
+            card.style.opacity = opacity;
+            card.style.transform =
+                `translate(-50%, -50%) translateX(${translateX}px) scale(${scale})`;
+
+            if (offset === 0) card.classList.add('is-active');
+        });
+
+        const activeItem = spiritualData[activeIndex];
+        detailTitle.innerText = activeItem.name; // confirm you want this back
+        detailDesc.innerText = activeItem.description;
+
+        requestAnimationFrame(() => {
+            panel.classList.remove('updating');
+        });
+    }
+
+    function goNext() {
+        activeIndex = (activeIndex + 1) % total; // wraps to 0 at the end
+        render();
+    }
+
+    function goPrev() {
+        activeIndex = (activeIndex - 1 + total) % total; // wraps to last at the start
+        render();
+    }
+
+    nextBtn.addEventListener('click', goNext);
+    prevBtn.addEventListener('click', goPrev);
+
+    render();
+}
+
+// Toast notification styling injection for PWA offline/online states
+function injectPWAToastStyles() {
+    if (document.getElementById('pwa-toast-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'pwa-toast-styles';
+    style.textContent = `
+        .pwa-toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: hsl(222, 35%, 12%);
+            border: 1px solid rgba(255, 176, 31, 0.3);
+            border-radius: 8px;
+            padding: 12px 20px;
+            color: #f1f1f1;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10000;
+        }
+        .pwa-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .pwa-toast-success {
+            border-color: #138808;
+        }
+        .pwa-toast-warning {
+            border-color: #ff6f3c;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+function showPWAToast(message, type = 'info') {
+    injectPWAToastStyles();
+    let toast = document.getElementById('pwa-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'pwa-toast';
+        toast.className = 'pwa-toast';
+        document.body.appendChild(toast);
+    }
+    
+    let icon = 'ℹ️';
+    if (type === 'success') {
+        icon = '✅';
+        toast.className = 'pwa-toast pwa-toast-success';
+    } else if (type === 'warning') {
+        icon = '⚠️';
+        toast.className = 'pwa-toast pwa-toast-warning';
+    } else {
+        toast.className = 'pwa-toast';
+    }
+    
+    toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 4000);
+}
+
 // Register Service Worker for PWA
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
+        // 1. Try to detect root prefix from the script src attribute loading app.js
+        const script = document.querySelector('script[src*="app.js"]');
+        let prefix = '';
+        if (script) {
+            const src = script.getAttribute('src');
+            const match = src.match(/^(\.\.\/)+/);
+            if (match) {
+                prefix = match[0];
+            }
+        }
+        
+        // 2. Fallback: Detect prefix based on URL path segment depth
+        if (!prefix) {
+            const pathname = window.location.pathname;
+            const isSubdir = pathname.includes('/states/') || 
+                            pathname.includes('/forts/') || 
+                            pathname.includes('/freedom-timeline/') || 
+                            pathname.includes('/handloom/') || 
+                            pathname.includes('/kingdoms/') || 
+                            pathname.includes('/postal-stamps/') || 
+                            pathname.includes('/traditional-games/') || 
+                            pathname.includes('/toys/') || 
+                            pathname.includes('/geological-wonders/') || 
+                            pathname.includes('/innovation-timeline/');
+            prefix = isSubdir ? '../' : './';
+        }
+
+        navigator.serviceWorker.register(prefix + 'sw.js')
             .then(registration => {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
             }, err => {
                 console.log('ServiceWorker registration failed: ', err);
             });
+
+        // 3. Listen to online/offline connection state changes to notify users
+        window.addEventListener('online', () => {
+            showPWAToast('Your internet connection has been restored. Welcome back online!', 'success');
+        });
+        window.addEventListener('offline', () => {
+            showPWAToast('Connection lost. You are now browsing in offline mode.', 'warning');
+        });
     });
 }
 

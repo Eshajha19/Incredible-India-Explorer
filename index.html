@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -101,7 +109,7 @@
 
         <!-- Hero Section -->
         <section id="home" class="hero-section scroll-section">
-            <video autoplay muted loop class="hero-video">
+            <video autoplay muted loop class="hero-video" poster="assets/hero_banner.png">
                 <source
                     src="https://assets.mixkit.co/videos/preview/mixkit-landscape-of-mountains-and-a-lake-at-sunset-31514-large.mp4"
                     type="video/mp4">
