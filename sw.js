@@ -32,8 +32,17 @@ const CACHE_LIMITS = {
   [CACHE_NAME_IMAGES]: 80
 };
 
+
 // Toggle diagnostic logging in console
 const ENABLE_TELEMETRY_LOGS = true;
+
+// Max age controls for runtime caches (in milliseconds)
+// These values keep cached content fresh enough to avoid being overly stale offline.
+const CACHE_MAX_AGE_MS = {
+  [CACHE_NAME_PAGES]: 24 * 60 * 60 * 1000, // 24 hours
+  [CACHE_NAME_IMAGES]: 30 * 24 * 60 * 60 * 1000 // 30 days
+};
+
 
 // ==========================================================================
 // 2. DIAGNOSTIC LOGGER HELPERS
@@ -74,16 +83,65 @@ const logger = {
 async function limitCacheSize(cacheName, maxItems) {
   const cache = await caches.open(cacheName);
   const keys = await cache.keys();
-  
+
   if (keys.length > maxItems) {
     const overflowCount = keys.length - maxItems;
     logger.debug(`Cache limit reached for '${cacheName}'. Pruning ${overflowCount} old entries.`);
-    
+
     for (let i = 0; i < overflowCount; i++) {
       await cache.delete(keys[i]);
     }
   }
 }
+
+/**
+ * Removes expired entries from a given cache based on an injected response header.
+ * Because Cache Storage doesn't expose metadata timestamps, we store a custom header.
+ * @param {string} cacheName
+ * @param {number} maxAgeMs
+ */
+async function limitCacheAge(cacheName, maxAgeMs) {
+  if (!maxAgeMs || maxAgeMs <= 0) return;
+
+  const cache = await caches.open(cacheName);
+  const keys = await cache.keys();
+
+  const now = Date.now();
+  const headerName = 'sw-cache-time';
+
+  await Promise.all(
+    keys.map(async (req) => {
+      const match = await cache.match(req);
+      if (!match) return;
+
+      const cachedAtRaw = match.headers.get(headerName);
+      if (!cachedAtRaw) return; // If we don't have a timestamp, keep it.
+
+      const cachedAt = Number(cachedAtRaw);
+      if (Number.isNaN(cachedAt)) return;
+
+      if (now - cachedAt > maxAgeMs) {
+        await cache.delete(req);
+        logger.debug(`Cache expired: '${cacheName}' - deleted ${req.url}`);
+      }
+    })
+  );
+}
+
+/**
+ * Adds a timestamp header to a clone of the response so cache entries can be expired later.
+ * @param {Response} response
+ */
+function withCacheTimestamp(response) {
+  const newHeaders = new Headers(response.headers);
+  newHeaders.set('sw-cache-time', String(Date.now()));
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers: newHeaders
+  });
+}
+
 
 // ==========================================================================
 // 4. WORKER LIFECYCLE EVENTS
@@ -117,21 +175,26 @@ self.addEventListener('install', event => {
  */
 self.addEventListener('activate', event => {
   logger.info('Activating and cleaning up old cache versions.');
-  
   const expectedCaches = [CACHE_NAME_STATIC, CACHE_NAME_PAGES, CACHE_NAME_IMAGES];
-  
+  const projectCachePrefix = 'india-explorer-';
+
   event.waitUntil(
     (async () => {
       try {
         const cacheNames = await caches.keys();
+
         await Promise.all(
           cacheNames.map(name => {
-            if (!expectedCaches.includes(name)) {
+            // Delete anything not matching the current version.
+            // Keep third-party caches intact.
+            const isOurCache = name.startsWith(projectCachePrefix);
+            if (isOurCache && !expectedCaches.includes(name)) {
               logger.debug(`Deleting old cache repository: ${name}`);
               return caches.delete(name);
             }
           })
         );
+
         logger.info('Activation and cleanup completed.');
       } catch (err) {
         logger.error('Error during old cache eviction phase.', err);
@@ -142,6 +205,7 @@ self.addEventListener('activate', event => {
     })()
   );
 });
+
 
 // ==========================================================================
 // 5. CACHING STRATEGIES & REQUEST ROUTER
@@ -155,39 +219,50 @@ self.addEventListener('activate', event => {
 async function networkFirstStrategy(request) {
   const url = new URL(request.url);
   logger.debug(`Executing [Network-First] strategy for: ${url.pathname}`);
-  
+
+  const wantsOfflineFallback =
+    request.mode === 'navigate' ||
+    // Some navigation requests may arrive without `mode === 'navigate'` depending on how they are triggered.
+    (request.destination === '' && url.pathname.endsWith('.html')) ||
+    url.pathname === '/';
+
   try {
     const networkResponse = await fetch(request);
-    
-    // Cache the response if it was a successful GET request
-    if (request.method === 'GET' && networkResponse.status === 200) {
+
+    // Cache only successful GET responses to avoid stale/broken error pages.
+    if (request.method === 'GET' && networkResponse && networkResponse.status === 200) {
       const cache = await caches.open(CACHE_NAME_PAGES);
-      cache.put(request, networkResponse.clone());
-      // Trigger async cache limits pruning to prevent space bloating
-      limitCacheSize(CACHE_NAME_PAGES, CACHE_LIMITS[CACHE_NAME_PAGES]);
+      await cache.put(request, withCacheTimestamp(networkResponse.clone()));
+
+      // Prune in the background (size + age)
+      Promise.all([
+        limitCacheSize(CACHE_NAME_PAGES, CACHE_LIMITS[CACHE_NAME_PAGES]),
+        limitCacheAge(CACHE_NAME_PAGES, CACHE_MAX_AGE_MS[CACHE_NAME_PAGES])
+      ]).catch(() => {});
     }
-    
+
     return networkResponse;
   } catch (err) {
     logger.warn(`Network fetch failed for document ${url.pathname}. Attempting cache recovery.`);
-    
+
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
       return cachedResponse;
     }
-    
-    // If navigation request fails offline and is not cached, return the offline fallback page
-    if (request.mode === 'navigate') {
+
+    // Offline fallback for navigations/HTML routes when cache is empty.
+    if (wantsOfflineFallback) {
       logger.debug(`Serving offline fallback page for: ${url.pathname}`);
       const offlineFallback = await caches.match('./offline.html');
       if (offlineFallback) {
         return offlineFallback;
       }
     }
-    
+
     throw err;
   }
 }
+
 
 /**
  * Stale-While-Revalidate Strategy
@@ -203,12 +278,13 @@ async function staleWhileRevalidateStrategy(request) {
   const fetchPromise = (async () => {
     try {
       const networkResponse = await fetch(request);
-      if (request.method === 'GET' && networkResponse.status === 200) {
+      if (request.method === 'GET' && networkResponse && networkResponse.status === 200) {
         const cache = await caches.open(CACHE_NAME_STATIC);
-        cache.put(request, networkResponse.clone());
+        await cache.put(request, withCacheTimestamp(networkResponse.clone()));
       }
       return networkResponse;
     } catch (err) {
+
       logger.warn(`Background revalidation failed for asset: ${url.pathname}`, err);
       throw err;
     }
@@ -225,25 +301,32 @@ async function staleWhileRevalidateStrategy(request) {
 async function cacheFirstStrategy(request) {
   const url = new URL(request.url);
   logger.debug(`Executing [Cache-First] strategy for: ${url.pathname}`);
-  
+
   const cachedResponse = await caches.match(request);
   if (cachedResponse) {
     return cachedResponse;
   }
-  
+
   try {
     const networkResponse = await fetch(request);
-    if (request.method === 'GET' && networkResponse.status === 200) {
+    if (request.method === 'GET' && networkResponse && networkResponse.status === 200) {
       const cache = await caches.open(CACHE_NAME_IMAGES);
-      cache.put(request, networkResponse.clone());
-      limitCacheSize(CACHE_NAME_IMAGES, CACHE_LIMITS[CACHE_NAME_IMAGES]);
+      await cache.put(request, withCacheTimestamp(networkResponse.clone()));
+
+      // Prune in the background (size + age)
+      Promise.all([
+        limitCacheSize(CACHE_NAME_IMAGES, CACHE_LIMITS[CACHE_NAME_IMAGES]),
+        limitCacheAge(CACHE_NAME_IMAGES, CACHE_MAX_AGE_MS[CACHE_NAME_IMAGES])
+      ]).catch(() => {});
     }
+
     return networkResponse;
   } catch (err) {
     logger.error(`Network fallback failed for image asset: ${url.pathname}`, err);
     throw err;
   }
 }
+
 
 /**
  * Router Dispatcher
