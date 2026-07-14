@@ -2237,3 +2237,18 @@ body.rivers-page-body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   ACCESSIBILITY & KEYBOARD FOCUS STYLES
+   ========================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex="0"]:focus-visible,
+path[tabindex="0"]:focus-visible {
+    outline: 3px solid var(--primary-gold, #ff9933) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 5px rgba(255, 153, 51, 0.4) !important;
+}

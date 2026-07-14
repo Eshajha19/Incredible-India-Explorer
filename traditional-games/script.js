@@ -324,6 +324,7 @@ const gameModalClose = document.getElementById('game-modal-close');
 let currentRegion = 'all';
 let currentType = 'all';
 let searchQuery = '';
+let gameModalFocusTrap = null;
 
 // Initialize
 document.addEventListener('app:route-changed', () => {
@@ -506,10 +507,15 @@ function openGameModal(game) {
     
     gameModal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    gameModalFocusTrap = window.setupFocusTrap(gameModal);
 }
 
 // Close Game Modal
 function closeGameModal() {
     gameModal.classList.add('hidden');
     document.body.style.overflow = '';
+    if (gameModalFocusTrap) {
+        gameModalFocusTrap.deactivate();
+        gameModalFocusTrap = null;
+    }
 }

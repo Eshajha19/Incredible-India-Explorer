@@ -28,6 +28,13 @@ export function initBharatGuide() {
             window.speechSynthesis.cancel();
             isSynthesizing = false;
         }
+        fabGuide.focus();
+    });
+
+    chatWindow.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            btnCloseChat.click();
+        }
     });
 
     // Send Message

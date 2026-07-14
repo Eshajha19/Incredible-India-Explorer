@@ -330,6 +330,8 @@ function initToysPage() {
     const resetBtn = document.getElementById('toys-reset-btn');
     const rowArrow = document.getElementById('toys-row-arrow');
 
+    let toysDetailFocusTrap = null;
+
     if (!categoryGrid || !cardsRow || !detailPanel) return;
 
     let currentList = [...TOYS_DATA];
@@ -505,17 +507,24 @@ function initToysPage() {
         modalBackdrop.classList.add('open');
         detailPanel.classList.add('open');
         document.body.style.overflow = 'hidden';
+        toysDetailFocusTrap = window.setupFocusTrap(detailPanel);
     }
 
     function closeToyDetail() {
         modalBackdrop.classList.remove('open');
         detailPanel.classList.remove('open');
         document.body.style.overflow = '';
+        if (toysDetailFocusTrap) {
+            toysDetailFocusTrap.deactivate();
+            toysDetailFocusTrap = null;
+        }
     }
 
     modalBackdrop?.addEventListener('click', closeToyDetail);
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeToyDetail();
+        if (e.key === 'Escape') {
+            closeToyDetail();
+        }
     });
 
     /* ---------- Filtering ---------- */
