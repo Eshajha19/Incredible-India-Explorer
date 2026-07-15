@@ -2,6 +2,14 @@
 
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Nature &amp; Wildlife - Explore National Parks, Biodiversity, and majestic animals of India." name="description"/>
@@ -803,8 +811,8 @@
 <button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
 <script src="firebase-config.js" type="module"></script>
 <script src="auth.js" type="module"></script>
-<script src="router.js"></script>
-    <script src="wildlife-journey.js"></script>
+<script src="router.js" defer></script>
+    <script src="wildlife-journey.js" defer></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>
@@ -830,9 +838,13 @@
     <!-- Scroll To Top Button -->
     <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
 
+<<<<<<< HEAD
+=======
+    <script src="app.js" defer></script>
+>>>>>>> upstream/main
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="auth.js"></script>
-    <script src="router.js"></script>
+    <script src="router.js" defer></script>
 </body>
 
 </html>

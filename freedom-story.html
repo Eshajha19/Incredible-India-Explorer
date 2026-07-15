@@ -2,6 +2,14 @@
 
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Interactive Freedom Story - Choose your path and experience the Indian Independence Movement." name="description"/>
@@ -109,9 +117,9 @@
 </footer>
 
 <!-- Theme toggle logic from app.js -->
-<script src="story-engine.js"></script>
-<script src="router.js"></script>
-    <script src="freedom-story-journey.js"></script>
+<script src="story-engine.js" defer></script>
+<script src="router.js" defer></script>
+    <script src="freedom-story-journey.js" defer></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>

@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interactive Traditional Indian Toys Explorer - Discover India's handmade toys through an interactive gallery.">
@@ -222,8 +230,8 @@
     <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">↑</button>
 
     <!-- JavaScript Files -->
-    <script src="../pages-common.js"></script>
-    <script src="script.js"></script>
+    <script src="../pages-common.js" defer></script>
+    <script src="script.js" defer></script>
 
 </body>
 

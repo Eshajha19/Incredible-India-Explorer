@@ -2,6 +2,14 @@
 
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Explore popular and lesser-known hill stations across India by region, altitude, season, and attractions." name="description"/>
@@ -709,61 +717,12 @@
 </div>
 </footer>
 <button aria-label="Scroll to top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
+<script src="router.js" defer></script>
+    <script src="hill-stations-journey.js" defer></script>
+<script src="app.js" defer></script>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const buttons = document.querySelectorAll(".region-filter button");
-      const cards = document.querySelectorAll(".hill-card");
-      const status = document.getElementById("result-status");
-      const emptyState = document.getElementById("hill-empty");
-      const menuToggle = document.getElementById("menu-toggle");
-
-      const regionNames = {
-        all: "all regions",
-        north: "North India",
-        south: "South India",
-        east: "East & Northeast India",
-        west: "West India",
-        central: "Central India"
-      };
-
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const selectedRegion = button.dataset.region;
-          let visibleCount = 0;
-
-          buttons.forEach((item) => {
-            const isActive = item === button;
-            item.classList.toggle("active", isActive);
-            item.setAttribute("aria-pressed", String(isActive));
-          });
-
-          cards.forEach((card) => {
-            const matches = selectedRegion === "all" || card.dataset.region === selectedRegion;
-            card.hidden = !matches;
-            if (matches) visibleCount += 1;
-          });
-
-          status.textContent = selectedRegion === "all"
-            ? `Showing all ${visibleCount} destinations`
-            : `Showing ${visibleCount} destination${visibleCount === 1 ? "" : "s"} in ${regionNames[selectedRegion]}`;
-
-          emptyState.classList.toggle("visible", visibleCount === 0);
-        });
-      });
-
-      // Keep aria-expanded aligned with the shared mobile menu interaction.
-      if (menuToggle) {
-        menuToggle.addEventListener("click", () => {
-          const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-          menuToggle.setAttribute("aria-expanded", String(!expanded));
-        });
-      }
-    });
-  </script>
 <script src="firebase-config.js" type="module"></script>
 <script src="auth.js" type="module"></script>
-<script src="router.js"></script>
-    <script src="hill-stations-journey.js"></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>

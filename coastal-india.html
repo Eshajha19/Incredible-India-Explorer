@@ -2,6 +2,14 @@
 
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Explore famous beaches and coastal destinations across India by region, state, season, and nearby attractions." name="description"/>
@@ -641,66 +649,12 @@
 </div>
 </footer>
 <button aria-label="Scroll to top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
+<script src="router.js" defer></script>
+    <script src="coastal-india-journey.js" defer></script>
+<script src="app.js" defer></script>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const searchInput = document.getElementById("coastal-search");
-      const filterButtons = [...document.querySelectorAll(".region-filter")];
-      const cards = [...document.querySelectorAll(".coastal-card")];
-      const status = document.getElementById("result-status");
-      const emptyState = document.getElementById("empty-state");
-      const menuToggle = document.getElementById("menu-toggle");
-
-      let activeRegion = "all";
-
-      function filterDestinations() {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        let visibleCount = 0;
-
-        cards.forEach((card) => {
-          const matchesSearch = card.dataset.search.includes(searchTerm);
-          const matchesRegion = activeRegion === "all" || card.dataset.region === activeRegion;
-          const visible = matchesSearch && matchesRegion;
-
-          card.hidden = !visible;
-          if (visible) visibleCount += 1;
-        });
-
-        const filtersActive = searchTerm || activeRegion !== "all";
-        status.textContent = filtersActive
-          ? `Found ${visibleCount} destination${visibleCount === 1 ? "" : "s"}`
-          : `Showing all ${visibleCount} destinations`;
-
-        emptyState.classList.toggle("visible", visibleCount === 0);
-      }
-
-      searchInput.addEventListener("input", filterDestinations);
-
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          activeRegion = button.dataset.region;
-
-          filterButtons.forEach((item) => {
-            const isActive = item === button;
-            item.classList.toggle("active", isActive);
-            item.setAttribute("aria-pressed", String(isActive));
-          });
-
-          filterDestinations();
-        });
-      });
-
-      if (menuToggle) {
-        menuToggle.addEventListener("click", () => {
-          const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-          menuToggle.setAttribute("aria-expanded", String(!expanded));
-        });
-      }
-    });
-  </script>
 <script src="firebase-config.js" type="module"></script>
 <script src="auth.js" type="module"></script>
-<script src="router.js"></script>
-    <script src="coastal-india-journey.js"></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>

@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -50,6 +58,7 @@
                 <a href="cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
                 <a href="festivals.html" class="nav-link" id="link-festivals">Festivals</a>
                 <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a class="nav-link" href="route-planner.html">🧭 Route Planner</a>
                 <div class="nav-dropdown">
                     <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
                     <div class="dropdown-menu">
@@ -101,7 +110,7 @@
 
         <!-- Hero Section -->
         <section id="home" class="hero-section scroll-section">
-            <video autoplay muted loop class="hero-video">
+            <video autoplay muted loop class="hero-video" poster="assets/hero_banner.png">
                 <source
                     src="https://assets.mixkit.co/videos/preview/mixkit-landscape-of-mountains-and-a-lake-at-sunset-31514-large.mp4"
                     type="video/mp4">
@@ -526,7 +535,27 @@
     <!-- JavaScript Files -->
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="auth.js"></script>
-    <script src="router.js"></script>
+    <script src="router.js" defer></script>
+
+    <button
+       id="install-pwa-btn"
+       style="
+         display:none;
+         position:fixed;
+         bottom:20px;
+         right:20px;
+         z-index:9999;
+         padding:12px 18px;
+         border:none;
+         border-radius:10px;
+         background:#FF9933;
+         color:#fff;
+         font-weight:600;
+         cursor:pointer;
+         box-shadow:0 4px 12px rgba(0,0,0,.25);
+    ">
+       📲 Install App
+    </button>
     <script type="module" src="./js/main.js"></script>
 </body>
 

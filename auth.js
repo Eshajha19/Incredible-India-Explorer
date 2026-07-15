@@ -14,7 +14,9 @@ import {
   updateProfile,
   sendPasswordResetEmail,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
+  setPersistence,
+  browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   getStoredAuthUser,
@@ -22,11 +24,31 @@ import {
   signInLocalUser,
   signInWithLocalGoogle,
   signOutLocalUser,
-  subscribeToLocalAuth
+  subscribeToLocalAuth,
+  verifyLocalSession,
+  upgradeLocalUserToPremium
 } from './auth-core.mjs';
+
+// Expose core local auth functions to global window context for page scripts
+if (typeof window !== 'undefined') {
+  window.authLib = {
+    getStoredAuthUser,
+    verifyLocalSession,
+    upgradeLocalUserToPremium,
+    signOutLocalUser,
+    showSessionExpiredAlert
+  };
+}
 
 // Where to send the user after a successful login/signup, and after logout.
 const REDIRECT_URL = 'index.html';
+
+// Configure Firebase persistence to browser session storage (cleared on tab close)
+if (auth && isFirebaseConfigured) {
+  setPersistence(auth, browserSessionPersistence).catch((error) => {
+    console.error("Failed to set Firebase Auth persistence:", error);
+  });
+}
 
 /* =========================================================================
    PART 1 — LOGIN / SIGNUP FORM LOGIC (only runs on login.html)
@@ -124,7 +146,6 @@ if (authCard) {
     if (auth && googleProvider && isFirebaseConfigured) {
       return true;
     }
-
     return true;
   }
 
@@ -145,14 +166,19 @@ if (authCard) {
         }
       } else {
         if (mode === 'signup') {
-          registerLocalUser({ email, password, displayName: name });
+          await registerLocalUser({ email, password, displayName: name });
         } else {
-          signInLocalUser({ email, password });
+          await signInLocalUser({ email, password });
         }
       }
 
       showMessage('Authentication successful! Redirecting...', 'success');
-      setTimeout(() => (window.location.href = REDIRECT_URL), 800);
+      
+      // Parse redirect parameter to return back to protected page
+      const params = new URLSearchParams(window.location.search);
+      const targetRedirect = params.get('redirect') || REDIRECT_URL;
+      
+      setTimeout(() => (window.location.href = targetRedirect), 800);
     } catch (error) {
       showMessage(friendlyError(error));
     } finally {
@@ -214,10 +240,14 @@ if (authCard) {
       if (auth && googleProvider && isFirebaseConfigured) {
         await signInWithPopup(auth, googleProvider);
       } else {
-        signInWithLocalGoogle();
+        await signInWithLocalGoogle();
       }
       showMessage('Login successful! Redirecting...', 'success');
-      setTimeout(() => (window.location.href = REDIRECT_URL), 800);
+      
+      const params = new URLSearchParams(window.location.search);
+      const targetRedirect = params.get('redirect') || REDIRECT_URL;
+      
+      setTimeout(() => (window.location.href = targetRedirect), 800);
     } catch (error) {
       showMessage(friendlyError(error));
     } finally {
@@ -384,6 +414,7 @@ function buildProfileDropdown(user) {
     } else {
       signOutLocalUser();
     }
+    handleNavAuthState(null);
     window.location.href = REDIRECT_URL;
   });
 
@@ -415,32 +446,211 @@ function handleNavAuthState(user) {
 }
 
 /* =========================================================================
-   PART 3 — SINGLE AUTH STATE LISTENER (drives both parts above)
+   PART 3 — CENTRALIZED SESSION VERIFICATION & GATE
+   ========================================================================= */
+
+// Displays a premium dark-mode notification when session expires
+function showSessionExpiredAlert() {
+  if (document.getElementById('session-expired-modal')) return;
+
+  const modal = document.createElement('div');
+  modal.id = 'session-expired-modal';
+  modal.className = 'session-expired-modal';
+  modal.innerHTML = `
+    <div class="session-expired-backdrop"></div>
+    <div class="session-expired-content">
+      <div class="expired-icon">⏳</div>
+      <h2>Session Expired</h2>
+      <p>Your security session has expired or is invalid. Please log in again to restore access.</p>
+      <button id="expiredLoginBtn" class="btn-expired-login">Log In Again</button>
+    </div>
+  `;
+
+  if (!document.getElementById('session-expired-styles')) {
+    const style = document.createElement('style');
+    style.id = 'session-expired-styles';
+    style.textContent = `
+      .session-expired-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        font-family: 'Outfit', sans-serif;
+      }
+      .session-expired-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 14, 22, 0.85);
+        backdrop-filter: blur(12px);
+      }
+      .session-expired-content {
+        position: relative;
+        background: hsl(222, 35%, 11%);
+        border: 1px solid rgba(255, 176, 31, 0.3);
+        border-radius: 20px;
+        padding: 35px 30px;
+        width: 90%;
+        max-width: 420px;
+        text-align: center;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+        animation: modalFadeIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+      @keyframes modalFadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .expired-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+      .session-expired-content h2 {
+        color: #ffffff;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .session-expired-content p {
+        color: hsl(215, 20%, 65%);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 25px;
+      }
+      .btn-expired-login {
+        width: 100%;
+        padding: 13px;
+        background: linear-gradient(135deg, hsl(27,100%,55%) 0%, hsl(43,85%,52%) 100%);
+        border: none;
+        border-radius: 10px;
+        color: #12141c;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s, filter 0.2s;
+      }
+      .btn-expired-login:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.08);
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  document.body.appendChild(modal);
+  document.body.style.overflow = 'hidden';
+
+  modal.querySelector('#expiredLoginBtn').addEventListener('click', () => {
+    signOutLocalUser();
+    document.body.style.overflow = '';
+    modal.remove();
+    window.location.href = `login.html?redirect=premium.html`;
+  });
+}
+
+// Binds premium claims checking and sets page data attributes dynamically
+export function updatePremiumUI(user) {
+  const isPremiumPage = window.location.pathname.includes('premium.html');
+  const isPremium = user && user.role === 'premium';
+
+  if (isPremium) {
+    document.body.setAttribute('data-premium-status', 'unlocked');
+  } else {
+    document.body.setAttribute('data-premium-status', 'locked');
+  }
+
+  if (isPremiumPage) {
+    window.dispatchEvent(new CustomEvent('incredible-india:premium-status-change', {
+      detail: { user, isPremium }
+    }));
+  }
+}
+
+// Centralized validator for checkRouteAccess checks
+export async function validateSessionAndRole() {
+  if (auth && isFirebaseConfigured) {
+    const user = auth.currentUser;
+    if (user) {
+      try {
+        const tokenResult = await user.getIdTokenResult();
+        const role = tokenResult.claims.role || (tokenResult.claims.premium ? 'premium' : 'free');
+        updatePremiumUI({ ...user, role });
+      } catch (e) {
+        updatePremiumUI({ ...user, role: 'free' });
+      }
+    } else {
+      updatePremiumUI(null);
+    }
+    return;
+  }
+
+  const storedUser = getStoredAuthUser();
+  if (storedUser) {
+    const verifiedUser = await verifyLocalSession();
+    if (!verifiedUser) {
+      showSessionExpiredAlert();
+    } else {
+      updatePremiumUI(verifiedUser);
+    }
+  } else {
+    updatePremiumUI(null);
+  }
+}
+
+if (typeof window !== 'undefined') {
+  window.authLib.validateSessionAndRole = validateSessionAndRole;
+}
+
+/* =========================================================================
+   PART 4 — SINGLE AUTH STATE LISTENER (drives the flows above)
    ========================================================================= */
 
 if (auth && isFirebaseConfigured) {
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, async (user) => {
     if (authCard && user) {
-      window.location.href = REDIRECT_URL;
+      const params = new URLSearchParams(window.location.search);
+      const targetRedirect = params.get('redirect') || REDIRECT_URL;
+      window.location.href = targetRedirect;
       return;
     }
     handleNavAuthState(user);
+
+    if (user) {
+      try {
+        const tokenResult = await user.getIdTokenResult();
+        const role = tokenResult.claims.role || (tokenResult.claims.premium ? 'premium' : 'free');
+        updatePremiumUI({ ...user, role });
+      } catch (e) {
+        updatePremiumUI({ ...user, role: 'free' });
+      }
+    } else {
+      updatePremiumUI(null);
+    }
   });
 } else {
-  const localUser = getStoredAuthUser();
-  handleNavAuthState(localUser);
+  // Executed for local auth session checks
+  const initLocalAuthCheck = async () => {
+    const localUser = await verifyLocalSession();
+    handleNavAuthState(localUser);
 
-  if (authCard) {
-    if (localUser) {
-      window.location.href = REDIRECT_URL;
-    }
-  }
-
-  subscribeToLocalAuth((user) => {
-    if (authCard && user) {
-      window.location.href = REDIRECT_URL;
+    if (authCard && localUser) {
+      const params = new URLSearchParams(window.location.search);
+      const targetRedirect = params.get('redirect') || REDIRECT_URL;
+      window.location.href = targetRedirect;
       return;
     }
+    updatePremiumUI(localUser);
+  };
+  initLocalAuthCheck();
+
+  subscribeToLocalAuth((user) => {
     handleNavAuthState(user);
+    updatePremiumUI(user);
   });
 }

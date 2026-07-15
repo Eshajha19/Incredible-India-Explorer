@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore Indian scripts and writing systems, their periods, regions, associated languages, and historical significance.">
@@ -125,7 +133,7 @@
   </footer>
 
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-  <script src="scripts.js"></script>
+  <script src="scripts.js" defer></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>

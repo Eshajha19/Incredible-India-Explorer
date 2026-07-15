@@ -1,0 +1,446 @@
+/* guides.css — Community Travel Guides (issue #187) */
+
+.guides-page {
+    padding-top: 110px;
+    padding-bottom: 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.guides-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.guides-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.guides-subtitle {
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.guides-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.guides-toolbar select,
+.guides-toolbar input[type="text"] {
+    background: var(--bg-dark-card);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-light);
+    border-radius: var(--border-radius-sm);
+    padding: 10px 14px;
+    font-family: var(--font-body);
+}
+
+.btn-guide {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    padding: 10px 20px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: var(--transition-snappy);
+}
+
+.btn-guide-primary {
+    background: var(--gradient-saffron-gold);
+    color: #1a1108;
+}
+
+.btn-guide-primary:hover {
+    box-shadow: var(--shadow-glow-active);
+    transform: translateY(-2px);
+}
+
+.btn-guide-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-guide-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.btn-guide-danger {
+    background: rgba(220, 38, 38, 0.15);
+    color: hsl(0, 80%, 70%);
+    border: 1px solid rgba(220, 38, 38, 0.35);
+}
+
+.btn-guide-danger:hover {
+    background: rgba(220, 38, 38, 0.25);
+}
+
+.btn-guide[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.guide-card {
+    background: var(--bg-dark-card);
+    border: 1px solid var(--gradient-card-border);
+    border-radius: var(--border-radius-lg);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.guide-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-glow);
+}
+
+.guide-card h3 {
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.guide-destination {
+    color: var(--primary-gold);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.guide-excerpt {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.guide-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: auto;
+}
+
+.guide-status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.status-draft { background: rgba(148, 163, 184, 0.2); color: hsl(215, 20%, 75%); }
+.status-pending { background: rgba(255, 176, 31, 0.18); color: var(--primary-gold); }
+.status-published { background: rgba(18, 136, 7, 0.2); color: hsl(122, 70%, 55%); }
+.status-rejected { background: rgba(220, 38, 38, 0.2); color: hsl(0, 80%, 70%); }
+
+.guides-empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 60px 20px;
+}
+
+/* ---- Guide detail ---- */
+
+.guide-detail-header {
+    margin-bottom: 24px;
+}
+
+.guide-detail-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-light);
+    margin: 8px 0;
+}
+
+.guide-detail-body {
+    background: var(--bg-dark-card);
+    border-radius: var(--border-radius-lg);
+    padding: 32px;
+    color: var(--text-light);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    margin-bottom: 28px;
+}
+
+.guide-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.guide-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.guide-rating .star {
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.guide-rating .star.filled {
+    color: var(--primary-gold);
+}
+
+.guide-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin: 32px 0 14px;
+}
+
+.version-list, .report-list, .moderation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.version-item, .report-item, .moderation-item {
+    background: var(--bg-dark-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-sm);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.version-item-row, .moderation-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.version-meta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ---- Editor ---- */
+
+.guide-editor-form {
+    background: var(--bg-dark-card);
+    border-radius: var(--border-radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.guide-editor-form label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.guide-editor-form input[type="text"],
+.guide-editor-form select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    border-radius: var(--border-radius-sm);
+    padding: 12px 14px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.editor-toolbar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.editor-toolbar button {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-light);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+
+.editor-toolbar button:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.editor-content-area {
+    min-height: 260px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius-sm);
+    padding: 16px;
+    color: var(--text-light);
+    line-height: 1.6;
+    outline: none;
+}
+
+.editor-content-area:focus {
+    border-color: var(--primary-gold);
+}
+
+.editor-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.form-hint {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.form-error {
+    color: hsl(0, 80%, 70%);
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+
+/* ---- Moderation dashboard ---- */
+
+.moderation-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.moderation-tab {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    padding: 8px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+
+.moderation-tab.active {
+    background: var(--gradient-saffron-gold);
+    color: #1a1108;
+    font-weight: 700;
+    border-color: transparent;
+}
+
+.moderation-guard {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-box {
+    background: var(--bg-dark-modal);
+    border-radius: var(--border-radius-lg);
+    padding: 28px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: var(--shadow-soft);
+}
+
+.modal-box h3 {
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    margin-top: 0;
+}
+
+.modal-box textarea {
+    width: 100%;
+    min-height: 90px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    border-radius: var(--border-radius-sm);
+    padding: 10px;
+    font-family: var(--font-body);
+    margin: 10px 0 18px;
+}
+
+.modal-box select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-light);
+    border-radius: var(--border-radius-sm);
+    padding: 10px;
+    margin-bottom: 18px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bg-dark-modal);
+    color: var(--text-light);
+    padding: 14px 20px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--primary-gold);
+    z-index: 1100;
+    max-width: 320px;
+}
+
+.toast.error {
+    border-left-color: hsl(0, 80%, 60%);
+}

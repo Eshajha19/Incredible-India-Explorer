@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -227,7 +235,6 @@
 
     <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
 
-    <script src="app.js?v=20260712-2"></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 

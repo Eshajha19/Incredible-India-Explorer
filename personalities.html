@@ -2,6 +2,14 @@
 
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Famous Personalities - The legends, freedom fighters, and modern icons of India." name="description"/>
@@ -466,8 +474,8 @@
 </footer>
 <script src="firebase-config.js" type="module"></script>
 <script src="auth.js" type="module"></script>
-<script src="router.js"></script>
-    <script src="personalities-journey.js"></script>
+<script src="router.js" defer></script>
+    <script src="personalities-journey.js" defer></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>

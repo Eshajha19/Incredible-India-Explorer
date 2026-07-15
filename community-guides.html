@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Browse community-written travel guides for destinations across India." name="description"/>
+<title>Community Travel Guides | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="guides.css" rel="stylesheet"/>
+</head>
+<body data-page="guides">
+<!-- Sticky Navigation Bar -->
+<header class="navbar scrolled" id="navbar">
+<div class="nav-container">
+<a class="nav-logo" href="index.html#home" id="nav-logo">
+<span class="saffron">Incredible</span>
+<span class="gold">India</span>
+<span class="green">Explorer</span>
+</a>
+<button aria-label="Toggle Menu" class="menu-toggle" id="menu-toggle">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</button>
+<nav class="nav-menu" id="nav-menu">
+<a class="nav-link" href="index.html#home" id="link-home">Home</a>
+<a class="nav-link" href="index.html#map" id="link-map">Interactive Map</a>
+<a class="nav-link" href="cuisine.html" id="link-cuisine">Cuisine</a>
+<a class="nav-link" href="festivals.html" id="link-festivals">Festivals</a>
+<a class="nav-link" href="culture.html" id="link-culture">Culture</a>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="travel.html">Travel &amp; Destinations</a>
+<a class="dropdown-item" href="wildlife.html">Nature &amp; Wildlife</a>
+<a class="dropdown-item" href="personalities.html">Famous Personalities</a>
+<a class="dropdown-item" href="spiritual.html">Spiritual India</a>
+<a class="dropdown-item" href="arts-crafts.html">Arts &amp; Crafts</a>
+<a class="dropdown-item" href="community-guides.html" style="color: var(--saffron)">📝 Community Guides</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-link dropdown-toggle" id="link-learn-data">Learn &amp; Data ▾</button>
+<div class="dropdown-menu">
+<a class="dropdown-item" href="smart-cities.html">Smart Cities</a>
+<a class="dropdown-item" href="languages.html">Languages of India</a>
+<a class="dropdown-item" href="data-india.html">Data &amp; Statistics</a>
+<a class="dropdown-item" href="learn.html">Learn &amp; Quiz</a>
+</div>
+</div>
+<button aria-label="Toggle Dark/Light Mode" class="btn-theme-toggle" id="theme-toggle" title="Toggle Light Mode">☀️</button>
+<a class="nav-link" href="premium.html" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+<a class="nav-link" href="login.html" id="link-login">Login</a>
+<div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+                </div>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
+            </nav>
+</div>
+</header>
+<main id="app-root">
+<section class="guides-page">
+<div id="guides-root">Loading guides…</div>
+</section>
+
+</main>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-brand">
+<h3>Incredible India Explorer</h3>
+<p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
+                    with passion and pure vanilla web technologies.</p>
+</div>
+<div class="footer-links">
+<h4>Quick Navigation</h4>
+<ul>
+<li><a href="index.html#home">Home</a></li>
+<li><a href="travel.html">Travel &amp; Destinations</a></li>
+<li><a href="community-guides.html">Community Guides</a></li>
+<li><a href="cuisine.html">Cuisine</a></li>
+<li><a href="festivals.html">Festivals</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-credits" style="align-self: center;">
+<p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
+</div>
+</footer>
+<button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
+<script src="app.js" defer></script>
+<script src="firebase-config.js" type="module"></script>
+<script src="auth.js" type="module"></script>
+<script src="router.js" defer></script>
+<script src="guides.js" type="module" defer></script>
+</body>
+</html>

@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore India's famous handloom traditions by state, weaving techniques, and cultural significance.">
@@ -169,8 +177,8 @@
 
   <footer class="handloom-footer"><div class="handloom-container"><p>Part of <a href="../index.html">Incredible India Explorer</a> · Explore India's handloom heritage and weaving traditions.</p></div></footer>
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
-  <script src="script.js"></script>
-    <script src="../router.js"></script>
+  <script src="script.js" defer></script>
+    <script src="../router.js" defer></script>
     <script type="module" src="../js/main.js"></script>
 </body>
 </html>

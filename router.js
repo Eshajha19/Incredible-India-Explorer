@@ -471,6 +471,22 @@ class Router {
     }
 
     async handleRoute(path, push = true) {
+        // Validate active session token cryptographically before proceeding
+        if (window.authLib && typeof window.authLib.verifyLocalSession === 'function') {
+            const user = window.authLib.getStoredAuthUser();
+            if (user) {
+                const verified = await window.authLib.verifyLocalSession();
+                if (!verified) {
+                    if (typeof window.authLib.showSessionExpiredAlert === 'function') {
+                        window.authLib.showSessionExpiredAlert();
+                    } else {
+                        window.location.href = `login.html?redirect=${encodeURIComponent(path)}`;
+                    }
+                    return;
+                }
+            }
+        }
+
         const startTime = performance.now();
         this.logger.info(`Navigating to: ${path}`);
         this.historyTracker.push(path);
@@ -554,6 +570,11 @@ class Router {
                 }
 
                 this.dispatchRouteEvent();
+
+                // Update SEO Metadata and JSON-LD Structured Data dynamically
+                if (window.seoHelper && typeof window.seoHelper.update === 'function') {
+                    window.seoHelper.update(doc, path);
+                }
 
                 if (typeof initializeGlobalSearch === 'function') {
                     initializeGlobalSearch();
