@@ -555,6 +555,11 @@ class Router {
 
                 this.dispatchRouteEvent();
 
+                // Update SEO Metadata and JSON-LD Structured Data dynamically
+                if (window.seoHelper && typeof window.seoHelper.update === 'function') {
+                    window.seoHelper.update(doc, path);
+                }
+
                 if (typeof initializeGlobalSearch === 'function') {
                     initializeGlobalSearch();
                 }

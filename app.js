@@ -1,3 +1,19 @@
+// Automatically load SEO helper utility
+(function() {
+    if (!document.getElementById('seo-helper-script') && typeof window !== 'undefined') {
+        const script = document.createElement('script');
+        script.id = 'seo-helper-script';
+        const pathPrefix = (window.location.pathname.includes('/states/') ||
+                            window.location.pathname.includes('/traditional-games/') ||
+                            window.location.pathname.includes('/freedom-timeline/') ||
+                            window.location.pathname.includes('/postal-stamps/') ||
+                            window.location.pathname.includes('/handloom/')) ? '../' : '';
+        script.src = pathPrefix + 'seo-helper.js';
+        script.defer = true;
+        document.head.appendChild(script);
+    }
+})();
+
 /* ==========================================================================
    INCREDIBLE INDIA EXPLORER - APPLICATION LOGIC
    Pure Vanilla JavaScript for dynamic content, modals, sliders, and games.
