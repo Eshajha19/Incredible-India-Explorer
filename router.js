@@ -491,6 +491,13 @@ class Router {
         this.logger.info(`Navigating to: ${path}`);
         this.historyTracker.push(path);
 
+        // Show loading overlay
+        try {
+            if (window.LoadingOverlay) {
+                window.LoadingOverlay.show('Loading ' + path.replace(/^./, '') + '...');
+            }
+        } catch (e) {}
+
         // Cleanup resources registered on the current route
         if (this.currentPath) {
             this.lifecycle.cleanupRoute(this.currentPath);
@@ -582,11 +589,20 @@ class Router {
 
                 const elapsed = (performance.now() - startTime).toFixed(1);
                 this.logger.info(`Loaded ${path} in ${elapsed}ms [Cache: ${cacheHit ? 'HIT' : 'MISS'}]`);
+
+                // Hide loading overlay after transition completes
+                setTimeout(function () {
+                    try {
+                        if (window.LoadingOverlay) window.LoadingOverlay.hide();
+                    } catch (e) {}
+                }, 400);
             } else {
+                try { if (window.LoadingOverlay) window.LoadingOverlay.hide(); } catch (e) {}
                 window.location.href = path;
             }
 
         } catch (error) {
+            try { if (window.LoadingOverlay) window.LoadingOverlay.hide(); } catch (e) {}
             this.logger.error(`Failed to handle route: ${path}`, error);
             window.location.href = path;
         }

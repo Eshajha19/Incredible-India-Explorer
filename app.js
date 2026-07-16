@@ -65,6 +65,19 @@ window.setupFocusTrap = function(modalElement) {
     };
 };
 
+/* Preload loading states module for SPA route transitions */
+(function preloadLoadingModule() {
+    var pre = (window.location.pathname.includes('/states/') ||
+        window.location.pathname.includes('/traditional-games/') ||
+        window.location.pathname.includes('/freedom-timeline/') ||
+        window.location.pathname.includes('/postal-stamps/') ||
+        window.location.pathname.includes('/handloom/')) ? '../' : '';
+    var s = document.createElement('script');
+    s.src = pre + 'js-modules/loading-states.js';
+    s.async = true;
+    document.head.appendChild(s);
+})();
+
 document.addEventListener('app:route-changed', () => {
     initNavigation();
     initThemeToggle();
