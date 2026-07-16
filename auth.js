@@ -18,24 +18,15 @@ import {
   setPersistence,
   browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {
-  getStoredAuthUser,
-  registerLocalUser,
-  signInLocalUser,
-  signInWithLocalGoogle,
-  signOutLocalUser,
-  subscribeToLocalAuth,
-  verifyLocalSession,
-  upgradeLocalUserToPremium
-} from './auth-core.mjs';
+import { authApi } from './auth-core.mjs';
 
 // Expose core local auth functions to global window context for page scripts
 if (typeof window !== 'undefined') {
   window.authLib = {
-    getStoredAuthUser,
-    verifyLocalSession,
-    upgradeLocalUserToPremium,
-    signOutLocalUser,
+    getStoredAuthUser: authApi.getStoredAuthUser,
+    verifyLocalSession: authApi.verifySession,
+    upgradeLocalUserToPremium: authApi.upgradeLocalUserToPremium,
+    signOutLocalUser: authApi.signOut,
     showSessionExpiredAlert
   };
 }
@@ -166,9 +157,9 @@ if (authCard) {
         }
       } else {
         if (mode === 'signup') {
-          await registerLocalUser({ email, password, displayName: name });
+          await authApi.registerLocal({ email, password, displayName: name });
         } else {
-          await signInLocalUser({ email, password });
+          await authApi.signInLocal({ email, password });
         }
       }
 
@@ -240,7 +231,7 @@ if (authCard) {
       if (auth && googleProvider && isFirebaseConfigured) {
         await signInWithPopup(auth, googleProvider);
       } else {
-        await signInWithLocalGoogle();
+        await authApi.signInWithLocalGoogle();
       }
       showMessage('Login successful! Redirecting...', 'success');
       
@@ -412,7 +403,7 @@ function buildProfileDropdown(user) {
     if (auth && isFirebaseConfigured) {
       await signOut(auth);
     } else {
-      signOutLocalUser();
+      authApi.signOut();
     }
     handleNavAuthState(null);
     window.location.href = REDIRECT_URL;
@@ -547,7 +538,7 @@ function showSessionExpiredAlert() {
   document.body.style.overflow = 'hidden';
 
   modal.querySelector('#expiredLoginBtn').addEventListener('click', () => {
-    signOutLocalUser();
+    authApi.signOut();
     document.body.style.overflow = '';
     modal.remove();
     window.location.href = `login.html?redirect=premium.html`;
@@ -590,9 +581,9 @@ export async function validateSessionAndRole() {
     return;
   }
 
-  const storedUser = getStoredAuthUser();
+  const storedUser = authApi.getStoredAuthUser();
   if (storedUser) {
-    const verifiedUser = await verifyLocalSession();
+    const verifiedUser = await authApi.verifySession();
     if (!verifiedUser) {
       showSessionExpiredAlert();
     } else {
@@ -636,7 +627,7 @@ if (auth && isFirebaseConfigured) {
 } else {
   // Executed for local auth session checks
   const initLocalAuthCheck = async () => {
-    const localUser = await verifyLocalSession();
+    const localUser = await authApi.verifySession();
     handleNavAuthState(localUser);
 
     if (authCard && localUser) {
@@ -649,7 +640,7 @@ if (auth && isFirebaseConfigured) {
   };
   initLocalAuthCheck();
 
-  subscribeToLocalAuth((user) => {
+  authApi.subscribeToAuthChanges((user) => {
     handleNavAuthState(user);
     updatePremiumUI(user);
   });
