@@ -505,6 +505,13 @@ class Router {
                 this.logger.error('Failed to cleanup soundscape', e);
             }
         }
+        if (window.speechSynthesis && typeof window.speechSynthesis.cancel === 'function') {
+            try {
+                window.speechSynthesis.cancel();
+            } catch (e) {
+                this.logger.error('Failed to cancel speech synthesis', e);
+            }
+        }
 
         document.dispatchEvent(new CustomEvent('app:before-route', { detail: { path } }));
 
