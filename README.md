@@ -108,7 +108,7 @@ No build step or bundler is required — `journey.js` is a plain script include,
 consistent with `app.js`/`pages-common.js`/`router.js`.
 
 
-We welcome contributions! Please see our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and use the provided Issue and PR templates.
+We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) guide, review the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and use the provided Issue and PR templates.
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
