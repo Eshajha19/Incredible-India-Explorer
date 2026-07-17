@@ -20,6 +20,10 @@
    ========================================================================== */
 
 window.setupFocusTrap = function(modalElement) {
+    if (window.ModalUtils && typeof window.ModalUtils.createFocusTrap === 'function') {
+        return window.ModalUtils.createFocusTrap(modalElement);
+    }
+
     if (!modalElement) return null;
     const focusableSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
     const focusableElements = Array.from(modalElement.querySelectorAll(focusableSelector));
@@ -65,83 +69,107 @@ window.setupFocusTrap = function(modalElement) {
     };
 };
 
-document.addEventListener('app:route-changed', () => {
-    initNavigation();
-    initThemeToggle();
-    initRotatingText();
-
-    // Page detection routing
-    const pathname = window.location.pathname;
-
-    if (pathname.includes('cuisine.html')) {
-        window.lazyLoadScript('js-modules/cuisine.js').then(() => initCuisinePage());
-    } else if (pathname.includes('festivals.html')) {
-        window.lazyLoadScript('js-modules/festivals.js').then(() => initFestivalsPage());
-    } else if (pathname.includes('culture.html')) {
-        window.lazyLoadScript('js-modules/culture.js').then(() => initCulturePage());
-    } else if (pathname.includes('literature.html')) {
-        window.lazyLoadScript('js-modules/literature.js').then(() => initLiteraturePage());
-    } else if (pathname.includes('dance.html')) {
-        window.lazyLoadScript('js-modules/dance.js').then(() => initDancePage());
-    } else if (pathname.includes('music.html')) {
-        window.lazyLoadScript('js-modules/music.js').then(() => initMusicPage());
-    } else if (pathname.includes('sports.html')) {
-        window.lazyLoadScript('js-modules/sports.js').then(() => initSportsPage());
-    } else if (pathname.includes('science.html')) {
-        window.lazyLoadScript('js-modules/science.js').then(() => initSciencePage());
-    } else if (pathname.includes('personalities.html')) {
-        initScrollEffects();
-        window.lazyLoadScript('js-modules/personalities.js').then(() => initPersonalitiesPage());
-    } else if (pathname.includes('spiritual.html')) {
-        initScrollEffects();
-        window.lazyLoadScript('js-modules/spiritual.js').then(() => initSpiritualCarousel());
-    } else if (pathname.includes('startup.html')) {
-        window.lazyLoadScript('js-modules/startup.js').then(() => initStartupPage());
-    } else if (pathname.includes('travel.html')) {
-        window.lazyLoadScript('js-modules/roadtrip.js').then(() => initRoadTripFlipCards());
-    } else if (pathname.includes('trip-planner.html')) {
-        window.lazyLoadScript('trip-data.js')
-            .then(() => window.lazyLoadScript('js-modules/trip-planner.js'))
-            .then(() => initTripPlannerPage());
-    } else if (pathname.includes('heritage.html')) {
-        console.log('✅ Heritage page loaded successfully');
-    } else if (pathname.includes('monuments.html')) {
-        console.log('✅ Monuments page loaded successfully');
-    } else if (pathname.includes('hidden-gems.html')) {
-        console.log('✅ Hidden Gems page loaded successfully');
-    } else if (pathname.includes('railways.html')) {
-        console.log('✅ Railways Explorer page loaded successfully');
-    } else if (pathname.includes('adventure.html')) {
-        console.log('Adventure page loaded successfully');
-    } else {
-        // Main landing page (index.html or root)
-        initScrollEffects();
-
-        // Viewport-based lazy initialization of heavy landing page sections
-        const lazyInit = (elementId, initFunc) => {
-            const el = document.getElementById(elementId);
-            if (el && 'IntersectionObserver' in window) {
-                const obs = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            initFunc();
-                            obs.disconnect();
-                        }
-                    });
-                }, { rootMargin: '200px' });
-                obs.observe(el);
-            } else {
-                initFunc();
-            }
-        };
-
-        lazyInit('map-container', initInteractiveMap);
-        lazyInit('cuisine-grid', initCuisineExplorer);
-        lazyInit('festival-timeline', initFestivals);
-        lazyInit('slider-container', initCultureSlider);
-        lazyInit('quiz-card', initQuiz);
-        lazyInit('fab-guide', initBharatGuide);
+window.lazyLoadScript = function(src) {
+    if (!window.lazyLoadedScriptsCache) {
+        window.lazyLoadedScriptsCache = new Set();
     }
+    if (window.lazyLoadedScriptsCache.has(src)) {
+        return Promise.resolve();
+    }
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = () => {
+            window.lazyLoadedScriptsCache.add(src);
+            resolve();
+        };
+        script.onerror = (err) => {
+            console.error(`Failed to lazy load script: ${src}`, err);
+            reject(err);
+        };
+        document.body.appendChild(script);
+    });
+};
+
+document.addEventListener('app:route-changed', () => {
+    window.lazyLoadScript('js-modules/modal-utils.js').then(() => {
+        initNavigation();
+        initThemeToggle();
+        initRotatingText();
+
+        // Page detection routing
+        const pathname = window.location.pathname;
+
+        if (pathname.includes('cuisine.html')) {
+            window.lazyLoadScript('js-modules/cuisine.js').then(() => initCuisinePage());
+        } else if (pathname.includes('festivals.html')) {
+            window.lazyLoadScript('js-modules/festivals.js').then(() => initFestivalsPage());
+        } else if (pathname.includes('culture.html')) {
+            window.lazyLoadScript('js-modules/culture.js').then(() => initCulturePage());
+        } else if (pathname.includes('literature.html')) {
+            window.lazyLoadScript('js-modules/literature.js').then(() => initLiteraturePage());
+        } else if (pathname.includes('dance.html')) {
+            window.lazyLoadScript('js-modules/dance.js').then(() => initDancePage());
+        } else if (pathname.includes('music.html')) {
+            window.lazyLoadScript('js-modules/music.js').then(() => initMusicPage());
+        } else if (pathname.includes('sports.html')) {
+            window.lazyLoadScript('js-modules/sports.js').then(() => initSportsPage());
+        } else if (pathname.includes('science.html')) {
+            window.lazyLoadScript('js-modules/science.js').then(() => initSciencePage());
+        } else if (pathname.includes('personalities.html')) {
+            initScrollEffects();
+            window.lazyLoadScript('js-modules/personalities.js').then(() => initPersonalitiesPage());
+        } else if (pathname.includes('spiritual.html')) {
+            initScrollEffects();
+            window.lazyLoadScript('js-modules/spiritual.js').then(() => initSpiritualCarousel());
+        } else if (pathname.includes('startup.html')) {
+            window.lazyLoadScript('js-modules/startup.js').then(() => initStartupPage());
+        } else if (pathname.includes('travel.html')) {
+            window.lazyLoadScript('js-modules/roadtrip.js').then(() => initRoadTripFlipCards());
+        } else if (pathname.includes('trip-planner.html')) {
+            window.lazyLoadScript('trip-data.js')
+                .then(() => window.lazyLoadScript('js-modules/trip-planner.js'))
+                .then(() => initTripPlannerPage());
+        } else if (pathname.includes('heritage.html')) {
+            console.log('✅ Heritage page loaded successfully');
+        } else if (pathname.includes('monuments.html')) {
+            console.log('✅ Monuments page loaded successfully');
+        } else if (pathname.includes('hidden-gems.html')) {
+            console.log('✅ Hidden Gems page loaded successfully');
+        } else if (pathname.includes('railways.html')) {
+            console.log('✅ Railways Explorer page loaded successfully');
+        } else if (pathname.includes('adventure.html')) {
+            console.log('Adventure page loaded successfully');
+        } else {
+            // Main landing page (index.html or root)
+            initScrollEffects();
+
+            // Viewport-based lazy initialization of heavy landing page sections
+            const lazyInit = (elementId, initFunc) => {
+                const el = document.getElementById(elementId);
+                if (el && 'IntersectionObserver' in window) {
+                    const obs = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                initFunc();
+                                obs.disconnect();
+                            }
+                        });
+                    }, { rootMargin: '200px' });
+                    obs.observe(el);
+                } else {
+                    initFunc();
+                }
+            };
+
+            lazyInit('map-container', initInteractiveMap);
+            lazyInit('cuisine-grid', initCuisineExplorer);
+            lazyInit('festival-timeline', initFestivals);
+            lazyInit('slider-container', initCultureSlider);
+            lazyInit('quiz-card', initQuiz);
+            lazyInit('fab-guide', initBharatGuide);
+        }
+    });
 });
 
 /* ==========================================================================
@@ -639,11 +667,7 @@ function initInteractiveMap() {
 
     if (comparisonBackBtn) {
         comparisonBackBtn.addEventListener('click', () => {
-            comparisonOverlay.classList.remove('open');
-            if (comparisonOverlayFocusTrap) {
-                comparisonOverlayFocusTrap.deactivate();
-                comparisonOverlayFocusTrap = null;
-            }
+            window.ModalUtils.closeModal(comparisonOverlay);
         });
     }
 
@@ -787,8 +811,10 @@ function initInteractiveMap() {
             `;
         }
 
-        comparisonOverlay.classList.add('open');
-        comparisonOverlayFocusTrap = window.setupFocusTrap(comparisonOverlay);
+        window.ModalUtils.openModal({
+            modalEl: comparisonOverlay,
+            triggerEl: document.activeElement
+        });
     }
 
     // Overlay Close Triggers
@@ -798,11 +824,7 @@ function initInteractiveMap() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeOverlay();
-            comparisonOverlay.classList.remove('open');
-            if (comparisonOverlayFocusTrap) {
-                comparisonOverlayFocusTrap.deactivate();
-                comparisonOverlayFocusTrap = null;
-            }
+            window.ModalUtils.closeModal(comparisonOverlay);
         }
     });
 
@@ -850,8 +872,10 @@ function initInteractiveMap() {
         storyOverlay.className = 'story-overlay theme-default';
 
         // Open Overlay
-        storyOverlay.classList.add('open');
-        storyOverlayFocusTrap = window.setupFocusTrap(storyOverlay);
+        window.ModalUtils.openModal({
+            modalEl: storyOverlay,
+            triggerEl: document.activeElement
+        });
 
         // Update Quick Info Sidebar Panel
         infoPanel.className = "info-card active-state";
@@ -951,12 +975,8 @@ function initInteractiveMap() {
     }
 
     function closeOverlay() {
-        storyOverlay.classList.remove('open');
         stopSoundscape();
-        if (storyOverlayFocusTrap) {
-            storyOverlayFocusTrap.deactivate();
-            storyOverlayFocusTrap = null;
-        }
+        window.ModalUtils.closeModal(storyOverlay);
     }
 
     // Explore Random State Action
@@ -1434,6 +1454,10 @@ function playSoundscape(festName, drumElement) {
     initAudioSynth();
     stopSoundscape();
 
+    if (window.appLifecycle) {
+        window.appLifecycle.registerCleanup(() => stopSoundscape());
+    }
+
     soundscapeActive = true;
     currentFestivalPlaying = festName;
 
@@ -1743,6 +1767,10 @@ function playStateSoundscape(stateName) {
     initAudioSynth();
     stopSoundscape();
 
+    if (window.appLifecycle) {
+        window.appLifecycle.registerCleanup(() => stopSoundscape());
+    }
+
     soundscapeActive = true;
     currentFestivalPlaying = "State";
 
@@ -1829,6 +1857,11 @@ function initBharatGuide() {
         chatWindow.classList.toggle('open');
         if (chatWindow.classList.contains('open')) {
             chatInput.focus();
+        } else {
+            if (isSynthesizing) {
+                window.speechSynthesis.cancel();
+                isSynthesizing = false;
+            }
         }
     });
 
@@ -1955,11 +1988,6 @@ function initBharatGuide() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -2093,9 +2121,6 @@ function initBharatGuide() {
     }
 
     function openModal(athlete, trigger) {
-        lastFocusedTrigger = trigger || document.activeElement;
-        isModalOpen = true;
-
         modalCategory.className = `sports-badge ${athlete.category}`;
         modalCategory.textContent = getCategoryLabel(athlete.category);
         modalTitle.textContent = athlete.name;
@@ -2113,48 +2138,20 @@ function initBharatGuide() {
         modalAvatar.className = `sports-modal-avatar ${athlete.category}`;
         modalAvatar.innerHTML = `<img src="${athlete.image}" alt="${athlete.name}" loading="lazy">`;
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: trigger || document.activeElement,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-
-        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-            lastFocusedTrigger.focus();
-        }
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-
-        if (!focusableElements.length) return;
-
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 
     function getCategoryLabel(category) {
@@ -2298,11 +2295,6 @@ function initSciencePage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -2445,9 +2437,6 @@ function initSciencePage() {
     }
 
     function openModal(scientist, trigger) {
-        lastFocusedTrigger = trigger || document.activeElement;
-        isModalOpen = true;
-
         modalCategory.className = `science-badge ${scientist.category}`;
         modalCategory.textContent = categoryLabels[scientist.category] || scientist.category;
         modalTitle.textContent = scientist.name;
@@ -2465,45 +2454,20 @@ function initSciencePage() {
         modalAvatar.className = `science-modal-avatar science-avatar-frame ${scientist.category} ${scientist.id}`;
         modalAvatar.innerHTML = `<img class="science-avatar-image science-avatar-image-cover" src="${scientist.image}" alt="${scientist.name}" loading="lazy" decoding="async">`;
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: trigger || document.activeElement,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-
-        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-            lastFocusedTrigger.focus();
-        }
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (!focusableElements.length) return;
-
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 }
 
@@ -2865,11 +2829,6 @@ function initMusicPage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -3025,7 +2984,6 @@ function initMusicPage() {
         lastFocusedArtistId = artistId;
         lastFocusedTrigger = trigger || document.activeElement;
         lastFocusedTriggerKind = trigger?.matches?.('[data-music-details]') ? 'details' : 'card';
-        isModalOpen = true;
 
         modalAvatar.className = `music-modal-avatar ${artist.genre}`;
         modalAvatar.innerHTML = `<img src="${artist.image}" alt="${artist.name}" loading="lazy" decoding="async" class="music-modal-image">`;
@@ -3038,43 +2996,22 @@ function initMusicPage() {
         modalInstruments.innerHTML = artist.instruments.map(item => `<span class="music-chip">${item}</span>`).join('');
         modalHighlights.innerHTML = artist.highlights.map(item => `<li>${item}</li>`).join('');
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: null,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+                renderArtists();
+                restoreFocus();
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-        renderArtists();
-        restoreFocus();
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (!focusableElements.length) return;
-
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 
     function restoreFocus() {
@@ -3825,11 +3762,6 @@ function initLiteraturePage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -4023,9 +3955,6 @@ function initLiteraturePage() {
     }
 
     function openModal(item, trigger) {
-        lastFocusedTrigger = trigger || document.activeElement;
-        isModalOpen = true;
-
         modalAvatar.className = `literature-modal-avatar ${item.category}`;
         modalAvatar.innerHTML = `
             <img class="literature-modal-image" src="${item.image || ''}" alt="${item.title}" loading="lazy" decoding="async">
@@ -4046,45 +3975,20 @@ function initLiteraturePage() {
         `).join('');
         modalHighlights.innerHTML = item.highlights.map(highlight => `<li>${highlight}</li>`).join('');
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: trigger || document.activeElement,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-
-        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-            requestAnimationFrame(() => {
-                lastFocusedTrigger.focus();
-            });
-        }
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 
     function resetFilters() {
@@ -4571,11 +4475,6 @@ function initDancePage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -4770,9 +4669,6 @@ function initDancePage() {
         const dance = danceData.find(item => item.id === danceId);
         if (!dance) return;
 
-        lastFocusedTrigger = trigger || document.activeElement;
-        isModalOpen = true;
-
         modalVisual.className = `dance-modal-visual ${dance.type}`;
         modalVisual.innerHTML = getDanceMediaMarkup(dance, 'modal');
         modalBadge.className = `dance-badge ${dance.type}`;
@@ -4785,48 +4681,21 @@ function initDancePage() {
         modalFeatures.innerHTML = dance.features.map(feature => `<span class="dance-chip">${feature}</span>`).join('');
         modalNotes.textContent = dance.description;
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        syncDanceMediaState(modalVisual);
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: trigger || document.activeElement,
+            onOpen: () => {
+                isModalOpen = true;
+                syncDanceMediaState(modalVisual);
+            },
+            onClose: () => {
+                isModalOpen = false;
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-
-        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-            requestAnimationFrame(() => {
-                lastFocusedTrigger.focus();
-            });
-        }
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (!focusableElements.length) return;
-
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 }
 
@@ -5494,6 +5363,11 @@ function initBharatGuide() {
         chatWindow.classList.toggle('open');
         if (chatWindow.classList.contains('open')) {
             chatInput.focus();
+        } else {
+            if (isSynthesizing) {
+                window.speechSynthesis.cancel();
+                isSynthesizing = false;
+            }
         }
     });
 
@@ -6007,7 +5881,6 @@ if ('serviceWorker' in navigator) {
                   showPWAToast(event.data.message, 'success');
                 }
             });
-
+        }
     });
 }
-
