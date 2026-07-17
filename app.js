@@ -1434,6 +1434,10 @@ function playSoundscape(festName, drumElement) {
     initAudioSynth();
     stopSoundscape();
 
+    if (window.appLifecycle) {
+        window.appLifecycle.registerCleanup(() => stopSoundscape());
+    }
+
     soundscapeActive = true;
     currentFestivalPlaying = festName;
 
@@ -1743,6 +1747,10 @@ function playStateSoundscape(stateName) {
     initAudioSynth();
     stopSoundscape();
 
+    if (window.appLifecycle) {
+        window.appLifecycle.registerCleanup(() => stopSoundscape());
+    }
+
     soundscapeActive = true;
     currentFestivalPlaying = "State";
 
@@ -1829,6 +1837,11 @@ function initBharatGuide() {
         chatWindow.classList.toggle('open');
         if (chatWindow.classList.contains('open')) {
             chatInput.focus();
+        } else {
+            if (isSynthesizing) {
+                window.speechSynthesis.cancel();
+                isSynthesizing = false;
+            }
         }
     });
 
@@ -5494,6 +5507,11 @@ function initBharatGuide() {
         chatWindow.classList.toggle('open');
         if (chatWindow.classList.contains('open')) {
             chatInput.focus();
+        } else {
+            if (isSynthesizing) {
+                window.speechSynthesis.cancel();
+                isSynthesizing = false;
+            }
         }
     });
 
@@ -6007,7 +6025,6 @@ if ('serviceWorker' in navigator) {
                   showPWAToast(event.data.message, 'success');
                 }
             });
-
+        }
     });
 }
-
