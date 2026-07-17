@@ -725,11 +725,6 @@ function initLiteraturePage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -923,9 +918,6 @@ function initLiteraturePage() {
     }
 
     function openModal(item, trigger) {
-        lastFocusedTrigger = trigger || document.activeElement;
-        isModalOpen = true;
-
         modalAvatar.className = `literature-modal-avatar ${item.category}`;
         modalAvatar.innerHTML = `
             <img class="literature-modal-image" src="${item.image || ''}" alt="${item.title}" loading="lazy" decoding="async">
@@ -946,45 +938,20 @@ function initLiteraturePage() {
         `).join('');
         modalHighlights.innerHTML = item.highlights.map(highlight => `<li>${highlight}</li>`).join('');
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: trigger || document.activeElement,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-
-        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-            requestAnimationFrame(() => {
-                lastFocusedTrigger.focus();
-            });
-        }
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 
     function resetFilters() {

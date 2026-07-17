@@ -7,7 +7,7 @@
 //   "editor"      -> create/edit form (guide-editor.html)
 //   "moderation"  -> admin/moderator dashboard (guide-moderation.html)
 
-import { getStoredAuthUser, subscribeToLocalAuth } from './auth-core.mjs';
+import { authApi } from './auth-core.mjs';
 import * as Guides from './guides-core.mjs';
 
 // ---------------------------------------------------------------------
@@ -78,8 +78,8 @@ function statusLabel(status) {
   return status.charAt(0).toUpperCase() + status.slice(1);
 }
 
-let currentUser = getStoredAuthUser();
-subscribeToLocalAuth((user) => { currentUser = user; });
+let currentUser = authApi.getStoredAuthUser();
+authApi.subscribeToAuthChanges((user) => { currentUser = user; });
 
 function requireSignedIn() {
   if (!currentUser) {

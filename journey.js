@@ -354,6 +354,39 @@
     // app:route-changed has already fired (e.g. direct page load order).
     migrateLegacyStartupFavorites();
 
+    /**
+     * Enrich a saved journey item with its search index metadata.
+     * Cross-references the item's ID against indiaSearchIndex to pull in
+     * category, full description, and resolved URL for richer display.
+     */
+    function enrichFromSearchIndex(item) {
+        if (!item || !item.id || typeof window.indiaSearchIndex === 'undefined') {
+            return item;
+        }
+        var match = window.indiaSearchIndex.find(function (entry) {
+            return entry.url && entry.url.indexOf(item.id) !== -1;
+        });
+        if (match) {
+            return {
+                id: item.id,
+                explorerPage: item.explorerPage,
+                title: item.title,
+                thumbnail: item.thumbnail,
+                category: match.category || item.category,
+                savedAt: item.savedAt,
+                description: match.description
+            };
+        }
+        return item;
+    }
+
+    /**
+     * Get enriched journey items with search index cross-references.
+     */
+    function getEnrichedJourney() {
+        return getJourney().map(enrichFromSearchIndex);
+    }
+
     window.Journey = {
         getJourney,
         saveToJourney,
@@ -362,6 +395,8 @@
         toggle,
         registerSearchItems,
         search,
-        getSearchIndex
+        getSearchIndex,
+        enrichFromSearchIndex: enrichFromSearchIndex,
+        getEnrichedJourney: getEnrichedJourney
     };
 })();

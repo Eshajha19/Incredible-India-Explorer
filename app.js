@@ -5660,211 +5660,114 @@ function initPersonalitiesPage() {
 
 
 /* ==========================================================================
-   SPIRITUAL CARDS ANIMATION CARSOUL
+   app.js — Incredible India Explorer
+   Thin module loader. Loads js/* modules and dispatches app routing.
+   Preserves app:route-changed SPA lifecycle (router.js integration).
    ========================================================================== */
+(function() {
+  'use strict';
 
-const spiritualData = [
+  // ------------------------------------------------------------------------
+  //  MODULE LOADER — dynamically loads js/* module scripts sequentially
+  // ------------------------------------------------------------------------
+  var MODULES = [
+    'js/nav.js',
+    'js/theme.js',
+    'js/home.js',
+    'js/map.js',
+    'js/soundscape.js',
+    'js/quiz.js',
+    'js/cuisine.js',
+    'js/festivals.js',
+    'js/culture.js',
+    'js/literature.js',
+    'js/dance.js',
+    'js/music.js',
+    'js/sports.js',
+    'js/science.js',
+    'js/personalities.js',
+    'js/spiritual.js',
+    'js/startup.js',
+    'js/bharat-guide.js'
+  ];
 
-    {
-        id: "s2",
-        name: "Taj Mahal",
-        location: "Agra, Uttar Pradesh",
-        rating: 4.9,
-        image: "assets/Taj_Mahal.png",
-        description: "An ivory-marble mausoleum built by Shah Jahan for Mumtaz Mahal — a monument to love recognized as one of the world's most extraordinary architectural achievements."
-    },
-    {
-        id: "s3",
-        name: "Golden Temple",
-        location: "Amritsar, Punjab",
-        rating: 4.9,
-        image: "assets/Golden_Temple.png",
-        description: "A spiritual sanctuary and one of the holiest Sikh shrines, symbolizing equality, devotion and human brotherhood."
-    },
-    {
-        id: "s6",
-        name: "Meenakshi Temple",
-        location: "Madurai, Tamil Nadu",
-        rating: 4.8,
-        image: "assets/Meenakshi_Temple.png",
-        description: "A Dravidian temple crowned with towering, painted gopurams depicting thousands of sculpted deities — a living center of worship for centuries."
-    },
-    {
-        id: "s7",
-        name: "Jama Masjid",
-        location: "New Delhi",
-        rating: 4.7,
-        image: "assets/Jama_Masjid.png",
-        description: "Commissioned by Shah Jahan, one of India's largest mosques, its red sandstone courtyard holding tens of thousands at Friday prayer."
-    },
-    {
-        id: "s8",
-        name: "Basilica of Bom Jesus",
-        location: "Old Goa",
-        rating: 4.6,
-        image: "assets/Basilica_of_Bom_Jesus.png",
-        description: "A UNESCO World Heritage Baroque church holding the mortal remains of St. Francis Xavier, its facade unplastered by design."
-    },
-    {
-        id: "s9",
-        name: "Kedarnath Temple",
-        location: "Uttarakhand",
-        rating: 4.9,
-        image: "assets/Kedarnath.png",
-        description: "Perched at 3,583m in the Garhwal Himalayas, one of the twelve Jyotirlingas — reached only on foot, mule, or by helicopter."
-    },
-    {
-        id: "s10",
-        name: "Hemis Monastery",
-        location: "Ladakh",
-        rating: 4.7,
-        image: "assets/Hemis_Monastery.png",
-        description: "The largest and wealthiest monastery in Ladakh, home to a masked Cham dance festival held once every twelve years."
-    }
-];
+  var modulesReady = false;
 
-function initSpiritualCarousel() {
-    const carousel = document.getElementById('spiritual-carousel');
-    const dotsContainer = document.getElementById('spiritual-dots');
-    const prevBtn = document.getElementById('spiritual-prev');
-    const nextBtn = document.getElementById('spiritual-next');
-    const detailTitle = document.getElementById('spiritual-detail-title');
-    const detailLoc = document.getElementById('spiritual-detail-location');
-    const detailDesc = document.getElementById('spiritual-detail-desc');
-    const exploreBtn = document.getElementById('spiritual-explore-btn');
+  function loadModules(callback) {
+    var i = 0;
+    (function next() {
+      if (i >= MODULES.length) {
+        modulesReady = true;
+        if (typeof callback === 'function') callback();
+        return;
+      }
+      var s = document.createElement('script');
+      s.src = MODULES[i++];
+      s.onload = next;
+      s.onerror = next;    // skip failed modules, continue chain
+      document.body.appendChild(s);
+    })();
+  }
 
-    if (!carousel) return;
+  // ------------------------------------------------------------------------
+  //  ROUTER — delegates to IIE.* module inits based on current page
+  // ------------------------------------------------------------------------
+  function route() {
+    if (!modulesReady) return;
 
-    const total = spiritualData.length;
-    let activeIndex = 2; // start on Golden Temple, matching the reference image
-    const VISIBLE_RANGE = 2; // shows activeIndex -2 ... +2 (5 cards)
+    window.IIE = window.IIE || {};
+    var p = window.location.pathname;
 
-    // Build all card elements once; visibility/position is handled in render()
-    carousel.innerHTML = '';
-    spiritualData.forEach((item, index) => {
-        const card = document.createElement('div');
-        card.className = 'spiritual-card';
-        card.setAttribute('data-index', index);
-        card.style.backgroundImage = `url(${item.image})`;
-        card.innerHTML = `
-            <div class="spiritual-card-rating">★ ${item.rating}</div>
-            <div class="spiritual-card-overlay">
-                <h4>${item.name}</h4>
-                <div class="spiritual-card-loc">📍 ${item.location}</div>
-            </div>
-        `;
-        card.addEventListener('click', () => {
-            activeIndex = index;
-            render();
-        });
-        carousel.appendChild(card);
-    });
+    // ---- Common init (every page) ----
+    if (window.IIE.Nav)   window.IIE.Nav.init();
+    if (window.IIE.Theme) window.IIE.Theme.init();
+    if (window.IIE.Home)  window.IIE.Home.initRotatingText();
 
-    // Circular distance from activeIndex, shortest path around the loop
-    function getCircularOffset(index) {
-        let diff = index - activeIndex;
-        if (diff > total / 2) diff -= total;
-        if (diff < -total / 2) diff += total;
-        return diff;
-    }
+    // Road trip card flip (travel.html — small, kept inline)
+    initRoadTripFlipCards();
 
-    function render() {
-        const panel = document.querySelector('.spiritual-detail-panel');
-        panel.classList.add('updating');
+    // ---- Feature-page routing ----
+    if (p.indexOf('cuisine.html') !== -1) {
+      if (window.IIE.CuisinePage) window.IIE.CuisinePage.init();
 
-        const cards = carousel.querySelectorAll('.spiritual-card');
+    } else if (p.indexOf('festivals.html') !== -1) {
+      if (window.IIE.FestivalsPage) window.IIE.FestivalsPage.init();
 
-        cards.forEach((card, index) => {
-            const offset = getCircularOffset(index);
-            const absOffset = Math.abs(offset);
+    } else if (p.indexOf('culture.html') !== -1) {
+      if (window.IIE.CulturePage) window.IIE.CulturePage.init();
 
-            card.classList.remove('is-active');
+    } else if (p.indexOf('literature.html') !== -1) {
+      if (window.IIE.LiteraturePage) window.IIE.LiteraturePage.init();
 
-            if (absOffset > VISIBLE_RANGE) {
-                card.style.display = 'none';
-                return;
-            }
+    } else if (p.indexOf('dance.html') !== -1) {
+      if (window.IIE.DancePage) window.IIE.DancePage.init();
 
-            card.style.display = 'block';
+    } else if (p.indexOf('music.html') !== -1) {
+      if (window.IIE.MusicPage) window.IIE.MusicPage.init();
 
-            const spacing = 200;
-            const scale = offset === 0 ? 1 : absOffset === 1 ? 0.8 : 0.62;
-            const opacity = offset === 0 ? 1 : absOffset === 1 ? 0.7 : 0.35;
-            const zIndex = 10 - absOffset;
-            const translateX = offset * spacing;
+    } else if (p.indexOf('sports.html') !== -1) {
+      if (window.IIE.SportsPage) window.IIE.SportsPage.init();
 
-            card.style.zIndex = zIndex;
-            card.style.opacity = opacity;
-            card.style.transform =
-                `translate(-50%, -50%) translateX(${translateX}px) scale(${scale})`;
+    } else if (p.indexOf('science.html') !== -1) {
+      if (window.IIE.SciencePage) window.IIE.SciencePage.init();
 
-            if (offset === 0) card.classList.add('is-active');
-        });
+    } else if (p.indexOf('personalities.html') !== -1) {
+      if (window.IIE.Nav)              window.IIE.Nav.initScrollEffects();
+      if (window.IIE.PersonalitiesPage) window.IIE.PersonalitiesPage.init();
 
-        const activeItem = spiritualData[activeIndex];
-        detailTitle.innerText = activeItem.name; // confirm you want this back
-        detailDesc.innerText = activeItem.description;
+    } else if (p.indexOf('spiritual.html') !== -1) {
+      if (window.IIE.Nav)              window.IIE.Nav.initScrollEffects();
+      if (window.IIE.SpiritualCarousel) window.IIE.SpiritualCarousel.init();
 
-        requestAnimationFrame(() => {
-            panel.classList.remove('updating');
-        });
-    }
+    } else if (p.indexOf('startup.html') !== -1) {
+      if (window.IIE.StartupPage) window.IIE.StartupPage.init();
 
-    function goNext() {
-        activeIndex = (activeIndex + 1) % total; // wraps to 0 at the end
-        render();
-    }
-
-    function goPrev() {
-        activeIndex = (activeIndex - 1 + total) % total; // wraps to last at the start
-        render();
-    }
-
-    nextBtn.addEventListener('click', goNext);
-    prevBtn.addEventListener('click', goPrev);
-
-    render();
-}
-
-// Toast notification styling injection for PWA offline/online states
-function injectPWAToastStyles() {
-    if (document.getElementById('pwa-toast-styles')) return;
-    const style = document.createElement('style');
-    style.id = 'pwa-toast-styles';
-    style.textContent = `
-        .pwa-toast {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: hsl(222, 35%, 12%);
-            border: 1px solid rgba(255, 176, 31, 0.3);
-            border-radius: 8px;
-            padding: 12px 20px;
-            color: #f1f1f1;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10000;
-        }
-        .pwa-toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .pwa-toast-success {
-            border-color: #138808;
-        }
-        .pwa-toast-warning {
-            border-color: #ff6f3c;
-        }
-    `;
-    document.head.appendChild(style);
-}
+    } else if (p.indexOf('heritage.html') !== -1 ||
+               p.indexOf('monuments.html') !== -1 ||
+               p.indexOf('hidden-gems.html') !== -1 ||
+               p.indexOf('railways.html') !== -1 ||
+               p.indexOf('adventure.html') !== -1) {
+      console.log('Page loaded successfully');
 
 /* ==========================================================================
    UNIFIED TOAST NOTIFICATION SYSTEM
@@ -6034,3 +5937,4 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+})();
