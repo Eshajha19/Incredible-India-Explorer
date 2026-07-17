@@ -805,7 +805,8 @@ function getPathPrefix() {
     return '';
 }
 
-function loadSearchScript(callback) {
+function loadSearchScript(callback, retries) {
+    if (retries === undefined) retries = 2;
     if (window.indiaSearchIndex) {
         if (callback) callback();
         return;
@@ -817,6 +818,14 @@ function loadSearchScript(callback) {
     };
     script.onerror = () => {
         console.error("Failed to load search index.");
+        if (retries > 0) {
+            console.log('Retrying search index load... (' + retries + ' attempts left)');
+            setTimeout(function () {
+                loadSearchScript(callback, retries - 1);
+            }, 1500);
+        } else if (callback) {
+            callback(new Error('Search index could not be loaded after retries'));
+        }
     };
     document.body.appendChild(script);
 }

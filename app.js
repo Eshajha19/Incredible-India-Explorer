@@ -14,6 +14,19 @@
     }
 })();
 
+/* Preload search index on browser idle for instant search responsiveness */
+(function preloadSearchIndex() {
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(function () {
+            if (typeof window.indiaSearchIndex !== 'undefined') return;
+            var s = document.createElement('script');
+            s.src = 'search-index.js';
+            s.async = true;
+            document.head.appendChild(s);
+        }, { timeout: 3000 });
+    }
+})();
+
 /* ==========================================================================
    INCREDIBLE INDIA EXPLORER - APPLICATION LOGIC
    Pure Vanilla JavaScript for dynamic content, modals, sliders, and games.
