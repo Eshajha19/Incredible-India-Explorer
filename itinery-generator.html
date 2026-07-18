@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trip Planner</title>
+    <!-- Tailwind CSS for modern look -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- React, ReactDOM and Babel Development Standalone Scripts -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Lucide Icons CDN script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', system-ui, sans-serif;
+            background: radial-gradient(120% 140% at 10% 0%, #232a54 0%, #1B1F3B 55%, #14172e 100%);
+            min-height: 100vh;
+        }
+        .font-serif-fraunces {
+            font-family: 'Fraunces', Georgia, serif;
+        }
+        .font-mono-plex {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+    </style>
+</head>
+<body class="text-[#F2EEE4] p-6 md:p-10 select-none">
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useMemo, useCallback, useEffect } = React;
+
+        // Custom Component wrapper for rendering lucide icons dynamically
+        function Icon({ name, size = 16, className = "" }) {
+            useEffect(() => {
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            });
+            return <i data-lucide={name} style={{ width: size, height: size }} class={`inline-block ${className}`}></i>;
+        }
+
+        const DESTINATIONS = [
+            { id: 1, name: "Amber Fort", state: "Rajasthan", category: "Heritage", budget: "Mid", season: "Winter", rating: 4.7, time: "3h" },
+            { id: 2, name: "City Palace, Jaipur", state: "Rajasthan", category: "Heritage", budget: "Mid", season: "Winter", rating: 4.5, time: "2h" },
+            { id: 3, name: "Jaisalmer Desert Safari", state: "Rajasthan", category: "Adventure", budget: "Mid", season: "Winter", rating: 4.6, time: "4h" },
+            { id: 4, name: "Lake Pichola, Udaipur", state: "Rajasthan", category: "Heritage", budget: "High", season: "Winter", rating: 4.6, time: "2h" },
+            { id: 5, name: "Munnar Tea Gardens", state: "Kerala", category: "Hill Station", budget: "Mid", season: "Winter", rating: 4.6, time: "3h" },
+            { id: 6, name: "Alleppey Backwaters", state: "Kerala", category: "Beach", budget: "Mid", season: "Winter", rating: 4.5, time: "5h" },
+            { id: 7, name: "Wayanad Wildlife Sanctuary", state: "Kerala", category: "Wildlife", budget: "Low", season: "Winter", rating: 4.3, time: "4h" },
+            { id: 8, name: "Manali Mall Road + Hadimba Temple", state: "Himachal Pradesh", category: "Hill Station", budget: "Mid", season: "Summer", rating: 4.4, time: "2h" },
+            { id: 9, name: "Solang Valley", state: "Himachal Pradesh", category: "Adventure", budget: "Mid", season: "Summer", rating: 4.5, time: "4h" },
+            { id: 10, name: "Baga Beach", state: "Goa", category: "Beach", budget: "Mid", season: "Winter", rating: 4.3, time: "3h" },
+            { id: 11, name: "Old Goa Churches", state: "Goa", category: "Heritage", budget: "Low", season: "Winter", rating: 4.4, time: "2h" },
+            { id: 12, name: "Rishikesh Rafting", state: "Uttarakhand", category: "Adventure", budget: "Low", season: "Winter", rating: 4.6, time: "3h" },
+            { id: 13, name: "Ram Jhula + Ganga Aarti", state: "Uttarakhand", category: "Spiritual", budget: "Low", season: "Winter", rating: 4.7, time: "2h" },
+            { id: 14, name: "Ranthambore Safari", state: "Rajasthan", category: "Wildlife", budget: "High", season: "Winter", rating: 4.5, time: "4h" },
+            { id: 15, name: "Varanasi Ghats", state: "Uttar Pradesh", category: "Spiritual", budget: "Low", season: "Winter", rating: 4.6, time: "3h" },
+            { id: 16, name: "Kasol Trek", state: "Himachal Pradesh", category: "Adventure", budget: "Low", season: "Summer", rating: 4.4, time: "5h" },
+        ];
+
+        const CATEGORIES = ["Heritage", "Hill Station", "Beach", "Wildlife", "Spiritual", "Adventure"];
+        const FOOD_BY_STATE = {
+            Rajasthan: "Try dal baati churma for dinner tonight.",
+            Kerala: "Don't miss a Kerala sadya thali for lunch.",
+            "Himachal Pradesh": "Warm up with siddu and local trout.",
+            Goa: "Fish curry rice at a beach shack is a must.",
+            Uttarakhand: "Grab kumaoni raita and bal mithai.",
+            "Uttar Pradesh": "Street-side kachori sabzi near the ghats.",
+        };
+        const BUDGET_ORDER = ["Low", "Mid", "High"];
+        const PACE = { Relaxed: 2, Balanced: 3, Packed: 4 };
+
+        let idc = 500;
+        const nid = () => `it-${idc++}`;
+
+        function mostCommon(arr) {
+            const counts = {};
+            arr.forEach((v) => (counts[v] = (counts[v] || 0) + 1));
+            return Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+        }
+
+        function whyReasons(d, prefs, weights) {
+            const reasons = [];
+            if (prefs.categories.includes(d.category)) reasons.push(`Matches ${d.category} preference`);
+            if (d.budget === prefs.budget) reasons.push("Within budget");
+            if (d.rating >= 4.5) reasons.push("Highly rated");
+            if ((weights[d.category] || 0) > 0.2) reasons.push("Learned preference boost");
+            if (reasons.length === 0) reasons.push("Good fit for your trip");
+            return reasons;
+        }
+
+        function SectionEyebrow({ children }) {
+            return <div class="font-mono-plex text-[11px] tracking-[0.16em] uppercase text-[#A9AFD9] mb-1.5">{children}</div>;
+        }
+
+        function ItineraryGenerator() {
+            const [prefs, setPrefs] = useState({
+                duration: 4, budget: "Mid", categories: ["Heritage", "Adventure"], pace: "Balanced", season: "Winter",
+            });
+            const [profile, setProfile] = useState({
+                Heritage: 8, Beach: 5, Wildlife: 2, "Hill Station": 6, Spiritual: 3, Adventure: 4,
+            });
+            const [itinerary, setItinerary] = useState(null);
+            const [seed, setSeed] = useState(0);
+            const [saved, setSaved] = useState([]);
+            const [learnFlash, setLearnFlash] = useState(null);
+
+            const weights = useMemo(() => {
+                const total = Object.values(profile).reduce((a, b) => a + b, 0) || 1;
+                const w = {};
+                Object.entries(profile).forEach(([k, v]) => (w[k] = v / total));
+                return w;
+            }, [profile]);
+
+            function toggleCategory(c) {
+                setPrefs((p) => ({
+                    ...p,
+                    categories: p.categories.includes(c) ? p.categories.filter((x) => x !== c) : [...p.categories, c],
+                }));
+            }
+
+            const scoreDest = useCallback((d, usedCategories) => {
+                const catMatch = prefs.categories.includes(d.category) ? 1 : 0.15;
+                const budgetDist = Math.abs(BUDGET_ORDER.indexOf(d.budget) - BUDGET_ORDER.indexOf(prefs.budget));
+                const budgetMatch = budgetDist === 0 ? 1 : budgetDist === 1 ? 0.5 : 0.1;
+                const seasonMatch = d.season === prefs.season ? 1 : 0.4;
+                const learned = weights[d.category] || 0;
+                const repeatPenalty = Math.max(0, 1 - (usedCategories[d.category] || 0) * 0.35);
+                const ratingNorm = d.rating / 5;
+                return (
+                    (catMatch * 0.32 + budgetMatch * 0.13 + seasonMatch * 0.1 + learned * 0.25 + ratingNorm * 0.2) * repeatPenalty
+                );
+            }, [prefs, weights]);
+
+            function generate() {
+                const usedCategories = {};
+                const itemsPerDay = PACE[prefs.pace];
+                const totalSlots = prefs.duration * itemsPerDay;
+
+                const pool = DESTINATIONS.map((d) => ({ ...d, _r: Math.random() * 0.05 + seed * 0 }));
+                const selected = [];
+                for (let i = 0; i < totalSlots; i++) {
+                    const ranked = pool
+                        .filter((d) => !selected.find((s) => s.id === d.id))
+                        .map((d) => ({ ...d, _score: scoreDest(d, usedCategories) + d._r }))
+                        .sort((a, b) => b._score - a._score);
+                    if (ranked.length === 0) break;
+                    const pick = ranked[0];
+                    selected.push(pick);
+                    usedCategories[pick.category] = (usedCategories[pick.category] || 0) + 1;
+                }
+
+                const stateOrder = [];
+                selected.forEach((d) => { if (!stateOrder.includes(d.state)) stateOrder.push(d.state); });
+                const clustered = stateOrder.flatMap((st) => selected.filter((d) => d.state === st));
+
+                const days = [];
+                for (let i = 0; i < prefs.duration; i++) {
+                    const dayItems = clustered.slice(i * itemsPerDay, (i + 1) * itemsPerDay);
+                    if (dayItems.length === 0) continue;
+                    const majorityState = mostCommon(dayItems.map((d) => d.state));
+                    const stateSwitch = new Set(dayItems.map((d) => d.state)).size > 1;
+                    days.push({
+                        id: nid(),
+                        label: `Day ${i + 1}`,
+                        state: majorityState,
+                        items: dayItems.map((d) => ({ ...d, _why: whyReasons(d, prefs, weights) })),
+                        foodTip: FOOD_BY_STATE[majorityState],
+                        stateSwitch,
+                    });
+                }
+                setItinerary(days);
+                setSeed((s) => s + 1);
+            }
+
+            function like(dayId, itemId, category) {
+                setProfile((p) => ({ ...p, [category]: (p[category] || 0) + 2 }));
+                setLearnFlash(`Learned: you like ${category} more now`);
+                setTimeout(() => setLearnFlash(null), 2500);
+                setItinerary((prev) =>
+                    prev.map((d) => (d.id !== dayId ? d : { ...d, items: d.items.map((i) => (i.id === itemId ? { ...i, liked: true } : i)) }))
+                );
+            }
+
+            function removeItem(dayId, itemId) {
+                setItinerary((prev) =>
+                    prev.map((d) => (d.id !== dayId ? d : { ...d, items: d.items.filter((i) => i.id !== itemId) }))
+                );
+            }
+
+            function swapItem(dayId, itemId) {
+                setItinerary((prev) => {
+                    const usedIds = prev.flatMap((d) => d.items.map((i) => i.id));
+                    const day = prev.find((d) => d.id === dayId);
+                    const current = day.items.find((i) => i.id === itemId);
+                    const usedCategories = {};
+                    day.items.forEach((i) => (usedCategories[i.category] = (usedCategories[i.category] || 0) + 1));
+                    const candidates = DESTINATIONS
+                        .filter((d) => !usedIds.includes(d.id) && d.state === current.state)
+                        .map((d) => ({ ...d, _score: scoreDest(d, usedCategories) }))
+                        .sort((a, b) => b._score - a._score);
+                    const replacement = candidates[0];
+                    if (!replacement) return prev;
+                    return prev.map((d) =>
+                        d.id !== dayId ? d : {
+                            ...d,
+                            items: d.items.map((i) => (i.id === itemId ? { ...replacement, _why: whyReasons(replacement, prefs, weights) } : i)),
+                        }
+                    );
+                });
+            }
+
+            function saveItinerary() {
+                if (!itinerary) return;
+                setSaved((s) => [{ id: nid(), name: `${prefs.duration}-day trip · ${prefs.categories.join(", ") || "Mixed"}`, days: itinerary, savedAt: "just now" }, ...s]);
+            }
+
+            return (
+                <div class="max-w-6xl mx-auto">
+                    <SectionEyebrow>AI Trip Planner</SectionEyebrow>
+                    <h1 class="font-serif-fraunces font-semibold text-3xl md:text-4xl mb-6">Your itinerary, <em class="italic text-[#F5A300] font-medium">generated.</em></h1>
+
+                    <div class="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6 items-start">
+                        <div>
+                            {/* Preferences Panel */}
+                            <div class="bg-[#242A57] border border-[rgba(242,238,228,0.14)] rounded-lg p-5 mb-4">
+                                <h3 class="font-serif-fraunces text-base mb-3 flex items-center gap-2"><Icon name="sparkles" size={15} /> Preferences</h3>
+                                
+                                <div class="mb-4">
+                                    <label class="text-[11.5px] text-[#A9AFD9] uppercase tracking-wider block mb-2">Trip duration</label>
+                                    <div class="flex items-center gap-2.5">
+                                        <button class="w-7 h-7 rounded bg-[#2E3568] border border-[rgba(242,238,228,0.14)] text-[#F2EEE4] cursor-pointer" onClick={() => setPrefs((p) => ({ ...p, duration: Math.max(1, p.duration - 1) }))}>−</button>
+                                        <span class="font-mono-plex text-base min-w-[40px] text-center">{prefs.duration}d</span>
+                                        <button class="w-7 h-7 rounded bg-[#2E3568] border border-[rgba(242,238,228,0.14)] text-[#F2EEE4] cursor-pointer" onClick={() => setPrefs((p) => ({ ...p, duration: Math.min(10, p.duration + 1) }))}>+</button>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="text-[11.5px] text-[#A9AFD9] uppercase tracking-wider block mb-2">Categories you enjoy</label>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        {CATEGORIES.map((c) => (
+                                            <button key={c} class={`text-[11.5px] py-1 px-2.5 rounded-full border border-[rgba(242,238,228,0.14)] text-[#A9AFD9] cursor-pointer ${prefs.categories.includes(c) ? "bg-[#16A398] text-[#0d1b1a] border-[#16A398] font-semibold" : "bg-transparent"}`} onClick={() => toggleCategory(c)}>{c}</button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="text-[11.5px] text-[#A9AFD9] uppercase tracking-wider block mb-2">Budget</label>
+                                    <select class="w-full bg-[#2E3568] border border-[rgba(242,238,228,0.14)] text-[#F2EEE4] p-2 rounded text-xs outline-none" value={prefs.budget} onChange={(e) => setPrefs((p) => ({ ...p, budget: e.target.value }))}>
+                                        {BUDGET_ORDER.map((b) => <option key={b} value={b}>{b}</option>)}
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="text-[11.5px] text-[#A9AFD9] uppercase tracking-wider block mb-2">Pace</label>
+                                    <select class="w-full bg-[#2E3568] border border-[rgba(242,238,228,0.14)] text-[#F2EEE4] p-2 rounded text-xs outline-none" value={prefs.pace} onChange={(e) => setPrefs((p) => ({ ...p, pace: e.target.value }))}>
+                                        {Object.keys(PACE).map((p) => <option key={p} value={p}>{p}</option>)}
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="text-[11.5px] text-[#A9AFD9] uppercase tracking-wider block mb-2">Season</label>
+                                    <select class="w-full bg-[#2E3568] border border-[rgba(242,238,228,0.14)] text-[#F2EEE4] p-2 rounded text-xs outline-none" value={prefs.season} onChange={(e) => setPrefs((p) => ({ ...p, season: e.target.value }))}>
+                                        <option>Winter</option><option>Summer</option>
+                                    </select>
+                                </div>
+
+                                <button class="w-full flex items-center justify-center gap-2 bg-[#F5A300] text-[#1B1F3B] p-3 rounded-md font-bold text-sm cursor-pointer hover:bg-[#ffb521] border-none" onClick={generate}><Icon name="sparkles" size={15} /> {itinerary ? "Generate again" : "Generate itinerary"}</button>
+                                {itinerary && (
+                                    <button class="w-full flex items-center justify-center gap-2 bg-transparent border border-[rgba(242,238,228,0.14)] text-[#F2EEE4] p-2 rounded-md text-xs cursor-pointer mt-2" onClick={generate}><Icon name="rotate-ccw" size={13} /> Regenerate with same preferences</button>
+                                )}
+                            </div>
+
+                            {/* Engine Snapshot/Travel Profile */}
+                            <div class="bg-[#242A57] border border-[rgba(242,238,228,0.14)] rounded-lg p-5 mb-4">
+                                <h3 class="font-serif-fraunces text-base mb-1 flex items-center gap-2"><Icon name="brain" size={15} /> Your travel profile</h3>
+                                <div class="text-[11.5px] text-[#A9AFD9] mb-3.5">Learned from bookmarks, likes & past trips</div>
+                                {Object.entries(weights).sort((a, b) => b[1] - a[1]).map(([cat, w]) => (
+                                    <div class="flex items-center gap-2 mb-2 text-xs" key={cat}>
+                                        <div class="w-[78px] shrink-0 text-[#A9AFD9] truncate">{cat}</div>
+                                        <div class="flex-1 h-1.5 bg-[#2E3568] rounded-full overflow-hidden">
+                                            <div class="h-full bg-gradient-to-r from-[#16A398] to-[#F5A300]" style={{ width: `${w * 100}%` }} />
+                                        </div>
+                                        <div class="w-8 text-right font-mono-plex text-[#A9AFD9] text-[11px]">{Math.round(w * 100)}%</div>
+                                    </div>
+                                ))}
+                                {learnFlash && <div class="text-[11.5px] text-[#16A398] mt-2 flex items-center gap-1.5"><Icon name="sparkles" size={12} /> {learnFlash}</div>}
+                            </div>
+
+                            {/* Saved Itineraries */}
+                            {saved.length > 0 && (
+                                <div class="bg-[#242A57] border border-[rgba(242,238,228,0.14)] rounded-lg p-5">
+                                    <h3 class="font-serif-fraunces text-base mb-3 flex items-center gap-2"><Icon name="save" size={15} /> Saved itineraries</h3>
+                                    {saved.map((s) => (
+                                        <div class="text-[12.5px] py-2 border-b border-[rgba(242,238,228,0.14)] last:border-b-0" key={s.id}>
+                                            <div class="font-semibold">{s.name}</div>
+                                            <div class="text-[#A9AFD9] text-[11px]">{s.savedAt}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Itinerary Display */}
+                        <div>
+                            {!itinerary && (
+                                <div class="text-center py-16 px-5 text-[#A9AFD9]">
+                                    <Icon name="sparkles" size={30} className="text-[#F5A300] mb-3 block mx-auto" />
+                                    <div>Set your preferences and generate a day-wise itinerary.</div>
+                                </div>
+                            )}
+
+                            {itinerary && itinerary.map((day) => (
+                                <div class="bg-[#242A57] border border-[rgba(242,238,228,0.14)] rounded-lg p-4 md:p-5 mb-3.5" key={day.id}>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <h3 class="font-serif-fraunces text-lg font-medium">{day.label}</h3>
+                                        <div class="text-[11.5px] text-[#A9AFD9] flex items-center gap-1"><Icon name="map-pin" size={12} /> {day.state}</div>
+                                    </div>
+                                    {day.stateSwitch && (
+                                        <div class="text-[11px] text-[#E1533D] flex items-center gap-1 mb-2.5"><Icon name="route" size={12} /> This day spans more than one region — expect extra travel time.</div>
+                                    )}
+                                    {day.items.map((item) => (
+                                        <div class="border-t border-[rgba(242,238,228,0.14)] py-3 first:border-t-0" key={item.id}>
+                                            <div class="flex justify-between items-start gap-2.5">
+                                                <div>
+                                                    <div class="font-semibold text-sm md:text-base">{item.name}</div>
+                                                    <div class="text-[11.5px] text-[#A9AFD9] flex gap-3.5 mt-1 flex-wrap">
+                                                        <span class="flex items-center gap-1"><Icon name="star" size={11} /> {item.rating}</span>
+                                                        <span class="flex items-center gap-1"><Icon name="clock" size={11} /> {item.time}</span>
+                                                        <span class="flex items-center gap-0.5"><Icon name="indian-rupee" size={11} /> {item.budget}</span>
+                                                    </div>
+                                                    <div class="flex gap-1.5 flex-wrap mt-2">
+                                                        {item._why.map((w) => <span class="text-[10px] bg-[#2E3568] text-[#A9AFD9] py-0.5 px-2 rounded-full" key={w}>{w}</span>)}
+                                                    </div>
+                                                </div>
+                                                <div class="flex gap-1.5 shrink-0">
+                                                    <button class={`bg-[#2E3568] border border-[rgba(242,238,228,0.14)] w-7 h-7 rounded flex items-center justify-center cursor-pointer hover:text-[#F2EEE4] ${item.liked ? 'text-[#F5A300] border-[#F5A300]' : 'text-[#A9AFD9]'}`} onClick={() => like(day.id, item.id, item.category)} title="Like — improves future picks">
+                                                        <Icon name="thumbs-up" size={13} />
+                                                    </button>
+                                                    <button class="bg-[#2E3568] border border-[rgba(242,238,228,0.14)] text-[#A9AFD9] w-7 h-7 rounded flex items-center justify-center cursor-pointer hover:text-[#F2EEE4]" onClick={() => swapItem(day.id, item.id)} title="Swap for alternative">
+                                                        <Icon name="chevron-down" size={13} />
+                                                    </button>
+                                                    <button class="bg-[#2E3568] border border-[rgba(242,238,228,0.14)] text-[#A9AFD9] w-7 h-7 rounded flex items-center justify-center cursor-pointer hover:text-[#F2EEE4]" onClick={() => removeItem(day.id, item.id)} title="Remove">
+                                                        <Icon name="trash-2" size={13} />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    {day.foodTip && (
+                                        <div class="flex items-center gap-1.5 text-xs text-[#F5A300] mt-2 bg-[rgba(245,163,0,0.1)] p-2 rounded-md"><Icon name="utensils" size={13} /> {day.foodTip}</div>
+                                    )}
+                                </div>
+                            ))}
+
+                            {itinerary && (
+                                <div class="flex gap-2 mt-4">
+                                    <button class="flex items-center gap-2 bg-[#16A398] text-[#0d1b1a] border-none py-2.5 px-4 rounded-md font-semibold text-xs cursor-pointer" onClick={saveItinerary}><Icon name="save" size={14} /> Save itinerary</button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ItineraryGenerator />);
+    </script>
+</body>
+</html>

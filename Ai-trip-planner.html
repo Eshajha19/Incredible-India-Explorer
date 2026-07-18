@@ -3,743 +3,786 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Trip Planner</title>
+  <title>Travel Search & Recommendation Engine</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --ink: #1B1F3B; 
-      --surface: #242A57; 
-      --surface-2: #2E3568; 
-      --line: rgba(242, 238, 228, 0.14);
-      --marigold: #F5A300; 
-      --peacock: #16A398; 
-      --vermilion: #E1533D; 
-      --sand: #F2EEE4; 
-      --muted: #A9AFD9;
-    }
-    
-    body {
-      background: radial-gradient(120% 140% at 10% 0%, #232a54 0%, #1B1F3B 55%, #14172e 100%);
-      color: var(--sand); 
-      font-family: 'IBM Plex Sans', system-ui, sans-serif;
-      padding: 24px 20px 50px; 
-      min-height: 100vh; 
+    html, body {
       margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: #1B1F3B;
+    }
+    .sr-root {
+      --ink: #1B1F3B;
+      --surface: #242A57;
+      --surface-2: #2E3568;
+      --line: rgba(242,238,228,0.14);
+      --marigold: #F5A300;
+      --peacock: #16A398;
+      --vermilion: #E1533D;
+      --sand: #F2EEE4;
+      --muted: #A9AFD9;
+      background: radial-gradient(120% 140% at 10% 0%, #232a54 0%, #1B1F3B 55%, #14172e 100%);
+      color: var(--sand);
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      padding: 26px 20px 50px;
+      min-height: 100vh;
       box-sizing: border-box;
     }
-    
-    * { box-sizing: border-box; }
-    
-    .eyebrow { 
-      font-family: 'IBM Plex Mono', monospace; 
-      font-size: 11px; 
-      letter-spacing: 0.16em; 
-      text-transform: uppercase; 
-      color: var(--muted); 
-      margin-bottom: 6px; 
+    .sr-root * { box-sizing: border-box; }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 6px;
     }
-    
-    h1 { 
-      font-family: 'Fraunces', Georgia, serif; 
-      font-weight: 600; 
-      font-size: clamp(24px, 3.4vw, 34px); 
-      margin: 0 0 20px; 
+    h1 {
+      font-family: 'Fraunces', Georgia, serif; font-weight: 600;
+      font-size: clamp(26px, 3.6vw, 38px); margin: 0 0 20px;
     }
-    
     h1 em { font-style: italic; color: var(--marigold); font-weight: 500; }
-    
-    .layout { 
-      display: grid; 
-      grid-template-columns: 300px 1fr; 
-      gap: 20px; 
-      align-items: start; 
+
+    .search-wrap { position: relative; margin-bottom: 16px; max-width: 640px; }
+    .search-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 8px; padding: 12px 14px;
     }
-    
-    @media (max-width: 900px) { 
-      .layout { grid-template-columns: 1fr; } 
+    .search-box input {
+      flex: 1; background: none; border: none; outline: none;
+      color: var(--sand); font-size: 15px; font-family: 'IBM Plex Sans', sans-serif;
     }
-    
-    .panel { 
-      background: var(--surface); 
-      border: 1px solid var(--line); 
-      border-radius: 8px; 
-      padding: 18px 20px; 
-      margin-bottom: 16px; 
+    .search-box input::placeholder { color: var(--muted); }
+    .search-box svg { color: var(--muted); flex-shrink: 0; }
+    .clear-btn { background: none; border: none; cursor: pointer; color: var(--muted); display: none; }
+    .clear-btn.visible { display: flex; }
+    .clear-btn:hover { color: var(--sand); }
+
+    .suggestions {
+      position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+      background: var(--surface-2); border: 1px solid var(--line);
+      border-radius: 8px; overflow: hidden; z-index: 10;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+      display: none;
     }
-    
-    .panel h3 { 
-      font-family: 'Fraunces', serif; 
-      font-size: 15.5px; 
-      margin: 0 0 12px; 
-      display: flex; 
-      align-items: center; 
-      gap: 6px; 
+    .suggestions.visible { display: block; }
+    .suggestion-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 14px; cursor: pointer; font-size: 13.5px;
     }
-    
-    .field { margin-bottom: 16px; }
-    
-    .field label { 
-      font-size: 11.5px; 
-      color: var(--muted); 
-      text-transform: uppercase; 
-      letter-spacing: 0.06em; 
-      display: block; 
-      margin-bottom: 7px; 
+    .suggestion-item:hover { background: rgba(245,163,0,0.1); }
+    .suggestion-item .s-state { color: var(--muted); font-size: 11.5px; }
+
+    .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--surface); border: 1px solid var(--line);
+      padding: 6px 12px; border-radius: 20px; font-size: 12px;
+      color: var(--muted); cursor: pointer;
     }
-    
-    .stepper { display: flex; align-items: center; gap: 10px; }
-    
-    .stepper button { 
-      width: 28px; 
-      height: 28px; 
-      border-radius: 6px; 
-      border: 1px solid var(--line); 
-      background: var(--surface-2); 
-      color: var(--sand); 
-      cursor: pointer; 
+    .chip:hover { color: var(--sand); border-color: rgba(242,238,228,0.3); }
+    .chip svg { width: 13px; height: 13px; }
+
+    .layout { display: grid; grid-template-columns: 240px 1fr 220px; gap: 20px; align-items: start; }
+    @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 8px; padding: 16px 18px;
     }
-    
-    .stepper span { 
-      font-family: 'IBM Plex Mono', monospace; 
-      font-size: 15px; 
-      min-width: 40px; 
-      text-align: center; 
+    .panel h3 { font-family: 'Fraunces', serif; font-size: 15.5px; margin: 0 0 12px; display:flex; align-items:center; gap:6px; }
+
+    .filter-group { margin-bottom: 16px; }
+    .filter-group label { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
+    .filter-group select, .filter-group .pill-row { width: 100%; }
+    .filter-group select {
+      background: var(--surface-2); border: 1px solid var(--line); color: var(--sand);
+      padding: 8px 10px; border-radius: 5px; font-size: 13px; font-family: inherit;
+      outline: none;
     }
-    
-    select { 
-      width: 100%; 
-      background: var(--surface-2); 
-      border: 1px solid var(--line); 
-      color: var(--sand); 
-      padding: 8px 10px; 
-      border-radius: 5px; 
-      font-size: 13px; 
-      font-family: inherit; 
-    }
-    
     .pill-row { display: flex; flex-wrap: wrap; gap: 6px; }
-    
-    .pill { 
-      font-size: 11.5px; 
-      padding: 5px 10px; 
-      border-radius: 16px; 
-      border: 1px solid var(--line); 
-      color: var(--muted); 
-      cursor: pointer; 
-      background: none; 
+    .pill {
+      font-size: 11.5px; padding: 5px 10px; border-radius: 16px;
+      border: 1px solid var(--line); color: var(--muted); cursor: pointer; background: none;
     }
-    
-    .pill.active { 
-      background: var(--peacock); 
-      color: #0d1b1a; 
-      border-color: var(--peacock); 
-      font-weight: 600; 
+    .pill:hover { border-color: rgba(242,238,228,0.3); color: var(--sand); }
+    .pill.active { background: var(--peacock); color: #0d1b1a; border-color: var(--peacock); font-weight: 600; }
+    .family-toggle { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+    .clear-link { font-size: 12px; color: var(--vermilion); cursor: pointer; background: none; border: none; padding: 0; display: none; margin-top: 10px;}
+    .clear-link.visible { display: block; }
+
+    .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+    .results-count { font-size: 13px; color: var(--muted); }
+    .sort-select {
+      background: var(--surface); border: 1px solid var(--line); color: var(--sand);
+      padding: 7px 10px; border-radius: 5px; font-size: 12.5px; font-family: inherit;
+      outline: none;
     }
-    
-    .gen-btn { 
-      width: 100%; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 8px; 
-      background: var(--marigold); 
-      color: #1B1F3B; 
-      border: none; 
-      padding: 12px; 
-      border-radius: 7px; 
-      font-weight: 700; 
-      font-size: 13.5px; 
-      cursor: pointer; 
+
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 8px; padding: 14px 16px; margin-bottom: 10px;
+      cursor: pointer; transition: border-color 0.15s ease;
     }
-    
-    .gen-btn:hover { background: #ffb521; }
-    
-    .regen-btn { 
-      width: 100%; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      gap: 7px; 
-      background: none; 
-      border: 1px solid var(--line); 
-      color: var(--sand); 
-      padding: 9px; 
-      border-radius: 7px; 
-      font-size: 12.5px; 
-      cursor: pointer; 
-      margin-top: 8px; 
+    .card:hover { border-color: var(--marigold); }
+    .card.active-card { border-color: var(--marigold); background: var(--surface-2); }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .card-name { font-family: 'Fraunces', serif; font-size: 16.5px; font-weight: 600; }
+    .card-state { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; margin-top: 2px; }
+    .score-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      background: rgba(245,163,0,0.15); color: var(--marigold);
+      padding: 3px 8px; border-radius: 10px; flex-shrink: 0;
     }
-    
-    .weight-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 12px; }
-    .weight-name { width: 78px; flex-shrink: 0; color: var(--muted); }
-    .weight-track { flex: 1; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
-    .weight-fill { height: 100%; background: linear-gradient(90deg, var(--peacock), var(--marigold)); transition: width 0.3s ease; }
-    .weight-pct { width: 32px; text-align: right; font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: 11px; }
-    
-    .learn-flash { 
-      font-size: 11.5px; 
-      color: var(--peacock); 
-      margin-top: 8px; 
-      display: flex; 
-      align-items: center; 
-      gap: 5px; 
-      opacity: 0; 
-      transition: opacity 0.3s ease;
+    .card-meta { display: flex; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+    .card-meta span { display: flex; align-items: center; gap: 4px; }
+    .card-meta svg { width: 12px; height: 12px; color: var(--muted); }
+    .tag-row { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .tag { font-size: 10.5px; background: var(--surface-2); padding: 3px 8px; border-radius: 4px; color: var(--muted); }
+
+    .pagination { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; }
+    .pagination button {
+      background: var(--surface); border: 1px solid var(--line); color: var(--sand);
+      width: 30px; height: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center; cursor: pointer;
     }
-    
-    .learn-flash.visible { opacity: 1; }
-    
-    .empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
-    .empty-state svg { color: var(--marigold); margin-bottom: 12px; }
-    
-    .day-card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; margin-bottom: 14px; }
-    .day-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-    .day-head h3 { font-family: 'Fraunces', serif; font-size: 16.5px; margin: 0; }
-    .day-region { font-size: 11.5px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
-    
-    .switch-note { 
-      font-size: 11px; 
-      color: var(--vermilion); 
-      display: flex; 
-      align-items: center; 
-      gap: 4px; 
-      margin-bottom: 10px; 
-    }
-    
-    .food-tip { 
-      display: flex; 
-      align-items: center; 
-      gap: 6px; 
-      font-size: 12px; 
-      color: var(--marigold); 
-      margin: 10px 0 2px; 
-      background: rgba(245, 163, 0, 0.1); 
-      padding: 7px 10px; 
-      border-radius: 5px; 
-    }
-    
-    .item-card { border-top: 1px solid var(--line); padding: 12px 0; }
-    .item-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-    .item-name { font-weight: 600; font-size: 14.5px; }
-    
-    .item-meta { 
-      font-size: 11.5px; 
-      color: var(--muted); 
-      display: flex; 
-      gap: 10px; 
-      margin-top: 3px; 
-      flex-wrap: wrap; 
-    }
-    
-    .item-meta span { display: flex; align-items: center; gap: 3px; }
-    .why-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-    .why-chip { font-size: 10px; background: var(--surface-2); color: var(--muted); padding: 3px 8px; border-radius: 10px; }
-    .item-actions { display: flex; gap: 6px; flex-shrink: 0; }
-    
-    .icon-btn { 
-      background: var(--surface-2); 
-      border: 1px solid var(--line); 
-      color: var(--muted); 
-      width: 28px; 
-      height: 28px; 
-      border-radius: 5px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      cursor: pointer; 
-    }
-    
-    .icon-btn:hover { color: var(--sand); }
-    .icon-btn.liked { color: var(--marigold); border-color: var(--marigold); }
-    
-    .action-row { display: flex; gap: 10px; margin-top: 16px; }
-    
-    .save-btn { 
-      display: flex; 
-      align-items: center; 
-      gap: 7px; 
-      background: var(--peacock); 
-      color: #0d1b1a; 
-      border: none; 
-      padding: 10px 16px; 
-      border-radius: 6px; 
-      font-weight: 600; 
-      font-size: 12.5px; 
-      cursor: pointer; 
-    }
-    
-    .saved-item { font-size: 12.5px; padding: 9px 0; border-bottom: 1px solid var(--line); }
-    .saved-item:last-child { border-bottom: none; }
-    .saved-name { font-weight: 600; }
-    .saved-time { color: var(--muted); font-size: 11px; }
-    .hidden { display: none !important; }
+    .pagination button:disabled { opacity: 0.35; cursor: default; }
+    .pagination .page-label { font-size: 12.5px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+
+    .side-item { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; cursor: pointer; }
+    .side-item:last-child { border-bottom: none; }
+    .side-item:hover span:first-child { color: var(--marigold); }
+    .side-item .pop { color: var(--peacock); font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
+    .side-item .state-pop { color: var(--muted); font-size: 11.5px; }
+
+    .similar-panel { margin-top: 18px; }
+    .empty { font-size: 12.5px; color: var(--muted); padding: 8px 0; }
   </style>
 </head>
 <body>
 
-  <div class="eyebrow">AI Trip Planner</div>
-  <h1>Your itinerary, <em>generated.</em></h1>
+  <div class="sr-root">
+    <div class="eyebrow">Search & Discover</div>
+    <h1>Find your <em>next trip.</em></h1>
 
-  <div class="layout">
-    <!-- Left Configuration Column -->
-    <div>
-      <div class="panel">
-        <h3>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          Preferences
-        </h3>
-        
-        <div class="field">
-          <label>Trip duration</label>
-          <div class="stepper">
-            <button id="duration-minus">−</button>
-            <span id="duration-val">4d</span>
-            <button id="duration-plus">+</button>
-          </div>
-        </div>
-        
-        <div class="field">
-          <label>Categories you enjoy</label>
-          <div class="pill-row" id="categories-container"></div>
-        </div>
-        
-        <div class="field">
-          <label>Budget</label>
-          <select id="budget-select"></select>
-        </div>
-        
-        <div class="field">
-          <label>Pace</label>
-          <select id="pace-select"></select>
-        </div>
-        
-        <div class="field">
-          <label>Season</label>
-          <select id="season-select">
-            <option value="Winter">Winter</option>
-            <option value="Summer">Summer</option>
-          </select>
-        </div>
-        
-        <button class="gen-btn" id="generate-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          <span id="gen-btn-text">Generate itinerary</span>
-        </button>
-        
-        <button class="regen-btn hidden" id="regen-btn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
-          Regenerate with same preferences
+    <!-- Search input wrap -->
+    <div class="search-wrap">
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" placeholder="Search destinations, states, or experiences…">
+        <button class="clear-btn" id="clear-search-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
-
-      <div class="panel">
-        <h3>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v12"/><path d="M8 10c0-1.5 1.5-2 4-2s4 .5 4 2-1.5 2-4 2-4 .5-4 2 1.5 2 4 2 4-.5 4-2"/></svg>
-          Your travel profile
-        </h3>
-        <div style="font-size: 11.5px; color: var(--muted); margin-bottom: 10px;">
-          Learned from bookmarks, likes & past trips
-        </div>
-        <div id="profile-container"></div>
-        <div class="learn-flash" id="learn-flash">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-          <span id="flash-text"></span>
-        </div>
-      </div>
-
-      <div class="panel hidden" id="saved-panel">
-        <h3>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-          Saved itineraries
-        </h3>
-        <div id="saved-container"></div>
-      </div>
+      <div class="suggestions" id="suggestions-box"></div>
     </div>
 
-    <!-- Right Presentation Display -->
-    <div>
-      <div class="empty-state" id="empty-state">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-        <div>Set your preferences and generate a day-wise itinerary.</div>
+    <!-- History items -->
+    <div class="chip-row" id="history-chips"></div>
+
+    <div class="layout">
+      <!-- Left sidebar panel: Filters -->
+      <div class="panel">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="2" y1="14" x2="6" y2="14"></line><line x1="10" y1="8" x2="14" y2="8"></line><line x1="18" y1="16" x2="22" y2="16"></line></svg>
+          Filters
+        </h3>
+
+        <div class="filter-group">
+          <label>Category</label>
+          <div class="pill-row" id="category-pills"></div>
+        </div>
+
+        <div class="filter-group">
+          <label>State</label>
+          <select id="state-select">
+            <option value="">Any state</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Best Season</label>
+          <div class="pill-row" id="season-pills"></div>
+        </div>
+
+        <div class="filter-group">
+          <label>Budget</label>
+          <div class="pill-row" id="budget-pills"></div>
+        </div>
+
+        <div class="filter-group">
+          <label>Minimum Rating</label>
+          <div class="pill-row" id="rating-pills"></div>
+        </div>
+
+        <div class="filter-group">
+          <label class="family-toggle">
+            <input type="checkbox" id="family-checkbox">
+            Family-friendly only
+          </label>
+        </div>
+
+        <button class="clear-link" id="clear-filters-btn"></button>
       </div>
 
-      <div id="itinerary-container"></div>
+      <!-- Main Results Display Area -->
+      <div>
+        <div class="results-header">
+          <div class="results-count" id="results-count-label">0 destinations found</div>
+          <select class="sort-select" id="sort-select">
+            <option value="relevance">Sort: Relevance</option>
+            <option value="rating">Sort: Rating</option>
+            <option value="popularity">Sort: Popularity</option>
+            <option value="price_low">Sort: Budget (low → high)</option>
+            <option value="price_high">Sort: Budget (high → low)</option>
+          </select>
+        </div>
 
-      <div class="action-row hidden" id="action-row">
-        <button class="save-btn" id="save-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-          Save itinerary
-        </button>
+        <div id="cards-container"></div>
+        <div class="pagination" id="pagination-controls"></div>
+      </div>
+
+      <!-- Right sidebar panel: Trending & Similarity matches -->
+      <div>
+        <div class="panel">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            Trending now
+          </h3>
+          <div id="trending-container"></div>
+        </div>
+
+        <div class="panel similar-panel">
+          <h3 id="similar-panel-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            Similar destinations
+          </h3>
+          <div id="similar-container"></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <script type="module">
+  <script>
+    // ---------------------------------------------------------------------------
+    // DATASET & APP STATES
+    // ---------------------------------------------------------------------------
     const DESTINATIONS = [
-      { id: 1, name: "Amber Fort", state: "Rajasthan", category: "Heritage", budget: "Mid", season: "Winter", rating: 4.7, time: "3h" },
-      { id: 2, name: "City Palace, Jaipur", state: "Rajasthan", category: "Heritage", budget: "Mid", season: "Winter", rating: 4.5, time: "2h" },
-      { id: 3, name: "Jaisalmer Desert Safari", state: "Rajasthan", category: "Adventure", budget: "Mid", season: "Winter", rating: 4.6, time: "4h" },
-      { id: 4, name: "Lake Pichola, Udaipur", state: "Rajasthan", category: "Heritage", budget: "High", season: "Winter", rating: 4.6, time: "2h" },
-      { id: 5, name: "Munnar Tea Gardens", state: "Kerala", category: "Hill Station", budget: "Mid", season: "Winter", rating: 4.6, time: "3h" },
-      { id: 6, name: "Alleppey Backwaters", state: "Kerala", category: "Beach", budget: "Mid", season: "Winter", rating: 4.5, time: "5h" },
-      { id: 7, name: "Wayanad Wildlife Sanctuary", state: "Kerala", category: "Wildlife", budget: "Low", season: "Winter", rating: 4.3, time: "4h" },
-      { id: 8, name: "Manali Mall Road + Hadimba Temple", state: "Himachal Pradesh", category: "Hill Station", budget: "Mid", season: "Summer", rating: 4.4, time: "2h" },
-      { id: 9, name: "Solang Valley", state: "Himachal Pradesh", category: "Adventure", budget: "Mid", season: "Summer", rating: 4.5, time: "4h" },
-      { id: 10, name: "Baga Beach", state: "Goa", category: "Beach", budget: "Mid", season: "Winter", rating: 4.3, time: "3h" },
-      { id: 11, name: "Old Goa Churches", state: "Goa", category: "Heritage", budget: "Low", season: "Winter", rating: 4.4, time: "2h" },
-      { id: 12, name: "Rishikesh Rafting", state: "Uttarakhand", category: "Adventure", budget: "Low", season: "Winter", rating: 4.6, time: "3h" },
-      { id: 13, name: "Ram Jhula + Ganga Aarti", state: "Uttarakhand", category: "Spiritual", budget: "Low", season: "Winter", rating: 4.7, time: "2h" },
-      { id: 14, name: "Ranthambore Safari", state: "Rajasthan", category: "Wildlife", budget: "High", season: "Winter", rating: 4.5, time: "4h" },
-      { id: 15, name: "Varanasi Ghats", state: "Uttar Pradesh", category: "Spiritual", budget: "Low", season: "Winter", rating: 4.6, time: "3h" },
-      { id: 16, name: "Kasol Trek", state: "Himachal Pradesh", category: "Adventure", budget: "Low", season: "Summer", rating: 4.4, time: "5h" },
+      { id: 1, name: "Jaipur", state: "Rajasthan", category: "Heritage", season: "Winter", budget: "Mid", family: true, days: 3, popularity: 92, rating: 4.6, tags: ["forts", "palaces", "city"] },
+      { id: 2, name: "Udaipur", state: "Rajasthan", category: "Heritage", season: "Winter", budget: "High", family: true, days: 3, popularity: 84, rating: 4.7, tags: ["lakes", "palaces", "romantic"] },
+      { id: 3, name: "Jaisalmer", state: "Rajasthan", category: "Adventure", season: "Winter", budget: "Mid", family: true, days: 2, popularity: 71, rating: 4.4, tags: ["desert", "camel safari", "fort"] },
+      { id: 4, name: "Munnar", state: "Kerala", category: "Hill Station", season: "Winter", budget: "Mid", family: true, days: 4, popularity: 88, rating: 4.6, tags: ["tea gardens", "mist", "trekking"] },
+      { id: 5, name: "Alleppey", state: "Kerala", category: "Beach", season: "Winter", budget: "Mid", family: true, days: 2, popularity: 80, rating: 4.5, tags: ["backwaters", "houseboat"] },
+      { id: 6, name: "Wayanad", state: "Kerala", category: "Wildlife", season: "Winter", budget: "Low", family: true, days: 3, popularity: 62, rating: 4.3, tags: ["forest", "wildlife", "trekking"] },
+      { id: 7, name: "Manali", state: "Himachal Pradesh", category: "Hill Station", season: "Summer", budget: "Mid", family: true, days: 4, popularity: 90, rating: 4.5, tags: ["mountains", "snow", "adventure"] },
+      { id: 8, name: "Spiti Valley", state: "Himachal Pradesh", category: "Adventure", season: "Summer", budget: "High", family: false, days: 6, popularity: 55, rating: 4.8, tags: ["remote", "monasteries", "trekking"] },
+      { id: 9, name: "Goa Beaches (North)", state: "Goa", category: "Beach", season: "Winter", budget: "Mid", family: true, days: 3, popularity: 95, rating: 4.4, tags: ["nightlife", "beach", "party"] },
+      { id: 10, name: "Goa Beaches (South)", state: "Goa", category: "Beach", season: "Winter", budget: "High", family: true, days: 3, popularity: 78, rating: 4.6, tags: ["quiet", "beach", "resort"] },
+      { id: 11, name: "Rishikesh", state: "Uttarakhand", category: "Spiritual", season: "Winter", budget: "Low", family: true, days: 2, popularity: 76, rating: 4.5, tags: ["yoga", "rafting", "ganga"] },
+      { id: 12, name: "Nainital", state: "Uttarakhand", category: "Hill Station", season: "Summer", budget: "Mid", family: true, days: 3, popularity: 69, rating: 4.3, tags: ["lake", "mountains"] },
+      { id: 13, name: "Leh", state: "Ladakh", category: "Adventure", season: "Summer", budget: "High", family: false, days: 5, popularity: 73, rating: 4.7, tags: ["mountains", "biking", "monasteries"] },
+      { id: 14, name: "Ranthambore", state: "Rajasthan", category: "Wildlife", season: "Winter", budget: "High", family: true, days: 2, popularity: 65, rating: 4.4, tags: ["tiger safari", "forest"] },
+      { id: 15, name: "Varanasi", state: "Uttar Pradesh", category: "Spiritual", season: "Winter", budget: "Low", family: true, days: 2, popularity: 82, rating: 4.5, tags: ["ganga", "temples", "culture"] },
+      { id: 16, name: "Darjeeling", state: "West Bengal", category: "Hill Station", season: "Autumn", budget: "Mid", family: true, days: 3, popularity: 67, rating: 4.4, tags: ["tea gardens", "toy train", "mountains"] },
     ];
 
     const CATEGORIES = ["Heritage", "Hill Station", "Beach", "Wildlife", "Spiritual", "Adventure"];
-    const FOOD_BY_STATE = {
-      Rajasthan: "Try dal baati churma for dinner tonight.",
-      Kerala: "Don't miss a Kerala sadya thali for lunch.",
-      "Himachal Pradesh": "Warm up with siddu and local trout.",
-      Goa: "Fish curry rice at a beach shack is a must.",
-      Uttarakhand: "Grab kumaoni raita and bal mithai.",
-      "Uttar Pradesh": "Street-side kachori sabzi near the ghats.",
+    const SEASONS = ["Summer", "Winter", "Autumn"];
+    const BUDGETS = ["Low", "Mid", "High"];
+    const STATES = [...new Set(DESTINATIONS.map((d) => d.state))].sort();
+    const TRENDING = [...DESTINATIONS].sort((a, b) => b.popularity - a.popularity).slice(0, 5);
+    const PAGE_SIZE = 6;
+
+    // React functional application state container translated to plain object variables
+    let query = "";
+    let filters = { category: "", state: "", season: "", budget: "", family: false, minRating: 0 };
+    let sortBy = "relevance";
+    let page = 1;
+    let history = ["Munnar", "Goa beaches", "Rishikesh"];
+    let selectedId = null;
+
+    // SVG string caches to prevent rendering overhead inside element loops
+    const ICONS = {
+      mapPin: `<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
+      star: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+      trending: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>`,
+      clock: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
+      rupee: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12M6 8h12M6 13h4.5a4.5 4.5 0 0 1 0 9H6M14.5 8.5L6 21"></path></svg>`,
+      users: `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+      history: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><polyline points="3 3 3 8 8 8"></polyline><line x1="12" y1="7" x2="12" y2="12"></line><line x1="12" y1="12" x2="16" y2="14"></line></svg>`,
+      left: `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>`,
+      right: `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>`
     };
-    const BUDGET_ORDER = ["Low", "Mid", "High"];
-    const PACE = { Relaxed: 2, Balanced: 3, Packed: 4 };
 
-    let idc = 500;
-    const nid = () => `it-${idc++}`;
+    // ---------------------------------------------------------------------------
+    // SCORING ENGINE LOGIC
+    // ---------------------------------------------------------------------------
+    function textRelevance(dest, q) {
+      if (!q) return 0.3;
+      const queryStr = q.toLowerCase().trim();
+      const name = dest.name.toLowerCase();
+      if (name === queryStr) return 1;
+      if (name.startsWith(queryStr)) return 0.7;
+      const haystack = [dest.name, dest.state, dest.category, ...dest.tags].join(" ").toLowerCase();
+      if (haystack.includes(queryStr)) return 0.5;
+      return 0;
+    }
 
-    // Application State Engine
-    let prefs = { duration: 4, budget: "Mid", categories: ["Heritage", "Adventure"], pace: "Balanced", season: "Winter" };
-    let profile = { Heritage: 8, Beach: 5, Wildlife: 2, "Hill Station": 6, Spiritual: 3, Adventure: 4 };
-    let itinerary = null;
-    let saved = [];
-    let flashTimeout = null;
+    function scoreDestination(dest, queryStr, filtersObj) {
+      const rel = textRelevance(dest, queryStr);
+      const normRating = dest.rating / 5;
+      const normPop = dest.popularity / 100;
+      let tagBoost = 0;
+      if (filtersObj.category && dest.category === filtersObj.category) tagBoost += 0.5;
+      if (filtersObj.state && dest.state === filtersObj.state) tagBoost += 0.5;
+      return rel * 0.4 + normRating * 0.3 + normPop * 0.2 + Math.min(tagBoost, 1) * 0.1;
+    }
 
-    // Component Rendering / DOM Queries
-    const durationVal = document.getElementById("duration-val");
-    const categoriesContainer = document.getElementById("categories-container");
-    const budgetSelect = document.getElementById("budget-select");
-    const paceSelect = document.getElementById("pace-select");
-    const seasonSelect = document.getElementById("season-select");
-    const profileContainer = document.getElementById("profile-container");
-    const itineraryContainer = document.getElementById("itinerary-container");
-    const emptyState = document.getElementById("empty-state");
-    const actionRow = document.getElementById("action-row");
-    const savedPanel = document.getElementById("saved-panel");
-    const savedContainer = document.getElementById("saved-container");
-    const genBtnText = document.getElementById("gen-btn-text");
-    const regenBtn = document.getElementById("regen-btn");
-    const learnFlash = document.getElementById("learn-flash");
-    const flashText = document.getElementById("flash-text");
-
-    function initFormElements() {
-      BUDGET_ORDER.forEach(b => {
-        const opt = new Array(3);
-        budgetSelect.innerHTML += `<option value="${b}" ${b === prefs.budget ? 'selected' : ''}>${b}</option>`;
+    // ---------------------------------------------------------------------------
+    // INTERACTION SYNC ENGINE (REPLACES REACT COMPONENT RENDERS)
+    // ---------------------------------------------------------------------------
+    function initDOM() {
+      // Inject elements that are static or map to state sets once on layout instantiation
+      const stateSelect = document.getElementById("state-select");
+      STATES.forEach(s => {
+        const opt = document.createElement("option");
+        opt.value = s;
+        opt.textContent = s;
+        stateSelect.appendChild(opt);
       });
-      Object.keys(PACE).forEach(p => {
-        paceSelect.innerHTML += `<option value="${p}" ${p === prefs.pace ? 'selected' : ''}>${p}</option>`;
-      });
-      renderCategoriesSelector();
-      renderProfile();
+
+      renderFilterPills();
+      setupEventListeners();
+      syncStateAndRender();
     }
 
-    function renderCategoriesSelector() {
-      categoriesContainer.innerHTML = CATEGORIES.map(c => {
-        const active = prefs.categories.includes(c) ? 'active' : '';
-        return `<button class="pill ${active}" data-category="${c}">${c}</button>`;
-      }).join('');
+    function renderFilterPills() {
+      // Setup dynamic structural UI tags inside panels
+      renderPillGroup("category-pills", CATEGORIES, "category");
+      renderPillGroup("season-pills", SEASONS, "season");
+      renderPillGroup("budget-pills", BUDGETS, "budget");
+      renderRatingPills();
     }
 
-    function renderProfile() {
-      const total = Object.values(profile).reduce((a, b) => a + b, 0) || 1;
-      const sortedWeights = Object.entries(profile)
-        .map(([k, v]) => [k, v / total])
-        .sort((a, b) => b[1] - a[1]);
-
-      profileContainer.innerHTML = sortedWeights.map(([cat, w]) => `
-        <div class="weight-row">
-          <div class="weight-name">${cat}</div>
-          <div class="weight-track"><div class="weight-fill" style="width: ${w * 100}%"></div></div>
-          <div class="weight-pct">${Math.round(w * 100)}%</div>
-        </div>
-      `).join('');
-    }
-
-    // Mathematical Content Scorer Engine
-    function scoreDest(d, usedCategories, weights) {
-      const catMatch = prefs.categories.includes(d.category) ? 1 : 0.15;
-      const budgetDist = Math.abs(BUDGET_ORDER.indexOf(d.budget) - BUDGET_ORDER.indexOf(prefs.budget));
-      const budgetMatch = budgetDist === 0 ? 1 : budgetDist === 1 ? 0.5 : 0.1;
-      const seasonMatch = d.season === prefs.season ? 1 : 0.4;
-      const learned = weights[d.category] || 0;
-      const repeatPenalty = Math.max(0, 1 - (usedCategories[d.category] || 0) * 0.35);
-      const ratingNorm = d.rating / 5;
-      return (catMatch * 0.32 + budgetMatch * 0.13 + seasonMatch * 0.1 + learned * 0.25 + ratingNorm * 0.2) * repeatPenalty;
-    }
-
-    function generateItinerary() {
-      const total = Object.values(profile).reduce((a, b) => a + b, 0) || 1;
-      const weights = {};
-      Object.entries(profile).forEach(([k, v]) => (weights[k] = v / total));
-
-      const usedCategories = {};
-      const itemsPerDay = PACE[prefs.pace];
-      const totalSlots = prefs.duration * itemsPerDay;
-
-      const pool = DESTINATIONS.map(d => ({ ...d }));
-      const selected = [];
-      
-      for (let i = 0; i < totalSlots; i++) {
-        const ranked = pool
-          .filter(d => !selected.find(s => s.id === d.id))
-          .map(d => ({ ...d, _score: scoreDest(d, usedCategories, weights) }))
-          .sort((a, b) => b._score - a._score);
-          
-        if (ranked.length === 0) break;
-        const pick = ranked[0];
-        selected.push(pick);
-        usedCategories[pick.category] = (usedCategories[pick.category] || 0) + 1;
-      }
-
-      const stateOrder = [];
-      selected.forEach(d => { if (!stateOrder.includes(d.state)) stateOrder.push(d.state); });
-      const clustered = stateOrder.flatMap(st => selected.filter(d => d.state === st));
-
-      const days = [];
-      for (let i = 0; i < prefs.duration; i++) {
-        const dayItems = clustered.slice(i * itemsPerDay, (i + 1) * itemsPerDay);
-        if (dayItems.length === 0) continue;
-        const majorityState = mostCommon(dayItems.map(d => d.state));
-        const stateSwitch = new Set(dayItems.map(d => d.state)).size > 1;
-        days.push({
-          id: nid(),
-          label: `Day ${i + 1}`,
-          state: majorityState,
-          items: dayItems.map(d => ({ ...d, _why: whyReasons(d, weights), liked: false })),
-          foodTip: FOOD_BY_STATE[majorityState],
-          stateSwitch,
+    function renderPillGroup(containerId, list, filterKey) {
+      const parent = document.getElementById(containerId);
+      parent.innerHTML = "";
+      list.forEach(item => {
+        const btn = document.createElement("button");
+        btn.className = `pill ${filters[filterKey] === item ? 'active' : ''}`;
+        btn.textContent = item;
+        btn.addEventListener("click", () => {
+          filters[filterKey] = filters[filterKey] === item ? "" : item;
+          page = 1;
+          syncStateAndRender();
         });
-      }
-      itinerary = days;
-      renderItinerary();
+        parent.appendChild(btn);
+      });
     }
 
-    function renderItinerary() {
-      if (!itinerary || itinerary.length === 0) {
-        emptyState.classList.remove("hidden");
-        itineraryContainer.innerHTML = "";
-        actionRow.classList.add("hidden");
-        regenBtn.classList.add("hidden");
-        genBtnText.innerText = "Generate itinerary";
+    function renderRatingPills() {
+      const parent = document.getElementById("rating-pills");
+      parent.innerHTML = "";
+      const ratingOptions = [
+        { value: 0, label: "Any" },
+        { value: 4, label: "4+" },
+        { value: 4.5, label: "4.5+" }
+      ];
+      ratingOptions.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = `pill ${filters.minRating === opt.value ? 'active' : ''}`;
+        btn.textContent = opt.label;
+        btn.addEventListener("click", () => {
+          filters.minRating = opt.value;
+          page = 1;
+          syncStateAndRender();
+        });
+        parent.appendChild(btn);
+      });
+    }
+
+    function setupEventListeners() {
+      const searchInput = document.getElementById("search-input");
+      const clearSearchBtn = document.getElementById("clear-search-btn");
+      const stateSelect = document.getElementById("state-select");
+      const familyCheckbox = document.getElementById("family-checkbox");
+      const clearFiltersBtn = document.getElementById("clear-filters-btn");
+      const sortSelect = document.getElementById("sort-select");
+
+      searchInput.addEventListener("input", (e) => {
+        query = e.target.value;
+        page = 1;
+        updateSearchClearButtonVisibility();
+        renderSuggestions();
+        syncStateAndRender();
+      });
+
+      searchInput.addEventListener("focus", () => {
+        renderSuggestions(true);
+      });
+
+      // Simple delay handler to avoid unmount interference during option click selections
+      searchInput.addEventListener("blur", () => {
+        setTimeout(() => {
+          document.getElementById("suggestions-box").classList.remove("visible");
+        }, 200);
+      });
+
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          runSearch(query);
+        }
+      });
+
+      clearSearchBtn.addEventListener("click", () => {
+        query = "";
+        searchInput.value = "";
+        page = 1;
+        updateSearchClearButtonVisibility();
+        syncStateAndRender();
+      });
+
+      stateSelect.addEventListener("change", (e) => {
+        filters.state = e.target.value;
+        page = 1;
+        syncStateAndRender();
+      });
+
+      familyCheckbox.addEventListener("change", (e) => {
+        filters.family = e.target.checked;
+        page = 1;
+        syncStateAndRender();
+      });
+
+      clearFiltersBtn.addEventListener("click", () => {
+        filters = { category: "", state: "", season: "", budget: "", family: false, minRating: 0 };
+        document.getElementById("family-checkbox").checked = false;
+        document.getElementById("state-select").value = "";
+        page = 1;
+        syncStateAndRender();
+      });
+
+      sortSelect.addEventListener("change", (e) => {
+        sortBy = e.target.value;
+        syncStateAndRender();
+      });
+    }
+
+    function updateSearchClearButtonVisibility() {
+      const btn = document.getElementById("clear-search-btn");
+      if (query) {
+        btn.classList.add("visible");
+      } else {
+        btn.classList.remove("visible");
+      }
+    }
+
+    function runSearch(term) {
+      query = term;
+      document.getElementById("search-input").value = term;
+      updateSearchClearButtonVisibility();
+      
+      if (term && !history.includes(term)) {
+        history = [term, ...history].slice(0, 6);
+      }
+      page = 1;
+      syncStateAndRender();
+    }
+
+    // ---------------------------------------------------------------------------
+    // CORE CALCULATION LOOP & RENDER PIPELINE
+    // ---------------------------------------------------------------------------
+    function syncStateAndRender() {
+      // Re-render mutable filter pills groups to capture dynamic active style maps
+      renderFilterPills();
+
+      // Enforce synchronization constraints over custom select element trees
+      document.getElementById("state-select").value = filters.state;
+
+      // 1. Array filter layer
+      const filtered = DESTINATIONS.filter((d) => {
+        if (filters.category && d.category !== filters.category) return false;
+        if (filters.state && d.state !== filters.state) return false;
+        if (filters.season && d.season !== filters.season) return false;
+        if (filters.budget && d.budget !== filters.budget) return false;
+        if (filters.family && !d.family) return false;
+        if (d.rating < filters.minRating) return false;
+        if (query) {
+          const q = query.toLowerCase().trim();
+          const haystack = [d.name, d.state, d.category, ...d.tags].join(" ").toLowerCase();
+          if (!haystack.includes(q)) return false;
+        }
+        return true;
+      });
+
+      // 2. Score mapping & rank sorting
+      const withScore = filtered.map((d) => ({ ...d, _score: scoreDestination(d, query, filters) }));
+      
+      switch (sortBy) {
+        case "rating": 
+          withScore.sort((a, b) => b.rating - a.rating); 
+          break;
+        case "popularity": 
+          withScore.sort((a, b) => b.popularity - a.popularity); 
+          break;
+        case "price_low": 
+          withScore.sort((a, b) => BUDGETS.indexOf(a.budget) - BUDGETS.indexOf(b.budget)); 
+          break;
+        case "price_high": 
+          withScore.sort((a, b) => BUDGETS.indexOf(b.budget) - BUDGETS.indexOf(a.budget)); 
+          break;
+        default: 
+          withScore.sort((a, b) => b._score - a._score); 
+          break;
+      }
+
+      // 3. Extract active window pagination slices
+      const totalPages = Math.max(1, Math.ceil(withScore.length / PAGE_SIZE));
+      if (page > totalPages) page = totalPages;
+      
+      const pageResults = withScore.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+      // 4. Compute recommendation panel similarity data offsets
+      const selectedDest = DESTINATIONS.find(d => d.id === selectedId);
+      let similarDestinations = [];
+      if (selectedDest) {
+        similarDestinations = DESTINATIONS
+          .filter((d) => d.id !== selectedDest.id)
+          .map((d) => {
+            let s = 0;
+            if (d.category === selectedDest.category) s += 0.5;
+            if (d.state === selectedDest.state) s += 0.3;
+            const sharedTags = d.tags.filter((t) => selectedDest.tags.includes(t)).length;
+            s += sharedTags * 0.1;
+            return { ...d, _sim: s };
+          })
+          .filter((d) => d._sim > 0)
+          .sort((a, b) => b._sim - a._sim)
+          .slice(0, 3);
+      }
+
+      // 5. Trigger Layout DOM Renderers
+      renderHistoryChips();
+      renderClearLink();
+      renderResultsHeader(withScore.length);
+      renderCards(pageResults);
+      renderPagination(totalPages);
+      renderTrending();
+      renderSimilar(selectedDest, similarDestinations);
+    }
+
+    // ---------------------------------------------------------------------------
+    // SUB-RENDERING TEMPLATE EMITTERS
+    // ---------------------------------------------------------------------------
+    function renderHistoryChips() {
+      const container = document.getElementById("history-chips");
+      container.innerHTML = "";
+      if (history.length === 0) return;
+      
+      history.forEach(term => {
+        const chip = document.createElement("div");
+        chip.className = "chip";
+        chip.innerHTML = `${ICONS.history} ${term}`;
+        chip.addEventListener("click", () => runSearch(term));
+        container.appendChild(chip);
+      });
+    }
+
+    function renderSuggestions(forceShow = false) {
+      const box = document.getElementById("suggestions-box");
+      if (!query && !forceShow) {
+        box.classList.remove("visible");
+        return;
+      }
+      
+      const q = query.toLowerCase().trim();
+      if (!q) {
+        box.classList.remove("visible");
         return;
       }
 
-      emptyState.classList.add("hidden");
-      actionRow.classList.remove("hidden");
-      regenBtn.classList.remove("hidden");
-      genBtnText.innerText = "Generate again";
+      const matches = DESTINATIONS
+        .filter((d) => d.name.toLowerCase().includes(q) || d.state.toLowerCase().includes(q))
+        .slice(0, 5);
 
-      itineraryContainer.innerHTML = itinerary.map(day => `
-        <div class="day-card" data-day-id="${day.id}">
-          <div class="day-head">
-            <h3>${day.label}</h3>
-            <div class="day-region">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              ${day.state}
-            </div>
-          </div>
-          ${day.stateSwitch ? `
-            <div class="switch-note">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="19" r="3"/><circle cx="18" cy="5" r="3"/><path d="M18 8A5 5 0 0 1 8 13a5 5 0 0 0-2 4"/></svg>
-              This day spans more than one region — expect extra travel time.
-            </div>
-          ` : ''}
-          
-          ${day.items.map(item => `
-            <div class="item-card" data-item-id="${item.id}">
-              <div class="item-top">
-                <div>
-                  <div class="item-name">${item.name}</div>
-                  <div class="item-meta">
-                    <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${item.rating}</span>
-                    <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${item.time}</span>
-                    <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M6 13h12"/><path d="M12 3v18"/><path d="M17 18h-4a4 4 0 0 1-4-4v-1"/></svg> ${item.budget}</span>
-                  </div>
-                  <div class="why-row">
-                    ${item._why.map(w => `<span class="why-chip">${w}</span>`).join('')}
-                  </div>
-                </div>
-                <div class="item-actions">
-                  <button class="icon-btn action-like ${item.liked ? 'liked' : ''}" data-cat="${item.category}" title="Like — improves future picks">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h3l7-7Z"/></svg>
-                  </button>
-                  <button class="icon-btn action-swap" title="Swap for alternative">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                  </button>
-                  <button class="icon-btn action-remove" title="Remove">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          `).join('')}
-          
-          ${day.foodTip ? `
-            <div class="food-tip">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              ${day.foodTip}
-            </div>
-          ` : ''}
-        </div>
-      `).join('');
-    }
+      if (matches.length === 0) {
+        box.classList.remove("visible");
+        return;
+      }
 
-    function mostCommon(arr) {
-      const counts = {};
-      arr.forEach(v => (counts[v] = (counts[v] || 0) + 1));
-      return Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-    }
-
-    function whyReasons(d, weights) {
-      const reasons = [];
-      if (prefs.categories.includes(d.category)) reasons.push(`Matches ${d.category} preference`);
-      if (d.budget === prefs.budget) reasons.push("Within budget");
-      if (d.rating >= 4.5) reasons.push("Highly rated");
-      if ((weights[d.category] || 0) > 0.2) reasons.push("Learned preference boost");
-      if (reasons.length === 0) reasons.push("Good fit for your trip");
-      return reasons;
-    }
-
-    // Interactive Action Handlers (Like, Swap, Remove)
-    function handleLike(dayId, itemId, category) {
-      profile[category] = (profile[category] || 0) + 2;
-      renderProfile();
-      
-      flashText.innerText = `Learned: you like ${category} more now`;
-      learnFlash.classList.add("visible");
-      clearTimeout(flashTimeout);
-      flashTimeout = setTimeout(() => learnFlash.classList.remove("visible"), 2500);
-
-      itinerary = itinerary.map(d => {
-        if (d.id !== dayId) return d;
-        return {
-          ...d,
-          items: d.items.map(item => item.id === itemId ? { ...item, liked: true } : item)
-        };
+      box.innerHTML = "";
+      matches.forEach(s => {
+        const div = document.createElement("div");
+        div.className = "suggestion-item";
+        div.innerHTML = `<span>${s.name}</span><span class="s-state">${s.state}</span>`;
+        // Use mousedown instead of click to fire before blur handler clears element tree
+        div.addEventListener("mousedown", () => {
+          runSearch(s.name);
+        });
+        box.appendChild(div);
       });
-      renderItinerary();
+      box.classList.add("visible");
     }
 
-    function handleRemove(dayId, itemId) {
-      itinerary = itinerary.map(d => {
-        if (d.id !== dayId) return d;
-        return { ...d, items: d.items.filter(item => item.id !== itemId) };
-      });
-      renderItinerary();
-    }
+    function renderClearLink() {
+      const btn = document.getElementById("clear-filters-btn");
+      const activeFilterCount = Object.entries(filters).filter(([k, v]) =>
+        k === "family" ? v : k === "minRating" ? v > 0 : !!v
+      ).length;
 
-    function handleSwap(dayId, itemId) {
-      const usedIds = itinerary.flatMap(d => d.items.map(i => i.id));
-      const day = itinerary.find(d => d.id === dayId);
-      const current = day.items.find(i => i.id === itemId);
-      
-      const usedCategories = {};
-      day.items.forEach(i => (usedCategories[i.category] = (usedCategories[i.category] || 0) + 1));
-      
-      const total = Object.values(profile).reduce((a, b) => a + b, 0) || 1;
-      const weights = {};
-      Object.entries(profile).forEach(([k, v]) => (weights[k] = v / total));
-
-      const candidates = DESTINATIONS
-        .filter(d => !usedIds.includes(d.id) && d.state === current.state)
-        .map(d => ({ ...d, _score: scoreDest(d, usedCategories, weights) }))
-        .sort((a, b) => b._score - a._score);
-
-      const replacement = candidates[0];
-      if (!replacement) return;
-
-      itinerary = itinerary.map(d => {
-        if (d.id !== dayId) return d;
-        return {
-          ...d,
-          items: d.items.map(i => i.id === itemId ? { ...replacement, _why: whyReasons(replacement, weights), liked: false } : i)
-        };
-      });
-      renderItinerary();
-    }
-
-    function saveActiveItinerary() {
-      if (!itinerary) return;
-      const categoriesText = prefs.categories.join(", ") || "Mixed";
-      const record = {
-        id: nid(),
-        name: `${prefs.duration}-day trip · ${categoriesText}`,
-        savedAt: "just now"
-      };
-      saved.unshift(record);
-      
-      savedPanel.classList.remove("hidden");
-      savedContainer.innerHTML = saved.map(s => `
-        <div class="saved-item">
-          <div class="saved-name">${s.name}</div>
-          <div class="saved-time">${s.savedAt}</div>
-        </div>
-      `).join('');
-    }
-
-    // DOM Event Delegation Listeners
-    document.getElementById("duration-minus").addEventListener("click", () => {
-      prefs.duration = Math.max(1, prefs.duration - 1);
-      durationVal.innerText = `${prefs.duration}d`;
-    });
-
-    document.getElementById("duration-plus").addEventListener("click", () => {
-      prefs.duration = Math.min(10, prefs.duration + 1);
-      durationVal.innerText = `${prefs.duration}d`;
-    });
-
-    categoriesContainer.addEventListener("click", (e) => {
-      const pill = e.target.closest(".pill");
-      if (!pill) return;
-      const cat = pill.dataset.category;
-      if (prefs.categories.includes(cat)) {
-        prefs.categories = prefs.categories.filter(x => x !== cat);
+      if (activeFilterCount > 0) {
+        btn.textContent = `Clear all filters (${activeFilterCount})`;
+        btn.classList.add("visible");
       } else {
-        prefs.categories.push(cat);
+        btn.classList.remove("visible");
       }
-      renderCategoriesSelector();
-    });
+    }
 
-    budgetSelect.addEventListener("change", (e) => prefs.budget = e.target.value);
-    paceSelect.addEventListener("change", (e) => prefs.pace = e.target.value);
-    seasonSelect.addEventListener("change", (e) => prefs.season = e.target.value);
+    function renderResultsHeader(count) {
+      const label = document.getElementById("results-count-label");
+      label.textContent = `${count} destination${count !== 1 ? "s" : ""} found`;
+      document.getElementById("sort-select").value = sortBy;
+    }
 
-    document.getElementById("generate-btn").addEventListener("click", generateItinerary);
-    regenBtn.addEventListener("click", generateItinerary);
-    document.getElementById("save-btn").addEventListener("click", saveActiveItinerary);
+    function renderCards(results) {
+      const container = document.getElementById("cards-container");
+      container.innerHTML = "";
 
-    itineraryContainer.addEventListener("click", (e) => {
-      const button = e.target.closest(".icon-btn");
-      if (!button) return;
-      
-      const dayId = button.closest(".day-card").dataset.dayId;
-      const itemId = parseInt(button.closest(".item-card").dataset.itemId, 10);
-
-      if (button.classList.contains("action-like")) {
-        handleLike(dayId, itemId, button.dataset.cat);
-      } else if (button.classList.contains("action-swap")) {
-        handleSwap(dayId, itemId);
-      } else if (button.classList.contains("action-remove")) {
-        handleRemove(dayId, itemId);
+      if (results.length === 0) {
+        container.innerHTML = `<div class="empty">No destinations match these filters. Try loosening one.</div>`;
+        return;
       }
-    });
 
-    // Initialization Context Trigger
-    initFormElements();
+      results.forEach(d => {
+        const card = document.createElement("div");
+        card.className = `card ${selectedId === d.id ? 'active-card' : ''}`;
+        
+        const scoreBadgeHtml = sortBy === "relevance" 
+          ? `<div class="score-badge">match ${(d._score * 100).toFixed(0)}%</div>` 
+          : '';
+
+        const familyHtml = d.family 
+          ? `<span>${ICONS.users} Family-friendly</span>` 
+          : '';
+
+        const tagsHtml = d.tags.map(t => `<span class="tag">${t}</span>`).join("");
+
+        card.innerHTML = `
+          <div class="card-top">
+            <div>
+              <div class="card-name">${d.name}</div>
+              <div class="card-state">${ICONS.mapPin} ${d.state} · ${d.category}</div>
+            </div>
+            ${scoreBadgeHtml}
+          </div>
+          <div class="card-meta">
+            <span>${ICONS.star} ${d.rating}</span>
+            <span>${ICONS.trending} ${d.popularity} pop.</span>
+            <span>${ICONS.clock} ${d.days}d</span>
+            <span>${ICONS.rupee} ${d.budget}</span>
+            ${familyHtml}
+          </div>
+          <div class="tag-row">
+            ${tagsHtml}
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          selectedId = selectedId === d.id ? null : d.id;
+          syncStateAndRender();
+        });
+
+        container.appendChild(card);
+      });
+    }
+
+    function renderPagination(totalPages) {
+      const container = document.getElementById("pagination-controls");
+      container.innerHTML = "";
+
+      if (totalPages <= 1) return;
+
+      const prevBtn = document.createElement("button");
+      prevBtn.innerHTML = ICONS.left;
+      prevBtn.disabled = (page === 1);
+      prevBtn.addEventListener("click", () => {
+        if (page > 1) {
+          page--;
+          syncStateAndRender();
+        }
+      });
+
+      const label = document.createElement("span");
+      label.className = "page-label";
+      label.textContent = `${page} / ${totalPages}`;
+
+      const nextBtn = document.createElement("button");
+      nextBtn.innerHTML = ICONS.right;
+      nextBtn.disabled = (page === totalPages);
+      nextBtn.addEventListener("click", () => {
+        if (page < totalPages) {
+          page++;
+          syncStateAndRender();
+        }
+      });
+
+      container.appendChild(prevBtn);
+      container.appendChild(label);
+      container.appendChild(nextBtn);
+    }
+
+    function renderTrending() {
+      const container = document.getElementById("trending-container");
+      container.innerHTML = "";
+
+      TRENDING.forEach(d => {
+        const item = document.createElement("div");
+        item.className = "side-item";
+        item.innerHTML = `<span>${d.name}</span><span class="pop">${d.popularity}</span>`;
+        item.addEventListener("click", () => {
+          selectedId = d.id;
+          syncStateAndRender();
+        });
+        container.appendChild(item);
+      });
+    }
+
+    function renderSimilar(selectedDest, items) {
+      const title = document.getElementById("similar-panel-title");
+      const container = document.getElementById("similar-container");
+      container.innerHTML = "";
+
+      if (!selectedDest) {
+        title.innerHTML = `${ICONS.star.replace('12','15')} Similar destinations`;
+        container.innerHTML = `<div class="empty">Select a destination to see similar picks.</div>`;
+        return;
+      }
+
+      title.innerHTML = `${ICONS.star.replace('12','15')} Similar to ${selectedDest.name}`;
+
+      if (items.length === 0) {
+        container.innerHTML = `<div class="empty">No close matches found.</div>`;
+        return;
+      }
+
+      items.forEach(d => {
+        const item = document.createElement("div");
+        item.className = "side-item";
+        item.innerHTML = `<span>${d.name}</span><span class="state-pop">${d.state}</span>`;
+        item.addEventListener("click", () => {
+          selectedId = d.id;
+          syncStateAndRender();
+        });
+        container.appendChild(item);
+      });
+    }
+
+    // Fire application engine setup on script compilation load execution
+    document.addEventListener("DOMContentLoaded", initDOM);
   </script>
 </body>
 </html>
