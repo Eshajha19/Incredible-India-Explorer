@@ -5,8 +5,7 @@
  * stays pure and unit-testable in Node without a DOM.
  */
 (function () {
-  const { ROUTE_DESTINATIONS, TRANSPORT_MODES, optimizeRoute, getRoute, formatDistance, formatDuration } = window.RoutePlanner;
-
+const { ROUTE_DESTINATIONS, TRANSPORT_MODES, DESTINATION_INFO, optimizeRoute, getRoute, formatDistance, formatDuration, recommendMode } = window.RoutePlanner;
   let stops = [];
   let mode = "road";
   let map, routeLayer, markersLayer;
@@ -46,8 +45,33 @@
         stops = stops.filter((s) => s.id !== btn.dataset.remove);
         renderStopList();
         renderMarkers();
+        renderStopInfo();
       });
     });
+
+    renderStopInfo();
+  }
+
+  function renderStopInfo() {
+    const container = document.getElementById("stop-info");
+    if (!container) return;
+    if (!stops.length) {
+      container.innerHTML = "";
+      return;
+    }
+    container.innerHTML = stops
+      .map((s) => {
+        const info = DESTINATION_INFO[s.id];
+        if (!info) return "";
+        return `
+          <div class="stop-info-card">
+            <h4>${s.name}</h4>
+            <p><strong>Best time to visit:</strong> ${info.bestTime}</p>
+            <p><strong>Tip:</strong> ${info.tip}</p>
+            <p><strong>Nearby attractions:</strong> ${info.attractions.join(", ")}</p>
+          </div>`;
+      })
+      .join("");
   }
 
   function renderMarkers() {
@@ -76,11 +100,13 @@
     el.classList.toggle("error", !!isError);
   }
 
-  function renderSummary(result) {
+function renderSummary(result) {
     document.getElementById("route-summary").hidden = false;
     document.getElementById("summary-distance").textContent = formatDistance(result.distanceKm);
     document.getElementById("summary-duration").textContent = formatDuration(result.durationMinutes);
 
+    const recommended = TRANSPORT_MODES[recommendMode(result.distanceKm)];
+    document.getElementById("summary-recommended").textContent = `${recommended.icon} ${recommended.label}`;
     const legList = document.getElementById("route-leg-list");
     legList.innerHTML = result.legs
       .map(

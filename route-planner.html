@@ -78,8 +78,14 @@
   #route-map { height: 640px; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
   .route-status { font-size: 0.9rem; padding: 10px 0; opacity: 0.8; }
   .route-status.error { color: #ff6b6b; }
-  .route-estimated-note { font-size: 0.8rem; opacity: 0.6; margin-top: 8px; }
-</style>
+.route-estimated-note { font-size: 0.8rem; opacity: 0.6; margin-top: 8px; }
+  .stop-info { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .stop-info-card {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+    border-radius: 12px; padding: 10px 14px; font-size: 0.85rem;
+  }
+  .stop-info-card h4 { margin: 0 0 6px; color: var(--gold); font-family: 'Outfit', sans-serif; }
+  .stop-info-card p { margin: 2px 0; opacity: 0.85; line-height: 1.4; }</style>
 </head>
 <body>
 <header class="navbar scrolled" id="navbar">
@@ -118,8 +124,8 @@
             <select id="stop-select" aria-label="Choose a destination to add"></select>
             <button id="add-stop-btn" class="btn btn-primary ripple" type="button">Add</button>
           </div>
-          <ul id="stop-list" class="stop-list"></ul>
-
+<ul id="stop-list" class="stop-list"></ul>
+          <div id="stop-info" class="stop-info"></div>
           <h3>Transport Mode</h3>
           <div class="mode-selector" id="mode-selector" role="group" aria-label="Transport mode">
             <button class="mode-btn active" data-mode="road" type="button">🚗 Road</button>
@@ -140,11 +146,14 @@
               <span class="label">Total Distance</span>
               <span class="value" id="summary-distance">–</span>
             </div>
-            <div class="route-summary-stat">
+<div class="route-summary-stat">
               <span class="label">Estimated Travel Time</span>
               <span class="value" id="summary-duration">–</span>
             </div>
-            <ul id="route-leg-list" class="route-leg-list"></ul>
+            <div class="route-summary-stat">
+              <span class="label">Recommended Mode</span>
+              <span class="value" id="summary-recommended">–</span>
+            </div>            <ul id="route-leg-list" class="route-leg-list"></ul>
             <p id="route-estimated-note" class="route-estimated-note" hidden>
               ~ Rail/Air figures are estimates based on great-circle distance and average speeds — actual timetables vary.
             </p>
