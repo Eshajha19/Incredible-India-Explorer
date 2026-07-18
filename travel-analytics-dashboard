@@ -357,8 +357,8 @@ export default function TravelAnalyticsDashboard() {
               <div className="panel-desc">Trips logged per month</div>
             </div>
             <div className="range-toggle">
-              <button className={range === "6m" ? "active" : ""} onClick={() => setRange("6m")}>6M</button>
-              <button className={range === "year" ? "active" : ""} onClick={() => setRange("year")}>1Y</button>
+              <button className={range === "6m" ? "active" : ""} onClick={() => setRange("6m")} aria-pressed={range === "6m"}>6M</button>
+              <button className={range === "year" ? "active" : ""} onClick={() => setRange("year")} aria-pressed={range === "year"}>1Y</button>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={220}>
