@@ -89,7 +89,7 @@ export default function TravelAnalyticsDashboard() {
   const [range, setRange] = useState("year");
 
   const filteredMonthly = useMemo(() => {
-    if (range === "6m") return MONTHLY_TRIPS.slice(6);
+    if (range === "6m") return MONTHLY_TRIPS.slice(-6);
     return MONTHLY_TRIPS;
   }, [range]);
 
