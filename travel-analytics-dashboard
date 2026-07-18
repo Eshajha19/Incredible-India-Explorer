@@ -1,0 +1,488 @@
+import React, { useState, useMemo } from "react";
+import {
+  PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis,
+  Tooltip, AreaChart, Area, CartesianGrid,
+} from "recharts";
+import {
+  MapPin, Bookmark, Compass, Flame, Mountain, Waves, Landmark, TreePine,
+  Sparkles, Download, TrendingUp, Award, ChevronRight,
+} from "lucide-react";
+
+// ---------------------------------------------------------------------------
+// MOCK DATA
+// In production this payload comes from a single aggregation endpoint, e.g.
+// GET /api/analytics/summary?userId=... — see the architecture note at the
+// bottom of this file for how the real service would compute each field.
+// ---------------------------------------------------------------------------
+const STATE_COVERAGE = [
+  { state: "Rajasthan", visits: 6 },
+  { state: "Kerala", visits: 5 },
+  { state: "Himachal Pradesh", visits: 4 },
+  { state: "Goa", visits: 4 },
+  { state: "Uttarakhand", visits: 3 },
+  { state: "Tamil Nadu", visits: 2 },
+  { state: "Ladakh", visits: 2 },
+  { state: "West Bengal", visits: 1 },
+];
+const TOTAL_STATES_IN_INDIA = 28;
+
+const CATEGORY_BREAKDOWN = [
+  { name: "Heritage", value: 9, icon: Landmark, color: "var(--marigold)" },
+  { name: "Hill Station", value: 7, icon: Mountain, color: "var(--peacock)" },
+  { name: "Beach", value: 5, icon: Waves, color: "var(--vermilion)" },
+  { name: "Wildlife", value: 3, icon: TreePine, color: "var(--sage)" },
+  { name: "Spiritual", value: 3, icon: Sparkles, color: "var(--dusk)" },
+];
+
+const MONTHLY_TRIPS = [
+  { month: "Jan", trips: 1 }, { month: "Feb", trips: 0 }, { month: "Mar", trips: 2 },
+  { month: "Apr", trips: 1 }, { month: "May", trips: 0 }, { month: "Jun", trips: 1 },
+  { month: "Jul", trips: 3 }, { month: "Aug", trips: 2 }, { month: "Sep", trips: 1 },
+  { month: "Oct", trips: 4 }, { month: "Nov", trips: 2 }, { month: "Dec", trips: 3 },
+];
+
+const ACHIEVEMENTS = [
+  { id: 1, label: "First Stamp", detail: "Logged your first visited destination", unlocked: true },
+  { id: 2, label: "Coastal Wanderer", detail: "Visited 3 beach destinations", unlocked: true },
+  { id: 3, label: "Peak Seeker", detail: "Visited 5 hill stations", unlocked: true },
+  { id: 4, label: "Heritage Hunter", detail: "Visited 10 heritage sites", unlocked: false, progress: "9/10" },
+  { id: 5, label: "Pan-India Explorer", detail: "Visited 15 states", unlocked: false, progress: "8/15" },
+  { id: 6, label: "Wishlist Closer", detail: "Completed your entire wishlist", unlocked: false, progress: "62%" },
+];
+
+const RECOMMENDATIONS = [
+  { place: "Coorg, Karnataka", reason: "Matches your love of hill stations + coffee-country heritage trails" },
+  { place: "Hampi, Karnataka", reason: "Heritage-heavy, and close to 2 places already on your wishlist" },
+  { place: "Andaman Islands", reason: "You rate beach trips highest — this is the natural next step up" },
+];
+
+const STATS = {
+  visited: 27,
+  bookmarked: 41,
+  statesExplored: STATE_COVERAGE.length,
+  wishlistPct: 62,
+  streakMonths: 4,
+};
+
+// ---------------------------------------------------------------------------
+// UI PRIMITIVES
+// ---------------------------------------------------------------------------
+
+function StampCard({ icon: Icon, label, value, sub, rotate }) {
+  return (
+    <div className="stamp-card" style={{ "--rot": `${rotate}deg` }}>
+      <div className="stamp-inner">
+        <Icon size={18} strokeWidth={1.75} />
+        <div className="stamp-value">{value}</div>
+        <div className="stamp-label">{label}</div>
+        {sub && <div className="stamp-sub">{sub}</div>}
+      </div>
+    </div>
+  );
+}
+
+function SectionEyebrow({ children }) {
+  return <div className="eyebrow">{children}</div>;
+}
+
+export default function TravelAnalyticsDashboard() {
+  const [range, setRange] = useState("year");
+
+  const filteredMonthly = useMemo(() => {
+    if (range === "6m") return MONTHLY_TRIPS.slice(-6);
+    return MONTHLY_TRIPS;
+  }, [range]);
+
+  const maxCoverage = Math.max(...(STATE_COVERAGE || []).map(s => s.visits), 1);
+
+  return (
+    <div className="dash-root">
+      <style>{`
+        .dash-root {
+          --ink: #1B1F3B;
+          --surface: #242A57;
+          --surface-2: #2E3568;
+          --line: rgba(242,238,228,0.14);
+          --marigold: #F5A300;
+          --peacock: #16A398;
+          --vermilion: #E1533D;
+          --sage: #7FA65A;
+          --dusk: #8B7FD1;
+          --sand: #F2EEE4;
+          --muted: #A9AFD9;
+          background: radial-gradient(120% 140% at 10% 0%, #232a54 0%, #1B1F3B 55%, #14172e 100%);
+          color: var(--sand);
+          font-family: 'IBM Plex Sans', system-ui, sans-serif;
+          padding: 28px 20px 60px;
+          min-height: 100%;
+          box-sizing: border-box;
+        }
+        .dash-root * { box-sizing: border-box; }
+        .dash-root ::selection { background: var(--marigold); color: #1B1F3B; }
+
+        .eyebrow {
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: var(--muted);
+          margin-bottom: 8px;
+        }
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          gap: 20px;
+          flex-wrap: wrap;
+          margin-bottom: 30px;
+          padding-bottom: 22px;
+          border-bottom: 1px solid var(--line);
+        }
+        .header h1 {
+          font-family: 'Fraunces', Georgia, serif;
+          font-weight: 600;
+          font-size: clamp(28px, 4vw, 42px);
+          margin: 0;
+          line-height: 1.05;
+        }
+        .header h1 em {
+          font-style: italic;
+          color: var(--marigold);
+          font-weight: 500;
+        }
+        .header-sub { color: var(--muted); font-size: 14px; margin-top: 8px; max-width: 46ch; }
+
+        .export-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: var(--marigold);
+          color: #1B1F3B;
+          border: none;
+          padding: 11px 18px;
+          border-radius: 3px;
+          font-weight: 600;
+          font-size: 13px;
+          cursor: pointer;
+          font-family: 'IBM Plex Sans', sans-serif;
+          transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .export-btn:hover { transform: translateY(-1px); background: #ffb521; }
+        .export-btn:focus-visible { outline: 2px solid var(--sand); outline-offset: 2px; }
+
+        .hero-strip {
+          display: flex;
+          gap: 14px;
+          flex-wrap: wrap;
+          margin-bottom: 34px;
+        }
+
+        .stamp-card {
+          flex: 1 1 160px;
+          min-width: 150px;
+          background: var(--surface);
+          border-radius: 4px;
+          padding: 16px 16px 14px;
+          position: relative;
+          transform: rotate(var(--rot));
+          border: 1px dashed rgba(242,238,228,0.28);
+        }
+        .stamp-card::before {
+          content: '';
+          position: absolute;
+          left: -6px; top: 50%;
+          width: 12px; height: 12px;
+          background: var(--ink);
+          border-radius: 50%;
+          transform: translateY(-50%);
+          box-shadow: 138px 0 0 var(--ink);
+        }
+        .stamp-inner svg { color: var(--marigold); margin-bottom: 8px; }
+        .stamp-value {
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 26px;
+          font-weight: 600;
+          line-height: 1;
+        }
+        .stamp-label { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+        .stamp-sub { font-size: 11px; color: var(--peacock); margin-top: 4px; font-family: 'IBM Plex Mono', monospace; }
+
+        .grid {
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 18px;
+          margin-bottom: 18px;
+        }
+        @media (max-width: 780px) {
+          .grid { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+          background: var(--surface);
+          border: 1px solid var(--line);
+          border-radius: 6px;
+          padding: 20px 22px 16px;
+        }
+        .panel h3 {
+          font-family: 'Fraunces', Georgia, serif;
+          font-weight: 600;
+          font-size: 19px;
+          margin: 0 0 2px;
+        }
+        .panel .panel-desc { font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
+
+        .range-toggle { display: flex; gap: 6px; }
+        .range-toggle button {
+          background: transparent;
+          border: 1px solid var(--line);
+          color: var(--muted);
+          font-size: 11px;
+          padding: 5px 10px;
+          border-radius: 20px;
+          cursor: pointer;
+          font-family: 'IBM Plex Mono', monospace;
+        }
+        .range-toggle button.active {
+          background: var(--peacock);
+          color: #0d1b1a;
+          border-color: var(--peacock);
+          font-weight: 600;
+        }
+
+        .cat-row { display: flex; align-items: center; gap: 10px; margin: 9px 0; }
+        .cat-row .swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+        .cat-row .cat-name { font-size: 13px; flex: 1; }
+        .cat-row .cat-val { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted); }
+
+        .coverage-row { margin-bottom: 10px; }
+        .coverage-label { display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 4px; }
+        .coverage-label span:last-child { color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+        .coverage-track { height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+        .coverage-fill { height: 100%; background: linear-gradient(90deg, var(--peacock), var(--marigold)); border-radius: 3px; }
+
+        .achievements-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+          gap: 16px;
+        }
+        .badge {
+          text-align: center;
+          padding: 10px 6px 4px;
+        }
+        .badge-stamp {
+          width: 66px; height: 66px;
+          border-radius: 50%;
+          border: 2px solid var(--marigold);
+          display: flex; align-items: center; justify-content: center;
+          margin: 0 auto 8px;
+          position: relative;
+          transform: rotate(-6deg);
+        }
+        .badge.locked .badge-stamp {
+          border-color: rgba(169,175,217,0.35);
+          border-style: dashed;
+        }
+        .badge-stamp::after {
+          content: '';
+          position: absolute;
+          inset: 5px;
+          border: 1px solid var(--marigold);
+          border-radius: 50%;
+        }
+        .badge.locked .badge-stamp::after { border-color: rgba(169,175,217,0.3); }
+        .badge-stamp svg { color: var(--marigold); }
+        .badge.locked .badge-stamp svg { color: rgba(169,175,217,0.5); }
+        .badge-label { font-size: 12px; font-weight: 600; }
+        .badge-detail { font-size: 10.5px; color: var(--muted); margin-top: 2px; line-height: 1.3; }
+        .badge-progress { font-size: 10px; color: var(--peacock); font-family: 'IBM Plex Mono', monospace; margin-top: 3px; }
+
+        .ticket {
+          background: var(--surface-2);
+          border-radius: 4px;
+          padding: 14px 16px;
+          margin-bottom: 10px;
+          position: relative;
+          border-left: 3px solid var(--vermilion);
+        }
+        .ticket .place { font-weight: 600; font-size: 14.5px; margin-bottom: 3px; font-family: 'Fraunces', serif; }
+        .ticket .reason { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+
+        .insight-line {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          font-size: 13.5px;
+          padding: 9px 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .insight-line:last-child { border-bottom: none; }
+        .insight-line svg { color: var(--marigold); margin-top: 2px; flex-shrink: 0; }
+
+        .footnote {
+          margin-top: 30px;
+          font-size: 11.5px;
+          color: var(--muted);
+          text-align: center;
+        }
+      `}</style>
+
+      <div className="header">
+        <div>
+          <SectionEyebrow>Travel Passport — Priya Nair</SectionEyebrow>
+          <h1>Your India, <em>mapped</em>.</h1>
+          <div className="header-sub">
+            {STATS.statesExplored} of {TOTAL_STATES_IN_INDIA} states explored, {STATS.visited} destinations
+            stamped, and a {STATS.streakMonths}-month streak still running.
+          </div>
+        </div>
+        <button className="export-btn" onClick={() => window.print()}>
+          <Download size={15} /> Export report
+        </button>
+      </div>
+
+      <div className="hero-strip">
+        <StampCard icon={MapPin} label="Destinations visited" value={STATS.visited} rotate={-2} />
+        <StampCard icon={Bookmark} label="Bookmarked places" value={STATS.bookmarked} rotate={1.5} />
+        <StampCard icon={Compass} label="States explored" value={`${STATS.statesExplored}/${TOTAL_STATES_IN_INDIA}`} rotate={-1} />
+        <StampCard icon={Sparkles} label="Wishlist completed" value={`${STATS.wishlistPct}%`} rotate={2} />
+        <StampCard icon={Flame} label="Current streak" value={`${STATS.streakMonths} mo`} sub="Personal best: 6 mo" rotate={-2.5} />
+      </div>
+
+      <div className="grid">
+        <div className="panel">
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 10 }}>
+            <div>
+              <h3>Travel activity</h3>
+              <div className="panel-desc">Trips logged per month</div>
+            </div>
+            <div className="range-toggle">
+              <button className={range === "6m" ? "active" : ""} onClick={() => setRange("6m")} aria-pressed={range === "6m"}>6M</button>
+              <button className={range === "year" ? "active" : ""} onClick={() => setRange("year")} aria-pressed={range === "year"}>1Y</button>
+            </div>
+          </div>
+          <ResponsiveContainer width="100%" height={220}>
+            <AreaChart data={filteredMonthly} margin={{ left: -20, top: 5 }}>
+              <defs>
+                <linearGradient id="tripFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#F5A300" stopOpacity={0.55} />
+                  <stop offset="100%" stopColor="#F5A300" stopOpacity={0.02} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(242,238,228,0.08)" vertical={false} />
+              <XAxis dataKey="month" stroke="#A9AFD9" fontSize={11} tickLine={false} axisLine={false} />
+              <YAxis stroke="#A9AFD9" fontSize={11} tickLine={false} axisLine={false} width={24} allowDecimals={false} />
+              <Tooltip
+                contentStyle={{ background: "#242A57", border: "1px solid rgba(242,238,228,0.2)", borderRadius: 4, fontSize: 12 }}
+                labelStyle={{ color: "#F2EEE4" }}
+              />
+              <Area type="monotone" dataKey="trips" stroke="#F5A300" strokeWidth={2} fill="url(#tripFill)" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="panel">
+          <h3>Category breakdown</h3>
+          <div className="panel-desc">What kind of places you gravitate towards</div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <ResponsiveContainer width="45%" height={160}>
+              <PieChart>
+                <Pie
+                  data={CATEGORY_BREAKDOWN}
+                  dataKey="value"
+                  nameKey="name"
+                  innerRadius={42}
+                  outerRadius={64}
+                  paddingAngle={3}
+                  stroke="none"
+                >
+                  {CATEGORY_BREAKDOWN.map((c, i) => (
+                    <Cell key={i} fill={c.color} />
+                  ))}
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+            <div style={{ flex: 1 }}>
+              {CATEGORY_BREAKDOWN.map((c) => (
+                <div className="cat-row" key={c.name}>
+                  <div className="swatch" style={{ background: c.color }} />
+                  <div className="cat-name">{c.name}</div>
+                  <div className="cat-val">{c.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid">
+        <div className="panel">
+          <h3>State-wise coverage</h3>
+          <div className="panel-desc">Ranked by number of visits logged in each state</div>
+          {STATE_COVERAGE.map((s) => (
+            <div className="coverage-row" key={s.state}>
+              <div className="coverage-label">
+                <span>{s.state}</span>
+                <span>{s.visits} visit{s.visits > 1 ? "s" : ""}</span>
+              </div>
+              <div className="coverage-track">
+                <div className="coverage-fill" style={{ width: `${(s.visits / maxCoverage) * 100}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="panel">
+          <h3>Achievements</h3>
+          <div className="panel-desc">Milestones unlocked from your travel history</div>
+          <div className="achievements-grid">
+            {ACHIEVEMENTS.map((a) => (
+              <div className={`badge ${a.unlocked ? "" : "locked"}`} key={a.id}>
+                <div className="badge-stamp">
+                  <Award size={22} />
+                </div>
+                <div className="badge-label">{a.label}</div>
+                <div className="badge-detail">{a.detail}</div>
+                {!a.unlocked && <div className="badge-progress">{a.progress}</div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid">
+        <div className="panel">
+          <h3>Personalized insights</h3>
+          <div className="panel-desc">Generated from your visit and bookmark history</div>
+          <div className="insight-line">
+            <TrendingUp size={16} />
+            <div>Heritage sites make up a third of your trips — you visit them more than twice as often as the average explorer.</div>
+          </div>
+          <div className="insight-line">
+            <TrendingUp size={16} />
+            <div>October is consistently your busiest travel month, three years running.</div>
+          </div>
+          <div className="insight-line">
+            <TrendingUp size={16} />
+            <div>You're 2 heritage visits away from unlocking "Heritage Hunter."</div>
+          </div>
+          <div className="insight-line">
+            <TrendingUp size={16} />
+            <div>62% of your wishlist is checked off — closing it out would push you past last year's total.</div>
+          </div>
+        </div>
+
+        <div className="panel">
+          <h3>Recommended next</h3>
+          <div className="panel-desc">Based on the categories and states you keep coming back to</div>
+          {RECOMMENDATIONS.map((r) => (
+            <div className="ticket" key={r.place}>
+              <div className="place">{r.place}</div>
+              <div className="reason">{r.reason}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
