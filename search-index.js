@@ -117,7 +117,7 @@ window.indiaSearchIndex = [
     title: "Ladakh",
     category: "State / UT",
     description: "High-altitude cold desert famous for stark mountain vistas, Buddhist monasteries, and pristine Pangong Lake.",
-    url: "states/ld.html"
+    url: "states/la.html"
   },
   {
     title: "Lakshadweep",
@@ -518,5 +518,205 @@ window.indiaSearchIndex = [
     category: "Arts & Culture",
     description: "Bharatanatyam, Kathak, Kathakali, Kuchipudi, Odissi, Manipuri, and Sattriya.",
     url: "dance.html"
+  },
+
+  // --- Tribes ---
+  {
+    title: "Gond Tribe",
+    category: "Tribes & Indigenous",
+    description: "One of India's largest tribal communities, known for Gond painting, nature worship, and agricultural traditions.",
+    url: "tribes.html"
+  },
+  {
+    title: "Santhal Tribe",
+    category: "Tribes & Indigenous",
+    description: "Vibrant community from Jharkhand and West Bengal, famous for Sohrai festival, music, and dance.",
+    url: "tribes.html"
+  },
+  {
+    title: "Naga Tribe",
+    category: "Tribes & Indigenous",
+    description: "Warrior tribes of Nagaland known for the Hornbill Festival, colorful shawls, and log drum ceremonies.",
+    url: "tribes.html"
+  },
+  {
+    title: "Toda Tribe",
+    category: "Tribes & Indigenous",
+    description: "Pastoral community of the Nilgiris, renowned for distinctive embroidery and sacred buffalo herds.",
+    url: "tribes.html"
+  },
+  {
+    title: "Bhil Tribe",
+    category: "Tribes & Indigenous",
+    description: "Ancient archer tribe of Rajasthan and Gujarat, celebrated for Pithora paintings and Bhagoria festival.",
+    url: "tribes.html"
+  },
+  {
+    title: "Khasi Tribe",
+    category: "Tribes & Indigenous",
+    description: "Matrilineal society of Meghalaya famous for living root bridges and Shad Suk Mynsiem festival.",
+    url: "tribes.html"
+  },
+  {
+    title: "Warli Tribe",
+    category: "Tribes & Indigenous",
+    description: "Known worldwide for minimalist white-on-mud mural art depicting harvests and daily rural life.",
+    url: "tribes.html"
+  },
+  {
+    title: "Bhutia Tribe",
+    category: "Tribes & Indigenous",
+    description: "Himalayan highlanders of Sikkim, deeply connected to Vajrayana Buddhism and Thangka painting.",
+    url: "tribes.html"
+  },
+
+  // --- Rivers ---
+  {
+    title: "River Ganga",
+    category: "Rivers",
+    description: "The sacred river of India, originating from Gangotri Glacier and flowing 2,525 km to the Bay of Bengal.",
+    url: "river.html"
+  },
+  {
+    title: "River Yamuna",
+    category: "Rivers",
+    description: "Eternal companion of Ganga, flowing past the Taj Mahal and through Delhi's heartland.",
+    url: "river.html"
+  },
+  {
+    title: "River Brahmaputra",
+    category: "Rivers",
+    description: "Mighty river carving through the Himalayas into Assam, creating the world's largest river island.",
+    url: "river.html"
+  },
+  {
+    title: "River Godavari",
+    category: "Rivers",
+    description: "The second longest river in India, known as Dakshin Ganga, flowing through Maharashtra and Andhra Pradesh.",
+    url: "river.html"
+  },
+  {
+    title: "River Narmada",
+    category: "Rivers",
+    description: "Flowing between the Vindhya and Satpura ranges, considered a sacred river in central India.",
+    url: "river.html"
+  },
+  {
+    title: "River Krishna",
+    category: "Rivers",
+    description: "Major river of southern India, supporting agriculture across Maharashtra, Karnataka, and Andhra Pradesh.",
+    url: "river.html"
+  },
+
+  // --- Stepwells ---
+  {
+    title: "Stepwells of India",
+    category: "Heritage & Architecture",
+    description: "Rani Ki Vav, Chand Baori, and Adalaj — intricate underground water reservoirs with stunning stone carvings.",
+    url: "stepwells.html"
+  },
+
+  // --- Architecture ---
+  {
+    title: "Indian Architecture",
+    category: "Heritage & Architecture",
+    description: "Explore Dravidian temples, Mughal gardens, Indo-Saracenic buildings, and modern Indian architecture.",
+    url: "architecture.html"
+  },
+
+  // --- Heritage Trees ---
+  {
+    title: "Heritage Trees of India",
+    category: "Nature & Wildlife",
+    description: "Ancient banyans, sacred peepals, and historically significant trees across the Indian landscape.",
+    url: "heritage-trees.html"
+  },
+
+  // --- Medicinal Plants ---
+  {
+    title: "Medicinal Plants of India",
+    category: "Nature & Wildlife",
+    description: "Ayurvedic herbs, traditional medicinal plants, and their therapeutic uses across Indian healing systems.",
+    url: "medicinal-plants.html"
+  },
+
+  // --- Water Systems ---
+  {
+    title: "Traditional Water Systems",
+    category: "Heritage & Architecture",
+    description: "Ancient stepwells, tanks, and water management systems showcasing India's hydraulic engineering heritage.",
+    url: "water-systems.html"
+  },
+
+  // --- Caves ---
+  {
+    title: "Caves of India",
+    category: "Heritage & Architecture",
+    description: "Ajanta, Ellora, Elephanta, and other historic cave complexes with stunning rock-cut architecture.",
+    url: "caves.html"
+  },
+
+  // --- Bazaars ---
+  {
+    title: "Indian Bazaars",
+    category: "Travel & Exploration",
+    description: "Explore the vibrant traditional markets and bazaars of India from Chandni Chowk to Crawford Market.",
+    url: "bazaars.html"
+  },
+
+  // --- Handloom ---
+  {
+    title: "Handloom Heritage",
+    category: "Arts & Culture",
+    description: "Khadi, Banarasi Silk, Kanjeevaram, Pashmina, and other exquisite regional weaving styles of India.",
+    url: "handloom/index.html"
+  },
+
+  // --- Freedom Timeline ---
+  {
+    title: "Indian Freedom Movement",
+    category: "Heritage & Learn",
+    description: "Timeline of India's independence struggle from the 1857 Revolt to the 1947 declaration of freedom.",
+    url: "freedom-timeline/index.html"
+  },
+
+  // --- Textiles ---
+  {
+    title: "Textiles of India",
+    category: "Arts & Culture",
+    description: "Regional textile traditions including Bandhani, Ikat, Chikankari, Phulkari, and Patola weaving.",
+    url: "textiles.html"
+  },
+
+  // --- Musical Instruments ---
+  {
+    title: "Indian Musical Instruments",
+    category: "Arts & Culture",
+    description: "Sitar, Tabla, Veena, Sarod, Bansuri, and other traditional instruments of Indian classical music.",
+    url: "musical-instruments.html"
+  },
+
+  // --- Coastal India ---
+  {
+    title: "Coastal India",
+    category: "Travel & Exploration",
+    description: "Explore the 7,500 km coastline from Gujarat to West Bengal, featuring beaches, ports, and coastal culture.",
+    url: "coastal-india.html"
+  },
+
+  // --- Hill Stations ---
+  {
+    title: "Hill Stations of India",
+    category: "Travel & Exploration",
+    description: "Shimla, Darjeeling, Munnar, Ooty, Manali, and other picturesque hill retreats across India.",
+    url: "hill-stations.html"
+  },
+
+  // --- Butterfly ---
+  {
+    title: "Butterflies of India",
+    category: "Nature & Wildlife",
+    description: "Discover the diverse butterfly species found across India's varied ecological zones.",
+    url: "butterfly.html"
   }
 ];

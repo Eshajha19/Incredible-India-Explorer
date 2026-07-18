@@ -18843,6 +18843,112 @@ body.light-theme .hero-title .rotating-text {
 }
 
 /* ==========================================================================
+   TOAST NOTIFICATION SYSTEM
+   ========================================================================== */
+.app-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 420px;
+    width: calc(100% - 48px);
+    pointer-events: none;
+}
+
+.app-toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(20, 25, 40, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
+                opacity 0.35s ease;
+}
+
+.app-toast.app-toast-visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.app-toast.app-toast-dismissing {
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+.app-toast-icon {
+    flex-shrink: 0;
+}
+
+.app-toast-message {
+    flex: 1;
+    font-family: var(--font-family, 'Outfit', sans-serif);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #f0f0f0;
+}
+
+.app-toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 2px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.app-toast-close:hover {
+    color: #fff;
+}
+
+/* Toast type variants */
+.app-toast-info .app-toast-icon { color: #60a5fa; }
+.app-toast-success .app-toast-icon { color: #34d399; }
+.app-toast-warning .app-toast-icon { color: #fbbf24; }
+.app-toast-error .app-toast-icon { color: #f87171; }
+
+.app-toast-info { border-color: rgba(96, 165, 250, 0.3); }
+.app-toast-success { border-color: rgba(52, 211, 153, 0.3); }
+.app-toast-warning { border-color: rgba(251, 191, 36, 0.3); }
+.app-toast-error { border-color: rgba(248, 113, 113, 0.3); }
+
+.light-theme .app-toast {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.light-theme .app-toast-message {
+    color: #1a1a2e;
+}
+
+.light-theme .app-toast-close {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.light-theme .app-toast-close:hover {
+    color: #000;
+}
+
+.light-theme .app-toast-info { border-color: rgba(96, 165, 250, 0.5); }
+.light-theme .app-toast-success { border-color: rgba(52, 211, 153, 0.5); }
+.light-theme .app-toast-warning { border-color: rgba(251, 191, 36, 0.5); }
+.light-theme .app-toast-error { border-color: rgba(248, 113, 113, 0.5); }
+
+/* ==========================================================================
    ACCESSIBILITY & KEYBOARD FOCUS STYLES
    ========================================================================== */
 a:focus-visible,
@@ -18861,6 +18967,35 @@ path[tabindex="0"]:focus-visible {
 .nav-dropdown.open .dropdown-menu,
 .nav-dropdown:focus-within .dropdown-menu {
     display: block !important;
+}
+
+/* PWA Install Button */
+.pwa-install-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--saffron, #FF9933), var(--primary-gold, #FFB01F));
+    color: #fff;
+    font-family: var(--font-family, 'Outfit', sans-serif);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pwa-install-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(255, 153, 51, 0.5);
+}
+.pwa-install-btn:active {
+    transform: translateY(0);
 }
 
 

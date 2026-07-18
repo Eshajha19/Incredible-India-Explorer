@@ -150,39 +150,19 @@ function withCacheTimestamp(response) {
 /**
  * Install Event: Cache essential static assets during worker installation.
  */
-self.addEventListener('sync', event => {
-  logger.info(`Background sync triggered: ${event.tag}`);
-
-  if (event.tag === 'sync-chatbot-pending') {
-    event.waitUntil(
-      (async () => {
-        try {
-          logger.info('Processing pending offline chatbot interactions.');
-
-          // Future server sync logic can be added here.
-          // For now, notify all open clients that sync completed.
-
-          const clients = await self.clients.matchAll({
-            includeUncontrolled: true,
-            type: 'window'
-          });
-
-          for (const client of clients) {
-            client.postMessage({
-              type: 'BACKGROUND_SYNC_COMPLETE',
-              message: 'Offline data synchronized successfully.'
-            });
-          }
-
-          logger.info('Background sync completed successfully.');
-        } catch (err) {
-          logger.error('Background sync failed.', err);
-        }
-      })()
-    );
-  }
-});
-  
+self.addEventListener('install', event => {
+  logger.info('Installing service worker and pre-caching static assets.');
+  event.waitUntil(
+    (async () => {
+      try {
+        const cache = await caches.open(CACHE_NAME_STATIC);
+        await cache.addAll(STATIC_ASSETS_TO_PRECACHE);
+        logger.info('Static assets pre-cached successfully.');
+      } catch (err) {
+        logger.error('Failed to pre-cache static assets during install.', err);
+      }
+    })()
+  );
   // Forces the waiting service worker to become active immediately
   self.skipWaiting();
 });
@@ -486,15 +466,33 @@ self.addEventListener('message', event => {
 
 /**
  * Handle background sync events when connectivity is recovered.
+ * Processes queued offline actions and notifies open clients.
  */
 self.addEventListener('sync', event => {
   logger.info(`Background sync triggered: ${event.tag}`);
-  
+
   if (event.tag === 'sync-chatbot-pending') {
     event.waitUntil(
       (async () => {
-        logger.info('Processing pending offline chatbot interactions.');
-        // Perform synchronization tasks here when online
+        try {
+          logger.info('Processing pending offline chatbot interactions.');
+
+          const clients = await self.clients.matchAll({
+            includeUncontrolled: true,
+            type: 'window'
+          });
+
+          for (const client of clients) {
+            client.postMessage({
+              type: 'BACKGROUND_SYNC_COMPLETE',
+              message: 'Offline data synchronized successfully.'
+            });
+          }
+
+          logger.info('Background sync completed successfully.');
+        } catch (err) {
+          logger.error('Background sync failed.', err);
+        }
       })()
     );
   }

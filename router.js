@@ -417,10 +417,10 @@ class Router {
 
         // Record initial script and style states
         document.querySelectorAll('script[src]').forEach(s => {
-            this.loadedScripts.add(s.getAttribute('src'));
+            this.loadedScripts.add(s.src);
         });
         document.querySelectorAll('link[rel="stylesheet"]').forEach(l => {
-            this.loadedStyles.add(l.getAttribute('href'));
+            this.loadedStyles.add(l.href);
         });
 
         // Set global access hooks
@@ -491,6 +491,13 @@ class Router {
         this.logger.info(`Navigating to: ${path}`);
         this.historyTracker.push(path);
 
+        // Show loading overlay
+        try {
+            if (window.LoadingOverlay) {
+                window.LoadingOverlay.show('Loading ' + path.replace(/^./, '') + '...');
+            }
+        } catch (e) {}
+
         // Cleanup resources registered on the current route
         if (this.currentPath) {
             this.lifecycle.cleanupRoute(this.currentPath);
@@ -503,6 +510,13 @@ class Router {
                 window.stopSoundscape();
             } catch (e) {
                 this.logger.error('Failed to cleanup soundscape', e);
+            }
+        }
+        if (window.speechSynthesis && typeof window.speechSynthesis.cancel === 'function') {
+            try {
+                window.speechSynthesis.cancel();
+            } catch (e) {
+                this.logger.error('Failed to cancel speech synthesis', e);
             }
         }
 
@@ -541,13 +555,16 @@ class Router {
                 this.appRoot.innerHTML = newMain.innerHTML;
 
                 // Sync new styles in document head
-                await this.processHead(doc);
+                await this.processHead(doc, path);
+
+                // Sync header and footer relative URLs and active classes
+                this.syncHeaderFooter(doc, this.currentPath, path);
 
                 // Set tracking route for scripts
                 this.currentPath = path;
 
                 // Process and evaluate new scripts
-                this.processBodyScripts(doc);
+                this.processBodyScripts(doc, path);
 
                 if (push) {
                     window.history.pushState(null, '', path);
@@ -582,39 +599,128 @@ class Router {
 
                 const elapsed = (performance.now() - startTime).toFixed(1);
                 this.logger.info(`Loaded ${path} in ${elapsed}ms [Cache: ${cacheHit ? 'HIT' : 'MISS'}]`);
+
+                // Hide loading overlay after transition completes
+                setTimeout(function () {
+                    try {
+                        if (window.LoadingOverlay) window.LoadingOverlay.hide();
+                    } catch (e) {}
+                }, 400);
             } else {
+                try { if (window.LoadingOverlay) window.LoadingOverlay.hide(); } catch (e) {}
                 window.location.href = path;
             }
 
         } catch (error) {
+            try { if (window.LoadingOverlay) window.LoadingOverlay.hide(); } catch (e) {}
             this.logger.error(`Failed to handle route: ${path}`, error);
+            try {
+                if (window.ToastNotifier) {
+                    window.ToastNotifier.error('Failed to load page. Redirecting to fallback.');
+                }
+            } catch (t) {}
             window.location.href = path;
         }
     }
 
-    processHead(doc) {
+    syncHeaderFooter(doc, currentPagePath, newPagePath) {
+        const currentNavbar = document.getElementById('navbar') || document.querySelector('header');
+        const newNavbar = doc.getElementById('navbar') || doc.querySelector('header');
+        const currentFooter = document.querySelector('footer');
+        const newFooter = doc.querySelector('footer');
+
+        const currentPageUrl = new URL(currentPagePath, window.location.origin).href;
+        const newPageUrl = new URL(newPagePath, window.location.origin).href;
+
+        const updateLinks = (currentContainer, newContainer) => {
+            if (!currentContainer || !newContainer) return;
+            const currentLinks = Array.from(currentContainer.querySelectorAll('a'));
+            const newLinks = Array.from(newContainer.querySelectorAll('a'));
+
+            newLinks.forEach(newLink => {
+                const newHrefAttr = newLink.getAttribute('href');
+                if (!newHrefAttr) return;
+
+                // Resolve new absolute URL
+                let newAbsUrl;
+                try {
+                    newAbsUrl = new URL(newHrefAttr, newPageUrl).href;
+                } catch (e) {
+                    return; // Invalid URL
+                }
+
+                // Find matching link in current links
+                let matchedLink = null;
+                
+                // 1. Try matching by ID if present
+                const newId = newLink.id;
+                if (newId) {
+                    matchedLink = currentLinks.find(l => l.id === newId);
+                }
+
+                // 2. Try matching by resolved absolute URL target
+                if (!matchedLink) {
+                    matchedLink = currentLinks.find(l => {
+                        const curHrefAttr = l.getAttribute('href');
+                        if (!curHrefAttr) return false;
+                        try {
+                            return new URL(curHrefAttr, currentPageUrl).href === newAbsUrl;
+                        } catch (e) {
+                            return false;
+                        }
+                    });
+                }
+
+                // 3. Fallback: Try matching by exact text content
+                if (!matchedLink) {
+                    const newText = newLink.textContent.trim();
+                    if (newText) {
+                        matchedLink = currentLinks.find(l => l.textContent.trim() === newText);
+                    }
+                }
+
+                // If found, update attributes
+                if (matchedLink) {
+                    matchedLink.setAttribute('href', newHrefAttr);
+                    if (newLink.className) {
+                        matchedLink.className = newLink.className;
+                    } else {
+                        matchedLink.removeAttribute('class');
+                    }
+                }
+            });
+        };
+
+        updateLinks(currentNavbar, newNavbar);
+        updateLinks(currentFooter, newFooter);
+    }
+
+    processHead(doc, path) {
         const promises = [];
         doc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
             const href = link.getAttribute('href');
-            if (href && !this.loadedStyles.has(href)) {
-                const newLink = document.createElement('link');
-                newLink.rel = 'stylesheet';
-                newLink.href = href;
+            if (href) {
+                const absoluteHref = new URL(href, new URL(path, window.location.origin)).href;
+                if (!this.loadedStyles.has(absoluteHref)) {
+                    const newLink = document.createElement('link');
+                    newLink.rel = 'stylesheet';
+                    newLink.href = href;
 
-                const p = new Promise(resolve => {
-                    newLink.onload = () => resolve();
-                    newLink.onerror = () => resolve();
-                });
-                promises.push(p);
+                    const p = new Promise(resolve => {
+                        newLink.onload = () => resolve();
+                        newLink.onerror = () => resolve();
+                    });
+                    promises.push(p);
 
-                document.head.appendChild(newLink);
-                this.loadedStyles.add(href);
+                    document.head.appendChild(newLink);
+                    this.loadedStyles.add(absoluteHref);
+                }
             }
         });
         return Promise.all(promises);
     }
 
-    processBodyScripts(doc) {
+    processBodyScripts(doc, path) {
         const scripts = [...doc.querySelectorAll('script')];
 
         scripts.forEach(oldScript => {
@@ -622,7 +728,8 @@ class Router {
 
             if (src) {
                 // External script execution
-                if (!this.loadedScripts.has(src)) {
+                const absoluteSrc = new URL(src, new URL(path, window.location.origin)).href;
+                if (!this.loadedScripts.has(absoluteSrc)) {
                     const newScript = document.createElement('script');
                     newScript.src = src;
                     Array.from(oldScript.attributes).forEach(attr => {
@@ -631,7 +738,7 @@ class Router {
                         }
                     });
                     document.body.appendChild(newScript);
-                    this.loadedScripts.add(src);
+                    this.loadedScripts.add(absoluteSrc);
                 }
             } else {
                 // Inline script sandbox wrapper processing
@@ -719,7 +826,8 @@ function getPathPrefix() {
     return '';
 }
 
-function loadSearchScript(callback) {
+function loadSearchScript(callback, retries) {
+    if (retries === undefined) retries = 2;
     if (window.indiaSearchIndex) {
         if (callback) callback();
         return;
@@ -731,6 +839,14 @@ function loadSearchScript(callback) {
     };
     script.onerror = () => {
         console.error("Failed to load search index.");
+        if (retries > 0) {
+            console.log('Retrying search index load... (' + retries + ' attempts left)');
+            setTimeout(function () {
+                loadSearchScript(callback, retries - 1);
+            }, 1500);
+        } else if (callback) {
+            callback(new Error('Search index could not be loaded after retries'));
+        }
     };
     document.body.appendChild(script);
 }

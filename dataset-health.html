@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Developer dashboard to validate explorer datasets for missing fields, duplicate IDs, suspicious images, and completeness scores.">
+  <title>Dataset Health Dashboard | Incredible India Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dataset-health.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="learn.html" class="nav-link">Learn</a>
+        <a href="dataset-health.html" class="nav-link" style="color:var(--saffron)">Dataset Health</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="health-page">
+    <section class="health-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Contributor utility · dataset quality</span>
+        <h1>Dataset Health <span>Dashboard</span></h1>
+        <p>Inspect explorer datasets for missing fields, duplicate IDs, incomplete metadata, suspicious image paths, and completeness scores before opening a PR.</p>
+        <div class="hero-stats" id="hero-stats">
+          <div><strong id="total-datasets">0</strong><span>Datasets scanned</span></div>
+          <div><strong id="total-items">0</strong><span>Items checked</span></div>
+          <div><strong id="avg-score">0%</strong><span>Average score</span></div>
+        </div>
+        <a href="#dashboard" class="hero-cta">Open dashboard ↓</a>
+      </div>
+    </section>
+
+    <section class="health-section" id="dashboard">
+      <div class="health-container">
+        <div class="section-heading">
+          <span class="section-badge">Static Dataset Validator</span>
+          <h2>Find incomplete explorer data quickly</h2>
+          <p>This dashboard runs fully in the browser and helps contributors catch common dataset issues before review.</p>
+        </div>
+
+        <div class="dashboard-controls">
+          <div class="control-field search-field">
+            <label for="dataset-search">Search datasets</label>
+            <input id="dataset-search" type="search" placeholder="Try heritage, nature, scripts, missing image..." autocomplete="off">
+          </div>
+          <div class="control-field">
+            <label for="status-filter">Health status</label>
+            <select id="status-filter">
+              <option value="all">All statuses</option>
+              <option value="healthy">Healthy</option>
+              <option value="warning">Needs attention</option>
+              <option value="critical">Critical</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="summary-grid" id="summary-grid"></div>
+
+        <div class="table-card">
+          <div class="table-header">
+            <div>
+              <h3>Validation Results</h3>
+              <p id="result-status" aria-live="polite">Showing all datasets</p>
+            </div>
+            <button id="expand-all" type="button">Expand all</button>
+          </div>
+
+          <div class="validation-list" id="validation-list"></div>
+
+          <div class="empty-state" id="empty-state">
+            <span>⌕</span>
+            <h3>No dataset found</h3>
+            <p>Try another dataset name, category, page, or issue keyword.</p>
+            <button id="reset-filters" type="button">Reset filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="health-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Built to help contributors maintain cleaner explorer data.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="dataset-health.js"></script>
+</body>
+</html>

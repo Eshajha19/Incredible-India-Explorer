@@ -8,16 +8,32 @@
   "theme_color": "#FF9933",
   "icons": [
     {
-      "src": "assets/cuisine_default.png",
+      "src": "assets/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "assets/culture_default.png",
+      "src": "assets/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "assets/hero_banner.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "travel", "culture"],
+  "screenshots": [
+    {
+      "src": "assets/hero_banner.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Incredible India Explorer Homepage"
     }
   ]
 }

@@ -259,11 +259,6 @@ function initSportsPage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -397,9 +392,6 @@ function initSportsPage() {
     }
 
     function openModal(athlete, trigger) {
-        lastFocusedTrigger = trigger || document.activeElement;
-        isModalOpen = true;
-
         modalCategory.className = `sports-badge ${athlete.category}`;
         modalCategory.textContent = getCategoryLabel(athlete.category);
         modalTitle.textContent = athlete.name;
@@ -417,48 +409,20 @@ function initSportsPage() {
         modalAvatar.className = `sports-modal-avatar ${athlete.category}`;
         modalAvatar.innerHTML = `<img src="${athlete.image}" alt="${athlete.name}" loading="lazy">`;
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: trigger || document.activeElement,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-
-        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-            lastFocusedTrigger.focus();
-        }
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-
-        if (!focusableElements.length) return;
-
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 
     function getCategoryLabel(category) {

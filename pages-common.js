@@ -52,6 +52,14 @@ if (typeof window.setupFocusTrap !== 'function') {
     };
 }
 
+/* Initialise the unified toast notification system for pages using this loader */
+(function loadToastModule() {
+    var script = document.createElement('script');
+    script.src = 'js-modules/toast-system.js';
+    script.async = true;
+    document.head.appendChild(script);
+})();
+
 document.addEventListener('app:route-changed', () => {
     initSiteChrome();
 
@@ -133,6 +141,32 @@ function initSiteChrome() {
         });
     }
 }
+
+/* ==========================================================================
+   PWA - SERVICE WORKER REGISTRATION (standalone for pages using pages-common.js)
+   ========================================================================== */
+(function registerServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+
+    function detectPrefix() {
+        const subdirPatterns = ['/states/', '/forts/', '/freedom-timeline/', '/handloom/',
+            '/kingdoms/', '/postal-stamps/', '/traditional-games/', '/toys/',
+            '/geological-wonders/', '/innovation-timeline/'];
+        const isSubdir = subdirPatterns.some(p => window.location.pathname.includes(p));
+        return isSubdir ? '../' : './';
+    }
+
+    window.addEventListener('load', () => {
+        const prefix = detectPrefix();
+        navigator.serviceWorker.register(prefix + 'sw.js')
+            .then(registration => {
+                console.log('pages-common: ServiceWorker registered with scope:', registration.scope);
+            })
+            .catch(err => {
+                console.error('pages-common: ServiceWorker registration failed:', err);
+            });
+    });
+})();
 
 /* ==========================================================================
    1. TRIBES & INDIGENOUS CULTURE PAGE
