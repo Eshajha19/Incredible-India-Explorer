@@ -217,9 +217,6 @@ document.addEventListener('app:route-changed', () => {
         window.lazyLoadScript('trip-data.js')
             .then(() => window.lazyLoadScript('js-modules/trip-planner.js'))
             .then(() => safeInitFn(initTripPlannerPage, 'Trip Planner'))
-            .then(() => window.lazyLoadScript('js-modules/weather-core.js'))
-            .then(() => window.lazyLoadScript('js-modules/weather-service.js'))
-            .then(() => window.lazyLoadScript('js-modules/weather-ui.js'))
             .catch(err => handleInitError('Trip Planner', err));
     } else if (pathname.includes('heritage.html')) {
         console.log('✅ Heritage page loaded successfully');
@@ -5416,3 +5413,5 @@ function initPersonalitiesPage() {
     // Show only Historical Legends by default on page load
     filterCards('historical');
 }
+
+

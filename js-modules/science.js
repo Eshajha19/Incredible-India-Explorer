@@ -131,11 +131,6 @@ function initSciencePage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -278,9 +273,6 @@ function initSciencePage() {
     }
 
     function openModal(scientist, trigger) {
-        lastFocusedTrigger = trigger || document.activeElement;
-        isModalOpen = true;
-
         modalCategory.className = `science-badge ${scientist.category}`;
         modalCategory.textContent = categoryLabels[scientist.category] || scientist.category;
         modalTitle.textContent = scientist.name;
@@ -298,44 +290,19 @@ function initSciencePage() {
         modalAvatar.className = `science-modal-avatar science-avatar-frame ${scientist.category} ${scientist.id}`;
         modalAvatar.innerHTML = `<img class="science-avatar-image science-avatar-image-cover" src="${scientist.image}" alt="${scientist.name}" loading="lazy" decoding="async">`;
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: trigger || document.activeElement,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-
-        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
-            lastFocusedTrigger.focus();
-        }
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (!focusableElements.length) return;
-
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 }

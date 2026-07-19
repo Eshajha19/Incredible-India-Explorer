@@ -1,6 +1,6 @@
 /**
  * BHARAT AI - Knowledge Base
- * A robust simulated database of facts, descriptions, and answers about India.
+ * Context-Aware Simulated database of facts and descriptions.
  */
 
 const bharatKnowledgeBase = [
@@ -10,7 +10,7 @@ const bharatKnowledgeBase = [
     },
     {
         keywords: ["taj mahal", "agra", "monument of love"],
-        response: "The Taj Mahal, located in Agra, Uttar Pradesh, is a UNESCO World Heritage site and one of the New Seven Wonders of the World. Built by Mughal Emperor Shah Jahan in 1632 in memory of his beloved wife Mumtaz Mahal, it is an architectural masterpiece made entirely of white marble."
+        response: "The Taj Mahal, located in Agra, Uttar Pradesh, is a UNESCO World Heritage site and one of the New Seven Wonders of the World. Built by Mughal Emperor Shah Jahan... <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/monuments.html#taj-mahal\">Yes, take me there!</button>"
     },
     {
         keywords: ["food", "cuisine", "eat", "dish", "meal"],
@@ -58,29 +58,123 @@ const bharatKnowledgeBase = [
     }
 ];
 
-// Fallback responses for when the AI isn't sure
 const fallbackResponses = [
     "That is a fascinating topic! India's diversity means there is always more to learn about it. Could you specify a particular state, food, or historical era?",
     "I'm still learning about that specific detail! Try asking me about famous monuments, wildlife safaris, traditional foods, or popular tourist destinations.",
     "Incredible India has endless stories. While I search my archives for that, would you like to know about the majestic Himalayas or the serene backwaters of Kerala?"
 ];
 
-function findBestResponse(userInput) {
+// Contextual Data Branches
+const contextualData = {
+    "default": {
+        greeting: "Namaste! I am Bharat, your personalized AI Travel Planner and Story Narrator. How can I assist you in exploring India today?",
+        chips: [
+            "🗺️ Plan a 5-day Kerala trip",
+            "📖 Tell me a Rajput story",
+            "🏛️ History of Taj Mahal"
+        ],
+        scopedResponses: []
+    },
+    "wildlife": {
+        greeting: "Welcome to India's wild side! 🐅 From the Royal Bengal Tigers to the Asiatic Lions, I can guide you through our incredible national parks.",
+        chips: [
+            "🐅 Spot a Bengal Tiger",
+            "🦏 Kaziranga Rhinos",
+            "🐘 Elephant Safaris"
+        ],
+        scopedResponses: [
+            {
+                keywords: ["tiger", "bengal", "ranthambore", "corbett"],
+                response: "The Royal Bengal Tiger is India's national animal. Ranthambore and Jim Corbett are among the best places to spot them in the wild! Would you like to explore Ranthambore? <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/wildlife.html#ranthambore\">Explore Ranthambore</button>"
+            }
+        ]
+    },
+    "astronomy": {
+        greeting: "Look up at the stars! 🌌 India has a rich history of astronomy, from ancient observatories like Jantar Mantar to our modern space missions (ISRO).",
+        chips: [
+            "🔭 What is Jantar Mantar?",
+            "🚀 Tell me about ISRO",
+            "📜 Ancient Astronomer Aryabhata"
+        ],
+        scopedResponses: [
+            {
+                keywords: ["jantar mantar", "observatory", "telescope"],
+                response: "Jantar Mantar in Jaipur is an astronomical observation site built in the early 18th century. It includes a set of some 20 main fixed instruments designed for the observation of astronomical positions with the naked eye! <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/astronomy.html#jantar-mantar\">See Jantar Mantar</button>"
+            },
+            {
+                keywords: ["aryabhata", "ancient", "mathematician"],
+                response: "Aryabhata was the first of the major mathematician-astronomers from the classical age of Indian mathematics and Indian astronomy. He discovered that the earth rotates on its axis."
+            }
+        ]
+    },
+    "arts-crafts": {
+        greeting: "Welcome to the vibrant world of Indian Arts & Crafts! 🎨 Every region has its own unique style, from Madhubani painting to Kanjeevaram silk.",
+        chips: [
+            "🖌️ Madhubani Art",
+            "🏺 Pottery traditions",
+            "🧵 Silk weaving"
+        ],
+        scopedResponses: []
+    }
+};
+
+/**
+ * Returns contextual data (greeting, chips) for a given path.
+ */
+function getChatbotContext(path) {
+    const p = path.toLowerCase();
+    let contextKey = "default";
+    
+    if (p.includes("wildlife")) {
+        contextKey = "wildlife";
+    } else if (p.includes("astronomy")) {
+        contextKey = "astronomy";
+    } else if (p.includes("arts-crafts")) {
+        contextKey = "arts-crafts";
+    }
+    
+    return contextualData[contextKey];
+}
+
+/**
+ * Finds the best response, optionally prioritizing scoped responses based on context.
+ */
+function findBestResponse(userInput, currentPath = "") {
     const text = userInput.toLowerCase();
     
     let bestMatch = null;
     let maxMatches = 0;
 
-    for (const entry of bharatKnowledgeBase) {
-        let matchCount = 0;
-        for (const keyword of entry.keywords) {
-            if (text.includes(keyword)) {
-                matchCount++;
+    // Check scoped responses first if path is provided
+    if (currentPath) {
+        const context = getChatbotContext(currentPath);
+        for (const entry of context.scopedResponses) {
+            let matchCount = 0;
+            for (const keyword of entry.keywords) {
+                if (text.includes(keyword)) {
+                    matchCount++;
+                }
+            }
+            if (matchCount > maxMatches) {
+                maxMatches = matchCount;
+                bestMatch = entry.response;
             }
         }
-        if (matchCount > maxMatches) {
-            maxMatches = matchCount;
-            bestMatch = entry.response;
+    }
+
+    // If no good match in scoped, check global knowledge base
+    if (!bestMatch) {
+        for (const entry of bharatKnowledgeBase) {
+            let matchCount = 0;
+            for (const keyword of entry.keywords) {
+                if (text.includes(keyword)) {
+                    matchCount++;
+                }
+            }
+            if (matchCount > maxMatches) {
+                maxMatches = matchCount;
+                bestMatch = entry.response;
+            }
         }
     }
 

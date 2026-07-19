@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Explorer Glossary | Incredible India Explorer</title>
+  <meta name="description" content="A beginner-friendly glossary of Indian culture, history, geography, architecture, music, nature, food, and literature terms.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="glossary.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="learn.html" class="nav-link">Learn</a>
+        <a href="culture.html" class="nav-link">Culture</a>
+        <a href="glossary.html" class="nav-link" style="color:var(--saffron)">Glossary</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="glossary-page">
+    <section class="glossary-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Beginner-friendly cultural dictionary</span>
+        <h1>Global Explorer <span>Glossary</span></h1>
+        <p>Understand important Indian culture, history, geography, food, literature, architecture, nature, and music terms in simple language.</p>
+        <div class="hero-stats">
+          <div><strong id="term-count">20</strong><span>Terms</span></div>
+          <div><strong id="category-count">8</strong><span>Categories</span></div>
+          <div><strong>∞</strong><span>Learning links</span></div>
+        </div>
+        <a href="#glossary" class="hero-cta">Explore glossary ↓</a>
+      </div>
+    </section>
+
+    <section class="glossary-section" id="glossary">
+      <div class="glossary-container">
+        <div class="section-heading">
+          <span class="section-badge">Term Finder</span>
+          <h2>Search cultural and historical terms</h2>
+          <p>Find simple definitions, examples, related explorer pages, and connected learning tags.</p>
+        </div>
+
+        <div class="glossary-controls">
+          <div class="control-field search-field">
+            <label for="glossary-search">Search glossary</label>
+            <input id="glossary-search" type="search" placeholder="Try dynasty, ikat, biodiversity, thali..." autocomplete="off">
+          </div>
+          <div class="control-field">
+            <label for="category-filter">Category</label>
+            <select id="category-filter"><option value="all">All categories</option></select>
+          </div>
+        </div>
+
+        <div class="category-chips" id="category-chips" aria-label="Glossary categories"></div>
+
+        <div class="results-toolbar">
+          <p id="result-status" aria-live="polite">Showing all glossary terms</p>
+          <button id="clear-filters" type="button">Clear filters</button>
+        </div>
+
+        <div class="glossary-grid" id="glossary-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>⌕</span>
+          <h3>No glossary term found</h3>
+          <p>Try another term, category, tag, or related topic.</p>
+          <button id="empty-reset" type="button">Reset filters</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="tooltip-demo-section">
+      <div class="glossary-container tooltip-demo-card">
+        <span class="section-badge">Reusable Tooltip Helper</span>
+        <h2>Tooltip support example</h2>
+        <p>This helper can explain words inline, like
+          <button class="glossary-tooltip-term" data-glossary-term="heritage" type="button">heritage</button>,
+          <button class="glossary-tooltip-term" data-glossary-term="biodiversity" type="button">biodiversity</button>,
+          and <button class="glossary-tooltip-term" data-glossary-term="monsoon" type="button">monsoon</button>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="glossary-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Learn the words behind India's stories.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="glossary.js"></script>
+</body>
+</html>

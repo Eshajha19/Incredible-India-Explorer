@@ -1,0 +1,30 @@
+# Auto-detect text files and set line endings
+* text=auto
+
+# Source files
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.mjs text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+# Editor configs
+.editorconfig text eol=lf
+.gitattributes text eol=lf
+.prettierrc.json text eol=lf

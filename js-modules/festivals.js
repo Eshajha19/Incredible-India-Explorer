@@ -48,9 +48,9 @@ function initFestivalsPage() {
     const shapeContainer = document.getElementById('canvas-shape-container');
     const storySubtitle = document.getElementById('story-subtitle');
     const storyTitle = document.getElementById('story-title');
-    const storyMainText = document.getElementById('story-main-text');
+const storyMainText = document.getElementById('story-main-text');
+    const storyLocation = document.getElementById('story-location');
     const highlightsGrid = document.getElementById('story-highlights-grid');
-
     festivalTimeline.innerHTML = '';
 
     festivalsData.forEach(fest => {
@@ -69,8 +69,7 @@ function initFestivalsPage() {
             storyImg.src = fest.image;
             storyImg.alt = fest.name;
             storySubtitle.innerText = fest.subtitle;
-            storyTitle.innerText = fest.name;
-
+storyLocation.innerText = `${fest.period || 'All Year'} · ${fest.location || 'Pan-India'}`;            storyLocation.innerText = `${fest.month} · ${fest.location}`;
             // Format story text as paragraph lines
             const paragraphs = (fest.story || fest.description)
                 .split('\n\n')

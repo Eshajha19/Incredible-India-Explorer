@@ -303,9 +303,10 @@ function initMusicPage() {
     });
 
     artistGrid.addEventListener('click', event => {
-        const playButton = event.target.closest('[data-music-play]');
+        const playButton = event.target.closest('button[data-music-play]');
         if (playButton) {
             event.stopPropagation();
+            event.preventDefault();
             const card = playButton.closest('[data-artist-id]');
             const artistId = card?.getAttribute('data-artist-id');
             if (!artistId) return;
@@ -314,7 +315,7 @@ function initMusicPage() {
             return;
         }
 
-        const detailsButton = event.target.closest('[data-music-details]');
+        const detailsButton = event.target.closest('button[data-music-details]');
         const card = event.target.closest('[data-artist-id]');
 
         if (detailsButton && card) {
@@ -356,11 +357,6 @@ function initMusicPage() {
         if (event.key === 'Escape') {
             event.preventDefault();
             closeModal();
-            return;
-        }
-
-        if (event.key === 'Tab') {
-            trapModalFocus(event);
         }
     });
 
@@ -516,7 +512,6 @@ function initMusicPage() {
         lastFocusedArtistId = artistId;
         lastFocusedTrigger = trigger || document.activeElement;
         lastFocusedTriggerKind = trigger?.matches?.('[data-music-details]') ? 'details' : 'card';
-        isModalOpen = true;
 
         modalAvatar.className = `music-modal-avatar ${artist.genre}`;
         modalAvatar.innerHTML = `<img src="${artist.image}" alt="${artist.name}" loading="lazy" decoding="async" class="music-modal-image">`;
@@ -529,43 +524,22 @@ function initMusicPage() {
         modalInstruments.innerHTML = artist.instruments.map(item => `<span class="music-chip">${item}</span>`).join('');
         modalHighlights.innerHTML = artist.highlights.map(item => `<li>${item}</li>`).join('');
 
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => {
-            modalClose.focus();
+        window.ModalUtils.openModal({
+            modalEl: modal,
+            triggerEl: null,
+            onOpen: () => {
+                isModalOpen = true;
+            },
+            onClose: () => {
+                isModalOpen = false;
+                renderArtists();
+                restoreFocus();
+            }
         });
     }
 
     function closeModal() {
-        if (!isModalOpen) return;
-
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        isModalOpen = false;
-        renderArtists();
-        restoreFocus();
-    }
-
-    function trapModalFocus(event) {
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (!focusableElements.length) return;
-
-        const focusable = Array.from(focusableElements).filter(el => !el.hasAttribute('disabled'));
-        if (!focusable.length) return;
-
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
+        window.ModalUtils.closeModal(modal);
     }
 
     function restoreFocus() {

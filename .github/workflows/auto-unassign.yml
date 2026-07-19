@@ -1,0 +1,87 @@
+name: auto-unassign
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  auto-unassign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check and unassign inactive contributors
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { owner, repo } = context.repo;
+            const INACTIVITY_DAYS = 7;
+            const INACTIVITY_MS = INACTIVITY_DAYS * 24 * 60 * 60 * 1000;
+            const now = Date.now();
+
+            let page = 1;
+            let issues = [];
+            while (true) {
+              const { data } = await github.rest.issues.listForRepo({
+                owner,
+                repo,
+                state: 'open',
+                assignee: '*',
+                per_page: 100,
+                page,
+              });
+              if (data.length === 0) break;
+              issues = issues.concat(data.filter(i => !i.pull_request));
+              if (data.length < 100) break;
+              page++;
+            }
+
+            console.log(`Found ${issues.length} open assigned issue(s) to check.`);
+
+            for (const issue of issues) {
+              const issueNumber = issue.number;
+              const assignees = issue.assignees.map(a => a.login);
+              if (assignees.length === 0) continue;
+
+              let lastActivity = new Date(issue.updated_at).getTime();
+
+              const { data: comments } = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                per_page: 100,
+              });
+
+              if (comments.length > 0) {
+                const latestComment = comments
+                  .map(c => new Date(c.created_at).getTime())
+                  .sort((a, b) => b - a)[0];
+                if (latestComment > lastActivity) lastActivity = latestComment;
+              }
+
+              const inactiveDays = Math.floor((now - lastActivity) / (1000 * 60 * 60 * 24));
+              console.log(`Issue #${issueNumber}: last activity ${inactiveDays} day(s) ago.`);
+
+              if (now - lastActivity < INACTIVITY_MS) continue;
+
+              await github.rest.issues.removeAssignees({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                assignees,
+              });
+
+              const assigneeMentions = assignees.map(a => `@${a}`).join(', ');
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: issueNumber,
+                body: `This issue has been automatically unassigned from ${assigneeMentions} due to ${INACTIVITY_DAYS} days of inactivity (no comments or commits).\n\n---\n\n### Issue is Now Open\n\nAnyone is welcome to pick this up. Comment ## I want to work on this to be assigned.\n\nIf you were previously assigned and are still working on this, please re-claim it and leave a brief status update so others know it is active.`,
+              });
+
+              console.log(`Unassigned ${assigneeMentions} from issue #${issueNumber}.`);
+            }

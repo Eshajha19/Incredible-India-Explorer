@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Known as the Land of the Dawn-Lit Mountains, Arunachal Pradesh is home to pristine valleys, diverse tribal cultures, and historic Tibetan Buddhist monasteries.">
+    <title>Arunachal Pradesh | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../../index.html#map" class="nav-link">Interactive Map</a>
+                <a href="../../cuisine.html" class="nav-link">Cuisine</a>
+                <a href="../../festivals.html" class="nav-link">Festivals</a>
+                <a href="../../culture.html" class="nav-link">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="../../monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="../../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                        <a href="../../tribes.html" class="dropdown-item">Tribes</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle">☀️</button>
+                <a href="../../premium.html" class="nav-link premium-link">★ Premium</a>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root">
+        
+    <div style="max-width: 800px; margin: 40px auto; padding: 20px;" class="glass-card">
+        <h1>Arunachal Pradesh</h1>
+        <p><strong>Capital:</strong> Itanagar</p>
+        <p><strong>Famous Food:</strong> Thukpa & Pehak</p>
+        <p><strong>Major Festival:</strong> Solung & Losar</p>
+        <div style="margin-top: 20px;">
+            <h3>Overview</h3>
+            <p>Known as the Land of the Dawn-Lit Mountains, Arunachal Pradesh is home to pristine valleys, diverse tribal cultures, and historic Tibetan Buddhist monasteries.</p>
+        </div>
+        <div style="margin-top: 20px;">
+            <h3>Story</h3>
+            <p>Known as the Land of the Dawn-Lit Mountains, Arunachal Pradesh is home to pristine valleys, diverse tribal cultures, and historic Tibetan Buddhist monasteries.<br><br>The vibrant region of Arunachal Pradesh is governed from its beautiful capital, Itanagar. The land is deeply connected to its roots, celebrating grand occasions like Solung & Losar with unmatched energy and devotion.<br><br>Visitors from around the world are mesmerized by the local culinary delights, particularly the iconic Thukpa & Pehak, which represents centuries of refined regional cooking techniques and traditional spices. A journey to Arunachal Pradesh is a journey through time, culture, and nature.</p>
+        </div>
+        <a href="../../index.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">Back to Home</a>
+    </div>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
+                    with passion and pure vanilla web technologies.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="../../index.html#home">Home</a></li>
+                    <li><a href="../../index.html#map">Interactive Map</a></li>
+                    <li><a href="../../cuisine.html">Cuisine</a></li>
+                    <li><a href="../../festivals.html">Festivals</a></li>
+                    <li><a href="../../culture.html">Culture</a></li>
+                    <li><a href="../../startup.html">Startup</a></li>
+                    <li><a href="../../index.html#quiz">Quiz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-credits footer-credits-center">
+            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    
+    
+    <script type="module" src="../../firebase-config.js"></script>
+    <script type="module" src="../../auth.js"></script>
+    <script src="../../router.js" defer></script>
+</body>
+</html>

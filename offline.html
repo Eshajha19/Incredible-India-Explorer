@@ -39,7 +39,7 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 620px;
             padding: 40px 20px;
             box-sizing: border-box;
         }
@@ -87,7 +87,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 25px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             text-align: left;
@@ -128,6 +128,58 @@
             margin: 0;
         }
 
+        /* Cached Pages Card */
+        .cached-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        .cached-header {
+            font-weight: 600;
+            color: var(--primary-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cached-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cached-list a {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .cached-list a:hover {
+            background: rgba(255, 176, 31, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .cached-empty {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
         /* Buttons */
         .btn-group {
             display: flex;
@@ -147,12 +199,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            border: none;
+            font-family: var(--font-family);
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--saffron), #ff9f43);
             color: white;
-            border: none;
             box-shadow: 0 4px 15px rgba(255, 111, 60, 0.25);
         }
 
@@ -178,41 +231,126 @@
     <div class="container">
         <div class="offline-badge">Connection Lost</div>
         <h1>You are Offline</h1>
-        <p>It seems your internet connection has took a short break. Don't worry! While you are waiting to get back online, here is a quick piece of Indian history to explore:</p>
+        <p>Your internet connection seems to have taken a short break. While you wait, here is a quick piece of Indian heritage to explore:</p>
         
         <div class="trivia-card">
             <div class="trivia-header">
-                <span class="trivia-icon">💡</span>
+                <span class="trivia-icon">i</span>
                 <span>Did You Know?</span>
             </div>
             <p class="trivia-text" id="trivia-content">Loading fascinating trivia...</p>
         </div>
 
+        <!-- Cached Pages Section -->
+        <div class="cached-card" id="cached-card">
+            <div class="cached-header">
+                <span>Pages Available Offline</span>
+            </div>
+            <div class="cached-list" id="cached-list">
+                <span class="cached-empty">Scanning available pages...</span>
+            </div>
+        </div>
+
         <div class="btn-group">
             <button class="btn btn-primary" onclick="window.location.reload()">
-                🔄 Try Again
+                Retry Connection
             </button>
             <a href="index.html" class="btn btn-secondary">
-                🏠 Go Home
+                Go Home
             </a>
         </div>
     </div>
 
     <script>
-        const trivia = [
-            "India is the only country in the world that is home to both tigers and lions, with the Royal Bengal Tiger inhabiting multiple national parks and the Asiatic Lion finding its last natural refuge in Gir Forest, Gujarat.",
-            "The Jantar Mantar observatory in Jaipur, Rajasthan features the world's largest stone sundial, measuring 27 meters tall, built by Maharaja Sawai Jai Singh II in the early 18th century.",
-            "Indian railways is one of the world's largest rail networks, operating over 22,000 trains daily across 68,000 route kilometers, transporting over 23 million passengers every single day.",
-            "Ayurveda, often considered the oldest surviving system of healthcare in the world, originated in India over 5,000 years ago during the Vedic period.",
-            "The Lonar Crater Lake in Maharashtra is a unique saline soda lake created by a meteorite impact during the Pleistocene epoch, and is one of the very few basalt impact craters on Earth.",
-            "India is the world's largest producer, consumer, and exporter of spices, supplying more than 70% of global spices from its diverse spice plantations.",
-            "With over 19,500 languages and dialects spoken as mother tongues across the country, India represents one of the most diverse linguistic landscapes in human history.",
-            "India was the first country to develop extraction and purifying techniques for sugar, dating back to the Gupta Dynasty around 350 CE."
-        ];
+        (function () {
+            // ---- Trivia ----
+            var trivia = [
+                "India is the only country in the world that is home to both tigers and lions, with the Royal Bengal Tiger inhabiting multiple national parks and the Asiatic Lion finding its last natural refuge in Gir Forest, Gujarat.",
+                "The Jantar Mantar observatory in Jaipur, Rajasthan features the world's largest stone sundial, measuring 27 meters tall, built by Maharaja Sawai Jai Singh II in the early 18th century.",
+                "Indian railways is one of the world's largest rail networks, operating over 22,000 trains daily across 68,000 route kilometers, transporting over 23 million passengers every single day.",
+                "Ayurveda, often considered the oldest surviving system of healthcare in the world, originated in India over 5,000 years ago during the Vedic period.",
+                "The Lonar Crater Lake in Maharashtra is a unique saline soda lake created by a meteorite impact during the Pleistocene epoch, and is one of the very few basalt impact craters on Earth.",
+                "India is the world's largest producer, consumer, and exporter of spices, supplying more than 70% of global spices from its diverse spice plantations.",
+                "With over 19,500 languages and dialects spoken as mother tongues across the country, India represents one of the most diverse linguistic landscapes in human history.",
+                "India was the first country to develop extraction and purifying techniques for sugar, dating back to the Gupta Dynasty around 350 CE."
+            ];
 
-        // Pick a random trivia
-        const randomItem = trivia[Math.floor(Math.random() * trivia.length)];
-        document.getElementById('trivia-content').innerText = randomItem;
+            var randomItem = trivia[Math.floor(Math.random() * trivia.length)];
+            document.getElementById('trivia-content').innerText = randomItem;
+
+            // ---- Cached Pages Discovery ----
+            (function loadCachedPages() {
+                var list = document.getElementById('cached-list');
+                if (!('caches' in window)) {
+                    list.innerHTML = '<span class="cached-empty">Cache API not available.</span>';
+                    return;
+                }
+
+                var pageNames = {
+                    '/': 'Home',
+                    '/index.html': 'Home',
+                    '/cuisine.html': 'Cuisine',
+                    '/festivals.html': 'Festivals',
+                    '/culture.html': 'Culture',
+                    '/heritage.html': 'Heritage',
+                    '/wildlife.html': 'Wildlife',
+                    '/travel.html': 'Travel',
+                    '/monuments.html': 'Monuments',
+                    '/music.html': 'Music',
+                    '/dance.html': 'Dance',
+                    '/languages.html': 'Languages',
+                    '/arts-crafts.html': 'Arts & Crafts',
+                    '/offline.html': 'Offline',
+                    '/adventure.html': 'Adventure',
+                    '/spiritual.html': 'Spiritual',
+                    '/science.html': 'Science',
+                    '/literature.html': 'Literature',
+                    '/railways.html': 'Railways',
+                    '/architecture.html': 'Architecture'
+                };
+
+                caches.keys().then(function (cacheNames) {
+                    var found = [];
+                    var pending = cacheNames.map(function (name) {
+                        return caches.open(name).then(function (cache) {
+                            return cache.keys().then(function (requests) {
+                                requests.forEach(function (req) {
+                                    var url = new URL(req.url);
+                                    var path = url.pathname;
+                                    // Only show HTML pages
+                                    if (path.endsWith('.html') || path === '/') {
+                                        var cleanPath = path.replace(/\/index\.html$/, '/');
+                                        if (found.indexOf(cleanPath) === -1) {
+                                            found.push(cleanPath);
+                                        }
+                                    }
+                                });
+                            });
+                        });
+                    });
+
+                    return Promise.all(pending).then(function () {
+                        if (found.length === 0) {
+                            list.innerHTML = '<span class="cached-empty">No pages cached yet. Browse the site online to cache pages for offline use.</span>';
+                            return;
+                        }
+
+                        // Sort alphabetically
+                        found.sort();
+
+                        var html = '';
+                        found.forEach(function (path) {
+                            var label = pageNames[path] || path.replace(/\.html$/, '').replace(/^\//, '') || 'Home';
+                            var displayName = label.charAt(0).toUpperCase() + label.slice(1);
+                            html += '<a href="' + path + '">' + displayName + '</a>';
+                        });
+                        list.innerHTML = html;
+                    });
+                }).catch(function () {
+                    list.innerHTML = '<span class="cached-empty">Unable to scan cached pages.</span>';
+                });
+            })();
+        })();
     </script>
 </body>
 </html>

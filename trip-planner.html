@@ -19,7 +19,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
 <link href="styles.css" rel="stylesheet"/>
 <link href="trip-planner.css" rel="stylesheet"/>
-<link href="weather-panel.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- Sticky Navigation Bar -->
@@ -110,11 +109,6 @@
 <label for="trip-travelers">Travelers</label>
 <input type="number" id="trip-travelers" name="travelers" min="1" max="20" value="1"/>
 </div>
-<div class="trip-form-field">
-<label for="trip-start-date">Trip Start Date</label>
-<input type="date" id="trip-start-date" name="startDate"/>
-<small>Used for weather-aware suggestions — defaults to tomorrow.</small>
-</div>
 </div>
 
 <span class="trip-categories-label">Preferred Destination Types (optional — leave blank for a mix)</span>
@@ -143,7 +137,6 @@
 <section class="trip-results-section fade-in-section">
 <div class="section-container">
 <div id="trip-results" hidden=""></div>
-<div id="weather-panel" class="weather-panel" hidden=""></div>
 </div>
 </section>
 

@@ -325,7 +325,6 @@
                 schedule.push({
                     day: dayCounter,
                     type: "stay",
-                    destId: dest.id,
                     city: dest.name,
                     state: dest.state,
                     activity:
@@ -576,11 +575,6 @@
                     ${scheduleHtml}
                 </div>
             `;
-
-            // Lets independent add-ons (e.g. the weather-aware itinerary layer,
-            // see js-modules/weather-ui.js) react to a freshly rendered itinerary
-            // without this function needing to know they exist.
-            document.dispatchEvent(new CustomEvent("tripplanner:itinerary-rendered", { detail: { itinerary: it } }));
         }
 
         function renderSavedTrips() {

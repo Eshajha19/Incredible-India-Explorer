@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Sync Dashboard</title>
+    
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    
+    <!-- Babel for inline JSX compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        html, body, #root {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #1B1F3B;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef, useCallback } = React;
+
+        // Fallback Icon component mapping for Lucide script access in React context
+        const Icon = ({ name, size = 16, className = "", fill = "none" }) => {
+            const iconRef = useRef(null);
+
+            useEffect(() => {
+                if (iconRef.current) {
+                    iconRef.current.innerHTML = '';
+                    const iconNode = lucide.createIcons.icons[name];
+                    if (iconNode) {
+                        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        // Base attributes
+                        svg.setAttribute("width", size);
+                        svg.setAttribute("height", size);
+                        svg.setAttribute("viewBox", "0 0 24 24");
+                        svg.setAttribute("fill", fill);
+                        svg.setAttribute("stroke", "currentColor");
+                        svg.setAttribute("stroke-width", "2");
+                        svg.setAttribute("stroke-linecap", "round");
+                        svg.setAttribute("stroke-linejoin", "round");
+                        if (className) svg.setAttribute("class", className);
+
+                        // Append internal path/shapes
+                        iconNode.forEach(([tag, attrs]) => {
+                            const child = document.createElementNS("http://www.w3.org/2000/svg", tag);
+                            Object.keys(attrs).forEach(key => child.setAttribute(key, attrs[key]));
+                            svg.appendChild(child);
+                        });
+                        iconRef.current.appendChild(svg);
+                    }
+                }
+            }, [name, size, className, fill]);
+
+            return <span ref={iconRef} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }} />;
+        };
+
+        const ALL_DESTINATIONS = [
+            { id: 1, name: "Amber Fort", state: "Rajasthan", cached: true },
+            { id: 2, name: "Munnar Tea Gardens", state: "Kerala", cached: true },
+            { id: 3, name: "Manali", state: "Himachal Pradesh", cached: true },
+            { id: 4, name: "Baga Beach", state: "Goa", cached: false },
+            { id: 5, name: "Rishikesh", state: "Uttarakhand", cached: true },
+            { id: 6, name: "Ranthambore Safari", state: "Rajasthan", cached: false },
+            { id: 7, name: "Varanasi Ghats", state: "Uttar Pradesh", cached: true },
+            { id: 8, name: "Alleppey Backwaters", state: "Kerala", cached: false },
+        ];
+
+        let opCounter = 900;
+        const nextOpId = () => `op-${opCounter++}`;
+
+        function nowLabel() {
+            return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+        }
+
+        function OfflineSyncDashboard() {
+            const [online, setOnline] = useState(true);
+            const [bookmarks, setBookmarks] = useState(new Set([1, 5]));
+            const [journey, setJourney] = useState([
+                { id: "j1", title: "Day 1: Arrive Jaipur", note: "Check into hotel by 3pm" },
+                { id: "j2", title: "Day 2: Amber Fort", note: "" },
+            ]);
+            const [newStop, setNewStop] = useState("");
+            const [queue, setQueue] = useState([]); 
+            const [conflictModal, setConflictModal] = useState(null);
+            const processingRef = useRef(false);
+
+            function enqueue(type, payload, label) {
+                const op = { id: nextOpId(), type, payload, label, status: "pending", queuedAt: nowLabel(), attempts: 0 };
+                setQueue((q) => [...q, op]);
+                return op.id;
+            }
+
+            function toggleBookmark(destId, destName) {
+                setBookmarks((prev) => {
+                    const next = new Set(prev);
+                    const adding = !next.has(destId);
+                    adding ? next.add(destId) : next.delete(destId);
+                    if (!online) enqueue(adding ? "bookmark_add" : "bookmark_remove", { destId }, `${adding ? "Bookmark" : "Unbookmark"} ${destName}`);
+                    return next;
+                });
+            }
+
+            function addJourneyStop() {
+                if (!newStop.trim()) return;
+                const stop = { id: `j-${nextOpId()}`, title: newStop.trim(), note: "" };
+                setJourney((j) => [...j, stop]);
+                if (!online) enqueue("journey_add", { stop }, `Add journey stop "${stop.title}"`);
+                setNewStop("");
+            }
+
+            function editJourneyNote(id, note) {
+                setJourney((j) => j.map((s) => (s.id === id ? { ...s, note } : s)));
+            }
+
+            function commitJourneyNoteEdit(id, note, title) {
+                if (!online) enqueue("journey_edit", { id, note }, `Edit note for "${title}"`);
+            }
+
+            function removeJourneyStop(id, title) {
+                setJourney((j) => j.filter((s) => s.id !== id));
+                if (!online) enqueue("journey_remove", { id }, `Remove journey stop "${title}"`);
+            }
+
+            const processQueue = useCallback(() => {
+                if (processingRef.current) return;
+                processingRef.current = true;
+
+                const step = () => {
+                    setQueue((q) => {
+                        const idx = q.findIndex((o) => o.status === "pending" || o.status === "retry-pending");
+                        if (idx === -1) {
+                            processingRef.current = false;
+                            return q;
+                        }
+                        const op = q[idx];
+                        const updated = [...q];
+                        updated[idx] = { ...op, status: "syncing" };
+
+                        setTimeout(() => {
+                            setQueue((q2) => {
+                                const i2 = q2.findIndex((o) => o.id === op.id);
+                                if (i2 === -1) return q2;
+                                const cur = q2[i2];
+                                const result = [...q2];
+
+                                if (op.type === "journey_edit" && op.payload.id === "j1" && !op._conflictShown) {
+                                    result[i2] = { ...cur, status: "conflict", _conflictShown: true };
+                                    setConflictModal({
+                                        opId: op.id, title: "Day 1: Arrive Jaipur",
+                                        local: op.payload.note, server: "Check-in moved to 5pm, book airport pickup",
+                                        localTs: op.queuedAt, serverTs: nowLabel(),
+                                    });
+                                    return result;
+                                }
+
+                                if (cur.attempts === 0 && op.type === "bookmark_add") {
+                                    result[i2] = { ...cur, status: "failed", attempts: cur.attempts + 1 };
+                                    return result;
+                                }
+
+                                result[i2] = { ...cur, status: "synced" };
+                                return result;
+                            });
+                            step();
+                        }, 900);
+
+                        return updated;
+                    });
+                };
+                step();
+            }, []);
+
+            useEffect(() => {
+                const failed = queue.filter((o) => o.status === "failed");
+                if (failed.length === 0) return;
+                const timers = failed.map((op) =>
+                    setTimeout(() => {
+                        setQueue((q) => q.map((o) => (o.id === op.id ? { ...o, status: "retry-pending" } : o)));
+                        processQueue();
+                    }, 2200)
+                );
+                return () => timers.forEach(clearTimeout);
+            }, [queue, processQueue]);
+
+            function goOnline() {
+                setOnline(true);
+                if (queue.some((o) => o.status === "pending")) processQueue();
+            }
+
+            function resolveConflict(keepLocal) {
+                if (!conflictModal) return;
+                const { opId, local, server, title } = conflictModal;
+                if (keepLocal) {
+                    setJourney((j) => j.map((s) => (s.title === title ? { ...s, note: local } : s)));
+                } else {
+                    setJourney((j) => j.map((s) => (s.title === title ? { ...s, note: server } : s)));
+                }
+                setQueue((q) => q.map((o) => (o.id === opId ? { ...o, status: "synced" } : o)));
+                setConflictModal(null);
+                processQueue();
+            }
+
+            function retryNow(opId) {
+                setQueue((q) => q.map((o) => (o.id === opId ? { ...o, status: "retry-pending" } : o)));
+                processQueue();
+            }
+
+            const pendingCount = queue.filter((o) => ["pending", "retry-pending", "syncing", "failed"].includes(o.status)).length;
+            const syncedCount = queue.filter((o) => o.status === "synced").length;
+
+            return (
+                <div className="of-root">
+                    <style>{`
+                        .of-root {
+                            --ink:#1B1F3B; --surface:#242A57; --surface-2:#2E3568; --line:rgba(242,238,228,0.14);
+                            --marigold:#F5A300; --peacock:#16A398; --vermilion:#E1533D; --sand:#F2EEE4; --muted:#A9AFD9;
+                            background: radial-gradient(120% 140% at 10% 0%, #232a54 0%, #1B1F3B 55%, #14172e 100%);
+                            color: var(--sand); font-family:'IBM Plex Sans', system-ui, sans-serif;
+                            padding: 24px 20px 50px; min-height: 100vh; box-sizing: border-box; position: relative;
+                        }
+                        .of-root * { box-sizing: border-box; }
+                        .eyebrow { font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+
+                        .top-bar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; margin-bottom:20px; padding-bottom:18px; border-bottom:1px solid var(--line); }
+                        h1 { font-family:'Fraunces', Georgia, serif; font-weight:600; font-size: clamp(24px,3.4vw,32px); margin:0; }
+                        h1 em { font-style:italic; color:var(--marigold); font-weight:500; }
+
+                        .status-pill { display:inline-flex; align-items:center; gap:7px; font-size:12.5px; padding:8px 14px; border-radius:20px; font-family:'IBM Plex Mono', monospace; }
+                        .status-pill.online { background: rgba(22,163,152,0.15); color: var(--peacock); border:1px solid var(--peacock); }
+                        .status-pill.offline { background: rgba(225,83,61,0.15); color: var(--vermilion); border:1px solid var(--vermilion); }
+
+                        .toggle-btn { background:var(--surface); border:1px solid var(--line); color:var(--sand); padding:9px 16px; border-radius:6px; font-size:12.5px; cursor:pointer; display:flex; align-items:center; gap:7px; }
+                        .toggle-btn:hover { border-color: var(--marigold); }
+                        .top-right { display:flex; align-items:center; gap:12px; }
+
+                        .sync-banner { display:flex; align-items:center; gap:8px; font-size:12.5px; padding:9px 14px; border-radius:6px; margin-bottom:18px; }
+                        .sync-banner.pending { background: rgba(245,163,0,0.12); color: var(--marigold); }
+                        .sync-banner.done { background: rgba(22,163,152,0.12); color: var(--peacock); }
+
+                        .layout { display:grid; grid-template-columns: 1fr 1fr 280px; gap:18px; align-items:start; }
+                        @media (max-width: 1050px) { .layout { grid-template-columns: 1fr; } }
+
+                        .panel { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:16px 18px; }
+                        .panel h3 { font-family:'Fraunces', serif; font-size:15.5px; margin:0 0 4px; display:flex; align-items:center; gap:6px; }
+                        .panel-desc { font-size:11.5px; color:var(--muted); margin-bottom:12px; }
+
+                        .dest-row { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); }
+                        .dest-row:last-child { border-bottom:none; }
+                        .dest-name { font-size:13.5px; flex:1; }
+                        .dest-state { font-size:11px; color:var(--muted); }
+                        .cache-badge { font-size:9.5px; padding:2px 7px; border-radius:8px; font-family:'IBM Plex Mono', monospace; }
+                        .cache-badge.on { background: rgba(22,163,152,0.15); color: var(--peacock); }
+                        .cache-badge.off { background: rgba(169,175,217,0.12); color: var(--muted); }
+                        .heart-btn { background:none; border:none; cursor:pointer; color:var(--muted); display:flex; padding: 4px; }
+                        .heart-btn.active { color: var(--vermilion); }
+                        .heart-btn:disabled { opacity:0.3; cursor:not-allowed; }
+
+                        .journey-row { padding:10px 0; border-bottom:1px solid var(--line); }
+                        .journey-row:last-child { border-bottom:none; }
+                        .journey-top { display:flex; justify-content:space-between; align-items:center; }
+                        .journey-title { font-size:13.5px; font-weight:600; }
+                        .journey-note { width:100%; background:var(--surface-2); border:1px solid var(--line); color:var(--sand); font-size:12px; padding:6px 8px; border-radius:5px; margin-top:6px; font-family:inherit; resize:none; }
+                        .journey-note::placeholder { color: var(--muted); }
+                        .del-btn { background:none; border:none; color:var(--muted); cursor:pointer; display:flex; padding: 4px; }
+                        .del-btn:hover { color: var(--vermilion); }
+                        .add-stop-row { display:flex; gap:8px; margin-top:10px; }
+                        .add-stop-row input { flex:1; background:var(--surface-2); border:1px solid var(--line); color:var(--sand); padding:8px 10px; border-radius:5px; font-size:12.5px; outline:none; font-family:inherit; }
+                        .add-stop-row button { background:var(--marigold); border:none; color:#1B1F3B; width:34px; border-radius:5px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+
+                        .queue-item { padding:9px 0; border-bottom:1px solid var(--line); }
+                        .queue-item:last-child { border-bottom:none; }
+                        .queue-label { font-size:12px; margin-bottom:4px; }
+                        .queue-meta { display:flex; align-items:center; gap:6px; font-size:10.5px; }
+                        .q-status { display:flex; align-items:center; gap:4px; font-family:'IBM Plex Mono', monospace; text-transform: lowercase; }
+                        .q-status.pending, .q-status.retry-pending { color: var(--muted); }
+                        .q-status.syncing { color: var(--marigold); }
+                        .q-status.synced { color: var(--peacock); }
+                        .q-status.failed { color: var(--vermilion); }
+                        .q-status.conflict { color: var(--vermilion); }
+                        .retry-link { background:none; border:none; color:var(--marigold); font-size:10.5px; cursor:pointer; text-decoration:underline; margin-left:auto; padding:0; }
+                        .spin { animation: spin 1s linear infinite; }
+                        @keyframes spin { to { transform: rotate(360deg); } }
+                        .empty-queue { font-size:12px; color:var(--muted); text-align:center; padding:14px 0; }
+
+                        .modal-overlay { position:fixed; inset:0; background:rgba(10,12,26,0.7); display:flex; align-items:center; justify-content:center; z-index:60; }
+                        .modal { background:var(--surface); border:1px solid var(--vermilion); border-radius:10px; padding:22px 24px; width:400px; max-width:90vw; }
+                        .modal h3 { font-family:'Fraunces', serif; margin:0 0 4px; display:flex; align-items:center; gap:7px; color:var(--vermilion); }
+                        .modal-desc { font-size:12px; color:var(--muted); margin-bottom:14px; }
+                        .conflict-option { background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin-bottom:10px; cursor:pointer; }
+                        .conflict-option:hover { border-color: var(--marigold); }
+                        .conflict-option-label { font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); margin-bottom:4px; }
+                        .conflict-option-value { font-size:13px; }
+                        .conflict-option-time { font-size:10px; color:var(--muted); margin-top:4px; }
+                    `}</style>
+
+                    <div className="top-bar">
+                        <div>
+                            <div className="eyebrow">Offline-first sync</div>
+                            <h1>Plan trips, <em>online or off.</em></h1>
+                        </div>
+                        <div className="top-right">
+                            <div className={`status-pill ${online ? "online" : "offline"}`}>
+                                <Icon name={online ? "wifi" : "wifi-off"} size={14} /> {online ? "Online" : "Offline"}
+                            </div>
+                            <button className="toggle-btn" onClick={() => (online ? setOnline(false) : goOnline())}>
+                                {online ? <><Icon name="cloud-off" size={14} /> Simulate going offline</> : <><Icon name="cloud" size={14} /> Back online — sync now</>}
+                            </button>
+                        </div>
+                    </div>
+
+                    {pendingCount > 0 && (
+                        <div className="sync-banner pending"><Icon name="clock" size={14} /> {pendingCount} change{pendingCount !== 1 ? "s" : ""} waiting to sync{!online ? " — will sync automatically once you're back online" : "…"}</div>
+                    )}
+                    {pendingCount === 0 && syncedCount > 0 && (
+                        <div className="sync-banner done"><Icon name="check" size={14} /> All changes synced</div>
+                    )}
+
+                    <div className="layout">
+                        <div className="panel">
+                            <h3><Icon name="database" size={15} /> Destinations</h3>
+                            <div className="panel-desc">Cached destinations stay viewable offline; bookmarking works even without a connection.</div>
+                            {ALL_DESTINATIONS.map((d) => (
+                                <div className="dest-row" key={d.id}>
+                                    <div style={{ flex: 1 }}>
+                                        <div className="dest-name">{d.name}</div>
+                                        <div className="dest-state">{d.state}</div>
+                                    </div>
+                                    <span className={`cache-badge ${d.cached ? "on" : "off"}`}>{d.cached ? "cached" : "online only"}</span>
+                                    <button
+                                        className={`heart-btn ${bookmarks.has(d.id) ? "active" : ""}`}
+                                        disabled={!d.cached && !online}
+                                        onClick={() => toggleBookmark(d.id, d.name)}
+                                        title={!d.cached && !online ? "Not cached — needs connection first" : "Toggle bookmark"}
+                                    >
+                                        <Icon name="heart" size={16} fill={bookmarks.has(d.id) ? "currentColor" : "none"} />
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="panel">
+                            <h3><Icon name="edit-3" size={15} /> Journey planner</h3>
+                            <div className="panel-desc">Fully editable offline — every change is queued and synced automatically.</div>
+                            {journey.map((s) => (
+                                <div className="journey-row" key={s.id}>
+                                    <div className="journey-top">
+                                        <div className="journey-title">{s.title}</div>
+                                        <button className="del-btn" onClick={() => removeJourneyStop(s.id, s.title)}><Icon name="trash-2" size={13} /></button>
+                                    </div>
+                                    <textarea
+                                        className="journey-note"
+                                        rows={1}
+                                        placeholder="Add a note…"
+                                        value={s.note}
+                                        onChange={(e) => editJourneyNote(s.id, e.target.value)}
+                                        onBlur={(e) => commitJourneyNoteEdit(s.id, e.target.value, s.title)}
+                                    />
+                                </div>
+                            ))}
+                            <div className="add-stop-row">
+                                <input placeholder="Add a journey stop…" value={newStop} onChange={(e) => setNewStop(e.target.value)} onKeyDown={(e) => e.key === "Enter" && addJourneyStop()} />
+                                <button onClick={addJourneyStop}><Icon name="plus" size={15} /></button>
+                            </div>
+                        </div>
+
+                        <div className="panel">
+                            <h3><Icon name="refresh-cw" size={15} /> Sync queue</h3>
+                            {queue.length === 0 && <div className="empty-queue">No changes yet. Go offline and make some edits.</div>}
+                            {[...queue].reverse().map((op) => (
+                                <div className="queue-item" key={op.id}>
+                                    <div className="queue-label">{op.label}</div>
+                                    <div className="queue-meta">
+                                        <span className={`q-status ${op.status}`}>
+                                            {op.status === "syncing" && <Icon name="refresh-cw" size={11} className="spin" />}
+                                            {op.status === "synced" && <Icon name="check" size={11} />}
+                                            {op.status === "failed" && <Icon name="alert-triangle" size={11} />}
+                                            {op.status === "conflict" && <Icon name="alert-triangle" size={11} />}
+                                            {(op.status === "pending" || op.status === "retry-pending") && <Icon name="clock" size={11} />}
+                                            {op.status === "retry-pending" ? "retrying…" : op.status}
+                                        </span>
+                                        {op.status === "failed" && <button className="retry-link" onClick={() => retryNow(op.id)}>retry now</button>}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {conflictModal && (
+                        <div className="modal-overlay">
+                            <div className="modal">
+                                <h3><Icon name="alert-triangle" size={16} /> Sync conflict</h3>
+                                <div className="modal-desc">"{conflictModal.title}" was changed on another device while you were offline. Choose which version to keep.</div>
+                                <div className="conflict-option" onClick={() => resolveConflict(true)}>
+                                    <div className="conflict-option-label">Your offline version</div>
+                                    <div className="conflict-option-value">{conflictModal.local || "(empty note)"}</div>
+                                    <div className="conflict-option-time">Edited {conflictModal.localTs}</div>
+                                </div>
+                                <div className="conflict-option" onClick={() => resolveConflict(false)}>
+                                    <div className="conflict-option-label">Server version (newer)</div>
+                                    <div className="conflict-option-value">{conflictModal.server}</div>
+                                    <div className="conflict-option-time">Edited {conflictModal.serverTs}</div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<OfflineSyncDashboard />);
+    </script>
+</body>
+</html>

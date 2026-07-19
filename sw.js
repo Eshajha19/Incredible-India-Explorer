@@ -8,10 +8,11 @@
 // 1. CONFIGURATION & STATE
 // ==========================================================================
 
-const CACHE_VERSION = 'v2.1';
+const CACHE_VERSION = 'v2.3';
 const CACHE_NAME_STATIC = `india-explorer-static-${CACHE_VERSION}`;
 const CACHE_NAME_PAGES = `india-explorer-pages-${CACHE_VERSION}`;
 const CACHE_NAME_IMAGES = `india-explorer-images-${CACHE_VERSION}`;
+const CACHE_NAME_SHELL = `india-explorer-shell-${CACHE_VERSION}`;
 
 // Static resources to cache immediately on worker installation
 const STATIC_ASSETS_TO_PRECACHE = [
@@ -23,13 +24,16 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './chatbot-data.js',
   './manifest.json',
   './offline.html',
+  './sw-register.js',
+  './router.js',
   './assets/hero_banner.png'
 ];
 
 // Max items allowed in dynamic caches to prevent storage overflow
 const CACHE_LIMITS = {
-  [CACHE_NAME_PAGES]: 50,
-  [CACHE_NAME_IMAGES]: 80
+  [CACHE_NAME_PAGES]: 80,
+  [CACHE_NAME_IMAGES]: 120,
+  [CACHE_NAME_SHELL]: 30
 };
 
 
@@ -40,7 +44,8 @@ const ENABLE_TELEMETRY_LOGS = true;
 // These values keep cached content fresh enough to avoid being overly stale offline.
 const CACHE_MAX_AGE_MS = {
   [CACHE_NAME_PAGES]: 24 * 60 * 60 * 1000, // 24 hours
-  [CACHE_NAME_IMAGES]: 30 * 24 * 60 * 60 * 1000 // 30 days
+  [CACHE_NAME_IMAGES]: 30 * 24 * 60 * 60 * 1000, // 30 days
+  [CACHE_NAME_SHELL]: 7 * 24 * 60 * 60 * 1000 // 7 days
 };
 
 
@@ -151,23 +156,21 @@ function withCacheTimestamp(response) {
  * Install Event: Cache essential static assets during worker installation.
  */
 self.addEventListener('install', event => {
-  logger.info('Installing and caching static shell resources.');
-  
+  logger.info('Installing service worker and pre-caching static assets.');
   event.waitUntil(
     (async () => {
       try {
         const cache = await caches.open(CACHE_NAME_STATIC);
-        // Load and cache all static shell assets
         await cache.addAll(STATIC_ASSETS_TO_PRECACHE);
-        logger.info('Shell pre-caching completed successfully.');
+        logger.info('Static assets pre-cached successfully.');
       } catch (err) {
-        logger.error('Failed to pre-cache shell resources during install.', err);
+        logger.error('Failed to pre-cache static assets during install.', err);
       }
     })()
   );
-  
-  // Forces the waiting service worker to become active immediately
-  self.skipWaiting();
+  // Note: skipWaiting is NOT called automatically here.
+  // The update prompt UI in the page sends a 'SKIP_WAITING' message
+  // to activate the new version on user consent.
 });
 
 /**
@@ -175,12 +178,19 @@ self.addEventListener('install', event => {
  */
 self.addEventListener('activate', event => {
   logger.info('Activating and cleaning up old cache versions.');
-  const expectedCaches = [CACHE_NAME_STATIC, CACHE_NAME_PAGES, CACHE_NAME_IMAGES];
+  const expectedCaches = [CACHE_NAME_STATIC, CACHE_NAME_PAGES, CACHE_NAME_IMAGES, CACHE_NAME_SHELL];
   const projectCachePrefix = 'india-explorer-';
 
   event.waitUntil(
     (async () => {
       try {
+        // --- Enable Navigation Preload ---
+        if (self.registration.navigationPreload) {
+          await self.registration.navigationPreload.enable();
+          logger.info('Navigation preload enabled.');
+        }
+
+        // --- Clean up stale caches ---
         const cacheNames = await caches.keys();
 
         await Promise.all(
@@ -295,6 +305,67 @@ async function staleWhileRevalidateStrategy(request) {
 }
 
 /**
+ * Stale-While-Revalidate Strategy for Navigation
+ * Serves HTML pages instantly from cache while revalidating in the background.
+ * Uses Navigation Preload when available to reduce latency.
+ * Falls back to offline.html when both cache and network are unavailable.
+ */
+async function staleWhileRevalidateNavigationStrategy(event) {
+  const request = event.request;
+  const url = new URL(request.url);
+  logger.debug(`Executing [SWR-Navigation] strategy for: ${url.pathname}`);
+
+  // 1. Grab the cached version immediately (if it exists)
+  const cachedResponse = await caches.match(request);
+
+  // 2. Attempt network (or preload response) in the background
+  const revalidatePromise = (async () => {
+    try {
+      // Try navigation preload first (faster, enabled in activate)
+      const preloadResponse = await event.preloadResponse;
+      const networkResponse = preloadResponse || await fetch(request);
+
+      if (request.method === 'GET' && networkResponse && networkResponse.status === 200) {
+        const cache = await caches.open(CACHE_NAME_PAGES);
+        await cache.put(request, withCacheTimestamp(networkResponse.clone()));
+
+        // Prune in the background
+        Promise.all([
+          limitCacheSize(CACHE_NAME_PAGES, CACHE_LIMITS[CACHE_NAME_PAGES]),
+          limitCacheAge(CACHE_NAME_PAGES, CACHE_MAX_AGE_MS[CACHE_NAME_PAGES])
+        ]).catch(function () {});
+      }
+
+      return networkResponse;
+    } catch (err) {
+      logger.warn(`Background revalidation failed for navigation: ${url.pathname}`, err);
+      throw err;
+    }
+  })();
+
+  // 3. Return cached immediately or fall back
+  if (cachedResponse) {
+    // Fire-and-forget the revalidation in background
+    revalidatePromise.catch(function () {});
+    return cachedResponse;
+  }
+
+  // 4. No cache yet — wait for network
+  try {
+    const networkResponse = await revalidatePromise;
+    return networkResponse;
+  } catch (err) {
+    // 5. Offline fallback
+    logger.warn(`Navigation failed for ${url.pathname}. Serving offline fallback.`);
+    const offlineFallback = await caches.match('./offline.html');
+    if (offlineFallback) {
+      return offlineFallback;
+    }
+    throw err;
+  }
+}
+
+/**
  * Cache-First (Network Fallback) Strategy
  * Used for static media files (images, audio, fonts) to minimize bandwidth.
  */
@@ -355,9 +426,9 @@ self.addEventListener('fetch', event => {
     return;
   }
   
-  // 4. Route Navigation / Document HTML Requests
+  // 4. Route Navigation / Document HTML Requests (Stale-While-Revalidate)
   if (request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname === '/') {
-    event.respondWith(networkFirstStrategy(request));
+    event.respondWith(staleWhileRevalidateNavigationStrategy(event));
     return;
   }
   
@@ -370,15 +441,18 @@ self.addEventListener('fetch', event => {
     return;
   }
   
-  // 6. Route Media Shell Assets (Images, Icons, Fonts)
+  // 6. Route Media Assets (Images, Icons, Fonts) — including assets/ directory
   if (request.destination === 'image' || 
       request.destination === 'font' || 
       url.pathname.endsWith('.png') || 
       url.pathname.endsWith('.jpg') || 
       url.pathname.endsWith('.jpeg') || 
       url.pathname.endsWith('.svg') || 
+      url.pathname.endsWith('.gif') || 
+      url.pathname.endsWith('.webp') || 
       url.pathname.endsWith('.woff') || 
-      url.pathname.endsWith('.woff2')) {
+      url.pathname.endsWith('.woff2') ||
+      url.pathname.includes('/assets/')) {
     event.respondWith(cacheFirstStrategy(request));
     return;
   }
@@ -439,13 +513,36 @@ self.addEventListener('message', event => {
                   try {
                     const response = await fetch(url);
                     if (response.status === 200) {
-                      await cache.put(url, response);
+                      await cache.put(url, withCacheTimestamp(response.clone()));
                     }
                   } catch (e) {
                     logger.error(`Failed to prefetch target: ${url}`, e);
                   }
                 })
               );
+            }
+            break;
+
+          case 'QUEUE_OFFLINE_ACTION':
+            if (data.payload) {
+              await addToSyncQueue({
+                id: data.payload.id || crypto.randomUUID(),
+                action: data.payload.action,
+                data: data.payload.data,
+                timestamp: Date.now(),
+                retries: 0
+              });
+              logger.info(`Offline action queued: ${data.payload.action}`);
+              if (event.ports && event.ports[0]) {
+                event.ports[0].postMessage({ status: 'SUCCESS', id: data.payload.id });
+              }
+            }
+            break;
+
+          case 'GET_QUEUE_SIZE':
+            const queueSize = await getSyncQueueSize();
+            if (event.ports && event.ports[0]) {
+              event.ports[0].postMessage({ status: 'SUCCESS', count: queueSize });
             }
             break;
             
@@ -464,20 +561,186 @@ self.addEventListener('message', event => {
 });
 
 // ==========================================================================
-// 7. BACKGROUND SYNC & NOTIFICATION HOOKS
+// 7. INDEXEDDB OFFLINE SYNC QUEUE
+// ==========================================================================
+
+/**
+ * Opens (or creates) the offline sync queue IndexedDB database.
+ * Schema:
+ *   - store: 'queue' with keyPath 'id'
+ *   - indexes: 'action', 'timestamp'
+ */
+function openSyncQueueDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('IndiaExplorerSyncQueue', 1);
+
+    request.onupgradeneeded = function (event) {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains('queue')) {
+        const store = db.createObjectStore('queue', { keyPath: 'id' });
+        store.createIndex('action', 'action', { unique: false });
+        store.createIndex('timestamp', 'timestamp', { unique: false });
+      }
+    };
+
+    request.onsuccess = function () {
+      resolve(request.result);
+    };
+
+    request.onerror = function () {
+      reject(request.error);
+    };
+  });
+}
+
+/**
+ * Adds an item to the offline sync queue.
+ * @param {Object} item - { id, action, data, timestamp, retries }
+ */
+async function addToSyncQueue(item) {
+  const db = await openSyncQueueDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('queue', 'readwrite');
+    const store = tx.objectStore('queue');
+    store.put(item);
+    tx.oncomplete = function () { resolve(); };
+    tx.onerror = function () { reject(tx.error); };
+  });
+}
+
+/**
+ * Retrieves all items currently in the sync queue.
+ * @returns {Array<Object>}
+ */
+async function getAllSyncQueueItems() {
+  const db = await openSyncQueueDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('queue', 'readonly');
+    const store = tx.objectStore('queue');
+    const cursor = store.openCursor();
+    const items = [];
+
+    cursor.onsuccess = function (event) {
+      const cur = event.target.result;
+      if (cur) {
+        items.push(cur.value);
+        cur.continue();
+      } else {
+        resolve(items);
+      }
+    };
+
+    cursor.onerror = function () { reject(tx.error); };
+  });
+}
+
+/**
+ * Returns the number of items in the sync queue.
+ * @returns {number}
+ */
+async function getSyncQueueSize() {
+  const items = await getAllSyncQueueItems();
+  return items.length;
+}
+
+/**
+ * Removes an item from the sync queue by its id.
+ * @param {string} id
+ */
+async function removeFromSyncQueue(id) {
+  const db = await openSyncQueueDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('queue', 'readwrite');
+    const store = tx.objectStore('queue');
+    store.delete(id);
+    tx.oncomplete = function () { resolve(); };
+    tx.onerror = function () { reject(tx.error); };
+  });
+}
+
+/**
+ * Processes all items in the sync queue.
+ * Attempts each action; removes successfully processed items.
+ * Items that fail are kept in the queue for retry.
+ */
+async function processSyncQueue() {
+  const items = await getAllSyncQueueItems();
+  if (items.length === 0) return;
+
+  logger.info(`Processing sync queue: ${items.length} item(s)`);
+
+  for (const item of items) {
+    try {
+      // Attempt to send the queued action
+      const response = await fetch(item.data.url || '/api/offline-sync', {
+        method: item.data.method || 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Offline-Sync': 'true',
+          'X-Queue-Id': item.id
+        },
+        body: JSON.stringify(item.data.body || item.data)
+      });
+
+      if (response.ok) {
+        await removeFromSyncQueue(item.id);
+        logger.info(`Sync queue item processed successfully: ${item.id}`);
+      } else {
+        logger.warn(`Sync queue item failed (HTTP ${response.status}): ${item.id}`);
+        // Increment retry count; discard after 5 attempts
+        if (item.retries >= 4) {
+          logger.error(`Dropping sync queue item after ${item.retries + 1} retries: ${item.id}`);
+          await removeFromSyncQueue(item.id);
+        } else {
+          await addToSyncQueue({ ...item, retries: item.retries + 1 });
+          await removeFromSyncQueue(item.id);
+        }
+      }
+    } catch (err) {
+      logger.error(`Sync queue item network error: ${item.id}`, err);
+      // Re-throw to stop processing — network is still unavailable
+      throw err;
+    }
+  }
+}
+
+// ==========================================================================
+// 8. BACKGROUND SYNC & NOTIFICATION HOOKS
 // ==========================================================================
 
 /**
  * Handle background sync events when connectivity is recovered.
+ * Processes queued offline actions and notifies open clients.
  */
 self.addEventListener('sync', event => {
   logger.info(`Background sync triggered: ${event.tag}`);
-  
-  if (event.tag === 'sync-chatbot-pending') {
+
+  if (event.tag === 'sync-chatbot-pending' || event.tag === 'sync-offline-queue') {
     event.waitUntil(
       (async () => {
-        logger.info('Processing pending offline chatbot interactions.');
-        // Perform synchronization tasks here when online
+        try {
+          logger.info(`Processing background sync: ${event.tag}`);
+
+          // Process the IndexedDB sync queue
+          await processSyncQueue();
+
+          // Notify open client windows
+          const clients = await self.clients.matchAll({
+            includeUncontrolled: true,
+            type: 'window'
+          });
+
+          for (const client of clients) {
+            client.postMessage({
+              type: 'BACKGROUND_SYNC_COMPLETE',
+              message: 'Offline data synchronized successfully.'
+            });
+          }
+
+          logger.info('Background sync completed successfully.');
+        } catch (err) {
+          logger.error('Background sync failed.', err);
+        }
       })()
     );
   }

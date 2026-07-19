@@ -1,0 +1,17 @@
+{
+  "name": "incredible-india-explorer",
+  "version": "1.0.0",
+  "description": "Interactive digital experience showcasing the rich culture, history, geography, and wildlife of India",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run && node tests/auth.test.mjs && node tests/guides-core.test.mjs",
+    "test:unit": "vitest run tests/unit/",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1",
+    "vitest": "^3.1.0"
+  }
+}
