@@ -20,6 +20,8 @@ The Incredible India Explorer was born out of a desire to move beyond static enc
 
 ## ✨ Features
 *   **Interactive Freedom Story:** A 'Choose Your Own Adventure' style historical narrative allowing you to explore the Independence Movement through different philosophies.
+*   **Accessible Wildlife Filter:** Keyboard-navigable region chips, debounced search, and live screen reader notifications for national parks.
+*   **Reading Progress & Section Navigator:** Dynamic progress indicator showing page scroll depth with an interactive section sidebar.
 *   **Dynamic Storylines:** Vertical scrolling timelines that tell a narrative journey (e.g., traveling from the Himalayas down to Kanyakumari).
 *   **Bharat AI Guide:** A simulated, highly intelligent chatbot that can answer your questions about Indian food, culture, and travel destinations.
 *   **Interactive Map:** A beautifully animated SVG map of India allowing users to click and learn about specific states.
