@@ -357,3 +357,93 @@
         width: auto;
     }
 }
+
+/* ---------- Print Styles ---------- */
+@media print {
+    /* Hide non-printable elements */
+    header.navbar,
+    footer.footer,
+    .trip-planner-hero,
+    .trip-planner-form-section,
+    .trip-saved-section,
+    .trip-actions,
+    .btn-scroll-top,
+    .trip-remove-city-btn {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    main {
+        padding-top: 0 !important;
+    }
+
+    .trip-results-section {
+        padding: 0 !important;
+    }
+
+    .trip-summary-card,
+    .trip-schedule {
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 0 30px 0 !important;
+        color: #000 !important;
+    }
+
+    .trip-summary-header h3 {
+        color: #000 !important;
+        font-size: 1.8rem !important;
+    }
+
+    .trip-tier-badge {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        background: none !important;
+    }
+
+    .trip-budget-status {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        background: none !important;
+    }
+
+    .trip-city-chips {
+        margin-bottom: 20px !important;
+    }
+
+    .trip-city-chip {
+        background: none !important;
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        padding: 4px 12px !important;
+    }
+
+    .trip-budget-breakdown {
+        background: none !important;
+        border: 1px solid #ccc !important;
+        color: #000 !important;
+    }
+
+    .trip-budget-total {
+        border-top: 1px solid #ccc !important;
+    }
+
+    .trip-budget-total strong {
+        color: #000 !important;
+    }
+
+    .trip-day-row {
+        border-bottom: 1px solid #ccc !important;
+        page-break-inside: avoid;
+    }
+
+    .trip-day-num {
+        color: #000 !important;
+    }
+}

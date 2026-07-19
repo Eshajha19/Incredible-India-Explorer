@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributor Content Review Checklist | Incredible India Explorer</title>
+  <meta name="description" content="Interactive contributor checklist for reviewing explorer pages before opening a pull request.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="contributor-checklist.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="learn.html" class="nav-link">Learn</a>
+        <a href="dataset-health.html" class="nav-link">Dataset Health</a>
+        <a href="contributor-checklist.html" class="nav-link" style="color:var(--saffron)">Checklist</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="checklist-page">
+    <section class="checklist-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Contributor workflow · PR quality</span>
+        <h1>Contributor Content <span>Review Checklist</span></h1>
+        <p>Review structure, responsiveness, theme support, accessibility, images, search/filter behavior, and console quality before opening a pull request.</p>
+        <div class="hero-progress-card">
+          <div class="progress-copy">
+            <span id="progress-label">0 of 0 complete</span>
+            <strong id="progress-percent">0%</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span id="progress-fill"></span>
+          </div>
+        </div>
+        <a href="#checklist" class="hero-cta">Start review ↓</a>
+      </div>
+    </section>
+
+    <section class="checklist-section" id="checklist">
+      <div class="checklist-container">
+        <div class="section-heading">
+          <span class="section-badge">Self-review before PR</span>
+          <h2>Tick every item you verified</h2>
+          <p>Your progress is saved locally in this browser, so you can refresh and continue.</p>
+        </div>
+
+        <div class="checklist-toolbar">
+          <div class="toolbar-card">
+            <span>Completion</span>
+            <strong id="toolbar-percent">0%</strong>
+          </div>
+          <div class="toolbar-card">
+            <span>Items done</span>
+            <strong id="toolbar-count">0 / 0</strong>
+          </div>
+          <div class="toolbar-actions">
+            <button id="expand-all" type="button">Expand all</button>
+            <button id="check-visible" type="button">Check all</button>
+            <button id="reset-checklist" type="button">Reset</button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <label for="category-filter">Filter checklist section</label>
+          <select id="category-filter">
+            <option value="all">All sections</option>
+          </select>
+        </div>
+
+        <div class="checklist-grid" id="checklist-grid"></div>
+      </div>
+    </section>
+
+    <section class="pr-note-section">
+      <div class="checklist-container">
+        <div class="pr-note-card">
+          <span class="section-badge">PR reminder</span>
+          <h2>Before pushing</h2>
+          <p>Run the app locally, test in browser, check the console, and include your manual testing list in the PR description.</p>
+          <pre><code>python -m http.server 5500
+git diff --check
+git status</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="checklist-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Built to help contributors submit cleaner PRs.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="contributor-checklist.js"></script>
+</body>
+</html>

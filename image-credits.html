@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Credits & Attribution | Incredible India Explorer</title>
+  <meta name="description" content="Image credits and fallback notes for explorer pages in Incredible India Explorer.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="image-credits.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="learn.html" class="nav-link">Learn</a>
+        <a href="dataset-health.html" class="nav-link">Dataset Health</a>
+        <a href="image-credits.html" class="nav-link" style="color:var(--saffron)">Image Credits</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="credits-page">
+    <section class="credits-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Transparency · attribution · fallback notes</span>
+        <h1>Image Credits <span>& Attribution</span></h1>
+        <p>Explore local image usage, source notes, fallback image rules, and page-level attribution references for explorer pages.</p>
+        <div class="hero-stats">
+          <div><strong id="image-count">0</strong><span>Images listed</span></div>
+          <div><strong id="category-count">0</strong><span>Categories</span></div>
+          <div><strong id="page-count">0</strong><span>Page groups</span></div>
+        </div>
+        <a href="#credits-dashboard" class="hero-cta">View credits ↓</a>
+      </div>
+    </section>
+
+    <section class="credits-section" id="credits-dashboard">
+      <div class="credits-container">
+        <div class="section-heading">
+          <span class="section-badge">Image registry</span>
+          <h2>Search and filter image credits</h2>
+          <p>This frontend-only panel helps maintainers keep track of image usage, credit notes, and fallback guidance.</p>
+        </div>
+
+        <div class="credits-controls">
+          <div class="control-field search-field">
+            <label for="credits-search">Search images</label>
+            <input id="credits-search" type="search" placeholder="Try hero, heritage, forest, fallback, wildlife..." autocomplete="off">
+          </div>
+          <div class="control-field">
+            <label for="category-filter">Category</label>
+            <select id="category-filter"><option value="all">All categories</option></select>
+          </div>
+          <div class="control-field">
+            <label for="page-filter">Page / usage</label>
+            <select id="page-filter"><option value="all">All pages</option></select>
+          </div>
+        </div>
+
+        <div class="summary-grid" id="summary-grid"></div>
+
+        <div class="credits-toolbar">
+          <p id="result-status" aria-live="polite">Showing all image credits</p>
+          <button id="reset-filters" type="button">Reset filters</button>
+        </div>
+
+        <div class="credits-grid" id="credits-grid"></div>
+
+        <div class="empty-state" id="empty-state">
+          <span>⌕</span>
+          <h3>No image credit found</h3>
+          <p>Try another image name, page, category, source note, or fallback keyword.</p>
+          <button id="empty-reset" type="button">Reset filters</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="reuse-section">
+      <div class="credits-container reuse-card">
+        <span class="section-badge">Reusable button pattern</span>
+        <h2>Use this on explorer pages</h2>
+        <p>Add a simple credits button or link near page footers, card sections, or image galleries.</p>
+        <pre><code>&lt;a href="image-credits.html" class="view-credits-link"&gt;View image credits&lt;/a&gt;</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="credits-footer">
+    <p>Part of <a href="index.html">Incredible India Explorer</a> · Avoid copyrighted images and document local asset usage clearly.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="app.js"></script>
+  <script src="image-credits.js"></script>
+</body>
+</html>
