@@ -240,6 +240,11 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
         var markerHits = raycaster.intersectObjects(markerObjects.map(function (m) { return m.mesh; }));
         if (markerHits.length > 0) {
             renderer.domElement.style.cursor = "pointer";
+            if (hoveredState) {
+                hoveredState.material.color.setHex(hoveredState.userData.baseColor);
+                hoveredState = null;
+            }
+            hideStateTooltip();
         } else {
             var stateHits = raycaster.intersectObjects(stateMeshes);
             if (hoveredState) {
