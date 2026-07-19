@@ -46,10 +46,31 @@ export function normalizeEmail(email) {
   return String(email || '').trim().toLowerCase();
 }
 
-export function hashPassword(password) {
+export function legacyHashPassword(password) {
   let hash = 0;
   for (let index = 0; index < password.length; index += 1) {
     hash = (hash * 31 + password.charCodeAt(index)) >>> 0;
   }
   return hash.toString(16).padStart(8, '0');
+}
+
+export function generateSalt() {
+  const arr = new Uint8Array(16);
+  if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+    crypto.getRandomValues(arr);
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = Math.floor(Math.random() * 256);
+    }
+  }
+  return Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+export async function hashPassword(password, salt) {
+  const encoder = new TextEncoder();
+  const saltedData = encoder.encode(password + (salt || ''));
+  const hashBuffer = await crypto.subtle.digest("SHA-256", saltedData);
+  return Array.from(new Uint8Array(hashBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
 }

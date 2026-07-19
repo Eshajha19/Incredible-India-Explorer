@@ -718,5 +718,12 @@ window.indiaSearchIndex = [
     category: "Nature & Wildlife",
     description: "Discover the diverse butterfly species found across India's varied ecological zones.",
     url: "butterfly.html"
+  },
+  // --- National Parks ---
+  {
+    title: "National Parks of India",
+    category: "Nature & Wildlife",
+    description: "Search and filter Indian national parks like Jim Corbett, Kaziranga, Ranthambore, and Gir by region and fauna.",
+    url: "wildlife.html"
   }
 ];

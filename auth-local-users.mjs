@@ -2,7 +2,9 @@ import {
   getStoredAccounts, 
   saveAccounts, 
   normalizeEmail, 
-  hashPassword 
+  hashPassword,
+  generateSalt,
+  legacyHashPassword
 } from './auth-storage.mjs';
 import { 
   createSessionUser, 
@@ -27,9 +29,11 @@ export async function registerLocalUser({ email, password, displayName }) {
     throw error;
   }
 
+  const salt = generateSalt();
   const userRecord = {
     email: normalizedEmail,
-    passwordHash: hashPassword(password),
+    passwordHash: await hashPassword(password, salt),
+    passwordSalt: salt,
     displayName: displayName || normalizedEmail.split('@')[0],
     provider: 'local',
     role: 'free'
@@ -54,10 +58,32 @@ export async function signInLocalUser({ email, password }) {
     throw error;
   }
 
-  if (!account.passwordHash || account.passwordHash !== hashPassword(password)) {
+  let isPasswordValid = false;
+  let shouldUpgrade = false;
+
+  if (account.passwordHash) {
+    if (account.passwordSalt) {
+      const computedHash = await hashPassword(password, account.passwordSalt);
+      isPasswordValid = (account.passwordHash === computedHash);
+    } else {
+      // Legacy fallback
+      const computedLegacyHash = legacyHashPassword(password);
+      isPasswordValid = (account.passwordHash === computedLegacyHash);
+      shouldUpgrade = isPasswordValid;
+    }
+  }
+
+  if (!isPasswordValid) {
     const error = new Error('Incorrect password. Please try again.');
     error.code = 'auth/wrong-password';
     throw error;
+  }
+
+  if (shouldUpgrade) {
+    const newSalt = generateSalt();
+    account.passwordSalt = newSalt;
+    account.passwordHash = await hashPassword(password, newSalt);
+    saveAccounts(accounts);
   }
 
   const user = await createSessionUser(normalizedEmail, account.displayName || normalizedEmail.split('@')[0], 'local', account.role || 'free');

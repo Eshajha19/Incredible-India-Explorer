@@ -85,14 +85,19 @@ test('normalizeEmail normalizes and trims email addresses', () => {
   assert.equal(storage.normalizeEmail(null), '');
 });
 
-test('hashPassword generates consistent hash string', () => {
-  const hash1 = storage.hashPassword('my-password-123');
-  const hash2 = storage.hashPassword('my-password-123');
-  const hash3 = storage.hashPassword('other-password');
+test('hashPassword generates consistent hash string', async () => {
+  const salt1 = storage.generateSalt();
+  const salt2 = storage.generateSalt();
+  
+  const hash1 = await storage.hashPassword('my-password-123', salt1);
+  const hash2 = await storage.hashPassword('my-password-123', salt1);
+  const hash3 = await storage.hashPassword('my-password-123', salt2);
+  const hash4 = await storage.hashPassword('other-password', salt1);
   
   assert.equal(hash1, hash2);
   assert.notEqual(hash1, hash3);
-  assert.equal(hash1.length, 8);
+  assert.notEqual(hash1, hash4);
+  assert.equal(hash1.length, 64);
 });
 
 // ---------------------------------------------------------------------
@@ -156,7 +161,8 @@ test('registerLocalUser creates account and sets session user', async () => {
   const accounts = storage.getStoredAccounts();
   assert.equal(accounts.length, 1);
   assert.equal(accounts[0].email, 'test@explorer.in');
-  assert.equal(accounts[0].passwordHash, storage.hashPassword('securePassword123'));
+  assert.ok(accounts[0].passwordSalt);
+  assert.equal(accounts[0].passwordHash, await storage.hashPassword('securePassword123', accounts[0].passwordSalt));
 });
 
 test('registerLocalUser rejects weak password or existing email', async () => {
@@ -219,6 +225,51 @@ test('signInLocalUser rejects incorrect credentials', async () => {
     async () => await authApi.signInLocal({ email: 'unknown@test.com', password: 'password' }),
     (err) => err.code === 'auth/user-not-found'
   );
+});
+
+test('signInLocalUser handles legacy accounts and performs auto-upgrade', async () => {
+  resetStorage();
+  
+  // Manually seed a legacy account (using legacyHashPassword, no passwordSalt)
+  const legacyAccount = {
+    email: 'legacy@explorer.in',
+    passwordHash: storage.legacyHashPassword('legacyPassword123'),
+    displayName: 'LegacyUser',
+    provider: 'local',
+    role: 'free'
+  };
+  
+  const accounts = [legacyAccount];
+  storage.saveAccounts(accounts);
+  
+  // Try to sign in with the legacy credentials
+  const loggedIn = await authApi.signInLocal({
+    email: 'legacy@explorer.in',
+    password: 'legacyPassword123'
+  });
+  
+  assert.equal(loggedIn.email, 'legacy@explorer.in');
+  assert.equal(loggedIn.displayName, 'LegacyUser');
+  
+  // Verify that the account in storage was upgraded (now has passwordSalt and SHA-256 passwordHash)
+  const updatedAccounts = storage.getStoredAccounts();
+  assert.equal(updatedAccounts.length, 1);
+  assert.ok(updatedAccounts[0].passwordSalt);
+  assert.equal(updatedAccounts[0].passwordHash.length, 64); // SHA-256 length
+  
+  // Verify it computes the correct salted hash
+  const expectedHash = await storage.hashPassword('legacyPassword123', updatedAccounts[0].passwordSalt);
+  assert.equal(updatedAccounts[0].passwordHash, expectedHash);
+  
+  // Verify subsequent sign in works with the newly upgraded hash
+  globalThis.window.sessionStorage.clear();
+  _resetLocalSessionCache();
+  
+  const loggedInAgain = await authApi.signInLocal({
+    email: 'legacy@explorer.in',
+    password: 'legacyPassword123'
+  });
+  assert.ok(loggedInAgain);
 });
 
 // ---------------------------------------------------------------------

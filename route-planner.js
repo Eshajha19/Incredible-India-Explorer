@@ -127,17 +127,126 @@ const TRANSPORT_MODES = {
 // ---------------------------------------------------------------------------
 const CACHE_PREFIX = "iie_route_cache_v1:";
 const CACHE_TTL_MS = 1000 * 60 * 60 * 24 * 7; // 7 days
+const MAX_CACHE_ENTRIES = 20;
 
 function buildCacheKey(stopIds, mode) {
   return `${CACHE_PREFIX}${mode}:${stopIds.join(">")}`;
 }
 
+function isQuotaExceededError(err) {
+  return (
+    err &&
+    (err.name === "QuotaExceededError" ||
+      err.name === "NS_ERROR_DOM_QUOTA_REACHED" ||
+      err.code === 22 ||
+      err.code === 1014 ||
+      (err.message && (err.message.includes("quota") || err.message.includes("limit"))))
+  );
+}
+
+function purgeAllRouteCaches() {
+  if (typeof localStorage === "undefined") return;
+  const keysToRemove = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith(CACHE_PREFIX)) {
+      keysToRemove.push(key);
+    }
+  }
+  keysToRemove.forEach((key) => {
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {}
+  });
+}
+
+function sweepExpiredCache() {
+  if (typeof localStorage === "undefined") return;
+  const keysToRemove = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith(CACHE_PREFIX)) {
+      try {
+        const raw = localStorage.getItem(key);
+        if (raw) {
+          const entry = JSON.parse(raw);
+          if (Date.now() - entry.savedAt > CACHE_TTL_MS) {
+            keysToRemove.push(key);
+          }
+        }
+      } catch (err) {
+        keysToRemove.push(key);
+      }
+    }
+  }
+  keysToRemove.forEach((key) => {
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {}
+  });
+}
+
+function enforceLimitAndSave(newKey, newEntry) {
+  if (typeof localStorage === "undefined") return;
+
+  const entries = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith(CACHE_PREFIX) && key !== newKey) {
+      try {
+        const raw = localStorage.getItem(key);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          entries.push({
+            key,
+            lastAccessedAt: parsed.lastAccessedAt || parsed.savedAt || 0
+          });
+        }
+      } catch (err) {
+        localStorage.removeItem(key);
+      }
+    }
+  }
+
+  entries.sort((a, b) => a.lastAccessedAt - b.lastAccessedAt);
+
+  while (entries.length >= MAX_CACHE_ENTRIES) {
+    const oldest = entries.shift();
+    if (oldest) {
+      localStorage.removeItem(oldest.key);
+    }
+  }
+
+  try {
+    localStorage.setItem(newKey, JSON.stringify(newEntry));
+  } catch (err) {
+    if (isQuotaExceededError(err)) {
+      purgeAllRouteCaches();
+      try {
+        localStorage.setItem(newKey, JSON.stringify(newEntry));
+      } catch (retryErr) {
+        // Ignore
+      }
+    }
+  }
+}
+
 function readCache(stopIds, mode) {
   try {
-    const raw = localStorage.getItem(buildCacheKey(stopIds, mode));
+    const key = buildCacheKey(stopIds, mode);
+    const raw = localStorage.getItem(key);
     if (!raw) return null;
     const entry = JSON.parse(raw);
-    if (Date.now() - entry.savedAt > CACHE_TTL_MS) return null;
+    if (Date.now() - entry.savedAt > CACHE_TTL_MS) {
+      localStorage.removeItem(key);
+      return null;
+    }
+    entry.lastAccessedAt = Date.now();
+    try {
+      localStorage.setItem(key, JSON.stringify(entry));
+    } catch (err) {
+      // Ignore non-fatal update error
+    }
     return entry.data;
   } catch (err) {
     return null;
@@ -146,9 +255,24 @@ function readCache(stopIds, mode) {
 
 function writeCache(stopIds, mode, data) {
   try {
-    localStorage.setItem(buildCacheKey(stopIds, mode), JSON.stringify({ savedAt: Date.now(), data }));
+    const key = buildCacheKey(stopIds, mode);
+    const entry = {
+      savedAt: Date.now(),
+      lastAccessedAt: Date.now(),
+      data
+    };
+    enforceLimitAndSave(key, entry);
   } catch (err) {
-    // Non-fatal: caching is a perf optimization, not a correctness requirement.
+    // Non-fatal
+  }
+}
+
+// Automatically sweep expired cache keys on script execution if in browser
+if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+  try {
+    sweepExpiredCache();
+  } catch (err) {
+    // Non-fatal
   }
 }
 
@@ -308,7 +432,7 @@ function formatDuration(minutes) {
 const RoutePlanner = {
   ROUTE_DESTINATIONS, TRANSPORT_MODES, DESTINATION_INFO, haversineDistanceKm,
   optimizeRoute, tourLengthKm, getRoute, formatDistance, formatDuration, buildCacheKey,
-  recommendMode,
+  recommendMode, sweepExpiredCache, purgeAllRouteCaches, MAX_CACHE_ENTRIES,
 };
 
 if (typeof module !== "undefined" && module.exports) {

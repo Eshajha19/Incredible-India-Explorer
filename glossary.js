@@ -447,6 +447,17 @@ document.addEventListener("DOMContentLoaded", () => {
       option.value = category;
       option.textContent = category;
       categoryFilter.append(option);
+  let activeRegion = "all";
+  let searchQuery = "";
+  let searchTimer = null;
+
+  function addCategoryControls() {
+    const categories = [...new Set(terms.map(term => term.category))].sort();
+    categories.forEach(category => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.textContent = category;
+      categoryFilter.append(option);
     });
 
     [["all", "All"], ...categories.map(category => [category, category])].forEach(([value, label]) => {
@@ -541,14 +552,36 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", event => { if (event.key === "Escape") hideTooltip(); });
   }
 
+  function initStats() {
+    const termCountEl = document.getElementById("term-count");
+    const categoryCountEl = document.getElementById("category-count");
+    if (termCountEl) termCountEl.textContent = terms.length;
+    if (categoryCountEl) categoryCountEl.textContent = [...new Set(terms.map(t => t.category))].length;
+  }
+
   addCategoryControls();
   grid.replaceChildren(...terms.map(createCard));
-  searchInput.addEventListener("input", filterTerms);
+  
+  searchInput.addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(filterTerms, 250);
+  });
+  
   categoryFilter.addEventListener("change", () => { updateActiveChip(); filterTerms(); });
   clearButton.addEventListener("click", resetFilters);
   emptyReset.addEventListener("click", resetFilters);
   setupTooltips();
+  initStats();
   filterTerms();
+
+  // Keyboard shortcut '/' to focus search input
+  document.addEventListener("keydown", event => {
+    if (event.key === "/" && document.activeElement !== searchInput && 
+        !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)) {
+      event.preventDefault();
+      searchInput.focus();
+    }
+  });
 
   window.ExplorerGlossary = {
     terms: () => [...terms],
