@@ -19,6 +19,39 @@
    Pure Vanilla JavaScript for dynamic content, modals, sliders, and games.
    ========================================================================== */
 
+/**
+ * Loads a script on demand and resolves once it has executed, so page
+ * modules (cuisine.js, trip-planner.js, weather-core.js, etc.) can be
+ * fetched only when their page is actually visited instead of bundled
+ * into every page load. De-dupes by src so calling this twice for the
+ * same script (e.g. two features both depending on trip-data.js) reuses
+ * the same <script> tag instead of injecting it again.
+ */
+if (typeof window.lazyLoadScript !== 'function') {
+    window.lazyLoadScript = function lazyLoadScript(src) {
+        return new Promise((resolve, reject) => {
+            const existing = document.querySelector(`script[src="${src}"]`);
+            if (existing) {
+                if (existing.dataset.loaded === 'true') {
+                    resolve();
+                } else {
+                    existing.addEventListener('load', () => resolve());
+                    existing.addEventListener('error', () => reject(new Error(`Failed to load script: ${src}`)));
+                }
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = src;
+            script.addEventListener('load', () => {
+                script.dataset.loaded = 'true';
+                resolve();
+            });
+            script.addEventListener('error', () => reject(new Error(`Failed to load script: ${src}`)));
+            document.head.appendChild(script);
+        });
+    };
+}
+
 window.setupFocusTrap = function(modalElement) {
     if (!modalElement) return null;
     const focusableSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';

@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offline | Incredible India Explorer</title>
+    <meta name="description" content="You are currently offline. Explore cached Indian heritage content while you wait for your connection to restore.">
     <style>
         :root {
             --bg-color: #0b0c10;
@@ -22,6 +23,18 @@
             --text-color: #f1f1f1;
             --muted-text: #a0a0a0;
             --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Light theme overrides */
+        body.light-theme {
+            --bg-color: #f8f4ef;
+            --card-bg: rgba(0, 0, 0, 0.04);
+            --text-color: #1a1a2e;
+            --muted-text: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         body {
@@ -36,33 +49,43 @@
             min-height: 100vh;
             text-align: center;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
-            max-width: 620px;
+            max-width: 640px;
             padding: 40px 20px;
             box-sizing: border-box;
         }
 
         .offline-badge {
             background: linear-gradient(135deg, var(--saffron), var(--primary-gold));
-            color: var(--bg-color);
+            color: #fff;
             font-weight: 800;
             padding: 8px 18px;
             border-radius: 99px;
             font-size: 0.85rem;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
             margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 2px;
             box-shadow: 0 4px 15px rgba(255, 176, 31, 0.3);
-            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fff;
+            animation: blink 1.4s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
         }
 
         h1 {
@@ -72,24 +95,45 @@
             background: linear-gradient(to right, #ffb01f, #ff6f3c, #00f2fe);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        p {
+        .subtitle {
             color: var(--muted-text);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
-            margin: 0 0 35px 0;
+            margin: 0 0 28px 0;
+        }
+
+        /* Connection status live region */
+        .connection-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--muted-text);
+            margin-bottom: 28px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+        }
+
+        .connection-status.reconnected {
+            color: #22c55e;
+            border-color: rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.06);
         }
 
         /* Trivia Card */
         .trivia-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
+            padding: 22px 25px;
+            margin-bottom: 14px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--card-shadow);
             text-align: left;
             position: relative;
             overflow: hidden;
@@ -108,42 +152,74 @@
         .trivia-header {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 10px;
             margin-bottom: 12px;
-            font-weight: 600;
-            color: var(--primary-gold);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
         }
 
-        .trivia-icon {
-            font-size: 1.2rem;
+        .trivia-label {
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .trivia-counter {
+            font-size: 0.76rem;
+            color: var(--muted-text);
+            font-weight: 600;
         }
 
         .trivia-text {
             font-size: 1rem;
             color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
+            line-height: 1.65;
+            margin: 0 0 14px 0;
+        }
+
+        .trivia-next-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            cursor: pointer;
+            font-family: var(--font-family);
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .trivia-next-btn:hover {
+            background: rgba(255, 176, 31, 0.1);
+            border-color: var(--primary-gold);
+        }
+
+        .trivia-next-btn:focus-visible {
+            outline: 2px solid var(--primary-gold);
+            outline-offset: 3px;
         }
 
         /* Cached Pages Card */
         .cached-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 20px 25px;
-            margin-bottom: 30px;
+            padding: 18px 22px;
+            margin-bottom: 28px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--card-shadow);
             text-align: left;
         }
 
         .cached-header {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-gold);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 12px;
@@ -160,7 +236,7 @@
 
         .cached-list a {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             color: var(--text-color);
             padding: 6px 14px;
             border-radius: 20px;
@@ -170,7 +246,7 @@
         }
 
         .cached-list a:hover {
-            background: rgba(255, 176, 31, 0.2);
+            background: rgba(255, 176, 31, 0.18);
             transform: translateY(-1px);
         }
 
@@ -180,27 +256,40 @@
             font-style: italic;
         }
 
+        /* Retry counter */
+        .retry-info {
+            font-size: 0.82rem;
+            color: var(--muted-text);
+            margin-bottom: 14px;
+            min-height: 1.2em;
+        }
+
         /* Buttons */
         .btn-group {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
+            padding: 11px 26px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.25s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             border: none;
             font-family: var(--font-family);
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--primary-gold);
+            outline-offset: 3px;
         }
 
         .btn-primary {
@@ -214,79 +303,209 @@
             box-shadow: 0 6px 20px rgba(255, 111, 60, 0.4);
         }
 
+        .btn-primary:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .btn-secondary {
             background: transparent;
             color: var(--text-color);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.4);
+            background: var(--card-bg);
+            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
+        }
+
+        body.light-theme .btn-secondary:hover {
+            border-color: rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="offline-badge">Connection Lost</div>
+        <div class="offline-badge" role="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="badge-text">Connection Lost</span>
+        </div>
         <h1>You are Offline</h1>
-        <p>Your internet connection seems to have taken a short break. While you wait, here is a quick piece of Indian heritage to explore:</p>
-        
+        <p class="subtitle">Your internet connection seems to have taken a short break. While you wait, here is a quick piece of Indian heritage trivia:</p>
+
+        <!-- Auto-reconnect status (aria-live) -->
+        <div class="connection-status" id="connection-status" aria-live="polite" aria-atomic="true">
+            <span id="reconnect-label">⏱ Checking connection every <span id="countdown">30</span>s</span>
+        </div>
+
+        <!-- Trivia Card -->
         <div class="trivia-card">
             <div class="trivia-header">
-                <span class="trivia-icon">i</span>
-                <span>Did You Know?</span>
+                <span class="trivia-label">💡 Did You Know?</span>
+                <span class="trivia-counter" id="trivia-counter">1 / 20</span>
             </div>
             <p class="trivia-text" id="trivia-content">Loading fascinating trivia...</p>
+            <button class="trivia-next-btn" id="trivia-next" aria-label="Show next trivia fact">Next fact →</button>
         </div>
 
         <!-- Cached Pages Section -->
         <div class="cached-card" id="cached-card">
             <div class="cached-header">
-                <span>Pages Available Offline</span>
+                <span>📂 Pages Available Offline</span>
             </div>
             <div class="cached-list" id="cached-list">
                 <span class="cached-empty">Scanning available pages...</span>
             </div>
         </div>
 
+        <p class="retry-info" id="retry-info" aria-live="polite"></p>
+
         <div class="btn-group">
-            <button class="btn btn-primary" onclick="window.location.reload()">
-                Retry Connection
+            <button class="btn btn-primary" id="retry-btn" aria-label="Retry connecting to the internet">
+                🔄 Retry Connection
             </button>
-            <a href="index.html" class="btn btn-secondary">
-                Go Home
+            <a href="index.html" class="btn btn-secondary" aria-label="Go to home page">
+                🏠 Go Home
             </a>
         </div>
     </div>
 
     <script>
         (function () {
-            // ---- Trivia ----
-            var trivia = [
-                "India is the only country in the world that is home to both tigers and lions, with the Royal Bengal Tiger inhabiting multiple national parks and the Asiatic Lion finding its last natural refuge in Gir Forest, Gujarat.",
-                "The Jantar Mantar observatory in Jaipur, Rajasthan features the world's largest stone sundial, measuring 27 meters tall, built by Maharaja Sawai Jai Singh II in the early 18th century.",
-                "Indian railways is one of the world's largest rail networks, operating over 22,000 trains daily across 68,000 route kilometers, transporting over 23 million passengers every single day.",
-                "Ayurveda, often considered the oldest surviving system of healthcare in the world, originated in India over 5,000 years ago during the Vedic period.",
-                "The Lonar Crater Lake in Maharashtra is a unique saline soda lake created by a meteorite impact during the Pleistocene epoch, and is one of the very few basalt impact craters on Earth.",
-                "India is the world's largest producer, consumer, and exporter of spices, supplying more than 70% of global spices from its diverse spice plantations.",
-                "With over 19,500 languages and dialects spoken as mother tongues across the country, India represents one of the most diverse linguistic landscapes in human history.",
-                "India was the first country to develop extraction and purifying techniques for sugar, dating back to the Gupta Dynasty around 350 CE."
+            'use strict';
+
+            // ---- Extended Trivia Pool (20 facts) ----
+            var TRIVIA = [
+                "India is the only country in the world that is home to both tigers and lions — the Royal Bengal Tiger inhabits multiple national parks while the Asiatic Lion finds its last natural refuge in Gir Forest, Gujarat.",
+                "The Jantar Mantar observatory in Jaipur, Rajasthan features the world's largest stone sundial, measuring 27 metres tall, built by Maharaja Sawai Jai Singh II in the early 18th century.",
+                "Indian Railways is one of the world's largest rail networks, operating over 22,000 trains daily across 68,000 route-kilometres and transporting over 23 million passengers every single day.",
+                "Ayurveda, often considered the oldest surviving system of healthcare in the world, originated in India over 5,000 years ago during the Vedic period and is still actively practiced today.",
+                "The Lonar Crater Lake in Maharashtra is a unique saline-soda lake created by a meteorite impact during the Pleistocene epoch, making it one of the very few basalt-impact craters on Earth.",
+                "India is the world's largest producer, consumer, and exporter of spices, supplying more than 70% of global spices from its diverse plantations in Kerala, Karnataka, and Andhra Pradesh.",
+                "With over 19,500 languages and dialects spoken as mother tongues across the country, India represents one of the most linguistically diverse nations in human history.",
+                "India was the first country to develop extraction and purifying techniques for sugar, dating back to the Gupta Dynasty around 350 CE — centuries before Europe discovered refined sugar.",
+                "The ancient city of Varanasi (Kashi) is one of the oldest continually inhabited cities in the world, with evidence of settlement dating back over 3,000 years, predating Rome and Athens.",
+                "Chess (originally called Chaturanga) was invented in India during the Gupta period around the 6th century CE and later spread to Persia, the Arab world, and eventually all of Europe.",
+                "India has the most post offices of any country in the world — over 150,000 — with some of the highest post offices located in remote Himalayan villages accessible only by foot.",
+                "The Kumbh Mela is the world's largest peaceful gathering of people, recognised by UNESCO as an Intangible Cultural Heritage. In 2013, an estimated 120 million pilgrims attended over 55 days.",
+                "India's space agency ISRO successfully placed the Mars Orbiter Mission (Mangalyaan) in Martian orbit on its very first attempt in 2014, becoming only the fourth space agency to reach Mars.",
+                "Yoga, developed in ancient India over 5,000 years ago, is now practiced by more than 300 million people worldwide and was recognised by the United Nations with an International Day of Yoga on 21 June.",
+                "The Brihadeeswara Temple in Thanjavur, Tamil Nadu, built in 1010 CE, has a massive granite dome at its top — the shadow of this dome never falls on the ground at noon.",
+                "India is the world's largest democracy, conducting elections in which over 960 million eligible voters participate — the largest electorate of any democratic nation on Earth.",
+                "The Indian textile tradition of dyeing, weaving, and block-printing dates back to the Indus Valley Civilisation (2600–1900 BCE), making it one of the world's oldest continuously practised craft traditions.",
+                "India accounts for nearly 70% of the world's total natural diamond production by value, with mines concentrated in Madhya Pradesh and Andhra Pradesh.",
+                "The national flower of India, the lotus (Nelumbo nucifera), holds profound significance in Hindu, Buddhist, and Jain traditions and is a symbol of purity rising above muddy waters.",
+                "The Sundarbans in West Bengal is home to the world's largest contiguous mangrove forest, spanning nearly 10,000 sq km, and shelters the rare swimming Bengal Tiger adapted to life in tidal creeks."
             ];
 
-            var randomItem = trivia[Math.floor(Math.random() * trivia.length)];
-            document.getElementById('trivia-content').innerText = randomItem;
+            var currentTriviaIndex = 0;
+
+            function showTrivia(index) {
+                document.getElementById('trivia-content').textContent = TRIVIA[index];
+                document.getElementById('trivia-counter').textContent = (index + 1) + ' / ' + TRIVIA.length;
+            }
+
+            // Randomise starting trivia item
+            currentTriviaIndex = Math.floor(Math.random() * TRIVIA.length);
+            showTrivia(currentTriviaIndex);
+
+            document.getElementById('trivia-next').addEventListener('click', function () {
+                currentTriviaIndex = (currentTriviaIndex + 1) % TRIVIA.length;
+                showTrivia(currentTriviaIndex);
+            });
+
+            // ---- Auto-Reconnect Detection ----
+            var CHECK_INTERVAL_SECONDS = 30;
+            var retryAttempts = 0;
+            var countdownTimer = null;
+            var reconnectInterval = null;
+            var timeLeft = CHECK_INTERVAL_SECONDS;
+
+            var retryBtn = document.getElementById('retry-btn');
+            var retryInfo = document.getElementById('retry-info');
+            var countdownEl = document.getElementById('countdown');
+            var connectionStatus = document.getElementById('connection-status');
+            var badgeText = document.getElementById('badge-text');
+
+            function updateRetryInfo() {
+                if (retryAttempts === 0) {
+                    retryInfo.textContent = '';
+                } else {
+                    retryInfo.textContent = 'Attempted ' + retryAttempts + ' auto-check' + (retryAttempts === 1 ? '' : 's') + ' so far.';
+                }
+            }
+
+            function onReconnected() {
+                clearInterval(reconnectInterval);
+                clearInterval(countdownTimer);
+
+                connectionStatus.classList.add('reconnected');
+                document.getElementById('reconnect-label').textContent = '✅ Connection restored! Redirecting…';
+                badgeText.textContent = 'Online';
+
+                retryBtn.disabled = true;
+
+                setTimeout(function () {
+                    var ref = document.referrer;
+                    var isSameOrigin = false;
+                    try {
+                        isSameOrigin = ref && new URL(ref, window.location.href).origin === window.location.origin;
+                    } catch (e) { /* malformed referrer */ }
+                    window.location.href = (isSameOrigin && ref !== window.location.href) ? ref : 'index.html';
+                }, 1800);
+            }
+
+            function checkConnection() {
+                retryAttempts++;
+                updateRetryInfo();
+
+                // We ping a tiny, known-cached asset to detect connectivity
+                var testUrl = 'index.html?_cache_bust=' + Date.now();
+                fetch(testUrl, { method: 'HEAD', cache: 'no-store' })
+                    .then(function (res) {
+                        if (res.ok) onReconnected();
+                    })
+                    .catch(function () {
+                        // Still offline — do nothing, keep trying
+                    });
+            }
+
+            function startCountdown() {
+                timeLeft = CHECK_INTERVAL_SECONDS;
+                if (countdownEl) countdownEl.textContent = timeLeft;
+
+                clearInterval(countdownTimer);
+                countdownTimer = setInterval(function () {
+                    timeLeft--;
+                    if (countdownEl) countdownEl.textContent = Math.max(0, timeLeft);
+                    if (timeLeft <= 0) {
+                        clearInterval(countdownTimer);
+                        checkConnection();
+                        startCountdown(); // restart cycle
+                    }
+                }, 1000);
+            }
+
+            // Manual retry button
+            retryBtn.addEventListener('click', function () {
+                checkConnection();
+                startCountdown();
+            });
+
+            // Start auto-check cycle
+            startCountdown();
 
             // ---- Cached Pages Discovery ----
             (function loadCachedPages() {
                 var list = document.getElementById('cached-list');
                 if (!('caches' in window)) {
-                    list.innerHTML = '<span class="cached-empty">Cache API not available.</span>';
+                    list.innerHTML = '<span class="cached-empty">Cache API not available in this browser.</span>';
                     return;
                 }
 
-                var pageNames = {
+                var PAGE_NAMES = {
                     '/': 'Home',
                     '/index.html': 'Home',
                     '/cuisine.html': 'Cuisine',
@@ -306,7 +525,13 @@
                     '/science.html': 'Science',
                     '/literature.html': 'Literature',
                     '/railways.html': 'Railways',
-                    '/architecture.html': 'Architecture'
+                    '/architecture.html': 'Architecture',
+                    '/tribes.html': 'Tribes',
+                    '/rivers.html': 'Rivers',
+                    '/glossary.html': 'Glossary',
+                    '/smart-cities.html': 'Smart Cities',
+                    '/stepwells.html': 'Stepwells',
+                    '/museums.html': 'Museums'
                 };
 
                 caches.keys().then(function (cacheNames) {
@@ -317,7 +542,6 @@
                                 requests.forEach(function (req) {
                                     var url = new URL(req.url);
                                     var path = url.pathname;
-                                    // Only show HTML pages
                                     if (path.endsWith('.html') || path === '/') {
                                         var cleanPath = path.replace(/\/index\.html$/, '/');
                                         if (found.indexOf(cleanPath) === -1) {
@@ -331,16 +555,14 @@
 
                     return Promise.all(pending).then(function () {
                         if (found.length === 0) {
-                            list.innerHTML = '<span class="cached-empty">No pages cached yet. Browse the site online to cache pages for offline use.</span>';
+                            list.innerHTML = '<span class="cached-empty">No pages cached yet. Browse the site online to make pages available offline.</span>';
                             return;
                         }
 
-                        // Sort alphabetically
                         found.sort();
-
                         var html = '';
                         found.forEach(function (path) {
-                            var label = pageNames[path] || path.replace(/\.html$/, '').replace(/^\//, '') || 'Home';
+                            var label = PAGE_NAMES[path] || path.replace(/\.html$/, '').replace(/^\//, '') || 'Home';
                             var displayName = label.charAt(0).toUpperCase() + label.slice(1);
                             html += '<a href="' + path + '">' + displayName + '</a>';
                         });

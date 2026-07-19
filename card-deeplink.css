@@ -1,0 +1,165 @@
+/* Issue #248 — Shareable Deep Links for Explorer Cards */
+
+:root {
+  --deeplink-accent: var(--saffron, #ff9933);
+  --deeplink-green: var(--green, #138808);
+  --deeplink-border: var(--glass-border, rgba(255,255,255,.16));
+  --deeplink-shadow: 0 20px 58px rgba(0,0,0,.28);
+}
+
+.card-deeplink-action {
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 900;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.card-deeplink-action:hover,
+.card-deeplink-action:focus-visible {
+  outline: none;
+  transform: translateY(-1px);
+  border-color: var(--deeplink-accent);
+  background: rgba(255,153,51,.24);
+}
+
+.card-deeplink-action.is-copied {
+  background: linear-gradient(135deg, var(--deeplink-accent), var(--deeplink-green));
+  border-color: transparent;
+}
+
+.card-deeplink-target {
+  scroll-margin-top: 96px;
+}
+
+.card-deeplink-highlight {
+  position: relative;
+  animation: cardDeeplinkPulse 1.6s ease-out 1;
+  outline: 3px solid rgba(255,153,51,.68);
+  outline-offset: 5px;
+  scroll-margin-top: 96px;
+}
+
+.card-deeplink-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 5200;
+  max-width: min(440px, calc(100vw - 30px));
+  transform: translateX(-50%) translateY(20px);
+  border: 1px solid var(--deeplink-border);
+  border-radius: 999px;
+  padding: 11px 16px;
+  background: rgba(12,15,24,.96);
+  color: #fff;
+  font-weight: 800;
+  box-shadow: var(--deeplink-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.card-deeplink-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.card-deeplink-fallback {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  z-index: 5100;
+  width: min(380px, calc(100vw - 32px));
+  border: 1px solid var(--deeplink-border);
+  border-radius: 20px;
+  padding: 16px;
+  background: rgba(14,18,28,.97);
+  color: #fff;
+  box-shadow: var(--deeplink-shadow);
+}
+
+.card-deeplink-fallback h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.card-deeplink-fallback p {
+  margin: 0 0 12px;
+  color: rgba(255,255,255,.72);
+  line-height: 1.5;
+}
+
+.card-deeplink-fallback button {
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.card-deeplink-fallback button:hover,
+.card-deeplink-fallback button:focus-visible {
+  outline: none;
+  border-color: var(--deeplink-accent);
+}
+
+body.light-theme .card-deeplink-toast,
+body.light-theme .card-deeplink-fallback {
+  background: rgba(255,255,255,.97);
+  color: #172033;
+}
+
+body.light-theme .card-deeplink-fallback p {
+  color: #64748b;
+}
+
+body.light-theme .card-deeplink-fallback button {
+  color: #172033;
+  border-color: rgba(15,23,42,.14);
+}
+
+@keyframes cardDeeplinkPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,153,51,.68), 0 0 0 0 rgba(19,136,8,.24);
+  }
+  60% {
+    box-shadow: 0 0 0 12px rgba(255,153,51,0), 0 0 0 22px rgba(19,136,8,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255,153,51,0), 0 0 0 0 rgba(19,136,8,0);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-deeplink-fallback {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+  }
+
+  .card-deeplink-toast {
+    bottom: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-deeplink-action,
+  .card-deeplink-toast {
+    transition: none;
+  }
+
+  .card-deeplink-highlight {
+    animation: none;
+  }
+}

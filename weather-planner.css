@@ -1,0 +1,312 @@
+/* ==========================================================================
+   WEATHER-AWARE ITINERARY PANEL — styles for #weather-panel (trip-planner.html)
+   Reuses the site's existing design tokens (see styles.css :root).
+   ========================================================================== */
+
+.weather-panel {
+    margin-top: 24px;
+}
+
+.weather-panel-inner {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 24px;
+    backdrop-filter: blur(12px);
+}
+
+.weather-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.weather-panel-header h4 {
+    font-family: var(--font-heading);
+    margin: 0;
+}
+
+.weather-pref-select {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.weather-pref-select select {
+    background: var(--bg-dark-modal);
+    color: var(--text-light);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    padding: 5px 8px;
+    font-family: var(--font-body);
+}
+
+.weather-loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    padding: 10px 0;
+}
+
+.weather-spinner {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 176, 31, 0.25);
+    border-top-color: var(--primary-gold);
+    display: inline-block;
+    animation: weather-spin 0.9s linear infinite;
+}
+
+@keyframes weather-spin {
+    to { transform: rotate(360deg); }
+}
+
+.weather-error {
+    color: var(--text-light);
+}
+
+.weather-alert-banner {
+    background: hsla(0, 80%, 60%, 0.12);
+    border: 1px solid hsla(0, 80%, 60%, 0.4);
+    border-radius: var(--border-radius-sm);
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+}
+
+.weather-day-strip {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+}
+
+.weather-day-chip {
+    flex: 0 0 auto;
+    min-width: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: var(--border-radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+}
+
+.weather-day-date {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.weather-day-icon {
+    font-size: 1.5rem;
+}
+
+.weather-day-city {
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.weather-day-status {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.weather-status-good .weather-day-status,
+.weather-status-pill.weather-status-good {
+    background: hsla(122, 90%, 40%, 0.2);
+    color: hsl(122, 70%, 65%);
+}
+
+.weather-status-caution .weather-day-status,
+.weather-status-pill.weather-status-caution {
+    background: hsla(43, 85%, 52%, 0.2);
+    color: var(--primary-gold);
+}
+
+.weather-status-poor .weather-day-status,
+.weather-status-pill.weather-status-poor {
+    background: hsla(0, 80%, 60%, 0.2);
+    color: hsl(0, 80%, 70%);
+}
+
+.weather-status-unknown .weather-day-status,
+.weather-status-pill.weather-status-unknown {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+}
+
+.weather-status-pill {
+    font-size: 0.72rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.weather-poor-days {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.weather-poor-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    padding: 14px;
+}
+
+.weather-poor-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.weather-poor-reasons {
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    margin: 0 0 10px;
+}
+
+.weather-applied-note {
+    font-size: 0.85rem;
+    color: hsl(122, 70%, 65%);
+}
+
+.weather-link-btn {
+    background: none;
+    border: none;
+    color: var(--primary-gold);
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0;
+}
+
+.weather-alt-results {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.weather-alt-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    border-radius: var(--border-radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    flex-wrap: wrap;
+}
+
+.weather-alt-meta {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin: 4px 0 0;
+}
+
+.weather-alt-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.weather-note {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.weather-reorder-section h5 {
+    margin: 0 0 10px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.weather-reorder-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.weather-reorder-card p {
+    margin: 0;
+    font-size: 0.88rem;
+}
+
+/* Reused small-button style shared with the 3D map controls (india-3d-map.css)
+   — same visual language, kept local here since this page doesn't load that file. */
+.map3d-btn {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    padding: 7px 12px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition-snappy);
+}
+
+.map3d-btn:hover {
+    border-color: var(--primary-gold);
+}
+
+.map3d-btn.active {
+    background: var(--primary-gold);
+    color: #1a1200;
+    border-color: transparent;
+    font-weight: 600;
+}
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bg-dark-modal);
+    color: var(--text-light);
+    padding: 14px 20px;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--primary-gold);
+    z-index: 1100;
+    max-width: 320px;
+}
+
+.toast.error {
+    border-left-color: hsl(0, 80%, 60%);
+}
+
+@media (max-width: 640px) {
+    .weather-day-strip { gap: 8px; }
+    .weather-day-chip { min-width: 92px; padding: 8px 10px; }
+    .weather-panel-header { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .weather-spinner { animation: none; }
+}

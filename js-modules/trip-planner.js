@@ -388,6 +388,28 @@
         }
     }
 
+    function serializeParams(inputs) {
+        if (!inputs) return "";
+        const params = new URLSearchParams();
+        if (inputs.budget !== undefined && inputs.budget !== null) params.set("budget", inputs.budget);
+        if (inputs.days !== undefined && inputs.days !== null) params.set("days", inputs.days);
+        if (inputs.travelers !== undefined && inputs.travelers !== null) params.set("travelers", inputs.travelers);
+        if (inputs.categories && inputs.categories.length) {
+            params.set("categories", inputs.categories.join(","));
+        }
+        return params.toString();
+    }
+
+    function deserializeParams(queryString) {
+        const params = new URLSearchParams(queryString);
+        return {
+            budget: params.get("budget") ? parseFloat(params.get("budget")) : null,
+            days: params.get("days") ? parseInt(params.get("days"), 10) : null,
+            travelers: params.get("travelers") ? parseInt(params.get("travelers"), 10) : 1,
+            categories: params.get("categories") ? params.get("categories").split(",") : []
+        };
+    }
+
     function defaultTripTitle(itinerary) {
         const names = itinerary.destinations.map((d) => d.name);
         const label = names.length > 2 ? `${names[0]} + ${names.length - 1} more` : names.join(" & ");
@@ -411,6 +433,8 @@
         saveTrip,
         deleteSavedTrip,
         defaultTripTitle,
+        serializeParams,
+        deserializeParams,
     };
 
     root.TripPlanner = TripPlanner;
@@ -493,6 +517,41 @@
                 return;
             }
 
+            const shareBtn = e.target.closest("#trip-share-btn");
+            if (shareBtn && currentItinerary) {
+                const query = serializeParams(currentItinerary.inputs);
+                const shareUrl = `${window.location.origin}${window.location.pathname}?${query}`;
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    const originalText = shareBtn.innerHTML;
+                    shareBtn.innerHTML = "✓ Copied!";
+                    setTimeout(() => {
+                        shareBtn.innerHTML = originalText;
+                    }, 1800);
+                }).catch(err => {
+                    console.error("Clipboard failed", err);
+                    alert(`Copy this link to share: ${shareUrl}`);
+                });
+                return;
+            }
+
+            const printBtn = e.target.closest("#trip-print-btn");
+            if (printBtn) {
+                window.print();
+                return;
+            }
+
+            const exportBtn = e.target.closest("#trip-export-json-btn");
+            if (exportBtn && currentItinerary) {
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentItinerary, null, 2));
+                const downloadAnchor = document.createElement("a");
+                downloadAnchor.setAttribute("href", dataStr);
+                downloadAnchor.setAttribute("download", `Incredible_India_Itinerary_${currentItinerary.id}.json`);
+                document.body.appendChild(downloadAnchor);
+                downloadAnchor.click();
+                downloadAnchor.remove();
+                return;
+            }
+
             const deleteBtn = e.target.closest(".trip-delete-saved-btn");
             if (deleteBtn) {
                 deleteSavedTrip(deleteBtn.dataset.tripId);
@@ -567,6 +626,9 @@
                     </div>
                     <div class="trip-actions">
                         <button type="button" class="btn btn-secondary ripple" id="trip-regenerate-btn">🔄 Regenerate</button>
+                        <button type="button" class="btn btn-secondary ripple" id="trip-share-btn" aria-label="Copy share link to clipboard">🔗 Share</button>
+                        <button type="button" class="btn btn-secondary ripple" id="trip-print-btn" aria-label="Print trip itinerary">🖨️ Print</button>
+                        <button type="button" class="btn btn-secondary ripple" id="trip-export-json-btn" aria-label="Download itinerary as JSON">📥 Export JSON</button>
                         <button type="button" class="btn btn-primary ripple" id="trip-save-btn">Save This Trip</button>
                     </div>
                 </div>
@@ -602,6 +664,37 @@
         }
 
         renderSavedTrips();
+
+        // Check for URL query params to auto-generate
+        const parsed = deserializeParams(window.location.search);
+        if (parsed.budget && parsed.days) {
+            const budgetInput = document.getElementById("trip-budget");
+            const daysInput = document.getElementById("trip-days");
+            const travelersInput = document.getElementById("trip-travelers");
+
+            if (budgetInput) budgetInput.value = parsed.budget;
+            if (daysInput) daysInput.value = parsed.days;
+            if (travelersInput) travelersInput.value = parsed.travelers || 1;
+            
+            if (parsed.categories && parsed.categories.length) {
+                selectedCategories = parsed.categories;
+                categoryButtons.forEach((btn) => {
+                    if (selectedCategories.includes(btn.dataset.category)) {
+                        btn.classList.add("active");
+                    } else {
+                        btn.classList.remove("active");
+                    }
+                });
+            }
+
+            currentItinerary = generateItinerary({
+                budget: parsed.budget,
+                days: parsed.days,
+                travelers: parsed.travelers,
+                categories: selectedCategories
+            });
+            renderItinerary();
+        }
     }
 
     root.initTripPlannerPage = initTripPlannerPage;
