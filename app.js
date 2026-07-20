@@ -934,6 +934,28 @@ function initInteractiveMap() {
     });
 
     // Helper functions
+
+    /**
+     * Scroll-triggered reveal animation for .story-paragraph elements.
+     * Uses IntersectionObserver to add a .reveal class as elements scroll into view,
+     * creating a fade-in-up effect defined in styles.css.
+     */
+    window.setupScrollReveals = function setupScrollReveals() {
+        const paragraphs = document.querySelectorAll('.story-paragraph');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        paragraphs.forEach(p => {
+            p.classList.remove('reveal');
+            observer.observe(p);
+        });
+    };
+
     function showStateDetails(loc) {
         // Set Details
         overlayTitle.innerText = loc.name;
