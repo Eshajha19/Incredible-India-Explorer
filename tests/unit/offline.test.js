@@ -20,3 +20,41 @@ describe('Offline trivia pool', () => {
     next(); expect(currentIndex).toBe(0); // wraps
   });
 });
+
+describe('Service Worker Precaching', () => {
+  it('all files defined in STATIC_ASSETS_TO_PRECACHE exist in the repository', () => {
+    const fs = require('fs');
+    const path = require('path');
+    const swPath = path.resolve(__dirname, '../../sw.js');
+    const swContent = fs.readFileSync(swPath, 'utf8');
+
+    // Extract the STATIC_ASSETS_TO_PRECACHE array using regex
+    const match = swContent.match(/const STATIC_ASSETS_TO_PRECACHE = \[\s*([\s\S]*?)\s*\];/);
+    expect(match).toBeTruthy();
+
+    const assetsStr = match[1];
+    // Split by comma and clean up quotes/whitespace
+    const assets = assetsStr
+      .split(',')
+      .map(item => {
+        let clean = item.trim();
+        if ((clean.startsWith("'") && clean.endsWith("'")) || (clean.startsWith('"') && clean.endsWith('"'))) {
+          clean = clean.slice(1, -1);
+        }
+        if (clean.startsWith('./')) {
+          clean = clean.slice(2);
+        }
+        return clean;
+      })
+      .filter(item => item.length > 0 && item !== '.');
+
+    expect(assets.length).toBeGreaterThan(0);
+
+    // Verify each asset exists in the workspace
+    assets.forEach(asset => {
+      const assetPath = path.resolve(__dirname, '../../', asset);
+      const exists = fs.existsSync(assetPath);
+      expect(exists).toBe(true);
+    });
+  });
+});

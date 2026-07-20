@@ -69,6 +69,13 @@ export async function verifyLocalSession() {
   const claims = await verifySignedToken(user.token);
   if (!claims) {
     clearStoredAuthUser();
+    if (typeof window !== 'undefined' && window.location) {
+      try {
+        window.location.href = 'login.html';
+      } catch (err) {
+        // Safe fallback for testing environment
+      }
+    }
     return null;
   }
   

@@ -934,6 +934,28 @@ function initInteractiveMap() {
     });
 
     // Helper functions
+
+    /**
+     * Scroll-triggered reveal animation for .story-paragraph elements.
+     * Uses IntersectionObserver to add a .reveal class as elements scroll into view,
+     * creating a fade-in-up effect defined in styles.css.
+     */
+    window.setupScrollReveals = function setupScrollReveals() {
+        const paragraphs = document.querySelectorAll('.story-paragraph');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        paragraphs.forEach(p => {
+            p.classList.remove('reveal');
+            observer.observe(p);
+        });
+    };
+
     function showStateDetails(loc) {
         // Set Details
         overlayTitle.innerText = loc.name;
@@ -2046,11 +2068,24 @@ function initBharatGuide() {
         if (e.key === 'Enter') sendMessage();
     });
 
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+            tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag)
+        );
+    }
+
     // Chat UI helpers
     function addMessage(text, className) {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${className}`;
-        msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
+        const content = className === 'user-message' ? escapeHTML(text) : text;
+        msgDiv.innerHTML = `<div class="message-content">${content}</div>`;
         chatMessages.appendChild(msgDiv);
         scrollToBottom();
     }

@@ -168,7 +168,10 @@
     function addDaysISO(startDate, offset) {
         const d = new Date(startDate.getTime());
         d.setDate(d.getDate() + offset);
-        return d.toISOString().slice(0, 10);
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, '0');
+        const dd = String(d.getDate()).padStart(2, '0');
+        return `${yyyy}-${mm}-${dd}`;
     }
 
     // ------------------------------------------------------------------
@@ -279,21 +282,25 @@
         return suggestions;
     }
 
-    /** Apply a suggestReorder() suggestion to an evaluated schedule, returning a new array (does not mutate input). */
     function applyReorder(evaluatedSchedule, suggestion) {
-        const byDay = {};
-        evaluatedSchedule.forEach((item) => { byDay[item.day] = item; });
-
-        suggestion.moves.forEach((move) => {
-            const source = byDay[move.fromDay];
-            const target = byDay[move.toDay];
-            if (!source || !target) return;
-            const tmpActivity = source.activity;
-            source.activity = target.activity;
-            target.activity = tmpActivity;
+        const activitiesByDay = {};
+        evaluatedSchedule.forEach((item) => {
+            activitiesByDay[item.day] = item.activity;
         });
 
-        return evaluatedSchedule.slice();
+        const targetToSource = {};
+        suggestion.moves.forEach((move) => {
+            targetToSource[move.toDay] = move.fromDay;
+        });
+
+        return evaluatedSchedule.map((item) => {
+            const newItem = Object.assign({}, item);
+            if (targetToSource[item.day] !== undefined) {
+                const sourceDay = targetToSource[item.day];
+                newItem.activity = activitiesByDay[sourceDay];
+            }
+            return newItem;
+        });
     }
 
     // ------------------------------------------------------------------

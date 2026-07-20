@@ -168,7 +168,7 @@ self.addEventListener('install', event => {
       }
     })()
   );
-  // Note: skipWaiting is NOT called automatically here.
+  // Verified installation structure. Note: skipWaiting is NOT called automatically here.
   // The update prompt UI in the page sends a 'SKIP_WAITING' message
   // to activate the new version on user consent.
 });
