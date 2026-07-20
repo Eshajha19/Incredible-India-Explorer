@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore famous Indian bridges, cantilever structures, cable-stayed sea links, arch marvels, and ancient living root bridges with technical details and construction history.">
+    <title>Indian Bridges Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bridges.css">
+</head>
+
+<body class="bridges-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="literature.html" class="nav-link" id="link-literature">Literature</a>
+                <a href="bridges.html" class="nav-link active" style="color: var(--saffron)">Bridges</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="caves.html" class="dropdown-item">Cave Temples</a>
+                        <a href="lighthouses.html" class="dropdown-item">Lighthouses</a>
+                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="folk-tales.html" class="dropdown-item">Folk Tales</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="bridges-page">
+        <!-- Hero Section -->
+        <section class="bridges-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">Engineering Marvels · Structural Heritage · Connectivity</span>
+                <h1>Famous Bridges <span>of India</span></h1>
+                <p>Discover engineering feats, record-breaking sea links, Himalayan rail arches, historic cantilever structures, and ancient living root bio-bridges across India.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong id="stat-bridges-count">26</strong>
+                        <span>Famous Bridges</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-states-count">14+</strong>
+                        <span>States Covered</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-longest">21.8 km</strong>
+                        <span>Longest Sea Link</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-highest">359 m</strong>
+                        <span>World's Highest Rail Arch</span>
+                    </div>
+                </div>
+
+                <a href="#explorer-section" class="hero-cta">Explore Bridges ↓</a>
+            </div>
+        </section>
+
+        <!-- Main Explorer Section -->
+        <section class="bridges-section" id="explorer-section">
+            <div class="bridges-container">
+                <div class="section-heading">
+                    <span class="section-badge">Infrastructure &amp; Heritage</span>
+                    <h2>Explore Indian Engineering Wonders</h2>
+                    <p>Search by bridge name, location, river, or engineering type. Filter by state or bridge category, and sort by length or year built.</p>
+                </div>
+
+                <!-- Controls & Filters -->
+                <div class="explorer-controls">
+                    <div class="control-field search-field">
+                        <label for="bridge-search">Search Bridges</label>
+                        <input id="bridge-search" type="search" placeholder="Search Howrah, Chenab, Sea Link, river, state..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="state-filter">State</label>
+                        <select id="state-filter">
+                            <option value="all">All States</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="type-filter">Bridge Type</label>
+                        <select id="type-filter">
+                            <option value="all">All Types</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="sort-by">Sort By</label>
+                        <select id="sort-by">
+                            <option value="length-desc">Length: Longest First</option>
+                            <option value="length-asc">Length: Shortest First</option>
+                            <option value="year-desc">Year: Newest First</option>
+                            <option value="year-asc">Year: Oldest First</option>
+                            <option value="name-asc">Name: A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Results Toolbar -->
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all 26 bridges</p>
+                    <button id="clear-filters" type="button" class="btn-clear">Clear Filters</button>
+                </div>
+
+                <!-- Grid Container -->
+                <div id="bridges-grid" class="bridges-grid-container"></div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" hidden>
+                    <div class="empty-icon">🌉</div>
+                    <h3>No Bridges Found</h3>
+                    <p>We couldn't find any bridge matching your search or filters. Try adjusting your query or resetting filters.</p>
+                    <button id="empty-reset" type="button" class="btn-reset">Reset All Filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Technical Specs Modal Dialog -->
+    <div class="bridge-modal-overlay" id="bridge-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="bridge-modal-content">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal" data-close-modal="true">&times;</button>
+            
+            <div class="modal-header">
+                <div class="modal-tags">
+                    <span class="modal-tag state-tag" id="modal-state">State</span>
+                    <span class="modal-tag type-tag" id="modal-type">Type</span>
+                </div>
+                <h2 id="modal-title" class="modal-bridge-title">Bridge Name</h2>
+                <p class="modal-subtitle">📍 <span id="modal-location">Location</span></p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-hero-img-wrap">
+                    <img id="modal-image" src="assets/river1.png" alt="Bridge Photo" loading="lazy">
+                </div>
+
+                <div class="modal-specs-grid">
+                    <div class="spec-card">
+                        <span class="spec-label">🌊 Waterbody / Strait</span>
+                        <strong class="spec-value" id="modal-water-body">Waterbody</strong>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">📏 Total Length</span>
+                        <strong class="spec-value" id="modal-length">Length</strong>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">📅 Year Opened</span>
+                        <strong class="spec-value" id="modal-year">Year</strong>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🏗️ Construction History</h3>
+                    <p id="modal-history" class="modal-text">Construction history...</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>💡 Engineering Highlights &amp; Innovations</h3>
+                    <p id="modal-engineering" class="modal-text">Engineering highlights...</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-nav-btns">
+                    <button type="button" class="btn-modal-action" id="modal-prev-btn">← Previous Bridge</button>
+                    <button type="button" class="btn-modal-action" id="modal-next-btn">Next Bridge →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and showcasing India's engineering marvels, geography, and structural landmarks.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture</a>
+                <a href="literature.html">Literature</a>
+                <a href="bridges.html">Bridges</a>
+                <a href="folk-tales.html">Folk Tales</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="bridges.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>
