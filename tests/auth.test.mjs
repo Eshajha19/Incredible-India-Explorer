@@ -72,6 +72,9 @@ function resetStorage() {
   globalThis.window.localStorage.clear();
   globalThis.window.sessionStorage.clear();
   _resetLocalSessionCache();
+  if (tokenModule._resetSigningKey) {
+    tokenModule._resetSigningKey();
+  }
   mockEvents.length = 0;
   eventListeners.clear();
 }
@@ -279,6 +282,12 @@ test('signInLocalUser handles legacy accounts and performs auto-upgrade', async 
 test('verifySession validates active local user session', async () => {
   resetStorage();
   
+  let redirectedUrl = null;
+  globalThis.window.location = {
+    set href(val) { redirectedUrl = val; },
+    get href() { return redirectedUrl; }
+  };
+  
   const user = await authApi.registerLocal({
     email: 'session@test.com',
     password: 'password123'
@@ -286,6 +295,7 @@ test('verifySession validates active local user session', async () => {
   
   const verifiedUser = await authApi.verifySession();
   assert.deepEqual(verifiedUser, user);
+  assert.equal(redirectedUrl, null);
   
   // Manually corrupt token in session storage
   const corruptedUser = { ...user, token: 'corrupted.jwt.token' };
@@ -297,6 +307,9 @@ test('verifySession validates active local user session', async () => {
   const failedVerification = await authApi.verifySession();
   assert.equal(failedVerification, null);
   assert.equal(authApi.getStoredAuthUser(), null);
+  assert.equal(redirectedUrl, 'login.html');
+  
+  delete globalThis.window.location;
 });
 
 test('signOut clears active user session', async () => {
