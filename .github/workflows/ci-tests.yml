@@ -28,3 +28,6 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Run PR Health Checker
+        run: node scripts/pr-health-checker.js
