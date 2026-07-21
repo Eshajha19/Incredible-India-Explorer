@@ -744,6 +744,7 @@ window.indiaSearchIndex = [
     category: "Bridges",
     description: "The world's highest railway bridge at 359m above the riverbed in Jammu and Kashmir.",
     url: "bridges.html?bridge=chenab-bridge"
+  },
   // --- Folk Tales ---
   {
     title: "Indian Folk Tales Explorer",
@@ -762,5 +763,24 @@ window.indiaSearchIndex = [
     category: "Folk Tales",
     description: "Tenali Raman outmarts court jester gossip to share royal garden brinjals with his family.",
     url: "folk-tales.html?story=tenali-brinjal"
+  },
+  // --- Space Heritage ---
+  {
+    title: "Indian Space Heritage Explorer",
+    category: "Science & Technology",
+    description: "Discover India's space exploration journey, ISRO research centres, launch sites, Chandrayaan-3, Mangalyaan, and Aditya-L1.",
+    url: "space.html"
+  },
+  {
+    title: "Satish Dhawan Space Centre (SDSC SHAR)",
+    category: "Space Heritage",
+    description: "India's premier spaceport at Sriharikota, launching PSLV, GSLV, and historic lunar & interplanetary missions.",
+    url: "space.html?item=sdsc-shar"
+  },
+  {
+    title: "Chandrayaan-3 Moon Landing",
+    category: "Space Heritage",
+    description: "Historic first soft landing near the Moon's South Pole at Shiv Shakti Point by Vikram lander and Pragyan rover.",
+    url: "space.html?item=chandrayaan-3"
   }
 ];

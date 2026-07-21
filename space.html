@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's Space Heritage, ISRO launch sites, research centres, satellites, Chandrayaan-3 south pole landing, Mangalyaan, and historic space missions.">
+    <title>Indian Space Heritage Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="space.css">
+</head>
+
+<body class="space-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="science.html" class="nav-link" id="link-science">Science</a>
+                <a href="space.html" class="nav-link active" style="color: var(--saffron)">Space Heritage</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="astronomy.html" class="dropdown-item">Astronomy Heritage</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                        <a href="folk-tales.html" class="dropdown-item">Folk Tales</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="space-page">
+        <!-- Hero Section -->
+        <section class="space-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🚀 ISRO · Interplanetary Missions · Space Exploration</span>
+                <h1>Indian Space <span>Heritage Explorer</span></h1>
+                <p>Explore India's journey into the cosmos — from launching sounding rockets on a Thumba bicycle in 1963 to reaching the Moon's South Pole and Sun's Lagrange Point L1.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong id="stat-centres">12+</strong>
+                        <span>ISRO Centres &amp; Sites</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-missions">16+</strong>
+                        <span>Historic Space Missions</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-record">104</strong>
+                        <span>Satellites in 1 Launch</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-first">1st</strong>
+                        <span>Lunar South Pole Soft Landing</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#timeline-section" class="hero-cta primary">View Mission Timeline ↓</a>
+                    <a href="#explorer-section" class="hero-cta secondary">Explore ISRO Centres &amp; Missions</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Timeline Section -->
+        <section class="space-section" id="timeline-section">
+            <div class="space-container">
+                <div class="section-heading">
+                    <span class="section-badge">Chronological Milestones</span>
+                    <h2>India's Space Exploration Journey</h2>
+                    <p>Click on any milestone to explore how visionaries, engineers, and scientists propelled India into a global space leader.</p>
+                </div>
+
+                <div class="timeline-shell">
+                    <div class="timeline-list" role="tablist">
+                        <button type="button" class="timeline-button active" data-key="incospar">
+                            <strong>1962</strong>
+                            <span>INCOSPAR Formed</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="thumba">
+                            <strong>1963</strong>
+                            <span>1st Sounding Rocket</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="isro">
+                            <strong>1969</strong>
+                            <span>ISRO Established</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="aryabhata">
+                            <strong>1975</strong>
+                            <span>Aryabhata Satellite</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="slv3">
+                            <strong>1980</strong>
+                            <span>SLV-3 &amp; Rohini</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="chandrayaan1">
+                            <strong>2008</strong>
+                            <span>Chandrayaan-1</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="mangalyaan">
+                            <strong>2013-14</strong>
+                            <span>Mangalyaan Mars Orbiter</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="chandrayaan3">
+                            <strong>2023</strong>
+                            <span>Chandrayaan-3 Landing</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="adityal1">
+                            <strong>2023-24</strong>
+                            <span>Aditya-L1 Solar Mission</span>
+                        </button>
+                    </div>
+
+                    <article class="timeline-detail" id="timeline-detail">
+                        <span class="timeline-year" id="timeline-year">1962</span>
+                        <h3 id="timeline-title">INCOSPAR Formed by Dr. Vikram Sarabhai</h3>
+                        <p id="timeline-text">The Indian National Committee for Space Research (INCOSPAR) was established under the Department of Atomic Energy, headed by pioneer scientist Dr. Vikram Sarabhai, setting the foundation for India's civilian space vision.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Explorer Section -->
+        <section class="space-section" id="explorer-section">
+            <div class="space-container">
+                <div class="section-heading">
+                    <span class="section-badge">Centres, Launch Sites &amp; Missions</span>
+                    <h2>Discover ISRO Infrastructure &amp; Space Missions</h2>
+                    <p>Search by mission title, launch centre, rocket vehicle, or state. Filter by category or region.</p>
+                </div>
+
+                <!-- Controls & Filters -->
+                <div class="explorer-controls">
+                    <div class="control-field search-field">
+                        <label for="space-search">Search Space Heritage</label>
+                        <input id="space-search" type="search" placeholder="Search Chandrayaan, Sriharikota, Mangalyaan, PSLV, state..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="state-filter">State</label>
+                        <select id="state-filter">
+                            <option value="all">All States</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Results Toolbar -->
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all 28 space entries</p>
+                    <button id="clear-filters" type="button" class="btn-clear">Clear Filters</button>
+                </div>
+
+                <!-- Grid Container -->
+                <div id="space-grid" class="space-grid-container"></div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" hidden>
+                    <div class="empty-icon">🛸</div>
+                    <h3>No Space Item Found</h3>
+                    <p>We couldn't find any space centre or mission matching your search or filters. Try adjusting your query or resetting filters.</p>
+                    <button id="empty-reset" type="button" class="btn-reset">Reset All Filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Technical Details Modal Dialog -->
+    <div class="space-modal-overlay" id="space-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="space-modal-content">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal" data-close-modal="true">&times;</button>
+            
+            <div class="modal-header">
+                <div class="modal-tags">
+                    <span class="modal-tag state-tag" id="modal-state">State</span>
+                    <span class="modal-tag category-tag" id="modal-category">Category</span>
+                </div>
+                <h2 id="modal-title" class="modal-space-title">Title</h2>
+                <p class="modal-subtitle">📍 <span id="modal-location">Location</span></p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-hero-img-wrap">
+                    <img id="modal-image" src="assets/science/aditya-l1.png" alt="Space Feature Image" loading="lazy">
+                </div>
+
+                <div class="modal-specs-grid">
+                    <div class="spec-card">
+                        <span class="spec-label">📅 Year Established / Launched</span>
+                        <strong class="spec-value" id="modal-year">Year</strong>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">🚀 Launch Vehicle / Rockets</span>
+                        <strong class="spec-value" id="modal-rocket">Launch Vehicle</strong>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🌌 Overview</h3>
+                    <p id="modal-description" class="modal-text">Overview text...</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🏆 Key Contributions &amp; Historic Achievements</h3>
+                    <p id="modal-contributions" class="modal-text">Contributions text...</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-nav-btns">
+                    <button type="button" class="btn-modal-action" id="modal-prev-btn">← Previous Item</button>
+                    <button type="button" class="btn-modal-action" id="modal-next-btn">Next Item →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Celebrating India's historic achievements in space exploration, ISRO research, and satellite technology.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="science.html">Science</a>
+                <a href="astronomy.html">Astronomy</a>
+                <a href="space.html">Space Heritage</a>
+                <a href="bridges.html">Bridges</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural &amp; Scientific Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="space.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>
