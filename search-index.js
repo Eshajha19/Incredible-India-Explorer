@@ -807,6 +807,18 @@ window.indiaSearchIndex = [
     description: "Historic first soft landing near the Moon's South Pole at Shiv Shakti Point by Vikram lander and Pragyan rover.",
     url: "space.html?item=chandrayaan-3"
   },
+  // --- State Borders Challenge ---
+  {
+    title: "State Borders Journey Challenge",
+    category: "Interactive Games",
+    description: "Travel across India virtually by crossing adjacent state borders, answering regional trivia quizzes, and earning achievement badges.",
+    url: "state-challenge.html"
+  },
+  {
+    title: "Border Patrol State Trivia",
+    category: "State Borders Challenge",
+    description: "Test your geographic and cultural trivia knowledge of India's states to unlock border crossings.",
+    url: "state-challenge.html?mode=trivia"
   // --- Ancient Trade Routes ---
   {
     title: "Ancient Indian Trade Network",
