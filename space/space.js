@@ -436,7 +436,6 @@ export function filterSpaceItems(items, { search = "", state = "all", category =
   const query = search.trim().toLowerCase();
 
   return items.filter(item => {
-    // Search query match (title, location, state, category, type, description, keyContributions, launchVehicleOrRocket, tags)
     const matchesSearch = !query || [
       item.title,
       item.location,
@@ -449,10 +448,7 @@ export function filterSpaceItems(items, { search = "", state = "all", category =
       ...(item.tags || [])
     ].some(field => field && field.toLowerCase().includes(query));
 
-    // State filter match
     const matchesState = state === "all" || item.stateCode === state || item.state.toLowerCase() === state.toLowerCase();
-
-    // Category filter match
     const matchesCategory = category === "all" || item.category.toLowerCase() === category.toLowerCase();
 
     return matchesSearch && matchesState && matchesCategory;
@@ -548,8 +544,6 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
     const modalDescription = document.getElementById("modal-description");
     const modalContributions = document.getElementById("modal-contributions");
     const modalImage = document.getElementById("modal-image");
-    const modalPrevBtn = document.getElementById("modal-prev-btn");
-    const modalNextBtn = document.getElementById("modal-next-btn");
 
     // Timeline tab buttons
     const timelineButtons = document.querySelectorAll(".timeline-button");
@@ -607,8 +601,10 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
 
     let currentFilteredItems = [...spaceData];
     let currentItemIndex = -1;
+    let lastActiveElement = null;
+    let searchDebounceTimer = null;
 
-    // Populate State dropdown options dynamically
+    // Populate State dropdown options
     if (stateFilter) {
       const states = getUniqueStates();
       states.forEach(({ code, name }) => {
@@ -619,7 +615,7 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
       });
     }
 
-    // Populate Category dropdown options dynamically
+    // Populate Category dropdown options
     if (categoryFilter) {
       const categories = getUniqueCategories();
       categories.forEach(cat => {
@@ -643,27 +639,24 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
         category: categoryVal
       });
 
-      // Update counter status
       if (resultStatus) {
-        resultStatus.textContent = `Showing ${currentFilteredItems.length} of ${spaceData.length} ISRO centres & space missions`;
+        resultStatus.textContent = `Showing ${currentFilteredItems.length} of ${spaceData.length} space entries`;
       }
 
-      // Handle empty state
+      gridContainer.replaceChildren();
+
       if (currentFilteredItems.length === 0) {
-        gridContainer.innerHTML = "";
         if (emptyState) emptyState.hidden = false;
         return;
-      } else {
-        if (emptyState) emptyState.hidden = true;
       }
 
-      gridContainer.innerHTML = "";
-      const cardsWrapper = document.createElement("div");
-      cardsWrapper.className = "space-cards-grid";
+      if (emptyState) emptyState.hidden = true;
+
+      const fragment = document.createDocumentFragment();
       currentFilteredItems.forEach((item, idx) => {
-        cardsWrapper.appendChild(createSpaceCard(item, idx));
+        fragment.appendChild(createSpaceCard(item, idx));
       });
-      gridContainer.appendChild(cardsWrapper);
+      gridContainer.appendChild(fragment);
     }
 
     function createSpaceCard(item, globalIdx) {
@@ -674,7 +667,7 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
 
       card.innerHTML = `
         <div class="card-image-wrap">
-          <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='assets/science/aditya-l1.png'">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async" onerror="this.src='assets/science/aditya-l1.png'">
           <span class="card-badge state-badge">${item.state}</span>
           <span class="card-badge category-badge">${item.category}</span>
         </div>
@@ -684,25 +677,28 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
           <p class="card-type">🚀 <strong>Type:</strong> ${item.type}</p>
           <p class="card-description">${item.description}</p>
           <button type="button" class="btn-view-details" data-index="${globalIdx}">
-            View Technical Details →
+            View Details →
           </button>
         </div>
       `;
 
+      const triggerModal = (e) => {
+        lastActiveElement = e.currentTarget;
+        openSpaceModal(globalIdx);
+      };
+
       const viewBtn = card.querySelector(".btn-view-details");
       viewBtn?.addEventListener("click", (e) => {
         e.stopPropagation();
-        openSpaceModal(globalIdx);
+        triggerModal(e);
       });
 
-      card.addEventListener("click", () => {
-        openSpaceModal(globalIdx);
-      });
+      card.addEventListener("click", triggerModal);
 
       card.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          openSpaceModal(globalIdx);
+          triggerModal(e);
         }
       });
 
@@ -722,6 +718,7 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
       if (modalRocket) modalRocket.textContent = item.launchVehicleOrRocket;
       if (modalDescription) modalDescription.textContent = item.description;
       if (modalContributions) modalContributions.textContent = item.keyContributions;
+
       if (modalImage) {
         modalImage.src = item.image;
         modalImage.alt = item.title;
@@ -729,7 +726,6 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
 
       if (spaceModal) {
         spaceModal.hidden = false;
-        spaceModal.classList.add("active");
         document.body.classList.add("modal-open");
         modalCloseBtn?.focus();
       }
@@ -738,8 +734,10 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
     function closeSpaceModal() {
       if (spaceModal) {
         spaceModal.hidden = true;
-        spaceModal.classList.remove("active");
         document.body.classList.remove("modal-open");
+        if (lastActiveElement && typeof lastActiveElement.focus === "function") {
+          lastActiveElement.focus();
+        }
       }
     }
 
@@ -750,13 +748,20 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
       renderCards();
     }
 
-    // Timeline tab handlers
+    // Timeline tab handlers (with ARIA state synchronization)
     timelineButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        timelineButtons.forEach(b => b.classList.remove("active"));
+        timelineButtons.forEach(b => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+
         btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+
         const key = btn.dataset.key;
         const milestone = timelineMilestones[key];
+
         if (milestone) {
           if (timelineYear) timelineYear.textContent = milestone.year;
           if (timelineTitle) timelineTitle.textContent = milestone.title;
@@ -765,22 +770,18 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
       });
     });
 
-    // Event Listeners
-    searchInput?.addEventListener("input", renderCards);
+    // Debounced Search Handler
+    searchInput?.addEventListener("input", () => {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(renderCards, 150);
+    });
+
     stateFilter?.addEventListener("change", renderCards);
     categoryFilter?.addEventListener("change", renderCards);
     clearFiltersBtn?.addEventListener("click", resetFilters);
     emptyResetBtn?.addEventListener("click", resetFilters);
 
     modalCloseBtn?.addEventListener("click", closeSpaceModal);
-
-    modalPrevBtn?.addEventListener("click", () => {
-      if (currentItemIndex > 0) openSpaceModal(currentItemIndex - 1);
-    });
-
-    modalNextBtn?.addEventListener("click", () => {
-      if (currentItemIndex < currentFilteredItems.length - 1) openSpaceModal(currentItemIndex + 1);
-    });
 
     spaceModal?.addEventListener("click", (e) => {
       if (e.target.hasAttribute("data-close-modal") || e.target === spaceModal) {
