@@ -764,6 +764,30 @@ window.indiaSearchIndex = [
     description: "Tenali Raman outmarts court jester gossip to share royal garden brinjals with his family.",
     url: "folk-tales.html?story=tenali-brinjal"
   },
+  // --- Archaeological Excavations ---
+  {
+    title: "Archaeological Excavations Explorer",
+    category: "Heritage & History",
+    description: "Explore India's major archaeological sites including Dholavira, Lothal, Rakhigarhi, Kalibangan, Keezhadi, Sinauli, and Bhimbetka.",
+    url: "excavations.html"
+  },
+  {
+    title: "Dholavira Harappan Citadel",
+    category: "Archaeological Excavations",
+    description: "UNESCO World Heritage Indus Valley metropolis in Kutch famous for stone water reservoirs and 10-symbol signboard.",
+    url: "excavations.html?site=dholavira"
+  },
+  {
+    title: "Lothal Tidal Dockyard",
+    category: "Archaeological Excavations",
+    description: "World's oldest known artificial tidal dockyard connecting Harappan traders across Arabian Sea maritime routes.",
+    url: "excavations.html?site=lothal"
+  },
+  {
+    title: "Rakhigarhi Indus Metropolis",
+    category: "Archaeological Excavations",
+    description: "Largest Indus Valley Civilisation site in the Indian subcontinent spanning over 350 hectares in Haryana.",
+    url: "excavations.html?site=rakhigarhi"
   // --- Space Heritage ---
   {
     title: "Indian Space Heritage Explorer",

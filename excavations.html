@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore major archaeological excavation sites in India including Dholavira, Lothal, Rakhigarhi, Kalibangan, Keezhadi, Sinauli, and Bhimbetka with interactive timelines and artifacts.">
+    <title>Archaeological Excavations Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="excavations.css">
+</head>
+
+<body class="excavations-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="excavations.html" class="nav-link active" style="color: var(--saffron)">Excavations</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="caves.html" class="dropdown-item">Cave Temples</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                        <a href="space.html" class="dropdown-item">Space Heritage</a>
+                        <a href="folk-tales.html" class="dropdown-item">Folk Tales</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="excavations-page">
+        <!-- Hero Section -->
+        <section class="excavations-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🏺 Unearthing Civilisations · Archaeological Discoveries</span>
+                <h1>Archaeological <span>Excavation Explorer</span></h1>
+                <p>Journey across 1.5 million years of South Asian history — from Paleolithic rock shelters and Indus Valley citadels to Sangam trade ports and Bronze Age chariots.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong id="stat-sites">26</strong>
+                        <span>Major Excavation Sites</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-eras">5</strong>
+                        <span>Historical Eras</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-states">15+</strong>
+                        <span>States Covered</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong id="stat-history">1.5 Mya</strong>
+                        <span>Oldest Artifacts</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#timeline-section" class="hero-cta primary">Explore Era Timeline ↓</a>
+                    <a href="#explorer-section" class="hero-cta secondary">Search Excavation Sites</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Era Timeline Section -->
+        <section class="excavations-section" id="timeline-section">
+            <div class="excavations-container">
+                <div class="section-heading">
+                    <span class="section-badge">Chronological Civilisations</span>
+                    <h2>Timeline of Archaeological Discoveries</h2>
+                    <p>Select an era to explore how excavations revealed prehistoric tools, urban Harappan planning, iron metallurgy, and classical monuments.</p>
+                </div>
+
+                <div class="timeline-shell">
+                    <div class="timeline-list" role="tablist">
+                        <button type="button" class="timeline-button active" data-key="indusvalley">
+                            <strong>2600-1900 BCE</strong>
+                            <span>Indus Valley Metropolises</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="ironage">
+                            <strong>1000-300 BCE</strong>
+                            <span>Iron Age &amp; Sangam Sites</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="earlyhistoric">
+                            <strong>300 BCE-1200 CE</strong>
+                            <span>Early Historic &amp; Classical</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="neolithic">
+                            <strong>7000-2000 BCE</strong>
+                            <span>Neolithic &amp; Chalcolithic</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="prehistoric">
+                            <strong>1.5 Mya-10k BCE</strong>
+                            <span>Prehistoric &amp; Paleolithic</span>
+                        </button>
+                    </div>
+
+                    <article class="timeline-detail" id="timeline-detail">
+                        <span class="timeline-era" id="timeline-era">2600 - 1900 BCE</span>
+                        <h3 id="timeline-title">Indus Valley Civilisation Metropolises</h3>
+                        <p id="timeline-text">Monumental urban planning showcased at Dholavira (stone reservoirs &amp; 10-symbol signboard), Lothal (world's oldest tidal dockyard), Rakhigarhi (350+ ha metropolis), and Kalibangan (earliest ploughed field).</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Explorer Section -->
+        <section class="excavations-section" id="explorer-section">
+            <div class="excavations-container">
+                <div class="section-heading">
+                    <span class="section-badge">Excavation Sites &amp; Discoveries</span>
+                    <h2>Search India's Archaeological Legacy</h2>
+                    <p>Search by site name, state, historical era, discovered artifacts, or excavator name. Filter by period and state, and sort by discovery date.</p>
+                </div>
+
+                <!-- Controls & Filters -->
+                <div class="explorer-controls">
+                    <div class="control-field search-field">
+                        <label for="excavation-search">Search Archaeological Sites</label>
+                        <input id="excavation-search" type="search" placeholder="Search Dholavira, Lothal, Keezhadi, chariot, seal, state..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="period-filter">Historical Era</label>
+                        <select id="period-filter">
+                            <option value="all">All Eras</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="state-filter">State</label>
+                        <select id="state-filter">
+                            <option value="all">All States</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="sort-by">Sort By</label>
+                        <select id="sort-by">
+                            <option value="year-asc">Discovery Year: Oldest First</option>
+                            <option value="year-desc">Discovery Year: Newest First</option>
+                            <option value="name-asc">Site Name: A-Z</option>
+                            <option value="period-asc">Era: Chronological</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Results Toolbar -->
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all 26 excavation sites</p>
+                    <button id="clear-filters" type="button" class="btn-clear">Clear Filters</button>
+                </div>
+
+                <!-- Grid Container -->
+                <div id="excavations-grid" class="excavations-grid-container"></div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" hidden>
+                    <div class="empty-icon">🏺</div>
+                    <h3>No Excavation Site Found</h3>
+                    <p>We couldn't find any archaeological site matching your search or filters. Try adjusting your query or resetting filters.</p>
+                    <button id="empty-reset" type="button" class="btn-reset">Reset All Filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detailed Technical Modal Dialog -->
+    <div class="excavation-modal-overlay" id="excavation-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="excavation-modal-content">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal" data-close-modal="true">&times;</button>
+            
+            <div class="modal-header">
+                <div class="modal-tags">
+                    <span class="modal-tag state-tag" id="modal-state">State</span>
+                    <span class="modal-tag period-tag" id="modal-period">Period</span>
+                </div>
+                <h2 id="modal-title" class="modal-excav-title">Site Title</h2>
+                <p class="modal-subtitle">📍 <span id="modal-location">Location</span></p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-hero-img-wrap">
+                    <img id="modal-image" src="assets/travel_hidden.png" alt="Excavation Visual" loading="lazy">
+                </div>
+
+                <div class="modal-specs-grid">
+                    <div class="spec-card">
+                        <span class="spec-label">📅 Excavation / Discovery Year</span>
+                        <strong class="spec-value" id="modal-year">Year</strong>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">🔍 Archaeologist / Agency</span>
+                        <strong class="spec-value" id="modal-agency">Agency</strong>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🏺 Key Artifacts &amp; Discoveries</h3>
+                    <p id="modal-artifacts" class="modal-text font-bold">Artifacts...</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>📜 Site Overview</h3>
+                    <p id="modal-description" class="modal-text">Overview text...</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>✨ Historical &amp; Archaeological Significance</h3>
+                    <p id="modal-significance" class="modal-text">Significance text...</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-nav-btns">
+                    <button type="button" class="btn-modal-action" id="modal-prev-btn">← Previous Site</button>
+                    <button type="button" class="btn-modal-action" id="modal-next-btn">Next Site →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich archaeological excavations and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture</a>
+                <a href="heritage.html">Heritage</a>
+                <a href="excavations.html">Excavations</a>
+                <a href="bridges.html">Bridges</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Archaeological Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="excavations.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>
