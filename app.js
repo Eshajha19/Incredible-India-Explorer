@@ -15,8 +15,8 @@
 })();
 
 /* ==========================================================================
-   INCREDIBLE INDIA EXPLORER - APPLICATION LOGIC
-   Pure Vanilla JavaScript for dynamic content, modals, sliders, and games.
+   INCREDIBLE INDIA EXPLORER - APPLICATION CORE LOGIC
+   Pure Vanilla JavaScript for navigation, theme, focus trap, and routing setup.
    ========================================================================== */
 
 /**
@@ -123,10 +123,10 @@ function iiDisconnectRouteObservers() {
     }
     window.__iiRouteState.observers.clear();
 }
+
 /**
  * Safe init helper — wraps a page init function in try-catch so a single
  * failing section doesn't break the entire SPA route transition.
- * Handles both sync and async (promise-returning) init functions.
  */
 function safeInitFn(initFn, name) {
     try {
@@ -148,8 +148,7 @@ function safeInitFn(initFn, name) {
 }
 
 /**
- * Error boundary for lazyLoadScript chains — logs the failure and shows a
- * user-facing toast so the error is visible rather than a silent console line.
+ * Error boundary for lazyLoadScript chains
  */
 function handleInitError(pageName, err) {
     console.error(`[App] Failed to load ${pageName} page module:`, err);
@@ -176,92 +175,26 @@ function handleInitError(pageName, err) {
     document.head.appendChild(script);
 })();
 
-document.addEventListener('app:route-changed', () => {
-    // Prevent accumulation of IntersectionObservers/listeners across SPA route changes
-    iiDisconnectRouteObservers();
-
-    initNavigation();
-    initThemeToggle();
-    initRotatingText();
-
-    // Page detection routing
-    const pathname = window.location.pathname;
-
-    if (pathname.includes('cuisine.html')) {
-        window.lazyLoadScript('js-modules/cuisine.js').then(() => initCuisinePage()).catch(err => handleInitError('Cuisine', err));
-    } else if (pathname.includes('festivals.html')) {
-        window.lazyLoadScript('js-modules/festivals.js').then(() => initFestivalsPage()).catch(err => handleInitError('Festivals', err));
-    } else if (pathname.includes('culture.html')) {
-        window.lazyLoadScript('js-modules/culture.js').then(() => initCulturePage()).catch(err => handleInitError('Culture', err));
-    } else if (pathname.includes('literature.html')) {
-        window.lazyLoadScript('js-modules/literature.js').then(() => initLiteraturePage()).catch(err => handleInitError('Literature', err));
-    } else if (pathname.includes('dance.html')) {
-        window.lazyLoadScript('js-modules/dance.js').then(() => initDancePage()).catch(err => handleInitError('Dance', err));
-    } else if (pathname.includes('music.html')) {
-        window.lazyLoadScript('js-modules/music.js').then(() => initMusicPage()).catch(err => handleInitError('Music', err));
-    } else if (pathname.includes('sports.html')) {
-        window.lazyLoadScript('js-modules/sports.js').then(() => initSportsPage()).catch(err => handleInitError('Sports', err));
-    } else if (pathname.includes('science.html')) {
-        window.lazyLoadScript('js-modules/science.js').then(() => initSciencePage()).catch(err => handleInitError('Science', err));
-    } else if (pathname.includes('personalities.html')) {
-        initScrollEffects();
-        window.lazyLoadScript('js-modules/personalities.js').then(() => safeInitFn(initPersonalitiesPage, 'Personalities')).catch(err => handleInitError('Personalities', err));
-    } else if (pathname.includes('spiritual.html')) {
-        initScrollEffects();
-        window.lazyLoadScript('js-modules/spiritual.js').then(() => safeInitFn(initSpiritualCarousel, 'Spiritual')).catch(err => handleInitError('Spiritual', err));
-    } else if (pathname.includes('startup.html')) {
-        window.lazyLoadScript('js-modules/startup.js').then(() => safeInitFn(initStartupPage, 'Startup')).catch(err => handleInitError('Startup', err));
-    } else if (pathname.includes('travel.html')) {
-        window.lazyLoadScript('js-modules/roadtrip.js').then(() => safeInitFn(initRoadTripFlipCards, 'Travel')).catch(err => handleInitError('Travel', err));
-    } else if (pathname.includes('trip-planner.html')) {
-        window.lazyLoadScript('trip-data.js')
-            .then(() => window.lazyLoadScript('js-modules/trip-planner.js'))
-            .then(() => safeInitFn(initTripPlannerPage, 'Trip Planner'))
-            .catch(err => handleInitError('Trip Planner', err));
-    } else if (pathname.includes('heritage.html')) {
-        console.log('✅ Heritage page loaded successfully');
-    } else if (pathname.includes('monuments.html')) {
-        console.log('✅ Monuments page loaded successfully');
-    } else if (pathname.includes('hidden-gems.html')) {
-        console.log('✅ Hidden Gems page loaded successfully');
-    } else if (pathname.includes('railways.html')) {
-        console.log('✅ Railways Explorer page loaded successfully');
-    } else if (pathname.includes('adventure.html')) {
-        console.log('Adventure page loaded successfully');
-    } else {
-        // Main landing page (index.html or root)
-        initScrollEffects();
-
-        // Viewport-based lazy initialization of heavy landing page sections
-        const lazyInit = (elementId, initFunc, name) => {
-            const el = document.getElementById(elementId);
-            if (el && 'IntersectionObserver' in window) {
-                const obs = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            safeInitFn(initFunc, name);
-                            obs.disconnect();
-                        }
-                    });
-                }, { rootMargin: '200px' });
-
-                obs.observe(el);
-            } else {
-                safeInitFn(initFunc, name);
-            }
-        };
-
-        lazyInit('map-container', initInteractiveMap, 'Interactive Map');
-        lazyInit('cuisine-grid', initCuisineExplorer, 'Cuisine Explorer');
-        lazyInit('festival-timeline', initFestivals, 'Festivals');
-        lazyInit('slider-container', initCultureSlider, 'Culture Slider');
-        lazyInit('quiz-card', initQuiz, 'Quiz');
-        lazyInit('fab-guide', initBharatGuide, 'Bharat Guide');
-    }
-});
+/* Initialize route management engine */
+(function initRouteEngine() {
+    var pathPrefix = (window.location.pathname.includes('/states/') ||
+        window.location.pathname.includes('/traditional-games/') ||
+        window.location.pathname.includes('/freedom-timeline/') ||
+        window.location.pathname.includes('/postal-stamps/') ||
+        window.location.pathname.includes('/handloom/')) ? '../' : '';
+    var script = document.createElement('script');
+    script.src = pathPrefix + 'js-modules/router-init.js';
+    script.async = true;
+    script.onload = function () {
+        if (typeof window.handleRouteInit === 'function') {
+            window.handleRouteInit();
+        }
+    };
+    document.head.appendChild(script);
+})();
 
 /* ==========================================================================
-   1. NAVIGATION & SCROLL EVENTS
+   SHARED NAVIGATION & SCROLL EVENTS
    ========================================================================== */
 
 function initNavigation() {
@@ -287,7 +220,6 @@ function initNavigation() {
         }
     });
 
-    // Keep the sports, science, music, and dance pages available across the shared navigation pattern.
     if (exploreDropdown && !exploreDropdown.querySelector('a[href="dance.html"]')) {
         const danceLink = document.createElement('a');
         danceLink.href = 'dance.html';
@@ -343,22 +275,21 @@ function initNavigation() {
         exploreDropdown.appendChild(literatureLink);
     }
 
-    // Mobile Hamburger Toggle
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('open');
-        navMenu.classList.toggle('open');
-    });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('open');
+            if (navMenu) navMenu.classList.toggle('open');
+        });
+    }
 
-    // Close mobile menu on nav link click (excluding dropdown toggles)
     navLinks.forEach(link => {
         if (link.classList.contains('dropdown-toggle')) return;
         link.addEventListener('click', () => {
-            menuToggle.classList.remove('open');
-            navMenu.classList.remove('open');
+            if (menuToggle) menuToggle.classList.remove('open');
+            if (navMenu) navMenu.classList.remove('open');
         });
     });
 
-    // Dropdown toggles toggle interaction logic
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
@@ -370,7 +301,6 @@ function initNavigation() {
 
             const isOpen = parentDropdown.classList.contains('open');
 
-            // Close other dropdowns
             document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
                 if (dropdown !== parentDropdown) {
                     dropdown.classList.remove('open');
@@ -381,7 +311,6 @@ function initNavigation() {
                 }
             });
 
-            // Toggle current dropdown state
             if (isOpen) {
                 parentDropdown.classList.remove('open');
                 toggle.setAttribute('aria-expanded', 'false');
@@ -392,7 +321,6 @@ function initNavigation() {
         });
     });
 
-    // Close open dropdowns when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-dropdown')) {
             document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
@@ -405,7 +333,6 @@ function initNavigation() {
         }
     });
 
-    // Scroll to Top action
     if (btnScrollTop) {
         btnScrollTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -441,7 +368,6 @@ function initThemeToggle() {
         }
     };
 
-    // Check localStorage
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
         document.body.classList.add('light-theme');
@@ -462,7 +388,6 @@ function initThemeToggle() {
 function initRotatingText() {
     const rotators = document.querySelectorAll('.rotating-text-wrapper');
     rotators.forEach(wrapper => {
-        // Clear any existing active interval to prevent background task memory leaks
         if (wrapper.dataset.intervalId) {
             clearInterval(parseInt(wrapper.dataset.intervalId, 10));
         }
@@ -484,11 +409,11 @@ function initRotatingText() {
 
             setTimeout(() => {
                 const innerSpan = wrapper.querySelector('.rotating-text');
-                if (!innerSpan) return; // Guard in case it was detached
+                if (!innerSpan) return;
                 currentIndex = (currentIndex + 1) % words.length;
                 wrapper.innerHTML = `<span class="rotating-text">${words[currentIndex]}</span>`;
             }, 500);
-        }, 3500); // Rotate every 3.5 seconds
+        }, 3500);
 
         wrapper.dataset.intervalId = intervalId.toString();
     });
@@ -499,12 +424,10 @@ function initScrollEffects() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.scroll-section');
 
-    // Section entry animations
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                // Unobserve after showing
                 fadeObserver.unobserve(entry.target);
             }
         });
@@ -514,7 +437,6 @@ function initScrollEffects() {
         fadeObserver.observe(section);
     });
 
-    // Active link highlighting on scroll
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

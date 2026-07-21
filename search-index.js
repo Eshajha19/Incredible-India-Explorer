@@ -744,6 +744,7 @@ window.indiaSearchIndex = [
     category: "Bridges",
     description: "The world's highest railway bridge at 359m above the riverbed in Jammu and Kashmir.",
     url: "bridges.html?bridge=chenab-bridge"
+  },
   // --- Folk Tales ---
   {
     title: "Indian Folk Tales Explorer",
@@ -762,5 +763,48 @@ window.indiaSearchIndex = [
     category: "Folk Tales",
     description: "Tenali Raman outmarts court jester gossip to share royal garden brinjals with his family.",
     url: "folk-tales.html?story=tenali-brinjal"
+  },
+  // --- Archaeological Excavations ---
+  {
+    title: "Archaeological Excavations Explorer",
+    category: "Heritage & History",
+    description: "Explore India's major archaeological sites including Dholavira, Lothal, Rakhigarhi, Kalibangan, Keezhadi, Sinauli, and Bhimbetka.",
+    url: "excavations.html"
+  },
+  {
+    title: "Dholavira Harappan Citadel",
+    category: "Archaeological Excavations",
+    description: "UNESCO World Heritage Indus Valley metropolis in Kutch famous for stone water reservoirs and 10-symbol signboard.",
+    url: "excavations.html?site=dholavira"
+  },
+  {
+    title: "Lothal Tidal Dockyard",
+    category: "Archaeological Excavations",
+    description: "World's oldest known artificial tidal dockyard connecting Harappan traders across Arabian Sea maritime routes.",
+    url: "excavations.html?site=lothal"
+  },
+  {
+    title: "Rakhigarhi Indus Metropolis",
+    category: "Archaeological Excavations",
+    description: "Largest Indus Valley Civilisation site in the Indian subcontinent spanning over 350 hectares in Haryana.",
+    url: "excavations.html?site=rakhigarhi"
+  // --- Space Heritage ---
+  {
+    title: "Indian Space Heritage Explorer",
+    category: "Science & Technology",
+    description: "Discover India's space exploration journey, ISRO research centres, launch sites, Chandrayaan-3, Mangalyaan, and Aditya-L1.",
+    url: "space.html"
+  },
+  {
+    title: "Satish Dhawan Space Centre (SDSC SHAR)",
+    category: "Space Heritage",
+    description: "India's premier spaceport at Sriharikota, launching PSLV, GSLV, and historic lunar & interplanetary missions.",
+    url: "space.html?item=sdsc-shar"
+  },
+  {
+    title: "Chandrayaan-3 Moon Landing",
+    category: "Space Heritage",
+    description: "Historic first soft landing near the Moon's South Pole at Shiv Shakti Point by Vikram lander and Pragyan rover.",
+    url: "space.html?item=chandrayaan-3"
   }
 ];
