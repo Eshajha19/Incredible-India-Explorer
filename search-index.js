@@ -806,5 +806,24 @@ window.indiaSearchIndex = [
     category: "Space Heritage",
     description: "Historic first soft landing near the Moon's South Pole at Shiv Shakti Point by Vikram lander and Pragyan rover.",
     url: "space.html?item=chandrayaan-3"
+  },
+  // --- Cultural DNA ---
+  {
+    title: "Indian Cultural DNA Explorer",
+    category: "Culture & Philosophy",
+    description: "Interactive relationship network visualization mapping cross-regional influences between languages, cuisine, arts, and traditions.",
+    url: "cultural-dna.html"
+  },
+  {
+    title: "Bhakti-Sufi Synthesis",
+    category: "Cultural DNA",
+    description: "Explore the medieval devotional movement synthesising regional languages, Sufi music, Kathak dance, and devotional singing.",
+    url: "cultural-dna.html?preset=bhaktisufi"
+  },
+  {
+    title: "Dravidian Temple Arts Connection",
+    category: "Cultural DNA",
+    description: "Trace how South Indian stone architecture hosted classical Carnatic vocals, geometry of Bharatanatyam, and textile weaving patterns.",
+    url: "cultural-dna.html?preset=templearts"
   }
 ];

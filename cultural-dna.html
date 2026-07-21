@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's Cultural DNA with an interactive network graph showing how languages, architecture, music, cuisine, clothing, and philosophy connect and influence one another.">
+    <title>Indian Cultural DNA Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cultural-dna.css">
+</head>
+
+<body class="dna-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link active" style="color: var(--saffron)">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="cultural-dna.html" class="nav-link active" style="color: var(--gold)">Cultural DNA</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="excavations.html" class="dropdown-item">Excavations Explorer</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                        <a href="space/space.html" class="dropdown-item">Space Heritage</a>
+                        <a href="folk-tales.html" class="dropdown-item">Folk Tales</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dna-page">
+        <!-- Hero Section -->
+        <section class="dna-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🧬 Cross-Cultural Connections · Synthesis Graph</span>
+                <h1>Indian Cultural <span>DNA Explorer</span></h1>
+                <p>Visualize the deep interconnectedness of Indian civilization. Explore how architecture, languages, cuisine, music, clothing, and philosophy interweave across centuries and regions to form a single cultural tapestry.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>32</strong>
+                        <span>Cultural DNA Roots</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>50+</strong>
+                        <span>Influence Lines</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>7</strong>
+                        <span>Core Categories</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>6</strong>
+                        <span>Geographic Regions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Workspace Section -->
+        <section class="dna-workspace">
+            <div class="dna-container">
+                <!-- Search & Filters Toolbar -->
+                <div class="explorer-controls">
+                    <div class="control-field search-field">
+                        <label for="dna-search">Search Cultural Roots &amp; Connections</label>
+                        <input id="dna-search" type="search" placeholder="Search Sanskrit, Kanjeevaram, Bhakhi, biryani, raga, region..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="region-filter">Region</label>
+                        <select id="region-filter">
+                            <option value="all">All Regions</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field action-field">
+                        <label>&nbsp;</label>
+                        <button id="clear-filters" type="button" class="btn-clear">Reset Filters</button>
+                    </div>
+                </div>
+
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all 32 cultural roots</p>
+                </div>
+
+                <!-- Interactive Visualization Layout -->
+                <div class="dna-viewport-layout">
+                    <!-- Graph Viewport -->
+                    <div class="graph-wrapper">
+                        <div class="graph-toolbar">
+                            <button id="zoom-in" title="Zoom In">+</button>
+                            <button id="zoom-out" title="Zoom Out">−</button>
+                            <button id="zoom-reset" title="Reset View">⊙</button>
+                        </div>
+
+                        <svg id="dna-graph" class="dna-svg-graph" viewBox="0 0 900 700" width="100%" height="100%">
+                            <defs>
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="6" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                            <!-- Interactive Container for Zoom & Pan -->
+                            <g class="graph-container">
+                                <g id="graph-links"></g>
+                                <g id="graph-nodes"></g>
+                            </g>
+                        </svg>
+
+                        <!-- Floating Category Legend -->
+                        <div class="graph-legend">
+                            <span class="legend-item"><span class="legend-dot" style="background:#ec4899"></span>Languages</span>
+                            <span class="legend-item"><span class="legend-dot" style="background:#06b6d4"></span>Architecture</span>
+                            <span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>Cuisine</span>
+                            <span class="legend-item"><span class="legend-dot" style="background:#8b5cf6"></span>Music &amp; Dance</span>
+                            <span class="legend-item"><span class="legend-dot" style="background:#10b981"></span>Clothing</span>
+                            <span class="legend-item"><span class="legend-dot" style="background:#ef4444"></span>Festivals</span>
+                            <span class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span>Philosophy</span>
+                        </div>
+                    </div>
+
+                    <!-- Inspector Panel -->
+                    <aside class="node-inspector" id="node-inspector" hidden>
+                        <button class="inspector-close-btn" id="inspector-close" aria-label="Close Inspector">&times;</button>
+                        
+                        <div class="inspector-header">
+                            <span class="inspector-category" id="inspector-category">Category</span>
+                            <h2 id="inspector-name" class="inspector-name">Root Name</h2>
+                            <p class="inspector-region" id="inspector-region">📍 Region</p>
+                        </div>
+
+                        <div class="inspector-body">
+                            <div class="inspector-section">
+                                <h3>📜 Core Description</h3>
+                                <p id="inspector-description">Description text...</p>
+                            </div>
+
+                            <div class="inspector-section">
+                                <h3>✨ Cultural Significance</h3>
+                                <p id="inspector-significance">Significance text...</p>
+                            </div>
+
+                            <div class="inspector-section">
+                                <h3>🧬 DNA Interconnections</h3>
+                                <ul class="connections-list" id="inspector-connections-list"></ul>
+                            </div>
+                        </div>
+
+                        <div class="inspector-footer">
+                            <button type="button" class="btn-journey-add" id="btn-add-to-journey">
+                                🧬 Add to Cultural DNA Journey
+                            </button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Builder Section -->
+        <section class="dna-section journey-section" id="journey-section">
+            <div class="dna-container">
+                <div class="section-heading">
+                    <span class="section-badge">Journey Builder</span>
+                    <h2>Build Your Cultural DNA Journey</h2>
+                    <p>Load a preset synthesis journey, or click nodes in the graph to add them to your custom step-by-step cultural journey.</p>
+                </div>
+
+                <!-- Presets Showcase -->
+                <div class="journey-presets">
+                    <h3>Select a Preset Cultural Synthesis Journey:</h3>
+                    <div class="preset-buttons-grid">
+                        <button type="button" class="preset-journey-btn" data-key="bhaktisufi">
+                            🎭 Bhakti &amp; Sufi Synthesis
+                        </button>
+                        <button type="button" class="preset-journey-btn" data-key="templearts">
+                            🏛️ Dravidian Temple &amp; Classical Arts
+                        </button>
+                        <button type="button" class="preset-journey-btn" data-key="ayurvedaspice">
+                            🌿 Ayurvedic &amp; Coastal Spice Route
+                        </button>
+                        <button type="button" class="preset-journey-btn" data-key="indoislamic">
+                            🕌 Indo-Islamic Courtly Synthesis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom Journey Workspace -->
+                <div class="journey-workspace-grid">
+                    <div class="journey-builder-controls">
+                        <h3>My Custom Journey Path</h3>
+                        <div class="custom-journey-list" id="custom-journey-list">
+                            <p class="muted">No roots added yet. Click on nodes in the network graph above and select 'Add to Cultural DNA Journey'.</p>
+                        </div>
+                        <button type="button" class="btn-clear-journey" id="btn-clear-journey" title="Clear all nodes in journey">
+                            Clear Journey Path
+                        </button>
+                    </div>
+
+                    <div class="journey-flow-details">
+                        <h3>Cultural Flow &amp; Influences</h3>
+                        <div class="journey-flow-steps" id="journey-flow-steps">
+                            <!-- Populated dynamically with step card elements -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Synthesizing and showcasing how languages, cuisine, architecture, classical arts, textiles, and philosophies interconnect to form the civilizational fabric of India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture Heritage</a>
+                <a href="heritage.html">Heritage Sites</a>
+                <a href="cultural-dna.html">Cultural DNA</a>
+                <a href="excavations.html">Excavations</a>
+                <a href="bridges.html">Bridges</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cross-Cultural DNA Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="cultural-dna.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>
