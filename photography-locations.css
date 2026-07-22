@@ -1,5 +1,5 @@
 /* photography-locations.css */
-.photo-page { min-height:100vh; background:var(--bg-dark,#0d1117); color:var(--text-light,#e6edf3); padding-bottom:4rem; }
+.photo-page { min-height:100vh; background:var(--bg-dark); color:var(--text-light,#e6edf3); padding-bottom:4rem; }
 body.light-theme .photo-page { background:#f6f8fa; color:#1f2328; }
 
 .photo-hero { min-height:480px; display:flex; align-items:center; justify-content:center; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1); }

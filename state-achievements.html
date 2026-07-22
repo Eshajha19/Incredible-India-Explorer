@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore landmark state achievements of India across sports, science, education, economy, literature, technology, and environmental conservation in an interactive timeline.">
+    <title>State Achievement Timeline | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="state-achievements.css">
+</head>
+
+<body class="achievements-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="state-achievements.html" class="nav-link active" style="color: var(--gold)">State Timeline</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="cultural-footprint.html" class="dropdown-item">Cultural Footprint</a>
+                        <a href="cultural-dna.html" class="dropdown-item">Cultural DNA Explorer</a>
+                        <a href="trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                        <a href="state-challenge.html" class="dropdown-item">State Borders Challenge</a>
+                        <a href="excavations.html" class="dropdown-item">Excavations Explorer</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="achievements-page">
+        <!-- Hero Section -->
+        <section class="achievements-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🌟 State Pride · Global Milestones · Historical Timeline</span>
+                <h1>State Achievement <span>Timeline</span></h1>
+                <p>Explore landmark scientific discoveries, sporting glory, educational milestones, green conservation revolutions, and technological breakthroughs across Indian states.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>26</strong>
+                        <span>Landmark Milestones</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>7</strong>
+                        <span>Core Domains</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>1913-2025</strong>
+                        <span>Years Covered</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Timeline Section -->
+        <section class="achievements-workspace">
+            <div class="achievements-container">
+                <!-- Controls & Filters Toolbar -->
+                <div class="controls-toolbar">
+                    <div class="control-field search-field">
+                        <label for="ach-search">Search Achievements</label>
+                        <input id="ach-search" type="search" placeholder="Search Nobel, ISRO, Olympic, Organic, Metro, IT..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="state-filter">State Filter</label>
+                        <select id="state-filter">
+                            <option value="all">All States</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="category-filter">Category Domain</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories (7)</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="sort-order">Sort Order</label>
+                        <select id="sort-order">
+                            <option value="asc">Earliest First (1913 → 2025)</option>
+                            <option value="desc">Latest First (2025 → 1913)</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field action-field">
+                        <label>&nbsp;</label>
+                        <button id="btn-toggle-bookmarks" class="btn-bookmark-toggle" type="button">☆ View Bookmarked</button>
+                    </div>
+
+                    <div class="control-field action-field">
+                        <label>&nbsp;</label>
+                        <button id="reset-filters" type="button" class="btn-reset">Reset Filters</button>
+                    </div>
+                </div>
+
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all 26 landmark achievements</p>
+                </div>
+
+                <!-- Vertical Timeline Stream -->
+                <div class="timeline-container-wrapper">
+                    <div class="vertical-timeline-line"></div>
+                    <div class="timeline-stream" id="timeline-stream"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting state contributions to science, culture, literature, sports, and green innovation across India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture</a>
+                <a href="state-achievements.html">State Timeline</a>
+                <a href="cultural-footprint.html">Cultural Footprint</a>
+                <a href="trade-routes.html">Trade Network</a>
+                <a href="state-challenge.html">Borders Challenge</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source State Achievement Timeline.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="state-achievements.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore every border shared between Indian states and discover unique cultures, dialects, foods, markets, rivers, and traditions found along those borders.">
+    <title>Border Stories Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="border-stories.css">
+</head>
+
+<body class="border-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link active" style="color: var(--saffron)">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="border-stories.html" class="nav-link active" style="color: var(--gold)">Border Stories</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="cultural-footprint.html" class="dropdown-item">Cultural Footprint</a>
+                        <a href="cultural-dna.html" class="dropdown-item">Cultural DNA Explorer</a>
+                        <a href="trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                        <a href="state-challenge.html" class="dropdown-item">State Borders Challenge</a>
+                        <a href="excavations.html" class="dropdown-item">Excavations Explorer</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="state-achievements.html" class="dropdown-item">State Achievement Timeline</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="border-page">
+        <!-- Hero Section -->
+        <section class="border-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🤝 Inter-State Borders · Dialects · River Boundaries · Border Haats</span>
+                <h1>Border Stories <span>Explorer</span></h1>
+                <p>Journey along the shared borders between Indian states. Discover unique hybrid dialects, fusion cuisines, border markets (haats), river boundaries, and timeless folk traditions.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>16</strong>
+                        <span>Inter-State Borders</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>16+</strong>
+                        <span>Shared Rivers & Passes</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>16+</strong>
+                        <span>Hybrid Dialects</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Workspace Section -->
+        <section class="border-workspace">
+            <div class="border-container">
+                <!-- Controls & Filters Toolbar -->
+                <div class="controls-toolbar">
+                    <div class="control-field search-field">
+                        <label for="border-search">Search Border, Dialect, River, or Food</label>
+                        <input id="border-search" type="search" placeholder="Search Palakkad Gap, Subarnarekha, Malvani, Haat, Litti Chokha..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="state-filter">Select State</label>
+                        <select id="state-filter">
+                            <option value="all">All Border States</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="region-filter">Region Filter</label>
+                        <select id="region-filter">
+                            <option value="all">All Regions</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field action-field">
+                        <label>&nbsp;</label>
+                        <button id="reset-filters" type="button" class="btn-reset">Reset Filters</button>
+                    </div>
+                </div>
+
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all 16 border stories</p>
+                </div>
+
+                <!-- Interactive SVG Map Viewport -->
+                <div class="map-viewport-wrapper">
+                    <div class="graph-zoom-controls">
+                        <button id="zoom-in" title="Zoom In">+</button>
+                        <button id="zoom-out" title="Zoom Out">−</button>
+                        <button id="zoom-reset" title="Reset View">⊙</button>
+                    </div>
+
+                    <svg id="border-map" class="border-svg-map" viewBox="0 0 900 600" width="100%" height="100%">
+                        <!-- Map Grid Background -->
+                        <rect width="100%" height="100%" fill="var(--map-bg, #080c18)" />
+                        <defs>
+                            <pattern id="map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#map-grid)" />
+
+                        <!-- Interactive Border Nodes Container -->
+                        <g class="map-main-g">
+                            <g id="border-links"></g>
+                            <g id="border-nodes"></g>
+                        </g>
+                    </svg>
+
+                    <div class="map-legend">
+                        <span class="legend-chip">📍 Click glowing border markers on the map to inspect border stories below</span>
+                    </div>
+                </div>
+
+                <!-- Stories Cards Stream Grid -->
+                <div class="stories-grid" id="stories-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Mapping shared inter-state cultures, linguistic blends, border haats, and riverine heritage across India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture</a>
+                <a href="border-stories.html">Border Stories</a>
+                <a href="cultural-footprint.html">Cultural Footprint</a>
+                <a href="trade-routes.html">Trade Routes</a>
+                <a href="state-challenge.html">Borders Challenge</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Border Stories Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="border-stories.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>

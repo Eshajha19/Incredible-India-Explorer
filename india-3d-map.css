@@ -26,7 +26,7 @@
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     background: radial-gradient(ellipse at 50% 20%, rgba(19, 136, 8, 0.12), transparent 60%), #0b1220;
-    border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+    border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-soft);
 }
 

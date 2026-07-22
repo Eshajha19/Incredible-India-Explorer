@@ -819,6 +819,7 @@ window.indiaSearchIndex = [
     category: "State Borders Challenge",
     description: "Test your geographic and cultural trivia knowledge of India's states to unlock border crossings.",
     url: "state-challenge.html?mode=trivia"
+  },
   // --- Ancient Trade Routes ---
   {
     title: "Ancient Indian Trade Network",
@@ -837,6 +838,7 @@ window.indiaSearchIndex = [
     category: "Ancient Trade Ports",
     description: "Oldest known artificial tidal dockyard in the world from the Indus Valley Civilisation.",
     url: "trade-routes.html?port=lothal"
+  },
   // --- Cultural DNA ---
   {
     title: "Indian Cultural DNA Explorer",
@@ -862,24 +864,28 @@ window.indiaSearchIndex = [
     category: "Architecture & Heritage",
     description: "Compare Rajput, Mughal, Maratha, and European colonial fort architecture side-by-side.",
     url: "fort-architecture.html"
+  },
   // --- Volcanoes & Geological Formations ---
   {
     title: "Volcanoes & Geological Formations Explorer",
     category: "Nature & Geography",
     description: "Explore Barren Island volcano, Lonar crater, Deccan Traps, and India's most dramatic geological formations.",
     url: "volcanoes-geology.html"
+  },
   // --- Photography Locations Explorer ---
   {
     title: "Photography Locations Explorer",
     category: "Travel & Exploration",
     description: "Discover India's best photography spots — sunrise viewpoints, golden hour destinations, and seasonal landscape locations.",
     url: "photography-locations.html"
+  },
   // --- Heritage Threat Monitor ---
   {
     title: "Heritage Threat Monitor",
     category: "Heritage & History",
     description: "Track endangered Indian heritage sites threatened by pollution, climate change, tourism pressure, and urban encroachment.",
     url: "heritage-threats.html"
+  },
   // --- Then vs Now Heritage Comparison ---
   {
     title: "Then vs Now Heritage Comparison Explorer",
@@ -899,5 +905,77 @@ window.indiaSearchIndex = [
     category: "Games & Quizzes",
     description: "Reconstruct Indian state shape maps across 9, 16, and 25 piece grid difficulty options.",
     url: "state-jigsaw.html"
+  // --- Border Stories Explorer ---
+  {
+    title: "Border Stories Explorer",
+    category: "Culture & Philosophy",
+    description: "Explore shared cultures, dialects, fusion cuisines, border markets (haats), and river boundaries along inter-state borders of India.",
+    url: "border-stories.html"
+  },
+  {
+    title: "Inter-State Border Haats & Culture Map",
+    category: "Border Stories Explorer",
+    description: "Interactive map detailing shared traditions and river boundaries connecting neighboring Indian states.",
+    url: "border-stories.html"
+  // --- State Achievement Timeline ---
+  {
+    title: "State Achievement Timeline",
+    category: "Data & Statistics",
+    description: "Interactive timeline highlighting landmark achievements of Indian states across sports, science, education, economy, literature, technology, and environmental conservation.",
+    url: "state-achievements.html"
+  },
+  {
+    title: "State Milestones & Innovation Highlights",
+    category: "State Achievement Timeline",
+    description: "Discover historical and modern breakthrough milestones across all Indian states.",
+    url: "state-achievements.html"
+  // --- State Cultural Footprint ---
+  {
+    title: "State Cultural Footprint Explorer",
+    category: "Culture & Philosophy",
+    description: "Interactive network visualization showing cross-state cultural influences across migration, cuisine, music, language, architecture, cinema, textiles, and festivals.",
+    url: "cultural-footprint.html"
+  },
+  {
+    title: "Inter-State Cultural Influences Map",
+    category: "State Cultural Footprint",
+    description: "Visualize outgoing cultural footprints and incoming cultural influences for each Indian state.",
+    url: "cultural-footprint.html"
+  // --- National Parks Timeline ---
+  {
+    title: "India's National Parks Timeline",
+    category: "Nature & Wildlife",
+    description: "Interactive visual timeline showing when India's national parks and wildlife sanctuaries were established.",
+    url: "national-parks-timeline.html"
+  },
+  {
+    title: "Jim Corbett National Park Timeline",
+    category: "National Parks Timeline",
+    description: "Established in 1936 as Hailey National Park, India's oldest protected area.",
+    url: "national-parks-timeline.html?search=Corbett"
+  },
+  {
+    title: "Kaziranga National Park Timeline",
+    category: "National Parks Timeline",
+    description: "Formally established as a national park in 1974, home to the one-horned rhinoceros.",
+    url: "national-parks-timeline.html?search=Kaziranga"
+  // --- Indian Climate Zones Explorer ---
+  {
+    title: "Indian Climate Zones Explorer",
+    category: "Nature & Geography",
+    description: "Interactive visual explorer explaining India's climatic zones, rainfall distribution, and seasonal patterns.",
+    url: "climate-zones.html"
+  },
+  {
+    title: "Tropical Wet / Monsoon Rainforest",
+    category: "Climate Zone",
+    description: "Explore the tropical wet zones of Kerala, Coastal Karnataka, and Andaman Islands with high rainfall and lush vegetation.",
+    url: "climate-zones.html?zone=monsoon"
+  },
+  {
+    title: "Arid / Desert Climate (Thar)",
+    category: "Climate Zone",
+    description: "Explore the dry, arid conditions of Western Rajasthan and Kutch with extreme temperatures and low rainfall.",
+    url: "climate-zones.html?zone=arid"
   }
 ];

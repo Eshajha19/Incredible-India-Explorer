@@ -1,12 +1,12 @@
 /* Issue #197 — Recently Viewed Explorer History */
 
 :root {
-  --rv-accent: var(--saffron, #ff9933);
-  --rv-green: var(--green, #138808);
-  --rv-surface: var(--glass-bg, rgba(255,255,255,.08));
-  --rv-border: var(--glass-border, rgba(255,255,255,.16));
-  --rv-text: var(--text-primary, #f8fafc);
-  --rv-muted: var(--text-secondary, #cbd5e1);
+  --rv-accent: var(--saffron);
+  --rv-green: var(--green);
+  --rv-surface: var(--glass-bg);
+  --rv-border: var(--glass-border);
+  --rv-text: var(--text-primary);
+  --rv-muted: var(--text-secondary);
   --rv-danger: #ef4444;
   --rv-shadow: 0 24px 70px rgba(0,0,0,.34);
 }

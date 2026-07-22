@@ -1,5 +1,5 @@
 
-:root{--ta:var(--saffron,#ff9933);--tg:#2b9a5e;--tbrown:#9b6a43;--ts:var(--glass-bg,rgba(255,255,255,.08));--tborder:var(--glass-border,rgba(255,255,255,.14));--tt:var(--text-primary,#f5f5f5);--tm:var(--text-secondary,#b7b7b7)}
+:root{--ta:var(--saffron);--tg:#2b9a5e;--tbrown:#9b6a43;--ts:var(--glass-bg);--tborder:var(--glass-border);--tt:var(--text-primary);--tm:var(--text-secondary)}
 .trees-page{min-height:100vh;color:var(--tt)}
 .trees-hero{min-height:74vh;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(11,26,16,.94),rgba(49,39,23,.72)),url("assets/travel_forests.png") center/cover no-repeat}
 .trees-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,153,51,.2),transparent 30%),radial-gradient(circle at 80% 24%,rgba(43,154,94,.22),transparent 28%),linear-gradient(to top,rgba(6,13,8,.72),transparent 55%)}

@@ -1,14 +1,14 @@
 
 :root {
-  --dh-accent: var(--saffron, #ff9933);
+  --dh-accent: var(--saffron);
   --dh-green: #22a06b;
   --dh-red: #ef4444;
   --dh-yellow: #f6c453;
   --dh-blue: #4f8cff;
-  --dh-surface: var(--glass-bg, rgba(255,255,255,.08));
-  --dh-border: var(--glass-border, rgba(255,255,255,.14));
-  --dh-text: var(--text-primary, #f8fafc);
-  --dh-muted: var(--text-secondary, #cbd5e1);
+  --dh-surface: var(--glass-bg);
+  --dh-border: var(--glass-border);
+  --dh-text: var(--text-primary);
+  --dh-muted: var(--text-secondary);
 }
 
 .health-page {

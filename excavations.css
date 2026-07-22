@@ -5,8 +5,8 @@
 :root {
     --excav-accent: #d97706;
     --excav-earth: #b45309;
-    --excav-gold: var(--gold, #f6c453);
-    --excav-bg: var(--bg-dark, #0d0f14);
+    --excav-gold: var(--gold);
+    --excav-bg: var(--bg-dark);
     --excav-surface: rgba(255, 255, 255, 0.06);
     --excav-surface-hover: rgba(255, 255, 255, 0.12);
     --excav-border: rgba(255, 255, 255, 0.14);

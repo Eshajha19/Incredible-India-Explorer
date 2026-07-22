@@ -3,10 +3,10 @@
    ========================================================================== */
 
 :root {
-    --bridges-accent: var(--saffron, #ff9933);
+    --bridges-accent: var(--saffron);
     --bridges-cyan: #00b4d8;
-    --bridges-gold: var(--gold, #f6c453);
-    --bridges-bg: var(--bg-dark, #0a1118);
+    --bridges-gold: var(--gold);
+    --bridges-bg: var(--bg-dark);
     --bridges-surface: rgba(255, 255, 255, 0.06);
     --bridges-surface-hover: rgba(255, 255, 255, 0.12);
     --bridges-border: rgba(255, 255, 255, 0.12);

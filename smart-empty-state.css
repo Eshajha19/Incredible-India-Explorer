@@ -1,13 +1,13 @@
 /* Issue #250 — Smart No-Results Suggestions */
 
 :root {
-  --smart-empty-accent: var(--saffron, #ff9933);
-  --smart-empty-green: var(--green, #138808);
+  --smart-empty-accent: var(--saffron);
+  --smart-empty-green: var(--green);
   --smart-empty-blue: #4f8cff;
-  --smart-empty-surface: var(--glass-bg, rgba(255,255,255,.08));
-  --smart-empty-border: var(--glass-border, rgba(255,255,255,.16));
-  --smart-empty-text: var(--text-primary, #f8fafc);
-  --smart-empty-muted: var(--text-secondary, #cbd5e1);
+  --smart-empty-surface: var(--glass-bg);
+  --smart-empty-border: var(--glass-border);
+  --smart-empty-text: var(--text-primary);
+  --smart-empty-muted: var(--text-secondary);
   --smart-empty-shadow: 0 18px 48px rgba(0,0,0,.18);
 }
 

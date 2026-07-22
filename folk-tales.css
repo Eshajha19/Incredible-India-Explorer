@@ -3,10 +3,10 @@
    ========================================================================== */
 
 :root {
-    --tales-accent: var(--saffron, #ff9933);
-    --tales-gold: var(--gold, #f6c453);
-    --tales-green: var(--green, #138808);
-    --tales-bg: var(--bg-dark, #0b0f19);
+    --tales-accent: var(--saffron);
+    --tales-gold: var(--gold);
+    --tales-green: var(--green);
+    --tales-bg: var(--bg-dark);
     --tales-surface: rgba(255, 255, 255, 0.06);
     --tales-surface-hover: rgba(255, 255, 255, 0.12);
     --tales-border: rgba(255, 255, 255, 0.12);

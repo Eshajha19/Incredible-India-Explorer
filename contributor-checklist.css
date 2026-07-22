@@ -1,13 +1,13 @@
 
 :root {
-  --cc-accent: var(--saffron, #ff9933);
-  --cc-green: var(--green, #138808);
+  --cc-accent: var(--saffron);
+  --cc-green: var(--green);
   --cc-blue: #4f8cff;
   --cc-red: #ef4444;
-  --cc-surface: var(--glass-bg, rgba(255,255,255,.08));
-  --cc-border: var(--glass-border, rgba(255,255,255,.14));
-  --cc-text: var(--text-primary, #f8fafc);
-  --cc-muted: var(--text-secondary, #cbd5e1);
+  --cc-surface: var(--glass-bg);
+  --cc-border: var(--glass-border);
+  --cc-text: var(--text-primary);
+  --cc-muted: var(--text-secondary);
   --cc-shadow: 0 18px 50px rgba(0,0,0,.16);
 }
 

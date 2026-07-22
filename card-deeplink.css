@@ -1,9 +1,9 @@
 /* Issue #248 — Shareable Deep Links for Explorer Cards */
 
 :root {
-  --deeplink-accent: var(--saffron, #ff9933);
-  --deeplink-green: var(--green, #138808);
-  --deeplink-border: var(--glass-border, rgba(255,255,255,.16));
+  --deeplink-accent: var(--saffron);
+  --deeplink-green: var(--green);
+  --deeplink-border: var(--glass-border);
   --deeplink-shadow: 0 20px 58px rgba(0,0,0,.28);
 }
 

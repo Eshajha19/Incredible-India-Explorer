@@ -1,5 +1,5 @@
 
-:root{--wa:var(--saffron,#ff9933);--wblue:#2e9edb;--wgreen:#2b9a72;--ws:var(--glass-bg,rgba(255,255,255,.08));--wb:var(--glass-border,rgba(255,255,255,.14));--wt:var(--text-primary,#f5f5f5);--wm:var(--text-secondary,#b7b7b7)}
+:root{--wa:var(--saffron);--wblue:#2e9edb;--wgreen:#2b9a72;--ws:var(--glass-bg);--wb:var(--glass-border);--wt:var(--text-primary);--wm:var(--text-secondary)}
 .water-page{min-height:100vh;color:var(--wt)}
 .water-hero{min-height:74vh;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(8,30,45,.94),rgba(24,60,48,.72)),url("assets/travel_islands.png") center/cover no-repeat}
 .water-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 18%,rgba(46,158,219,.28),transparent 30%),radial-gradient(circle at 82% 25%,rgba(255,153,51,.22),transparent 28%),linear-gradient(to top,rgba(4,12,17,.75),transparent 55%)}
