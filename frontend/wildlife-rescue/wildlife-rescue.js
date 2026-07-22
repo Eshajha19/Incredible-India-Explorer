@@ -1,4 +1,4 @@
-import { wildlifeEngine } from './js-modules/wildlife-engine.js';
+import { wildlifeEngine } from '../../js-modules/wildlife-engine.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initUI();
