@@ -1,0 +1,709 @@
+/* climate-zones.css
+   Custom Stylesheet for Indian Climate Zones Explorer
+========================================================================== */
+
+:root {
+    --climate-montane: #06b6d4;      /* Cool cyan/blue for Alpine */
+    --climate-subtropical: #4ade80;  /* Fresh green for Humid Subtropical */
+    --climate-savanna: #eab308;      /* Warm yellow-gold for Savanna */
+    --climate-monsoon: #15803d;      /* Deep lush green for Rainforest */
+    --climate-semiarid: #f97316;     /* Orange-brown for Semi-Arid */
+    --climate-arid: #ef4444;         /* Sandy red-orange for Desert */
+
+    /* Rainfall colors */
+    --rain-heavy: #1d4ed8;
+    --rain-moderate: #3b82f6;
+    --rain-medium: #60a5fa;
+    --rain-low: #93c5fd;
+    --rain-arid: #fed7aa;
+
+    /* Theme adaptive variables */
+    --bg-gradient: linear-gradient(135deg, #0b1220, #060b13);
+    --card-bg-glass: rgba(18, 30, 49, 0.4);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-main: #f8fafc;
+    --text-sub: #94a3b8;
+    --panel-glow: rgba(99, 102, 241, 0.15);
+}
+
+.light-theme {
+    --bg-gradient: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    --card-bg-glass: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(0, 0, 0, 0.08);
+    --text-main: #0f172a;
+    --text-sub: #475569;
+    --panel-glow: rgba(99, 102, 241, 0.05);
+}
+
+/* Page Layout & Theme */
+.climate-page {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    padding-top: 80px; /* navbar spacing */
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.climate-hero {
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-glow-effect {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--panel-glow) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--primary-gold, #f59e0b);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+.climate-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.climate-hero h1 span {
+    background: linear-gradient(135deg, var(--saffron, #ff6f00), var(--gold, #ffab00));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.climate-hero p {
+    color: var(--text-sub);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Hero Stats */
+.hero-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stat-card-glass {
+    background: var(--card-bg-glass);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card-glass:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card-glass strong {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-card-glass span {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Interactive Map Explorer */
+.map-explorer-section {
+    padding: 40px 20px;
+}
+
+.explorer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.explorer-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr 340px;
+    gap: 30px;
+}
+
+@media (max-width: 1200px) {
+    .explorer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-controls-panel, .map-sidebar-panel {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Glass Card common styles */
+.glass-card {
+    background: var(--card-bg-glass);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.panel-card {
+    margin-bottom: 20px;
+}
+
+.panel-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.panel-subtitle {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* View Mode Toggles */
+.view-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.view-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.view-btn .icon {
+    font-size: 1.2rem;
+}
+
+.view-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.view-btn.active {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
+    border-color: rgba(245, 158, 11, 0.5);
+    color: var(--primary-gold, #f59e0b);
+}
+
+/* Legend Styling */
+.legend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.legend-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.05);
+    transform: translateX(4px);
+}
+
+.legend-item.dimmed {
+    opacity: 0.35;
+}
+
+.legend-item.active-highlight {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(245, 158, 11, 0.3);
+    font-weight: 600;
+}
+
+.color-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-clear-filter {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px dashed rgba(239, 68, 68, 0.4);
+    color: #ef4444;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    width: 100%;
+    transition: all 0.25s ease;
+}
+
+.btn-clear-filter:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Map Canvas Container */
+.map-canvas-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#climate-map-container {
+    width: 100%;
+    max-width: 612px;
+    max-height: 696px;
+    position: relative;
+}
+
+.india-svg-map {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.map-loading {
+    font-size: 1.1rem;
+    color: var(--text-sub);
+    font-weight: 600;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Map State Path Styles */
+.state-path {
+    stroke: rgba(10, 18, 30, 0.5);
+    stroke-width: 0.6;
+    transition: fill 0.35s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.25s ease, stroke-width 0.25s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.state-path:hover {
+    stroke: #ffffff;
+    stroke-width: 1.5;
+    filter: brightness(1.15) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.state-path:focus-visible {
+    stroke: var(--saffron, #ff6f00);
+    stroke-width: 2;
+    outline: none;
+}
+
+.state-path.map-dimmed {
+    opacity: 0.15;
+    fill: #1e293b !important;
+}
+
+.state-path.map-pinned {
+    stroke: #f59e0b;
+    stroke-width: 1.8;
+}
+
+/* Theme adaptation for strokes */
+.light-theme .state-path {
+    stroke: rgba(255, 255, 255, 0.8);
+}
+.light-theme .state-path:hover {
+    stroke: #0f172a;
+}
+
+/* Sidebar Details Panel */
+.detail-display-card {
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    color: var(--text-sub);
+    padding: 20px;
+}
+
+.detail-placeholder h3 {
+    margin-top: 15px;
+    color: var(--text-main);
+}
+
+.detail-placeholder p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.detail-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.state-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.saffron-bg {
+    background: var(--saffron, #ff6f00);
+    color: #fff;
+}
+
+.detail-divider {
+    height: 1px;
+    background: var(--card-border);
+    margin-bottom: 20px;
+}
+
+.detail-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.detail-stat-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+}
+
+.detail-stat-row .label {
+    color: var(--text-sub);
+}
+
+.detail-stat-row strong {
+    color: var(--text-main);
+}
+
+.detail-description-block h4, .detail-phenomena-block h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-description-block p {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+}
+
+.phenomenon-tag {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Tooltip Styling */
+.climate-tooltip {
+    position: fixed;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    width: 200px;
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.tooltip-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
+}
+
+.tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.tooltip-label {
+    color: #94a3b8;
+}
+
+.tooltip-value {
+    font-weight: 600;
+}
+
+.tooltip-cta {
+    font-size: 0.75rem;
+    color: #f59e0b;
+    margin-top: 8px;
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Climate Cards Section */
+.climate-cards-section {
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-badge {
+    display: inline-block;
+    color: #ffd54f;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: var(--text-sub);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+}
+
+.climate-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 30px;
+}
+
+/* Climate Card Style */
+.climate-card {
+    background: var(--card-bg-glass);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.climate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.climate-card.filtered-out {
+    opacity: 0.15;
+    filter: grayscale(0.8);
+    transform: scale(0.97);
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.climate-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+    color: var(--text-main);
+}
+
+.card-koppen {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    font-family: monospace;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.card-description {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-details {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--card-border);
+    padding-top: 15px;
+    margin-top: auto;
+}
+
+.card-detail-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.card-detail-item .lbl {
+    color: var(--text-sub);
+}
+
+.card-detail-item .val {
+    font-weight: 600;
+}
