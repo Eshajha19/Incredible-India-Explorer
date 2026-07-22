@@ -104,7 +104,8 @@ window.__iiRouteState = window.__iiRouteState || {
     navigationBound: false,
     scrollListenerBound: false,
     navDocClickListenerBound: false,
-    lastRouteKey: null
+    lastRouteKey: null,
+    keydownHandlers: []
 };
 
 function iiRegisterObserver(obs) {
@@ -122,6 +123,27 @@ function iiDisconnectRouteObservers() {
         }
     }
     window.__iiRouteState.observers.clear();
+}
+
+/**
+ * Register a keydown handler for automatic cleanup on route change.
+ * Prevents listener accumulation when pages are revisited via SPA navigation.
+ */
+function iiRegisterKeydownHandler(handler) {
+    if (typeof handler !== 'function') return;
+    window.__iiRouteState.keydownHandlers.push(handler);
+}
+
+/**
+ * Remove all registered keydown handlers. Called before each route transition
+ * to prevent duplicate Escape/Tab listeners from accumulating.
+ */
+function iiDisconnectKeydownHandlers() {
+    if (!window.__iiRouteState || !window.__iiRouteState.keydownHandlers) return;
+    window.__iiRouteState.keydownHandlers.forEach(function(h) {
+        try { document.removeEventListener('keydown', h); } catch (e) { /* ignore */ }
+    });
+    window.__iiRouteState.keydownHandlers = [];
 }
 
 /**
@@ -833,7 +855,7 @@ function initInteractiveMap() {
     overlayBackBtn.addEventListener('click', closeOverlay);
 
     // ESC key closes overlay
-    document.addEventListener('keydown', (e) => {
+    var mapEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeOverlay();
             comparisonOverlay.classList.remove('open');
@@ -842,7 +864,9 @@ function initInteractiveMap() {
                 comparisonOverlayFocusTrap = null;
             }
         }
-    });
+    };
+    document.addEventListener('keydown', mapEscapeHandler);
+    iiRegisterKeydownHandler(mapEscapeHandler);
 
     // View More Button Trigger - Navigate to individual state page via SPA router or standard href
     viewMoreBtn?.addEventListener('click', () => {
@@ -2166,7 +2190,7 @@ function initSciencePage() {
         if (event.target === modal) closeModal();
     });
 
-    document.addEventListener('keydown', event => {
+    var scienceKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -2178,7 +2202,9 @@ function initSciencePage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', scienceKeydownHandler);
+    iiRegisterKeydownHandler(scienceKeydownHandler);
 
     function renderStats() {
         statsGrid.innerHTML = statsData.map(stat => `
@@ -2734,7 +2760,7 @@ function initMusicPage() {
         }
     });
 
-    document.addEventListener('keydown', event => {
+    var musicKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -2746,7 +2772,9 @@ function initMusicPage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', musicKeydownHandler);
+    iiRegisterKeydownHandler(musicKeydownHandler);
 
     function setActiveTab(tabName) {
         tabButtons.forEach(button => {
@@ -3694,7 +3722,7 @@ function initLiteraturePage() {
         }
     });
 
-    document.addEventListener('keydown', event => {
+    var literatureKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -3706,7 +3734,9 @@ function initLiteraturePage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', literatureKeydownHandler);
+    iiRegisterKeydownHandler(literatureKeydownHandler);
 
     document.querySelectorAll('[data-literature-reset]').forEach(button => {
         button.addEventListener('click', resetFilters);
@@ -4440,7 +4470,7 @@ function initDancePage() {
         }
     });
 
-    document.addEventListener('keydown', event => {
+    var danceKeydownHandler = function(event) {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {
@@ -4452,7 +4482,9 @@ function initDancePage() {
         if (event.key === 'Tab') {
             trapModalFocus(event);
         }
-    });
+    };
+    document.addEventListener('keydown', danceKeydownHandler);
+    iiRegisterKeydownHandler(danceKeydownHandler);
 
     function populateStateOptions() {
         stateSelect.innerHTML = [

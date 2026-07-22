@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') { document.body.classList.add('light-theme'); }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's volcanic regions, lava plateaus, meteor craters, karst cave systems, and extraordinary geological formations from Barren Island to the Deccan Traps.">
+    <title>Volcanoes & Geological Formations Explorer | Incredible India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="volcanoes-geology.css">
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="heritage.html" class="nav-link">Heritage</a>
+                <a href="adventure.html" class="nav-link">Adventure</a>
+                <a href="volcanoes-geology.html" class="nav-link active" style="color:var(--saffron)">Geology</a>
+                <div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+                </div>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="geology-page">
+        <!-- Hero with Volcano/Geology Image -->
+        <section class="geology-hero" style="background-image:url('assets/explorer-images/volcanoes-geology-hero.png');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,45,18,0.8) 0%,rgba(13,17,23,0.85) 100%);"></div>
+            <div class="hero-content" style="position:relative;z-index:1;">
+                <span class="hero-badge">🌋 Earth Sciences & Natural Wonders</span>
+                <h1>Volcanoes & Geological Formations</h1>
+                <p>Journey through India's most dramatic geological heritage — from South Asia's only active volcano to an ancient meteor-impact lake and the world's largest basalt plateau.</p>
+                <div class="hero-stats">
+                    <div class="stat-card"><strong>10+</strong><span>Geological Wonders</span></div>
+                    <div class="stat-card"><strong>65 Ma</strong><span>Deccan Traps Age</span></div>
+                    <div class="stat-card"><strong>4</strong><span>Formation Types</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="explorer-section">
+            <div class="container">
+                <!-- Category Filter Pills -->
+                <div class="category-pills" id="category-pills" role="group" aria-label="Filter by geological category">
+                    <button class="pill active" data-filter="all">All Formations</button>
+                    <button class="pill" data-filter="volcanic">🌋 Volcanic</button>
+                    <button class="pill" data-filter="crater">☄️ Impact Craters</button>
+                    <button class="pill" data-filter="basaltic">🪨 Basaltic / Igneous</button>
+                    <button class="pill" data-filter="karst">🕳️ Karst & Caves</button>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="search-panel">
+                    <input type="search" id="geo-search" placeholder="Search formations, states, or geological types..." aria-label="Search geological formations">
+                </div>
+
+                <!-- Geological Cards Grid -->
+                <div class="geo-grid" id="geo-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Decoding 2 Billion Years of Indian Geology.</p>
+        </div>
+    </footer>
+
+    <script src="volcanoes-geology.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>

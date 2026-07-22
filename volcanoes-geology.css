@@ -1,0 +1,72 @@
+/* volcanoes-geology.css */
+.geology-page { min-height:100vh; background:#0d1117; color:#e6edf3; padding-bottom:4rem; }
+body.light-theme .geology-page { background:#f6f8fa; color:#1f2328; }
+
+.geology-hero { min-height:480px; display:flex; align-items:center; justify-content:center; text-align:center; border-bottom:1px solid rgba(255,255,255,.1); }
+body.light-theme .geology-hero { border-bottom-color:#e5e7eb; }
+
+.hero-content { max-width:900px; margin:0 auto; padding:5rem 1.5rem 3rem; }
+
+.hero-badge { display:inline-block; background:rgba(239,68,68,.2); color:#f87171; border:1px solid rgba(248,113,113,.4); padding:.35rem 1rem; border-radius:50px; font-size:.85rem; font-weight:600; margin-bottom:1rem; text-transform:uppercase; letter-spacing:.5px; }
+
+.geology-hero h1 { font-size:2.75rem; font-weight:800; margin-bottom:1rem; background:linear-gradient(90deg,#f97316,#ef4444,#a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.geology-hero p { font-size:1.15rem; color:#8b949e; max-width:750px; margin:0 auto 2rem; line-height:1.6; }
+body.light-theme .geology-hero p { color:#4b5563; }
+
+.hero-stats { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; }
+.stat-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); padding:1rem 1.75rem; border-radius:12px; display:flex; flex-direction:column; align-items:center; }
+body.light-theme .stat-card { background:#fff; border-color:#e5e7eb; }
+.stat-card strong { font-size:1.4rem; color:#f97316; }
+.stat-card span { font-size:.85rem; color:#8b949e; }
+body.light-theme .stat-card span { color:#6b7280; }
+
+.explorer-section { max-width:1200px; margin:2.5rem auto; padding:0 1.5rem; }
+
+/* Category Pills */
+.category-pills { display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:1.5rem; }
+.pill { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#8b949e; padding:.5rem 1.1rem; border-radius:50px; font-size:.9rem; font-weight:600; cursor:pointer; transition:background .2s,color .2s,border-color .2s; }
+.pill:hover, .pill.active { background:rgba(249,115,22,.2); border-color:#f97316; color:#fb923c; }
+body.light-theme .pill { background:#f3f4f6; border-color:#d1d5db; color:#374151; }
+body.light-theme .pill:hover, body.light-theme .pill.active { background:#fff7ed; border-color:#f97316; color:#c2410c; }
+
+/* Search Panel */
+.search-panel { margin-bottom:2rem; }
+.search-panel input { width:100%; background:#161b22; border:1px solid #30363d; color:#e6edf3; padding:.85rem 1.25rem; border-radius:10px; font-size:1rem; }
+body.light-theme .search-panel input { background:#fff; border-color:#d0d7de; color:#1f2328; }
+
+/* Geo Cards Grid */
+.geo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.75rem; }
+@media (max-width:640px) { .geo-grid { grid-template-columns:1fr; } }
+
+.geo-card { background:#161b22; border:1px solid #30363d; border-radius:14px; overflow:hidden; transition:transform .2s ease,box-shadow .2s ease; }
+body.light-theme .geo-card { background:#fff; border-color:#e1e4e8; }
+.geo-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(249,115,22,.15); }
+
+.geo-card-header { padding:1.25rem; display:flex; align-items:flex-start; gap:1rem; border-bottom:1px solid rgba(255,255,255,.06); }
+body.light-theme .geo-card-header { border-bottom-color:#f3f4f6; }
+.geo-icon { font-size:2.5rem; flex-shrink:0; }
+.geo-meta { flex:1; }
+
+.geo-type-badge { display:inline-block; padding:.2rem .6rem; border-radius:6px; font-size:.75rem; font-weight:700; text-transform:uppercase; margin-bottom:.35rem; }
+.badge-volcanic { background:rgba(239,68,68,.2); color:#f87171; border:1px solid rgba(248,113,113,.3); }
+.badge-crater { background:rgba(139,92,246,.2); color:#c4b5fd; border:1px solid rgba(196,181,253,.3); }
+.badge-basaltic { background:rgba(107,114,128,.2); color:#9ca3af; border:1px solid rgba(156,163,175,.3); }
+.badge-karst { background:rgba(6,182,212,.2); color:#67e8f9; border:1px solid rgba(103,232,249,.3); }
+
+.geo-card-header h3 { font-size:1.15rem; margin:0 0 .2rem; }
+.geo-card-header .geo-location { font-size:.82rem; color:#8b949e; }
+body.light-theme .geo-card-header .geo-location { color:#6b7280; }
+
+.geo-card-body { padding:1.25rem; }
+.geo-description { font-size:.9rem; line-height:1.55; color:#c9d1d9; margin-bottom:1rem; }
+body.light-theme .geo-description { color:#374151; }
+
+.geo-facts { display:flex; flex-direction:column; gap:.4rem; }
+.fact-row { display:flex; gap:.5rem; font-size:.8rem; }
+.fact-label { color:#8b949e; font-weight:600; min-width:80px; }
+.fact-value { color:#e6edf3; }
+body.light-theme .fact-label { color:#6b7280; }
+body.light-theme .fact-value { color:#1f2328; }
+
+.site-footer { text-align:center; padding:2rem; border-top:1px solid #30363d; color:#8b949e; margin-top:4rem; }
+body.light-theme .site-footer { border-top-color:#e1e4e8; color:#6e7681; }

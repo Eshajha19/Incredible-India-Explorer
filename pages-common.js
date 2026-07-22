@@ -574,11 +574,15 @@ function initTribesPage() {
     }
 
     modalBackdrop?.addEventListener('click', closeTribeDetail);
-    document.addEventListener('keydown', (e) => {
+    var tribesEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeTribeDetail();
         }
-    });
+    };
+    document.addEventListener('keydown', tribesEscapeHandler);
+    if (typeof window.iiRegisterKeydownHandler === 'function') {
+        window.iiRegisterKeydownHandler(tribesEscapeHandler);
+    }
 
     /* ---------- Filtering ---------- */
     function applyFilters() {
@@ -1172,11 +1176,15 @@ function initRiversPage() {
     }
 
     modalBackdrop?.addEventListener('click', closeRiverDetail);
-    document.addEventListener('keydown', (e) => {
+    var riversEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeRiverDetail();
         }
-    });
+    };
+    document.addEventListener('keydown', riversEscapeHandler);
+    if (typeof window.iiRegisterKeydownHandler === 'function') {
+        window.iiRegisterKeydownHandler(riversEscapeHandler);
+    }
 
     /* ---------- Filter tab clicks ---------- */
     filterTabs.querySelectorAll('.rivers-filter-btn').forEach(btn => {

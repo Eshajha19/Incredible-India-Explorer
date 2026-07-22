@@ -178,6 +178,10 @@
         if (typeof window.iiDisconnectRouteObservers === 'function') {
             window.iiDisconnectRouteObservers();
         }
+        // Clean up keydown handlers from previous route to prevent listener accumulation
+        if (typeof window.iiDisconnectKeydownHandlers === 'function') {
+            window.iiDisconnectKeydownHandlers();
+        }
 
         if (typeof window.initNavigation === 'function') window.initNavigation();
         if (typeof window.initThemeToggle === 'function') window.initThemeToggle();

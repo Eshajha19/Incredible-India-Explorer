@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wildlife Rescue Strategy Game: Protect endangered animals across India's National Parks.">
+    <title>Wildlife Rescue | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="wildlife-rescue.css">
+</head>
+
+<body class="challenge-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="wildlife-rescue.html" class="nav-link active" style="color: var(--saffron)">Wildlife Rescue</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="state-challenge.html" class="dropdown-item">Borders Challenge</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="rescue-page">
+        <!-- HUD -->
+        <section class="hud-panel">
+            <div class="hud-stats">
+                <div class="stat"><span class="icon">❤️</span> <strong id="ui-health">100</strong></div>
+                <div class="stat"><span class="icon">⭐</span> <strong id="ui-xp">0</strong> XP</div>
+                <div class="stat"><span class="icon">💰</span> <strong id="ui-coins">0</strong> Coins</div>
+            </div>
+            
+            <div class="hud-inventory" id="ui-inventory">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Main Game Area -->
+        <section class="game-container">
+            <aside class="park-selector" id="park-selector">
+                <h3>National Parks</h3>
+                <!-- Injected via JS -->
+            </aside>
+
+            <div class="game-board-container">
+                <div class="message-log" id="message-log">
+                    Welcome to the Wildlife Rescue!
+                </div>
+                <div class="grid-map" id="grid-map">
+                    <!-- Grid cells injected via JS -->
+                </div>
+                <div class="controls-hint">Use <strong>W, A, S, D</strong> or <strong>Arrow Keys</strong> to move.</div>
+            </div>
+        </section>
+        
+        <!-- Game Over Modal -->
+        <div id="rescue-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+                <button id="btn-continue" class="btn-primary mt-4">Continue</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="pages-common.js" defer></script>
+    <script type="module" src="wildlife-rescue.js"></script>
+</body>
+</html>
