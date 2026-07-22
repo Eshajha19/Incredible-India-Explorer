@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Heritage Threat Monitor highlighting endangered heritage sites in India threatened by pollution, climate change, tourism pressure, and neglect.">
+    <title>Heritage Threat Monitor | Incredible India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="heritage-threats.css">
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="heritage.html" class="nav-link">Heritage</a>
+                <a href="unesco.html" class="nav-link">UNESCO Sites</a>
+                <a href="heritage-threats.html" class="nav-link active" style="color: var(--saffron)">Threat Monitor</a>
+                <div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+                </div>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="threats-page">
+        <section class="threats-hero" style="background-image: url('assets/explorer-images/heritage-threat-hero.png'); background-size: cover; background-position: center; position: relative;">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(190,18,60,0.75) 0%,rgba(13,17,23,0.85) 100%);"></div>
+            <div class="hero-content" style="position:relative;z-index:1;">
+                <span class="hero-badge badge-alert">⚠️ Conservation Awareness</span>
+                <h1>Heritage Threat Monitor</h1>
+                <p>
+                    Tracking vulnerable historical monuments, eco-cultural landscapes, and heritage sites impacted by environmental pollution, climate change, tourism over-capacity, and neglect.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-card"><strong>10+</strong><span>Monitored Sites</span></div>
+                    <div class="stat-card"><strong>5</strong><span>Threat Categories</span></div>
+                    <div class="stat-card"><strong>2026</strong><span>Live Status Updates</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="explorer-section">
+            <div class="container">
+                <!-- Search & Filters -->
+                <div class="controls-panel">
+                    <div class="search-box">
+                        <label for="threat-search">Search Threatened Heritage Sites</label>
+                        <input type="search" id="threat-search" placeholder="Search site name, location, or threat cause..." aria-label="Search threatened sites">
+                    </div>
+
+                    <div class="filter-box">
+                        <label for="category-filter">Filter Category</label>
+                        <select id="category-filter" aria-label="Filter by category">
+                            <option value="all">All Categories</option>
+                            <option value="pollution">Air & Industrial Pollution</option>
+                            <option value="climate">Climate Change & Coastal Erosion</option>
+                            <option value="tourism">Tourism Pressure & Vandalism</option>
+                            <option value="water">Water Seepage & Structural Damage</option>
+                            <option value="encroachment">Urban Encroachment</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-box">
+                        <label for="severity-filter">Risk Severity</label>
+                        <select id="severity-filter" aria-label="Filter by severity level">
+                            <option value="all">All Risk Levels</option>
+                            <option value="critical">Critical Risk</option>
+                            <option value="high">High Concern</option>
+                            <option value="moderate">Moderate Watch</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Threat Cards Grid -->
+                <div class="threats-grid" id="threats-grid">
+                    <!-- Dynamic Threat Cards Rendered via JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Protecting Cultural & Natural Heritage.</p>
+        </div>
+    </footer>
+
+    <script src="heritage-threats.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>
