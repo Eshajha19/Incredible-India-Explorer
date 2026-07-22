@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive jigsaw puzzle game where players assemble pieces to reconstruct the maps of individual Indian states across multiple difficulty levels.">
+    <title>State Jigsaw Puzzle Game | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="state-jigsaw.css">
+</head>
+
+<body class="jigsaw-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="state-jigsaw.html" class="nav-link active" style="color: var(--gold)">Jigsaw Puzzle</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="border-stories.html" class="dropdown-item">Border Stories</a>
+                        <a href="cultural-footprint.html" class="dropdown-item">Cultural Footprint</a>
+                        <a href="cultural-dna.html" class="dropdown-item">Cultural DNA Explorer</a>
+                        <a href="trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                        <a href="state-challenge.html" class="dropdown-item">State Borders Challenge</a>
+                        <a href="excavations.html" class="dropdown-item">Excavations Explorer</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="state-achievements.html" class="dropdown-item">State Achievement Timeline</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="jigsaw-page">
+        <!-- Hero Section -->
+        <section class="jigsaw-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🧩 Interactive Game · State Maps · Knowledge Unlock</span>
+                <h1>State Shape <span>Jigsaw Puzzle</span></h1>
+                <p>Drag and drop (or tap) jigsaw grid pieces to assemble state shape maps of India. Select your difficulty and unlock comprehensive state facts upon completion!</p>
+            </div>
+        </section>
+
+        <!-- Main Game Workspace -->
+        <section class="jigsaw-workspace">
+            <div class="jigsaw-container">
+                <!-- Toolbar: State Select & Difficulty Grid Size -->
+                <div class="controls-toolbar">
+                    <div class="control-field state-field">
+                        <label for="state-select">Choose Indian State</label>
+                        <select id="state-select"></select>
+                    </div>
+
+                    <div class="control-field diff-field">
+                        <label>Difficulty (Piece Grid)</label>
+                        <div class="diff-btn-group">
+                            <button type="button" class="btn-diff active" data-pieces="9">Easy (9 Pieces)</button>
+                            <button type="button" class="btn-diff" data-pieces="16">Medium (16 Pieces)</button>
+                            <button type="button" class="btn-diff" data-pieces="25">Hard (25 Pieces)</button>
+                        </div>
+                    </div>
+
+                    <div class="control-field action-field">
+                        <label>&nbsp;</label>
+                        <div class="action-buttons">
+                            <button id="btn-hint-game" class="btn-action btn-hint" type="button">💡 Hint Piece</button>
+                            <button id="btn-reset-game" class="btn-action btn-reset" type="button">🔄 Reset Board</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Stats Bar -->
+                <div class="stats-bar">
+                    <div class="stat-pill">
+                        <span>⏱️ Time:</span>
+                        <strong id="timer-display">00:00</strong>
+                    </div>
+                    <div class="stat-pill">
+                        <span>🎯 Moves:</span>
+                        <strong id="move-counter">0</strong>
+                    </div>
+                    <div class="stat-pill">
+                        <span>🧩 Progress:</span>
+                        <strong id="progress-text">0% Assembled</strong>
+                    </div>
+                </div>
+
+                <!-- Puzzle Play Arena: Target Board vs Available Bank -->
+                <div class="game-arena-grid">
+                    <!-- Left: Target Board Canvas -->
+                    <div class="board-panel">
+                        <div class="panel-header">
+                            <h3>Target State Grid</h3>
+                            <span class="panel-tip">Drop or click pieces into matching numbered slots</span>
+                        </div>
+                        <div class="target-board" id="target-board"></div>
+                    </div>
+
+                    <!-- Right: Pieces Bank -->
+                    <div class="bank-panel">
+                        <div class="panel-header">
+                            <h3>Available Jigsaw Pieces</h3>
+                            <span class="panel-tip">Drag piece or click to select & place</span>
+                        </div>
+                        <div class="pieces-bank" id="pieces-bank"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- State Completion Info Card Modal -->
+    <div class="completion-modal-overlay" id="completion-modal">
+        <div class="completion-modal-card">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close Modal">&times;</button>
+
+            <div class="modal-header-banner">
+                <span class="modal-badge">🎉 Puzzle Completed!</span>
+                <h2 id="modal-state-name">Kerala</h2>
+                <p id="modal-stats-text">Completed in 00:45 with 12 moves!</p>
+            </div>
+
+            <div class="modal-info-grid">
+                <div class="modal-info-item">
+                    <span class="info-icon">🏛️</span>
+                    <div>
+                        <strong>State Capital</strong>
+                        <p id="modal-state-capital">Thiruvananthapuram</p>
+                    </div>
+                </div>
+
+                <div class="modal-info-item">
+                    <span class="info-icon">🌊</span>
+                    <div>
+                        <strong>Major Rivers</strong>
+                        <p id="modal-state-rivers">Periyar, Bharathappuzha, Pamba</p>
+                    </div>
+                </div>
+
+                <div class="modal-info-item">
+                    <span class="info-icon">📍</span>
+                    <div>
+                        <strong>Famous Landmarks</strong>
+                        <p id="modal-state-landmarks">Alleppey Backwaters · Munnar Tea Gardens</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-fact-box">
+                <strong>💡 State Overview & Geography:</strong>
+                <p id="modal-state-facts">Known as 'God's Own Country', Kerala has the highest literacy rate in India.</p>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-primary" id="btn-play-again">Play Next Puzzle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Interactive educational puzzle games showcasing state maps, geography, and heritage across India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture</a>
+                <a href="state-jigsaw.html">State Jigsaw Puzzle</a>
+                <a href="state-challenge.html">Borders Challenge</a>
+                <a href="learn.html">Learn & Quiz</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source State Shape Jigsaw Game.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="state-jigsaw.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+/* ==========================================================================
+   State Shape Jigsaw Puzzle Game Stylesheet - Incredible India Explorer
+   ========================================================================== */
+
+:root {
+    --jigsaw-gold: #eab308;
+    --jigsaw-emerald: #10b981;
+    --jigsaw-blue: #3b82f6;
+    --jigsaw-saffron: #f97316;
+    --jigsaw-purple: #8b5cf6;
+    --jigsaw-bg: var(--bg-dark, #060913);
+    --jigsaw-surface: rgba(255, 255, 255, 0.05);
+    --jigsaw-surface-hover: rgba(255, 255, 255, 0.1);
+    --jigsaw-border: rgba(255, 255, 255, 0.12);
+    --jigsaw-text: #f8fafc;
+    --jigsaw-muted: #94a3b8;
+    --board-slot-bg: rgba(0, 0, 0, 0.4);
+    --jigsaw-card-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
+}
+
+.light-theme {
+    --jigsaw-bg: #fafaf9;
+    --jigsaw-surface: rgba(255, 255, 255, 0.95);
+    --jigsaw-surface-hover: #ffffff;
+    --jigsaw-border: rgba(0, 0, 0, 0.12);
+    --jigsaw-text: #1c1917;
+    --jigsaw-muted: #57534e;
+    --board-slot-bg: #e2e8f0;
+    --jigsaw-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.jigsaw-page {
+    background-color: var(--jigsaw-bg);
+    color: var(--jigsaw-text);
+    min-height: 100vh;
+}
+
+/* --- Hero Section --- */
+.jigsaw-hero {
+    position: relative;
+    isolation: isolate;
+    padding: 135px 20px 40px;
+    text-align: center;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(234, 179, 8, 0.15), transparent 35%),
+        radial-gradient(circle at 85% 35%, rgba(139, 92, 246, 0.15), transparent 35%),
+        linear-gradient(170deg, #060913 0%, #0d1222 45%, #080c16 100%);
+    overflow: hidden;
+}
+
+.jigsaw-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.35;
+    background-image: 
+        radial-gradient(rgba(234, 179, 8, 0.1) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(139, 92, 246, 0.1) 1.5px, transparent 1.5px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-kicker {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(234, 179, 8, 0.12);
+    border: 1px solid rgba(234, 179, 8, 0.35);
+    color: var(--jigsaw-gold);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.jigsaw-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.jigsaw-hero h1 span {
+    background: linear-gradient(120deg, var(--jigsaw-gold), var(--jigsaw-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.jigsaw-hero p {
+    font-size: 1.12rem;
+    color: var(--jigsaw-muted);
+    line-height: 1.65;
+}
+
+/* --- Container & Toolbar --- */
+.jigsaw-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.controls-toolbar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    background: var(--jigsaw-surface);
+    border: 1px solid var(--jigsaw-border);
+    padding: 24px;
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    margin-bottom: 24px;
+}
+
+.control-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.control-field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--jigsaw-muted);
+}
+
+.control-field select {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--jigsaw-border);
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--jigsaw-text);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.light-theme .control-field select {
+    background: #ffffff;
+}
+
+.control-field select:focus {
+    border-color: var(--jigsaw-gold);
+    box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.2);
+}
+
+.diff-btn-group {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-diff {
+    flex: 1;
+    padding: 10px 8px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid var(--jigsaw-border);
+    color: var(--jigsaw-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-diff.active,
+.btn-diff:hover {
+    background: var(--jigsaw-gold);
+    color: #111;
+    border-color: var(--jigsaw-gold);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-action {
+    flex: 1;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: all 0.2s ease;
+}
+
+.btn-hint {
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid var(--jigsaw-gold);
+    color: var(--jigsaw-gold);
+}
+
+.btn-reset {
+    background: transparent;
+    border: 1px solid var(--jigsaw-border);
+    color: var(--jigsaw-muted);
+}
+
+.btn-hint:hover { background: var(--jigsaw-gold); color: #111; }
+.btn-reset:hover { background: rgba(255, 255, 255, 0.1); color: var(--jigsaw-text); }
+
+/* --- Stats Bar --- */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.stat-pill {
+    background: var(--jigsaw-surface);
+    border: 1px solid var(--jigsaw-border);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-pill strong {
+    color: var(--jigsaw-gold);
+    font-weight: 800;
+}
+
+/* --- Game Arena Grid --- */
+.game-arena-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+@media (min-width: 992px) {
+    .game-arena-grid {
+        grid-template-columns: 1.2fr 1fr;
+    }
+}
+
+.board-panel,
+.bank-panel {
+    background: var(--jigsaw-surface);
+    border: 1px solid var(--jigsaw-border);
+    border-radius: 24px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--jigsaw-card-shadow);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--jigsaw-border);
+}
+
+.panel-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.panel-tip {
+    font-size: 0.78rem;
+    color: var(--jigsaw-muted);
+}
+
+/* Target Board Canvas */
+.target-board {
+    display: grid;
+    gap: 8px;
+    aspect-ratio: 1 / 1;
+    max-width: 460px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 20px;
+    border: 2px dashed var(--jigsaw-border);
+}
+
+.board-slot {
+    background: var(--board-slot-bg);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+.board-slot.drag-over {
+    border-color: var(--jigsaw-gold);
+    background: rgba(234, 179, 8, 0.2);
+    transform: scale(1.02);
+}
+
+.slot-number {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.15);
+    user-select: none;
+}
+
+.placed-piece-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.board-slot.correct-snap {
+    border: 2px solid var(--jigsaw-emerald);
+}
+
+/* Pieces Bank */
+.pieces-bank {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+    gap: 12px;
+    max-height: 460px;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.puzzle-piece-tile {
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    user-select: none;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.puzzle-piece-tile:hover,
+.puzzle-piece-tile.selected {
+    transform: scale(1.08);
+    border-color: var(--jigsaw-gold);
+    box-shadow: 0 8px 20px rgba(234, 179, 8, 0.4);
+}
+
+.puzzle-piece-tile.dragging {
+    opacity: 0.4;
+}
+
+.piece-icon {
+    font-size: 1.8rem;
+    margin-bottom: 2px;
+}
+
+.piece-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2px 6px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+/* --- Completion Modal Overlay --- */
+.completion-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.completion-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.completion-modal-card {
+    background: #0d1222;
+    border: 1px solid var(--jigsaw-gold);
+    border-radius: 24px;
+    padding: 36px;
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+    text-align: center;
+    color: #f8fafc;
+}
+
+.light-theme .completion-modal-card {
+    background: #ffffff;
+    color: #1c1917;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--jigsaw-muted);
+    cursor: pointer;
+}
+
+.modal-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid var(--jigsaw-emerald);
+    color: var(--jigsaw-emerald);
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.modal-header-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+
+#modal-stats-text {
+    font-size: 0.95rem;
+    color: var(--jigsaw-gold);
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.modal-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--jigsaw-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-info-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.info-icon { font-size: 1.4rem; }
+
+.modal-info-item strong {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    color: var(--jigsaw-gold);
+}
+
+.modal-info-item p {
+    font-size: 0.9rem;
+}
+
+.modal-fact-box {
+    background: rgba(234, 179, 8, 0.1);
+    border-left: 3px solid var(--jigsaw-gold);
+    padding: 14px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.modal-actions .btn-primary {
+    padding: 14px 28px;
+    border-radius: 12px;
+    background: linear-gradient(120deg, var(--jigsaw-gold), var(--jigsaw-saffron));
+    border: none;
+    color: #111;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.modal-actions .btn-primary:hover {
+    transform: scale(1.04);
+}

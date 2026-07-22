@@ -893,6 +893,18 @@ window.indiaSearchIndex = [
     description: "Compare historical and present-day images of India's iconic heritage sites with an interactive before/after slider.",
     url: "then-vs-now.html"
   },
+  // --- State Shape Jigsaw Puzzle Game ---
+  {
+    title: "State Shape Jigsaw Puzzle Game",
+    category: "Games & Quizzes",
+    description: "An interactive puzzle game where players assemble jigsaw pieces to reconstruct the maps of individual Indian states and unlock state facts.",
+    url: "state-jigsaw.html"
+  },
+  {
+    title: "Indian State Map Jigsaw Challenge",
+    category: "Games & Quizzes",
+    description: "Reconstruct Indian state shape maps across 9, 16, and 25 piece grid difficulty options.",
+    url: "state-jigsaw.html"
   // --- Border Stories Explorer ---
   {
     title: "Border Stories Explorer",
