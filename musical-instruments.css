@@ -1,5 +1,5 @@
 
-:root{--ma:var(--saffron,#ff9933);--mp:#8a63d2;--mr:#d47737;--ms:var(--glass-bg,rgba(255,255,255,.08));--mb:var(--glass-border,rgba(255,255,255,.14));--mt:var(--text-primary,#f5f5f5);--mm:var(--text-secondary,#b7b7b7)}
+:root{--ma:var(--saffron);--mp:#8a63d2;--mr:#d47737;--ms:var(--glass-bg);--mb:var(--glass-border);--mt:var(--text-primary);--mm:var(--text-secondary)}
 .instruments-page{min-height:100vh;color:var(--mt)}
 .instruments-hero{min-height:74vh;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(24,13,36,.94),rgba(67,34,17,.72)),url("assets/culture.png") center/cover no-repeat}
 .instruments-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 18%,rgba(138,99,210,.28),transparent 30%),radial-gradient(circle at 82% 25%,rgba(255,153,51,.22),transparent 28%),linear-gradient(to top,rgba(8,6,12,.75),transparent 55%)}

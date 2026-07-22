@@ -40,7 +40,7 @@
     width: 100%;
     padding: 10px 14px 10px 38px;
     border-radius: 10px;
-    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+    border: 1px solid var(--glass-border);
     background: rgba(255, 255, 255, 0.05);
     color: inherit;
     font-family: var(--font-body, 'Outfit', sans-serif);
@@ -74,7 +74,7 @@
 .wildlife-filter-chip {
     padding: 7px 16px;
     border-radius: 999px;
-    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+    border: 1px solid var(--glass-border);
     background: rgba(255, 255, 255, 0.05);
     color: inherit;
     font-family: var(--font-body, 'Outfit', sans-serif);
@@ -163,7 +163,7 @@
 
 .wildlife-status-badge.endangered {
     background: rgba(255, 111, 60, 0.18);
-    color: var(--saffron, #ff6f3c);
+    color: var(--saffron);
     border: 1px solid rgba(255, 111, 60, 0.35);
 }
 
@@ -200,7 +200,7 @@
     justify-content: center;
     text-align: center;
     padding: 60px 24px;
-    border: 1px dashed var(--glass-border, rgba(255, 255, 255, 0.12));
+    border: 1px dashed var(--glass-border);
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.02);
     width: 100%;

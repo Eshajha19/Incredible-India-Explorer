@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's diverse climate zones, rainfall distribution, and seasonal variations through an interactive visual map and detailed climate cards.">
+    <title>Indian Climate Zones Explorer | Incredible India</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="climate-zones.css">
+</head>
+<body>
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="climate-zones.html" class="nav-link active" id="link-climate" style="color: var(--saffron)">Climate Zones</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="one-day-history.html" class="dropdown-item">One Day in History</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="hidden-gems.html" class="dropdown-item">Hidden Gems</a>
+                        <a href="railways.html" class="dropdown-item">Railways Explorer</a>
+                        <a href="adventure.html" class="dropdown-item">Adventure</a>
+                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                        <a href="tribes.html" class="dropdown-item">Tribes</a>
+                        <a href="river.html" class="dropdown-item">Rivers</a>
+                        <a href="coin.html" class="dropdown-item">Evolution of Currency</a>
+                        <a href="hill-stations.html" class="dropdown-item">Hill-stations</a>
+                        <a href="lighthouses.html" class="dropdown-item">Lighthouses</a>
+                        <a href="coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="museums.html" class="dropdown-item">Museum</a>
+                        <a href="stepwells.html" class="dropdown-item">Stepwells</a>
+                        <a href="music.html" class="dropdown-item">Music</a>
+                        <a href="astronomy.html" class="dropdown-item">Astronomy</a>
+                        <a href="dance.html" class="dropdown-item">Dance</a>
+                        <a href="handloom/index.html" class="dropdown-item">Handloom</a>
+                        <a href="postal-stamps/index.html" class="dropdown-item">Postal Stamps</a>
+                        <a href="freedom-timeline/index.html" class="dropdown-item">Freedom Timeline</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+                <a href="premium.html" class="nav-link premium-link">★ Premium</a>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Root -->
+    <main class="climate-page">
+        <!-- Hero Section -->
+        <section class="climate-hero">
+            <div class="hero-glow-effect"></div>
+            <div class="hero-container">
+                <span class="hero-badge">Geography & Environment</span>
+                <h1>Indian Climate Zones <span>Explorer</span></h1>
+                <p>Discover India's diverse climatic systems, from the freezing Himalayan peaks to the arid Thar desert and tropical rain forests. Switch views to explore rainfall patterns and seasonal characteristics.</p>
+                <div class="hero-stats-grid">
+                    <div class="stat-card-glass">
+                        <strong class="gold">6</strong>
+                        <span>Major Climate Zones</span>
+                    </div>
+                    <div class="stat-card-glass">
+                        <strong class="saffron">4</strong>
+                        <span>Distinct Seasons</span>
+                    </div>
+                    <div class="stat-card-glass">
+                        <strong class="green">11,870 mm</strong>
+                        <span>Highest Annual Rainfall (Mawsynram)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="map-explorer-section">
+            <div class="explorer-container">
+                <div class="explorer-grid">
+                    <!-- Left: Controls & Legend -->
+                    <div class="map-controls-panel">
+                        <div class="panel-card glass-card">
+                            <h3>Map View Mode</h3>
+                            <p class="panel-subtitle">Select a metric to visualize on the map:</p>
+                            
+                            <div class="view-toggles">
+                                <button class="view-btn active" data-view="climate">
+                                    <span class="icon">🌍</span> Climate Zones
+                                </button>
+                                <button class="view-btn" data-view="rainfall">
+                                    <span class="icon">💧</span> Rainfall Distribution
+                                </button>
+                                <button class="view-btn" data-view="seasons">
+                                    <span class="icon">🍂</span> Seasonal Overview
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Legend Card -->
+                        <div class="panel-card glass-card legend-card" id="legend-panel">
+                            <h3>Map Legend</h3>
+                            <p class="panel-subtitle">Click a category to highlight regions on the map:</p>
+                            <div class="legend-list" id="legend-list">
+                                <!-- Injected dynamically by climate-zones.js -->
+                            </div>
+                            <button id="clear-map-filter" class="btn-clear-filter hidden">✕ Clear Selection</button>
+                        </div>
+                    </div>
+
+                    <!-- Center: Map Canvas -->
+                    <div class="map-canvas-container glass-card">
+                        <div class="map-wrapper">
+                            <div id="climate-map-container">
+                                <div class="map-loading">Loading Climatic Map...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Info Panel Sidebar -->
+                    <div class="map-sidebar-panel">
+                        <div class="panel-card glass-card detail-display-card" id="climate-detail-panel">
+                            <div class="detail-placeholder" id="detail-placeholder-content">
+                                <div class="icon-circle">📍</div>
+                                <h3>Select a Region</h3>
+                                <p>Hover or click on any state or Union Territory on the map to explore its climate classification, seasonal temperatures, and unique atmospheric phenomena.</p>
+                            </div>
+                            <div class="detail-content hidden" id="detail-active-content">
+                                <div class="detail-header">
+                                    <span class="state-badge saffron-bg" id="detail-state-code">STATE</span>
+                                    <h2 id="detail-state-name">State Name</h2>
+                                </div>
+                                <div class="detail-divider"></div>
+                                <div class="detail-stats">
+                                    <div class="detail-stat-row">
+                                        <span class="label">🌡️ Avg Summer:</span>
+                                        <strong id="detail-temp-summer" class="gold">32°C</strong>
+                                    </div>
+                                    <div class="detail-stat-row">
+                                        <span class="label">❄️ Avg Winter:</span>
+                                        <strong id="detail-temp-winter" class="cyan">15°C</strong>
+                                    </div>
+                                    <div class="detail-stat-row">
+                                        <span class="label">🌧️ Annual Rainfall:</span>
+                                        <strong id="detail-rainfall-val" class="blue">1200 mm</strong>
+                                    </div>
+                                    <div class="detail-stat-row">
+                                        <span class="label">🍃 Climate Zone:</span>
+                                        <strong id="detail-climate-type">Humid Subtropical</strong>
+                                    </div>
+                                </div>
+                                <div class="detail-description-block">
+                                    <h4>Regional Characteristics</h4>
+                                    <p id="detail-state-desc">Detailed text description of the state climate...</p>
+                                </div>
+                                <div class="detail-phenomena-block" id="detail-phenomena-container">
+                                    <h4>Unique Phenomenon</h4>
+                                    <div class="phenomenon-tag" id="detail-phenomenon">Monsoon Winds</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Climate Cards Grid Section -->
+        <section class="climate-cards-section" id="climate-cards-container">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Climate Profiles</span>
+                    <h2>India's 6 Climatic Regions</h2>
+                    <p class="section-subtitle">Based on modified Köppen classification, India encompasses a wide spectrum of microclimates.</p>
+                </div>
+
+                <div class="climate-cards-grid" id="climate-cards-grid">
+                    <!-- Injected dynamically by climate-zones.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built with passion and pure vanilla web technologies.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#map">Interactive Map</a></li>
+                    <li><a href="cuisine.html">Cuisine</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="culture.html">Culture</a></li>
+                    <li><a href="climate-zones.html">Climate Zones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-credits footer-credits-center">
+            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Map Tooltip (Rich Card) -->
+    <div class="climate-tooltip" id="climate-tooltip" style="opacity: 0;">
+        <div class="tooltip-header">
+            <span class="tooltip-icon">📍</span>
+            <span class="tooltip-state-name" id="tooltip-state-name">State Name</span>
+        </div>
+        <div class="tooltip-divider"></div>
+        <div class="tooltip-details">
+            <div class="tooltip-row">
+                <span class="tooltip-label">🌡️ Avg Temp</span>
+                <span class="tooltip-value" id="tooltip-temp">—</span>
+            </div>
+            <div class="tooltip-row">
+                <span class="tooltip-label">💧 Rainfall</span>
+                <span class="tooltip-value" id="tooltip-rainfall">—</span>
+            </div>
+            <div class="tooltip-row">
+                <span class="tooltip-label">🌍 Zone</span>
+                <span class="tooltip-value" id="tooltip-zone">—</span>
+            </div>
+        </div>
+        <div class="tooltip-cta">Click to pin details →</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="dist/map-data.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="climate-zones.js" defer></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

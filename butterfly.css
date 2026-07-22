@@ -1,5 +1,5 @@
 
-:root{--ba:var(--saffron,#ff9933);--bp:#9a67ea;--bg:#20a36b;--bs:var(--glass-bg,rgba(255,255,255,.08));--bb:var(--glass-border,rgba(255,255,255,.14));--bt:var(--text-primary,#f5f5f5);--bm:var(--text-secondary,#b7b7b7)}
+:root{--ba:var(--saffron);--bp:#9a67ea;--bg:#20a36b;--bs:var(--glass-bg);--bb:var(--glass-border);--bt:var(--text-primary);--bm:var(--text-secondary)}
 .butterfly-page{min-height:100vh;color:var(--bt)}
 .butterfly-hero{min-height:74vh;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(16,10,31,.93),rgba(19,65,52,.72)),url("assets/travel_forests.png") center/cover no-repeat}
 .butterfly-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 18%,rgba(154,103,234,.26),transparent 30%),radial-gradient(circle at 82% 28%,rgba(255,153,51,.2),transparent 27%),linear-gradient(to top,rgba(7,8,14,.72),transparent 55%)}

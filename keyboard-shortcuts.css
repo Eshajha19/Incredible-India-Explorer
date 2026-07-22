@@ -1,12 +1,12 @@
 /* Issue #252 — Keyboard Shortcuts Helper */
 
 :root {
-  --ks-accent: var(--saffron, #ff9933);
-  --ks-green: var(--green, #138808);
-  --ks-surface: var(--glass-bg, rgba(255,255,255,.08));
-  --ks-border: var(--glass-border, rgba(255,255,255,.16));
-  --ks-text: var(--text-primary, #f8fafc);
-  --ks-muted: var(--text-secondary, #cbd5e1);
+  --ks-accent: var(--saffron);
+  --ks-green: var(--green);
+  --ks-surface: var(--glass-bg);
+  --ks-border: var(--glass-border);
+  --ks-text: var(--text-primary);
+  --ks-muted: var(--text-secondary);
   --ks-shadow: 0 24px 70px rgba(0,0,0,.35);
 }
 

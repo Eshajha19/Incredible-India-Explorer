@@ -2,7 +2,7 @@
 
 .then-now-page {
     min-height: 100vh;
-    background: var(--bg-dark, #0d1117);
+    background: var(--bg-dark);
     color: var(--text-light, #e6edf3);
     padding-bottom: 4rem;
 }

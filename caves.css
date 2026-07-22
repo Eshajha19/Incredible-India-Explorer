@@ -1,10 +1,10 @@
 :root {
-    --caves-accent: var(--saffron, #ff9933);
-    --caves-gold: var(--gold, #f6c453);
-    --caves-surface: var(--glass-bg, rgba(255, 255, 255, 0.08));
-    --caves-border: var(--glass-border, rgba(255, 255, 255, 0.14));
-    --caves-text: var(--text-primary, #f6f1e7);
-    --caves-muted: var(--text-secondary, #b8b0a2);
+    --caves-accent: var(--saffron);
+    --caves-gold: var(--gold);
+    --caves-surface: var(--glass-bg);
+    --caves-border: var(--glass-border);
+    --caves-text: var(--text-primary);
+    --caves-muted: var(--text-secondary);
 }
 
 .caves-page {

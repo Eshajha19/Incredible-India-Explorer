@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore how each state's culture influences other states through migration, cuisine, music, language, architecture, cinema, textiles, and festivals across India.">
+    <title>State Cultural Footprint Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cultural-footprint.css">
+</head>
+
+<body class="footprint-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link active" style="color: var(--saffron)">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="cultural-footprint.html" class="nav-link active" style="color: #ec4899">Cultural Footprint</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="cultural-dna.html" class="dropdown-item">Cultural DNA Explorer</a>
+                        <a href="trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                        <a href="state-challenge.html" class="dropdown-item">State Borders Challenge</a>
+                        <a href="excavations.html" class="dropdown-item">Excavations Explorer</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                        <a href="space/space.html" class="dropdown-item">Space Heritage</a>
+                        <a href="folk-tales.html" class="dropdown-item">Folk Tales</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="footprint-page">
+        <!-- Hero Section -->
+        <section class="footprint-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🌐 Network Graph · Inter-State Migration · Cultural Synthesis</span>
+                <h1>State Cultural <span>Footprint Explorer</span></h1>
+                <p>Discover how each Indian state's distinct heritage has influenced neighboring and distant states across 8 key cultural domains: Migration, Cuisine, Music, Language, Architecture, Cinema, Textiles, and Festivals.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>20</strong>
+                        <span>States Mapped</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>37+</strong>
+                        <span>Cross-State Links</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>8</strong>
+                        <span>Cultural Domains</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Workspace Section -->
+        <section class="footprint-workspace">
+            <div class="footprint-container">
+                <!-- Search & Filters Toolbar -->
+                <div class="controls-toolbar">
+                    <div class="control-field search-field">
+                        <label for="footprint-search">Search State or Influence</label>
+                        <input id="footprint-search" type="search" placeholder="Search Bengal, Rasgulla, Carnatic, Bollywood, Dosa, Zari..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="domain-filter">Cultural Domain</label>
+                        <select id="domain-filter">
+                            <option value="all">All Domains (8)</option>
+                            <option value="cuisine">Cuisine & Delicacies</option>
+                            <option value="music">Music & Performing Arts</option>
+                            <option value="language">Language & Literature</option>
+                            <option value="architecture">Architecture & Sculpture</option>
+                            <option value="cinema">Cinema & Theater</option>
+                            <option value="textiles">Textiles & Handicrafts</option>
+                            <option value="festivals">Festivals & Celebrations</option>
+                            <option value="migration">Migration & Diaspora</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="region-filter">Region Filter</label>
+                        <select id="region-filter">
+                            <option value="all">All Regions</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="state-select">Focus State</label>
+                        <select id="state-select">
+                            <option value="all">All States</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field action-field">
+                        <label>&nbsp;</label>
+                        <button id="reset-filters" type="button" class="btn-reset">Reset Graph</button>
+                    </div>
+                </div>
+
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all cultural influences</p>
+                </div>
+
+                <!-- Network Graph & Side Panel Layout -->
+                <div class="graph-layout-shell">
+                    <!-- SVG Network Viewport -->
+                    <div class="network-viewport-wrapper">
+                        <div class="graph-zoom-controls">
+                            <button id="zoom-in" title="Zoom In">+</button>
+                            <button id="zoom-out" title="Zoom Out">−</button>
+                            <button id="zoom-reset" title="Reset View">⊙</button>
+                        </div>
+
+                        <svg id="footprint-map" class="footprint-svg-graph" viewBox="0 0 900 600" width="100%" height="100%">
+                            <!-- Background Map Grids -->
+                            <rect width="100%" height="100%" fill="var(--graph-bg, #080c18)" />
+                            <defs>
+                                <pattern id="graph-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1" />
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#graph-grid)" />
+
+                            <!-- Interactive Network Container -->
+                            <g class="graph-main-g">
+                                <g id="graph-links"></g>
+                                <g id="graph-nodes"></g>
+                            </g>
+                        </svg>
+
+                        <!-- Domain Color Legend -->
+                        <div class="domain-legend">
+                            <span class="legend-chip"><span class="legend-color" style="background:#f97316"></span>Cuisine</span>
+                            <span class="legend-chip"><span class="legend-color" style="background:#ec4899"></span>Music</span>
+                            <span class="legend-chip"><span class="legend-color" style="background:#3b82f6"></span>Language</span>
+                            <span class="legend-chip"><span class="legend-color" style="background:#eab308"></span>Architecture</span>
+                            <span class="legend-chip"><span class="legend-color" style="background:#8b5cf6"></span>Cinema</span>
+                            <span class="legend-chip"><span class="legend-color" style="background:#10b981"></span>Textiles</span>
+                            <span class="legend-chip"><span class="legend-color" style="background:#06b6d4"></span>Festivals</span>
+                            <span class="legend-chip"><span class="legend-color" style="background:#ef4444"></span>Migration</span>
+                        </div>
+                    </div>
+
+                    <!-- State Inspector Side Panel -->
+                    <aside class="inspector-panel" id="inspector-panel" hidden>
+                        <div class="inspector-header">
+                            <span class="inspector-badge" id="inspector-region">Region</span>
+                            <h2 id="inspector-title" class="inspector-state-title">State Name</h2>
+                            <p id="inspector-summary" class="inspector-summary-text">Summary text...</p>
+
+                            <div class="inspector-counts">
+                                <div class="count-box">
+                                    <strong id="inspector-out-count">0</strong>
+                                    <span>Outgoing Footprint</span>
+                                </div>
+                                <div class="count-box">
+                                    <strong id="inspector-in-count">0</strong>
+                                    <span>Incoming Footprint</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inspector-body">
+                            <!-- Outgoing Section -->
+                            <div class="influence-section">
+                                <h4>📤 Cultural Footprint (Influences onto others)</h4>
+                                <div class="influence-list" id="inspector-out-list"></div>
+                            </div>
+
+                            <!-- Incoming Section -->
+                            <div class="influence-section">
+                                <h4>📥 Cultural Receiver (Influences from others)</h4>
+                                <div class="influence-list" id="inspector-in-list"></div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Mapping inter-state migration, cross-regional arts, and shared cultural synthesis across the Indian subcontinent.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture</a>
+                <a href="cultural-footprint.html">Cultural Footprint</a>
+                <a href="cultural-dna.html">Cultural DNA</a>
+                <a href="trade-routes.html">Trade Routes</a>
+                <a href="state-challenge.html">Borders Challenge</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source State Cultural Footprint Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="cultural-footprint.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>

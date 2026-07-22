@@ -6,7 +6,7 @@
     --challenge-saffron: #ff9933;
     --challenge-green: #10b981;
     --challenge-gold: #eab308;
-    --challenge-bg: var(--bg-dark, #060913);
+    --challenge-bg: var(--bg-dark);
     --challenge-surface: rgba(255, 255, 255, 0.05);
     --challenge-surface-hover: rgba(255, 255, 255, 0.1);
     --challenge-border: rgba(255, 255, 255, 0.12);

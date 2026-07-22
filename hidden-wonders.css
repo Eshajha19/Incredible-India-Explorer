@@ -1,5 +1,5 @@
 
-:root{--wa:var(--saffron,#ff9933);--wg:#1aa260;--ws:var(--glass-bg,rgba(255,255,255,.08));--wb:var(--glass-border,rgba(255,255,255,.14));--wt:var(--text-primary,#f5f5f5);--wm:var(--text-secondary,#b9b9b9)}
+:root{--wa:var(--saffron);--wg:#1aa260;--ws:var(--glass-bg);--wb:var(--glass-border);--wt:var(--text-primary);--wm:var(--text-secondary)}
 .wonders-page{min-height:100vh;color:var(--wt)}
 .wonders-hero{min-height:74vh;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(5,20,24,.93),rgba(24,51,35,.72)),url("assets/travel_hidden.png") center/cover no-repeat}
 .wonders-hero-content{width:min(940px,92%);padding:145px 0 78px;text-align:center;color:#fff;position:relative;z-index:1}
