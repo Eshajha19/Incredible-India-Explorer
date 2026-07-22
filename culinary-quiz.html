@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culinary Dish Identification Quiz | Incredible India Explorer</title>
+  <meta name="description" content="Guess iconic Indian dishes from images, ingredients, recipe hints, and state-of-origin clues.">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="culinary-quiz.css">
+</head>
+<body>
+<header class="navbar scrolled" id="navbar"><div class="nav-container"><a href="index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><nav class="nav-menu" id="nav-menu"><a href="index.html#home" class="nav-link">Home</a><a href="learn.html" class="nav-link">Learn</a><a href="culinary-quiz.html" class="nav-link" style="color:var(--saffron)">Culinary Quiz</a><button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button></nav></div></header>
+<main class="culinary-page">
+<section class="culinary-hero"><div class="hero-content"><span class="hero-kicker">Food quiz · state origin · recipe hints</span><h1>Culinary Dish <span>Identification Quiz</span></h1><p>Guess iconic Indian dishes from ingredient clues, food visuals, region hints, and state-of-origin matching.</p><div class="hero-stats"><div><strong id="dish-count">0</strong><span>Dishes</span></div><div><strong id="score-count">0</strong><span>Score</span></div><div><strong id="streak-count">0</strong><span>Streak</span></div></div><a href="#quiz-board" class="hero-cta">Start quiz ↓</a></div></section>
+<section class="quiz-section" id="quiz-board"><div class="quiz-container"><div class="section-heading"><span class="section-badge">Difficulty level 1</span><h2>Guess the dish and its state</h2><p>Use dish visuals, ingredient chips, and recipe hints. Answer either by dish name or origin state.</p></div><div class="quiz-layout"><article class="dish-card"><div class="round-row"><span id="round-label">Round 1</span><button id="new-dish" type="button">New dish</button></div><img id="dish-image" src="" alt="Dish visual clue"><div class="ingredient-row" id="ingredient-row"></div></article><article class="answer-card"><div class="hint-box"><h3>Recipe hints</h3><ul id="hint-list"></ul><button id="hint-button" type="button">Unlock hint</button></div><h3>Which dish is this?</h3><div class="choice-grid" id="dish-choices"></div><h3>Which state is it from?</h3><div class="choice-grid" id="state-choices"></div><div class="feedback-card" id="feedback-card" role="status" aria-live="polite"></div></article></div></div></section>
+</main>
+<footer class="culinary-footer"><p>Part of <a href="index.html">Incredible India Explorer</a> · Learn Indian food geography through gameplay.</p></footer><button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button><script src="app.js"></script><script src="culinary-quiz.js"></script>
+</body></html>
