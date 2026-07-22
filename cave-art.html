@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore India's ancient cave paintings, frescoes, murals, rock-cut sculptures, and artistic heritage across Ajanta, Ellora, Bhimbetka, and more.">
+    <title>Indian Caves Art Explorer | Incredible India</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cave-art.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="cave-art.html" class="nav-link active" id="link-cave-art" style="color: var(--saffron)">Caves Art</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="one-day-history.html" class="dropdown-item">One Day in History</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="caves.html" class="dropdown-item">Cave Temples</a>
+                        <a href="hidden-gems.html" class="dropdown-item">Hidden Gems</a>
+                        <a href="railways.html" class="dropdown-item">Railways Explorer</a>
+                        <a href="adventure.html" class="dropdown-item">Adventure</a>
+                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                        <a href="tribes.html" class="dropdown-item">Tribes</a>
+                        <a href="river.html" class="dropdown-item">Rivers</a>
+                        <a href="coin.html" class="dropdown-item">Evolution of Currency</a>
+                        <a href="hill-stations.html" class="dropdown-item">Hill-stations</a>
+                        <a href="lighthouses.html" class="dropdown-item">Lighthouses</a>
+                        <a href="coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="museums.html" class="dropdown-item">Museum</a>
+                        <a href="stepwells.html" class="dropdown-item">Stepwells</a>
+                        <a href="music.html" class="dropdown-item">Music</a>
+                        <a href="astronomy.html" class="dropdown-item">Astronomy</a>
+                        <a href="dance.html" class="dropdown-item">Dance</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+                <a href="premium.html" class="nav-link premium-link">★ Premium</a>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="cave-art-page">
+        <!-- Hero Section -->
+        <section class="cave-art-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-container">
+                <span class="hero-badge">Artistic Heritage</span>
+                <h1>Indian <span>Cave Art</span> Explorer</h1>
+                <p>Delve into the rock-cut murals, ancient pigments, and monolithic carvings preserved inside India's historical caves. Discover works ranging from Mesolithic hunter paintings to the master frescoes of Ajanta and colossal sculptures of Ellora.</p>
+                
+                <div class="hero-meta-summary">
+                    <div class="meta-item">
+                        <span class="num">10,000 BCE</span>
+                        <span class="lbl">Timeline Horizon</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="num" id="artworks-count">0</span>
+                        <span class="lbl">Masterpieces</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="num">Fresco & Stone</span>
+                        <span class="lbl">Core Mediums</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Category Filters -->
+        <section class="art-filters-section">
+            <div class="filters-container glass-panel">
+                <div class="search-box-row">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="art-search" placeholder="Search by artwork name, cave, dynasty, medium..." autocomplete="off">
+                    </div>
+                </div>
+                
+                <div class="category-tabs-row">
+                    <button class="filter-tab active" data-category="all">All Masterpieces</button>
+                    <button class="filter-tab" data-category="painting">Paintings & Murals</button>
+                    <button class="filter-tab" data-category="sculpture">Sculptures & Reliefs</button>
+                </div>
+
+                <div class="results-stats-row">
+                    <span id="results-count" aria-live="polite">Showing all items</span>
+                    <button id="btn-reset-filters" class="btn-reset hidden">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artworks Grid Gallery -->
+        <section class="artworks-grid-section">
+            <div id="artwork-grid" class="artwork-grid">
+                <!-- Dynamically populated cards -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state hidden">
+                <div class="empty-icon">🪨</div>
+                <h3>No Artworks Found</h3>
+                <p>We couldn't find any artwork matching your criteria. Try adjusting your search keywords or switching filters.</p>
+                <button id="btn-empty-reset" class="btn-empty-reset">Reset Filters</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Art Gallery Lightbox Modal -->
+    <div id="art-modal" class="art-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-backdrop"></div>
+        <div class="modal-wrapper">
+            <button id="modal-close" class="modal-close" aria-label="Close Gallery Modal">×</button>
+            
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-image" src="" alt="">
+                    <div class="image-gradient-overlay"></div>
+                </div>
+                
+                <div class="modal-info-container">
+                    <span class="modal-tag" id="modal-art-type">PAINTING</span>
+                    <h2 id="modal-title">Artwork Title</h2>
+                    
+                    <div class="modal-meta-grid">
+                        <div class="meta-cell">
+                            <span class="meta-label">📍 Location:</span>
+                            <span class="meta-val" id="modal-location">Ajanta Caves, Maharashtra</span>
+                        </div>
+                        <div class="meta-cell">
+                            <span class="meta-label">📅 Period:</span>
+                            <span class="meta-val" id="modal-period">5th Century CE</span>
+                        </div>
+                        <div class="meta-cell">
+                            <span class="meta-label">👑 Patronage:</span>
+                            <span class="meta-val" id="modal-patron">Vakataka Dynasty</span>
+                        </div>
+                        <div class="meta-cell">
+                            <span class="meta-label">🎨 Medium:</span>
+                            <span class="meta-val" id="modal-medium">Fresco-secco, Earth Pigments</span>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-divider"></div>
+                    
+                    <div class="modal-description-wrapper">
+                        <h3>Historical Information & Significance</h3>
+                        <p id="modal-desc">Detailed descriptions and historical analysis of this masterpiece.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>Explore the cultural wealth, heritage, wildlife, and history of India. Built using lightweight, modern web standards.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Nav</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#map">Interactive Map</a></li>
+                    <li><a href="caves.html">Cave Temples</a></li>
+                    <li><a href="cave-art.html">Caves Art Explorer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-credits footer-credits-center">
+            <p>&copy; 2026 Incredible India Explorer. Developed with Vanilla HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js" defer></script>
+    <script src="cave-art.js" defer></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

@@ -819,6 +819,7 @@ window.indiaSearchIndex = [
     category: "State Borders Challenge",
     description: "Test your geographic and cultural trivia knowledge of India's states to unlock border crossings.",
     url: "state-challenge.html?mode=trivia"
+  },
   // --- Ancient Trade Routes ---
   {
     title: "Ancient Indian Trade Network",
@@ -837,6 +838,7 @@ window.indiaSearchIndex = [
     category: "Ancient Trade Ports",
     description: "Oldest known artificial tidal dockyard in the world from the Indus Valley Civilisation.",
     url: "trade-routes.html?port=lothal"
+  },
   // --- Cultural DNA ---
   {
     title: "Indian Cultural DNA Explorer",
@@ -862,29 +864,52 @@ window.indiaSearchIndex = [
     category: "Architecture & Heritage",
     description: "Compare Rajput, Mughal, Maratha, and European colonial fort architecture side-by-side.",
     url: "fort-architecture.html"
+  },
   // --- Volcanoes & Geological Formations ---
   {
     title: "Volcanoes & Geological Formations Explorer",
     category: "Nature & Geography",
     description: "Explore Barren Island volcano, Lonar crater, Deccan Traps, and India's most dramatic geological formations.",
     url: "volcanoes-geology.html"
+  },
   // --- Photography Locations Explorer ---
   {
     title: "Photography Locations Explorer",
     category: "Travel & Exploration",
     description: "Discover India's best photography spots — sunrise viewpoints, golden hour destinations, and seasonal landscape locations.",
     url: "photography-locations.html"
+  },
   // --- Heritage Threat Monitor ---
   {
     title: "Heritage Threat Monitor",
     category: "Heritage & History",
     description: "Track endangered Indian heritage sites threatened by pollution, climate change, tourism pressure, and urban encroachment.",
     url: "heritage-threats.html"
+  },
   // --- Then vs Now Heritage Comparison ---
   {
     title: "Then vs Now Heritage Comparison Explorer",
     category: "Heritage & History",
     description: "Compare historical and present-day images of India's iconic heritage sites with an interactive before/after slider.",
     url: "then-vs-now.html"
+  },
+  // --- Indian Caves Art Explorer ---
+  {
+    title: "Indian Caves Art Explorer",
+    category: "Culture & Philosophy",
+    description: "Discover the spectacular heritage of ancient cave paintings, frescos, rock-cut murals, and stone sculptures across India.",
+    url: "cave-art.html"
+  },
+  {
+    title: "Ajanta Cave Paintings & Murals",
+    category: "Caves Art Explorer",
+    description: "Explore the Padmapani and Vajrapani frescoes, representing the zenith of ancient Buddhist rock art.",
+    url: "cave-art.html?search=Ajanta"
+  },
+  {
+    title: "Ellora Kailasa Temple Sculptures",
+    category: "Caves Art Explorer",
+    description: "Marvel at the monolithic rock-cut sculptures like Ravana Shaking Kailasa in Cave 16.",
+    url: "cave-art.html?search=Ellora"
   }
 ];
