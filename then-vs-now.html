@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare historical and present-day images of India's iconic heritage sites with an interactive before/after slider. Explore restoration, preservation, and architectural evolution.">
+    <title>Then vs Now Heritage Comparison Explorer | Incredible India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="then-vs-now.css">
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="heritage.html" class="nav-link">Heritage</a>
+                <a href="unesco.html" class="nav-link">UNESCO Sites</a>
+                <a href="then-vs-now.html" class="nav-link active" style="color: var(--saffron)">Then vs Now</a>
+                <div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+                </div>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="then-now-page">
+        <section class="then-now-hero">
+            <div class="hero-content">
+                <span class="hero-badge">Heritage Transformation & Restoration</span>
+                <h1>"Then vs Now" Heritage Comparison</h1>
+                <p>
+                    Visualize centuries of architectural preservation, urban development, and restoration efforts
+                    across India's iconic monuments through interactive before-and-after imagery.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-card"><strong>10+</strong><span>Heritage Sites</span></div>
+                    <div class="stat-card"><strong>1850s - Present</strong><span>Historical Range</span></div>
+                    <div class="stat-card"><strong>100%</strong><span>Interactive Slider</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="explorer-section">
+            <div class="container">
+                <!-- Comparison Showcase Container -->
+                <div class="showcase-card" id="showcase">
+                    <div class="showcase-header">
+                        <div class="site-header-info">
+                            <span class="site-tag" id="current-category">UNESCO World Heritage</span>
+                            <h2 id="current-title">Taj Mahal, Agra</h2>
+                            <p class="site-subtitle" id="current-location">Agra, Uttar Pradesh • Historical Era: 1860s vs Present Day</p>
+                        </div>
+                        <div class="slider-instructions" id="a11y-instructions">
+                            <span class="kbd-badge">←</span> <span class="kbd-badge">→</span> Use Arrow keys or Drag slider to compare views
+                        </div>
+                    </div>
+
+                    <!-- Interactive Image Slider Component -->
+                    <div class="comparison-container" id="comparison-slider" tabindex="0" role="slider" aria-label="Heritage comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                        <!-- Present Day View (Base Layer) -->
+                        <div class="view-layer view-now" id="layer-now">
+                            <div class="view-graphic now-graphic" id="graphic-now"></div>
+                            <span class="view-badge badge-now" id="badge-now">NOW (2020s Restored)</span>
+                        </div>
+
+                        <!-- Historical View (Overlay Layer) -->
+                        <div class="view-layer view-then" id="layer-then">
+                            <div class="view-graphic then-graphic" id="graphic-then"></div>
+                            <span class="view-badge badge-then" id="badge-then">THEN (Historical View)</span>
+                        </div>
+
+                        <!-- Split Line & Drag Handle -->
+                        <div class="slider-handle" id="slider-handle" style="left: 50%;">
+                            <div class="handle-line"></div>
+                            <div class="handle-button" aria-hidden="true">
+                                <span>◄</span><span>►</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Site Breakdown -->
+                    <div class="site-details-grid">
+                        <div class="detail-box then-box">
+                            <h3 id="then-heading">📜 Historical State ("Then")</h3>
+                            <p id="then-description">Loading historical details...</p>
+                            <div class="detail-meta">
+                                <strong>Period:</strong> <span id="then-period">-</span>
+                            </div>
+                        </div>
+
+                        <div class="detail-box now-box">
+                            <h3 id="now-heading">🏛️ Conservation & Present ("Now")</h3>
+                            <p id="now-description">Loading conservation details...</p>
+                            <div class="detail-meta">
+                                <strong>Conservation Status:</strong> <span id="now-status">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Site Selection & Filtering Section -->
+                <div class="controls-panel">
+                    <div class="search-box">
+                        <label for="search-input">Search Heritage Locations</label>
+                        <input type="search" id="search-input" placeholder="Search by site name, state, or era..." aria-label="Search locations">
+                    </div>
+
+                    <div class="filter-box">
+                        <label for="category-filter">Filter by Category</label>
+                        <select id="category-filter" aria-label="Filter by category">
+                            <option value="all">All Categories</option>
+                            <option value="monument">Monuments & Tombs</option>
+                            <option value="temple">Temples & Caves</option>
+                            <option value="fort">Forts & Palaces</option>
+                            <option value="colonial">Colonial Landmarks</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Heritage Locations Grid -->
+                <div class="sites-grid" id="sites-grid">
+                    <!-- Dynamic location cards populated by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Preserving Heritage Through Technology.</p>
+        </div>
+    </footer>
+
+    <script src="then-vs-now.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>
