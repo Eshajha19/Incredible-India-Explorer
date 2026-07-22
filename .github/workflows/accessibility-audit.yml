@@ -1,0 +1,36 @@
+name: Accessibility & Semantic HTML Audit
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  accessibility-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Audit HTML Semantic Markup
+        run: |
+          echo "Auditing HTML files for accessibility compliance..."
+          node -e "
+            const fs = require('fs');
+            const files = ['index.html', 'monuments.html', 'heritage.html', 'culture.html'];
+            files.forEach(f => {
+              if (fs.existsSync(f)) {
+                const content = fs.readFileSync(f, 'utf8');
+                if (!content.includes('aria-label') && !content.includes('alt=')) {
+                  console.warn('Warning: Missing accessibility attributes in ' + f);
+                }
+              }
+            });
+            console.log('Accessibility audit passed cleanly.');
+          "

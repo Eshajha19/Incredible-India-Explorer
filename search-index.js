@@ -806,5 +806,54 @@ window.indiaSearchIndex = [
     category: "Space Heritage",
     description: "Historic first soft landing near the Moon's South Pole at Shiv Shakti Point by Vikram lander and Pragyan rover.",
     url: "space.html?item=chandrayaan-3"
+  },
+  // --- State Borders Challenge ---
+  {
+    title: "State Borders Journey Challenge",
+    category: "Interactive Games",
+    description: "Travel across India virtually by crossing adjacent state borders, answering regional trivia quizzes, and earning achievement badges.",
+    url: "state-challenge.html"
+  },
+  {
+    title: "Border Patrol State Trivia",
+    category: "State Borders Challenge",
+    description: "Test your geographic and cultural trivia knowledge of India's states to unlock border crossings.",
+    url: "state-challenge.html?mode=trivia"
+  // --- Ancient Trade Routes ---
+  {
+    title: "Ancient Indian Trade Network",
+    category: "Heritage & History",
+    description: "Interactive visualizer of ancient land and maritime routes like the Silk Road and Spice Route connecting India with Rome, Arabia, and China.",
+    url: "trade-routes.html"
+  },
+  {
+    title: "Muziris Spice Port",
+    category: "Ancient Trade Ports",
+    description: "Ancient Malabar port trading black pepper with Rome, Egypt, and the Mediterranean.",
+    url: "trade-routes.html?port=muziris"
+  },
+  {
+    title: "Lothal Harappan Port",
+    category: "Ancient Trade Ports",
+    description: "Oldest known artificial tidal dockyard in the world from the Indus Valley Civilisation.",
+    url: "trade-routes.html?port=lothal"
+  // --- Cultural DNA ---
+  {
+    title: "Indian Cultural DNA Explorer",
+    category: "Culture & Philosophy",
+    description: "Interactive relationship network visualization mapping cross-regional influences between languages, cuisine, arts, and traditions.",
+    url: "cultural-dna.html"
+  },
+  {
+    title: "Bhakti-Sufi Synthesis",
+    category: "Cultural DNA",
+    description: "Explore the medieval devotional movement synthesising regional languages, Sufi music, Kathak dance, and devotional singing.",
+    url: "cultural-dna.html?preset=bhaktisufi"
+  },
+  {
+    title: "Dravidian Temple Arts Connection",
+    category: "Cultural DNA",
+    description: "Trace how South Indian stone architecture hosted classical Carnatic vocals, geometry of Bharatanatyam, and textile weaving patterns.",
+    url: "cultural-dna.html?preset=templearts"
   }
 ];
