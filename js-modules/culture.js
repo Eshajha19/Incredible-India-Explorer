@@ -7,7 +7,7 @@ function initCulturePage() {
     const mTitle = document.getElementById('culture-modal-title');
     const mImg = document.getElementById('culture-modal-img');
     const mDesc = document.getElementById('culture-modal-description');
-
+const mState = document.getElementById('culture-modal-state');
     let currentCategory = 'all';
 
     render();
@@ -58,6 +58,7 @@ function initCulturePage() {
                 <img src="${item.image}" alt="${item.title}" loading="lazy">
                 <div class="cuisine-card-body">
                     <span class="cuisine-origin">${item.category}</span>
+                    <span class="culture-card-state">📍 ${item.state || 'All India'}</span>
                     <h3>${item.title}</h3>
                     <p>${item.description.substring(0, 120)}...</p>
                 </div>
@@ -67,6 +68,7 @@ function initCulturePage() {
                 mBadge.innerText = item.category;
                 mBadge.className = `modal-badge ${item.category === 'dance' ? 'green-bg' : item.category === 'music' ? 'gold-bg' : 'saffron-bg'}`;
                 mTitle.innerText = item.title;
+                mState.innerText = `📍 ${item.state || 'All India'}`;
                 mImg.src = item.image;
                 mImg.alt = item.title;
                 mDesc.innerText = item.description;

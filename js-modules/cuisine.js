@@ -73,6 +73,56 @@ const cuisineDetails = {
         spice: 70, richness: 45, sweetness: 5,
         ingredients: ["Red Hill Rice", "Pork/Chicken Stock", "Ginger Paste", "Black Pepper", "Local Sesame Seeds", "Aromatic Khasi Herbs"],
         story: "Jadoh is a highly sacred and popular rice dish of the Khasi tribe of Meghalaya. Cooked traditionally with red hill rice and pork or chicken, it is served during important festivals and family reunions as a mark of Khasi heritage and hospitality."
+    },
+    "c16": {
+        spice: 30, richness: 70, sweetness: 40,
+        ingredients: ["Whole Wheat Flour", "Pure Ghee", "Mixed Lentils", "Jaggery", "Cumin & Asafoetida", "Dried Fruits"],
+        story: "Dal Baati Churma is Rajasthan's signature royal meal. The baati dough balls are traditionally baked over hot coals until crusty, then dunked in ghee, and served alongside spiced lentils and sweet churma — a perfect balance of savory and sweet."
+    },
+    "c17": {
+        spice: 55, richness: 65, sweetness: 5,
+        ingredients: ["Minced Mutton", "Raw Papaya Paste", "Fried Onion Paste", "Clove & Cardamom", "Rose Petals", "Ghee"],
+        story: "Created in the 19th century for a toothless Nawab of Lucknow, Tunday Kabab uses over 100 spices and raw papaya to tenderize the meat until it dissolves on the tongue, making it one of India's most legendary street foods."
+    },
+    "c18": {
+        spice: 35, richness: 25, sweetness: 60,
+        ingredients: ["Flattened Rice (Poha)", "Mustard Seeds & Curry Leaves", "Turmeric & Green Chilies", "Refined Flour Batter", "Sugar Syrup", "Saffron Strands"],
+        story: "This iconic Indore breakfast pairs two textures on one plate: tangy, spiced poha and crisp, syrup-soaked jalebi. Locals eat them together every morning, making it one of the most beloved street-food traditions of Madhya Pradesh."
+    },
+    "c19": {
+        spice: 25, richness: 40, sweetness: 5,
+        ingredients: ["Pearl Millet (Bajra)", "Mixed Lentils", "Ghee", "Cumin Seeds", "Ginger", "Green Chilies"],
+        story: "Bajra Khichdi has fed generations of Haryana's farming families. Hearty and warming, this millet-and-lentil one-pot dish is especially popular in winter, topped generously with a spoonful of fresh homemade ghee."
+    },
+    "c20": {
+        spice: 20, richness: 55, sweetness: 30,
+        ingredients: ["Whole Wheat Dough", "Poppy Seeds", "Walnuts", "Jaggery or Local Spices", "Ghee", "Sesame Seeds"],
+        story: "Siddu is a steamed bread native to the hills of Himachal Pradesh, traditionally made in winter using fermented wheat dough. It can be filled sweet with walnuts and poppy seeds, or savory, and is always served with a generous dollop of ghee."
+    },
+    "c21": {
+        spice: 30, richness: 45, sweetness: 25,
+        ingredients: ["Steamed Rice", "Sambar & Rasam", "Coconut-based Curries", "Banana Leaf", "Pickles & Papadam", "Payasam (Milk Pudding)"],
+        story: "Sadya is a traditional Kerala feast served on special occasions like Onam, laid out on a banana leaf with over a dozen dishes. Every item is placed in a specific order, representing balance between sweet, sour, salty, and spicy flavors."
+    },
+    "c22": {
+        spice: 90, richness: 55, sweetness: 0,
+        ingredients: ["Chicken Pieces", "Dried Red Chilies", "Tamarind Pulp", "Curry Leaves", "Ginger-Garlic Paste", "Mustard Seeds"],
+        story: "Known for being one of the spiciest regional curries in India, Andhra Chicken Curry gets its fiery red color and bold heat from generous use of Guntur chilies, balanced by tangy tamarind for a deep, robust flavor."
+    },
+    "c23": {
+        spice: 15, richness: 15, sweetness: 5,
+        ingredients: ["Cooked Rice", "Water (fermented overnight)", "Yogurt", "Fried Vegetables", "Mustard Seeds", "Green Chilies"],
+        story: "Pakhala Bhata is Odisha's answer to the scorching summer heat. Rice is soaked and lightly fermented overnight, creating a cooling, probiotic-rich dish that is eaten with fried vegetables — so beloved it even has its own state-recognized day."
+    },
+    "c24": {
+        spice: 40, richness: 35, sweetness: 5,
+        ingredients: ["Rice Flour", "Split Chickpea Lentils", "Ginger & Green Chilies", "Cumin Seeds", "Mustard Oil", "Curd"],
+        story: "Dhuska is a rustic, deep-fried snack from the tribal belt of Jharkhand. The rice-and-lentil batter is fried until golden and crispy, then paired with spicy curried chickpeas, making it a favorite roadside breakfast across the state."
+    },
+    "c25": {
+        spice: 20, richness: 20, sweetness: 0,
+        ingredients: ["Raw Papaya", "Mixed Lentils", "Filtered Banana Peel Ash Water", "Mustard Oil", "Green Chilies", "Garlic"],
+        story: "Khar is one of the most unique dishes in Indian cuisine, using an alkaline extract filtered from sun-dried banana peel ash instead of any acidic souring agent. It's traditionally the first dish served in an Assamese meal to aid digestion."
     }
 };
 

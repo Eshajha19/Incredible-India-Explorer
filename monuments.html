@@ -17,10 +17,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="audio-guide.css">
     <style>
         .monuments-hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1015/1920/1080') center/cover;
-            height: 65vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             position: relative;
@@ -35,37 +36,85 @@
             flex-wrap: wrap;
             align-items: center;
         }
-        .monuments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
+        .monuments-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:32px;
+    align-items:stretch;
+}
         .monument-card {
-            background: var(--bg-dark-card);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-        }
-        .monument-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-glow-active);
-            border-color: var(--primary-gold);
-        }
+    background: #fcca90;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    transition: .3s ease;
+    cursor: pointer;
+    border: none;
+    border:2px solid black
+}
+    .monument-card:hover{
+    transform: translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.18);
+}
         .monument-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
         }
-        .dynasty-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
+        .monument-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    display:flex;
+    flex-direction:column;
+    padding:24px;
+    flex:1;
+}
+
+.card-title{
+    color:#12326b;
+    font-size:1.8rem;
+    font-family:"Playfair Display",serif;
+    margin:18px 0 8px;
+}
+
+.card-state{
+    color:#d35400;
+    font-size:1rem;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.card-description{
+    color:#444;
+    line-height:1.7;
+    flex:1;
+    font-size:1rem;
+}
+
+.dynasty-badge{
+    display:inline-block;
+    width:fit-content;
+    background:#8b5a00;
+    color:white;
+    padding:8px 18px;
+    border-radius:25px;
+    font-size:.85rem;
+    font-weight:700;
+}
+body{
+    background:#056772;
+}
+
+`#app-root`{
+    background:`#056772`;
+}
     </style>
 </head>
 <body>
@@ -133,7 +182,7 @@
                     with passion and pure vanilla web technologies.</p>
             </div>
             <div class="footer-links">
-                <h3>Quick Navigation</h3>
+                <h4>Quick Navigation</h4>
                 <ul>
                     <li><a href="index.html#home">Home</a></li>
                     <li><a href="index.html#map">Interactive Map</a></li>
@@ -212,14 +261,28 @@
                 const card = document.createElement('div');
                 card.className = 'monument-card';
                 card.innerHTML = `
-                    <img src="${mon.image}" alt="${mon.name}" loading="lazy">
-                    <div style="padding:20px;">
-                        <span class="dynasty-badge">${mon.dynasty}</span>
-                        <h3>${mon.name}</h3>
-                        <p>${mon.state}</p>
-                        <p>${mon.description}</p>
-                    </div>
-                `;
+    <img src="${mon.image}" alt="${mon.name}" loading="lazy">
+
+    <div class="card-content">
+
+        <span class="dynasty-badge">
+            ${mon.dynasty}
+        </span>
+
+        <h3 class="card-title">
+            ${mon.name}
+        </h3>
+
+        <p class="card-state">
+            ${mon.state}
+        </p>
+
+        <p class="card-description">
+            ${mon.description}
+        </p>
+
+    </div>
+`;
                 card.addEventListener('click', () => showModal(mon));
                 grid.appendChild(card);
             });
@@ -290,6 +353,7 @@
             });
         });
     </script>
+    <script type="module" src="js-modules/audio-guide-system.js"></script>
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="auth.js"></script>
     <script src="router.js" defer></script>

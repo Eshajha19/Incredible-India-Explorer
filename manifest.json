@@ -3,21 +3,40 @@
   "short_name": "India Explorer",
   "description": "An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.",
   "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0b0c10",
   "theme_color": "#FF9933",
+  "orientation": "portrait-primary",
+  "categories": ["education", "travel", "culture", "history"],
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "assets/cuisine_default.png",
+      "src": "assets/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "assets/culture_default.png",
+      "src": "assets/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "assets/hero_banner.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/hero_banner.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Incredible India Explorer Homepage"
     }
   ]
 }

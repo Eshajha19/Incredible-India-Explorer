@@ -180,8 +180,8 @@
                     <p style="margin-top: 10px; color: var(--text-muted);">Explore the geographical beauty of India from high orbit.</p>
                 </div>
 
-                <div style="max-width: 800px; margin: 0 auto; position: relative;">
-                    <div class="globe-viewport-wrapper">
+                <div style="max-width: 800px; margin: 0 auto; position: relative;" class="premium-locked-section" id="globe-lock-section">
+                    <div class="premium-locked-content globe-viewport-wrapper">
                         <!-- Controls overlay -->
                         <div class="globe-controls">
                             <button class="btn-globe-ctrl" id="btn-globe-spin" title="Toggle Auto-Spin">🔄 Auto Spin</button>
@@ -205,24 +205,26 @@
                     <p class="section-subtitle">Walk through history in immersive web-VR environments.</p>
                 </div>
 
-                <div class="metaverse-grid">
-                    <div class="metaverse-card">
-                        <div class="meta-icon">🏛️</div>
-                        <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Virtual Heritage Walks</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Walk through the corridors of the Taj Mahal and Ajanta Caves in fully rendered 3D environments.</p>
-                        <button class="btn btn-primary ripple">Enter World</button>
-                    </div>
-                    <div class="metaverse-card">
-                        <div class="meta-icon">🏺</div>
-                        <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Digital Museums</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Inspect 3D scanned artifacts and historical relics up close in our high-fidelity digital gallery.</p>
-                        <button class="btn btn-primary ripple">Browse Museum</button>
-                    </div>
-                    <div class="metaverse-card">
-                        <div class="meta-icon">🎭</div>
-                        <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Cultural Exhibitions</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Attend live virtual festivals and classical dance performances directly inside the browser metaverse.</p>
-                        <button class="btn btn-primary ripple">View Schedule</button>
+                <div class="premium-locked-section" id="metaverse-lock-section">
+                    <div class="premium-locked-content metaverse-grid">
+                        <div class="metaverse-card">
+                            <div class="meta-icon">🏛️</div>
+                            <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Virtual Heritage Walks</h3>
+                            <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Walk through the corridors of the Taj Mahal and Ajanta Caves in fully rendered 3D environments.</p>
+                            <button class="btn btn-primary ripple">Enter World</button>
+                        </div>
+                        <div class="metaverse-card">
+                            <div class="meta-icon">🏺</div>
+                            <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Digital Museums</h3>
+                            <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Inspect 3D scanned artifacts and historical relics up close in our high-fidelity digital gallery.</p>
+                            <button class="btn btn-primary ripple">Browse Museum</button>
+                        </div>
+                        <div class="metaverse-card">
+                            <div class="meta-icon">🎭</div>
+                            <h3 style="font-family: var(--font-heading); margin-bottom: 10px;">Cultural Exhibitions</h3>
+                            <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Attend live virtual festivals and classical dance performances directly inside the browser metaverse.</p>
+                            <button class="btn btn-primary ripple">View Schedule</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,80 +239,84 @@
                     <p class="section-subtitle">Award-winning documentaries detailing India's geography, nature, and culture.</p>
                 </div>
 
-                <h3 style="margin-bottom: 15px; font-family: var(--font-body); font-weight: 700; color: var(--primary-gold);">Wildlife Films</h3>
-                <div class="netflix-row">
-                    <div class="netflix-card">
-                        <img class="netflix-img" src="assets/travel_forests.png" alt="Tigers of Bandhavgarh">
-                        <div class="netflix-info">
-                            <h4>Tigers of Bandhavgarh</h4>
-                            <p>
-                                <span>45m • 4K HDR</span>
-                                <button class="btn-preview">Preview</button>
-                            </p>
+                <div class="premium-locked-section" id="documentary-lock-section">
+                    <div class="premium-locked-content">
+                        <h3 style="margin-bottom: 15px; font-family: var(--font-body); font-weight: 700; color: var(--primary-gold);">Wildlife Films</h3>
+                        <div class="netflix-row">
+                            <div class="netflix-card">
+                                <img class="netflix-img" src="assets/travel_forests.png" alt="Tigers of Bandhavgarh">
+                                <div class="netflix-info">
+                                    <h4>Tigers of Bandhavgarh</h4>
+                                    <p>
+                                        <span>45m • 4K HDR</span>
+                                        <button class="btn-preview">Preview</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="netflix-card">
+                                <img class="netflix-img" src="assets/travel_beaches.png" alt="Elephant Whisperers">
+                                <div class="netflix-info">
+                                    <h4>Elephant Whisperers</h4>
+                                    <p>
+                                        <span>40m • Documentary</span>
+                                        <button class="btn-preview">Preview</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="netflix-card">
+                                <img class="netflix-img" src="assets/travel_mountains.png" alt="Ghost of the Himalayas">
+                                <div class="netflix-info">
+                                    <h4>Ghost of the Himalayas</h4>
+                                    <p>
+                                        <span>52m • Nature</span>
+                                        <button class="btn-preview">Preview</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="netflix-card">
+                                <img class="netflix-img" src="assets/travel_islands.png" alt="Kaziranga Diaries">
+                                <div class="netflix-info">
+                                    <h4>Kaziranga Diaries</h4>
+                                    <p>
+                                        <span>48m • 4K HDR</span>
+                                        <button class="btn-preview">Preview</button>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="netflix-card">
-                        <img class="netflix-img" src="assets/travel_beaches.png" alt="Elephant Whisperers">
-                        <div class="netflix-info">
-                            <h4>Elephant Whisperers</h4>
-                            <p>
-                                <span>40m • Documentary</span>
-                                <button class="btn-preview">Preview</button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="netflix-card">
-                        <img class="netflix-img" src="assets/travel_mountains.png" alt="Ghost of the Himalayas">
-                        <div class="netflix-info">
-                            <h4>Ghost of the Himalayas</h4>
-                            <p>
-                                <span>52m • Nature</span>
-                                <button class="btn-preview">Preview</button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="netflix-card">
-                        <img class="netflix-img" src="assets/travel_islands.png" alt="Kaziranga Diaries">
-                        <div class="netflix-info">
-                            <h4>Kaziranga Diaries</h4>
-                            <p>
-                                <span>48m • 4K HDR</span>
-                                <button class="btn-preview">Preview</button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <h3 style="margin: 45px 0 15px; font-family: var(--font-body); font-weight: 700; color: var(--primary-gold);">State Documentaries</h3>
-                <div class="netflix-row">
-                    <div class="netflix-card">
-                        <img class="netflix-img" src="assets/travel_deserts.png" alt="Rajasthan: The Royal Sand">
-                        <div class="netflix-info">
-                            <h4>Rajasthan: The Royal Sand</h4>
-                            <p>
-                                <span>1h 10m • Culture</span>
-                                <button class="btn-preview">Preview</button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="netflix-card">
-                        <img class="netflix-img" src="assets/travel_beaches.png" alt="Kerala: God's Own Country">
-                        <div class="netflix-info">
-                            <h4>Kerala: God's Own Country</h4>
-                            <p>
-                                <span>55m • Nature</span>
-                                <button class="btn-preview">Preview</button>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="netflix-card">
-                        <img class="netflix-img" src="assets/travel_hidden.png" alt="Meghalaya: Living Bridges">
-                        <div class="netflix-info">
-                            <h4>Meghalaya: Living Bridges</h4>
-                            <p>
-                                <span>45m • Travel</span>
-                                <button class="btn-preview">Preview</button>
-                            </p>
+                        <h3 style="margin: 45px 0 15px; font-family: var(--font-body); font-weight: 700; color: var(--primary-gold);">State Documentaries</h3>
+                        <div class="netflix-row">
+                            <div class="netflix-card">
+                                <img class="netflix-img" src="assets/travel_deserts.png" alt="Rajasthan: The Royal Sand">
+                                <div class="netflix-info">
+                                    <h4>Rajasthan: The Royal Sand</h4>
+                                    <p>
+                                        <span>1h 10m • Culture</span>
+                                        <button class="btn-preview">Preview</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="netflix-card">
+                                <img class="netflix-img" src="assets/travel_beaches.png" alt="Kerala: God's Own Country">
+                                <div class="netflix-info">
+                                    <h4>Kerala: God's Own Country</h4>
+                                    <p>
+                                        <span>55m • Nature</span>
+                                        <button class="btn-preview">Preview</button>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="netflix-card">
+                                <img class="netflix-img" src="assets/travel_hidden.png" alt="Meghalaya: Living Bridges">
+                                <div class="netflix-info">
+                                    <h4>Meghalaya: Living Bridges</h4>
+                                    <p>
+                                        <span>45m • Travel</span>
+                                        <button class="btn-preview">Preview</button>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -323,12 +329,14 @@
             <div class="footer-credits">
                 <p>&copy; 2026 Incredible India Explorer.</p>
             </div>
-        </div>
+</div>
     </footer>
 
+    <!-- Scroll To Top Button -->
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+
     <script>
-        (() => {
-            // Timeline Logic
+        (() => {            // Timeline Logic
             const eraData = {
             1: { 
                 title: "Ancient India (3300 BCE - 500 CE)", 
@@ -664,6 +672,170 @@
                 }
             });
         }
+        })();
+
+        // Premium overlays, locked states, and checkout modals
+        (() => {
+            function renderPremiumOverlays(user, isPremium) {
+                if (isPremium) {
+                    document.body.setAttribute('data-premium-status', 'unlocked');
+                    document.querySelectorAll('.premium-overlay').forEach(el => el.remove());
+                    return;
+                }
+                
+                document.body.setAttribute('data-premium-status', 'locked');
+                
+                const targets = [
+                    { id: 'globe-lock-section', title: 'Interactive 3D Globe Explorer' },
+                    { id: 'metaverse-lock-section', title: 'Immersive Cultural Metaverse' },
+                    { id: 'documentary-lock-section', title: 'Premium Cinematic Documentary Hub' }
+                ];
+                
+                targets.forEach(target => {
+                    const parent = document.getElementById(target.id);
+                    if (!parent) return;
+                    
+                    let overlay = parent.querySelector('.premium-overlay');
+                    if (overlay) {
+                        const btn = overlay.querySelector('.btn-overlay-action');
+                        if (btn) {
+                            if (user) {
+                                btn.textContent = 'Unlock Premium - ₹299';
+                                btn.className = 'btn-overlay-action btn-upgrade-trigger';
+                            } else {
+                                btn.textContent = 'Login to Unlock';
+                                btn.className = 'btn-overlay-action btn-login-trigger';
+                            }
+                        }
+                        return;
+                    }
+                    
+                    overlay = document.createElement('div');
+                    overlay.className = 'premium-overlay';
+                    
+                    const btnText = user ? 'Unlock Premium - ₹299' : 'Login to Unlock';
+                    const btnClass = user ? 'btn-overlay-action btn-upgrade-trigger' : 'btn-overlay-action btn-login-trigger';
+                    
+                    overlay.innerHTML = `
+                        <div class="premium-overlay-content">
+                            <div class="lock-shield">🔒</div>
+                            <h3>${target.title}</h3>
+                            <p>Unlock premium access to explore detailed 3D landmarks, virtual tours, and full-length HDR documentaries.</p>
+                            <button class="${btnClass}">${btnText}</button>
+                        </div>
+                    `;
+                    
+                    parent.appendChild(overlay);
+                });
+                
+                // Bind click events
+                document.querySelectorAll('.btn-login-trigger').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        window.location.href = `login.html?redirect=premium.html`;
+                    });
+                });
+                
+                document.querySelectorAll('.btn-upgrade-trigger').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        showUpgradeCheckoutModal();
+                    });
+                });
+            }
+
+            function showUpgradeCheckoutModal() {
+                if (document.getElementById('checkout-modal')) return;
+                
+                const user = window.authLib ? window.authLib.getStoredAuthUser() : null;
+                if (!user) return;
+                
+                const modal = document.createElement('div');
+                modal.id = 'checkout-modal';
+                modal.className = 'checkout-modal';
+                modal.innerHTML = `
+                    <div class="checkout-backdrop"></div>
+                    <div class="checkout-content">
+                        <button class="checkout-close" id="closeCheckout">✕</button>
+                        <div class="checkout-header">
+                            <span class="star-badge">★</span>
+                            <h2>Incredible India Premium</h2>
+                            <p>Unlock complete cultural exploration access</p>
+                        </div>
+                        <div class="checkout-body">
+                            <div class="price-box">
+                                <span class="price-currency">₹</span>
+                                <span class="price-value">299</span>
+                                <span class="price-period">/ lifetime</span>
+                            </div>
+                            <ul class="checkout-features">
+                                <li>✓ High Fidelity 3D Interactive Globe</li>
+                                <li>✓ Cultural VR Metaverse Corridors</li>
+                                <li>✓ Full-length HDR Documentary Cinematic Hub</li>
+                                <li>✓ Access from all your devices</li>
+                            </ul>
+                            <div class="billing-details">
+                                <p>Logged in as: <strong>${user.email}</strong></p>
+                            </div>
+                            <button class="btn-checkout-confirm" id="confirmPayment">Upgrade Account</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden';
+                
+                modal.querySelector('#closeCheckout').addEventListener('click', () => {
+                    document.body.style.overflow = '';
+                    modal.remove();
+                });
+                
+                modal.querySelector('#confirmPayment').addEventListener('click', async () => {
+                    const btn = modal.querySelector('#confirmPayment');
+                    btn.disabled = true;
+                    btn.textContent = 'Processing Securely...';
+                    
+                    try {
+                        if (window.authLib && typeof window.authLib.upgradeLocalUserToPremium === 'function') {
+                            await window.authLib.upgradeLocalUserToPremium(user.email);
+                        }
+                        
+                        const content = modal.querySelector('.checkout-content');
+                        content.innerHTML = `
+                            <div class="checkout-success">
+                                <div class="success-checkmark">✨🎉</div>
+                                <h2>Welcome to Premium!</h2>
+                                <p>Your subscription is active. Enjoy the full Incredible India Explorer experience!</p>
+                                <button class="btn-success-close" id="successClose">Start Exploring</button>
+                            </div>
+                        `;
+                        
+                        content.querySelector('#successClose').addEventListener('click', () => {
+                            document.body.style.overflow = '';
+                            modal.remove();
+                            if (window.authLib && typeof window.authLib.validateSessionAndRole === 'function') {
+                                window.authLib.validateSessionAndRole();
+                            }
+                        });
+                    } catch (error) {
+                        console.error(error);
+                        alert("Upgrade failed. Please try again.");
+                        btn.disabled = false;
+                        btn.textContent = 'Upgrade Account';
+                    }
+                });
+            }
+
+            // Listen for auth state check events
+            window.addEventListener('incredible-india:premium-status-change', (e) => {
+                const { user, isPremium } = e.detail;
+                renderPremiumOverlays(user, isPremium);
+            });
+
+            // Initial render
+            setTimeout(() => {
+                const user = window.authLib ? window.authLib.getStoredAuthUser() : null;
+                const isPremium = user && user.role === 'premium';
+                renderPremiumOverlays(user, isPremium);
+            }, 100);
         })();
     </script>
     <script src="app.js" defer></script>

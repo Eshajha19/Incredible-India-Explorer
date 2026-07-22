@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the ancient Indian trade network. Visualize historic land and maritime trade routes like the Silk Road and Spice Route connecting India with Rome, Arabia, and China.">
+    <title>Ancient Indian Trade Network Visualizer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="trade-routes.css">
+</head>
+
+<body class="trade-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link active" style="color: var(--saffron)">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="trade-routes.html" class="nav-link active" style="color: var(--gold)">Trade Network</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="excavations.html" class="dropdown-item">Excavations Explorer</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                        <a href="space/space.html" class="dropdown-item">Space Heritage</a>
+                        <a href="folk-tales.html" class="dropdown-item">Folk Tales</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="trade-page">
+        <!-- Hero Section -->
+        <section class="trade-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">⛵ Monsoon Winds · Spice Routes · Silk Road</span>
+                <h1>Ancient Indian <span>Trade Network Visualizer</span></h1>
+                <p>Explore the historic trade routes connecting ancient India with Rome, Greece, Arabia, East Africa, Central Asia, and China. Uncover major ports, archaeological finds, and precious commodities.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>5</strong>
+                        <span>Major Ancient Routes</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>7</strong>
+                        <span>Key Global Ports</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>8</strong>
+                        <span>Primary Goods Traded</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>5</strong>
+                        <span>Dynasty Eras</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route Visualizer Map Section -->
+        <section class="trade-section" id="map-section">
+            <div class="trade-container">
+                <div class="section-heading">
+                    <span class="section-badge">Interactive Map</span>
+                    <h2>Ancient Land &amp; Maritime Route Map</h2>
+                    <p>Pan and zoom the map to trace the land highways and maritime routes. Click on any pulsing port node to view detailed historical and archaeological reports.</p>
+                </div>
+
+                <!-- Controls & Filters Toolbar -->
+                <div class="explorer-controls">
+                    <div class="control-field search-field">
+                        <label for="trade-search">Search Ports, Goods, or Trade Partners</label>
+                        <input id="trade-search" type="search" placeholder="Search Muziris, Rome, gold, spices, cotton, state..." autocomplete="off">
+                    </div>
+
+                    <div class="control-field">
+                        <label for="type-filter">Route Type</label>
+                        <select id="type-filter">
+                            <option value="all">All Routes</option>
+                            <option value="maritime">Maritime Routes</option>
+                            <option value="land">Land Routes</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field">
+                        <label for="region-filter">Port Region</label>
+                        <select id="region-filter">
+                            <option value="all">All Regions</option>
+                        </select>
+                    </div>
+
+                    <div class="control-field action-field">
+                        <label>&nbsp;</label>
+                        <button id="clear-filters" type="button" class="btn-clear">Reset Filters</button>
+                    </div>
+                </div>
+
+                <div class="results-toolbar">
+                    <p id="result-status" aria-live="polite">Showing all 7 ancient ports</p>
+                </div>
+
+                <!-- Map Viewport -->
+                <div class="map-viewport-wrapper">
+                    <div class="map-zoom-controls">
+                        <button id="zoom-in" title="Zoom In">+</button>
+                        <button id="zoom-out" title="Zoom Out">−</button>
+                        <button id="zoom-reset" title="Reset View">⊙</button>
+                    </div>
+
+                    <svg id="trade-map" class="trade-svg-map" viewBox="0 0 900 600" width="100%" height="100%">
+                        <!-- Map Grid Background -->
+                        <rect width="100%" height="100%" fill="var(--map-water-bg, #0b1121)" />
+                        <!-- Stylized Map Grids -->
+                        <defs>
+                            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+
+                        <!-- Interactive Group Container -->
+                        <g class="map-container-g">
+                            <!-- Schematic Outlines representing continents -->
+                            <path d="M 50,100 L 250,80 L 300,180 L 150,280 L 50,300 Z" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="5 5" /> <!-- Mediterranean/Persia outline -->
+                            <path d="M 360,50 L 450,50 L 550,150 L 610,250 L 580,310 L 490,490 L 450,490 L 380,300 L 360,180 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" /> <!-- India Subcontinent Outline -->
+                            <path d="M 680,100 L 850,80 L 820,380 L 720,480 Z" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="5 5" /> <!-- China / SE Asia outline -->
+
+                            <g id="map-routes"></g>
+                            <g id="map-ports"></g>
+                        </g>
+                    </svg>
+
+                    <!-- Map Legend Overlay -->
+                    <div class="map-legend">
+                        <span class="legend-item"><span class="legend-line" style="background:#2563eb"></span>Spice Route (Maritime)</span>
+                        <span class="legend-item"><span class="legend-line" style="background:#d97706"></span>Uttarapatha (Land)</span>
+                        <span class="legend-item"><span class="legend-line" style="background:#10b981"></span>Dakshinapatha (Land)</span>
+                        <span class="legend-item"><span class="legend-line" style="background:#8b5cf6"></span>Maritime Silk Route</span>
+                        <span class="legend-item"><span class="legend-line" style="background:#ec4899"></span>East Africa Route</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Dynasty Timeline Section -->
+        <section class="trade-section" id="timeline-section">
+            <div class="trade-container">
+                <div class="section-heading">
+                    <span class="section-badge">Chronology</span>
+                    <h2>Evolution of Trade Across Dynasties</h2>
+                    <p>Click on any dynasty period to discover how trade regulations, coin minting, and naval guilds evolved across Indian history.</p>
+                </div>
+
+                <div class="timeline-shell">
+                    <div class="timeline-list" role="tablist">
+                        <button type="button" class="timeline-button active" data-key="romano">
+                            <strong>1st BCE - 3rd CE</strong>
+                            <span>Indo-Roman Trade Boom</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="maurya">
+                            <strong>322 - 185 BCE</strong>
+                            <span>Mauryan Highways</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="satavahana">
+                            <strong>1st BCE - 2nd CE</strong>
+                            <span>Satavahana Ship Coins</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="gupta">
+                            <strong>4th - 6th CE</strong>
+                            <span>Gupta Golden Age</span>
+                        </button>
+                        <button type="button" class="timeline-button" data-key="chola">
+                            <strong>9th - 11th CE</strong>
+                            <span>Chola Naval Guilds</span>
+                        </button>
+                    </div>
+
+                    <article class="timeline-detail" id="timeline-detail">
+                        <span class="timeline-period" id="timeline-period">c. 1st century BCE - 3rd century CE</span>
+                        <h3 id="timeline-title">Indo-Roman Trade Boom</h3>
+                        <p id="timeline-text">Following the discovery of the monsoon winds by Greek navigator Hippalus, Roman fleets sailed directly across the Arabian Sea. Up to 120 Roman ships sailed annually from Egyptian Red Sea ports to Muziris, bringing massive flows of gold.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trade Goods Explorer Section -->
+        <section class="trade-section" id="goods-section">
+            <div class="trade-container">
+                <div class="section-heading">
+                    <span class="section-badge">Commodities</span>
+                    <h2>Ancient Trade Goods Explorer</h2>
+                    <p>Discover the high-value goods, luxury raw materials, textiles, and spices exported or imported across the trade networks.</p>
+                </div>
+
+                <!-- Goods Grid -->
+                <div class="goods-grid" id="goods-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Port Detailed Modal -->
+    <div class="port-modal-overlay" id="port-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+        <div class="port-modal-content">
+            <button class="modal-close-btn" id="modal-close" aria-label="Close modal" data-close-modal="true">&times;</button>
+            
+            <div class="modal-header">
+                <div class="modal-tags">
+                    <span class="modal-tag region-tag" id="modal-region">Region</span>
+                </div>
+                <h2 id="modal-title" class="modal-port-title">Port Title</h2>
+                <p class="modal-subtitle">📍 <span id="modal-location">Location</span></p>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-hero-img-wrap">
+                    <img id="modal-image" src="assets/travel_islands.png" alt="Port Imagery" loading="lazy">
+                </div>
+
+                <div class="modal-specs-grid">
+                    <div class="spec-card">
+                        <span class="spec-label">📅 Established Period</span>
+                        <strong class="spec-value" id="modal-year">Period</strong>
+                    </div>
+                    <div class="spec-card">
+                        <span class="spec-label">🌏 Major Trading Partners</span>
+                        <strong class="spec-value" id="modal-tradewith">Partners</strong>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>📜 Port Overview &amp; History</h3>
+                    <p id="modal-description" class="modal-text">Overview text...</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🏺 Archaeological Finds &amp; Evidence</h3>
+                    <p id="modal-archaeology" class="modal-text">Archaeological findings text...</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-nav-btns">
+                    <button type="button" class="btn-modal-action" id="modal-prev-btn">← Previous Port</button>
+                    <button type="button" class="btn-modal-action" id="modal-next-btn">Next Port →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and mapping the maritime and land routes of the ancient Indian trade networks and heritage ports.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="culture.html">Culture Heritage</a>
+                <a href="heritage.html">Heritage Sites</a>
+                <a href="trade-routes.html">Trade Routes</a>
+                <a href="excavations.html">Excavations</a>
+                <a href="bridges.html">Bridges</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Ancient Trade Network Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="trade-routes.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>

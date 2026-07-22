@@ -228,7 +228,47 @@
             margin-bottom: 15px;
             color: var(--primary-color);
         }
+
+.rec-chip-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:15px 0 25px;
+}
+
+.rec-chip{
+    padding:8px 16px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+}
+
+.rec-chip.active{
+    background:var(--saffron);
+    color:#fff;
+}
+
+.rec-reason{
+    margin-top:10px;
+    font-size:.9rem;
+}
+
+.rec-similar-panel{
+    margin-top:10px;
+}
+
+.rec-similar-pill{
+    display:inline-block;
+    padding:5px 10px;
+    margin:4px;
+    border-radius:20px;
+    background:rgba(255,153,51,.15);
+}
     </style>
+  <link rel="stylesheet" href="page-progress.css">
+  <link rel="stylesheet" href="keyboard-shortcuts.css">
+  <link rel="stylesheet" href="smart-empty-state.css">
+  <link rel="stylesheet" href="card-deeplink.css">
 </head>
 <body>
 <!-- Sticky Navigation Bar -->
@@ -392,6 +432,42 @@
 </div>
 </div>
 </section>
+<section class="fade-in-section" style="padding:60px 0;">
+  <div class="section-container" id="rec-preferences">
+
+    <div class="section-header">
+      <span class="section-badge">AI Picks</span>
+      <h2>Recommended For You</h2>
+      <p class="section-subtitle">
+        Select your preferences and get personalized travel recommendations.
+      </p>
+    </div>
+
+    <h4>Interests</h4>
+    <div id="rec-interest-chips" class="rec-chip-group"></div>
+
+    <h4>Budget</h4>
+    <div id="rec-budget-chips" class="rec-chip-group"></div>
+
+    <h4>Best Season</h4>
+    <div id="rec-season-chips" class="rec-chip-group"></div>
+
+    <div style="margin:20px 0">
+      <button id="rec-generate-btn" class="btn btn-primary">
+        Get My Recommendations
+      </button>
+
+      <button id="rec-refresh-btn" class="btn btn-secondary" hidden>
+        Refresh
+      </button>
+    </div>
+
+    <p id="rec-meta-line" hidden></p>
+
+    <div id="rec-results-grid" class="travel-grid"></div>
+
+  </div>
+</section>
 <!-- Road Trips Section -->
 <section class="roadtrip-section fade-in-section">
 <div class="section-container">
@@ -510,6 +586,12 @@
 <script src="firebase-config.js" type="module"></script>
 <script src="auth.js" type="module"></script>
 <script src="router.js" defer></script>
+    <script src="travel-recommend-data.js" defer></script>
+    <script src="travel-recommend.js" defer></script>
     <script src="travel-journey.js" defer></script>
+  <script src="page-progress.js"></script>
+  <script src="keyboard-shortcuts.js"></script>
+  <script src="smart-empty-state.js"></script>
+  <script src="card-deeplink.js"></script>
 </body>
 </html>

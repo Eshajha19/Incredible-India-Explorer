@@ -21,6 +21,11 @@
     
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cultural-quiz.css">
+  <link rel="stylesheet" href="page-progress.css">
+  <link rel="stylesheet" href="keyboard-shortcuts.css">
+  <link rel="stylesheet" href="smart-empty-state.css">
+  <link rel="stylesheet" href="card-deeplink.css">
 </head>
 <body class="culture-page-body">
 
@@ -54,6 +59,12 @@
                         <a href="tribes.html" class="dropdown-item">Tribes</a>
                         <a href="river.html" class="dropdown-item">Rivers</a>
                         <a href="coin.html" class="dropdown-item">Evolution of Currency</a>
+                        <a href="bridges.html" class="dropdown-item">Bridges Explorer</a>
+                        <a href="folk-tales.html" class="dropdown-item">Folk Tales Explorer</a>
+                        <a href="excavations.html" class="dropdown-item">Excavations Explorer</a>
+                        <a href="state-challenge.html" class="dropdown-item">Borders Challenge Explorer</a>
+                        <a href="trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                        <a href="cultural-dna.html" class="dropdown-item">Cultural DNA Explorer</a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
@@ -113,6 +124,7 @@
             <div class="modal-header">
                 <span class="modal-badge green-bg" id="culture-modal-badge">Dance</span>
                 <h3 id="culture-modal-title">Bharatanatyam</h3>
+                <p class="culture-modal-state" id="culture-modal-state">Tamil Nadu</p>
             </div>
             <div class="modal-body">
                 <div class="culture-modal-img-wrapper" style="margin-bottom: 25px; border-radius: 12px; overflow: hidden; height: 300px;">
@@ -161,6 +173,11 @@
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="auth.js"></script>
     <script src="router.js" defer></script>
+  <script src="page-progress.js"></script>
+  <script src="keyboard-shortcuts.js"></script>
+  <script src="smart-empty-state.js"></script>
+  <script type="module" src="js-modules/cultural-quiz-engine.js"></script>
+  <script src="card-deeplink.js"></script>
 </body>
 </html>
 

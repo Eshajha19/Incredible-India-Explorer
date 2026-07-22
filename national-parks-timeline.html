@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the history and timeline of India's national parks, biosphere reserves, and wildlife sanctuaries from 1936 to the present.">
+    <title>India's National Parks Timeline | Incredible India</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="national-parks-timeline.css">
+</head>
+<body>
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="heritage.html" class="nav-link" id="link-heritage">Heritage</a>
+                <a href="national-parks-timeline.html" class="nav-link active" id="link-timeline" style="color: var(--saffron)">Parks Timeline</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="heritage.html" class="dropdown-item">Heritage Sites</a>
+                        <a href="one-day-history.html" class="dropdown-item">One Day in History</a>
+                        <a href="monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="hidden-gems.html" class="dropdown-item">Hidden Gems</a>
+                        <a href="railways.html" class="dropdown-item">Railways Explorer</a>
+                        <a href="adventure.html" class="dropdown-item">Adventure</a>
+                        <a href="personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                        <a href="tribes.html" class="dropdown-item">Tribes</a>
+                        <a href="river.html" class="dropdown-item">Rivers</a>
+                        <a href="coin.html" class="dropdown-item">Evolution of Currency</a>
+                        <a href="hill-stations.html" class="dropdown-item">Hill-stations</a>
+                        <a href="lighthouses.html" class="dropdown-item">Lighthouses</a>
+                        <a href="coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="museums.html" class="dropdown-item">Museum</a>
+                        <a href="stepwells.html" class="dropdown-item">Stepwells</a>
+                        <a href="music.html" class="dropdown-item">Music</a>
+                        <a href="astronomy.html" class="dropdown-item">Astronomy</a>
+                        <a href="dance.html" class="dropdown-item">Dance</a>
+                        <a href="handloom/index.html" class="dropdown-item">Handloom</a>
+                        <a href="postal-stamps/index.html" class="dropdown-item">Postal Stamps</a>
+                        <a href="freedom-timeline/index.html" class="dropdown-item">Freedom Timeline</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+                <a href="premium.html" class="nav-link premium-link">★ Premium</a>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Root -->
+    <main class="timeline-page">
+        <!-- Hero Section -->
+        <section class="timeline-hero">
+            <div class="hero-forest-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-container">
+                <span class="hero-badge">Fauna & Conservation</span>
+                <h1>Chronological Timeline of <span>National Parks</span></h1>
+                <p>Track the historic milestones of nature conservation in India, tracing the establishment of national parks and wildlife sanctuaries from the inaugural Jim Corbett National Park in 1936 to the present day.</p>
+                
+                <div class="timeline-quick-stats">
+                    <div class="quick-stat">
+                        <strong id="stat-parks-count">0</strong>
+                        <span>Parks Recorded</span>
+                    </div>
+                    <div class="quick-stat">
+                        <strong>1936</strong>
+                        <span>First Park Established</span>
+                    </div>
+                    <div class="quick-stat">
+                        <strong id="stat-states-count">0</strong>
+                        <span>States Covered</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Filters Panel -->
+        <section class="filters-section">
+            <div class="filters-container glass-card">
+                <div class="filter-controls-row">
+                    <div class="filter-field search-field">
+                        <label for="park-search">🔍 Search Parks</label>
+                        <input type="text" id="park-search" placeholder="Search by park name, fauna..." autocomplete="off">
+                    </div>
+                    
+                    <div class="filter-field">
+                        <label for="state-filter">📍 Filter by State</label>
+                        <select id="state-filter">
+                            <option value="all">All States</option>
+                            <!-- States dynamically loaded -->
+                        </select>
+                    </div>
+
+                    <div class="filter-field">
+                        <label for="sort-toggle">⇅ Sort Order</label>
+                        <button id="sort-toggle" class="btn-sort">Oldest Established First</button>
+                    </div>
+                </div>
+                
+                <div class="filter-active-summary">
+                    <span id="results-count" aria-live="polite">Showing all parks</span>
+                    <button id="btn-reset-filters" class="btn-reset hidden">Reset Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline-section">
+            <div class="timeline-wrapper">
+                <!-- Timeline Axis Line -->
+                <div class="timeline-line"></div>
+                
+                <!-- Dynamic Cards Container -->
+                <div id="timeline-container" class="timeline-cards-container">
+                    <!-- Cards will be injected by national-parks-timeline.js -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="empty-state hidden">
+                    <div class="empty-icon">🍃</div>
+                    <h3>No National Parks Match Your Query</h3>
+                    <p>Try searching for a different keyword or choosing another state filter.</p>
+                    <button id="btn-empty-reset" class="btn-empty-reset">Clear Search & Filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built with passion and pure vanilla web technologies.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#map">Interactive Map</a></li>
+                    <li><a href="wildlife.html">Nature & Wildlife</a></li>
+                    <li><a href="national-parks-timeline.html">Parks Timeline</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-credits footer-credits-center">
+            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js" defer></script>
+    <script src="national-parks-timeline.js" defer></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

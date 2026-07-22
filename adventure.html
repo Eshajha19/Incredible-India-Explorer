@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="command-palette.css">
     <style>
         .adventure-hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1016/1920/1080') center/cover;
@@ -248,6 +249,7 @@
             document.getElementById('difficulty-filter').addEventListener('change', filterAdventures);
         });
     </script>
+    <script type="module" src="js-modules/command-palette.js"></script>
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="auth.js"></script>
     <script src="router.js" defer></script>

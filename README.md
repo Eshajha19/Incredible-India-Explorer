@@ -20,6 +20,9 @@ The Incredible India Explorer was born out of a desire to move beyond static enc
 
 ## ✨ Features
 *   **Interactive Freedom Story:** A 'Choose Your Own Adventure' style historical narrative allowing you to explore the Independence Movement through different philosophies.
+*   **Trip Planner Print & Share Export:** Print-optimized CSS stylesheet layout, export to JSON downloads, and shareable URL query state serialization.
+*   **Reading Progress & Section Navigator:** Dynamic progress indicator showing page scroll depth with an interactive section sidebar.
+*   **Offline Reconnect Detection:** Auto-reconnect polling with countdown, 20-item trivia pool with navigation, retry counter, and full light-theme support.
 *   **Dynamic Storylines:** Vertical scrolling timelines that tell a narrative journey (e.g., traveling from the Himalayas down to Kanyakumari).
 *   **Bharat AI Guide:** A simulated, highly intelligent chatbot that can answer your questions about Indian food, culture, and travel destinations.
 *   **Interactive Map:** A beautifully animated SVG map of India allowing users to click and learn about specific states.
@@ -108,7 +111,7 @@ No build step or bundler is required — `journey.js` is a plain script include,
 consistent with `app.js`/`pages-common.js`/`router.js`.
 
 
-We welcome contributions! Please see our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and use the provided Issue and PR templates.
+We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) guide, review the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and use the provided Issue and PR templates.
 
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

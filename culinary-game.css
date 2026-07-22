@@ -1,0 +1,224 @@
+/* culinary-game.css */
+
+.kitchen-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HUD Panel */
+.hud-panel {
+    width: 100%;
+    max-width: 1000px;
+    background: var(--bg-card);
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.stat {
+    font-size: 1.1rem;
+}
+.stat .icon { margin-right: 5px; }
+
+.game-message {
+    height: 25px;
+    color: #ef4444;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Workspace */
+.kitchen-workspace {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+/* Order Ticket */
+.order-ticket {
+    flex: 0 0 350px;
+    background: #fffdf0; /* Paper color */
+    color: #111;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-top: 15px solid #ccc;
+    position: relative;
+}
+
+.ticket-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+}
+.ticket-header h2 {
+    margin: 10px 0 20px 0;
+    color: #b91c1c; /* Dark red */
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.timer-bar-container {
+    width: 100%;
+    height: 12px;
+    background: #e5e5e5;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.timer-bar {
+    height: 100%;
+    background: #10b981;
+    width: 100%;
+    transition: width 1s linear, background-color 0.3s;
+}
+
+.timer-text {
+    font-weight: bold;
+    color: #444;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.recipe-reqs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.req-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.req-item.done {
+    text-decoration: line-through;
+    color: #10b981;
+}
+
+.req-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #555;
+    margin-right: 15px;
+    display: inline-block;
+    border-radius: 4px;
+}
+.req-item.done .req-box {
+    background: #10b981;
+    border-color: #10b981;
+}
+
+/* Pantry Panel */
+.pantry-panel {
+    flex: 1;
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.pantry-panel h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.pantry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 15px;
+}
+
+.ing-btn {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    padding: 15px 10px;
+    border-radius: 12px;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.1s, background 0.1s;
+    user-select: none;
+}
+
+.ing-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.ing-btn:active {
+    transform: scale(0.95);
+    background: var(--saffron);
+}
+
+.ing-icon {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.ing-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden { display: none; }
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.btn-primary {
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .kitchen-workspace {
+        flex-direction: column;
+    }
+    .order-ticket {
+        flex: auto;
+    }
+}

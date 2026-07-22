@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') { document.body.classList.add('light-theme'); }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover India's best photography locations — sunrise viewpoints, sunset spots, seasonal landscapes, and golden hour destinations across India's diverse terrain.">
+    <title>Photography Locations Explorer | Incredible India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="photography-locations.css">
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="heritage.html" class="nav-link">Heritage</a>
+                <a href="photography-locations.html" class="nav-link active" style="color:var(--saffron)">Photography</a>
+                <div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+                </div>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="photo-page">
+        <!-- Hero Section with Photography Mosaic -->
+        <section class="photo-hero" style="background-image:url('assets/explorer-images/photography-locations-hero.png');background-size:cover;background-position:center;position:relative;">
+            <div class="hero-overlay"></div>
+            <div class="hero-content" style="position:relative;z-index:1;">
+                <span class="hero-badge">📷 India Through the Lens</span>
+                <h1>Photography Locations Explorer</h1>
+                <p>From Himalayan sunrise views to coastal golden hours — discover India's most breathtaking photography destinations curated by season, light, and terrain.</p>
+                <div class="hero-stats">
+                    <div class="stat-card"><strong>10+</strong><span>Prime Locations</span></div>
+                    <div class="stat-card"><strong>4</strong><span>Seasons Covered</span></div>
+                    <div class="stat-card"><strong>🌅 🌄 🌃</strong><span>All Lighting Conditions</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="explorer-section">
+            <div class="container">
+                <!-- Controls -->
+                <div class="controls-panel">
+                    <div class="search-box">
+                        <label for="photo-search">Search Locations</label>
+                        <input type="search" id="photo-search" placeholder="Search by name, region, or subject..." aria-label="Search photography locations">
+                    </div>
+                    <div class="filter-box">
+                        <label for="season-filter">Best Season</label>
+                        <select id="season-filter">
+                            <option value="all">All Seasons</option>
+                            <option value="winter">Winter (Oct–Feb)</option>
+                            <option value="spring">Spring (Mar–Apr)</option>
+                            <option value="monsoon">Monsoon (Jun–Sep)</option>
+                            <option value="autumn">Autumn (Sep–Nov)</option>
+                        </select>
+                    </div>
+                    <div class="filter-box">
+                        <label for="time-filter">Best Time of Day</label>
+                        <select id="time-filter">
+                            <option value="all">All Times</option>
+                            <option value="sunrise">Sunrise (5–7 AM)</option>
+                            <option value="golden">Golden Hour (6–8 PM)</option>
+                            <option value="midday">Midday (10 AM–2 PM)</option>
+                            <option value="night">Night / Astrophoto</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Location Cards Grid -->
+                <div class="photo-grid" id="photo-grid">
+                    <!-- Dynamically populated by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Framing India's Beauty Through Photography.</p>
+        </div>
+    </footer>
+
+    <script src="photography-locations.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>

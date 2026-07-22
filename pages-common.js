@@ -52,6 +52,14 @@ if (typeof window.setupFocusTrap !== 'function') {
     };
 }
 
+/* Initialise the unified toast notification system for pages using this loader */
+(function loadToastModule() {
+    var script = document.createElement('script');
+    script.src = 'js-modules/toast-system.js';
+    script.async = true;
+    document.head.appendChild(script);
+})();
+
 document.addEventListener('app:route-changed', () => {
     initSiteChrome();
 
@@ -111,8 +119,8 @@ function initSiteChrome() {
     }
 
     // Theme toggle (dark/light) - persisted via localStorage, same key as main site
-    if (themeBtn) {
-        const setThemeIcon = (isLightTheme) => {
+if (themeBtn && !themeBtn.dataset.listenerBound) {
+        themeBtn.dataset.listenerBound = "true";        const setThemeIcon = (isLightTheme) => {
             themeBtn.innerHTML = isLightTheme ? '🌙' : '☀️';
             themeBtn.setAttribute('title', isLightTheme ? 'Toggle Dark Mode' : 'Toggle Light Mode');
         };
@@ -133,6 +141,32 @@ function initSiteChrome() {
         });
     }
 }
+
+/* ==========================================================================
+   PWA - SERVICE WORKER REGISTRATION (standalone for pages using pages-common.js)
+   ========================================================================== */
+(function registerServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+
+    function detectPrefix() {
+        const subdirPatterns = ['/states/', '/forts/', '/freedom-timeline/', '/handloom/',
+            '/kingdoms/', '/postal-stamps/', '/traditional-games/', '/toys/',
+            '/geological-wonders/', '/innovation-timeline/'];
+        const isSubdir = subdirPatterns.some(p => window.location.pathname.includes(p));
+        return isSubdir ? '../' : './';
+    }
+
+    window.addEventListener('load', () => {
+        const prefix = detectPrefix();
+        navigator.serviceWorker.register(prefix + 'sw.js')
+            .then(registration => {
+                console.log('pages-common: ServiceWorker registered with scope:', registration.scope);
+            })
+            .catch(err => {
+                console.error('pages-common: ServiceWorker registration failed:', err);
+            });
+    });
+})();
 
 /* ==========================================================================
    1. TRIBES & INDIGENOUS CULTURE PAGE
@@ -540,11 +574,15 @@ function initTribesPage() {
     }
 
     modalBackdrop?.addEventListener('click', closeTribeDetail);
-    document.addEventListener('keydown', (e) => {
+    var tribesEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeTribeDetail();
         }
-    });
+    };
+    document.addEventListener('keydown', tribesEscapeHandler);
+    if (typeof window.iiRegisterKeydownHandler === 'function') {
+        window.iiRegisterKeydownHandler(tribesEscapeHandler);
+    }
 
     /* ---------- Filtering ---------- */
     function applyFilters() {
@@ -1138,11 +1176,15 @@ function initRiversPage() {
     }
 
     modalBackdrop?.addEventListener('click', closeRiverDetail);
-    document.addEventListener('keydown', (e) => {
+    var riversEscapeHandler = function(e) {
         if (e.key === 'Escape') {
             closeRiverDetail();
         }
-    });
+    };
+    document.addEventListener('keydown', riversEscapeHandler);
+    if (typeof window.iiRegisterKeydownHandler === 'function') {
+        window.iiRegisterKeydownHandler(riversEscapeHandler);
+    }
 
     /* ---------- Filter tab clicks ---------- */
     filterTabs.querySelectorAll('.rivers-filter-btn').forEach(btn => {

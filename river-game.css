@@ -1,0 +1,118 @@
+/* river-game.css */
+
+.river-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: #0f172a;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HUD Panel */
+.hud-panel {
+    width: 100%;
+    max-width: 900px;
+    background: var(--bg-card);
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.stat {
+    font-size: 1.1rem;
+}
+.stat .icon { margin-right: 5px; }
+
+.river-select-wrapper label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+.river-select-wrapper select {
+    padding: 8px 12px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+/* Canvas Area */
+.game-area {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.canvas-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 4px solid var(--border-color);
+    background: #1e3a8a; /* Base river color */
+}
+
+canvas {
+    display: block;
+}
+
+#controls-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    pointer-events: none;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden { display: none; }
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    max-width: 400px;
+}
+
+.modal-content h2 { color: #ef4444; margin-top: 0; }
+.mt-4 { margin-top: 20px; }
+.gold { color: var(--gold); }

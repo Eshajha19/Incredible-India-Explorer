@@ -1,0 +1,781 @@
+/* ==========================================================================
+   NATIONAL AWARDS EXPLORER — STYLESHEET
+   Premium glass-morphism cards, gold accents, and award-ribbon theming.
+   ========================================================================== */
+
+.awards-page-body {
+    background:
+        radial-gradient(circle at 14% 10%, rgba(255, 176, 31, 0.09) 0%, transparent 26%),
+        radial-gradient(circle at 84% 16%, rgba(18, 136, 7, 0.08) 0%, transparent 24%),
+        radial-gradient(circle at 52% 94%, rgba(255, 153, 51, 0.08) 0%, transparent 30%),
+        var(--bg-dark-deep);
+}
+
+.awards-main {
+    padding-top: 80px;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.awards-hero {
+    min-height: 60vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        linear-gradient(180deg, rgba(18, 12, 8, 0.2), rgba(18, 12, 8, 0.88)),
+        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.18) 0%, transparent 30%),
+        radial-gradient(circle at 80% 40%, rgba(255, 153, 51, 0.14) 0%, transparent 26%),
+        url("assets/hero_banner.png") center/cover no-repeat;
+}
+
+.awards-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 16% 25%, rgba(255, 215, 0, 0.25), transparent 30%),
+        radial-gradient(circle at 84% 35%, rgba(255, 153, 51, 0.2), transparent 30%);
+}
+
+.awards-hero-content {
+    width: min(920px, 92%);
+    padding: 100px 0 72px;
+    text-align: center;
+    color: #fff;
+}
+
+.awards-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(10px);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--primary-gold);
+}
+
+.awards-hero h1 {
+    margin: 0 0 18px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 7vw, 5.2rem);
+    line-height: 1.03;
+}
+
+.awards-hero h1 span {
+    color: var(--primary-gold);
+}
+
+.awards-hero p {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.7;
+}
+
+.awards-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.awards-hero-stat {
+    padding: 16px 28px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.awards-hero-stat strong {
+    display: block;
+    font-size: 2rem;
+    color: var(--primary-gold);
+    line-height: 1.1;
+}
+
+.awards-hero-stat span {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   EXPLORER SECTION
+   ========================================================================== */
+
+.awards-section {
+    padding: 72px 0 100px;
+}
+
+.awards-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+.awards-heading {
+    max-width: 800px;
+    margin-bottom: 28px;
+}
+
+.awards-heading h2 {
+    margin: 8px 0 10px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.awards-heading p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
+
+.awards-search-wrap {
+    margin: 28px 0 18px;
+}
+
+.awards-search-wrap label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.awards-search-wrap input {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font: inherit;
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.awards-search-wrap input:focus {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 3px rgba(255, 176, 31, 0.14);
+}
+
+/* ==========================================================================
+   CATEGORY FILTERS
+   ========================================================================== */
+
+.awards-category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 14px;
+}
+
+.awards-cat-filter {
+    padding: 10px 24px;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.awards-cat-filter:hover,
+.awards-cat-filter:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--primary-gold);
+    outline: none;
+}
+
+.awards-cat-filter.active {
+    border-color: var(--primary-gold);
+    background: var(--primary-gold);
+    color: #000;
+}
+
+/* ==========================================================================
+   AWARD TYPE FILTERS (Chiclet-style chips)
+   ========================================================================== */
+
+.awards-type-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 20px;
+}
+
+.awards-type-filter {
+    padding: 7px 14px;
+    border: 1px solid var(--glass-border);
+    border-radius: 999px;
+    background: var(--glass-bg);
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.awards-type-filter:hover,
+.awards-type-filter:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--primary-gold);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.awards-type-filter.active {
+    border-color: var(--primary-gold);
+    background: rgba(255, 176, 31, 0.15);
+    color: var(--primary-gold);
+}
+
+/* ==========================================================================
+   STATUS & GRID
+   ========================================================================== */
+
+.awards-status {
+    min-height: 24px;
+    margin: 0 0 20px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 26px;
+}
+
+/* ==========================================================================
+   RECIPIENT CARDS — Premium glassmorphism with award-ribbon accent
+   ========================================================================== */
+
+.awards-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    background: var(--glass-bg);
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(12px);
+    transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.awards-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 176, 31, 0.55);
+    box-shadow: 0 24px 58px rgba(0, 0, 0, 0.23);
+}
+
+.awards-card[hidden] {
+    display: none;
+}
+
+/* Ribbon accent bar at top */
+.awards-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    z-index: 2;
+}
+
+.awards-card.civilian::before {
+    background: linear-gradient(90deg, var(--primary-gold), var(--primary-saffron));
+}
+
+.awards-card.gallantry::before {
+    background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+}
+
+/* Card media */
+.awards-card-media {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.awards-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+}
+
+.awards-card:hover .awards-card-media img {
+    transform: scale(1.06);
+}
+
+/* Award badge on image */
+.awards-card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+}
+
+.awards-card-badge.civilian {
+    background: rgba(255, 176, 31, 0.85);
+    color: #000;
+}
+
+.awards-card-badge.gallantry {
+    background: rgba(220, 38, 38, 0.85);
+    color: #fff;
+}
+
+/* Card body */
+.awards-card-body {
+    padding: 20px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.awards-card-award-name {
+    display: inline-block;
+    color: var(--primary-gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.awards-card h3 {
+    margin: 0 0 4px;
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+}
+
+.awards-card-year {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.awards-card-description {
+    min-height: 72px;
+    margin: 0 0 18px;
+    color: var(--text-secondary);
+    font-size: 0.93rem;
+    line-height: 1.6;
+}
+
+.awards-card-footer {
+    margin-top: auto;
+}
+
+.awards-card-btn {
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid var(--primary-gold);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--primary-gold);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.awards-card-btn:hover,
+.awards-card-btn:focus-visible {
+    background: var(--primary-gold);
+    color: #000;
+    transform: translateY(-1px);
+    outline: none;
+}
+
+/* Bookmark button positioned on media */
+.awards-card .journey-bookmark-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(22, 14, 8, 0.6);
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    backdrop-filter: blur(8px);
+    z-index: 3;
+}
+
+.awards-card .journey-bookmark-btn:hover {
+    transform: scale(1.08);
+}
+
+.awards-card .journey-bookmark-btn.is-saved {
+    background: var(--saffron, #ff9933);
+    color: #fff;
+}
+
+/* ==========================================================================
+   EMPTY STATE
+   ========================================================================== */
+
+.awards-empty {
+    display: none;
+    padding: 50px 20px;
+    border: 1px dashed var(--glass-border);
+    border-radius: 18px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.awards-empty.visible {
+    display: block;
+}
+
+.awards-empty h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+
+.awards-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1600;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(10px);
+}
+
+.awards-modal.open {
+    display: grid;
+}
+
+.awards-modal-card {
+    position: relative;
+    width: min(780px, 96vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    background: var(--bg-primary, #111827);
+    color: var(--text-primary);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+}
+
+.awards-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font-size: 1.45rem;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease;
+}
+
+.awards-modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.awards-modal-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    min-height: 100%;
+}
+
+.awards-modal-hero {
+    padding: 42px 34px;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.1) 0%, transparent 28%),
+        linear-gradient(160deg, rgba(17, 27, 45, 1) 0%, rgba(7, 17, 29, 1) 55%, rgba(6, 20, 15, 1) 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.awards-modal-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary-gold);
+    box-shadow: 0 0 20px rgba(255, 176, 31, 0.3);
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.awards-modal-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.awards-modal-badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.awards-modal-badge.civilian {
+    background: rgba(255, 176, 31, 0.2);
+    color: var(--primary-gold);
+    border: 1px solid rgba(255, 176, 31, 0.3);
+}
+
+.awards-modal-badge.gallantry {
+    background: rgba(220, 38, 38, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.awards-modal-hero h2 {
+    margin: 0 42px 2px 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+.awards-modal-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+.awards-modal-meta {
+    display: grid;
+    gap: 10px;
+}
+
+.awards-modal-meta div {
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.awards-modal-meta span {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
+.awards-modal-meta strong {
+    color: var(--text-primary);
+    font-size: 1.05rem;
+}
+
+.awards-modal-body {
+    padding: 42px 34px;
+}
+
+.awards-modal-section {
+    margin-bottom: 24px;
+}
+
+.awards-modal-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+}
+
+.awards-modal-section p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.98rem;
+}
+
+.awards-modal-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.awards-modal-section ul li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.awards-modal-section ul li::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: var(--primary-gold);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.awards-footer {
+    padding: 42px 0;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.awards-footer a {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   MODAL BODY SCROLL LOCK
+   ========================================================================== */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 980px) {
+    .awards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .awards-modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .awards-modal-hero {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+}
+
+@media (max-width: 680px) {
+    .awards-section {
+        padding: 60px 0 76px;
+    }
+
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .awards-card-media {
+        height: 180px;
+    }
+
+    .awards-card-description {
+        min-height: 0;
+    }
+
+    .awards-cat-filter {
+        padding: 9px 18px;
+        font-size: 0.9rem;
+    }
+
+    .awards-type-filter {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .awards-modal-card {
+        max-height: 92vh;
+    }
+
+    .awards-modal-hero,
+    .awards-modal-body {
+        padding: 28px 22px;
+    }
+
+    .awards-hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .awards-hero-stat {
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .awards-card,
+    .awards-card-media img,
+    .awards-cat-filter,
+    .awards-type-filter,
+    .awards-card-btn,
+    .awards-modal-close {
+        transition: none;
+    }
+}
+

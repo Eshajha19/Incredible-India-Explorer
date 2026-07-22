@@ -1,0 +1,48 @@
+/* Spotlight Command Palette Styles */
+
+.cmd-palette-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 15vh;
+}
+
+.cmd-palette-modal {
+  width: 90%;
+  max-width: 600px;
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  color: #f8fafc;
+}
+
+.cmd-palette-input {
+  width: 100%;
+  padding: 1.25rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.cmd-palette-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cmd-palette-item.active, .cmd-palette-item:hover {
+  background: rgba(255, 153, 51, 0.2);
+}

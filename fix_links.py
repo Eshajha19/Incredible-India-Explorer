@@ -1,7 +1,7 @@
 import os
 import glob
 
-files = glob.glob('d:/INDIA/*.html') + glob.glob('d:/INDIA/states/*.html')
+files = glob.glob('d:/INDIA/*.html')
 
 for filepath in files:
     if filepath.endswith('premium.html'):

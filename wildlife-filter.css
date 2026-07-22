@@ -1,0 +1,302 @@
+/* ==========================================================================
+   WILDLIFE FILTER SYSTEM — dedicated styles
+   Enhances the Nature & Wildlife explorer page with accessible, keyboard-
+   navigable filter controls, species status badges, and an informative
+   empty state when no park or animal matches the active filter.
+   ========================================================================== */
+
+/* ---------- Filter toolbar ---------- */
+
+.wildlife-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.wildlife-filter-bar .filter-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+/* Search box */
+.wildlife-search-wrap {
+    position: relative;
+    flex: 1 1 220px;
+    max-width: 320px;
+}
+
+.wildlife-search-wrap label {
+    position: absolute;
+    left: -9999px;
+}
+
+.wildlife-search-input {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    font-family: var(--font-body, 'Outfit', sans-serif);
+    font-size: 0.92rem;
+    transition: border-color 0.2s ease;
+    outline: none;
+}
+
+.wildlife-search-input:focus {
+    border-color: var(--primary-green, #128807);
+    box-shadow: 0 0 0 3px rgba(18, 136, 7, 0.18);
+}
+
+.wildlife-search-wrap::before {
+    content: "🔍";
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+/* Filter chip buttons */
+.wildlife-filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.wildlife-filter-chip {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    font-family: var(--font-body, 'Outfit', sans-serif);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.wildlife-filter-chip:hover {
+    border-color: var(--primary-green, #128807);
+}
+
+.wildlife-filter-chip[aria-pressed="true"],
+.wildlife-filter-chip.active {
+    background: var(--primary-green, #128807);
+    border-color: var(--primary-green, #128807);
+    color: #fff;
+    font-weight: 600;
+}
+
+.wildlife-filter-chip:focus-visible {
+    outline: 2px solid var(--primary-green, #128807);
+    outline-offset: 3px;
+}
+
+/* Clear filter button */
+.wildlife-clear-btn {
+    margin-left: auto;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: transparent;
+    color: var(--text-muted, #8899aa);
+    font-family: var(--font-body, 'Outfit', sans-serif);
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    display: none;
+}
+
+.wildlife-clear-btn.visible {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.wildlife-clear-btn:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- Result count + live region ---------- */
+
+.wildlife-result-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+    color: var(--text-muted, #8899aa);
+}
+
+.wildlife-result-count {
+    font-weight: 600;
+    color: var(--primary-green, #128807);
+}
+
+/* ---------- Conservation status badges ---------- */
+
+.wildlife-status-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    line-height: 1.4;
+}
+
+.wildlife-status-badge.critically-endangered {
+    background: rgba(220, 38, 38, 0.18);
+    color: #ff6b6b;
+    border: 1px solid rgba(220, 38, 38, 0.35);
+}
+
+.wildlife-status-badge.endangered {
+    background: rgba(255, 111, 60, 0.18);
+    color: var(--saffron, #ff6f3c);
+    border: 1px solid rgba(255, 111, 60, 0.35);
+}
+
+.wildlife-status-badge.vulnerable {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.wildlife-status-badge.near-threatened {
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.wildlife-status-badge.least-concern {
+    background: rgba(18, 136, 7, 0.15);
+    color: var(--primary-green, #128807);
+    border: 1px solid rgba(18, 136, 7, 0.3);
+}
+
+/* ---------- Park card — filterable ---------- */
+
+.park-card[data-visible="false"] {
+    display: none;
+}
+
+/* ---------- Empty state ---------- */
+
+.wildlife-empty-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    border: 1px dashed var(--glass-border, rgba(255, 255, 255, 0.12));
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    width: 100%;
+}
+
+.wildlife-empty-state.visible {
+    display: flex;
+}
+
+.wildlife-empty-icon {
+    font-size: 3.2rem;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.wildlife-empty-state h3 {
+    font-family: var(--font-heading, 'Playfair Display', serif);
+    font-size: 1.4rem;
+    color: var(--text-light, #f1f1f1);
+    margin-bottom: 8px;
+}
+
+.wildlife-empty-state p {
+    font-size: 0.92rem;
+    color: var(--text-muted, #8899aa);
+    max-width: 380px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.wildlife-empty-state .wildlife-clear-btn {
+    display: inline-flex;
+    margin-left: 0;
+}
+
+/* ---------- Region tag on park cards ---------- */
+
+.park-region-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255, 176, 31, 0.12);
+    color: var(--primary-gold, #ffb01f);
+    border: 1px solid rgba(255, 176, 31, 0.25);
+    margin-top: 6px;
+}
+
+/* ---------- Light theme overrides ---------- */
+
+body.light-theme .wildlife-search-input {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #1e293b;
+}
+
+body.light-theme .wildlife-search-input:focus {
+    border-color: var(--primary-green, #128807);
+}
+
+body.light-theme .wildlife-filter-chip {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #1e293b;
+}
+
+body.light-theme .wildlife-empty-state {
+    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+body.light-theme .wildlife-result-meta {
+    color: #64748b;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+    .wildlife-filter-bar {
+        gap: 10px;
+    }
+
+    .wildlife-search-wrap {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .wildlife-clear-btn {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .wildlife-filter-chip {
+        font-size: 0.78rem;
+        padding: 6px 12px;
+    }
+}

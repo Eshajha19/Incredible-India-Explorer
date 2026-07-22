@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="River Navigation & Cultural Explorer Game. Steer your boat down India's mighty rivers!">
+    <title>River Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="river-game.css">
+</head>
+
+<body class="challenge-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="river-game.html" class="nav-link active" style="color: #60a5fa">River Explorer</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="passport-quest.html" class="dropdown-item">Passport Quest</a>
+                        <a href="monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                        <a href="wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                        <a href="travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="state-challenge.html" class="dropdown-item">Borders Challenge</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="river-page">
+        
+        <!-- HUD -->
+        <section class="hud-panel">
+            <div class="stat"><span class="icon">❤️</span> Lives: <strong id="ui-health">3</strong></div>
+            <div class="stat"><span class="icon">🏆</span> Score: <strong id="ui-score">0</strong></div>
+            <div class="stat"><span class="icon">📏</span> Distance: <strong id="ui-dist">0.0</strong> km</div>
+            <div class="stat"><span class="icon">🐟</span> Fish: <strong id="ui-fish">0</strong></div>
+            <div class="stat"><span class="icon">🏅</span> Badges: <strong id="ui-badges">None</strong></div>
+            
+            <div class="river-select-wrapper">
+                <label for="river-select">River:</label>
+                <select id="river-select">
+                    <option value="0">Ganga</option>
+                    <option value="1">Brahmaputra</option>
+                    <option value="2">Godavari</option>
+                </select>
+            </div>
+            
+            <button id="btn-start" class="btn-primary">Start Engine</button>
+        </section>
+
+        <!-- Game Area -->
+        <section class="game-area">
+            <div class="canvas-container">
+                <canvas id="game-canvas" width="600" height="800"></canvas>
+                <div id="controls-hint">Use <strong>Left / Right Arrow</strong> to steer</div>
+            </div>
+        </section>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2>Game Over!</h2>
+                <p>Your boat sustained too much damage.</p>
+                <h3 class="mt-4">Final Score: <span id="final-score" class="gold">0</span></h3>
+                <p>Distance: <span id="final-dist">0.0</span> km</p>
+                <button id="btn-restart" class="btn-primary mt-4">Navigate Again</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="pages-common.js" defer></script>
+    <script type="module" src="river-game.js"></script>
+</body>
+</html>

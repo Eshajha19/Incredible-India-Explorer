@@ -80,12 +80,6 @@
             useSafeInit: true,
             name: 'Trip Planner'
         },
-        'budget-planner.html': {
-            scripts: ['trip-data.js', 'js-modules/smart-budget-planner.js'],
-            initName: 'initBudgetPlannerPage',
-            useSafeInit: true,
-            name: 'Smart Budget Planner'
-        },
         'heritage.html': { log: '✅ Heritage page loaded successfully' },
         'monuments.html': { log: '✅ Monuments page loaded successfully' },
         'hidden-gems.html': { log: '✅ Hidden Gems page loaded successfully' },
@@ -183,6 +177,10 @@
     function handleRouteInit() {
         if (typeof window.iiDisconnectRouteObservers === 'function') {
             window.iiDisconnectRouteObservers();
+        }
+        // Clean up keydown handlers from previous route to prevent listener accumulation
+        if (typeof window.iiDisconnectKeydownHandlers === 'function') {
+            window.iiDisconnectKeydownHandlers();
         }
 
         if (typeof window.initNavigation === 'function') window.initNavigation();

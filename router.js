@@ -5,6 +5,56 @@
  */
 
 // ==========================================================================
+// 0. EVENT BUS (PUBSUB) FOR CROSS-COMPONENT COMMUNICATION
+// ==========================================================================
+
+window.AppEventBus = new class {
+    constructor() {
+        this.listeners = {};
+    }
+    on(event, callback) {
+        if (!this.listeners[event]) this.listeners[event] = [];
+        this.listeners[event].push(callback);
+    }
+    emit(event, data) {
+        if (this.listeners[event]) {
+            this.listeners[event].forEach(callback => callback(data));
+        }
+    }
+}();
+
+// ==========================================================================
+// 0. LOADING OVERLAY HELPERS (Issue #256)
+// ==========================================================================
+
+const RouteLoadingOverlay = {
+    timeoutId: null,
+
+    show() {
+        const overlay = document.getElementById('app-loading-overlay');
+        if (overlay) {
+            overlay.style.display = 'flex';
+            overlay.setAttribute('aria-hidden', 'false');
+        }
+        // Safety: auto-hide after 8 seconds to prevent stuck overlays
+        if (this.timeoutId) clearTimeout(this.timeoutId);
+        this.timeoutId = setTimeout(() => this.hide(), 8000);
+    },
+
+    hide() {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+            this.timeoutId = null;
+        }
+        const overlay = document.getElementById('app-loading-overlay');
+        if (overlay) {
+            overlay.style.display = 'none';
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+    }
+};
+
+// ==========================================================================
 // 1. LIFECYCLE & CLEANUP ENGINE
 // ==========================================================================
 
@@ -417,14 +467,15 @@ class Router {
 
         // Record initial script and style states
         document.querySelectorAll('script[src]').forEach(s => {
-            this.loadedScripts.add(s.getAttribute('src'));
+            this.loadedScripts.add(s.src);
         });
         document.querySelectorAll('link[rel="stylesheet"]').forEach(l => {
-            this.loadedStyles.add(l.getAttribute('href'));
+            this.loadedStyles.add(l.href);
         });
 
         // Set global access hooks
         window.appLifecycle = this.lifecycle;
+        window.appRouter = this;
 
         injectTransitionStyles();
         this.init();
@@ -471,9 +522,28 @@ class Router {
     }
 
     async handleRoute(path, push = true) {
+        // Validate active session token cryptographically before proceeding
+        if (window.authLib && typeof window.authLib.verifyLocalSession === 'function') {
+            const user = window.authLib.getStoredAuthUser();
+            if (user) {
+                const verified = await window.authLib.verifyLocalSession();
+                if (!verified) {
+                    if (typeof window.authLib.showSessionExpiredAlert === 'function') {
+                        window.authLib.showSessionExpiredAlert();
+                    } else {
+                        window.location.href = `login.html?redirect=${encodeURIComponent(path)}`;
+                    }
+                    return;
+                }
+            }
+        }
+
         const startTime = performance.now();
         this.logger.info(`Navigating to: ${path}`);
         this.historyTracker.push(path);
+
+        // Show loading overlay
+        RouteLoadingOverlay.show();
 
         // Cleanup resources registered on the current route
         if (this.currentPath) {
@@ -487,6 +557,13 @@ class Router {
                 window.stopSoundscape();
             } catch (e) {
                 this.logger.error('Failed to cleanup soundscape', e);
+            }
+        }
+        if (window.speechSynthesis && typeof window.speechSynthesis.cancel === 'function') {
+            try {
+                window.speechSynthesis.cancel();
+            } catch (e) {
+                this.logger.error('Failed to cancel speech synthesis', e);
             }
         }
 
@@ -525,13 +602,16 @@ class Router {
                 this.appRoot.innerHTML = newMain.innerHTML;
 
                 // Sync new styles in document head
-                await this.processHead(doc);
+                await this.processHead(doc, path);
+
+                // Sync header and footer relative URLs and active classes
+                this.syncHeaderFooter(doc, this.currentPath, path);
 
                 // Set tracking route for scripts
                 this.currentPath = path;
 
                 // Process and evaluate new scripts
-                this.processBodyScripts(doc);
+                this.processBodyScripts(doc, path);
 
                 if (push) {
                     window.history.pushState(null, '', path);
@@ -553,7 +633,17 @@ class Router {
                     window.scrollTo(0, 0);
                 }
 
-                this.dispatchRouteEvent();
+                if (typeof this.dispatchRouteEvent === 'function') {
+                    this.dispatchRouteEvent();
+                }
+                
+                // Publish route change to EventBus
+                window.AppEventBus.emit('page:changed', { path: path });
+
+                // Update SEO Metadata and JSON-LD Structured Data dynamically
+                if (window.seoHelper && typeof window.seoHelper.update === 'function') {
+                    window.seoHelper.update(doc, path);
+                }
 
                 if (typeof initializeGlobalSearch === 'function') {
                     initializeGlobalSearch();
@@ -561,39 +651,134 @@ class Router {
 
                 const elapsed = (performance.now() - startTime).toFixed(1);
                 this.logger.info(`Loaded ${path} in ${elapsed}ms [Cache: ${cacheHit ? 'HIT' : 'MISS'}]`);
+
+                // Hide loading overlay after transition completes
+                setTimeout(function () {
+                    RouteLoadingOverlay.hide();
+                }, 400);
             } else {
+                RouteLoadingOverlay.hide();
                 window.location.href = path;
             }
 
         } catch (error) {
+            RouteLoadingOverlay.hide();
             this.logger.error(`Failed to handle route: ${path}`, error);
-            window.location.href = path;
+
+            // Render error page inline instead of falling back to hard navigation
+            if (error.message && error.message.includes('HTTP error')) {
+                this.renderNotFound(path, error.message);
+                this.transitionManager.transitionIn(transitionType);
+            } else {
+                try {
+                    if (window.ToastNotifier) {
+                        window.ToastNotifier.error('Failed to load page. Please try again.');
+                    }
+                } catch (t) {}
+                // Fall back only for network errors (not 404s)
+                window.location.href = path;
+            }
         }
     }
 
-    processHead(doc) {
+    syncHeaderFooter(doc, currentPagePath, newPagePath) {
+        const currentNavbar = document.getElementById('navbar') || document.querySelector('header');
+        const newNavbar = doc.getElementById('navbar') || doc.querySelector('header');
+        const currentFooter = document.querySelector('footer');
+        const newFooter = doc.querySelector('footer');
+
+        const currentPageUrl = new URL(currentPagePath, window.location.origin).href;
+        const newPageUrl = new URL(newPagePath, window.location.origin).href;
+
+        const updateLinks = (currentContainer, newContainer) => {
+            if (!currentContainer || !newContainer) return;
+            const currentLinks = Array.from(currentContainer.querySelectorAll('a'));
+            const newLinks = Array.from(newContainer.querySelectorAll('a'));
+
+            newLinks.forEach(newLink => {
+                const newHrefAttr = newLink.getAttribute('href');
+                if (!newHrefAttr) return;
+
+                // Resolve new absolute URL
+                let newAbsUrl;
+                try {
+                    newAbsUrl = new URL(newHrefAttr, newPageUrl).href;
+                } catch (e) {
+                    return; // Invalid URL
+                }
+
+                // Find matching link in current links
+                let matchedLink = null;
+                
+                // 1. Try matching by ID if present
+                const newId = newLink.id;
+                if (newId) {
+                    matchedLink = currentLinks.find(l => l.id === newId);
+                }
+
+                // 2. Try matching by resolved absolute URL target
+                if (!matchedLink) {
+                    matchedLink = currentLinks.find(l => {
+                        const curHrefAttr = l.getAttribute('href');
+                        if (!curHrefAttr) return false;
+                        try {
+                            return new URL(curHrefAttr, currentPageUrl).href === newAbsUrl;
+                        } catch (e) {
+                            return false;
+                        }
+                    });
+                }
+
+                // 3. Fallback: Try matching by exact text content
+                if (!matchedLink) {
+                    const newText = newLink.textContent.trim();
+                    if (newText) {
+                        matchedLink = currentLinks.find(l => l.textContent.trim() === newText);
+                    }
+                }
+
+                // If found, update attributes
+                if (matchedLink) {
+                    matchedLink.setAttribute('href', newHrefAttr);
+                    if (newLink.className) {
+                        matchedLink.className = newLink.className;
+                    } else {
+                        matchedLink.removeAttribute('class');
+                    }
+                }
+            });
+        };
+
+        updateLinks(currentNavbar, newNavbar);
+        updateLinks(currentFooter, newFooter);
+    }
+
+    processHead(doc, path) {
         const promises = [];
         doc.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
             const href = link.getAttribute('href');
-            if (href && !this.loadedStyles.has(href)) {
-                const newLink = document.createElement('link');
-                newLink.rel = 'stylesheet';
-                newLink.href = href;
+            if (href) {
+                const absoluteHref = new URL(href, new URL(path, window.location.origin)).href;
+                if (!this.loadedStyles.has(absoluteHref)) {
+                    const newLink = document.createElement('link');
+                    newLink.rel = 'stylesheet';
+                    newLink.href = href;
 
-                const p = new Promise(resolve => {
-                    newLink.onload = () => resolve();
-                    newLink.onerror = () => resolve();
-                });
-                promises.push(p);
+                    const p = new Promise(resolve => {
+                        newLink.onload = () => resolve();
+                        newLink.onerror = () => resolve();
+                    });
+                    promises.push(p);
 
-                document.head.appendChild(newLink);
-                this.loadedStyles.add(href);
+                    document.head.appendChild(newLink);
+                    this.loadedStyles.add(absoluteHref);
+                }
             }
         });
         return Promise.all(promises);
     }
 
-    processBodyScripts(doc) {
+    processBodyScripts(doc, path) {
         const scripts = [...doc.querySelectorAll('script')];
 
         scripts.forEach(oldScript => {
@@ -601,7 +786,8 @@ class Router {
 
             if (src) {
                 // External script execution
-                if (!this.loadedScripts.has(src)) {
+                const absoluteSrc = new URL(src, new URL(path, window.location.origin)).href;
+                if (!this.loadedScripts.has(absoluteSrc)) {
                     const newScript = document.createElement('script');
                     newScript.src = src;
                     Array.from(oldScript.attributes).forEach(attr => {
@@ -610,7 +796,7 @@ class Router {
                         }
                     });
                     document.body.appendChild(newScript);
-                    this.loadedScripts.add(src);
+                    this.loadedScripts.add(absoluteSrc);
                 }
             } else {
                 // Inline script sandbox wrapper processing
@@ -672,6 +858,104 @@ ${exposedCode}
         });
         document.dispatchEvent(event);
     }
+
+    /**
+     * Renders a 404 Not Found page inline when a route fetch returns HTTP 404/500.
+     * Instead of a hard navigation, the user sees a branded error page with
+     * suggested pages and a search bar to find what they're looking for.
+     */
+    renderNotFound(failedPath, errorMsg) {
+        if (!this.appRoot) return;
+
+        const isNotFound = errorMsg && errorMsg.includes('status: 404');
+        document.title = isNotFound ? 'Page Not Found — Incredible India Explorer' : 'Server Error — Incredible India Explorer';
+
+        // Build a list of suggested pages from known search data
+        const suggestions = [];
+        if (window.indiaSearchIndex && Array.isArray(window.indiaSearchIndex)) {
+            const shuffled = [...window.indiaSearchIndex].sort(() => Math.random() - 0.5);
+            for (let i = 0; i < Math.min(6, shuffled.length); i++) {
+                suggestions.push(shuffled[i]);
+            }
+        }
+
+        const suggestionsHtml = suggestions.length > 0 ? `
+            <div class="not-found-suggestions">
+                <h3>Try these pages instead:</h3>
+                <div class="not-found-links">
+                    ${suggestions.map(s => {
+                        const prefix = getPathPrefix();
+                        return `<a href="${prefix}${s.url}" class="not-found-link">${s.title}</a>`;
+                    }).join('')}
+                </div>
+            </div>
+        ` : '';
+
+        const titleText = isNotFound ? 'Page Not Found' : 'Something Went Wrong';
+        const codeText = isNotFound ? '404' : '500';
+        const messageHtml = isNotFound
+            ? `The page <strong>${this.escapeHtml(failedPath)}</strong>
+               could not be found. It may have been moved, renamed, or doesn't exist.`
+            : `The page <strong>${this.escapeHtml(failedPath)}</strong>
+               is temporarily unavailable. Please try again later.`;
+
+        this.appRoot.innerHTML = `
+            <div class="not-found-page" data-route="404">
+                <div class="not-found-container">
+                    <div class="not-found-code">${codeText}</div>
+                    <h1 class="not-found-title">${titleText}</h1>
+                    <p class="not-found-message">${messageHtml}</p>
+                    <div class="not-found-actions">
+                        <a href="/" class="btn btn-primary not-found-home-btn" data-router-ignore>
+                            ← Back to Home
+                        </a>
+                        <button class="btn btn-secondary not-found-search-btn" id="not-found-open-search">
+                            🔍 Search the Site
+                        </button>
+                    </div>
+                    ${suggestionsHtml}
+                </div>
+            </div>
+        `;
+
+        // Bind search button to open the global search modal
+        const searchBtn = document.getElementById('not-found-open-search');
+        if (searchBtn && typeof openSearchModal === 'function') {
+            searchBtn.addEventListener('click', openSearchModal);
+        }
+
+        // Intercept clicks on suggested links to use SPA router
+        this.appRoot.querySelectorAll('.not-found-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (href) this.handleRoute(href, true);
+            });
+        });
+
+        // Intercept the "Back to Home" link via SPA router.
+        // Stop propagation to prevent the body-level click handler from triggering
+        // a duplicate handleRoute call.
+        const homeBtn = this.appRoot.querySelector('.not-found-home-btn');
+        if (homeBtn) {
+            homeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.handleRoute('/', true);
+            });
+        }
+
+        this.dispatchRouteEvent();
+    }
+
+    /**
+     * Minimal HTML entity escaping for user-provided content.
+     */
+    escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
 }
 
 // Initialize Router when DOM is ready
@@ -698,7 +982,8 @@ function getPathPrefix() {
     return '';
 }
 
-function loadSearchScript(callback) {
+function loadSearchScript(callback, retries) {
+    if (retries === undefined) retries = 2;
     if (window.indiaSearchIndex) {
         if (callback) callback();
         return;
@@ -710,6 +995,14 @@ function loadSearchScript(callback) {
     };
     script.onerror = () => {
         console.error("Failed to load search index.");
+        if (retries > 0) {
+            console.log('Retrying search index load... (' + retries + ' attempts left)');
+            setTimeout(function () {
+                loadSearchScript(callback, retries - 1);
+            }, 1500);
+        } else if (callback) {
+            callback(new Error('Search index could not be loaded after retries'));
+        }
     };
     document.body.appendChild(script);
 }

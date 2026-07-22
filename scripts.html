@@ -15,6 +15,10 @@
   <title>Indian Scripts & Writing Systems Explorer | Incredible India</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="scripts.css">
+  <link rel="stylesheet" href="compare-drawer.css">
+  <link rel="stylesheet" href="keyboard-shortcuts.css">
+  <link rel="stylesheet" href="smart-empty-state.css">
+  <link rel="stylesheet" href="card-deeplink.css">
 </head>
 <body>
   <header class="navbar scrolled" id="navbar">
@@ -33,7 +37,8 @@
         <a href="learn.html" class="nav-link">Learn</a>
         <a href="scripts.html" class="nav-link" style="color:var(--saffron)">Scripts</a>
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
-      </nav>
+                      <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
     </div>
   </header>
 
@@ -135,5 +140,10 @@
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
   <script src="app.js" defer></script>
   <script src="scripts.js" defer></script>
+  <script src="compare-drawer.js"></script>
+    <script type="module" src="auth.js"></script>
+  <script src="keyboard-shortcuts.js"></script>
+  <script src="smart-empty-state.js"></script>
+  <script src="card-deeplink.js"></script>
 </body>
 </html>
