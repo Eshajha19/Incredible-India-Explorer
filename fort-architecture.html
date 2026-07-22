@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') { document.body.classList.add('light-theme'); }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare Rajput, Mughal, Maratha, and European colonial fort architecture across India — side-by-side architectural highlights, defensive design, and landmark examples.">
+    <title>Indian Fort Architecture Comparison | Incredible India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fort-architecture.css">
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#map" class="nav-link">Interactive Map</a>
+                <a href="heritage.html" class="nav-link">Heritage</a>
+                <a href="architecture.html" class="nav-link">Architecture</a>
+                <a href="fort-architecture.html" class="nav-link active" style="color:var(--saffron)">Fort Styles</a>
+                <div class="journey-nav-search">
+                    <input type="search" id="journey-search-input" class="journey-search-input" placeholder="Search all explorers…" aria-label="Search across all explorers" autocomplete="off">
+                    <div id="journey-search-results" class="journey-search-results" hidden></div>
+                </div>
+                <a href="journey.html" class="nav-link" id="link-journey">🧭 My Journey</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <a href="login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="fort-page">
+        <!-- Hero -->
+        <section class="fort-hero" style="background-image:url('assets/explorer-images/fort-architecture-hero.png');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(120,53,15,0.8) 0%,rgba(13,17,23,0.9) 100%);"></div>
+            <div class="hero-content" style="position:relative;z-index:1;">
+                <span class="hero-badge">🏰 Architectural Heritage Comparison</span>
+                <h1>Indian Fort Architecture Explorer</h1>
+                <p>Compare the design genius, defense philosophy, and artistic traditions of Rajput, Mughal, Maratha, and European fort architecture — side by side.</p>
+                <div class="hero-stats">
+                    <div class="stat-card"><strong>4</strong><span>Architectural Styles</span></div>
+                    <div class="stat-card"><strong>20+</strong><span>Landmark Forts</span></div>
+                    <div class="stat-card"><strong>500+</strong><span>Years Covered</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="explorer-section">
+            <div class="container">
+                <!-- Style Selector: Pick Two to Compare -->
+                <div class="selector-section">
+                    <h2 class="section-title">Select Two Styles to Compare</h2>
+                    <div class="style-selectors">
+                        <div class="selector-group">
+                            <label for="style-a">Style A</label>
+                            <select id="style-a" aria-label="Choose first fort style">
+                                <option value="rajput">Rajput Forts</option>
+                                <option value="mughal">Mughal Forts</option>
+                                <option value="maratha">Maratha Forts</option>
+                                <option value="european">European / Colonial Forts</option>
+                            </select>
+                        </div>
+                        <div class="vs-badge">VS</div>
+                        <div class="selector-group">
+                            <label for="style-b">Style B</label>
+                            <select id="style-b" aria-label="Choose second fort style">
+                                <option value="rajput">Rajput Forts</option>
+                                <option value="mughal" selected>Mughal Forts</option>
+                                <option value="maratha">Maratha Forts</option>
+                                <option value="european">European / Colonial Forts</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Grid (rendered dynamically) -->
+                <div class="comparison-grid" id="comparison-grid">
+                    <!-- Two columns rendered by JS -->
+                </div>
+
+                <!-- All Styles Overview Section -->
+                <div class="all-styles-section">
+                    <h2 class="section-title" style="margin-top:3rem">All Fort Architecture Styles</h2>
+                    <div class="styles-overview-grid" id="styles-overview">
+                        <!-- All 4 style cards rendered by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Celebrating 1,000 Years of Indian Fortification Arts.</p>
+        </div>
+    </footer>
+
+    <script src="fort-architecture.js"></script>
+    <script src="pages-common.js"></script>
+</body>
+</html>
