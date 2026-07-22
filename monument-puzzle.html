@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Monument Builder Challenge - Reconstruct iconic Indian monuments in this puzzle game.">
+    <title>Monument Builder Challenge | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="monument-puzzle.css">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="monuments.html" class="nav-link">Monuments</a>
+                <a href="monument-puzzle.html" class="nav-link">Puzzle Game</a>
+                <button id="theme-toggle" class="btn-theme-toggle">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="puzzle-main">
+        <section class="game-header">
+            <h1 class="hero-title"><span class="highlight" id="monument-title">Monument Builder</span></h1>
+            
+            <div class="game-controls glass-card">
+                <div class="stat">
+                    <span class="stat-label">Difficulty:</span>
+                    <select id="difficulty-selector" class="difficulty-select">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div class="stat timer-stat" id="timer-container">
+                    <span class="stat-label">Time:</span>
+                    <span id="timer-display">00:00</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Score:</span>
+                    <span id="score-display">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Hints:</span>
+                    <button id="btn-hint" class="btn btn-secondary">💡 <span id="hints-display">3</span></button>
+                </div>
+                <div class="stat">
+                    <button id="btn-start" class="btn btn-primary">Start Game</button>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                </div>
+                <span id="progress-text">0% Completed</span>
+            </div>
+        </section>
+
+        <section class="game-area container">
+            <div class="level-selector glass-card">
+                <h3>Select Monument</h3>
+                <div id="monument-list" class="monument-list">
+                    <!-- Monument items injected by JS -->
+                </div>
+            </div>
+
+            <div class="puzzle-boards-container">
+                <div class="board-wrapper">
+                    <h3 class="board-title">Construction Site</h3>
+                    <div id="drop-zone" class="puzzle-board">
+                        <!-- Drop slots injected by JS -->
+                    </div>
+                </div>
+
+                <div class="pieces-wrapper">
+                    <h3 class="board-title">Pieces Pool</h3>
+                    <div id="pieces-pool" class="pieces-pool">
+                        <!-- Draggable pieces injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="game-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content glass-card puzzle-modal">
+            <h2 id="modal-title">Level Complete!</h2>
+            <div class="modal-body">
+                <div id="modal-image" class="modal-monument-image"></div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-title">Base Score</span>
+                        <span id="modal-base-score" class="stat-value">1000</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">Time Bonus</span>
+                        <span id="modal-time-bonus" class="stat-value">+ 0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">Hint Bonus</span>
+                        <span id="modal-hint-bonus" class="stat-value">+ 0</span>
+                    </div>
+                    <div class="stat-box total-score-box">
+                        <span class="stat-title">Total Score</span>
+                        <span id="modal-total-score" class="stat-value highlight">0</span>
+                    </div>
+                </div>
+                <p id="modal-message" class="modal-message">You have successfully reconstructed the monument!</p>
+            </div>
+            <div class="modal-actions">
+                <button id="btn-next-level" class="btn btn-primary">Next Level</button>
+                <button id="btn-retry" class="btn btn-secondary">Retry</button>
+                <button onclick="document.getElementById('game-modal').style.display='none'" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="pages-common.js" defer></script>
+    <script type="module" src="monument-puzzle.js"></script>
+</body>
+</html>
