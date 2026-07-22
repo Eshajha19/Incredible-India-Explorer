@@ -1,0 +1,386 @@
+/* ==========================================================================
+   SMART BUDGET PLANNER PAGE — dedicated styles
+   ========================================================================== */
+
+.bp-hero {
+    height: 50vh;
+    position: relative;
+}
+
+.bp-form-section {
+    padding: 60px 0;
+}
+
+.bp-form-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(12px);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bp-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.bp-form-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.bp-form-field input,
+.bp-form-field select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    font-size: 1rem;
+}
+
+.bp-form-field input:focus,
+.bp-form-field select:focus {
+    outline: none;
+    border-color: var(--saffron);
+}
+
+.bp-form-field small {
+    display: block;
+    margin-top: 6px;
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+#budget-form-error {
+    color: #ff6b6b;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.bp-form-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.05rem;
+}
+
+/* ---------- Results ---------- */
+
+.bp-results-section {
+    padding: 20px 0 60px;
+}
+
+.bp-summary-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 32px;
+    backdrop-filter: blur(12px);
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
+
+.bp-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.bp-summary-header h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bp-summary-sub {
+    opacity: 0.75;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.bp-tier-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+}
+
+.bp-tier-badge-budget { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+.bp-tier-badge-standard { background: rgba(255, 193, 7, 0.2); color: #ffc107; }
+.bp-tier-badge-luxury { background: rgba(233, 30, 99, 0.2); color: #e91e63; }
+
+.bp-total-badge {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--gold);
+}
+
+.bp-section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.15rem;
+    margin: 24px 0 14px;
+}
+
+/* Category breakdown bars */
+
+.bp-breakdown {
+    display: grid;
+    gap: 14px;
+}
+
+.bp-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.bp-bar-label em {
+    opacity: 0.7;
+    font-style: normal;
+}
+
+.bp-bar-track {
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.bp-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--saffron);
+}
+
+.bp-fill-accommodation { background: var(--saffron); }
+.bp-fill-transport { background: #4caf50; }
+.bp-fill-food { background: #ffc107; }
+.bp-fill-sightseeing { background: #29b6f6; }
+.bp-fill-shopping { background: #e91e63; }
+.bp-fill-misc { background: #9e9e9e; }
+.bp-fill-contingency { background: #7e57c2; }
+
+/* Tier comparison */
+
+.bp-tier-compare {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+}
+
+.bp-tier-card {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.bp-tier-card.bp-tier-active {
+    border-color: var(--saffron);
+    background: rgba(255, 153, 51, 0.12);
+}
+
+.bp-tier-name {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.bp-tier-total {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.bp-tier-sub {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Daily spending guide */
+
+.bp-daily-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+}
+
+.bp-daily-item {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+}
+
+/* Recommendations */
+
+.bp-rec-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.bp-rec-item {
+    background: rgba(255, 153, 51, 0.08);
+    border-left: 3px solid var(--saffron);
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.bp-rec-item p {
+    margin-bottom: 4px;
+    font-size: 0.92rem;
+}
+
+.bp-rec-saving {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4caf50;
+}
+
+.bp-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+/* ---------- Saved plans ---------- */
+
+.bp-saved-section {
+    padding: 20px 0 80px;
+}
+
+.bp-saved-list {
+    display: grid;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bp-saved-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.bp-saved-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.bp-saved-card p {
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.bp-saved-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.bp-empty {
+    opacity: 0.7;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .bp-form-card,
+    .bp-summary-card {
+        padding: 22px;
+    }
+}
+
+/* ---------- Print Styles ---------- */
+@media print {
+    header.navbar,
+    footer.footer,
+    .bp-hero,
+    .bp-form-section,
+    .bp-saved-section,
+    .bp-actions,
+    .btn-scroll-top {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    main {
+        padding-top: 0 !important;
+    }
+
+    .bp-results-section {
+        padding: 0 !important;
+    }
+
+    .bp-summary-card {
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 0 30px 0 !important;
+        color: #000 !important;
+    }
+
+    .bp-summary-header h3,
+    .bp-total-badge,
+    .bp-tier-total {
+        color: #000 !important;
+    }
+
+    .bp-tier-badge {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        background: none !important;
+    }
+
+    .bp-tier-card {
+        background: none !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .bp-bar-track {
+        background: #eee !important;
+    }
+
+    .bp-bar-fill {
+        background: #666 !important;
+    }
+
+    .bp-rec-item {
+        border-left: 3px solid #000 !important;
+        background: none !important;
+    }
+}
