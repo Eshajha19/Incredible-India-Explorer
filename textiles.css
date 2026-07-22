@@ -1,5 +1,5 @@
  
-:root{--xa:var(--saffron,#ff9933);--xp:#c15b8f;--xg:#7a5cff;--xs:var(--glass-bg,rgba(255,255,255,.08));--xb:var(--glass-border,rgba(255,255,255,.14));--xt:var(--text-primary,#f5f5f5);--xm:var(--text-secondary,#b7b7b7)}
+:root{--xa:var(--saffron);--xp:#c15b8f;--xg:#7a5cff;--xs:var(--glass-bg);--xb:var(--glass-border);--xt:var(--text-primary);--xm:var(--text-secondary)}
 .textiles-page{min-height:100vh;color:var(--xt)}
 .textiles-hero{min-height:74vh;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(36,15,34,.94),rgba(55,30,18,.72)),url("assets/culture.png") center/cover no-repeat}
 .textiles-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 18%,rgba(193,91,143,.28),transparent 30%),radial-gradient(circle at 82% 25%,rgba(255,153,51,.22),transparent 28%),linear-gradient(to top,rgba(10,7,12,.75),transparent 55%)}

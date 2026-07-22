@@ -1,5 +1,5 @@
 
-:root{--za:var(--saffron,#ff9933);--zr:#d45b42;--zg:#c49735;--zs:var(--glass-bg,rgba(255,255,255,.08));--zb:var(--glass-border,rgba(255,255,255,.14));--zt:var(--text-primary,#f5f5f5);--zm:var(--text-secondary,#b7b7b7)}
+:root{--za:var(--saffron);--zr:#d45b42;--zg:#c49735;--zs:var(--glass-bg);--zb:var(--glass-border);--zt:var(--text-primary);--zm:var(--text-secondary)}
 .bazaars-page{min-height:100vh;color:var(--zt)}
 .bazaars-hero{min-height:74vh;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(42,20,9,.94),rgba(70,31,25,.72)),url("assets/culture.png") center/cover no-repeat}
 .bazaars-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 18%,rgba(255,153,51,.22),transparent 30%),radial-gradient(circle at 82% 25%,rgba(212,91,66,.24),transparent 28%),linear-gradient(to top,rgba(14,7,5,.75),transparent 55%)}

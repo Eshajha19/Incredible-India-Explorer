@@ -6,7 +6,7 @@
     --trade-gold: #eab308; /* vibrant gold */
     --trade-blue: #3b82f6; /* ocean blue */
     --trade-accent: #f97316; /* orange */
-    --trade-bg: var(--bg-dark, #060913);
+    --trade-bg: var(--bg-dark);
     --trade-surface: rgba(255, 255, 255, 0.05);
     --trade-surface-hover: rgba(255, 255, 255, 0.1);
     --trade-border: rgba(255, 255, 255, 0.12);

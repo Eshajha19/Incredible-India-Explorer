@@ -1,10 +1,10 @@
 :root {
-    --unesco-accent: var(--saffron, #ff9933);
-    --unesco-gold: var(--gold, #f6c453);
-    --unesco-surface: var(--glass-bg, rgba(255,255,255,.08));
-    --unesco-border: var(--glass-border, rgba(255,255,255,.14));
-    --unesco-text: var(--text-primary, #f5f5f5);
-    --unesco-muted: var(--text-secondary, #b7b7b7);
+    --unesco-accent: var(--saffron);
+    --unesco-gold: var(--gold);
+    --unesco-surface: var(--glass-bg);
+    --unesco-border: var(--glass-border);
+    --unesco-text: var(--text-primary);
+    --unesco-muted: var(--text-secondary);
 }
 
 .unesco-page { min-height: 100vh; color: var(--unesco-text); }

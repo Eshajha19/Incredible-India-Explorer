@@ -7,7 +7,7 @@
     --dna-accent: #f59e0b; /* amber gold */
     --dna-cyan: #06b6d4; /* cyan */
     --dna-violet: #8b5cf6; /* violet */
-    --dna-bg: var(--bg-dark, #070913);
+    --dna-bg: var(--bg-dark);
     --dna-surface: rgba(255, 255, 255, 0.05);
     --dna-surface-hover: rgba(255, 255, 255, 0.1);
     --dna-border: rgba(255, 255, 255, 0.12);

@@ -6,9 +6,9 @@
   /* Color Palette */
   --space-violet: #7c5cff;
   --space-blue: #45a3ff;
-  --space-accent: var(--saffron, #ff9933);
-  --space-gold: var(--gold, #f6c453);
-  --space-bg: var(--bg-dark, #050711);
+  --space-accent: var(--saffron);
+  --space-gold: var(--gold);
+  --space-bg: var(--bg-dark);
   --space-surface: rgba(255, 255, 255, 0.06);
   --space-surface-hover: rgba(255, 255, 255, 0.12);
   --space-border: rgba(255, 255, 255, 0.14);

@@ -95,7 +95,7 @@
 }
 
 .climate-hero h1 span {
-    background: linear-gradient(135deg, var(--saffron, #ff6f00), var(--gold, #ffab00));
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -371,7 +371,7 @@
 }
 
 .state-path:focus-visible {
-    stroke: var(--saffron, #ff6f00);
+    stroke: var(--saffron);
     stroke-width: 2;
     outline: none;
 }
@@ -459,7 +459,7 @@
 }
 
 .saffron-bg {
-    background: var(--saffron, #ff6f00);
+    background: var(--saffron);
     color: #fff;
 }
 

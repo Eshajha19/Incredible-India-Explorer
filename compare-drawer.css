@@ -1,12 +1,12 @@
 /* Issue #194 — Cross-Explorer Compare Drawer */
 
 :root {
-  --compare-accent: var(--saffron, #ff9933);
-  --compare-green: var(--green, #138808);
-  --compare-surface: var(--glass-bg, rgba(255,255,255,.08));
-  --compare-border: var(--glass-border, rgba(255,255,255,.16));
-  --compare-text: var(--text-primary, #f8fafc);
-  --compare-muted: var(--text-secondary, #cbd5e1);
+  --compare-accent: var(--saffron);
+  --compare-green: var(--green);
+  --compare-surface: var(--glass-bg);
+  --compare-border: var(--glass-border);
+  --compare-text: var(--text-primary);
+  --compare-muted: var(--text-secondary);
   --compare-danger: #ef4444;
   --compare-shadow: 0 24px 70px rgba(0,0,0,.35);
 }

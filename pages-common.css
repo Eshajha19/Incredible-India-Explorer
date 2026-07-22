@@ -51,7 +51,7 @@ body.tribes-page-body {
 .app-toast-icon { flex-shrink: 0; }
 .app-toast-message {
     flex: 1;
-    font-family: var(--font-family, 'Outfit', sans-serif);
+    font-family: var(--font-family);
     font-size: 0.9rem;
     line-height: 1.4;
     color: #f0f0f0;

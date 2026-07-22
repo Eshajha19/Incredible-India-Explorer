@@ -43,6 +43,31 @@
     --border-radius-sm: 8px;
     --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --transition-snappy: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ------------------------------------------------------------------
+       Page-level shorthand tokens (referenced by 30+ page CSS files)
+       Defined here so page CSS files use var(--xxx) without fallback.
+       ------------------------------------------------------------------ */
+
+    /* Accent colour shorthands (aliases for the :root canonical names) */
+    --saffron: var(--primary-saffron);
+    --gold: var(--primary-gold);
+    --green: var(--primary-green);
+
+    /* Glassmorphism surface tokens (used by 20+ page CSS files) */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.14);
+
+    /* Text colour tokens (used by 30+ page CSS files) */
+    --text-primary: #f5f5f5;
+    --text-secondary: #b7b7b7;
+    --muted-text: rgba(255, 255, 255, 0.6);
+
+    /* Page-level surface and typography tokens */
+    --bg-dark: #0a1118;
+    --bg-primary: #111827;
+    --font-family: 'Outfit', sans-serif;
+    --primary-dark: #1a1a2e;
 }
 
 /* Base Reset & Typography */
@@ -7687,6 +7712,15 @@ body.light-theme {
     --gradient-card-border: linear-gradient(135deg, rgba(229, 231, 235, 1) 0%, rgba(209, 213, 219, 1) 100%);
     --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.3);
+
+    /* Page-level shorthand token overrides for light theme */
+    --text-primary: #1a1a2e;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --bg-dark: #f8fafc;
+    --bg-primary: #ffffff;
+    --muted-text: rgba(0, 0, 0, 0.6);
+    --primary-dark: #f0f0f5;
 }
 
 body.light-theme .navbar {
@@ -9305,6 +9339,31 @@ body.light-theme .search-key-hint kbd {
     --border-radius-sm: 8px;
     --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --transition-snappy: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ------------------------------------------------------------------
+       Page-level shorthand tokens (referenced by 30+ page CSS files)
+       Defined here so page CSS files use var(--xxx) without fallback.
+       ------------------------------------------------------------------ */
+
+    /* Accent colour shorthands (aliases for the :root canonical names) */
+    --saffron: var(--primary-saffron);
+    --gold: var(--primary-gold);
+    --green: var(--primary-green);
+
+    /* Glassmorphism surface tokens (used by 20+ page CSS files) */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.14);
+
+    /* Text colour tokens (used by 30+ page CSS files) */
+    --text-primary: #f5f5f5;
+    --text-secondary: #b7b7b7;
+    --muted-text: rgba(255, 255, 255, 0.6);
+
+    /* Page-level surface and typography tokens */
+    --bg-dark: #0a1118;
+    --bg-primary: #111827;
+    --font-family: 'Outfit', sans-serif;
+    --primary-dark: #1a1a2e;
 }
 
 /* Base Reset & Typography */
@@ -16818,6 +16877,15 @@ body.light-theme {
     --gradient-card-border: linear-gradient(135deg, rgba(229, 231, 235, 1) 0%, rgba(209, 213, 219, 1) 100%);
     --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.3);
+
+    /* Page-level shorthand token overrides for light theme */
+    --text-primary: #1a1a2e;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --bg-dark: #f8fafc;
+    --bg-primary: #ffffff;
+    --muted-text: rgba(0, 0, 0, 0.6);
+    --primary-dark: #f0f0f5;
 }
 
 body.light-theme .navbar {
@@ -18186,7 +18254,7 @@ body.light-theme .hero-title .rotating-text {
 
 .app-toast-message {
     flex: 1;
-    font-family: var(--font-family, 'Outfit', sans-serif);
+    font-family: var(--font-family);
     font-size: 0.9rem;
     line-height: 1.4;
     color: #f0f0f0;
@@ -18272,9 +18340,9 @@ path[tabindex="0"]:focus-visible {
     padding: 12px 20px;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--saffron, #FF9933), var(--primary-gold, #FFB01F));
+    background: linear-gradient(135deg, var(--saffron), var(--primary-gold));
     color: #fff;
-    font-family: var(--font-family, 'Outfit', sans-serif);
+    font-family: var(--font-family);
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;

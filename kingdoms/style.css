@@ -1,10 +1,10 @@
 :root {
-  --ka: var(--saffron, #ff9933);
+  --ka: var(--saffron);
   --kg: #1aa260;
-  --ks: var(--glass-bg, rgba(255, 255, 255, 0.08));
-  --kb: var(--glass-border, rgba(255, 255, 255, 0.14));
-  --kt: var(--text-primary, #f5f5f5);
-  --km: var(--text-secondary, #b9b9b9);
+  --ks: var(--glass-bg);
+  --kb: var(--glass-border);
+  --kt: var(--text-primary);
+  --km: var(--text-secondary);
 }
 
 .kingdoms-page {
