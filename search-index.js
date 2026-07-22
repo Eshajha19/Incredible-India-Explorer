@@ -862,5 +862,11 @@ window.indiaSearchIndex = [
     category: "Heritage & History",
     description: "Track endangered Indian heritage sites threatened by pollution, climate change, tourism pressure, and urban encroachment.",
     url: "heritage-threats.html"
+  // --- Then vs Now Heritage Comparison ---
+  {
+    title: "Then vs Now Heritage Comparison Explorer",
+    category: "Heritage & History",
+    description: "Compare historical and present-day images of India's iconic heritage sites with an interactive before/after slider.",
+    url: "then-vs-now.html"
   }
 ];
