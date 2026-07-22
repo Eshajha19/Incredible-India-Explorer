@@ -1,0 +1,290 @@
+/* passport-quest.css */
+
+.quest-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.quest-hero {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(255, 153, 51, 0.1), rgba(19, 136, 8, 0.1));
+}
+
+.hero-kicker {
+    font-size: 0.9rem;
+    color: var(--saffron);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.quest-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 15px 0;
+}
+
+.quest-hero h1 span {
+    color: var(--saffron);
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.stat-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 15px 25px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.stat-box strong {
+    font-size: 1.5rem;
+    color: var(--saffron);
+}
+
+.quest-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Passport Book */
+.passport-book {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.passport-book h2 {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.stamp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stamp-slot {
+    aspect-ratio: 1;
+    border: 2px dashed var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 10px;
+}
+
+.stamp-slot.collected {
+    border-style: solid;
+    border-color: var(--saffron);
+    background: rgba(255, 153, 51, 0.1);
+    color: var(--saffron);
+    font-weight: bold;
+    transform: rotate(-10deg);
+}
+
+.unlocked-list {
+    list-style: none;
+    padding: 0;
+}
+
+.unlocked-list li {
+    padding: 10px;
+    background: rgba(19, 136, 8, 0.1);
+    border-left: 4px solid var(--green);
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Missions */
+.missions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mission-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.mission-card.completed {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.mission-info h3 {
+    margin: 0 0 5px 0;
+    color: var(--saffron);
+}
+
+.mission-info p {
+    margin: 0 0 15px 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.mission-rewards {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+}
+
+.mission-rewards span {
+    background: var(--bg-secondary);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.btn-start {
+    background: var(--saffron);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-start:hover {
+    background: #e68a00;
+}
+
+.mission-card.completed .btn-start {
+    background: var(--green);
+    content: "Completed";
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-content.reward-popup {
+    background: var(--bg-card);
+    border: 2px solid var(--gold);
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.reward-title {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.reward-details p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.reward-xp { color: #3b82f6; }
+.reward-coins { color: var(--gold); }
+.reward-stamp { color: var(--saffron); }
+
+#popup-unlock-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.unlock-title {
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.unlock-item {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    margin-top: 30px;
+    background: var(--saffron);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .quest-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .mission-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .btn-start {
+        width: 100%;
+    }
+}
