@@ -855,5 +855,12 @@ window.indiaSearchIndex = [
     category: "Cultural DNA",
     description: "Trace how South Indian stone architecture hosted classical Carnatic vocals, geometry of Bharatanatyam, and textile weaving patterns.",
     url: "cultural-dna.html?preset=templearts"
+  },
+  // --- Then vs Now Heritage Comparison ---
+  {
+    title: "Then vs Now Heritage Comparison Explorer",
+    category: "Heritage & History",
+    description: "Compare historical and present-day images of India's iconic heritage sites with an interactive before/after slider.",
+    url: "then-vs-now.html"
   }
 ];
