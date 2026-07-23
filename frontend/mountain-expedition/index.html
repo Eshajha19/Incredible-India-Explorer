@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountain Expedition Adventure | Incredible India Explorer</title>
+  <meta name="description" content="Explore India's mountain ranges through route planning, survival points, geography quizzes, and expedition events.">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../travel.html" class="nav-link">Travel</a>
+        <a href="index.html" class="nav-link" style="color: var(--saffron)">Mountain Expedition</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="expedition-page">
+    <section class="expedition-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Route planning · survival points · mountain quizzes</span>
+        <h1>Mountain Expedition <span>Adventure</span></h1>
+        <p>
+          Explore Himalayan, Western Ghats, and Eastern Ghats routes. Spend supplies,
+          protect survival points, answer geography challenges, and unlock expedition badges.
+        </p>
+
+        <div class="hero-stats">
+          <div>
+            <strong id="supply-total">0</strong>
+            <span>Supplies</span>
+          </div>
+          <div>
+            <strong id="survival-total">0</strong>
+            <span>Survival</span>
+          </div>
+          <div>
+            <strong id="completed-total">0</strong>
+            <span>Routes</span>
+          </div>
+        </div>
+
+        <a href="#expedition-game" class="hero-cta">Start expedition ↓</a>
+      </div>
+    </section>
+
+    <section class="game-section" id="expedition-game">
+      <div class="game-container">
+        <div class="section-heading">
+          <span class="section-badge">Strategy expedition</span>
+          <h2>Choose routes, solve quizzes, survive the climb</h2>
+          <p>
+            Pick the right expedition path, answer the mountain geography quiz, and
+            manage supplies carefully. Harder routes give bigger rewards but drain survival points faster.
+          </p>
+        </div>
+
+        <div class="dashboard-grid">
+          <aside class="status-panel">
+            <h3>Expedition Pack</h3>
+            <div class="metric-grid">
+              <div>
+                <span>Supplies</span>
+                <strong id="supplies">0</strong>
+              </div>
+              <div>
+                <span>Survival</span>
+                <strong id="survival">0</strong>
+              </div>
+              <div>
+                <span>Score</span>
+                <strong id="score">0</strong>
+              </div>
+              <div>
+                <span>Days used</span>
+                <strong id="days-used">0</strong>
+              </div>
+            </div>
+
+            <div class="policy-group">
+              <label for="gear-select">Gear strategy</label>
+              <select id="gear-select">
+                <option value="light">Light pack - saves supplies, more risk</option>
+                <option value="balanced" selected>Balanced pack</option>
+                <option value="heavy">Heavy safety pack - costly, safer</option>
+              </select>
+            </div>
+
+            <div class="policy-group">
+              <label for="pace-select">Travel pace</label>
+              <select id="pace-select">
+                <option value="slow">Slow acclimatisation</option>
+                <option value="steady" selected>Steady pace</option>
+                <option value="fast">Fast push</option>
+              </select>
+            </div>
+
+            <div class="actions">
+              <button id="rest-button" type="button">Rest camp</button>
+              <button id="save-game" type="button">Save expedition</button>
+              <button id="reset-game" type="button">Reset</button>
+            </div>
+          </aside>
+
+          <article class="route-panel">
+            <div class="route-top">
+              <span id="route-status">Choose a mountain route</span>
+              <button id="suggest-route" type="button">Suggest safest route</button>
+            </div>
+
+            <div class="range-filters" id="range-filters">
+              <button type="button" data-range="All" class="active">All</button>
+              <button type="button" data-range="Himalayan">Himalayan</button>
+              <button type="button" data-range="Western Ghats">Western Ghats</button>
+              <button type="button" data-range="Eastern Ghats">Eastern Ghats</button>
+            </div>
+
+            <div class="route-grid" id="route-grid"></div>
+
+            <div class="event-card" id="event-card" role="status" aria-live="polite"></div>
+          </article>
+        </div>
+
+        <section class="quiz-panel" id="quiz-panel" hidden>
+          <div class="quiz-heading">
+            <h3 id="quiz-title">Geography challenge</h3>
+            <span id="quiz-meta">Answer correctly to claim the route reward</span>
+          </div>
+          <p id="quiz-question"></p>
+          <div class="choice-grid" id="choice-grid"></div>
+          <div class="feedback-card" id="feedback-card" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="completed-panel">
+          <div class="completed-heading">
+            <h3>Completed Expedition Log</h3>
+            <span id="rank-label">Base camp learner</span>
+          </div>
+          <div class="completed-grid" id="completed-grid"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="expedition-footer">
+    <p>
+      Part of <a href="../../index.html">Incredible India Explorer</a> · Learn Indian mountain geography through strategy gameplay.
+    </p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../../app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
