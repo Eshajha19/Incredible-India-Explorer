@@ -1,6 +1,8 @@
 /* ==========================================================================
-   TRIBES & INDIGENOUS CULTURE PAGE - PAGE SPECIFIC STYLES
-   Uses global variables/reset/navbar/footer from styles.css
+   PAGES-COMMON.CSS — SHARED STYLES FOR FEATURE EXPLORER PAGES
+   Used across tribes, coins, rivers, bridges, cultural-dna, and all other
+   pages that consume pages-common.js. Global variables/reset/navbar/footer
+   come from styles.css.
    ========================================================================== */
 
 body.tribes-page-body {

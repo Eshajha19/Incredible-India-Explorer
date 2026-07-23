@@ -4,6 +4,7 @@ Implements #288 — an interactive 3D map of India for exploring states and
 destinations geographically instead of through text lists.
 
 ## What it does
+
 Renders a low-poly 3D relief map of India in the browser. Users can rotate,
 pan, and zoom; click a state to open its existing state page; click a
 destination marker to see details, tags, and nearby recommendations; filter
@@ -12,7 +13,7 @@ by category; and bookmark places for later.
 Files:
 
 | File | Purpose |
-|------|---------|
+| ---- | ------- |
 | `india-3d-map.html` | Page shell: nav, controls UI, detail panel |
 | `india-3d-map.css` | Styling, reusing the site's existing design tokens |
 | `india-3d-map.js` | Three.js scene: terrain extrusion, markers, camera, interaction |
@@ -21,6 +22,7 @@ Files:
 | `tests/unit/map3d-core.test.js` | Vitest coverage for `map3d-core.js` |
 
 ## Data sources
+
 - **State boundaries**: derived from a public India administrative-boundary
   dataset, simplified with Douglas-Peucker (≈0.02° tolerance) down to ~7,400
   points / ~118KB so the whole country loads as one script tag with no
@@ -33,6 +35,7 @@ Files:
   destination to one dataset makes it appear in both.
 
 ## Rendering approach: Three.js, no backend
+
 Consistent with `docs/ROUTE_PLANNER.md`'s reasoning, this is a static,
 buildless site with no server, so everything runs client-side:
 
@@ -52,6 +55,7 @@ buildless site with no server, so everything runs client-side:
   ≤48 markers).
 
 ## Projection
+
 `map3d-core.js` uses a simple equirectangular projection with a
 latitude-cosine correction (`project(lng, lat) → [x, y]`), centered on
 mainland India (22.5°N, 80°E). This is not a true conformal projection —
@@ -65,6 +69,7 @@ the Three.js renderer) is what makes it unit-testable without a WebGL
 context or DOM — see `tests/unit/map3d-core.test.js`.
 
 ## Clustering
+
 Clustering is grid-based, not hierarchical: destinations are bucketed into
 square cells whose size is picked from the current camera distance
 (`cellSizeForZoom`), and each non-empty cell becomes one cluster (or a
@@ -75,6 +80,7 @@ the rendering code simple. A hierarchical/greedy clustering approach would
 scale better for a much larger dataset — see **Known limitations**.
 
 ## Filtering & bookmarks
+
 - Category chips are generated from whatever categories exist in
   `tripDestinations` at load time, so adding a new category to the shared
   dataset doesn't require touching this file.
@@ -83,6 +89,7 @@ scale better for a much larger dataset — see **Known limitations**.
   itineraries.
 
 ## Known limitations / future work
+
 - **Telangana is not split out from Andhra Pradesh** in the boundary
   polygons — the public dataset used for simplification predates the 2014
   split. Destination markers themselves use accurate present-day lat/lng

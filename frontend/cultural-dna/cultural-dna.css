@@ -94,6 +94,7 @@
 .dna-hero h1 span {
     background: linear-gradient(120deg, var(--dna-primary), var(--dna-cyan));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

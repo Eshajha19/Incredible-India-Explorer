@@ -11,7 +11,8 @@ assignees: ''
 A clear and concise description of the design or responsive layout issue.
 
 **Where does this happen?**
-- Page URL: 
+
+- Page URL:
 - Specific component (e.g. Navbar, Timeline, Card):
 
 **Expected design/behavior**
@@ -21,6 +22,7 @@ A clear description of what the UI should look like.
 If applicable, add screenshots.
 
 **Device Information:**
- - Device: [e.g. iPhone 13, Desktop]
- - Screen Resolution: [e.g. 1920x1080]
- - Browser: [e.g. chrome, safari]
+
+- Device: [e.g. iPhone 13, Desktop]
+- Screen Resolution: [e.g. 1920x1080]
+- Browser: [e.g. chrome, safari]

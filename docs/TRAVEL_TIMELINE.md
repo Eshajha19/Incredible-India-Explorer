@@ -10,7 +10,7 @@ trips in order like a slideshow.
 ## Files added
 
 | File | Purpose |
-|---|---|
+| ---- | ------- |
 | `travel-timeline.js` | The whole engine: storage/CRUD, validation, filtering/search, stats, export, and the page's UI wiring (`initTimelinePage`). Exposes `window.TravelTimeline`. |
 | `travel-timeline.html` | The page shell (header/nav/footer match the rest of the site), toolbar (search/filters/export/replay), timeline list, and the add/detail/replay modals. |
 | `travel-timeline.css` | Dedicated stylesheet reusing the site's existing design tokens (`--saffron`, `--gold`, `--glass-bg`, `--glass-border`, `--border-radius-lg`, etc.). |
@@ -33,7 +33,7 @@ generation service, DB schema, export service, lazy loading) map onto this
 architecture as follows:
 
 | Issue's technical consideration | Implementation here |
-|---|---|
+| ------------------------------- | ------------------- |
 | Timeline generation service | `getTrips()` — reads, sorts chronologically |
 | DB schema for completed trip history | The trip object shape below, persisted as a JSON array under one `localStorage` key |
 | Image and note association | `photos[]` and `notes` are fields on the trip record itself, not a separate join |

@@ -15,7 +15,7 @@ via `localStorage` — no account required.
 ## Files added
 
 | File | Purpose |
-|---|---|
+| ---- | ------- |
 | `js-modules/smart-budget-planner.js` | All budget-calculation logic, plus the page's UI wiring (`initBudgetPlannerPage`). |
 | `budget-planner.html` | The page shell (header/nav/footer match the rest of the site), the planner form, results, and saved-plans sections. |
 | `budget-planner.css` | Dedicated stylesheet, reusing the site's existing design tokens (`--saffron`, `--gold`, `--green`, glass-panel vars) and print styles for exported reports. |

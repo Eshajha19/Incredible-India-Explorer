@@ -6,7 +6,7 @@ the `guide-moderation.html` dashboard.
 ## Roles
 
 | Role        | Can do |
-|-------------|--------|
+| ----------- | ------ |
 | `user`      | Create/edit their own guides, rate, report |
 | `moderator` | Everything a user can, plus approve/reject any guide, resolve reports, unpublish a guide |
 | `admin`     | Everything a moderator can, plus grant/change roles |
@@ -33,7 +33,7 @@ setUserRole(myAdminUid, otherUserUid, USER_ROLES.MODERATOR);
 
 ## Guide lifecycle
 
-```
+```text
  draft --submit--> pending --approve--> published
    ^                  |  \
    |               reject  (edit on published guide)

@@ -16,7 +16,7 @@ backend would expose. The gamification system follows that exact pattern so
 it fits the rest of the codebase and doesn't require a new dependency,
 build step, or hosting change.
 
-```
+```text
 gamification-rules.mjs   "content": XP values, level titles, achievement
                           definitions, challenge templates. Pure data —
                           no logic. This is what issue #287 means by
@@ -76,16 +76,16 @@ same anonymous-first approach `journey.js` and `guides-core.mjs` already use.
 
 ## Scoring
 
-| Activity              | XP  |
-|------------------------|-----|
-| Visit a destination     | 10  |
-| Explore a new state      | 25  |
-| Create an itinerary       | 40  |
-| Save a bookmark            | 5   |
-| Write a review               | 20  |
-| Complete a trip                | 100 |
-| Daily login                      | 5   |
-| Streak bonus (per consecutive day, capped at 30) | 2 × current streak |
+| Activity                                         | XP                       |
+| ------------------------------------------------ | ------------------------ |
+| Visit a destination                              | 10                       |
+| Explore a new state                              | 25                       |
+| Create an itinerary                              | 40                       |
+| Save a bookmark                                  | 5                        |
+| Write a review                                   | 20                       |
+| Complete a trip                                  | 100                      |
+| Daily login                                      | 5                        |
+| Streak bonus (per consecutive day, capped at 30) | 2 × current streak       |
 
 `visit_destination` and `explore_new_state` are deduplicated by an id you
 pass in (`meta.dedupeId` / `meta.stateName`) — revisiting the same place

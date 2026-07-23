@@ -21,3 +21,6 @@ coverage/
 
 # Temp files
 .tmp/
+
+# Patch artifacts — do not commit leftover patch files
+*.patched

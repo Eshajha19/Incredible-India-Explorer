@@ -13,7 +13,7 @@ regenerated for a different combination, and saved to the browser via
 ## Files added
 
 | File | Purpose |
-|---|---|
+| ---- | ------- |
 | `trip-data.js` | Curated dataset of ~48 Indian destinations: category tags, coordinates, cost-per-day by tier, stay-length guidance. |
 | `js-modules/trip-planner.js` | All generation/selection/budget logic, plus the page's UI wiring (`initTripPlannerPage`). |
 | `trip-planner.html` | The page shell (header/nav/footer match the rest of the site), the planning form, results, and saved-trips sections. |

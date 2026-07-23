@@ -38,7 +38,7 @@ const CACHE_LIMITS = {
 
 
 // Toggle diagnostic logging in console
-const ENABLE_TELEMETRY_LOGS = true;
+const ENABLE_TELEMETRY_LOGS = self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1';
 
 // Max age controls for runtime caches (in milliseconds)
 // These values keep cached content fresh enough to avoid being overly stale offline.

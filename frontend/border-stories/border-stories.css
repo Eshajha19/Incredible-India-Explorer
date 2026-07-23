@@ -90,6 +90,7 @@
 .border-hero h1 span {
     background: linear-gradient(120deg, var(--border-orange), var(--border-gold));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

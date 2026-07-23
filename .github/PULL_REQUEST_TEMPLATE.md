@@ -1,3 +1,5 @@
+# Pull Request
+
 ## Description
 
 Please include a summary of the change and which issue is fixed. Include relevant motivation and context.
@@ -20,7 +22,7 @@ Fixes # (issue)
 - [ ] Tested at mobile viewport widths
 - [ ] Verified no console errors
 
-## Checklist:
+## Checklist
 
 - [ ] My code follows the [coding standards](CONTRIBUTING.md#coding-standards) of this project
 - [ ] I have performed a self-review of my own code

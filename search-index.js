@@ -788,6 +788,7 @@ window.indiaSearchIndex = [
     category: "Archaeological Excavations",
     description: "Largest Indus Valley Civilisation site in the Indian subcontinent spanning over 350 hectares in Haryana.",
     url: "frontend/excavations/excavations.html?site=rakhigarhi"
+  },
   // --- Space Heritage ---
   {
     title: "Indian Space Heritage Explorer",
@@ -905,6 +906,7 @@ window.indiaSearchIndex = [
     category: "Games & Quizzes",
     description: "Reconstruct Indian state shape maps across 9, 16, and 25 piece grid difficulty options.",
     url: "state-jigsaw.html"
+  },
   // --- Border Stories Explorer ---
   {
     title: "Border Stories Explorer",
@@ -917,6 +919,7 @@ window.indiaSearchIndex = [
     category: "Border Stories Explorer",
     description: "Interactive map detailing shared traditions and river boundaries connecting neighboring Indian states.",
     url: "border-stories.html"
+  },
   // --- State Achievement Timeline ---
   {
     title: "State Achievement Timeline",
@@ -929,6 +932,7 @@ window.indiaSearchIndex = [
     category: "State Achievement Timeline",
     description: "Discover historical and modern breakthrough milestones across all Indian states.",
     url: "state-achievements.html"
+  },
   // --- State Cultural Footprint ---
   {
     title: "State Cultural Footprint Explorer",
@@ -941,6 +945,7 @@ window.indiaSearchIndex = [
     category: "State Cultural Footprint",
     description: "Visualize outgoing cultural footprints and incoming cultural influences for each Indian state.",
     url: "cultural-footprint.html"
+  },
   // --- National Parks Timeline ---
   {
     title: "India's National Parks Timeline",
@@ -959,6 +964,7 @@ window.indiaSearchIndex = [
     category: "National Parks Timeline",
     description: "Formally established as a national park in 1974, home to the one-horned rhinoceros.",
     url: "frontend/national-parks-timeline/national-parks-timeline.html?search=Kaziranga"
+  },
   // --- Indian Climate Zones Explorer ---
   {
     title: "Indian Climate Zones Explorer",

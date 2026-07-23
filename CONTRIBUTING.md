@@ -22,9 +22,11 @@ This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md). By particip
 
 1. Fork the repository.
 2. Clone your fork:
+
    ```bash
    git clone https://github.com/your-username/incredible-india-explorer.git
    ```
+
 3. Open `index.html` in your browser — no build tools required.
 
 The project is pure vanilla HTML, CSS, and JavaScript. There is no bundler, framework, or package manager setup needed.
@@ -32,9 +34,11 @@ The project is pure vanilla HTML, CSS, and JavaScript. There is no bundler, fram
 ## Development Workflow
 
 1. Create a branch from `main`:
+
    ```bash
    git checkout -b fix/your-fix-name main
    ```
+
 2. Make your changes following the [Coding Standards](#coding-standards).
 3. Test locally by opening the relevant HTML files in your browser.
 4. Check for console errors and responsive layout issues.
@@ -42,7 +46,7 @@ The project is pure vanilla HTML, CSS, and JavaScript. There is no bundler, fram
 
 ## Project Structure
 
-```
+```text
 incredible-india-explorer/
   index.html              -- Landing page with map, cuisine, festivals, quiz
   app.js                  -- Core application logic (navigation, map, theme, quiz)
@@ -65,17 +69,20 @@ incredible-india-explorer/
 ## Coding Standards
 
 ### HTML
+
 - Use semantic HTML5 elements (`<header>`, `<main>`, `<section>`, `<nav>`, `<footer>`).
 - Include `aria-label`, `role`, and `alt` attributes for accessibility.
 - Use lowercase for tag and attribute names.
 
 ### CSS
+
 - Use CSS custom properties from `:root` in `styles.css` for consistency.
 - Follow the existing naming convention: `.kebab-case-classnames`.
 - Support both dark (default) and light theme via `.light-theme` on `<body>`.
 - Write responsive styles using the existing breakpoints (1024px, 768px, 640px).
 
 ### JavaScript
+
 - Use vanilla JavaScript — no frameworks or libraries.
 - Prefer `function` declarations over arrow functions for page-level logic.
 - Use `const` and `let` (never `var` except when needed for wider scope).
@@ -85,6 +92,7 @@ incredible-india-explorer/
 - Handle errors gracefully with `try/catch` and user-facing toast notifications.
 
 ### Accessibility
+
 - All interactive elements must be keyboard-accessible.
 - Use `aria-live` regions for dynamic content updates.
 - Maintain focus trapping for modals and overlays using `window.setupFocusTrap()`.
@@ -104,13 +112,14 @@ See the "My India Journey" section in [README.md](README.md) for detailed instru
 
 We follow [Conventional Commits](https://www.conventionalcommits.org/):
 
-```
+```text
 <type>: <short description>
 
 <optional body>
 ```
 
 Types:
+
 - `feat:` — New feature or page
 - `fix:` — Bug fix
 - `docs:` — Documentation only
