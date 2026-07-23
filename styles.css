@@ -5,15 +5,16 @@
 
 /* Design Tokens & Theme Variables */
 :root {
-    --primary: hsl(27, 100%, 55%);
+    --primary: hsl(29, 47%, 20%);
     /* #FF9933 - Energy, courage (default primary) */
-    --primary-saffron: hsl(27, 100%, 55%);
+    --primary-saffron: hsl(31, 100%, 70%);
     /* #FF9933 - Energy, courage */
-    --primary-green: hsl(122, 90%, 28%);
+    --primary-green: hsl(136, 72%, 16%);
     /* #128807 - Prosperity, life */
-    --primary-gold: hsl(43, 85%, 52%);
+    --primary-gold: hsl(117, 56%, 64%);
     /* #FFB01F - Splendor, culture */
-    --primary-gold-alt: hsl(40, 75%, 48%);
+    --primary-gold-alt: hsl(43, 60%, 18%);
+    --mixed-text: hsl(43, 100%, 70%);
     --bg-dark-deep: hsl(221, 100%, 22%);
     /* #090D16 - Deep base bg */
     --bg-dark-card: rgba(30, 41, 59, 0.65);
@@ -64,7 +65,7 @@
     --muted-text: rgba(255, 255, 255, 0.6);
 
     /* Page-level surface and typography tokens */
-    --bg-dark: #0a1118;
+    --bg-dark: #04172a;
     --bg-primary: #111827;
     --font-family: 'Outfit', sans-serif;
     --primary-dark: #1a1a2e;
@@ -1318,87 +1319,69 @@ button {
    FOOTER
    ========================================================================== */
 
-.footer {
-    background: #0f172a;
-    border-top: 2px solid rgba(245, 158, 11, 0.2);
-    padding: 70px 40px 30px;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 80px;
-    align-items: start;
-    margin-bottom: 50px;
-}
-
-.footer-brand h3 {
-    font-size: 2.2rem;
-    font-family: "Playfair Display", serif;
-    margin-bottom: 20px;
-    background: var(--gradient-saffron-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.footer-brand p {
-    color: #cbd5e1;
-    font-size: 1.05rem;
-    line-height: 1.9;
-    max-width: 550px;
-}
-
 .footer-links {
-    justify-self: end;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    justify-self: start;
 }
 
-.footer-links h4 {
-    font-size: 1.6rem;
-    font-family: "Playfair Display", serif;
-    margin-bottom: 24px;
-    text-align: left;
-    color: #ffffff;
+.footer-links h3 {
+    margin: 0 0 24px;
+    padding: 0;
+    text-align: center;
 }
 
 .footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 16px 40px;
+    margin-left: 50px !important;
+    padding-left: 0 !important;
+    transform: translateX(0) !important;
+}
+
+.footer-links {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }
 
 .footer-links li {
     margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 .footer-links a {
-    color: #cbd5e1;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #f59e0b;
-    padding-left: 6px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 .footer-credits {
     max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 50px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
-    color: #94a3b8;
-    font-size: 0.95rem;
 }
+
+.footer-credits p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-links {
+        max-width: 420px;
+    }
+
+    .footer-links ul {
+        grid-template-columns: repeat(2, 160px);
+    }
+}
+
 
 
 

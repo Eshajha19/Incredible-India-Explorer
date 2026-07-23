@@ -42,22 +42,47 @@
             gap: 30px;
         }
         .heritage-card {
-            background: var(--bg-dark-card);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-        .heritage-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-glow-active);
-            border-color: var(--primary-gold);
-        }
+    background: #026882; /* clearer slate-blue card */
+    border: 1px solid #f2f4f6;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    height: 600px;
+}
+
+.heritage-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 30px rgba(255, 153, 51, 0.18);
+    border-color: var(--primary-saffron);
+}
+
+.heritage-card > div {
+    padding: 20px;
+}
+
+/* Card title */
+.heritage-card h3 {
+    color: #fc2a2a;
+    margin-bottom: 6px;
+}
+
+/* State name */
+.heritage-card p:first-of-type {
+    color: #00e14f;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+/* Description */
+.heritage-card p:last-of-type {
+    color: #000000;
+    line-height: 1.6;
+}
         .heritage-card img {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
+            height: 350px;
+            object-fit:var(1000px);
         }
         .category-badge {
             display: inline-block;
@@ -67,8 +92,8 @@
             font-weight: 600;
             margin-bottom: 10px;
         }
-        .cultural { background: rgba(255,153,51,0.2); color: var(--primary-saffron); }
-        .natural { background: rgba(18,136,7,0.2); color: var(--primary-green); }
+        .cultural { background: rgba(255, 153, 51, 0.375); color: var(--primary-saffron); }
+        .natural { background: rgba(18, 136, 7, 0.482); color:#00e14f }
         .mixed { background: rgba(255,176,31,0.2); color: var(--primary-gold); }
     </style>
   <link rel="stylesheet" href="../../../js-modules/compare-drawer/compare-drawer.css">
@@ -112,7 +137,7 @@
 
     <main id="app-root">
         <section class="heritage-hero scroll-section">
-            <div class="hero-content" style="max-width: 800px; padding: 0 5%; color: white; text-align: center;">
+            <div class="hero-content" style="max-width: 800px; margin-top:90px; padding: 0 5%; color: rgb(255, 166, 77); text-align: center;">
                 <h1 class="hero-title">India's Eternal Heritage</h1>
                 <p class="hero-description">UNESCO Wonders & Timeless Monuments</p>
             </div>
@@ -176,9 +201,9 @@
 
     <script>
         const heritageData = [
-            {id:1, name:"Taj Mahal", state:"Uttar Pradesh", category:"cultural", image:"https://picsum.photos/id/1015/600/400", description:"Symbol of love and Mughal architecture.", details:"UNESCO World Heritage Site built by Shah Jahan."},
-            {id:2, name:"Red Fort", state:"Delhi", category:"cultural", image:"https://picsum.photos/id/133/600/400", description:"Historic fort and seat of Mughal power.", details:"Symbol of India's independence."},
-            {id:3, name:"Ajanta Caves", state:"Maharashtra", category:"cultural", image:"https://picsum.photos/id/201/600/400", description:"Ancient Buddhist rock-cut caves with paintings.", details:"UNESCO site from 2nd century BCE."},
+            {id:1, name:"Taj Mahal", state:"Uttar Pradesh", category:"cultural", image:"../../assets/Taj_Mahal.png", description:"Symbol of love and Mughal architecture.", details:"UNESCO World Heritage Site built by Shah Jahan."},
+            {id:2, name:"Red Fort", state:"Delhi", category:"cultural", image:"../../assets/red_fort.png", description:"Historic fort and seat of Mughal power.", details:"Symbol of India's independence."},
+            {id:3, name:"Ajanta Caves", state:"Maharashtra", category:"cultural", image:"../../assets/ajanta_caves.png", description:"Ancient Buddhist rock-cut caves with paintings.", details:"UNESCO site from 2nd century BCE."},
             {id:4, name:"Great Himalayan National Park", state:"Himachal Pradesh", category:"natural", image:"https://picsum.photos/id/1016/600/400", description:"Biodiversity hotspot in the Himalayas.", details:"Home to rare wildlife."}
         ];
 
