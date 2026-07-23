@@ -10,7 +10,7 @@ in the browser:
 
 | Mode | Data source | Notes |
 |------|-------------|-------|
-| Road | [OSRM](https://router.project-osrm.org) public demo API | Real road-network routing, free, no key. Rate-limited — see below. |
+| Road | [OSRM](http://web.archive.org/web/20180624212446/http://router.project-osrm.org:80/) public demo API | Real road-network routing, free, no key. Rate-limited — see below. |
 | Rail | Great-circle distance × 1.2 detour factor ÷ 55 km/h + 30 min overhead | Estimate only; no free Indian Railways routing API exists. |
 | Air  | Great-circle distance × 1.05 ÷ 700 km/h + 120 min overhead | Estimate only; no free flight-routing API exists. |
 
