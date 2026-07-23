@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ISRO Satellite Mission Simulator - Interactively launch Chandrayaan, Mangalyaan, Aditya-L1, and Gaganyaan missions by selecting correct launch vehicles, objectives, and trajectories.">
+    <title>ISRO Satellite Mission Simulator | Incredible India Explorer</title>
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="isro-sim-body" data-page="satellite-mission">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../../index.html#map" class="nav-link">Interactive Map</a>
+                <a href="../science/science.html" class="nav-link">Science & Space</a>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="page-padding">
+
+        <!-- Hero Section -->
+        <section class="isro-hero">
+            <div class="isro-hero-content">
+                <span class="isro-eyebrow">SPACE EXPLORATION SIMULATOR</span>
+                <h1>🚀 ISRO Satellite Mission Simulator</h1>
+                <p>Command India's historic space missions. Select launch vehicles, execute orbital maneuvers, and explore the cosmos with ISRO!</p>
+            </div>
+        </section>
+
+        <!-- Controls: Mission Selection & Difficulty -->
+        <section class="isro-config-section">
+            <div class="section-container">
+                <div class="isro-config-card">
+                    <div class="config-group">
+                        <label for="mission-select"><i class="fa-solid fa-satellite" style="color:var(--gold);"></i> Choose Mission:</label>
+                        <select id="mission-select" class="isro-select"></select>
+                    </div>
+
+                    <div class="config-group">
+                        <label for="difficulty-select"><i class="fa-solid fa-gauge-high" style="color:var(--saffron);"></i> Difficulty Level:</label>
+                        <select id="difficulty-select" class="isro-select">
+                            <option value="easy">Cadet (Guided Hints)</option>
+                            <option value="medium" selected>Flight Engineer (Standard)</option>
+                            <option value="hard">Mission Director (Strict Timing)</option>
+                        </select>
+                    </div>
+
+                    <button id="btn-start-mission" class="btn-launch-primary">
+                        <i class="fa-solid fa-rocket"></i> Configure Launch
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulator Workshop Section -->
+        <section class="isro-workshop-section">
+            <div class="section-container">
+
+                <!-- Mission Info Card -->
+                <div class="workshop-card" id="mission-overview-card">
+                    <div class="card-header-badge" id="mission-type-badge">LUNAR EXPLORATION</div>
+                    <h2 id="mission-title">Chandrayaan-3</h2>
+                    <p id="mission-desc">India's historic lunar mission that achieved a soft landing near the Moon's South Pole on August 23, 2023.</p>
+
+                    <div class="mission-specs-grid">
+                        <div class="spec-item"><span class="spec-label">Target Destination</span><span class="spec-val" id="spec-destination">Lunar South Pole</span></div>
+                        <div class="spec-item"><span class="spec-label">Payload Mass</span><span class="spec-val" id="spec-payload">3,900 kg</span></div>
+                        <div class="spec-item"><span class="spec-label">Historic Launch Date</span><span class="spec-val" id="spec-launch-date">July 14, 2023</span></div>
+                        <div class="spec-item"><span class="spec-label">Key Objective</span><span class="spec-val" id="spec-objective">Demonstrate soft landing & rover mobility</span></div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Rocket Selection Challenge -->
+                <div class="workshop-card" id="rocket-challenge-card">
+                    <h3><i class="fa-solid fa-cubes-stacked" style="color:var(--gold);"></i> Step 1: Rocket Selection Challenge</h3>
+                    <p>Choose the correct ISRO launch vehicle capable of delivering this payload to its required orbit:</p>
+                    <div class="rocket-options-grid" id="rocket-options-grid">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Step 2: Mission Timeline & Launch Control -->
+                <div class="workshop-card hidden" id="launch-control-card">
+                    <h3><i class="fa-solid fa-circle-play" style="color:var(--green);"></i> Step 2: Mission Flight Sequence</h3>
+                    <div class="timeline-visual" id="timeline-visual">
+                        <!-- Timeline stages -->
+                    </div>
+                    <div class="launch-telemetry" id="launch-telemetry">
+                        <div class="telemetry-screen">
+                            <div class="status-msg" id="telemetry-status">T-minus 10 seconds to ignition...</div>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar-fill" id="flight-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="btn-execute-launch" class="btn-execute-launch">
+                        <i class="fa-solid fa-play"></i> Initiate Launch Countdown
+                    </button>
+                </div>
+
+                <!-- Step 3: Educational Facts & Results Card -->
+                <div class="workshop-card hidden" id="mission-result-card">
+                    <div class="result-icon-wrap" id="result-icon-wrap"><i class="fa-solid fa-circle-check"></i></div>
+                    <h2 id="result-title">Mission Success!</h2>
+                    <p id="result-message">Payload successfully deployed into target orbit.</p>
+
+                    <div class="educational-facts-box" id="educational-facts-box">
+                        <h4><i class="fa-solid fa-graduation-cap"></i> Key Educational Fact:</h4>
+                        <p id="fact-text">With Chandrayaan-3, India became the 4th country to soft-land on the Moon and the 1st to land near the lunar South Pole.</p>
+                    </div>
+
+                    <button id="btn-retry-mission" class="btn-retry">
+                        <i class="fa-solid fa-rotate-left"></i> Run Another Mission
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>Saluting ISRO's stellar achievements in space technology and scientific research.</p>
+            </div>
+        </div>
+        <div class="footer-credits">
+            <p>&copy; 2026 Incredible India Explorer. Pure Vanilla Web Technologies.</p>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js" defer></script>
+</body>
+</html>
