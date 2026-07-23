@@ -9,7 +9,7 @@ Welcome to the **Incredible India Explorer**—an immersive, interactive digital
 - [💡 The Idea Behind This](#-the-idea-behind-this)
 - [✨ Features](#-features)
 - [🚀 Getting Started](#-getting-started)
-- [Demo](#demo)
+- [Demo](#demo-link)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 
