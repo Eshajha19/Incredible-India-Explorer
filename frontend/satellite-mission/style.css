@@ -1,0 +1,338 @@
+/* ==========================================================================
+   ISRO Satellite Mission Simulator Stylesheet
+   ========================================================================== */
+
+:root {
+    --isro-saffron: #ff9933;
+    --isro-gold: #ffb703;
+    --isro-cyan: #00f0ff;
+    --isro-green: #10b981;
+    --isro-bg: #070b19;
+    --isro-card-bg: rgba(15, 23, 42, 0.7);
+    --isro-border: rgba(0, 240, 255, 0.2);
+    --isro-text: #f8fafc;
+    --isro-muted: #94a3b8;
+}
+
+body.light-theme {
+    --isro-bg: #f0f4f8;
+    --isro-card-bg: #ffffff;
+    --isro-border: rgba(0, 150, 255, 0.2);
+    --isro-text: #0f172a;
+    --isro-muted: #475569;
+}
+
+.isro-sim-body {
+    background-color: var(--isro-bg);
+    color: var(--isro-text);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+}
+
+.page-padding {
+    padding-top: 90px;
+    padding-bottom: 50px;
+}
+
+.isro-hero {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+    background: radial-gradient(circle at top, rgba(0, 240, 255, 0.15), transparent 70%);
+}
+
+.isro-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--isro-cyan);
+}
+
+.isro-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.7rem;
+    margin: 10px 0;
+}
+
+.isro-hero p {
+    color: var(--isro-muted);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.isro-config-card {
+    background: var(--isro-card-bg);
+    border: 1px solid var(--isro-border);
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.config-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.config-group label {
+    font-weight: 600;
+}
+
+.isro-select {
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--isro-border);
+    color: var(--isro-text);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-launch-primary {
+    background: linear-gradient(135deg, var(--isro-saffron), var(--isro-gold));
+    color: #000;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    align-self: flex-end;
+}
+
+.btn-launch-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.4);
+}
+
+.isro-workshop-section {
+    margin-top: 30px;
+}
+
+.workshop-card {
+    background: var(--isro-card-bg);
+    border: 1px solid var(--isro-border);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.workshop-card.hidden {
+    display: none;
+}
+
+.card-header-badge {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: rgba(0, 240, 255, 0.15);
+    border: 1px solid var(--isro-cyan);
+    color: var(--isro-cyan);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.mission-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.spec-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--isro-muted);
+}
+
+.spec-val {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--isro-text);
+    margin-top: 4px;
+}
+
+/* Rocket options */
+.rocket-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.rocket-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid var(--isro-border);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.rocket-card:hover {
+    border-color: var(--isro-cyan);
+    transform: translateY(-3px);
+}
+
+.rocket-card.selected {
+    border-color: var(--isro-gold);
+    background: rgba(255, 183, 3, 0.15);
+}
+
+.rocket-card i {
+    font-size: 2.2rem;
+    color: var(--isro-saffron);
+    margin-bottom: 10px;
+}
+
+.rocket-card h4 {
+    margin: 8px 0;
+    font-size: 1.2rem;
+}
+
+.rocket-card p {
+    font-size: 0.9rem;
+    color: var(--isro-muted);
+}
+
+/* Timeline & Telemetry */
+.timeline-visual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.timeline-visual::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #334155;
+    z-index: 1;
+}
+
+.stage-node {
+    position: relative;
+    z-index: 2;
+    background: var(--isro-bg);
+    border: 2px solid #334155;
+    color: var(--isro-muted);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.stage-node.active {
+    border-color: var(--isro-cyan);
+    color: var(--isro-cyan);
+    background: rgba(0, 240, 255, 0.1);
+}
+
+.stage-node.completed {
+    border-color: var(--isro-green);
+    color: var(--isro-green);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.telemetry-screen {
+    background: #000;
+    border: 1px solid var(--isro-cyan);
+    border-radius: 12px;
+    padding: 20px;
+    font-family: monospace;
+    color: var(--isro-cyan);
+    margin-bottom: 20px;
+}
+
+.progress-bar-wrap {
+    height: 10px;
+    background: #1e293b;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--isro-cyan), var(--isro-green));
+    transition: width 0.3s ease;
+}
+
+.btn-execute-launch {
+    background: var(--isro-green);
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-execute-launch:hover {
+    background: #059669;
+}
+
+/* Result Card */
+.result-icon-wrap {
+    font-size: 3.5rem;
+    color: var(--isro-green);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.educational-facts-box {
+    background: rgba(255, 183, 3, 0.1);
+    border-left: 4px solid var(--isro-gold);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.educational-facts-box h4 {
+    margin-top: 0;
+    color: var(--isro-gold);
+}
+
+.btn-retry {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--isro-border);
+    color: var(--isro-text);
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .isro-config-card {
+        flex-direction: column;
+    }
+    .timeline-visual {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
