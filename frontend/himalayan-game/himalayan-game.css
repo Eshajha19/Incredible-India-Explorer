@@ -1,0 +1,330 @@
+.expedition-main {
+    padding-top: 80px;
+    min-height: calc(100vh - 80px);
+    background: url('https://source.unsplash.com/1920x1080/?himalayas,mountains,snow') center/cover fixed;
+}
+
+.game-wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    height: calc(100vh - 120px);
+}
+
+@media (max-width: 1024px) {
+    .game-wrapper {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+}
+
+.game-panel {
+    background: rgba(15, 20, 30, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.panel-heading {
+    color: #fff;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Resources */
+.resource-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.resource-item {
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 8px;
+}
+.resource-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.bar-bg {
+    width: 100%;
+    height: 12px;
+    background: #333;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.bar-fill {
+    height: 100%;
+    width: 100%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+.bar-fill.blue { background: #0984e3; }
+.bar-fill.green { background: #00b894; }
+.bar-fill.orange { background: #e17055; }
+.bar-fill.red { background: #d63031; }
+
+.bar-fill.critical {
+    animation: blinkCritical 1s infinite;
+}
+
+@keyframes blinkCritical {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; background: #ff0000; }
+    100% { opacity: 1; }
+}
+
+/* Weather */
+.weather-box {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+.weather-title {
+    font-size: 1rem;
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+.weather-status {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.weather-status.clear { color: #81ecec; }
+.weather-status.snow { color: #dfe6e9; }
+.weather-status.blizzard { color: #74b9ff; animation: shakeText 0.5s infinite; }
+.weather-status.avalanche { color: #ff7675; animation: shakeText 0.2s infinite; }
+
+@keyframes shakeText {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* Actions */
+.actions-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.action-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+}
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.btn-climb { background: #0984e3; }
+.btn-climb:hover:not(:disabled) { background: #74b9ff; }
+.btn-rest { background: #00b894; }
+.btn-rest:hover:not(:disabled) { background: #55efc4; }
+.btn-item { background: #e17055; }
+.btn-item:hover:not(:disabled) { background: #fab1a0; }
+
+/* Mountain Visual */
+.center-panel {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.mountain-view-container {
+    flex: 2;
+    position: relative;
+    background: linear-gradient(to bottom, #192a56, #2f3640);
+    overflow: hidden;
+}
+.mountain-graphic {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 80%;
+}
+.mountain-peak {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 400px solid #7f8fa6;
+}
+.mountain-peak::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: -50px;
+    width: 0; 
+    height: 0; 
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #f5f6fa; /* snow cap */
+}
+
+.climber-marker {
+    position: absolute;
+    left: 50%;
+    bottom: 10%; /* starts at bottom */
+    transform: translateX(-50%);
+    font-size: 2rem;
+    transition: bottom 1s ease-in-out;
+    z-index: 5;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+.altitude-label {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+.target-line {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    border-top: 2px dashed #f1c40f;
+    text-align: right;
+    padding-right: 10px;
+    color: #f1c40f;
+    font-weight: bold;
+    z-index: 4;
+}
+
+/* Weather Layer */
+.weather-layer {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.weather-layer.blizzard {
+    opacity: 1;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="10" cy="10" r="2" fill="white"/><circle cx="50" cy="50" r="3" fill="white"/><circle cx="80" cy="20" r="1.5" fill="white"/></svg>') repeat;
+    animation: snowFall 0.5s linear infinite;
+}
+@keyframes snowFall {
+    0% { background-position: 0 0; }
+    100% { background-position: -100px 100px; }
+}
+
+/* Log */
+.log-container {
+    flex: 1;
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.log-title {
+    color: #f1c40f;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+.game-log {
+    flex: 1;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.log-entry {
+    padding: 4px 8px;
+    border-left: 3px solid #ccc;
+    background: rgba(255,255,255,0.05);
+}
+.log-entry.sys { border-left-color: #f1c40f; color: #f1c40f; }
+.log-entry.warn { border-left-color: #e17055; color: #fab1a0; }
+.log-entry.danger { border-left-color: #d63031; color: #ff7675; }
+.log-entry.success { border-left-color: #00b894; color: #55efc4; }
+
+/* Right Panel */
+.peak-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.peak-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+}
+.peak-btn:hover:not(.locked) {
+    background: rgba(255,255,255,0.2);
+}
+.peak-btn.selected {
+    border-color: #f1c40f;
+    background: rgba(241, 196, 15, 0.1);
+}
+.peak-btn.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+.peak-btn strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
+
+.game-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.start-btn { flex: 1; }
+.abandon-btn { flex: 1; }
+
+.stats-box {
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 8px;
+}
+.stats-box h4 {
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+.stats-box p {
+    margin-bottom: 5px;
+}
+
+.survival-modal {
+    max-width: 400px;
+    text-align: center;
+}
+.modal-icon {
+    font-size: 4rem;
+    margin: 10px 0;
+}
+.final-stats p { margin: 10px 0; font-size: 1.1rem; }

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Himalayan Expedition Survival Game.">
+    <title>Himalayan Expedition | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="himalayan-game.css">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="adventure.html" class="nav-link">Adventure</a>
+                <a href="himalayan-game.html" class="nav-link">Expedition Game</a>
+                <button id="theme-toggle" class="btn-theme-toggle">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="expedition-main">
+        <div class="game-wrapper">
+            
+            <!-- Left Panel: Resources & Actions -->
+            <aside class="game-panel left-panel glass-card">
+                <h2 class="panel-heading">Expedition Status</h2>
+                
+                <div class="resource-group">
+                    <div class="resource-item">
+                        <div class="resource-label">
+                            <span>💨 Oxygen</span>
+                            <span id="val-oxygen">100%</span>
+                        </div>
+                        <div class="bar-bg"><div id="bar-oxygen" class="bar-fill blue"></div></div>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-label">
+                            <span>⚡ Stamina</span>
+                            <span id="val-stamina">100%</span>
+                        </div>
+                        <div class="bar-bg"><div id="bar-stamina" class="bar-fill green"></div></div>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-label">
+                            <span>🍲 Food</span>
+                            <span id="val-food">100%</span>
+                        </div>
+                        <div class="bar-bg"><div id="bar-food" class="bar-fill orange"></div></div>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-label">
+                            <span>🌡️ Body Temp</span>
+                            <span id="val-temp">100%</span>
+                        </div>
+                        <div class="bar-bg"><div id="bar-temp" class="bar-fill red"></div></div>
+                    </div>
+                </div>
+
+                <div class="weather-box" id="weather-box">
+                    <h3 class="weather-title">Weather Report</h3>
+                    <div id="weather-status" class="weather-status clear">☀️ Clear Skies</div>
+                    <p id="weather-desc" class="weather-desc">Perfect conditions for climbing.</p>
+                </div>
+
+                <div class="actions-group">
+                    <h3 class="actions-title">Actions</h3>
+                    <button id="btn-climb" class="action-btn btn-climb" disabled>🧗‍♂️ Climb</button>
+                    <button id="btn-rest" class="action-btn btn-rest" disabled>⛺ Rest (Restore Stamina)</button>
+                    <button id="btn-eat" class="action-btn btn-item" disabled>🥪 Eat Food (+Food, +Temp)</button>
+                </div>
+            </aside>
+
+            <!-- Center Panel: Mountain Visual & Progress -->
+            <section class="game-panel center-panel glass-card">
+                <div class="mountain-view-container" id="mountain-view">
+                    <div class="weather-layer" id="weather-layer"></div>
+                    
+                    <div class="mountain-graphic">
+                        <!-- Abstract mountain shape -->
+                        <div class="mountain-peak"></div>
+                        <div class="mountain-base"></div>
+                    </div>
+                    
+                    <div class="climber-marker" id="climber-marker">
+                        🧗
+                        <div class="altitude-label"><span id="lbl-altitude">0</span>m</div>
+                    </div>
+                    
+                    <div class="target-line" id="target-line">
+                        <span id="lbl-target-alt">8586</span>m (Summit)
+                    </div>
+                </div>
+                
+                <div class="log-container">
+                    <h3 class="log-title">Expedition Log</h3>
+                    <div id="game-log" class="game-log">
+                        <div class="log-entry sys">Welcome to the Himalayas. Select a peak to begin.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Peak Selection & Stats -->
+            <aside class="game-panel right-panel glass-card">
+                <h2 class="panel-heading">Target Peak</h2>
+                <div id="peak-selector" class="peak-selector">
+                    <!-- Peaks injected by JS -->
+                </div>
+                
+                <div class="game-controls">
+                    <button id="btn-start" class="btn btn-primary start-btn" disabled>Start Expedition</button>
+                    <button id="btn-abandon" class="btn btn-secondary abandon-btn hidden">Abandon</button>
+                </div>
+                
+                <div class="stats-box">
+                    <h4>Current Peak Details</h4>
+                    <p><strong>Name:</strong> <span id="stat-name">-</span></p>
+                    <p><strong>Altitude:</strong> <span id="stat-alt">-</span></p>
+                    <p><strong>Difficulty:</strong> <span id="stat-diff">-</span></p>
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="game-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-card survival-modal">
+            <h2 id="modal-title">Expedition Failed</h2>
+            <div class="modal-body">
+                <div id="modal-icon" class="modal-icon">💀</div>
+                <p id="modal-message" class="modal-message">You succumbed to the harsh environment.</p>
+                
+                <div class="final-stats hidden" id="final-stats">
+                    <p>You summited <strong id="summit-name">Peak</strong>!</p>
+                    <p>Final Altitude: <span id="summit-alt">0</span>m</p>
+                    <p id="unlock-message" class="highlight"></p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="btn-retry" class="btn btn-primary">Try Again</button>
+                <a href="adventure.html" class="btn btn-secondary">Return</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="pages-common.js" defer></script>
+    <script type="module" src="himalayan-game.js"></script>
+</body>
+</html>
