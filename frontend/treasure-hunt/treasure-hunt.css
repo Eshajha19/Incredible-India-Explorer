@@ -1,0 +1,240 @@
+.th-main {
+    padding-top: 80px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url('https://picsum.photos/id/1050/1920/1080') center/cover no-repeat;
+    position: relative;
+}
+.th-main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 0;
+}
+.th-layout {
+    display: flex;
+    flex: 1;
+    z-index: 1;
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Panels */
+.th-panel {
+    width: 300px;
+    background: rgba(20, 20, 30, 0.85);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    color: white;
+}
+.panel-header h2 {
+    color: var(--primary-gold);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+/* Left Panel */
+.th-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.clue-box {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    border-left: 4px solid var(--primary-gold);
+    margin-bottom: 20px;
+}
+.hint-section {
+    margin-bottom: 30px;
+}
+.hint-text {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #f39c12;
+    background: rgba(243, 156, 18, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+}
+.leaderboard-section {
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Center Map */
+.th-map-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
+}
+.map-wrapper {
+    position: relative;
+    width: 500px;
+    height: 600px;
+    /* Outline shape of India approximation just for visual bounding */
+    border: 2px dashed rgba(255,255,255,0.1);
+    border-radius: 20px;
+}
+.state-nodes-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+.state-node {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.state-node:hover {
+    background: var(--primary-gold);
+    transform: translate(-50%, -50%) scale(1.5);
+    box-shadow: 0 0 15px var(--primary-gold);
+    z-index: 10;
+}
+.state-node::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: 100%; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+.state-node:hover::after {
+    opacity: 1;
+}
+.state-node.unlocked {
+    background: #2ed573;
+    border-color: #2ed573;
+    pointer-events: none;
+    box-shadow: 0 0 10px #2ed573;
+}
+.state-node.hint-highlight {
+    animation: pulse-hint 1.5s infinite;
+}
+@keyframes pulse-hint {
+    0% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(243, 156, 18, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); }
+}
+
+.map-feedback {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    animation: fadeOutUp 1s forwards;
+    pointer-events: none;
+}
+.map-feedback.correct { background: rgba(46, 213, 115, 0.9); color: white; }
+.map-feedback.wrong { background: rgba(255, 71, 87, 0.9); color: white; }
+
+@keyframes fadeOutUp {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -20px); }
+}
+
+/* Right Panel: Passport */
+.passport-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    flex: 1;
+    align-content: start;
+}
+.stamp-slot {
+    aspect-ratio: 1;
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.stamp-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(0.5) rotate(-20deg);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.stamp-slot.stamped .stamp-img {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}
+.stamp-slot.stamped {
+    border-style: solid;
+    border-color: var(--primary-gold);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+/* Modals */
+.th-modal {
+    text-align: center;
+    max-width: 500px;
+}
+.state-name {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.monument-reveal {
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.monument-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.final-stats {
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+.hidden { display: none !important; }

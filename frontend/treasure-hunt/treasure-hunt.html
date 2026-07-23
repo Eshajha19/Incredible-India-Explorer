@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Map Clue & Treasure Hunt Game">
+    <title>Treasure Hunt | Incredible India Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="treasure-hunt.css">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="culture.html" class="nav-link">Culture</a>
+                <a href="treasure-hunt.html" class="nav-link">Treasure Hunt</a>
+                <button id="theme-toggle" class="btn-theme-toggle">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="th-main">
+        <div class="th-layout">
+            
+            <!-- Left Panel: Clues & Controls -->
+            <aside class="th-panel th-clue-panel glass-card">
+                <div class="panel-header">
+                    <h2>Riddle <span id="riddle-number">1</span>/<span id="total-riddles">5</span></h2>
+                </div>
+                
+                <div class="th-stats">
+                    <div class="stat">Score: <span id="th-score" class="gold">5000</span></div>
+                    <div class="stat">Time: <span id="th-time" class="green">00:00</span></div>
+                </div>
+
+                <div class="clue-box">
+                    <p id="th-clue-text" class="clue-text">Loading riddle...</p>
+                </div>
+
+                <div class="hint-section">
+                    <button id="btn-hint" class="btn btn-secondary">Use Hint (<span id="hints-left">3</span> Left)</button>
+                    <p id="hint-text" class="hint-text hidden"></p>
+                </div>
+                
+                <div class="leaderboard-section">
+                    <h3>🏆 Local Top Score</h3>
+                    <p id="top-score-display">0 pts (00:00)</p>
+                </div>
+            </aside>
+
+            <!-- Center Panel: Interactive Map -->
+            <section class="th-map-container">
+                <div class="map-wrapper" id="map-wrapper">
+                    <!-- We will use absolute positioned nodes resembling the map of India -->
+                    <!-- In a full prod app this would be an SVG. Here we use stylized node points for states -->
+                    <div id="state-nodes-container" class="state-nodes-container">
+                        <!-- Nodes injected by JS -->
+                    </div>
+                </div>
+                <div class="map-feedback hidden" id="map-feedback"></div>
+            </section>
+
+            <!-- Right Panel: Passport -->
+            <aside class="th-panel th-passport-panel glass-card">
+                <div class="panel-header">
+                    <h2>Virtual Passport</h2>
+                </div>
+                <div class="passport-grid" id="passport-grid">
+                    <!-- Stamps injected by JS -->
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Correct Guess Modal -->
+    <div id="correct-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-card th-modal">
+            <h2 class="saffron">State Unlocked!</h2>
+            <h3 id="modal-state-name" class="state-name">State Name</h3>
+            
+            <div class="monument-reveal">
+                <img id="modal-monument-img" src="" alt="Monument" class="monument-img">
+                <h4 id="modal-monument-name" class="gold">Monument Name</h4>
+                <p id="modal-monument-desc"></p>
+            </div>
+            
+            <button id="btn-next-clue" class="btn btn-primary">Next Riddle ➔</button>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-card th-modal">
+            <h2 class="green">Treasure Hunt Complete!</h2>
+            <p>You have successfully mapped the national treasures.</p>
+            
+            <div class="final-stats">
+                <div class="fs-item">Final Score: <strong id="fs-score" class="gold">0</strong></div>
+                <div class="fs-item">Time Taken: <strong id="fs-time">00:00</strong></div>
+                <div class="fs-item">Hints Used: <strong id="fs-hints">0</strong></div>
+            </div>
+            
+            <button id="btn-play-again" class="btn btn-primary" style="margin-top: 20px;">Play Again</button>
+        </div>
+    </div>
+
+    <script src="pages-common.js" defer></script>
+    <script type="module" src="treasure-hunt.js"></script>
+</body>
+</html>
