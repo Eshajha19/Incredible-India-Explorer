@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { heritageThreats, getFilteredThreats } from '../../heritage-threats.js';
+import { heritageThreats, getFilteredThreats } from '../../frontend/heritage-threats/heritage-threats.js';
 
 describe('Heritage Threat Monitor', () => {
     it('contains minimum 10 endangered heritage sites with complete fields', () => {

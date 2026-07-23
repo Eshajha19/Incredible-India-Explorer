@@ -12,7 +12,7 @@ import {
   groupBridgesByState,
   getUniqueStates,
   getUniqueTypes
-} from '../../bridges.js';
+} from '../../frontend/bridges/bridges.js';
 
 const REQUIRED_FIELDS = [
   'id',

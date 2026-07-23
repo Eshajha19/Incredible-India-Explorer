@@ -1,6 +1,6 @@
 // travel-recommend.js
 // -----------------------------------------------------------------------------
-// AI-powered (rule-based) travel recommendation engine for travel.html.
+// AI-powered (rule-based) travel recommendation engine for frontend/travel/travel.html.
 // Implements issue #185: personalized + budget/season-aware destination
 // recommendations, with human-readable explanations and "similar destination"
 // suggestions — no backend required.

@@ -1,6 +1,6 @@
 /* ==========================================================================
    NEW PAGES - SHARED APPLICATION LOGIC
-   Common to: rivers.html, currency-history.html, tribes.html
+   Common to: rivers.html, currency-history.html, frontend/tribes/frontend/tribes/tribes.html
    Pure Vanilla JavaScript - no external dependencies.
    ========================================================================== */
 
@@ -640,9 +640,9 @@ function initTribesPage() {
 
 /* ==========================================================================
    2. EVOLUTION OF CURRENCY (COINS) PAGE
-   Appended for coin.html. Rendered independently of the app:route-changed
+   Appended for frontend/coin/coin.html. Rendered independently of the app:route-changed
    dispatcher above (this site's real navbar/footer come from app.js, which
-   does not fire that event) — coin.html calls initCoinsPage() itself on
+   does not fire that event) — frontend/coin/frontend/coin/coin.html calls initCoinsPage() itself on
    DOMContentLoaded.
    ========================================================================== */
  
@@ -863,7 +863,7 @@ function initCoinsPage() {
  
 /* ==========================================================================
    3. RIVERS OF INDIA PAGE
-   Appended for river.html. river.html includes app.js/data.js itself for the
+   Appended for frontend/river/river.html. frontend/river/frontend/river/river.html includes app.js/data.js itself for the
    real site navbar/footer, so this file only needs to boot the rivers page
    content — it does not rely on the app:route-changed dispatcher above.
    ========================================================================== */
@@ -1202,7 +1202,7 @@ function initRiversPage() {
     renderCards();
 }
 
-/* river.html loads its real navbar/footer via app.js (like the rest of the
+/* frontend/river/frontend/river/river.html loads its real navbar/footer via app.js (like the rest of the
    site), so this page boots itself directly on DOMContentLoaded rather than
    waiting on the app:route-changed event used by the dispatcher above. */
 document.addEventListener('DOMContentLoaded', () => {

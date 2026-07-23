@@ -10,7 +10,7 @@ const bharatKnowledgeBase = [
     },
     {
         keywords: ["taj mahal", "agra", "monument of love"],
-        response: "The Taj Mahal, located in Agra, Uttar Pradesh, is a UNESCO World Heritage site and one of the New Seven Wonders of the World. Built by Mughal Emperor Shah Jahan... <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/monuments.html#taj-mahal\">Yes, take me there!</button>"
+        response: "The Taj Mahal, located in Agra, Uttar Pradesh, is a UNESCO World Heritage site and one of the New Seven Wonders of the World. Built by Mughal Emperor Shah Jahan... <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/frontend/monuments/monuments.html#taj-mahal\">Yes, take me there!</button>"
     },
     {
         keywords: ["food", "cuisine", "eat", "dish", "meal"],
@@ -85,7 +85,7 @@ const contextualData = {
         scopedResponses: [
             {
                 keywords: ["tiger", "bengal", "ranthambore", "corbett"],
-                response: "The Royal Bengal Tiger is India's national animal. Ranthambore and Jim Corbett are among the best places to spot them in the wild! Would you like to explore Ranthambore? <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/wildlife.html#ranthambore\">Explore Ranthambore</button>"
+                response: "The Royal Bengal Tiger is India's national animal. Ranthambore and Jim Corbett are among the best places to spot them in the wild! Would you like to explore Ranthambore? <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/frontend/wildlife/wildlife.html#ranthambore\">Explore Ranthambore</button>"
             }
         ]
     },
@@ -99,7 +99,7 @@ const contextualData = {
         scopedResponses: [
             {
                 keywords: ["jantar mantar", "observatory", "telescope"],
-                response: "Jantar Mantar in Jaipur is an astronomical observation site built in the early 18th century. It includes a set of some 20 main fixed instruments designed for the observation of astronomical positions with the naked eye! <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/astronomy.html#jantar-mantar\">See Jantar Mantar</button>"
+                response: "Jantar Mantar in Jaipur is an astronomical observation site built in the early 18th century. It includes a set of some 20 main fixed instruments designed for the observation of astronomical positions with the naked eye! <br><br><button class=\"chat-action-btn btn-primary\" style=\"margin-top: 10px; padding: 5px 10px; font-size: 0.9em; border-radius: 5px; cursor: pointer;\" data-target=\"/frontend/astronomy/astronomy.html#jantar-mantar\">See Jantar Mantar</button>"
             },
             {
                 keywords: ["aryabhata", "ancient", "mathematician"],

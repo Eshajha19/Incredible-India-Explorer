@@ -6,7 +6,7 @@ const {
   formatDistance,
   formatDuration,
   buildCacheKey,
-} = require("./route-planner.js");
+} = require("./../frontend/route-planner/route-planner.js");
 
 let passed = 0;
 function test(name, fn) {
@@ -26,7 +26,7 @@ const agra = { id: "agra", lat: 27.1767, lng: 78.0081 };
 const jaipur = { id: "jaipur", lat: 26.9124, lng: 75.7873 };
 const mumbai = { id: "mumbai", lat: 19.0760, lng: 72.8777 };
 
-console.log("route-planner.js unit tests");
+console.log("../frontend/route-planner/route-planner.js unit tests");
 
 test("haversineDistanceKm: Delhi to Agra is roughly 200km", () => {
   const d = haversineDistanceKm(delhi, agra);

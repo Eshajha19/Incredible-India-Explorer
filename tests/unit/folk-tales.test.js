@@ -14,7 +14,7 @@ import {
   getUniqueStates,
   getUniqueCategories,
   getUniqueRegions
-} from '../../folk-tales.js';
+} from '../../frontend/folk-tales/folk-tales.js';
 
 const REQUIRED_FIELDS = [
   'id',

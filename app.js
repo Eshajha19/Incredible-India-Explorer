@@ -242,56 +242,56 @@ function initNavigation() {
         }
     });
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="dance.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/dance/dance.html"]')) {
         const danceLink = document.createElement('a');
-        danceLink.href = 'dance.html';
+        danceLink.href = 'frontend/dance/dance.html';
         danceLink.className = 'dropdown-item';
         danceLink.textContent = 'Dance';
-        if (currentPath.includes('dance.html')) {
+        if (currentPath.includes('frontend/dance/dance.html')) {
             danceLink.classList.add('active');
         }
         exploreDropdown.appendChild(danceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="sports.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/sports/sports.html"]')) {
         const sportsLink = document.createElement('a');
-        sportsLink.href = 'sports.html';
+        sportsLink.href = 'frontend/sports/sports.html';
         sportsLink.className = 'dropdown-item';
         sportsLink.textContent = 'Sports';
-        if (currentPath.includes('sports.html')) {
+        if (currentPath.includes('frontend/sports/sports.html')) {
             sportsLink.classList.add('active');
         }
         exploreDropdown.appendChild(sportsLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="science.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/science/science.html"]')) {
         const scienceLink = document.createElement('a');
-        scienceLink.href = 'science.html';
+        scienceLink.href = 'frontend/science/science.html';
         scienceLink.className = 'dropdown-item';
         scienceLink.textContent = 'Science';
-        if (currentPath.includes('science.html')) {
+        if (currentPath.includes('frontend/science/science.html')) {
             scienceLink.classList.add('active');
         }
         exploreDropdown.appendChild(scienceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="music.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/music/music.html"]')) {
         const musicLink = document.createElement('a');
-        musicLink.href = 'music.html';
+        musicLink.href = 'frontend/music/music.html';
         musicLink.className = 'dropdown-item';
         musicLink.textContent = 'Music';
-        if (currentPath.includes('music.html')) {
+        if (currentPath.includes('frontend/music/music.html')) {
             musicLink.classList.add('active');
         }
         exploreDropdown.appendChild(musicLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="literature.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/literature/literature.html"]')) {
         const literatureLink = document.createElement('a');
-        literatureLink.href = 'literature.html';
+        literatureLink.href = 'frontend/literature/literature.html';
         literatureLink.className = 'dropdown-item';
         literatureLink.textContent = 'Literature';
-        if (currentPath.includes('literature.html')) {
+        if (currentPath.includes('frontend/literature/literature.html')) {
             literatureLink.classList.add('active');
         }
         exploreDropdown.appendChild(literatureLink);
@@ -823,7 +823,7 @@ function initInteractiveMap() {
                     <strong>Key Fact:</strong> ${metricsA.fact}
                 </div>
                 
-                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('state.html?state=${stateA.id}', true) : window.location.href='state.html?state=${stateA.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
+                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('frontend/state/state.html?state=${stateA.id}', true) : window.location.href='frontend/state/state.html?state=${stateA.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
             `;
 
             colB.innerHTML = `
@@ -843,7 +843,7 @@ function initInteractiveMap() {
                     <strong>Key Fact:</strong> ${metricsB.fact}
                 </div>
                 
-                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('state.html?state=${stateB.id}', true) : window.location.href='state.html?state=${stateB.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
+                <button class="btn btn-primary" onclick="window.appRouter ? window.appRouter.handleRoute('frontend/state/state.html?state=${stateB.id}', true) : window.location.href='frontend/state/state.html?state=${stateB.id}'" style="font-size:0.9rem; padding:8px 18px;">Explore Full Page</button>
             `;
         }
 
@@ -871,7 +871,7 @@ function initInteractiveMap() {
     // View More Button Trigger - Navigate to individual state page via SPA router or standard href
     viewMoreBtn?.addEventListener('click', () => {
         const currentId = viewMoreBtn.getAttribute('data-active-id');
-        const targetPath = `state.html?state=${currentId}`;
+        const targetPath = `frontend/state/state.html?state=${currentId}`;
         if (window.appRouter && typeof window.appRouter.handleRoute === 'function') {
             window.appRouter.handleRoute(targetPath, true);
         } else {
@@ -1160,7 +1160,7 @@ function initFestivals() {
 
         // Click festival to navigate to the detailed festivals page
         card.addEventListener('click', () => {
-            window.location.href = 'festivals.html';
+            window.location.href = 'frontend/festivals/festivals.html';
         });
 
         festivalTimeline.appendChild(card);
@@ -5221,7 +5221,7 @@ function initStartupPage() {
             const item = startupData.find((s) => s.id === startupId);
             window.Journey?.saveToJourney({
                 id: `startup-${startupId}`,
-                explorerPage: 'startup.html',
+                explorerPage: 'frontend/startup/startup.html',
                 title: item ? item.name : `Startup #${startupId}`,
                 thumbnail: item ? (item.logo || '') : '',
                 category: item ? (item.category || 'startup') : 'startup'
@@ -5236,25 +5236,25 @@ function initStartupPage() {
         renderAll();
     }
 
-    // Favorites now live in the shared "My Journey" store (see journey.js).
+    // Favorites now live in the shared "My Journey" store (see frontend/journey/journey.js).
     // This reads that shared store and pulls out just the startup ids so
     // the rest of this page's logic (Set of ids) doesn't have to change.
     function loadFavorites() {
         if (!window.Journey) return [];
         return window.Journey.getJourney()
-            .filter((item) => item.explorerPage === 'startup.html')
+            .filter((item) => item.explorerPage === 'frontend/startup/startup.html')
             .map((item) => item.id.replace(/^startup-/, ''));
     }
 
     // Registers this page's bookmarkable items with the site-wide,
-    // cross-explorer search index (see journey.js / Journey.search).
+    // cross-explorer search index (see frontend/journey/frontend/journey/journey.js / Journey.search).
     function registerStartupSearchIndex() {
         if (!window.Journey) return;
-        window.Journey.registerSearchItems('startup.html', startupData.map((item) => ({
+        window.Journey.registerSearchItems('frontend/startup/startup.html', startupData.map((item) => ({
             id: `startup-${item.id}`,
             title: item.name,
             description: item.description || item.focus || '',
-            link: 'startup.html'
+            link: 'frontend/startup/startup.html'
         })));
     }
 

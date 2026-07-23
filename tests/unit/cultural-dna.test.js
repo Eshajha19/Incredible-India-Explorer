@@ -15,7 +15,7 @@ import {
   getUniqueRegions,
   buildJourneyFlow,
   presetJourneys
-} from '../../cultural-dna.js';
+} from '../../frontend/cultural-dna/cultural-dna.js';
 
 const REQUIRED_NODE_FIELDS = [
   'id',

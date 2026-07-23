@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" id="meta-description">
+    <title id="page-title">State | Incredible India</title>
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        img-src 'self' https: data: blob:;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src 'self';
+        media-src 'self' https:;
+        worker-src 'self';
+        frame-src 'self';
+    ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="state-page-body">
+
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine/cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals/festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">Learn & Data ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="../learn/learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+                <a href="../premium/premium.html" class="nav-link" style="color: var(--gold); font-weight: bold;">★ Premium</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-padding">
+        <section class="sub-hero state-hero">
+            <video autoplay muted loop playsinline class="hero-video" id="hero-video">
+                <source src="" type="video/mp4" id="hero-video-source">
+            </video>
+            <div class="sub-hero-overlay"></div>
+            <div class="sub-hero-content animate-slide-up">
+                <span class="sub-hero-badge gold-bg">State</span>
+                <h1 id="state-name-heading"></h1>
+                <p id="state-description"></p>
+            </div>
+        </section>
+
+        <section class="state-intro-section fade-in-section">
+            <div class="section-container">
+                <div class="state-stats-grid" id="state-stats-grid">
+                    <div class="stat-card glass-card animate-fade-in">
+                        <div class="stat-icon">🏛️</div>
+                        <div class="stat-content">
+                            <h3>Capital</h3>
+                            <p class="gold" id="stat-capital"></p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card animate-fade-in-delayed">
+                        <div class="stat-icon">🍛</div>
+                        <div class="stat-content">
+                            <h3>Signature Dish</h3>
+                            <p class="gold" id="stat-food"></p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card animate-fade-in-delayed-more">
+                        <div class="stat-icon">🎉</div>
+                        <div class="stat-content">
+                            <h3>Festival</h3>
+                            <p class="gold" id="stat-festival"></p>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-card animate-fade-in-delayed-2">
+                        <div class="stat-icon">🗓️</div>
+                        <div class="stat-content">
+                            <h3>Best Time to Visit</h3>
+                            <p class="gold" id="stat-best-time"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="state-map-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Geographic Location</span>
+                    <h2 id="map-section-title">Explore on Map</h2>
+                    <p class="section-subtitle" id="map-section-subtitle">Interactive map showing the boundaries and location within India.</p>
+                </div>
+                <div class="state-map-container glass-card">
+                    <div id="state-svg-wrapper">
+                        <svg viewBox="0 0 612 696" class="state-individual-svg">
+                            <path id="state-svg-path" d="" />
+                        </svg>
+                    </div>
+                    <div class="state-map-overlay">
+                        <button class="btn btn-primary" id="btn-full-story">🔍 View Full Story</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="state-attractions-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Must-Visit Places</span>
+                    <h2 id="attractions-section-title">Top Attractions</h2>
+                    <p class="section-subtitle" id="attractions-section-subtitle">Popular tourist spots and landmarks worth exploring.</p>
+                </div>
+                <div class="state-attractions-list" id="state-attractions-list">
+                </div>
+            </div>
+        </section>
+
+        <section class="state-story-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Cultural Journey</span>
+                    <h2 id="story-section-title">Discover</h2>
+                    <p class="section-subtitle" id="story-section-subtitle">Immerse yourself in the rich heritage.</p>
+                </div>
+                <div class="state-story-timeline" id="state-story-timeline">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="story-overlay" id="state-story-overlay">
+        <div class="story-controls-header">
+            <button class="story-back-btn" id="state-story-back-btn">
+                <span class="arrow">&larr;</span> Return to State
+            </button>
+            <button class="story-audio-btn" id="state-story-audio-btn">
+                <span class="audio-icon">🔊</span> Listen to Soundscape
+            </button>
+        </div>
+        <div class="story-split-grid">
+            <div class="story-canvas" id="state-story-canvas">
+                <div class="canvas-visual-frame">
+                    <svg viewBox="0 0 612 696" style="width: 90%; height: auto; max-height: 50vh; filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.5));">
+                        <path id="state-svg-path-overlay" d="" />
+                    </svg>
+                    <div class="canvas-particles" id="state-canvas-particles"></div>
+                </div>
+            </div>
+            <div class="story-content-panel">
+                <div class="story-content-scroll">
+                    <span class="story-subtitle" id="state-story-subtitle">State Profile</span>
+                    <h2 class="story-title" id="state-story-title"></h2>
+                    <p class="modal-capital-line">
+                        Capital: <span id="state-story-capital" class="gold"></span>
+                    </p>
+                    <div class="story-accent-bar">
+                        <span class="saffron-dot"></span>
+                        <span class="white-dot"></span>
+                        <span class="green-dot"></span>
+                    </div>
+                    <div class="story-text-container">
+                        <p class="story-paragraph drop-cap" id="state-story-main-text"></p>
+                    </div>
+                    <div class="story-highlights-box">
+                        <h4>Cultural Highlights</h4>
+                        <div class="highlights-grid" id="state-story-highlights-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>Explore India's diverse states and union territories.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#map">Interactive Map</a></li>
+                    <li><a href="../cuisine/cuisine.html">Cuisine</a></li>
+                    <li><a href="../festivals/festivals.html">Festivals</a></li>
+                    <li><a href="../culture/culture.html">Culture</a></li>
+                </ul>
+            </div>
+            <div class="footer-credits">
+                <p>&copy; 2026 Incredible India Explorer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+
+    <script src="data.js"></script>
+    <script>
+    /**
+     * Dynamic State Page Initializer
+     * Reads ?state= URL parameter and populates the template from mapData.locations
+     */
+    (function() {
+        'use strict';
+
+        // --- 1. Read state ID from URL ---
+        var params = new URLSearchParams(window.location.search);
+        var stateId = params.get('state');
+
+        if (!stateId) {
+            document.getElementById('state-name-heading').textContent = 'State Not Found';
+            document.getElementById('state-description').textContent = 'Please specify a state using ?state=id in the URL.';
+            return;
+        }
+
+        stateId = stateId.toLowerCase().trim();
+
+        // --- 2. Look up state data ---
+        var locs = window.mapData && window.mapData.locations;
+        if (!locs || !Array.isArray(locs)) {
+            // data.js might not be loaded yet; wait a tick
+            setTimeout(initStateTemplate, 50);
+            return;
+        }
+
+        var loc = null;
+        for (var i = 0; i < locs.length; i++) {
+            if (locs[i].id === stateId) {
+                loc = locs[i];
+                break;
+            }
+        }
+
+        if (!loc) {
+            document.getElementById('state-name-heading').textContent = 'State Not Found';
+            document.getElementById('state-description').textContent = 'No state found with ID "' + stateId + '".';
+            return;
+        }
+
+        initStateTemplate();
+
+        function initStateTemplate() {
+            // Look up again in case of retry
+            if (!loc) {
+                locs = window.mapData && window.mapData.locations;
+                if (locs) {
+                    for (var j = 0; j < locs.length; j++) {
+                        if (locs[j].id === stateId) {
+                            loc = locs[j];
+                            break;
+                        }
+                    }
+                }
+                if (!loc) return;
+            }
+
+            // Set data-state-id on body for state.js to use
+            document.body.setAttribute('data-state-id', stateId);
+
+            // --- Hero video URL map ---
+            var heroVideos = {
+                an: 'https://assets.mixkit.co/videos/preview/mixkit-tropical-beach-paradise-31514-large.mp4',
+                ap: 'https://assets.mixkit.co/videos/preview/mixkit-ancient-indian-temple-15808-large.mp4',
+                ar: 'https://assets.mixkit.co/videos/preview/mixkit-mystical-mountain-landscape-31514-large.mp4',
+                as: 'https://assets.mixkit.co/videos/preview/mixkit-tea-plantation-aerial-view-15808-large.mp4',
+                br: 'https://assets.mixkit.co/videos/preview/mixkit-ancient-temple-in-forest-15808-large.mp4',
+                ch: 'https://assets.mixkit.co/videos/preview/mixkit-modern-city-architecture-15808-large.mp4',
+                ct: 'https://assets.mixkit.co/videos/preview/mixkit-waterfall-in-forest-15808-large.mp4',
+                dd: 'https://assets.mixkit.co/videos/preview/mixkit-coastal-beach-sunset-15808-large.mp4',
+                dl: 'https://assets.mixkit.co/videos/preview/mixkit-bustling-indian-street-15808-large.mp4',
+                dn: 'https://assets.mixkit.co/videos/preview/mixkit-indian-landscape-15808-large.mp4',
+                ga: 'https://assets.mixkit.co/videos/preview/mixkit-goan-beach-paradise-15808-large.mp4',
+                gj: 'https://assets.mixkit.co/videos/preview/mixkit-indian-salt-desert-15808-large.mp4',
+                hp: 'https://assets.mixkit.co/videos/preview/mixkit-himalayan-mountains-15808-large.mp4',
+                hr: 'https://assets.mixkit.co/videos/preview/mixkit-indian-wheat-field-15808-large.mp4',
+                jh: 'https://assets.mixkit.co/videos/preview/mixkit-indian-tribal-village-15808-large.mp4',
+                jk: 'https://assets.mixkit.co/videos/preview/mixkit-kashmir-houseboat-15808-large.mp4',
+                ka: 'https://assets.mixkit.co/videos/preview/mixkit-temple-in-south-india-15808-large.mp4',
+                kl: 'https://assets.mixkit.co/videos/preview/mixkit-backwaters-kerala-15808-large.mp4',
+                ld: 'https://assets.mixkit.co/videos/preview/mixkit-tropical-island-paradise-15808-large.mp4',
+                mh: 'https://assets.mixkit.co/videos/preview/mixkit-mumbai-street-view-15808-large.mp4',
+                ml: 'https://assets.mixkit.co/videos/preview/mixkit-meghalaya-waterfall-15808-large.mp4',
+                mn: 'https://assets.mixkit.co/videos/preview/mixkit-manipur-lake-15808-large.mp4',
+                mp: 'https://assets.mixkit.co/videos/preview/mixkit-khajuraho-temple-15808-large.mp4',
+                mz: 'https://assets.mixkit.co/videos/preview/mixkit-mizoram-hills-15808-large.mp4',
+                nl: 'https://assets.mixkit.co/videos/preview/mixkit-nagaland-hills-15808-large.mp4',
+                or: 'https://assets.mixkit.co/videos/preview/mixkit-konark-temple-15808-large.mp4',
+                pb: 'https://assets.mixkit.co/videos/preview/mixkit-punjab-fields-15808-large.mp4',
+                py: 'https://assets.mixkit.co/videos/preview/mixkit-puducherry-beach-15808-large.mp4',
+                rj: 'https://assets.mixkit.co/videos/preview/mixkit-rajasthan-palace-15808-large.mp4',
+                sk: 'https://assets.mixkit.co/videos/preview/mixkit-sikkim-monastery-15808-large.mp4',
+                tg: 'https://assets.mixkit.co/videos/preview/mixkit-charminar-hyderabad-15808-large.mp4',
+                tn: 'https://assets.mixkit.co/videos/preview/mixkit-tamil-temple-15808-large.mp4',
+                tr: 'https://assets.mixkit.co/videos/preview/mixkit-tripura-palace-15808-large.mp4',
+                up: 'https://assets.mixkit.co/videos/preview/mixkit-taj-mahal-sunset-15808-large.mp4',
+                ut: 'https://assets.mixkit.co/videos/preview/mixkit-uttarakhand-mountains-15808-large.mp4',
+                wb: 'https://assets.mixkit.co/videos/preview/mixkit-kolkata-victoria-15808-large.mp4'
+            };
+
+            var name = loc.name;
+            var capital = loc.capital;
+            var food = loc.food;
+            var festival = loc.festival;
+            var description = loc.description;
+            var story = loc.story || description;
+var pathData = loc.path || '';
+            var videoUrl = heroVideos[stateId] || '';
+            var bestTimeToVisit = loc.bestTimeToVisit || 'Year-round';
+            var attractions = loc.attractions || [];
+            // --- Populate page metadata ---
+            document.getElementById('meta-description').setAttribute('content', description);
+            document.getElementById('page-title').textContent = name + ' | Incredible India';
+
+            // --- Populate hero ---
+            if (videoUrl) {
+                document.getElementById('hero-video-source').setAttribute('src', videoUrl);
+                document.getElementById('hero-video').load();
+            }
+            document.getElementById('state-name-heading').textContent = name;
+            document.getElementById('state-description').textContent = description;
+
+// --- Populate stats ---
+            document.getElementById('stat-capital').textContent = capital;
+            document.getElementById('stat-food').textContent = food;
+            document.getElementById('stat-festival').textContent = festival;
+            // --- Populate map section ---
+            document.getElementById('map-section-title').textContent = 'Explore ' + name + ' on Map';
+            document.getElementById('map-section-subtitle').textContent =
+                'Interactive map showing the boundaries and location of ' + name + ' within India.';
+            if (pathData) {
+                document.getElementById('state-svg-path').setAttribute('d', pathData);
+                document.getElementById('state-svg-path-overlay').setAttribute('d', pathData);
+            }
+
+            // --- Populate story section ---
+            document.getElementById('story-section-title').textContent = 'Discover ' + name;
+            document.getElementById('story-section-subtitle').textContent =
+                'Immerse yourself in the rich heritage of ' + name + '.';
+
+            // --- Populate story overlay ---
+            document.getElementById('state-story-title').textContent = name;
+            document.getElementById('state-story-capital').textContent = capital;
+
+            // Format story: split by \n\n and rejoin as paragraphs
+            var storyParagraphs = story.split('\\n\\n');
+            if (storyParagraphs.length < 2) {
+                storyParagraphs = story.split('\n\n');
+            }
+            var storyHtml = '';
+            var firstPara = true;
+            for (var k = 0; k < storyParagraphs.length; k++) {
+                var p = storyParagraphs[k].trim();
+                if (p.length > 0) {
+                    storyHtml += '<p class="story-paragraph' + (firstPara ? ' drop-cap' : '') + '">' + escapeHtml(p) + '</p>';
+                    firstPara = false;
+                }
+            }
+            document.getElementById('state-story-main-text').innerHTML = storyHtml;
+
+            // --- Populate highlights ---
+            document.getElementById('state-story-highlights-grid').innerHTML =
+                '<div class="highlight-bullet"><span class="bullet-icon">📍</span><span>Capital: ' + escapeHtml(capital) + '</span></div>' +
+                '<div class="highlight-bullet"><span class="bullet-icon">🍛</span><span>Famous Food: ' + escapeHtml(food) + '</span></div>' +
+                '<div class="highlight-bullet"><span class="bullet-icon">🎉</span><span>Major Festival: ' + escapeHtml(festival) + '</span></div>';
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    })();
+    </script>
+    <script src="states/state.js"></script>
+    <script src="router.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

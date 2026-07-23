@@ -1,7 +1,7 @@
 // travel-recommend-data.js
 // -----------------------------------------------------------------------------
 // Dataset that powers the "Recommended For You" AI travel recommendation engine
-// on travel.html (see issue #185). Each destination is tagged with:
+// on frontend/travel/frontend/travel/travel.html (see issue #185). Each destination is tagged with:
 //   - tags:    interest categories used for preference-based filtering
 //              (mountains, beaches, heritage, adventure, wildlife, food, desert,
 //               islands, forests, spiritual)

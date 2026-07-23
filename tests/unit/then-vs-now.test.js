@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { heritageLocations, setSliderPosition } from '../../then-vs-now.js';
+import { heritageLocations, setSliderPosition } from '../../frontend/then-vs-now/then-vs-now.js';
 
 describe('Then vs Now Heritage Comparison Explorer', () => {
     it('contains minimum 10 heritage locations with complete metadata', () => {

@@ -531,13 +531,13 @@ function showSessionExpiredAlert() {
     authApi.signOut();
     document.body.style.overflow = '';
     modal.remove();
-    window.location.href = `login.html?redirect=premium.html`;
+    window.location.href = `login.html?redirect=frontend/premium/premium.html`;
   });
 }
 
 // Binds premium claims checking and sets page data attributes dynamically
 export function updatePremiumUI(user) {
-  const isPremiumPage = window.location.pathname.includes('premium.html');
+  const isPremiumPage = window.location.pathname.includes('frontend/premium/premium.html');
   const isPremium = user && user.role === 'premium';
 
   if (isPremium) {

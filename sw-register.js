@@ -15,7 +15,7 @@
 
   /* ------------------------------------------------------------------
      Path prefix detection for pages living in subdirectories
-     (e.g., /forts/index.html, /states/rajasthan.html)
+     (e.g., /frontend/forts/index.html, /states/rajasthan.html)
      ------------------------------------------------------------------ */
 
   function detectPrefix() {

@@ -146,7 +146,7 @@
       setMetaTag('og:description', description, true);
       setMetaTag('og:image', imageUrl, true);
       setMetaTag('og:url', absoluteUrl, true);
-      setMetaTag('og:type', (relPath.includes('states/') || relPath.includes('state.html?state=')) ? 'place' : 'website', true);
+      setMetaTag('og:type', (relPath.includes('states/') || relPath.includes('frontend/state/state.html?state=')) ? 'place' : 'website', true);
       setMetaTag('og:site_name', 'Incredible India Explorer', true);
 
       // Twitter Card Tags
@@ -157,7 +157,7 @@
 
       // 5. Generate JSON-LD Structured Data
       let schema = null;
-      const isStatePage = relPath.includes('states/') || relPath.includes('state.html?state=') || doc.body?.classList.contains('state-page-body');
+      const isStatePage = relPath.includes('states/') || relPath.includes('frontend/state/state.html?state=') || doc.body?.classList.contains('state-page-body');
 
       if (isStatePage) {
         schema = {
@@ -190,7 +190,7 @@
             "name": "India"
           };
         }
-      } else if (relPath.includes('festivals.html')) {
+      } else if (relPath.includes('frontend/festivals/festivals.html')) {
         schema = {
           "@context": "https://schema.org",
           "@type": "Festival",
@@ -207,7 +207,7 @@
             }
           }
         };
-      } else if (relPath.includes('monuments.html') || relPath.includes('heritage.html') || relPath.includes('caves.html')) {
+      } else if (relPath.includes('frontend/monuments/monuments.html') || relPath.includes('frontend/heritage/heritage.html') || relPath.includes('frontend/caves/caves.html')) {
         schema = {
           "@context": "https://schema.org",
           "@type": "Place",

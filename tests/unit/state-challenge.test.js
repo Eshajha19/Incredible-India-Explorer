@@ -12,7 +12,7 @@ import {
   getAchievements,
   calculateJourneyPath,
   filterStatesList
-} from '../../state-challenge.js';
+} from '../../frontend/state-challenge/state-challenge.js';
 
 const REQUIRED_STATE_FIELDS = [
   'id',

@@ -14,7 +14,7 @@ import {
   findPortById,
   getUniquePortsByRegion,
   getUniqueGoodsByCategory
-} from '../../trade-routes.js';
+} from '../../frontend/trade-routes/trade-routes.js';
 
 const REQUIRED_ROUTE_FIELDS = [
   'id',

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { fortStyles, FEATURES, renderColumn } from '../../fort-architecture.js';
+import { fortStyles, FEATURES, renderColumn } from '../../frontend/fort-architecture/fort-architecture.js';
 
 describe('Indian Fort Architecture Comparison Explorer', () => {
     it('contains all 4 architectural styles (Rajput, Mughal, Maratha, European)', () => {

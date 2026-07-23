@@ -13,7 +13,7 @@ import {
   groupExcavationsByState,
   getUniqueStates,
   getUniquePeriods
-} from '../../excavations.js';
+} from '../../frontend/excavations/excavations.js';
 
 const REQUIRED_FIELDS = [
   'id',

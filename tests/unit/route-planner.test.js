@@ -6,7 +6,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import RoutePlanner from '../../route-planner.js';
+import RoutePlanner from '../../frontend/route-planner/route-planner.js';
 
 describe('Route Planner Caching', () => {
   beforeEach(() => {

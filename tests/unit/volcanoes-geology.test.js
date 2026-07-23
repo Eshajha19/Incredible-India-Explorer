@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { geologicalFormations, getFilteredFormations } from '../../volcanoes-geology.js';
+import { geologicalFormations, getFilteredFormations } from '../../frontend/volcanoes-geology/volcanoes-geology.js';
 
 describe('Volcanoes & Geological Formations Explorer', () => {
     it('has minimum 10 formations with complete required fields', () => {

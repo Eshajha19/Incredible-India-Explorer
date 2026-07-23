@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { photographyLocations, getFilteredLocations } from '../../photography-locations.js';
+import { photographyLocations, getFilteredLocations } from '../../frontend/photography-locations/photography-locations.js';
 
 describe('Photography Locations Explorer', () => {
     it('has minimum 10 locations with required metadata fields', () => {

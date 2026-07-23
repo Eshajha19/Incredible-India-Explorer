@@ -1,4 +1,4 @@
-// architecture-journey.js — wires "architecture-card" cards into the shared My Journey bookmark + search system
+// architecture-frontend/journey/frontend/journey/journey.js — wires "architecture-card" cards into the shared My Journey bookmark + search system
 document.addEventListener('app:route-changed', () => {
   const cards = [...document.querySelectorAll(".architecture-card")];
   const bookmarkButtons = [...document.querySelectorAll('.journey-bookmark-btn')];
@@ -25,17 +25,17 @@ document.addEventListener('app:route-changed', () => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         window.Journey.toggle({
-          id, explorerPage: 'architecture.html', title, thumbnail, category
+          id, explorerPage: 'frontend/architecture/architecture.html', title, thumbnail, category
         });
         setPressed();
       });
     });
 
-    window.Journey.registerSearchItems('architecture.html', cards.map((card) => ({
+    window.Journey.registerSearchItems('frontend/architecture/architecture.html', cards.map((card) => ({
       id: card.dataset.id,
       title: card.querySelector('h2, h3, h4')?.textContent.trim() || 'Item',
       description: card.querySelector('p')?.textContent.trim() || '',
-      link: 'architecture.html'
+      link: 'frontend/architecture/architecture.html'
     })));
   }
 

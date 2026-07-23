@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WEATHER-AWARE ITINERARY PANEL — styles for #weather-panel (trip-planner.html)
+   WEATHER-AWARE ITINERARY PANEL — styles for #weather-panel (frontend/trip-planner/trip-planner.html)
    Reuses the site's existing design tokens (see styles.css :root).
    ========================================================================== */
 
@@ -258,7 +258,7 @@
     font-size: 0.88rem;
 }
 
-/* Reused small-button style shared with the 3D map controls (india-3d-map.css)
+/* Reused small-button style shared with the 3D map controls (frontend/india-3d-map/india-3d-map.css)
    — same visual language, kept local here since this page doesn't load that file. */
 .map3d-btn {
     font-family: var(--font-body);
