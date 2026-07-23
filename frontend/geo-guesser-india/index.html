@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India GeoGuesser | Incredible India Explorer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="game-navbar">
+  <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+  <div class="nav-brand">
+    <span class="saffron">Incredible</span>
+    <span class="gold">India</span>
+    <span class="green">Explorer</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Intro Screen -->
+  <div id="introScreen" class="screen">
+    <span class="section-badge">Landmarks • Clues • Geography</span>
+    <h1>🗺️ India GeoGuesser</h1>
+    <p class="intro-text">Use landmark clues and state hints to guess the famous Indian location. Answer fast for bigger score multipliers!</p>
+
+    <div id="bestScoreBadge" class="best-score-badge hidden">🏅 Your Best Score: <span id="bestScoreValue">0</span></div>
+
+    <div class="difficulty-select">
+      <h3>Select Difficulty</h3>
+      <div class="difficulty-options">
+        <button class="difficulty-btn" data-difficulty="easy">
+          <span class="diff-icon">🟢</span>
+          <span class="diff-name">Easy</span>
+          <span class="diff-desc">90s • 8 rounds</span>
+        </button>
+        <button class="difficulty-btn" data-difficulty="medium">
+          <span class="diff-icon">🟡</span>
+          <span class="diff-name">Medium</span>
+          <span class="diff-desc">75s • 10 rounds</span>
+        </button>
+        <button class="difficulty-btn" data-difficulty="hard">
+          <span class="diff-icon">🔴</span>
+          <span class="diff-name">Hard</span>
+          <span class="diff-desc">60s • 12 rounds</span>
+        </button>
+      </div>
+    </div>
+
+    <button id="startBtn" class="btn-primary" disabled>Start Guessing</button>
+
+    <div class="leaderboard-preview">
+      <h3>🏆 Top Scores</h3>
+      <ol id="leaderboardPreviewList" class="leaderboard-list">
+        <li class="empty-leaderboard">No scores yet — be the first!</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="gameScreen" class="screen hidden">
+    <div class="game-topbar">
+      <div class="stat-box">
+        <span class="stat-label">Score</span>
+        <span id="scoreValue" class="stat-value">0</span>
+      </div>
+      <div class="stat-box timer-box">
+        <span class="stat-label">Time</span>
+        <span id="timerValue" class="stat-value timer">30</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-label">Round</span>
+        <span id="roundCount" class="stat-value">1/10</span>
+      </div>
+      <div class="stat-box streak-box">
+        <span class="stat-label">Multiplier</span>
+        <span id="multiplierValue" class="stat-value">x1</span>
+      </div>
+    </div>
+
+    <div class="progress-bar-wrapper">
+      <div id="progressFill" class="progress-fill"></div>
+    </div>
+
+    <div class="question-card">
+      <div class="landmark-visual" id="landmarkVisual">🏔️</div>
+
+      <div class="clues-box">
+        <div class="clue-row">
+          <span class="clue-label">📍 Landmark Clue</span>
+          <span id="landmarkClue" class="clue-text">Loading...</span>
+        </div>
+        <div class="clue-row">
+          <span class="clue-label">🧭 State Hint</span>
+          <span id="stateHint" class="clue-text">Loading...</span>
+        </div>
+      </div>
+
+      <div id="optionsGrid" class="options-grid"></div>
+
+      <div id="factBox" class="fact-box hidden">
+        <span class="fact-icon">💡</span>
+        <span id="factText"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="resultScreen" class="screen hidden">
+    <div class="result-icon" id="resultIcon">🏆</div>
+    <h2>Expedition Complete!</h2>
+    <div class="final-score">
+      Final Score: <span id="finalScoreValue">0</span>
+    </div>
+    <p id="resultMessage" class="result-subtext"></p>
+
+    <div class="save-score-box">
+      <input type="text" id="playerNameInput" placeholder="Enter your name for the leaderboard" maxlength="20">
+      <button id="saveScoreBtn" class="btn-primary">Save Score</button>
+    </div>
+
+    <div class="leaderboard-final">
+      <h3>🏆 Leaderboard</h3>
+      <ol id="finalLeaderboardList" class="leaderboard-list"></ol>
+    </div>
+
+    <button id="playAgainBtn" class="btn-secondary">Play Again</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
