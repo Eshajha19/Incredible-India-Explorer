@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guess the Uttar Pradesh District Game - Educational quiz where users identify UP districts based on clues across Easy, Medium, Hard, and Timed Challenge modes.">
+    <title>Guess the Uttar Pradesh District Game | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="guess-up-district.css">
+</head>
+
+<body class="district-game-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="../learn/learn.html" class="nav-link" id="link-learn">Learn & Quiz</a>
+                <a href="guess-up-district.html" class="nav-link active" style="color: var(--gold)">Guess UP District</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../up-pilgrimage/up-pilgrimage.html" class="dropdown-item">UP Pilgrimage Planner</a>
+                        <a href="../up-filming/up-filming.html" class="dropdown-item">UP Filming Locations</a>
+                        <a href="../border-stories/border-stories.html" class="dropdown-item">Border Stories</a>
+                        <a href="../cultural-footprint/cultural-footprint.html" class="dropdown-item">Cultural Footprint</a>
+                        <a href="../trade-routes/trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="../state-achievements/state-achievements.html" class="dropdown-item">State Achievement Timeline</a>
+                        <a href="../state-jigsaw/state-jigsaw.html" class="dropdown-item">State Jigsaw Puzzle</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="district-game-page">
+        <!-- Hero Section -->
+        <section class="game-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🎯 Educational Quiz · 4 Game Modes · Hints & Badges</span>
+                <h1>Guess the <span>Uttar Pradesh District</span></h1>
+                <p>Test your knowledge of Uttar Pradesh geography, famous handicrafts (ODOP), historical landmarks, and rivers by identifying districts from clues!</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>75</strong>
+                        <span>UP Districts</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>4</strong>
+                        <span>Game Modes</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>6</strong>
+                        <span>Achievement Badges</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Game Workspace -->
+        <section class="game-workspace">
+            <div class="game-container">
+
+                <!-- 1. Game Setup Area (Mode Selection & High Scores) -->
+                <div class="game-setup-area" id="game-setup-area">
+                    <div class="setup-card">
+                        <h2>Choose Game Mode</h2>
+                        <p class="setup-subtitle">Select your difficulty level or race against the clock in Timed Challenge!</p>
+
+                        <div class="mode-cards-grid">
+                            <button type="button" class="btn-mode active" data-mode="easy">
+                                <span class="mode-icon">🌱</span>
+                                <span class="mode-title">Easy Mode</span>
+                                <span class="mode-meta">3 Clues · No Timer</span>
+                            </button>
+
+                            <button type="button" class="btn-mode" data-mode="medium">
+                                <span class="mode-icon">⚖️</span>
+                                <span class="mode-title">Medium Mode</span>
+                                <span class="mode-meta">2 Clues · 25s Timer</span>
+                            </button>
+
+                            <button type="button" class="btn-mode" data-mode="hard">
+                                <span class="mode-icon">🧠</span>
+                                <span class="mode-title">Hard Mode</span>
+                                <span class="mode-meta">1 Clue · 15s Timer</span>
+                            </button>
+
+                            <button type="button" class="btn-mode" data-mode="timed">
+                                <span class="mode-icon">⚡</span>
+                                <span class="mode-title">60-Sec Timed</span>
+                                <span class="mode-meta">Countdown Race</span>
+                            </button>
+                        </div>
+
+                        <div class="mode-desc-box">
+                            <p id="mode-desc-text">3 clear clues & 4 choices. Perfect for beginners!</p>
+                        </div>
+
+                        <!-- High Scores Panel -->
+                        <div class="high-scores-panel">
+                            <h3>🏆 Personal Best Records</h3>
+                            <div class="scores-grid">
+                                <div class="score-chip">
+                                    <span>Easy Mode:</span>
+                                    <strong class="high-score-val" data-mode="easy">0 pts</strong>
+                                </div>
+                                <div class="score-chip">
+                                    <span>Medium Mode:</span>
+                                    <strong class="high-score-val" data-mode="medium">0 pts</strong>
+                                </div>
+                                <div class="score-chip">
+                                    <span>Hard Mode:</span>
+                                    <strong class="high-score-val" data-mode="hard">0 pts</strong>
+                                </div>
+                                <div class="score-chip">
+                                    <span>Timed Challenge:</span>
+                                    <strong class="high-score-val" data-mode="timed">0 pts</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setup-actions">
+                            <button id="btn-start-game" type="button" class="btn-start-game">🚀 Start Quiz Game</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Active Game Play Area -->
+                <div class="game-play-area" id="game-play-area" style="display: none;">
+                    
+                    <!-- HUD Status Bar -->
+                    <div class="game-hud-bar">
+                        <div class="hud-item">
+                            <span>Score:</span>
+                            <strong id="hud-score">0</strong>
+                        </div>
+                        <div class="hud-item">
+                            <span>Streak:</span>
+                            <strong id="hud-streak">0 🔥</strong>
+                        </div>
+                        <div class="hud-item">
+                            <strong id="hud-timer">⏱️ ∞ (No Limit)</strong>
+                        </div>
+                        <div class="hud-item">
+                            <span>Progress:</span>
+                            <strong id="hud-progress">Q 1/10</strong>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+
+                    <!-- Question Card -->
+                    <div class="question-card">
+                        <div class="clues-header">
+                            <h3>🔍 District Clues:</h3>
+                            <button id="btn-use-hint" type="button" class="btn-hint">💡 Use Hint (-25 pts)</button>
+                        </div>
+
+                        <ul id="clues-list" class="clues-list"></ul>
+                        <p id="hint-notice" class="hint-notice" style="display: none;"></p>
+
+                        <div class="options-header">
+                            <h4>Which Uttar Pradesh district matches these clues?</h4>
+                        </div>
+
+                        <div id="options-grid" class="options-grid"></div>
+
+                        <div id="feedback-banner" class="feedback-banner" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- 3. Game Results Area (End Game Summary) -->
+                <div class="game-results-area" id="game-results-area" style="display: none;">
+                    <div class="results-card">
+                        <span class="results-badge">🎉 Quiz Completed!</span>
+                        <h2>Game Results & Performance</h2>
+
+                        <div id="high-score-notice" class="high-score-notice" style="display: none;">
+                            🏆 Outstanding! You set a New High Score Record for this mode!
+                        </div>
+
+                        <div class="results-summary-grid">
+                            <div class="summary-box">
+                                <span class="box-label">Final Score</span>
+                                <strong id="final-score">0</strong>
+                            </div>
+                            <div class="summary-box">
+                                <span class="box-label">Accuracy</span>
+                                <strong id="final-accuracy">0%</strong>
+                            </div>
+                            <div class="summary-box">
+                                <span class="box-label">Best Streak</span>
+                                <strong id="final-streak">0 🔥</strong>
+                            </div>
+                        </div>
+
+                        <!-- Unlocked Achievement Badges -->
+                        <div class="badges-section">
+                            <h3>🏅 Achievement Badges</h3>
+                            <div class="badges-grid" id="unlocked-badges-grid"></div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button id="btn-play-again" type="button" class="btn-action primary">Play Again</button>
+                            <button id="btn-change-mode" type="button" class="btn-action secondary">Change Mode</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Interactive educational quizzes and games celebrating the geography, culture, and heritage of Uttar Pradesh and India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../culture/culture.html">Culture</a>
+                <a href="../learn/learn.html">Learn & Quiz</a>
+                <a href="guess-up-district.html">Guess UP District</a>
+                <a href="../state-jigsaw/state-jigsaw.html">State Jigsaw Puzzle</a>
+                <a href="../state-challenge/state-challenge.html">Borders Challenge</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Uttar Pradesh District Game Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="guess-up-district.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore iconic Uttar Pradesh filming locations from Varanasi Ghats, Taj Mahal, Lucknow, Agra, Jhansi, and Prayagraj featured in classic Indian movies with behind-the-scenes trivia.">
+    <title>Uttar Pradesh Filming Locations Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="up-filming.css">
+</head>
+
+<body class="filming-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="../spiritual/spiritual.html" class="nav-link" id="link-spiritual">Spiritual India</a>
+                <a href="up-filming.html" class="nav-link active" style="color: var(--gold)">UP Filming Locations</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../up-pilgrimage/up-pilgrimage.html" class="dropdown-item">UP Pilgrimage Planner</a>
+                        <a href="../border-stories/border-stories.html" class="dropdown-item">Border Stories</a>
+                        <a href="../cultural-footprint/cultural-footprint.html" class="dropdown-item">Cultural Footprint</a>
+                        <a href="../trade-routes/trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                        <a href="../state-challenge/state-challenge.html" class="dropdown-item">State Borders Challenge</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="../state-achievements/state-achievements.html" class="dropdown-item">State Achievement Timeline</a>
+                        <a href="../learn/learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="filming-page">
+        <!-- Hero Section -->
+        <section class="filming-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🎬 Cinema & Heritage · Movie Cards · BTS Trivia · Interactive Gallery</span>
+                <h1>Uttar Pradesh <span>Filming Locations Explorer</span></h1>
+                <p>Discover iconic filming locations across Uttar Pradesh—from Varanasi Ghats and Taj Mahal to Lucknow Havelis, Agra Fort, Jhansi Ramparts, and Prayagraj Sangam.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>6</strong>
+                        <span>Filming Destinations</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>12+</strong>
+                        <span>Blockbuster Movies</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>100%</strong>
+                        <span>BTS Trivia & Stills Gallery</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Workspace Section -->
+        <section class="filming-workspace">
+            <div class="filming-container">
+
+                <!-- Filming Location Filter Chips Bar -->
+                <div class="location-chips-bar">
+                    <span class="bar-title">Filming Destinations:</span>
+                    <div class="chips-group">
+                        <button type="button" class="btn-location-chip active" data-location-id="all">
+                            🌟 All UP Locations
+                        </button>
+                        <button type="button" class="btn-location-chip" data-location-id="varanasi_ghats">
+                            🛕 Varanasi Ghats
+                        </button>
+                        <button type="button" class="btn-location-chip" data-location-id="taj_mahal">
+                            🕌 Taj Mahal
+                        </button>
+                        <button type="button" class="btn-location-chip" data-location-id="lucknow">
+                            🏛️ Lucknow
+                        </button>
+                        <button type="button" class="btn-location-chip" data-location-id="agra">
+                            🏰 Agra (Fort & Bazaars)
+                        </button>
+                        <button type="button" class="btn-location-chip" data-location-id="jhansi">
+                            ⚔️ Jhansi
+                        </button>
+                        <button type="button" class="btn-location-chip" data-location-id="prayagraj">
+                            🌊 Prayagraj
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Selected Location Detail Inspector Panel -->
+                <div class="location-inspector-panel">
+                    <div class="inspector-header">
+                        <div>
+                            <span class="inspector-badge" id="active-location-movies-count">12 Movies Featured</span>
+                            <h2 id="active-location-name">All Uttar Pradesh Locations</h2>
+                            <p class="inspector-tagline" id="active-location-tagline">Varanasi Ghats, Taj Mahal, Lucknow, Agra, Jhansi, Prayagraj</p>
+                        </div>
+                    </div>
+
+                    <p class="inspector-desc" id="active-location-desc">Select a specific filming location chip above to inspect its iconic cinematic heritage, shot movies, and behind-the-scenes stories.</p>
+
+                    <div class="inspector-grid">
+                        <div class="inspector-col">
+                            <strong>📍 Filming Highlights:</strong>
+                            <ul id="active-location-highlights" class="highlights-list"></ul>
+                        </div>
+                        <div class="inspector-col bts-highlight-col">
+                            <strong>🎬 Behind-the-Scenes Trivia:</strong>
+                            <p id="active-location-bts">Uttar Pradesh's heritage architecture and state film subsidies attract major national and international productions annually.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie Cards Section -->
+                <section class="movies-section">
+                    <div class="section-header">
+                        <h2>Blockbuster Movies Filmed in Uttar Pradesh</h2>
+                        <p>Search by movie title, director, cast, or filter by genre.</p>
+                    </div>
+
+                    <div class="movies-toolbar">
+                        <div class="toolbar-field search-field">
+                            <input id="movie-search" type="search" placeholder="Search Raanjhanaa, Masaan, Slumdog Millionaire, Gulabo Sitabo, Dhanush, Ayushmann..." autocomplete="off">
+                        </div>
+
+                        <div class="toolbar-field">
+                            <select id="genre-filter">
+                                <option value="all">All Genres</option>
+                                <option value="romance">Romance / Drama</option>
+                                <option value="crime">Crime / Action</option>
+                                <option value="comedy">Comedy / Satire</option>
+                                <option value="historical">Historical / Action</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="movies-grid" id="movies-grid"></div>
+                </section>
+
+                <!-- Behind-the-Scenes Facts Section -->
+                <section class="bts-section">
+                    <div class="section-header">
+                        <h2>Behind-the-Scenes Trivia & Film Production Stories</h2>
+                        <p>Fascinating stories from on-location shoots across UP.</p>
+                    </div>
+
+                    <div class="bts-grid" id="bts-grid"></div>
+                </section>
+
+                <!-- Interactive Gallery Section -->
+                <section class="gallery-section">
+                    <div class="section-header">
+                        <h2>Interactive Filming Stills & Scene Gallery</h2>
+                        <p>Filter gallery stills and click to open full-screen lightbox view.</p>
+                    </div>
+
+                    <div class="gallery-toolbar">
+                        <select id="gallery-category-filter">
+                            <option value="all">All Stills Categories</option>
+                            <option value="Iconic Scenes">Iconic Scenes</option>
+                            <option value="Architecture">Architecture & Sets</option>
+                            <option value="Behind the Scenes">Behind the Scenes</option>
+                            <option value="Sunset & Ghats">Sunset & River Ghats</option>
+                        </select>
+                    </div>
+
+                    <div class="gallery-grid" id="gallery-grid"></div>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="gallery-modal-overlay" id="gallery-modal">
+        <div class="gallery-modal-card">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Lightbox">&times;</button>
+
+            <div class="modal-image-preview">
+                <span id="modal-img-icon" class="modal-big-icon">🎬</span>
+            </div>
+
+            <div class="modal-content-details">
+                <h3 id="modal-img-title">Sunrise Boat Ride at Dashashwamedh Ghat</h3>
+                <span class="modal-loc-badge" id="modal-img-loc">🛕 Varanasi Ghats · Raanjhanaa</span>
+                <p id="modal-img-caption">Kundan's early morning boat ride along the Ganges river in Raanjhanaa.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Showcasing iconic filming locations, movie trivia, and cinema heritage across Uttar Pradesh and India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../culture/culture.html">Culture</a>
+                <a href="../spiritual/spiritual.html">Spiritual India</a>
+                <a href="up-filming.html">UP Filming Locations</a>
+                <a href="../up-pilgrimage/up-pilgrimage.html">UP Pilgrimage Planner</a>
+                <a href="../border-stories/border-stories.html">Border Stories</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Uttar Pradesh Filming Locations Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="up-filming.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

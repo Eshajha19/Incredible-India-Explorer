@@ -996,5 +996,53 @@ window.indiaSearchIndex = [
     category: "UP Central Portal",
     description: "Explore UP heritage, Taj Mahal, Varanasi Ghats, Ayodhya Ram Mandir, Awadhi Cuisine, and 10 tourism modules.",
     url: "frontend/up-dashboard/up-dashboard.html"
+  // --- Uttar Pradesh District Explorer ---
+  {
+    title: "Uttar Pradesh District Explorer",
+    category: "Geography & State Data",
+    description: "Interactive map and detailed guide for all 75 districts of Uttar Pradesh covering headquarters, attractions, population, ODOP industries, cuisine, and festivals.",
+    url: "frontend/up-district-explorer/up-district-explorer.html"
+  },
+  {
+    title: "UP 75 Districts Interactive Map & Guide",
+    category: "UP State Explorer",
+    description: "Search and filter all 75 UP districts across 18 divisions and 4 geographic regions with SVG map and detail inspector.",
+    url: "frontend/up-district-explorer/up-district-explorer.html"
+  // --- Guess the Uttar Pradesh District Game ---
+  {
+    title: "Guess the Uttar Pradesh District Game",
+    category: "Games & Quizzes",
+    description: "Educational quiz game to test knowledge of 75 UP districts based on clues across Easy, Medium, Hard, and Timed Challenge modes.",
+    url: "frontend/guess-up-district/guess-up-district.html"
+  },
+  {
+    title: "Uttar Pradesh District Quiz & Clues Challenge",
+    category: "UP Geography Game",
+    description: "Identify UP districts from handicraft ODOP, river landmarks, and history with scoreboard, timer, hints, and achievement badges.",
+    url: "frontend/guess-up-district/guess-up-district.html"
+  // --- Uttar Pradesh Filming Locations Explorer ---
+  {
+    title: "Uttar Pradesh Filming Locations Explorer",
+    category: "Cinema & Culture",
+    description: "Explore iconic Bollywood & cinema filming locations across Uttar Pradesh including Varanasi Ghats, Taj Mahal, Lucknow, Agra, Jhansi, and Prayagraj.",
+    url: "frontend/up-filming/up-filming.html"
+  },
+  {
+    title: "Varanasi & Taj Mahal Movie Locations",
+    category: "UP Filming Locations",
+    description: "Discover movie cards, behind-the-scenes trivia, and interactive gallery for movies filmed in Uttar Pradesh.",
+    url: "frontend/up-filming/up-filming.html"
+  // --- Uttar Pradesh Pilgrimage Circuit Planner ---
+  {
+    title: "Uttar Pradesh Pilgrimage Circuit Planner",
+    category: "Pilgrimage & Travel",
+    description: "Plan sacred religious journeys across Uttar Pradesh visiting Ayodhya, Varanasi, Mathura, Vrindavan, Prayagraj, Chitrakoot, Kushinagar, and Sarnath.",
+    url: "frontend/up-pilgrimage/up-pilgrimage.html"
+  },
+  {
+    title: "Ayodhya & Varanasi Sacred Yatra Planner",
+    category: "UP Pilgrimage Circuit",
+    description: "Explore the Ramayana, Krishna, and Buddhist circuits with interactive map, distance calculator, and duration estimation.",
+    url: "frontend/up-pilgrimage/up-pilgrimage.html"
   }
 ];

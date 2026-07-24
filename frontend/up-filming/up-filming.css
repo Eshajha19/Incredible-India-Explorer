@@ -1,0 +1,637 @@
+/* ==========================================================================
+   Uttar Pradesh Filming Locations Explorer Stylesheet - Incredible India Explorer
+   ========================================================================== */
+
+:root {
+    --film-gold: #eab308;
+    --film-saffron: #f97316;
+    --film-emerald: #10b981;
+    --film-blue: #3b82f6;
+    --film-purple: #8b5cf6;
+    --film-pink: #ec4899;
+    --film-bg: var(--bg-dark, #060913);
+    --film-surface: rgba(255, 255, 255, 0.05);
+    --film-surface-hover: rgba(255, 255, 255, 0.1);
+    --film-border: rgba(255, 255, 255, 0.12);
+    --film-text: #f8fafc;
+    --film-muted: #94a3b8;
+    --film-card-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
+}
+
+.light-theme {
+    --film-bg: #fafaf9;
+    --film-surface: rgba(255, 255, 255, 0.95);
+    --film-surface-hover: #ffffff;
+    --film-border: rgba(0, 0, 0, 0.12);
+    --film-text: #1c1917;
+    --film-muted: #57534e;
+    --film-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.filming-page {
+    background-color: var(--film-bg);
+    color: var(--film-text);
+    min-height: 100vh;
+}
+
+/* --- Hero Section --- */
+.filming-hero {
+    position: relative;
+    isolation: isolate;
+    padding: 135px 20px 45px;
+    text-align: center;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(234, 179, 8, 0.18), transparent 35%),
+        radial-gradient(circle at 85% 35%, rgba(236, 72, 153, 0.18), transparent 35%),
+        linear-gradient(170deg, #060913 0%, #0d1222 45%, #080c16 100%);
+    overflow: hidden;
+}
+
+.filming-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.35;
+    background-image: 
+        radial-gradient(rgba(234, 179, 8, 0.12) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(236, 72, 153, 0.12) 1.5px, transparent 1.5px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+.hero-content {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.hero-kicker {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(234, 179, 8, 0.12);
+    border: 1px solid rgba(234, 179, 8, 0.35);
+    color: var(--film-gold);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.filming-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.filming-hero h1 span {
+    background: linear-gradient(120deg, var(--film-gold), var(--film-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.filming-hero p {
+    font-size: 1.15rem;
+    color: var(--film-muted);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background: var(--film-surface);
+    border: 1px solid var(--film-border);
+    padding: 14px 24px;
+    border-radius: 16px;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-box strong {
+    display: block;
+    font-size: 1.75rem;
+    color: var(--film-gold);
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.stat-box span {
+    font-size: 0.82rem;
+    color: var(--film-muted);
+}
+
+/* --- Container & Location Chips --- */
+.filming-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.location-chips-bar {
+    background: var(--film-surface);
+    border: 1px solid var(--film-border);
+    border-radius: 20px;
+    padding: 20px 24px;
+    backdrop-filter: blur(12px);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.bar-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--film-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.chips-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-location-chip {
+    padding: 9px 16px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--film-border);
+    color: var(--film-text);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-location-chip:hover,
+.btn-location-chip.active {
+    background: var(--film-gold);
+    border-color: var(--film-gold);
+    color: #111;
+    box-shadow: 0 4px 15px rgba(234, 179, 8, 0.35);
+}
+
+/* --- Location Detail Inspector Panel --- */
+.location-inspector-panel {
+    background: var(--film-surface);
+    border: 1px solid var(--film-border);
+    border-radius: 24px;
+    padding: 28px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--film-card-shadow);
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.inspector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.inspector-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid var(--film-gold);
+    color: var(--film-gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.inspector-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+.inspector-tagline {
+    font-size: 0.95rem;
+    color: var(--film-saffron);
+    font-weight: 600;
+}
+
+.inspector-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--film-muted);
+}
+
+.inspector-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--film-border);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .inspector-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.inspector-col strong {
+    display: block;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    color: var(--film-gold);
+    margin-bottom: 8px;
+}
+
+.highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.bts-highlight-col p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--film-text);
+}
+
+/* --- Section Headers --- */
+.section-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.section-header p {
+    color: var(--film-muted);
+    font-size: 1rem;
+}
+
+/* --- Movie Cards Section --- */
+.movies-section {
+    margin-bottom: 60px;
+}
+
+.movies-toolbar {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.movies-toolbar .search-field {
+    flex: 1;
+    min-width: 260px;
+}
+
+.movies-toolbar input,
+.movies-toolbar select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--film-border);
+    background: var(--film-surface);
+    color: var(--film-text);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+.movie-card {
+    background: var(--film-surface);
+    border: 1px solid var(--film-border);
+    border-radius: 24px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--film-card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--film-gold);
+    background: var(--film-surface-hover);
+}
+
+.movie-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-poster-icon {
+    font-size: 2rem;
+}
+
+.movie-year-badge {
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 8px;
+    background: rgba(234, 179, 8, 0.15);
+    color: var(--film-gold);
+    margin-right: 6px;
+}
+
+.movie-rating-badge {
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--film-emerald);
+}
+
+.movie-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    line-height: 1.3;
+}
+
+.movie-director {
+    font-size: 0.85rem;
+    color: var(--film-saffron);
+}
+
+.movie-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--film-muted);
+    flex: 1;
+}
+
+.movie-cast-box {
+    font-size: 0.85rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.movie-cast-box strong { color: var(--film-gold); }
+
+.movie-locations-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.loc-tag {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--film-border);
+}
+
+.movie-bts-box {
+    background: rgba(236, 72, 153, 0.1);
+    border-left: 3px solid var(--film-pink);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.movie-bts-box strong { color: var(--film-pink); }
+
+/* --- Behind-the-Scenes Facts Section --- */
+.bts-section {
+    margin-bottom: 60px;
+}
+
+.bts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.bts-trivia-card {
+    background: var(--film-surface);
+    border: 1px solid var(--film-border);
+    border-radius: 20px;
+    padding: 22px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--film-card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bts-card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.bts-cat-badge { color: var(--film-gold); text-transform: uppercase; }
+.bts-loc-badge { color: var(--film-muted); }
+
+.bts-trivia-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--film-saffron);
+}
+
+.bts-trivia-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--film-muted);
+}
+
+/* --- Interactive Gallery Section --- */
+.gallery-section {
+    margin-bottom: 60px;
+}
+
+.gallery-toolbar {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gallery-toolbar select {
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--film-border);
+    background: var(--film-surface);
+    color: var(--film-text);
+    font-size: 0.9rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item-card {
+    background: var(--film-surface);
+    border: 1px solid var(--film-border);
+    border-radius: 18px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gallery-item-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--film-gold);
+    background: var(--film-surface-hover);
+}
+
+.gallery-icon-box {
+    height: 140px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+}
+
+.gallery-cat-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--film-gold);
+}
+
+.gallery-info h4 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.gallery-info p {
+    font-size: 0.82rem;
+    color: var(--film-muted);
+}
+
+/* --- Lightbox Gallery Modal --- */
+.gallery-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gallery-modal-card {
+    background: #0d1222;
+    border: 1px solid var(--film-gold);
+    border-radius: 24px;
+    padding: 32px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+    text-align: center;
+    color: #f8fafc;
+}
+
+.light-theme .gallery-modal-card {
+    background: #ffffff;
+    color: #1c1917;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--film-muted);
+    cursor: pointer;
+}
+
+.modal-image-preview {
+    height: 180px;
+    background: rgba(234, 179, 8, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.modal-big-icon {
+    font-size: 4.5rem;
+}
+
+.modal-content-details h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+}
+
+.modal-loc-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--film-gold);
+    margin-bottom: 12px;
+}
+
+#modal-img-caption {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--film-muted);
+}
+
+.empty-msg-card {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: var(--film-surface);
+    border: 1px dashed var(--film-border);
+    border-radius: 20px;
+    color: var(--film-muted);
+}

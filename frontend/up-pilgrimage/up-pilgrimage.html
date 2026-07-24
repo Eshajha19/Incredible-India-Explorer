@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plan sacred religious journeys across Uttar Pradesh visiting Ayodhya, Varanasi, Mathura, Vrindavan, Prayagraj, Chitrakoot, Kushinagar, and Sarnath.">
+    <title>Uttar Pradesh Pilgrimage Circuit Planner | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="up-pilgrimage.css">
+</head>
+
+<body class="pilgrimage-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="../spiritual/spiritual.html" class="nav-link" id="link-spiritual">Spiritual India</a>
+                <a href="up-pilgrimage.html" class="nav-link active" style="color: var(--gold)">UP Pilgrimage Planner</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../monuments/monuments.html" class="dropdown-item">Monuments</a>
+                        <a href="../border-stories/border-stories.html" class="dropdown-item">Border Stories</a>
+                        <a href="../cultural-footprint/cultural-footprint.html" class="dropdown-item">Cultural Footprint</a>
+                        <a href="../trade-routes/trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                        <a href="../state-challenge/state-challenge.html" class="dropdown-item">State Borders Challenge</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="../state-achievements/state-achievements.html" class="dropdown-item">State Achievement Timeline</a>
+                        <a href="../learn/learn.html" class="dropdown-item">Learn & Quiz</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pilgrimage-page">
+        <!-- Hero Banner Section -->
+        <section class="pilgrimage-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🚩 Sacred Yatra · Distance Calculator · Duration Estimation</span>
+                <h1>Uttar Pradesh <span>Pilgrimage Circuit Planner</span></h1>
+                <p>Plan your spiritual journey across the 8 sacred destinations of Uttar Pradesh: Ayodhya, Varanasi, Mathura, Vrindavan, Prayagraj, Chitrakoot, Kushinagar, and Sarnath.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>8</strong>
+                        <span>Sacred Destinations</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>5</strong>
+                        <span>Preset Circuits</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>100%</strong>
+                        <span>Distance & Time Calculator</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Workspace Section -->
+        <section class="pilgrimage-workspace">
+            <div class="pilgrimage-container">
+
+                <!-- Preset Circuits Quick Toolbar -->
+                <div class="preset-circuits-bar">
+                    <span class="bar-title">Popular Pilgrimage Circuits:</span>
+                    <div class="preset-buttons-group">
+                        <button type="button" class="btn-preset-circuit active" data-circuit-id="ramayana_circuit">
+                            🏹 Ramayana Circuit
+                        </button>
+                        <button type="button" class="btn-preset-circuit" data-circuit-id="krishna_circuit">
+                            🪈 Krishna Braj Dham
+                        </button>
+                        <button type="button" class="btn-preset-circuit" data-circuit-id="buddhist_circuit">
+                            ☸️ Buddhist Circuit
+                        </button>
+                        <button type="button" class="btn-preset-circuit" data-circuit-id="ganga_triveni_circuit">
+                            🌊 Triveni & Ganga
+                        </button>
+                        <button type="button" class="btn-preset-circuit" data-circuit-id="grand_up_circuit">
+                            🚩 Grand UP Yatra (All 8)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dual Layout Grid: Left Itinerary Builder | Right Interactive Map & Details -->
+                <div class="planner-layout-grid">
+
+                    <!-- Left Column: Route Builder & Distance/Duration Calculator -->
+                    <div class="planner-left-panel">
+                        <div class="panel-header">
+                            <h2>🚩 Custom Itinerary & Route Builder</h2>
+                            <p>Customize your stop sequence, select mode of transport, and view leg-by-leg distances.</p>
+                        </div>
+
+                        <!-- Add Stop Toolbar & Mode -->
+                        <div class="itinerary-controls">
+                            <div class="control-row">
+                                <label for="transport-mode">Mode of Transport</label>
+                                <select id="transport-mode">
+                                    <option value="car">🚗 Car / Taxi (60 km/h)</option>
+                                    <option value="bus">🚌 Express Bus (45 km/h)</option>
+                                    <option value="train">🚆 Superfast Train (75 km/h)</option>
+                                </select>
+                            </div>
+
+                            <div class="control-row inline-add">
+                                <select id="add-dest-select">
+                                    <option value="">+ Choose Destination to Add</option>
+                                </select>
+                                <button id="btn-add-dest" type="button" class="btn-add">+ Add</button>
+                                <button id="btn-clear-route" type="button" class="btn-clear">Clear</button>
+                            </div>
+                        </div>
+
+                        <!-- Ordered Route Stops Stream -->
+                        <div class="route-stops-wrapper">
+                            <div class="route-stops-header">
+                                <h3>Current Route Sequence</h3>
+                                <span class="drag-tip">Click items to inspect on map or reorder</span>
+                            </div>
+                            <div class="route-stops-list" id="route-stops-list"></div>
+                        </div>
+
+                        <!-- Calculated Route Summary Box -->
+                        <div class="route-summary-box">
+                            <div class="summary-item">
+                                <span class="summary-label">Total Distance</span>
+                                <strong id="stat-total-distance">640 km</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Travel Time</span>
+                                <strong id="stat-travel-time">10.7 hrs (CAR)</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Recommended Stay</span>
+                                <strong id="stat-stay-days">9 Days</strong>
+                            </div>
+                            <div class="summary-item highlight">
+                                <span class="summary-label">Total Circuit Duration</span>
+                                <strong id="stat-total-days">11 Days</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Map Viewport & Destination Inspector -->
+                    <div class="planner-right-panel">
+                        <div class="map-card-wrapper">
+                            <div class="map-viewport-header">
+                                <h3>🗺️ Interactive Uttar Pradesh Map</h3>
+                                <span class="map-tip">Click nodes to inspect destination details</span>
+                            </div>
+
+                            <div class="map-viewport-container">
+                                <div class="graph-zoom-controls">
+                                    <button id="zoom-in" title="Zoom In">+</button>
+                                    <button id="zoom-out" title="Zoom Out">−</button>
+                                    <button id="zoom-reset" title="Reset View">⊙</button>
+                                </div>
+
+                                <svg id="up-map-svg" class="up-svg-map" viewBox="0 0 800 500" width="100%" height="100%">
+                                    <rect width="100%" height="100%" fill="var(--map-bg, #080c18)" />
+                                    <defs>
+                                        <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+
+                                    <!-- UP State Outline Silhouette -->
+                                    <path d="M 120 150 Q 180 120 280 140 T 420 180 T 560 150 T 700 160 T 680 240 T 620 360 T 480 390 T 360 410 T 260 320 T 140 260 Z" 
+                                          fill="rgba(249, 115, 22, 0.04)" stroke="rgba(249, 115, 22, 0.25)" stroke-width="2" stroke-dasharray="6,4" />
+
+                                    <g class="map-main-group">
+                                        <g id="map-route-lines"></g>
+                                        <g id="map-dest-nodes"></g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Active Destination Details Inspector Card -->
+                        <div class="dest-details-card" id="dest-details-card">
+                            <div class="card-top">
+                                <div>
+                                    <h3 id="card-dest-title">🛕 Ayodhya</h3>
+                                    <p class="card-tradition" id="card-dest-tradition">Ramayana / Sacred Ram Janmabhoomi</p>
+                                </div>
+                                <div class="card-top-actions">
+                                    <button type="button" class="btn-fav" id="card-fav-btn">☆ Add Favorite</button>
+                                </div>
+                            </div>
+
+                            <p class="card-desc" id="card-dest-desc">The revered birthplace of Lord Rama along the sacred Saryu River.</p>
+
+                            <div class="card-info-pills">
+                                <span>🌊 Rivers: <strong id="card-dest-rivers">Saryu River</strong></span>
+                                <span>⏱️ Stay: <strong id="card-dest-stay">2 Days Recommended</strong></span>
+                                <span>📅 Season: <strong id="card-dest-season">Oct to Mar</strong></span>
+                            </div>
+
+                            <div class="card-sites-box">
+                                <strong>📍 Major Temples & Holy Sites:</strong>
+                                <ul id="card-dest-sites" class="sites-list"></ul>
+                            </div>
+
+                            <div class="card-bottom">
+                                <button type="button" class="btn-card-add" id="card-add-route-btn">+ Add to Itinerary</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- All 8 Destinations Grid & Search Section -->
+                <section class="destinations-explorer-section">
+                    <div class="section-header">
+                        <h2>Explore All 8 Uttar Pradesh Destinations</h2>
+                        <p>Search, filter, mark favorites, and add holy sites to your itinerary.</p>
+                    </div>
+
+                    <div class="explorer-toolbar">
+                        <div class="toolbar-field search-field">
+                            <input id="dest-search" type="search" placeholder="Search Ayodhya, Kashi, Ghats, Sangam, Temples..." autocomplete="off" aria-label="Search destinations">
+                        </div>
+
+                        <div class="toolbar-field">
+                            <select id="category-filter" aria-label="Filter destinations by category">
+                                <option value="all">All Categories</option>
+                                <option value="ramayana">Ramayana Circuit</option>
+                                <option value="krishna">Krishna Circuit</option>
+                                <option value="shaiva">Shaiva / Kashi</option>
+                                <option value="buddhist">Buddhist Circuit</option>
+                                <option value="sacred rivers">Sacred Rivers</option>
+                            </select>
+                        </div>
+
+                        <div class="toolbar-field">
+                            <button id="fav-only-toggle" type="button" class="btn-fav-toggle">☆ View Favorites Only</button>
+                        </div>
+                    </div>
+
+                    <div class="destinations-grid" id="destinations-grid"></div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Guiding sacred pilgrimages, heritage explorations, and cultural journeys across Uttar Pradesh and India.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../culture/culture.html">Culture</a>
+                <a href="../spiritual/spiritual.html">Spiritual India</a>
+                <a href="up-pilgrimage.html">UP Pilgrimage Planner</a>
+                <a href="../border-stories/border-stories.html">Border Stories</a>
+                <a href="../trade-routes/trade-routes.html">Trade Routes</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Uttar Pradesh Pilgrimage Circuit Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="up-pilgrimage.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>
