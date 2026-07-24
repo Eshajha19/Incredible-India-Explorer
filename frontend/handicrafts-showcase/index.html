@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UP Handicrafts Showcase | Incredible India Explorer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hc-navbar">
+  <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+  <div class="nav-brand">
+    <span class="saffron">Incredible</span>
+    <span class="gold">India</span>
+    <span class="green">Explorer</span>
+  </div>
+</header>
+
+<section class="hero-section">
+  <div class="hero-pattern-strip"></div>
+  <span class="section-badge">Woven Heritage • Living Traditions</span>
+  <h1>🧵 Uttar Pradesh Handicrafts Showcase</h1>
+  <p class="hero-text">From the needle-fine threads of Lucknow's Chikankari to the gleaming brassware of Moradabad — journey through the districts that keep UP's centuries-old craft traditions alive.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span id="totalCraftsStat">0</span><label>Crafts</label></div>
+    <div class="hero-stat"><span id="totalDistrictsStat">0</span><label>Districts</label></div>
+    <div class="hero-stat"><span>GI</span><label>Tagged Heritage</label></div>
+  </div>
+  <div class="hero-pattern-strip"></div>
+</section>
+
+<div class="container">
+
+  <div class="layout-grid">
+
+    <!-- District Sidebar -->
+    <aside class="district-sidebar">
+      <h3 class="sidebar-title">📍 Filter by District</h3>
+      <div class="district-list" id="districtList">
+        <button class="district-btn active" data-district="all">
+          <span class="district-name">All Districts</span>
+        </button>
+      </div>
+
+      <h3 class="sidebar-title" style="margin-top: 24px;">🏷️ Craft Category</h3>
+      <div class="category-list" id="categoryList">
+        <button class="category-btn active" data-category="all">All Categories</button>
+        <button class="category-btn" data-category="textile">Textile & Weaving</button>
+        <button class="category-btn" data-category="metal">Metalwork</button>
+        <button class="category-btn" data-category="wood">Woodcraft</button>
+        <button class="category-btn" data-category="glass">Glass & Pottery</button>
+        <button class="category-btn" data-category="carpet">Carpets & Rugs</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="craft-main">
+      <div class="search-row">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search crafts, districts, artisans...">
+        </div>
+        <span class="results-count" id="resultsCount">Showing 15 crafts</span>
+      </div>
+
+      <div class="craft-grid" id="craftGrid"></div>
+
+      <div id="noResults" class="no-results hidden">
+        <span class="no-results-icon">🧶</span>
+        <p>No crafts match your search. Try a different district, category, or keyword.</p>
+      </div>
+    </main>
+
+    <!-- Detail Side Panel -->
+    <aside class="detail-panel" id="detailPanel">
+      <div class="detail-panel-empty" id="detailEmpty">
+        <span class="empty-icon">🪡</span>
+        <p>Select a craft to explore its history, artisans, and district story.</p>
+      </div>
+
+      <div class="detail-panel-content hidden" id="detailContent">
+        <button class="detail-close-btn" id="detailCloseBtn">&times;</button>
+        <div class="detail-icon" id="detailIcon">🧵</div>
+        <span class="detail-district-tag" id="detailDistrictTag">Lucknow</span>
+        <h2 class="detail-title" id="detailTitle">Craft Name</h2>
+        <p class="detail-description" id="detailDescription">Description here.</p>
+
+        <div class="detail-section">
+          <h4>📜 Traditional History</h4>
+          <p id="detailHistory">History here.</p>
+        </div>
+
+        <div class="detail-section">
+          <h4>👩‍🎨 Artisan Insight</h4>
+          <p id="detailArtisan">Artisan info here.</p>
+        </div>
+
+        <div class="detail-section">
+          <h4>🗺️ District Story</h4>
+          <p id="detailDistrictStory">District story here.</p>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer class="hc-footer">
+  <p>&copy; 2026 Incredible India Explorer. Uttar Pradesh Handicrafts Showcase.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
