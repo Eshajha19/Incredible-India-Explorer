@@ -1,0 +1,493 @@
+/* ==========================================================================
+   Uttar Pradesh District Explorer Stylesheet - Incredible India Explorer
+   ========================================================================== */
+
+:root {
+    --up-gold: #eab308;
+    --up-saffron: #f97316;
+    --up-emerald: #10b981;
+    --up-blue: #3b82f6;
+    --up-purple: #8b5cf6;
+    --up-bg: var(--bg-dark, #060913);
+    --up-surface: rgba(255, 255, 255, 0.05);
+    --up-surface-hover: rgba(255, 255, 255, 0.1);
+    --up-border: rgba(255, 255, 255, 0.12);
+    --up-text: #f8fafc;
+    --up-muted: #94a3b8;
+    --up-card-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
+}
+
+.light-theme {
+    --up-bg: #fafaf9;
+    --up-surface: rgba(255, 255, 255, 0.95);
+    --up-surface-hover: #ffffff;
+    --up-border: rgba(0, 0, 0, 0.12);
+    --up-text: #1c1917;
+    --up-muted: #57534e;
+    --up-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.district-explorer-page {
+    background-color: var(--up-bg);
+    color: var(--up-text);
+    min-height: 100vh;
+}
+
+/* --- Hero Section --- */
+.explorer-hero {
+    position: relative;
+    isolation: isolate;
+    padding: 135px 20px 45px;
+    text-align: center;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(234, 179, 8, 0.18), transparent 35%),
+        radial-gradient(circle at 85% 35%, rgba(59, 130, 246, 0.18), transparent 35%),
+        linear-gradient(170deg, #060913 0%, #0d1222 45%, #080c16 100%);
+    overflow: hidden;
+}
+
+.explorer-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.35;
+    background-image: 
+        radial-gradient(rgba(234, 179, 8, 0.12) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(59, 130, 246, 0.12) 1.5px, transparent 1.5px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-kicker {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(234, 179, 8, 0.12);
+    border: 1px solid rgba(234, 179, 8, 0.35);
+    color: var(--up-gold);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.explorer-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.explorer-hero h1 span {
+    background: linear-gradient(120deg, var(--up-gold), var(--up-saffron));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.explorer-hero p {
+    font-size: 1.15rem;
+    color: var(--up-muted);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background: var(--up-surface);
+    border: 1px solid var(--up-border);
+    padding: 14px 24px;
+    border-radius: 16px;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-box strong {
+    display: block;
+    font-size: 1.75rem;
+    color: var(--up-gold);
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.stat-box span {
+    font-size: 0.82rem;
+    color: var(--up-muted);
+}
+
+/* --- Container --- */
+.explorer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+/* Toolbar */
+.explorer-toolbar {
+    background: var(--up-surface);
+    border: 1px solid var(--up-border);
+    border-radius: 20px;
+    padding: 20px 24px;
+    backdrop-filter: blur(12px);
+    margin-bottom: 32px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.explorer-toolbar .search-field {
+    flex: 2;
+    min-width: 260px;
+}
+
+.explorer-toolbar .toolbar-field {
+    flex: 1;
+    min-width: 180px;
+}
+
+.explorer-toolbar input,
+.explorer-toolbar select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--up-border);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--up-text);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.light-theme .explorer-toolbar input,
+.light-theme .explorer-toolbar select {
+    background: #ffffff;
+}
+
+.results-count-badge {
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid var(--up-gold);
+    color: var(--up-gold);
+    font-weight: 800;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Map Viewport Card */
+.map-viewport-card {
+    background: var(--up-surface);
+    border: 1px solid var(--up-border);
+    border-radius: 24px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--up-card-shadow);
+    margin-bottom: 48px;
+}
+
+.map-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.map-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+.map-header p {
+    font-size: 0.9rem;
+    color: var(--up-muted);
+}
+
+.svg-map-wrapper {
+    width: 100%;
+    height: 380px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    border: 1px solid var(--up-border);
+    overflow: hidden;
+}
+
+.up-svg-map {
+    width: 100%;
+    height: 100%;
+}
+
+.map-district-node circle {
+    cursor: pointer;
+    transition: transform 0.2s ease, r 0.2s ease, fill 0.2s ease;
+}
+
+.map-district-node:hover circle {
+    r: 12;
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.map-district-label {
+    fill: #f8fafc;
+    font-size: 9px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+}
+
+.map-legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.map-legend i {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* Floating Tooltip */
+.map-tooltip {
+    position: absolute;
+    z-index: 100;
+    background: #0d1222;
+    border: 1px solid var(--up-gold);
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.85rem;
+    pointer-events: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Districts Grid */
+.districts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.district-card {
+    background: var(--up-surface);
+    border: 1px solid var(--up-border);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--up-card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.district-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--up-gold);
+    background: var(--up-surface-hover);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.region-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.region-badge.purvanchal { background: rgba(249, 115, 22, 0.2); color: #f97316; }
+.region-badge.awadh { background: rgba(234, 179, 8, 0.2); color: #eab308; }
+.region-badge.paschimanchal { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+.region-badge.bundelkhand { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+
+.div-badge {
+    font-size: 0.75rem;
+    color: var(--up-muted);
+}
+
+.district-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.district-hq {
+    font-size: 0.85rem;
+    color: var(--up-muted);
+}
+
+.card-section strong {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--up-gold);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.card-section p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--up-text);
+}
+
+.card-footer {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.btn-inspect-district {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid var(--up-gold);
+    color: var(--up-gold);
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.district-card:hover .btn-inspect-district {
+    background: var(--up-gold);
+    color: #111;
+}
+
+/* Modal Inspector */
+.district-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.district-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.district-modal-card {
+    background: #0d1222;
+    border: 1px solid var(--up-gold);
+    border-radius: 24px;
+    padding: 32px;
+    max-width: 680px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+    color: #f8fafc;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.light-theme .district-modal-card {
+    background: #ffffff;
+    color: #1c1917;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--up-muted);
+    cursor: pointer;
+}
+
+.modal-header {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--up-border);
+    padding-bottom: 16px;
+}
+
+.modal-badge-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.modal-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+}
+
+.modal-meta-info {
+    font-size: 0.95rem;
+    color: var(--up-muted);
+}
+
+.modal-body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .modal-body-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.detail-block h4 {
+    font-size: 0.95rem;
+    color: var(--up-gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.empty-msg-card {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: var(--up-surface);
+    border: 1px dashed var(--up-border);
+    border-radius: 20px;
+    color: var(--up-muted);
+}

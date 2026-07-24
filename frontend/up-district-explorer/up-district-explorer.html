@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Uttar Pradesh District Explorer - Interactive map and comprehensive guide to all 75 districts of Uttar Pradesh covering headquarters, attractions, industries, cuisine, and festivals.">
+    <title>Uttar Pradesh District Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="up-district-explorer.css">
+</head>
+
+<body class="district-explorer-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="../state/state.html" class="nav-link" id="link-state">States of India</a>
+                <a href="up-district-explorer.html" class="nav-link active" style="color: var(--gold)">UP District Explorer</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../up-pilgrimage/up-pilgrimage.html" class="dropdown-item">UP Pilgrimage Planner</a>
+                        <a href="../up-filming/up-filming.html" class="dropdown-item">UP Filming Locations</a>
+                        <a href="../guess-up-district/guess-up-district.html" class="dropdown-item">Guess UP District Game</a>
+                        <a href="../border-stories/border-stories.html" class="dropdown-item">Border Stories</a>
+                        <a href="../trade-routes/trade-routes.html" class="dropdown-item">Trade Network Explorer</a>
+                    </div>
+                </div>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-learn-data">
+                        Learn & Data ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../smart-cities/smart-cities.html" class="dropdown-item">Smart Cities</a>
+                        <a href="../languages/languages.html" class="dropdown-item">Languages of India</a>
+                        <a href="../data-india/data-india.html" class="dropdown-item">Data & Statistics</a>
+                        <a href="../state-achievements/state-achievements.html" class="dropdown-item">State Achievement Timeline</a>
+                        <a href="../state-jigsaw/state-jigsaw.html" class="dropdown-item">State Jigsaw Puzzle</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="district-explorer-page">
+        <!-- Hero Section -->
+        <section class="explorer-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🗺️ Interactive Map · All 75 Districts · 18 Divisions</span>
+                <h1>Uttar Pradesh <span>District Explorer</span></h1>
+                <p>Explore all 75 districts of Uttar Pradesh. Discover headquarters, population overviews, famous attractions, major industries (ODOP), local cuisine, and vibrant festivals.</p>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <strong>75</strong>
+                        <span>Districts</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>18</strong>
+                        <span>Divisions</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>4</strong>
+                        <span>Geographic Regions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Explorer Workspace -->
+        <section class="explorer-workspace">
+            <div class="explorer-container">
+
+                <!-- Search & Filters Toolbar -->
+                <div class="explorer-toolbar">
+                    <div class="toolbar-field search-field">
+                        <input id="district-search" type="search" placeholder="Search Agra, Varanasi, Taj Mahal, Leather, Banarasi Silk, Petha..." autocomplete="off">
+                    </div>
+
+                    <div class="toolbar-field">
+                        <select id="division-filter">
+                            <option value="all">All 18 Divisions</option>
+                        </select>
+                    </div>
+
+                    <div class="toolbar-field">
+                        <select id="region-filter">
+                            <option value="all">All 4 Regions</option>
+                            <option value="Purvanchal">Purvanchal (Eastern)</option>
+                            <option value="Awadh">Awadh (Central)</option>
+                            <option value="Paschimanchal">Paschimanchal (Western)</option>
+                            <option value="Bundelkhand">Bundelkhand (Southern)</option>
+                        </select>
+                    </div>
+
+                    <div class="results-count-badge" id="total-districts-count">
+                        75 / 75 Districts
+                    </div>
+                </div>
+
+                <!-- Interactive SVG Map Viewport -->
+                <div class="map-viewport-card">
+                    <div class="map-header">
+                        <h3>🗺️ Interactive Uttar Pradesh District Map</h3>
+                        <p>Hover over map nodes to preview district details or click to view full profile.</p>
+                    </div>
+
+                    <div class="svg-map-wrapper">
+                        <svg id="up-svg-map" viewBox="0 0 800 450" class="up-svg-map">
+                            <!-- SVG nodes rendered dynamically -->
+                        </svg>
+                    </div>
+
+                    <div class="map-legend">
+                        <span><i style="background: #f97316"></i> Purvanchal</span>
+                        <span><i style="background: #eab308"></i> Awadh</span>
+                        <span><i style="background: #3b82f6"></i> Paschimanchal</span>
+                        <span><i style="background: #10b981"></i> Bundelkhand</span>
+                    </div>
+                </div>
+
+                <!-- Districts Grid -->
+                <section class="districts-grid-section">
+                    <div id="districts-grid" class="districts-grid"></div>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Map Hover Tooltip -->
+    <div id="map-tooltip" class="map-tooltip" style="display: none;"></div>
+
+    <!-- District Detail Modal Inspector -->
+    <div class="district-modal-overlay" id="district-modal">
+        <div class="district-modal-card">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Inspector">&times;</button>
+
+            <div class="modal-header">
+                <div class="modal-badge-group">
+                    <span class="region-badge" id="modal-region">Awadh</span>
+                    <span class="div-badge" id="modal-division">Lucknow Division</span>
+                </div>
+                <h2 id="modal-district-name">Lucknow</h2>
+                <p class="modal-meta-info">🏛️ Headquarters: <strong id="modal-hq">Lucknow</strong> · 👥 Population: <strong id="modal-pop">4.58 Million</strong></p>
+            </div>
+
+            <div class="modal-body-grid">
+                <div class="detail-block">
+                    <h4>✨ Famous Attractions</h4>
+                    <ul id="modal-attractions" class="detail-list"></ul>
+                </div>
+
+                <div class="detail-block">
+                    <h4>🏭 Major Industries & ODOP</h4>
+                    <ul id="modal-industries" class="detail-list"></ul>
+                </div>
+
+                <div class="detail-block">
+                    <h4>🍲 Local Cuisine & Sweets</h4>
+                    <ul id="modal-cuisine" class="detail-list"></ul>
+                </div>
+
+                <div class="detail-block">
+                    <h4>🎉 Fairs & Festivals</h4>
+                    <ul id="modal-festivals" class="detail-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Comprehensive interactive guide showcasing the geography, culture, attractions, and heritage of all 75 districts of Uttar Pradesh.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="../culture/culture.html">Culture</a>
+                <a href="../state/state.html">States of India</a>
+                <a href="up-district-explorer.html">UP District Explorer</a>
+                <a href="../guess-up-district/guess-up-district.html">Guess UP District Game</a>
+                <a href="../up-pilgrimage/up-pilgrimage.html">UP Pilgrimage Planner</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Uttar Pradesh District Explorer Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="up-district-explorer.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>
