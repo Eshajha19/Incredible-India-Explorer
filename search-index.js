@@ -984,6 +984,18 @@ window.indiaSearchIndex = [
     description: "Explore the dry, arid conditions of Western Rajasthan and Kutch with extreme temperatures and low rainfall.",
     url: "frontend/climate-zones/climate-zones.html?zone=arid"
   },
+  // --- Guess the Uttar Pradesh District Game ---
+  {
+    title: "Guess the Uttar Pradesh District Game",
+    category: "Games & Quizzes",
+    description: "Educational quiz game to test knowledge of 75 UP districts based on clues across Easy, Medium, Hard, and Timed Challenge modes.",
+    url: "frontend/guess-up-district/guess-up-district.html"
+  },
+  {
+    title: "Uttar Pradesh District Quiz & Clues Challenge",
+    category: "UP Geography Game",
+    description: "Identify UP districts from handicraft ODOP, river landmarks, and history with scoreboard, timer, hints, and achievement badges.",
+    url: "frontend/guess-up-district/guess-up-district.html"
   // --- Uttar Pradesh Filming Locations Explorer ---
   {
     title: "Uttar Pradesh Filming Locations Explorer",

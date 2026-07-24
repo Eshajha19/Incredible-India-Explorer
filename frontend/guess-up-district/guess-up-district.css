@@ -1,0 +1,634 @@
+/* ==========================================================================
+   Guess the Uttar Pradesh District Game Stylesheet - Incredible India Explorer
+   ========================================================================== */
+
+:root {
+    --quiz-gold: #eab308;
+    --quiz-saffron: #f97316;
+    --quiz-emerald: #10b981;
+    --quiz-blue: #3b82f6;
+    --quiz-purple: #8b5cf6;
+    --quiz-red: #ef4444;
+    --quiz-bg: var(--bg-dark, #060913);
+    --quiz-surface: rgba(255, 255, 255, 0.05);
+    --quiz-surface-hover: rgba(255, 255, 255, 0.1);
+    --quiz-border: rgba(255, 255, 255, 0.12);
+    --quiz-text: #f8fafc;
+    --quiz-muted: #94a3b8;
+    --quiz-card-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
+}
+
+.light-theme {
+    --quiz-bg: #fafaf9;
+    --quiz-surface: rgba(255, 255, 255, 0.95);
+    --quiz-surface-hover: #ffffff;
+    --quiz-border: rgba(0, 0, 0, 0.12);
+    --quiz-text: #1c1917;
+    --quiz-muted: #57534e;
+    --quiz-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.district-game-page {
+    background-color: var(--quiz-bg);
+    color: var(--quiz-text);
+    min-height: 100vh;
+}
+
+/* --- Hero Section --- */
+.game-hero {
+    position: relative;
+    isolation: isolate;
+    padding: 135px 20px 45px;
+    text-align: center;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(249, 115, 22, 0.18), transparent 35%),
+        radial-gradient(circle at 85% 35%, rgba(234, 179, 8, 0.18), transparent 35%),
+        linear-gradient(170deg, #060913 0%, #0d1222 45%, #080c16 100%);
+    overflow: hidden;
+}
+
+.game-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.35;
+    background-image: 
+        radial-gradient(rgba(249, 115, 22, 0.12) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(234, 179, 8, 0.12) 1.5px, transparent 1.5px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-kicker {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(249, 115, 22, 0.12);
+    border: 1px solid rgba(249, 115, 22, 0.35);
+    color: var(--quiz-saffron);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+}
+
+.game-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 18px;
+}
+
+.game-hero h1 span {
+    background: linear-gradient(120deg, var(--quiz-saffron), var(--quiz-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.game-hero p {
+    font-size: 1.15rem;
+    color: var(--quiz-muted);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background: var(--quiz-surface);
+    border: 1px solid var(--quiz-border);
+    padding: 14px 24px;
+    border-radius: 16px;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-box strong {
+    display: block;
+    font-size: 1.75rem;
+    color: var(--quiz-gold);
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.stat-box span {
+    font-size: 0.82rem;
+    color: var(--quiz-muted);
+}
+
+/* --- Container --- */
+.game-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+/* --- 1. Game Setup Area --- */
+.setup-card {
+    background: var(--quiz-surface);
+    border: 1px solid var(--quiz-border);
+    border-radius: 28px;
+    padding: 36px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--quiz-card-shadow);
+    text-align: center;
+}
+
+.setup-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.setup-subtitle {
+    font-size: 1rem;
+    color: var(--quiz-muted);
+    margin-bottom: 30px;
+}
+
+.mode-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.btn-mode {
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid var(--quiz-border);
+    border-radius: 20px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    color: var(--quiz-text);
+}
+
+.btn-mode:hover,
+.btn-mode.active {
+    border-color: var(--quiz-saffron);
+    background: rgba(249, 115, 22, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.25);
+}
+
+.mode-icon {
+    font-size: 2rem;
+}
+
+.mode-title {
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+.mode-meta {
+    font-size: 0.78rem;
+    color: var(--quiz-muted);
+}
+
+.mode-desc-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    color: var(--quiz-gold);
+    font-weight: 600;
+}
+
+/* High Scores Panel */
+.high-scores-panel {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--quiz-border);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 32px;
+}
+
+.high-scores-panel h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: var(--quiz-gold);
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.scores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.score-chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--quiz-border);
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.score-chip strong {
+    color: var(--quiz-saffron);
+    font-weight: 800;
+}
+
+.btn-start-game {
+    width: 100%;
+    max-width: 380px;
+    padding: 16px 32px;
+    border-radius: 14px;
+    background: linear-gradient(120deg, var(--quiz-saffron), var(--quiz-gold));
+    border: none;
+    color: #111;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-start-game:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+}
+
+/* --- 2. Active Game Play Area --- */
+.game-play-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.game-hud-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--quiz-surface);
+    border: 1px solid var(--quiz-border);
+    border-radius: 20px;
+    padding: 16px 24px;
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hud-item {
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hud-item strong {
+    color: var(--quiz-gold);
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.progress-bar-container {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--quiz-saffron), var(--quiz-gold));
+    transition: width 0.3s ease;
+}
+
+.question-card {
+    background: var(--quiz-surface);
+    border: 1px solid var(--quiz-border);
+    border-radius: 28px;
+    padding: 32px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--quiz-card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.clues-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clues-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--quiz-saffron);
+}
+
+.btn-hint {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid var(--quiz-gold);
+    color: var(--quiz-gold);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-hint:hover:not(:disabled) {
+    background: var(--quiz-gold);
+    color: #111;
+}
+
+.btn-hint:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.clues-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.clues-list li {
+    background: rgba(0, 0, 0, 0.25);
+    border-left: 4px solid var(--quiz-saffron);
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.light-theme .clues-list li {
+    background: #ffffff;
+}
+
+.clue-num {
+    font-weight: 800;
+    color: var(--quiz-gold);
+    margin-right: 6px;
+}
+
+.extra-hint-clue {
+    border-left-color: var(--quiz-emerald) !important;
+    background: rgba(16, 185, 129, 0.12) !important;
+}
+
+.hint-notice {
+    font-size: 0.85rem;
+    color: var(--quiz-gold);
+    font-weight: 600;
+}
+
+.options-header h4 {
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--quiz-muted);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn-option {
+    padding: 16px 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--quiz-border);
+    color: var(--quiz-text);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn-option:hover:not(:disabled) {
+    background: rgba(249, 115, 22, 0.2);
+    border-color: var(--quiz-saffron);
+    transform: translateY(-2px);
+}
+
+.btn-option.correct {
+    background: var(--quiz-emerald) !important;
+    border-color: var(--quiz-emerald) !important;
+    color: #fff !important;
+}
+
+.btn-option.incorrect {
+    background: var(--quiz-red) !important;
+    border-color: var(--quiz-red) !important;
+    color: #fff !important;
+}
+
+.feedback-banner {
+    padding: 16px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.feedback-banner.success {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid var(--quiz-emerald);
+    color: var(--quiz-emerald);
+}
+
+.feedback-banner.error {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid var(--quiz-red);
+    color: var(--quiz-red);
+}
+
+/* --- 3. Game Results Area --- */
+.results-card {
+    background: var(--quiz-surface);
+    border: 1px solid var(--quiz-border);
+    border-radius: 28px;
+    padding: 36px;
+    backdrop-filter: blur(12px);
+    box-shadow: var(--quiz-card-shadow);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.results-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--quiz-emerald);
+    color: var(--quiz-emerald);
+    font-weight: 800;
+    font-size: 0.9rem;
+    align-self: center;
+}
+
+.results-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+}
+
+.high-score-notice {
+    background: rgba(234, 179, 8, 0.15);
+    border: 1px solid var(--quiz-gold);
+    color: var(--quiz-gold);
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+.results-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.summary-box {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--quiz-border);
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.box-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    color: var(--quiz-muted);
+    font-weight: 700;
+}
+
+.summary-box strong {
+    font-size: 1.8rem;
+    color: var(--quiz-gold);
+    font-weight: 800;
+}
+
+/* Badges Grid */
+.badges-section {
+    text-align: left;
+}
+
+.badges-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+}
+
+.badge-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--quiz-border);
+    padding: 14px 18px;
+    border-radius: 16px;
+}
+
+.badge-card.locked {
+    opacity: 0.4;
+}
+
+.badge-card.unlocked {
+    border-color: var(--quiz-gold);
+    background: rgba(234, 179, 8, 0.1);
+}
+
+.badge-icon {
+    font-size: 2rem;
+}
+
+.badge-info {
+    flex: 1;
+}
+
+.badge-info strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.badge-info p {
+    font-size: 0.78rem;
+    color: var(--quiz-muted);
+}
+
+.badge-status {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--quiz-gold);
+}
+
+.results-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.btn-action.primary {
+    background: linear-gradient(120deg, var(--quiz-saffron), var(--quiz-gold));
+    color: #111;
+}
+
+.btn-action.secondary {
+    background: transparent;
+    border: 1px solid var(--quiz-border);
+    color: var(--quiz-text);
+}
+
+.btn-action:hover {
+    transform: scale(1.03);
+}
