@@ -983,5 +983,18 @@ window.indiaSearchIndex = [
     category: "Climate Zone",
     description: "Explore the dry, arid conditions of Western Rajasthan and Kutch with extreme temperatures and low rainfall.",
     url: "frontend/climate-zones/climate-zones.html?zone=arid"
+  },
+  // --- Uttar Pradesh Filming Locations Explorer ---
+  {
+    title: "Uttar Pradesh Filming Locations Explorer",
+    category: "Cinema & Culture",
+    description: "Explore iconic Bollywood & cinema filming locations across Uttar Pradesh including Varanasi Ghats, Taj Mahal, Lucknow, Agra, Jhansi, and Prayagraj.",
+    url: "frontend/up-filming/up-filming.html"
+  },
+  {
+    title: "Varanasi & Taj Mahal Movie Locations",
+    category: "UP Filming Locations",
+    description: "Discover movie cards, behind-the-scenes trivia, and interactive gallery for movies filmed in Uttar Pradesh.",
+    url: "frontend/up-filming/up-filming.html"
   }
 ];
