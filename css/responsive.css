@@ -1,0 +1,317 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .cuisine-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-header h2 {
+        font-size: 2.4rem;
+    }
+
+    .map-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .map-sidebar {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .slider-card {
+        min-width: calc((100% - 30px) / 2);
+        max-width: calc((100% - 30px) / 2);
+    }
+
+    .science-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .science-isro-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .science-modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .science-modal-hero {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --navbar-height: 70px;
+    }
+
+    /* Mobile nav overrides */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--navbar-height));
+        background: hsl(222, 47%, 6%);
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 80px;
+        /* offset for visual centering */
+    }
+
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+
+    /* burger menu morph */
+    .menu-toggle.open .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-container {
+        padding: 60px 16px;
+    }
+
+    .cuisine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slider-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .festival-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .festival-card-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .quiz-options-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .quiz-card {
+        padding: 30px 20px;
+    }
+
+    .modal-card {
+        padding: 30px 20px;
+    }
+
+    .modal-meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sports-filters-bar {
+        align-items: stretch;
+    }
+
+    .sports-filters-bar .search-box-wrapper {
+        width: 100%;
+    }
+
+    .sports-athlete-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .athlete-media {
+        width: 84px;
+    }
+
+    .sports-modal-avatar {
+        width: 104px;
+        height: 104px;
+    }
+
+    .sports-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .sports-modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sports-modal-hero,
+    .sports-modal-body {
+        padding: 28px 20px;
+    }
+
+    .sports-modal-hero {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .sports-modal-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .science-hero {
+        min-height: 420px;
+        padding: 100px 0 70px;
+    }
+
+    .science-hero h1 {
+        font-size: 2.8rem;
+        max-width: 12ch;
+    }
+
+    .science-hero-actions {
+        flex-direction: column;
+        width: min(100%, 320px);
+    }
+
+    .science-hero-actions .btn {
+        width: 100%;
+    }
+
+    .science-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .science-isro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .science-scientist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .science-scientist-card-head,
+    .science-isro-card-top {
+        flex-direction: column;
+    }
+
+    .science-scientist-avatar {
+        width: 82px;
+        height: 82px;
+    }
+
+    .science-mission-avatar {
+        width: 68px;
+        height: 68px;
+    }
+
+    .science-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .science-modal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .science-modal-hero,
+    .science-modal-body {
+        padding: 28px 20px;
+    }
+
+    .science-modal-hero {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .science-modal-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .science-filters-bar {
+        align-items: stretch;
+    }
+
+    .science-filters-bar .search-box-wrapper {
+        width: 100%;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-links ul {
+        grid-template-columns: 1fr;
+    }
+
+    .slider-control {
+        display: none;
+        /* Swipe/scroll is native on mobile */
+    }
+}
+
+@media (max-height: 750px) {
+  .hero-content {
+    padding-top: calc(var(--navbar-height) + 10px);
+  }
+
+  .hero-tagline {
+    margin-bottom: 10px;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+    margin-bottom: 14px;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-scroll-indicator {
+    margin-top: 16px;
+  }
+}
+
+@media (max-height: 600px) {
+  .hero-scroll-indicator {
+    display: none; /* not enough room for it at all */
+  }
+}
+
+/* ==========================================================================

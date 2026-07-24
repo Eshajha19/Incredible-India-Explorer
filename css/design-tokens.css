@@ -1,0 +1,140 @@
+/* ==========================================================================
+   INCREDIBLE INDIA EXPLORER - STYLESHEET
+   Vanilla CSS with CSS Grid, Flexbox, Keyframes and Scroll-triggered animations.
+   ========================================================================== */
+
+/* Design Tokens & Theme Variables */
+:root {
+    --primary: hsl(29, 47%, 20%);
+    /* #FF9933 - Energy, courage (default primary) */
+    --primary-saffron: hsl(31, 100%, 70%);
+    /* #FF9933 - Energy, courage */
+    --primary-green: hsl(136, 72%, 16%);
+    /* #128807 - Prosperity, life */
+    --primary-gold: hsl(117, 56%, 64%);
+    /* #FFB01F - Splendor, culture */
+    --primary-gold-alt: hsl(43, 60%, 18%);
+    --mixed-text: hsl(43, 100%, 70%);
+    --bg-dark-deep: hsl(221, 100%, 22%);
+    /* #090D16 - Deep base bg */
+    --bg-dark-card: rgba(30, 41, 59, 0.65);
+    /* #1E293B with transparency */
+    --bg-dark-modal: hsl(222, 35%, 12%);
+    /* Dark modal solid */
+
+    --text-light: hsl(210, 40%, 98%);
+    /* Near white */
+    --text-muted: hsl(215, 20%, 65%);
+    /* Soft gray-blue */
+
+    --gradient-saffron-gold: linear-gradient(135deg, var(--primary-saffron) 0%, var(--primary-gold) 100%);
+    --gradient-gold-green: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-green) 100%);
+    --gradient-card-border: linear-gradient(135deg, rgba(255, 153, 51, 0.15) 0%, rgba(18, 136, 7, 0.15) 100%);
+    --gradient-card-border-hover: linear-gradient(135deg, var(--primary-saffron) 0%, var(--primary-gold) 50%, var(--primary-green) 100%);
+
+    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 20px rgba(255, 176, 31, 0.15);
+    --shadow-glow-active: 0 0 25px rgba(255, 153, 51, 0.35);
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', sans-serif;
+
+    --navbar-height: 80px;
+    --border-radius-lg: 18px;
+    --border-radius-sm: 8px;
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition-snappy: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ------------------------------------------------------------------
+       Page-level shorthand tokens (referenced by 30+ page CSS files)
+       Defined here so page CSS files use var(--xxx) without fallback.
+       ------------------------------------------------------------------ */
+
+    /* Accent colour shorthands (aliases for the :root canonical names) */
+    --saffron: var(--primary-saffron);
+    --gold: var(--primary-gold);
+    --green: var(--primary-green);
+
+    /* Glassmorphism surface tokens (used by 20+ page CSS files) */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.14);
+
+    /* Text colour tokens (used by 30+ page CSS files) */
+    --text-primary: #f5f5f5;
+    --text-secondary: #b7b7b7;
+    --muted-text: rgba(255, 255, 255, 0.6);
+
+    /* Page-level surface and typography tokens */
+    --bg-dark: #04172a;
+    --bg-primary: #111827;
+    --font-family: 'Outfit', sans-serif;
+    --primary-dark: #1a1a2e;
+}
+
+/* Base Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.hidden {
+    display: none !important;
+}
+
+body {
+    background-color: var(--bg-dark-deep);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+button {
+    font-family: var(--font-body);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 176, 31, 0.2);
+    border-radius: var(--border-radius-sm);
+    border: 2px solid var(--bg-dark-deep);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-saffron);
+}
+

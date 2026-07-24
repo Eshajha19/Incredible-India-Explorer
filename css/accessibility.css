@@ -1,0 +1,74 @@
+/* ==========================================================================
+   ACCESSIBILITY & KEYBOARD FOCUS STYLES
+   ========================================================================== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex="0"]:focus-visible,
+path[tabindex="0"]:focus-visible {
+    outline: 3px solid var(--primary-gold, #ff9933) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 5px rgba(255, 153, 51, 0.4) !important;
+}
+
+/* Dropdown Menu Keyboard Nav Visibility */
+.nav-dropdown.open .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block !important;
+}
+
+/* PWA Install Button */
+.pwa-install-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--saffron), var(--primary-gold));
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pwa-install-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(255, 153, 51, 0.5);
+}
+.pwa-install-btn:active {
+    transform: translateY(0);
+}
+
+/* Chatbot Context UI */
+.highlight-target {
+    animation: target-pulse 2.5s ease-out;
+}
+@keyframes target-pulse {
+    0% { background-color: rgba(255, 153, 51, 0); box-shadow: 0 0 0px rgba(255,153,51,0); }
+    15% { background-color: rgba(255, 153, 51, 0.3); box-shadow: 0 0 15px rgba(255,153,51,0.5); }
+    100% { background-color: rgba(255, 153, 51, 0); box-shadow: 0 0 0px rgba(255,153,51,0); }
+}
+.chat-action-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+.chat-action-btn:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.02);
+}
