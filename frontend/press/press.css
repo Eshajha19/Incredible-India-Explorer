@@ -1,0 +1,310 @@
+/* press.css */
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary: #10b981;
+    --accent: #f59e0b;
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border: #e2e8f0;
+    --focus-ring: #3b82f6;
+    --checker-light: #f1f5f9;
+    --checker-dark: #1e293b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    margin-top: 0;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+p, li {
+    color: var(--text-muted);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: 1px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--bg-card);
+    padding: 5rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 4rem;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+}
+
+/* Content Blocks */
+.content-block {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.content-block h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.content-block h3:first-child {
+    margin-top: 0;
+}
+
+.content-block ul {
+    padding-left: 1.5rem;
+}
+
+.content-block li {
+    margin-bottom: 0.5rem;
+}
+
+/* Asset Grid */
+.asset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Cards */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.card-image-container {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f5f9;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.asset-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.logo-img {
+    width: 80%;
+}
+
+.logo-icon {
+    width: 40%;
+}
+
+.checkerboard {
+    background-image: linear-gradient(45deg, #e2e8f0 25%, transparent 25%), 
+                      linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #e2e8f0 75%), 
+                      linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #ffffff;
+}
+
+.checkerboard-dark {
+    background-image: linear-gradient(45deg, #334155 25%, transparent 25%), 
+                      linear-gradient(-45deg, #334155 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #334155 75%), 
+                      linear-gradient(-45deg, transparent 75%, #334155 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #0f172a;
+}
+
+.card-footer {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.card-footer h3 {
+    margin: 0;
+    font-size: 1.125rem;
+}
+
+/* Color Swatches */
+.color-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.color-swatch {
+    height: 150px;
+    width: 100%;
+}
+
+.color-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.color-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.color-info code {
+    background-color: var(--bg-page);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: monospace;
+    color: var(--text-muted);
+}
+
+/* Awards / Recognition */
+.award-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.award-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--bg-card);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+    
+    .section {
+        margin-bottom: 3rem;
+    }
+}

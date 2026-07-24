@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Sources & Attribution | Incredible India Explorer</title>
+    <link rel="stylesheet" href="sources.css">
+</head>
+<body>
+    <header class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+            <h1 id="hero-title">Content Sources & Attribution</h1>
+            <p class="hero-description">
+                Trusted references used throughout Incredible India Explorer. 
+                We believe in transparency and empowering users to explore primary sources.
+            </p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Controls: Search and Filters -->
+        <section class="controls-section" aria-label="Search and filter sources">
+            
+            <div class="search-container">
+                <label for="source-search" class="sr-only">Search sources</label>
+                <input 
+                    type="search" 
+                    id="source-search" 
+                    placeholder="Search sources by name or description..."
+                    aria-controls="sources-grid"
+                >
+            </div>
+
+            <div class="filters-container" aria-label="Category filters">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="government" aria-pressed="false">Government</button>
+                <button class="filter-btn" data-filter="tourism" aria-pressed="false">Tourism</button>
+                <button class="filter-btn" data-filter="archaeology" aria-pressed="false">Archaeology</button>
+                <button class="filter-btn" data-filter="wildlife" aria-pressed="false">Wildlife</button>
+                <button class="filter-btn" data-filter="culture" aria-pressed="false">Culture</button>
+                <button class="filter-btn" data-filter="maps" aria-pressed="false">Maps</button>
+                <button class="filter-btn" data-filter="education" aria-pressed="false">Education</button>
+            </div>
+            
+        </section>
+
+        <!-- Source Cards Grid -->
+        <section aria-labelledby="sources-heading" class="sources-section">
+            <h2 id="sources-heading" class="sr-only">Source Cards</h2>
+            
+            <div class="sources-grid" id="sources-grid" aria-live="polite">
+                
+                <!-- Card 1 -->
+                <article class="source-card" data-category="archaeology">
+                    <div class="card-header">
+                        <h3>Archaeological Survey of India</h3>
+                        <span class="category-badge">Archaeology</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Official information on protected monuments, excavations, and national heritage sites.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://asi.nic.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit Archaeological Survey of India website">Visit Website</a>
+                        <span class="last-updated">Accessed: Jan 2026</span>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="source-card" data-category="tourism">
+                    <div class="card-header">
+                        <h3>Incredible India Official</h3>
+                        <span class="category-badge">Tourism</span>
+                    </div>
+                    <div class="card-body">
+                        <p>The Ministry of Tourism's primary portal for diverse tourist destinations, itineraries, and experiences.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.incredibleindia.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Incredible India Official website">Visit Website</a>
+                        <span class="last-updated">Accessed: Feb 2026</span>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="source-card" data-category="wildlife">
+                    <div class="card-header">
+                        <h3>Wildlife Institute of India</h3>
+                        <span class="category-badge">Wildlife</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Scientific research and data regarding India's biodiversity, national parks, and conservation efforts.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://wii.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit Wildlife Institute of India website">Visit Website</a>
+                        <span class="last-updated">Accessed: Dec 2025</span>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="source-card" data-category="government">
+                    <div class="card-header">
+                        <h3>National Portal of India</h3>
+                        <span class="category-badge">Government</span>
+                    </div>
+                    <div class="card-body">
+                        <p>A single-window access to information and services provided by various Indian government entities.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit National Portal of India website">Visit Website</a>
+                        <span class="last-updated">Accessed: Mar 2026</span>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="source-card" data-category="culture">
+                    <div class="card-header">
+                        <h3>Ministry of Culture</h3>
+                        <span class="category-badge">Culture</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Preservation and promotion of all forms of art and culture. Data on festivals, arts, and traditions.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://indiaculture.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit Ministry of Culture website">Visit Website</a>
+                        <span class="last-updated">Accessed: Nov 2025</span>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="source-card" data-category="maps">
+                    <div class="card-header">
+                        <h3>Survey of India</h3>
+                        <span class="category-badge">Maps</span>
+                    </div>
+                    <div class="card-body">
+                        <p>The principal mapping agency of the country. Used for geographic boundaries, topographies, and regional maps.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://surveyofindia.gov.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit Survey of India website">Visit Website</a>
+                        <span class="last-updated">Accessed: Jan 2026</span>
+                    </div>
+                </article>
+
+                <!-- Card 7 -->
+                <article class="source-card" data-category="education">
+                    <div class="card-header">
+                        <h3>NCERT Historical Texts</h3>
+                        <span class="category-badge">Education</span>
+                    </div>
+                    <div class="card-body">
+                        <p>Educational books providing foundational historical and geographical context for the various regions of India.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://ncert.nic.in/" target="_blank" rel="noopener noreferrer" aria-label="Visit NCERT website">Visit Website</a>
+                        <span class="last-updated">Accessed: Oct 2025</span>
+                    </div>
+                </article>
+
+            </div>
+            
+            <div id="no-results" class="no-results" style="display: none;" aria-live="polite">
+                <p>No sources found matching your criteria. Please adjust your filters or search query.</p>
+            </div>
+            
+        </section>
+
+        <!-- Attribution Guidelines -->
+        <section aria-labelledby="guidelines-heading" class="guidelines-section">
+            <h2 id="guidelines-heading">Attribution Guidelines</h2>
+            <div class="guidelines-content">
+                <p>
+                    Incredible India Explorer aggregates and presents information from highly trusted and authoritative domains. 
+                    Our content guidelines dictate the following principles:
+                </p>
+                <ul>
+                    <li><strong>Authoritative Preference:</strong> We prioritize information sourced directly from government portals, national institutes, and officially recognized tourism boards.</li>
+                    <li><strong>Transparency:</strong> Content is synthesized for educational purposes, and primary sources are provided so users can verify information and dive deeper.</li>
+                    <li><strong>Citation Standards:</strong> Where direct excerpts are used, they are properly attributed in-context with links leading back to the original source.</li>
+                    <li><strong>Reporting Inaccuracies:</strong> While we strive for accuracy, educational content can become outdated. Users are encouraged to <a href="https://github.com/Eshajha19/Incredible-India-Explorer/issues" target="_blank" rel="noopener noreferrer">report any inaccuracies</a> so we may correct them promptly.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer. Dedicated to transparent and authoritative information.</p>
+    </footer>
+
+    <script src="sources.js"></script>
+</body>
+</html>
