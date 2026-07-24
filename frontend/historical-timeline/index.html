@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UP Historical Timeline | Incredible India Explorer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="ht-navbar">
+  <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+  <div class="nav-brand">
+    <span class="saffron">Incredible</span>
+    <span class="gold">India</span>
+    <span class="green">Explorer</span>
+  </div>
+</header>
+
+<section class="hero-section">
+  <span class="section-badge">Ancient Roots • Living Legacy</span>
+  <h1>📜 Uttar Pradesh Historical Timeline</h1>
+  <p class="hero-text">Journey through millennia — from the mythic age of the Ramayana to the birth of modern Uttar Pradesh. Scroll through the eras that shaped this land.</p>
+</section>
+
+<!-- Era Quick-Jump Nav -->
+<nav class="era-jump-nav" id="eraJumpNav"></nav>
+
+<div class="timeline-container">
+  <div class="timeline-spine"></div>
+  <div class="timeline-track" id="timelineTrack"></div>
+</div>
+
+<!-- Era Detail Modal -->
+<div class="era-modal-overlay" id="eraModalOverlay">
+  <div class="era-modal" role="dialog" aria-modal="true" aria-labelledby="modalEraTitle">
+    <button class="era-modal-close" id="eraModalClose" aria-label="Close era details">&times;</button>
+    <div class="era-modal-icon" id="modalEraIcon">🏛️</div>
+    <span class="era-modal-period" id="modalEraPeriod">Period</span>
+    <h2 class="era-modal-title" id="modalEraTitle">Era Name</h2>
+    <p class="era-modal-desc" id="modalEraDesc">Description here.</p>
+
+    <div class="era-modal-facts">
+      <h4>💡 Key Historical Facts</h4>
+      <ul id="modalEraFacts"></ul>
+    </div>
+
+    <div class="era-modal-legacy">
+      <h4>🏺 Legacy Today</h4>
+      <p id="modalEraLegacy">Legacy text here.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="ht-footer">
+  <p>&copy; 2026 Incredible India Explorer. Uttar Pradesh Historical Timeline.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
