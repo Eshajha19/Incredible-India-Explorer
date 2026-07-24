@@ -983,5 +983,18 @@ window.indiaSearchIndex = [
     category: "Climate Zone",
     description: "Explore the dry, arid conditions of Western Rajasthan and Kutch with extreme temperatures and low rainfall.",
     url: "frontend/climate-zones/climate-zones.html?zone=arid"
+  },
+  // --- Uttar Pradesh Pilgrimage Circuit Planner ---
+  {
+    title: "Uttar Pradesh Pilgrimage Circuit Planner",
+    category: "Pilgrimage & Travel",
+    description: "Plan sacred religious journeys across Uttar Pradesh visiting Ayodhya, Varanasi, Mathura, Vrindavan, Prayagraj, Chitrakoot, Kushinagar, and Sarnath.",
+    url: "frontend/up-pilgrimage/up-pilgrimage.html"
+  },
+  {
+    title: "Ayodhya & Varanasi Sacred Yatra Planner",
+    category: "UP Pilgrimage Circuit",
+    description: "Explore the Ramayana, Krishna, and Buddhist circuits with interactive map, distance calculator, and duration estimation.",
+    url: "frontend/up-pilgrimage/up-pilgrimage.html"
   }
 ];
