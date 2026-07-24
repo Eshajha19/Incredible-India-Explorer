@@ -9,113 +9,190 @@
             }
         })();
     </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hidden Gems of India | Offbeat Destinations</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-    :root {
-      --primary: #e63946;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
-      color: #333;
-    }
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                  url('https://source.unsplash.com/random/1600x900/?hidden-himalayas') center/cover;
-      height: 65vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-    .container { max-width: 1250px; margin: 0 auto; padding: 0 20px; }
-    
-    .search-bar input {
-      width: 100%;
-      max-width: 650px;
-      padding: 18px 25px;
-      font-size: 1.15rem;
-      border: none;
-      border-radius: 50px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      margin: 25px auto;
-      display: block;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Discover India's hidden gems — offbeat valleys, islands, deserts and hill stations beyond the well-trodden tourist trail.">
+    <title>Hidden Gems of India | Offbeat Destinations</title>
 
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-    .filter-btn {
-      padding: 12px 24px;
-      background: white;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-    }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    .gems-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 28px;
-    }
-    .gem-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-      transition: all 0.4s;
-    }
-    .gem-card:hover {
-      transform: scale(1.04);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-    }
-    .gem-card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-    }
-    .gem-info {
-      padding: 20px;
-    }
-    .gem-info h3 {
-      font-size: 1.4rem;
-      margin-bottom: 6px;
-    }
-    .region {
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .favorite {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(255,255,255,0.95);
-      border: none;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      font-size: 1.4rem;
-      cursor: pointer;
-      z-index: 10;
-    }
-  </style>
+    <!-- Shared site stylesheet -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- Page-specific styles (only what the shared stylesheet doesn't already cover) -->
+    <style>
+        .hidden-gems-hero {
+            background: linear-gradient(180deg, rgba(9, 13, 22, 0.45) 0%, rgba(9, 13, 22, 0.92) 100%),
+                        url('../../assets/Darjeeling.png') center/cover no-repeat;
+        }
+
+        .gems-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .gems-search-field {
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .gems-search-field label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .gems-search-field input {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 1.05rem;
+            font-family: inherit;
+            color: var(--text-light);
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .gems-search-field input:focus {
+            border-color: var(--primary-gold);
+        }
+
+        .gems-search-field input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 45px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: transparent;
+            border: 2px solid var(--primary-gold);
+            color: var(--primary-gold);
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        .gems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .gem-card {
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .gem-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .gem-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .gem-info {
+            padding: 20px;
+        }
+
+        .gem-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+            color: var(--text-light);
+        }
+
+        .gem-info .region {
+            color: var(--primary-gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .gem-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .gem-favorite {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(9, 13, 22, 0.75);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 10;
+            color: var(--text-light);
+            transition: var(--transition-smooth);
+        }
+
+        .gem-favorite:hover {
+            background: rgba(9, 13, 22, 0.95);
+        }
+
+        .gems-empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .gems-empty-state.visible {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .gems-container {
+                padding: 40px 16px;
+            }
+
+            .filters {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Hidden Gems of India | Offbeat Destinations | Incredible India Explorer">
@@ -138,27 +215,68 @@
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/hidden-gems.html">
 </head>
 <body>
-  <main id="app-root">
-  <div class="hero">
-    <div class="container">
-      <h1 style="font-size: 3.8rem; margin-bottom: 15px;">Hidden Gems of India</h1>
-      <p style="font-size: 1.5rem;">Untouched. Unexplored. Unforgettable.</p>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../../index.html#map" class="nav-link">Interactive Map</a>
+                <a href="../cuisine/cuisine.html" class="nav-link">Cuisine</a>
+                <a href="../festivals/festivals.html" class="nav-link">Festivals</a>
+                <a href="../culture/culture.html" class="nav-link">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="hidden-gems.html" class="dropdown-item" style="color: var(--gold);">Hidden Gems</a>
+                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                        <a href="../tribes/tribes.html" class="dropdown-item">Tribes</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+  <main id="app-root" class="page-padding">
+    <section class="sub-hero hidden-gems-hero">
+      <div class="sub-hero-content">
+        <span class="sub-hero-badge gold-bg">Untouched. Unexplored. Unforgettable.</span>
+        <h1>Hidden Gems of India</h1>
+        <p>Beyond the famous landmarks lie valleys, islands, and villages waiting to be discovered.</p>
+      </div>
+    </section>
+
+    <div class="gems-container">
+        <div class="gems-search-field">
+            <label for="searchInput">Search hidden destinations</label>
+            <input type="text" id="searchInput" placeholder="Try Ziro Valley, Gujarat, monastery..."/>
+        </div>
+
+        <div class="filters" id="filters" role="group" aria-label="Filter by region">
+            <button class="filter-btn active" data-region="all" aria-pressed="true">All Gems</button>
+            <button class="filter-btn" data-region="north" aria-pressed="false">North</button>
+            <button class="filter-btn" data-region="south" aria-pressed="false">South</button>
+            <button class="filter-btn" data-region="east" aria-pressed="false">East & Northeast</button>
+            <button class="filter-btn" data-region="west" aria-pressed="false">West</button>
+        </div>
+
+        <div class="gems-grid" id="gemsGrid"></div>
+        <p class="gems-empty-state" id="gemsEmptyState">No hidden gems match your search. Try a different keyword or filter.</p>
     </div>
-  </div>
-
-  <div class="container">
-    <input type="text" id="searchInput" placeholder="Search hidden destinations..."/>
-
-    <div class="filters" id="filters">
-      <button class="filter-btn active" data-region="all">All Gems</button>
-      <button class="filter-btn" data-region="north">North</button>
-      <button class="filter-btn" data-region="south">South</button>
-      <button class="filter-btn" data-region="east">East & Northeast</button>
-      <button class="filter-btn" data-region="west">West</button>
-    </div>
-
-    <div class="gems-grid" id="gemsGrid"></div>
-  </div>
   </main>
 
   <!-- Footer -->
@@ -170,7 +288,7 @@
                   with passion and pure vanilla web technologies.</p>
           </div>
           <div class="footer-links">
-              <h3>Quick Navigation</h3>
+              <h4>Quick Navigation</h4>
               <ul>
                   <li><a href="../../index.html#home">Home</a></li>
                   <li><a href="../../index.html#map">Interactive Map</a></li>
@@ -187,6 +305,9 @@
       </div>
   </footer>
 
+  <!-- Scroll To Top Button -->
+  <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+
   <script>
     const gems = [
       {
@@ -194,7 +315,7 @@
         name: "Ziro Valley",
         state: "Arunachal Pradesh",
         region: "east",
-        img: "https://source.unsplash.com/random/600x400/?ziro-valley",
+        img: "https://picsum.photos/seed/ziro-valley/600/400",
         desc: "Mesmerizing rice terraces and Apatani tribal culture"
       },
       {
@@ -202,7 +323,7 @@
         name: "Majuli Island",
         state: "Assam",
         region: "east",
-        img: "https://source.unsplash.com/random/600x400/?majuli-island",
+        img: "https://picsum.photos/seed/majuli-island/600/400",
         desc: "World's largest river island and Vaishnavite culture"
       },
       {
@@ -210,7 +331,7 @@
         name: "Spiti Valley",
         state: "Himachal Pradesh",
         region: "north",
-        img: "https://source.unsplash.com/random/600x400/?spiti-valley",
+        img: "https://picsum.photos/seed/spiti-valley/600/400",
         desc: "Cold desert with ancient monasteries"
       },
       {
@@ -218,7 +339,7 @@
         name: "Gokarna",
         state: "Karnataka",
         region: "south",
-        img: "https://source.unsplash.com/random/600x400/?gokarna-beach",
+        img: "https://picsum.photos/seed/gokarna-beach/600/400",
         desc: "Serene beaches and sacred temples"
       },
       {
@@ -226,7 +347,7 @@
         name: "Kutch Rann",
         state: "Gujarat",
         region: "west",
-        img: "https://source.unsplash.com/random/600x400/?white-desert",
+        img: "https://picsum.photos/seed/white-desert/600/400",
         desc: "Magical white salt desert"
       },
       {
@@ -234,7 +355,7 @@
         name: "Lonar Lake",
         state: "Maharashtra",
         region: "west",
-        img: "https://source.unsplash.com/random/600x400/?lonar-lake",
+        img: "https://picsum.photos/seed/lonar-lake/600/400",
         desc: "Mysterious meteor crater lake"
       },
       {
@@ -242,7 +363,7 @@
         name: "Tawang",
         state: "Arunachal Pradesh",
         region: "east",
-        img: "https://source.unsplash.com/random/600x400/?tawang-monastery",
+        img: "https://picsum.photos/seed/tawang-monastery/600/400",
         desc: "Ancient monastery and breathtaking Himalayan views"
       },
       {
@@ -250,7 +371,7 @@
         name: "Nelliyampathy",
         state: "Kerala",
         region: "south",
-        img: "https://source.unsplash.com/random/600x400/?kerala-hills",
+        img: "https://picsum.photos/seed/kerala-hills/600/400",
         desc: "Hidden hill station with tea plantations"
       }
     ];
@@ -259,15 +380,18 @@
 
     function renderGems(data) {
       const grid = document.getElementById('gemsGrid');
+      const emptyState = document.getElementById('gemsEmptyState');
       grid.innerHTML = '';
+
+      emptyState.classList.toggle('visible', data.length === 0);
 
       data.forEach(gem => {
         const isFav = favorites.includes(gem.id);
         const card = document.createElement('div');
-        card.className = 'gem-card';
+        card.className = 'gem-card glass-card';
         card.innerHTML = `
-          <img src="${gem.img}" alt="${gem.name}">
-          <button class="favorite" onclick="toggleFav(${gem.id}, this)">${isFav ? '❤️' : '♡'}</button>
+          <img src="${gem.img}" alt="${gem.name}, ${gem.state}" loading="lazy">
+          <button class="gem-favorite" aria-label="${isFav ? 'Remove ' + gem.name + ' from favorites' : 'Add ' + gem.name + ' to favorites'}" aria-pressed="${isFav}" onclick="toggleFav(${gem.id}, this)">${isFav ? '❤️' : '♡'}</button>
           <div class="gem-info">
             <h3>${gem.name}</h3>
             <p class="region">${gem.state}</p>
@@ -279,12 +403,17 @@
     }
 
     function toggleFav(id, btn) {
+      const gem = gems.find(g => g.id === id);
       if (favorites.includes(id)) {
         favorites = favorites.filter(f => f !== id);
         btn.textContent = '♡';
+        btn.setAttribute('aria-pressed', 'false');
+        btn.setAttribute('aria-label', `Add ${gem.name} to favorites`);
       } else {
         favorites.push(id);
         btn.textContent = '❤️';
+        btn.setAttribute('aria-pressed', 'true');
+        btn.setAttribute('aria-label', `Remove ${gem.name} from favorites`);
       }
       localStorage.setItem('hiddenGemsFavs', JSON.stringify(favorites));
     }
@@ -292,8 +421,12 @@
     // Filters
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
 
         const region = btn.dataset.region;
         const filtered = region === 'all' ? gems : gems.filter(g => g.region === region);
@@ -304,8 +437,8 @@
     // Search
     document.getElementById('searchInput').addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase();
-      const filtered = gems.filter(g => 
-        g.name.toLowerCase().includes(term) || 
+      const filtered = gems.filter(g =>
+        g.name.toLowerCase().includes(term) ||
         g.state.toLowerCase().includes(term) ||
         g.desc.toLowerCase().includes(term)
       );
@@ -315,6 +448,11 @@
     // Initial Load
     renderGems(gems);
   </script>
-    <script src="../../router.js" defer></script>
+
+  <!-- JavaScript Files -->
+  <script src="../../app.js" defer></script>
+  <script type="module" src="../../firebase-config.js"></script>
+  <script type="module" src="../../auth.js"></script>
+  <script src="../../router.js" defer></script>
 </body>
 </html>
