@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Find answers about the Interactive Map, Bookmarks, States, Offline Mode, and more in the Incredible India Explorer Help Center.">
+    <title>Help Center | Incredible India Explorer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Shared site stylesheet -->
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- Page-specific styles (only what the shared stylesheet doesn't already cover) -->
+    <link rel="stylesheet" href="help.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Help Center | Incredible India Explorer">
+    <meta property="og:description" content="Find answers about the Interactive Map, Bookmarks, States, Offline Mode, and more in the Incredible India Explorer Help Center.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/hero_banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/help.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Help Center | Incredible India Explorer">
+    <meta name="twitter:description" content="Find answers about the Interactive Map, Bookmarks, States, Offline Mode, and more.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/hero_banner.png">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/help/help.html">
+</head>
+<body class="help-page-body">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link">Home</a>
+                <a href="../../index.html#map" class="nav-link">Interactive Map</a>
+                <a href="../cuisine/cuisine.html" class="nav-link">Cuisine</a>
+                <a href="../festivals/festivals.html" class="nav-link">Festivals</a>
+                <a href="../culture/culture.html" class="nav-link">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../hidden-gems/hidden-gems.html" class="dropdown-item">Hidden Gems</a>
+                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                        <a href="../tribes/tribes.html" class="dropdown-item">Tribes</a>
+                        <a href="help.html" class="dropdown-item" style="color: var(--gold);">Help Center</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" class="page-padding">
+
+        <!-- ============ HERO ============ -->
+        <section class="sub-hero help-hero">
+            <div class="sub-hero-content">
+                <span class="sub-hero-badge gold-bg">We're here to help</span>
+                <h1>Help Center</h1>
+                <p>Answers to common questions about the map, bookmarks, states, search, offline mode, and your account — all in one place.</p>
+
+                <div class="help-search-field">
+                    <label for="helpSearchInput" class="sr-only">Search the Help Center</label>
+                    <i class="fa-solid fa-magnifying-glass help-search-icon" aria-hidden="true"></i>
+                    <input
+                        type="search"
+                        id="helpSearchInput"
+                        placeholder="Search for a question, e.g. &quot;bookmark a state&quot;..."
+                        autocomplete="off"
+                        aria-describedby="helpSearchCount"
+                    />
+                    <button type="button" id="helpSearchClear" class="help-search-clear" aria-label="Clear search" hidden>&times;</button>
+                </div>
+                <p id="helpSearchCount" class="help-search-count" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <div class="help-container">
+
+            <!-- ============ CATEGORY CHIPS ============ -->
+            <div class="help-categories" id="helpCategories" role="group" aria-label="Filter FAQs by category">
+                <button class="help-chip active" data-category="all" aria-pressed="true">All Topics</button>
+                <button class="help-chip" data-category="Getting Started" aria-pressed="false">Getting Started</button>
+                <button class="help-chip" data-category="Maps" aria-pressed="false">Maps</button>
+                <button class="help-chip" data-category="Bookmarks" aria-pressed="false">Bookmarks</button>
+                <button class="help-chip" data-category="States" aria-pressed="false">States</button>
+                <button class="help-chip" data-category="Search" aria-pressed="false">Search</button>
+                <button class="help-chip" data-category="Offline Mode" aria-pressed="false">Offline Mode</button>
+                <button class="help-chip" data-category="Account" aria-pressed="false">Account</button>
+                <button class="help-chip" data-category="Troubleshooting" aria-pressed="false">Troubleshooting</button>
+            </div>
+
+            <!-- ============ FAQ ACCORDION ============ -->
+            <section aria-labelledby="faq-heading">
+                <h2 id="faq-heading" class="sr-only">Frequently Asked Questions</h2>
+                <div class="help-accordion" id="helpAccordion"></div>
+                <p class="help-empty-state" id="helpEmptyState" hidden>
+                    No FAQs match your search. Try a different keyword or
+                    <button type="button" id="helpResetSearch" class="help-empty-reset">clear the filters</button>.
+                </p>
+            </section>
+        </div>
+
+        <!-- ============ CONTACT CTA ============ -->
+        <section class="help-cta">
+            <div class="help-cta-content">
+                <span class="section-badge">Still need a hand?</span>
+                <h2>Reach out to the team</h2>
+                <p>Can't find what you're looking for? Pick the option that fits best.</p>
+                <div class="help-cta-buttons">
+                    <a href="mailto:support@incredibleindiaexplorer.gov.in" class="btn btn-primary">
+                        <i class="fa-solid fa-headset" aria-hidden="true"></i>&nbsp; Contact Support
+                    </a>
+                    <a href="https://github.com/Eshajha19/Incredible-India-Explorer/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>&nbsp; GitHub Issues
+                    </a>
+                    <a href="../community-guides/community-guides.html" class="btn btn-gold">
+                        <i class="fa-solid fa-users" aria-hidden="true"></i>&nbsp; Community
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Incredible India Explorer</h3>
+                <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built
+                    with passion and pure vanilla web technologies.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="../../index.html#home">Home</a></li>
+                    <li><a href="../../index.html#map">Interactive Map</a></li>
+                    <li><a href="../cuisine/cuisine.html">Cuisine</a></li>
+                    <li><a href="../festivals/festivals.html">Festivals</a></li>
+                    <li><a href="../culture/culture.html">Culture</a></li>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="../../index.html#quiz">Quiz</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-credits footer-credits-center">
+            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll To Top Button -->
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+
+    <!-- JavaScript Files -->
+    <script src="../../app.js" defer></script>
+    <script type="module" src="../../firebase-config.js"></script>
+    <script type="module" src="../../auth.js"></script>
+    <script src="help.js" defer></script>
+    <script src="../../router.js" defer></script>
+</body>
+</html>
