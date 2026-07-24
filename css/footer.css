@@ -2,7 +2,39 @@
    FOOTER
    ========================================================================== */
 
+.footer {
+    background: hsl(222, 47%, 4%);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 24px 30px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    background: var(--gradient-saffron-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 500px;
+}
+
 .footer-links {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 420px;
     justify-self: start;
@@ -14,15 +46,20 @@
     text-align: center;
 }
 
-.footer-links ul {
-    margin-left: 50px !important;
-    padding-left: 0 !important;
-    transform: translateX(0) !important;
+.footer-links h4 {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    text-align: center;
 }
 
-.footer-links {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 12px 35px;
+    justify-content: center;
 }
 
 .footer-links li {
@@ -32,22 +69,36 @@
 }
 
 .footer-links a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition-snappy);
     display: block;
     margin: 0;
     padding: 0;
     text-align: left;
 }
 
+.footer-links a:hover {
+    color: var(--primary-gold);
+    padding-left: 5px;
+}
+
 .footer-credits {
     max-width: 1200px;
-    margin: 50px auto 0;
+    margin: 0 auto;
     padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
+}
+
+.footer-credits-center {
+    align-self: center;
 }
 
 .footer-credits p {
     margin: 0;
+    color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
@@ -65,7 +116,13 @@
     }
 }
 
+@media (max-width: 480px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 
-
-
-/* ==========================================================================
+    .footer-links ul {
+        grid-template-columns: 1fr;
+    }
+}

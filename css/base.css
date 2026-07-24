@@ -139,6 +139,10 @@
     color: var(--primary-gold);
 }
 
+.font-weight-600 {
+    font-weight: 600;
+}
+
 .green {
     color: var(--primary-green);
 }
