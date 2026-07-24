@@ -1,0 +1,385 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+:root {
+  --maroon: #5c1a1a;
+  --maroon-light: #8a2b2b;
+  --gold: #c9a13b;
+  --gold-light: #e0c168;
+  --parchment-bg: #120a08;
+  --card-bg: #1c1210;
+  --border-subtle: rgba(201, 161, 59, 0.18);
+  --text-primary: #ede4d3;
+  --text-secondary: #a89685;
+}
+
+body {
+  background: radial-gradient(circle at top, #1c1210 0%, #120a08 60%, #0a0605 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+/* ---------- Navbar ---------- */
+.ht-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 30px;
+  background: rgba(18, 10, 8, 0.94);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.back-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.back-link:hover { color: var(--gold-light); }
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.nav-brand .saffron { color: #ff6f00; }
+.nav-brand .gold { color: #ffab00; }
+.nav-brand .green { color: #4caf50; }
+
+/* ---------- Hero ---------- */
+.hero-section {
+  text-align: center;
+  padding: 48px 20px 30px;
+}
+
+.section-badge {
+  display: inline-block;
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, var(--gold-light), var(--maroon-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-text {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 0.96rem;
+}
+
+/* ---------- Era Jump Nav ---------- */
+.era-jump-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 20px 20px 10px;
+  position: sticky;
+  top: 60px;
+  z-index: 20;
+  background: linear-gradient(180deg, rgba(18,10,8,0.9), transparent);
+}
+
+.era-jump-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.era-jump-btn:hover {
+  border-color: var(--gold);
+  color: var(--text-primary);
+}
+
+.era-jump-btn.active {
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+  border-color: transparent;
+  color: var(--gold-light);
+}
+
+/* ---------- Timeline Container ---------- */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 20px auto 60px;
+  padding: 20px;
+}
+
+.timeline-spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, var(--gold) 5%, var(--gold) 95%, transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-track {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
+}
+
+/* ---------- Era Card ---------- */
+.era-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.era-item.left { justify-content: flex-start; }
+.era-item.right { justify-content: flex-end; }
+
+.era-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--maroon-light), var(--maroon));
+  border: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  z-index: 5;
+  box-shadow: 0 0 0 6px rgba(18,10,8,1), 0 0 18px rgba(201, 161, 59, 0.3);
+}
+
+.era-card {
+  width: 44%;
+  background: linear-gradient(160deg, var(--card-bg), #150d0b);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.era-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+
+.era-card-period {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--gold-light);
+  background: rgba(201, 161, 59, 0.1);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.era-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.era-card-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.era-card-cta {
+  margin-top: 12px;
+  font-size: 0.76rem;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* ---------- Fade-in Animation ---------- */
+.era-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.era-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Era Modal ---------- */
+.era-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 4, 3, 0.8);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.era-modal-overlay.active { display: flex; }
+
+.era-modal {
+  background: linear-gradient(160deg, var(--card-bg), #150d0b);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 34px 30px;
+  position: relative;
+  animation: modal-pop 0.25s ease;
+}
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.era-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  color: var(--text-primary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.era-modal-close:hover { background: rgba(255,255,255,0.15); }
+
+.era-modal-icon { font-size: 2.8rem; margin-bottom: 10px; }
+
+.era-modal-period {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--gold-light);
+  background: rgba(201, 161, 59, 0.1);
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.era-modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.era-modal-desc {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 22px;
+  font-size: 0.93rem;
+}
+
+.era-modal-facts, .era-modal-legacy {
+  margin-bottom: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.era-modal-facts h4, .era-modal-legacy h4 {
+  font-size: 0.88rem;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.era-modal-facts ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.era-modal-facts li {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding-left: 16px;
+  position: relative;
+}
+
+.era-modal-facts li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.6rem;
+  top: 6px;
+}
+
+.era-modal-legacy p {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ---------- Footer ---------- */
+.ht-footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .timeline-spine { left: 24px; }
+  .era-node { left: 24px; width: 38px; height: 38px; font-size: 1.1rem; }
+  .era-item.left, .era-item.right { justify-content: flex-start; }
+  .era-card { width: calc(100% - 60px); margin-left: 60px; }
+  .hero-section h1 { font-size: 1.6rem; }
+}
