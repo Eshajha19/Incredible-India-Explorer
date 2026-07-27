@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Git Object Decompressor</title>
+  <style>
+    body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #d4d4d4; }
+    h1 { color: #569cd6; }
+    input { margin-bottom: 20px; background: #333; color: white; border: 1px solid #555; padding: 5px; }
+    .object { border: 1px solid #444; padding: 15px; margin-bottom: 15px; background: #252526; }
+    .header { font-weight: bold; color: #4ec9b0; margin-bottom: 10px; }
+    pre { white-space: pre-wrap; word-break: break-all; background: #2d2d2d; padding: 10px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Git Object Decompressor</h1>
+  <input type="file" id="fileInput" multiple>
+  <div id="output"></div>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', async (e) => {
+      const output = document.getElementById('output');
+      output.innerHTML = '';
+      
+      for (const file of e.target.files) {
+        const div = document.createElement('div');
+        div.className = 'object';
+        div.innerHTML = `<div class="header">File: ${file.name}</div>`;
+        output.appendChild(div);
+        
+        try {
+          const arrayBuffer = await file.arrayBuffer();
+          
+          // Decompress using DecompressionStream ('deflate' for zlib)
+          const ds = new DecompressionStream('deflate');
+          const writer = ds.writable.getWriter();
+          writer.write(arrayBuffer);
+          writer.close();
+          
+          const response = new Response(ds.readable);
+          const decompressedBuffer = await response.arrayBuffer();
+          
+          // Parse header and contents
+          const view = new DataView(decompressedBuffer);
+          const bytes = new Uint8Array(decompressedBuffer);
+          
+          // Find the null byte boundary of the header
+          let nullPos = -1;
+          for (let i = 0; i < bytes.length; i++) {
+            if (bytes[i] === 0) {
+              nullPos = i;
+              break;
+            }
+          }
+          
+          if (nullPos === -1) {
+            throw new Error("Invalid git object: no null byte found after header");
+          }
+          
+          const headerBytes = bytes.slice(0, nullPos);
+          const headerText = new TextDecoder().decode(headerBytes);
+          const contentBytes = bytes.slice(nullPos + 1);
+          
+          const type = headerText.split(' ')[0];
+          div.innerHTML += `<div><strong>Header:</strong> ${headerText}</div>`;
+          
+          if (type === 'commit' || type === 'blob') {
+            const contentText = new TextDecoder().decode(contentBytes);
+            const pre = document.createElement('pre');
+            pre.textContent = contentText;
+            div.appendChild(pre);
+          } else if (type === 'tree') {
+            // Parse tree object entries: [mode] [name]\0[20-byte SHA1]
+            let pos = 0;
+            const entries = [];
+            while (pos < contentBytes.length) {
+              // Find next null byte
+              let spacePos = -1;
+              let nullPos = -1;
+              for (let i = pos; i < contentBytes.length; i++) {
+                if (contentBytes[i] === 32 && spacePos === -1) {
+                  spacePos = i;
+                }
+                if (contentBytes[i] === 0) {
+                  nullPos = i;
+                  break;
+                }
+              }
+              if (nullPos === -1) break;
+              
+              const mode = new TextDecoder().decode(contentBytes.slice(pos, spacePos));
+              const name = new TextDecoder().decode(contentBytes.slice(spacePos + 1, nullPos));
+              
+              // Next 20 bytes is SHA1 in binary
+              const shaBytes = contentBytes.slice(nullPos + 1, nullPos + 21);
+              const shaHex = Array.from(shaBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+              
+              entries.push({ mode, name, shaHex });
+              pos = nullPos + 21;
+            }
+            
+            const pre = document.createElement('pre');
+            pre.textContent = entries.map(e => `${e.mode} ${e.shaHex} ${e.name}`).join('\n');
+            div.appendChild(pre);
+          } else {
+            // Hex fallback
+            const hex = Array.from(contentBytes).map(b => b.toString(16).padStart(2, '0')).join(' ');
+            const pre = document.createElement('pre');
+            pre.textContent = hex;
+            div.appendChild(pre);
+          }
+        } catch (err) {
+          const errDiv = document.createElement('div');
+          errDiv.style.color = '#f44336';
+          errDiv.textContent = `Error: ${err.message}`;
+          div.appendChild(errDiv);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
