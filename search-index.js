@@ -1331,4 +1331,12 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+
+  // --- Trisul I Mountain ---
+  {
+    title: "Trisul I Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Trisul I, a 7,120 m high peak in the Garhwal Himalayas of Uttarakhand, featuring facts, map locations, image gallery, and trekking details.",
+    url: "frontend/trisul-i/trisul-i.html"
+  },
 ];
