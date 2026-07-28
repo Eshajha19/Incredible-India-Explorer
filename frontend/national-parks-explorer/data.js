@@ -330,13 +330,6 @@ const NATIONAL_PARKS = [
         stateId: 'or',
         established: 1980,
         area: 2750,
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'},
-  {id: 'manas',
-        name: 'Manas National Park',
-        state: 'Assam',
-        stateId: 'as',
-        established: 1990,
-        area: 950,
         areaUnit: 'km²',
         type: 'Tiger Reserve',
         isTigerReserve: true,
@@ -351,6 +344,19 @@ const NATIONAL_PARKS = [
         entryFee: '₹100 (Indian), ₹500 (Foreign)',
         explorerUrl: '../simlipal-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+    },
+    {
+        id: 'manas',
+        name: 'Manas National Park',
+        state: 'Assam',
+        stateId: 'as',
+        established: 1990,
+        area: 950,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
             'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
         keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
         keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
@@ -760,7 +766,6 @@ const STATES = [
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
     { id: 'wb', name: 'West Bengal', region: 'east' },
-    { id: 'or', name: 'Odisha', region: 'east' }
-    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
-    { id: 'wb', name: 'West Bengal', region: 'east' }
+    { id: 'or', name: 'Odisha', region: 'east' },
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' }
 ];
