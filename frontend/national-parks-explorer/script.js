@@ -1,854 +1,774 @@
 /**
- * National Parks of India Explorer — Script
- * Interactive India SVG map, state filters, wildlife with images,
- * tiger reserves with images, gallery with lightbox, animations.
+ * National Parks Explorer – India
+ * Premium production-ready logic using pure Vanilla JavaScript (ES6+).
+ * Features: Interactive SVG Map, Live Filtering & Search, Animated Counters,
+ * Scroll Reveal, Glassmorphic Modals, Parallax Scroll, and Ripple Animations.
  */
+
 (function () {
     'use strict';
 
-    /* ================================================================
-       1. STATE
-       ================================================================ */
+    /* ==========================================================================
+       1. DATA STRUCTURE (All 12+ Featured Sanctuaries with Different Images)
+       ========================================================================== */
+    const PARKS_DATA = [
+        {
+            id: 'corbett',
+            name: 'Jim Corbett National Park',
+            state: 'Uttarakhand',
+            region: 'North',
+            established: 1936,
+            image: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1000&q=80',
+            description: 'India’s oldest national park and the inaugural stronghold of Project Tiger. Nestled amidst the sub-Himalayan belt and Ramganga river valley, Corbett is renowned for its majestic Bengal tigers, dense riverine forests, and immense wild elephant herds.',
+            wildlife: ['Bengal Tiger', 'Asian Elephant', 'Leopard', 'Sloth Bear', 'Gharial'],
+            featured: true
+        },
+        {
+            id: 'kaziranga',
+            name: 'Kaziranga National Park',
+            state: 'Assam',
+            region: 'Northeast',
+            established: 1974,
+            image: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1000&q=80',
+            description: 'A prestigious UNESCO World Heritage Site across the untouched floodplains of the Brahmaputra River. Kaziranga shelters two-thirds of the globe’s surviving great one-horned rhinoceroses among towering elephant grasses and scenic marshland pools.',
+            wildlife: ['One-horned Rhino', 'Wild Water Buffalo', 'Royal Tiger', 'Swamp Deer', 'Hoolock Gibbon'],
+            featured: true
+        },
+        {
+            id: 'ranthambore',
+            name: 'Ranthambore National Park',
+            state: 'Rajasthan',
+            region: 'West',
+            established: 1980,
+            image: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?auto=format&fit=crop&w=1000&q=80',
+            description: 'Famed for diurnal tiger sightings amidst dramatic crumbling royal forts, ancient Hindu temples, and tranquil forest lakes. Ranthambore encapsulates a regal blend of Rajasthani historical grandeur and untamed dry deciduous savannah wildlife.',
+            wildlife: ['Bengal Tiger', 'Indian Leopard', 'Nilgai', 'Marsh Crocodile', 'Sambar Deer'],
+            featured: true
+        },
+        {
+            id: 'gir',
+            name: 'Gir National Park',
+            state: 'Gujarat',
+            region: 'West',
+            established: 1965,
+            image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1000&q=80',
+            description: 'The final ecological sanctuary on Earth for the wild Asiatic Lion. Spanned across the rugged dry deciduous forests and thorn acacia shrubland of the Kathiawar peninsula, Gir stands as an undisputed triumph of modern zoological preservation.',
+            wildlife: ['Asiatic Lion', 'Indian Leopard', 'Chausingha', 'Striped Hyena', 'Mugger Crocodile'],
+            featured: true
+        },
+        {
+            id: 'sundarbans',
+            name: 'Sundarbans National Park',
+            state: 'West Bengal',
+            region: 'East',
+            established: 1984,
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+            description: 'The Earth’s most extensive unbroken halophilic mangrove archipelago across the Ganges-Brahmaputra Delta. Celebrated for enigmatic, amphibious royal tigers that readily swim across expansive salt estuaries and nocturnal waterways.',
+            wildlife: ['Royal Bengal Tiger', 'Saltwater Crocodile', 'Gangetic Dolphin', 'Fishing Cat', 'Water Monitor'],
+            featured: true
+        },
+        {
+            id: 'kanha',
+            name: 'Kanha National Park',
+            state: 'Madhya Pradesh',
+            region: 'Central',
+            established: 1955,
+            image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1000&q=80',
+            description: 'The sweeping evergreen Sal forests and golden grassy meadows that inspired Rudyard Kipling’s timeless "Jungle Book". Kanha earned world acclaim by successfully reversing the imminent extinction of the Barasingha (hard-ground swamp deer).',
+            wildlife: ['Bengal Tiger', 'Barasingha Deer', 'Indian Wild Dog (Dhole)', 'Sloth Bear', 'Gaur'],
+            featured: true
+        },
+        {
+            id: 'bandipur',
+            name: 'Bandipur National Park',
+            state: 'Karnataka',
+            region: 'South',
+            established: 1974,
+            image: 'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=80',
+            description: 'An integral biological jewel within the sprawling Nilgiri Biosphere Reserve. Shielded by the majestic backdrop of the Western Ghats, Bandipur supports monumental nomadic herds of Asiatic elephants and formidable gaur bison.',
+            wildlife: ['Indian Elephant', 'Gaur (Indian Bison)', 'Bengal Tiger', 'Leopard', 'Four-horned Antelope'],
+            featured: true
+        },
+        {
+            id: 'periyar',
+            name: 'Periyar National Park',
+            state: 'Kerala',
+            region: 'South',
+            established: 1982,
+            image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80',
+            description: 'Perched high along the mountainous Cardamom Hills of Kerala, Periyar centers around a tranquil artificial woodland reservoir where wild elephants gather to drink, bathe, and socialize amidst thick tropical evergreen rainforest canopies.',
+            wildlife: ['Asian Elephant', 'Nilgiri Tahr', 'Lion-tailed Macaque', 'Bengal Tiger', 'Nilgiri Langur'],
+            featured: true
+        },
+        {
+            id: 'hemis',
+            name: 'Hemis National Park',
+            state: 'Ladakh',
+            region: 'North',
+            established: 1981,
+            image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80',
+            description: 'India’s loftiest and territorially largest national sanctuary spanning 4,400 sq km north of the Himalayan alpine zone. Famous worldwide as the premier kingdom of the elusive, ghostlike Snow Leopard cruising mountainous granite cliffs.',
+            wildlife: ['Snow Leopard', 'Tibetan Wolf', 'Himalayan Blue Sheep (Bharal)', 'Asiatic Ibex', 'Golden Eagle'],
+            featured: true
+        },
+        {
+            id: 'great-himalayan',
+            name: 'Great Himalayan National Park',
+            state: 'Himachal Pradesh',
+            region: 'North',
+            established: 1984,
+            image: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1000&q=80',
+            description: 'An undisputed UNESCO natural monument preserving unspoiled glacial valleys, crystalline rivers, and pristine conifer woodlands. Safeguards fragile Himalayan ecosystems and rare high-altitude pheasants across dramatic elevation shifts.',
+            wildlife: ['Western Tragopan', 'Snow Leopard', 'Himalayan Tahr', 'Himalayan Brown Bear', 'Musk Deer'],
+            featured: true
+        },
+        {
+            id: 'silent-valley',
+            name: 'Silent Valley National Park',
+            state: 'Kerala',
+            region: 'South',
+            established: 1984,
+            image: 'https://images.unsplash.com/photo-1516214104703-d870798883c5?auto=format&fit=crop&w=1000&q=80',
+            description: 'A miraculous survivor of ancient, undisturbed tropical shola rainforest within the Kundali Hills. Characterized by an extraordinary ecological stillness, it shelters hyper-endemic Western Ghats fauna that exist nowhere else on Earth.',
+            wildlife: ['Lion-tailed Macaque', 'Malabar Giant Squirrel', 'Great Indian Hornbill', 'Nilgiri Wood-Pigeon', 'King Cobra'],
+            featured: true
+        },
+        {
+            id: 'nagarhole',
+            name: 'Nagarhole National Park',
+            state: 'Karnataka',
+            region: 'South',
+            established: 1988,
+            image: 'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1000&q=80',
+            description: 'Christened after the winding subterranean streams ("Nagar-hole" meaning cobra river) that cascade through thick rosewood and teak timberlands. An action-packed amphitheater for spotting wild mega-herbivores and elusive black panthers.',
+            wildlife: ['Black Panther', 'Bengal Tiger', 'Indian Elephant', 'Sloth Bear', 'Dhole'],
+            featured: true
+        }
+    ];
 
-    var activeFilters = { search: '', state: 'all', type: 'all', region: 'all' };
-    var lightboxState = { images: [], currentIndex: 0 };
+    /* ==========================================================================
+       2. APPLICATION STATE
+       ========================================================================== */
+    var filterState = {
+        search: '',
+        state: 'all',
+        region: 'all'
+    };
+    var mapZoomLevel = 1.0;
+    var mapPanX = 0;
+    var mapPanY = 0;
 
-    /* ================================================================
-       2. INIT
-       ================================================================ */
-
+    /* ==========================================================================
+       3. DOMContentLoaded & INITIALIZATION
+       ========================================================================== */
     document.addEventListener('DOMContentLoaded', function () {
-        renderStateFilter();
-        renderMap();
-        renderParksGrid();
-        renderWildlifeGrid();
-        renderTigerSection();
-        renderGallery();
-        bindFilterEvents();
-        bindModalEvents();
-        bindLightboxEvents();
+        initNavigation();
+        initRippleEffects();
         initScrollAnimations();
+        initStatsCounter();
+        initHeroParallax();
+        initFilters();
+        initGridRender();
+        initIndiaMap();
+        initModalEvents();
+        initFooterLinks();
     });
 
-    /* ================================================================
-       3. SCROLL ANIMATIONS (IntersectionObserver)
-       ================================================================ */
+    /* ==========================================================================
+       4. NAVIGATION & MOBILE HAMBURGER
+       ========================================================================== */
+    function initNavigation() {
+        var navbar = document.getElementById('navbar');
+        var hamburger = document.getElementById('hamburger-toggle');
+        var navMenu = document.getElementById('nav-menu');
+        var backToTopBtn = document.getElementById('back-to-top-btn');
+        var navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
-    function initScrollAnimations() {
-        var targets = document.querySelectorAll(
-            '.section-header, .park-card, .wildlife-card, .tiger-park-card, .tiger-stat-card, .gallery-item'
-        );
-        if (!targets.length) return;
+        window.addEventListener('scroll', function () {
+            var scrollPos = window.scrollY;
+            if (scrollPos > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
 
-        if (!('IntersectionObserver' in window)) {
-            targets.forEach(function (el) {
-                el.classList.add('animate-visible');
+            if (scrollPos > 350) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+
+            // Highlight active menu item based on scroll position
+            updateActiveNavOnScroll();
+        }, { passive: true });
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function () {
+                var isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                hamburger.setAttribute('aria-expanded', !isExpanded);
+                navMenu.classList.toggle('open');
             });
-            return;
-        }
 
-        var observer = new IntersectionObserver(
-            function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-visible');
-                        observer.unobserve(entry.target);
+            // Close drawer when link is clicked
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    navMenu.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', false);
+                });
+            });
+        }
+    }
+
+    function updateActiveNavOnScroll() {
+        var sections = document.querySelectorAll('section[id]');
+        var scrollPosition = window.scrollY + 120;
+
+        sections.forEach(function (current) {
+            var sectionTop = current.offsetTop;
+            var sectionHeight = current.offsetHeight;
+            var sectionId = current.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                document.querySelectorAll('.nav-menu .nav-link').forEach(function (link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + sectionId) {
+                        link.classList.add('active');
                     }
                 });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-        );
-
-        targets.forEach(function (el) {
-            el.classList.add('animate-on-scroll');
-            observer.observe(el);
+            }
         });
     }
 
-    /* ================================================================
-       4. STATE FILTER DROPDOWN
-       ================================================================ */
+    /* ==========================================================================
+       5. RIPPLE BUTTON ANIMATIONS
+       ========================================================================== */
+    function initRippleEffects() {
+        document.body.addEventListener('click', function (e) {
+            var btn = e.target.closest('.ripple');
+            if (!btn) return;
 
-    function renderStateFilter() {
-        var select = document.getElementById('filter-state');
-        if (!select) return;
-        var seen = {};
-        NATIONAL_PARKS.forEach(function (p) {
-            seen[p.state] = 1;
+            var rect = btn.getBoundingClientRect();
+            var size = Math.max(rect.width, rect.height);
+            var x = e.clientX - rect.left - size / 2;
+            var y = e.clientY - rect.top - size / 2;
+
+            var ripple = document.createElement('span');
+            ripple.className = 'ripple-wave';
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            btn.appendChild(ripple);
+
+            setTimeout(function () {
+                if (ripple && ripple.parentNode) {
+                    ripple.parentNode.removeChild(ripple);
+                }
+            }, 600);
         });
-        Object.keys(seen)
-            .sort()
-            .forEach(function (state) {
-                var opt = document.createElement('option');
-                opt.value = state;
-                opt.textContent = state;
-                select.appendChild(opt);
-            });
     }
 
-    /* ================================================================
-       5. INDIA SVG MAP (uses real paths from map-data.js)
-       ================================================================ */
+    /* ==========================================================================
+       6. SCROLL REVEAL (IntersectionObserver) & HERO PARALLAX
+       ========================================================================== */
+    function initScrollAnimations() {
+        var revealElements = document.querySelectorAll('.reveal-on-scroll');
+        if (!revealElements.length) return;
 
-    function renderMap() {
-        var svg = document.getElementById('india-svg-map');
-        if (!svg) return;
-
-        var states = typeof INDIA_MAP_STATES !== 'undefined' ? INDIA_MAP_STATES : [];
-        if (!states.length) {
-            svg.innerHTML =
-                '<text x="306" y="348" text-anchor="middle" fill="#94a3b8" font-size="14" font-family="Outfit,sans-serif">Map data loading...</text>';
+        if (!('IntersectionObserver' in window)) {
+            revealElements.forEach(function (el) { el.classList.add('revealed'); });
             return;
         }
 
-        var pathsHtml = '';
-        states.forEach(function (s) {
-            pathsHtml += '<path class="state-path" data-state="' + s.id + '" d="' + s.path + '"/>';
-        });
-        svg.innerHTML = pathsHtml;
+        var observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-        renderMapMarkers();
+        revealElements.forEach(function (el) { observer.observe(el); });
+    }
 
-        svg.querySelectorAll('.state-path').forEach(function (path) {
-            path.addEventListener('click', function () {
-                var sid = path.dataset.state;
-                var park = NATIONAL_PARKS.find(function (p) {
-                    return p.stateId === sid;
+    function initHeroParallax() {
+        var heroBg = document.getElementById('hero-bg');
+        if (!heroBg) return;
+
+        window.addEventListener('scroll', function () {
+            var offset = window.scrollY;
+            if (offset < window.innerHeight) {
+                heroBg.style.transform = 'translate3d(0, ' + (offset * 0.3) + 'px, 0) scale(1.03)';
+            }
+        }, { passive: true });
+    }
+
+    /* ==========================================================================
+       7. ANIMATED STATISTICS COUNTER
+       ========================================================================== */
+    function initStatsCounter() {
+        var statNumbers = document.querySelectorAll('.stat-number');
+        if (!statNumbers.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            statNumbers.forEach(function (el) { el.innerText = el.getAttribute('data-target') + '+'; });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateCountUp(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach(function (el) { observer.observe(el); });
+    }
+
+    function animateCountUp(element) {
+        var target = parseInt(element.getAttribute('data-target'), 10);
+        var duration = 2000;
+        var start = 0;
+        var startTime = null;
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            // Ease out cubic
+            var easeProgress = 1 - Math.pow(1 - progress, 3);
+            var current = Math.floor(easeProgress * (target - start) + start);
+            
+            element.innerText = current + '+';
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                element.innerText = target + '+';
+            }
+        }
+        window.requestAnimationFrame(step);
+    }
+
+    /* ==========================================================================
+       8. FILTER & SEARCH COMMAND SYSTEM
+       ========================================================================== */
+    function initFilters() {
+        var stateSelect = document.getElementById('state-select');
+        var searchInput = document.getElementById('search-input');
+        var resetBtn = document.getElementById('reset-filters-btn');
+        var regionPills = document.querySelectorAll('.pill-btn[data-region]');
+
+        // Dynamically populate state select from unique dataset states
+        if (stateSelect) {
+            var uniqueStates = PARKS_DATA.map(function (p) { return p.state; })
+                .filter(function (val, idx, self) { return self.indexOf(val) === idx; })
+                .sort();
+
+            uniqueStates.forEach(function (stateName) {
+                var option = document.createElement('option');
+                option.value = stateName;
+                option.textContent = stateName;
+                stateSelect.appendChild(option);
+            });
+
+            stateSelect.addEventListener('change', function (e) {
+                filterState.state = e.target.value;
+                updateGridDisplay();
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function (e) {
+                filterState.search = e.target.value.trim().toLowerCase();
+                updateGridDisplay();
+            });
+        }
+
+        if (regionPills.length) {
+            regionPills.forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    var selectedRegion = e.currentTarget.getAttribute('data-region');
+                    filterState.region = selectedRegion;
+
+                    regionPills.forEach(function (p) { p.classList.remove('active'); });
+                    e.currentTarget.classList.add('active');
+                    updateGridDisplay();
                 });
-                if (park) openParkModal(park.id);
             });
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function () {
+                resetAllFilters();
+            });
+        }
+    }
+
+    function resetAllFilters() {
+        filterState.search = '';
+        filterState.state = 'all';
+        filterState.region = 'all';
+
+        var searchInput = document.getElementById('search-input');
+        var stateSelect = document.getElementById('state-select');
+        var regionPills = document.querySelectorAll('.pill-btn[data-region]');
+        var activeBadge = document.getElementById('active-filter-badge');
+
+        if (searchInput) searchInput.value = '';
+        if (stateSelect) stateSelect.value = 'all';
+        if (activeBadge) activeBadge.textContent = '';
+
+        if (regionPills.length) {
+            regionPills.forEach(function (p) {
+                p.classList.remove('active');
+                if (p.getAttribute('data-region') === 'all') p.classList.add('active');
+            });
+        }
+
+        // Deactivate active map highlights
+        document.querySelectorAll('.state-path').forEach(function (path) {
+            path.classList.remove('active');
         });
+
+        updateGridDisplay();
     }
 
-    function renderMapMarkers() {
-        var container = document.getElementById('map-park-markers');
-        if (!container) return;
+    /* ==========================================================================
+       9. DYNAMIC NATIONAL PARKS GRID RENDERING
+       ========================================================================== */
+    function initGridRender() {
+        updateGridDisplay();
+    }
 
-        var html = '';
-        NATIONAL_PARKS.forEach(function (park) {
-            var pos = latLngToMapPos(park.coordinates.lat, park.coordinates.lng);
-            var cls = 'map-marker ';
-            cls += park.isTigerReserve ? 'tiger' : park.isUNESCO ? 'unesco' : 'park';
+    function updateGridDisplay() {
+        var gridContainer = document.getElementById('parks-grid');
+        var counterText = document.getElementById('parks-counter');
+        var activeBadge = document.getElementById('active-filter-badge');
+        if (!gridContainer) return;
 
-            html +=
-                '<div class="' +
-                cls +
-                '" data-park-id="' +
-                park.id +
-                '" ' +
-                'style="left:' +
-                pos.x +
-                '%;top:' +
-                pos.y +
-                '%;" ' +
-                'tabindex="0" role="button" ' +
-                'aria-label="' +
-                escA(park.name) +
-                ', ' +
-                escA(park.state) +
-                ' – ' +
-                (park.isTigerReserve ? 'Tiger Reserve' : park.isUNESCO ? 'UNESCO Site' : 'National Park') +
-                '">' +
-                '<div class="map-marker-pulse" aria-hidden="true"></div></div>';
+        var filteredParks = PARKS_DATA.filter(function (park) {
+            var matchesState = (filterState.state === 'all' || park.state.toLowerCase() === filterState.state.toLowerCase());
+            var matchesRegion = (filterState.region === 'all' || park.region.toLowerCase() === filterState.region.toLowerCase());
+            var matchesSearch = true;
+            if (filterState.search) {
+                var q = filterState.search;
+                var textString = (park.name + ' ' + park.state + ' ' + park.description + ' ' + park.wildlife.join(' ')).toLowerCase();
+                matchesSearch = textString.indexOf(q) !== -1;
+            }
+            return matchesState && matchesRegion && matchesSearch;
         });
-        container.innerHTML = html;
 
-        container.querySelectorAll('.map-marker').forEach(function (marker) {
-            marker.addEventListener('mouseenter', function () {
-                showMapTooltip(marker.dataset.parkId, marker);
-            });
-            marker.addEventListener('mouseleave', hideMapTooltip);
-            marker.addEventListener('focus', function () {
-                showMapTooltip(marker.dataset.parkId, marker);
-            });
-            marker.addEventListener('blur', hideMapTooltip);
-            marker.addEventListener(
-                'touchstart',
-                function () {
-                    showMapTooltip(marker.dataset.parkId, marker);
-                    setTimeout(hideMapTooltip, 2500);
-                },
-                { passive: true }
-            );
-            marker.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    hideMapTooltip();
-                    openParkModal(marker.dataset.parkId);
-                }
-            });
-            marker.addEventListener('click', function () {
-                hideMapTooltip();
-                openParkModal(marker.dataset.parkId);
-            });
-        });
-    }
+        gridContainer.innerHTML = '';
 
-    function latLngToMapPos(lat, lng) {
-        var minLat = 6.0,
-            maxLat = 37.0,
-            minLng = 68.0,
-            maxLng = 98.0;
-        var x = ((lng - minLng) / (maxLng - minLng)) * 100;
-        var y = ((maxLat - lat) / (maxLat - minLat)) * 100;
-        return { x: Math.max(5, Math.min(95, x)), y: Math.max(5, Math.min(95, y)) };
-    }
+        if (counterText) {
+            counterText.innerHTML = 'Showing <strong>' + filteredParks.length + '</strong> of <strong>' + PARKS_DATA.length + '</strong> featured sanctuaries';
+        }
 
-    function showMapTooltip(parkId, markerEl) {
-        hideMapTooltip();
-        var park = NATIONAL_PARKS.find(function (p) {
-            return p.id === parkId;
-        });
-        if (!park) return;
-        var badge = '';
-        if (park.isTigerReserve) badge = '<span class="tt-badge tt-tiger">Tiger Reserve</span>';
-        else if (park.isUNESCO) badge = '<span class="tt-badge tt-unesco">UNESCO Site</span>';
-        else badge = '<span class="tt-badge tt-park">National Park</span>';
-        var faunaStr = park.keyFauna.slice(0, 3).join(', ');
-        var tt = document.createElement('div');
-        tt.className = 'map-tooltip';
-        tt.id = 'map-tooltip';
-        tt.innerHTML =
-            '<div class="tt-header">' +
-            '<div class="tt-name">' +
-            esc(park.name) +
-            '</div>' +
-            badge +
-            '</div>' +
-            '<div class="tt-location">📍 ' +
-            esc(park.state) +
-            '</div>' +
-            '<div class="tt-meta">' +
-            park.area +
-            ' ' +
-            park.areaUnit +
-            ' · Est. ' +
-            park.established +
-            '</div>' +
-            '<div class="tt-fauna">🐾 ' +
-            esc(faunaStr) +
-            '</div>' +
-            '<div class="tt-cta">Click for full details →</div>';
-        markerEl.appendChild(tt);
-    }
+        if (activeBadge) {
+            if (filterState.state !== 'all' || filterState.region !== 'all' || filterState.search !== '') {
+                var msg = 'Active Filter: ';
+                if (filterState.state !== 'all') msg += 'State (' + filterState.state + ') ';
+                if (filterState.region !== 'all') msg += 'Region (' + filterState.region + ') ';
+                if (filterState.search !== '') msg += 'Keyword ("' + filterState.search + '") ';
+                activeBadge.innerHTML = msg;
+            } else {
+                activeBadge.innerHTML = '';
+            }
+        }
 
-    function hideMapTooltip() {
-        var el = document.getElementById('map-tooltip');
-        if (el) el.remove();
-    }
-
-    /* ================================================================
-       6. PARKS GRID (with staggered entrance animation)
-       ================================================================ */
-
-    function renderParksGrid() {
-        var filtered = getFilteredParks();
-        var grid = document.getElementById('parks-grid');
-        var emptyState = document.getElementById('empty-state');
-        var resultsCount = document.getElementById('results-count');
-        var resetBtn = document.getElementById('btn-reset');
-        if (!grid) return;
-
-        if (filtered.length === 0) {
-            grid.style.display = 'none';
-            emptyState.classList.remove('hidden');
-            resultsCount.textContent = 'No parks match your filters';
-            resetBtn.classList.remove('hidden');
+        if (filteredParks.length === 0) {
+            var emptyDiv = document.createElement('div');
+            emptyDiv.className = 'empty-state';
+            emptyDiv.innerHTML = '
+                <div class="empty-icon">🐆</div>
+                <h3>No Wilderness Matched Your Criteria</h3>
+                <p style="color: var(--text-secondary); max-width: 420px; margin: 0 auto 20px;">
+                    We could not locate any national sanctuary matching those exact filtering coordinates. Try clearing your search parameters!
+                </p>
+                <button type="button" onclick="document.getElementById(\'reset-filters-btn\').click()" class="btn btn-primary ripple">Reset All Filters</button>
+            ';
+            gridContainer.appendChild(emptyDiv);
             return;
         }
 
-        grid.style.display = '';
-        emptyState.classList.add('hidden');
-        resetBtn.classList.toggle('hidden', !hasActiveFilters());
-        resultsCount.textContent = 'Showing ' + filtered.length + ' park' + (filtered.length !== 1 ? 's' : '');
+        var fragment = document.createDocumentFragment();
 
-        var html = '';
-        filtered.forEach(function (park, i) {
-            var tags = '';
-            if (park.isTigerReserve) tags += '<span class="park-tag tiger">Tiger Reserve</span>';
-            if (park.isUNESCO) tags += '<span class="park-tag unesco">UNESCO</span>';
-            if (!park.isTigerReserve && !park.isUNESCO)
-                tags += '<span class="park-tag np">' + esc(park.type) + '</span>';
+        filteredParks.forEach(function (park, idx) {
+            var card = document.createElement('article');
+            card.className = 'park-card';
+            card.style.animation = 'fadeUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) ' + (Math.min(idx * 0.08, 0.5)) + 's both';
 
-            var faunaHtml = '';
-            park.keyFauna.slice(0, 3).forEach(function (f) {
-                faunaHtml += '<span class="park-fauna-chip">' + esc(f) + '</span>';
-            });
-            if (park.keyFauna.length > 3)
-                faunaHtml += '<span class="park-fauna-chip">+' + (park.keyFauna.length - 3) + '</span>';
+            var tagsHtml = park.wildlife.slice(0, 4).map(function (tag) {
+                var icon = '🐾';
+                if (tag.toLowerCase().indexOf('tiger') !== -1) icon = '🐅';
+                else if (tag.toLowerCase().indexOf('elephant') !== -1) icon = '🐘';
+                else if (tag.toLowerCase().indexOf('rhino') !== -1) icon = '🦏';
+                else if (tag.toLowerCase().indexOf('lion') !== -1) icon = '🦁';
+                else if (tag.toLowerCase().indexOf('leopard') !== -1) icon = '🐆';
+                else if (tag.toLowerCase().indexOf('bear') !== -1 || tag.toLowerCase().indexOf('crocodile') !== -1) icon = '🐊';
+                return '<span class="wildlife-tag"><span>' + icon + '</span> ' + tag + '</span>';
+            }).join('');
 
-            html +=
-                '<div class="park-card animate-on-scroll" data-park-id="' +
-                park.id +
-                '" role="listitem" tabindex="0" ' +
-                'aria-label="' +
-                escA(park.name) +
-                ' in ' +
-                escA(park.state) +
-                ', ' +
-                park.area +
-                ' ' +
-                park.areaUnit +
-                '" ' +
-                'style="animation-delay:' +
-                i * 0.06 +
-                's">' +
-                '<div class="park-card-img-wrap">' +
-                '<img class="park-card-img" src="' +
-                escA(park.image) +
-                '" alt="' +
-                escA(park.name) +
-                '" loading="lazy" onerror="this.parentElement.classList.add(\'img-failed\')">' +
-                '<div class="park-card-img-overlay"></div>' +
-                '</div>' +
-                '<div class="park-card-body">' +
-                '<div class="park-card-tags">' +
-                tags +
-                '</div>' +
-                '<h3>' +
-                esc(park.name) +
-                '</h3>' +
-                '<div class="park-card-meta">' +
-                '<span>📍 ' +
-                esc(park.state) +
-                '</span>' +
-                '<span>📐 ' +
-                park.area +
-                ' ' +
-                park.areaUnit +
-                '</span>' +
-                '<span>📅 ' +
-                park.established +
-                '</span>' +
-                '</div>' +
-                '<p class="park-card-desc">' +
-                esc(park.description) +
-                '</p>' +
-                '<div class="park-card-fauna">' +
-                faunaHtml +
-                '</div>' +
-                '</div></div>';
+            card.innerHTML = '
+                <div class="park-image-wrapper">
+                    <img class="park-image" src="' + park.image + '" alt="' + park.name + '" loading="lazy" />
+                    <div class="park-badges-top">
+                        <span class="badge-state">📍 ' + park.state + '</span>
+                        <span class="badge-region">' + park.region + '</span>
+                    </div>
+                </div>
+                <div class="park-content">
+                    <div class="park-meta-sub">
+                        <span>Est. ' + park.established + '</span>
+                        <span>' + park.wildlife.length + '+ Flagship Species</span>
+                    </div>
+                    <h3>' + park.name + '</h3>
+                    <p class="park-desc">' + park.description + '</p>
+                    <div class="wildlife-tags-container">
+                        ' + tagsHtml + '
+                    </div>
+                    <button type="button" class="btn-explore ripple" data-park-id="' + park.id + '" aria-label="Explore details about ' + park.name + '">
+                        <span>Explore Sanctuary</span> <span>→</span>
+                    </button>
+                </div>
+            ';
+
+            fragment.appendChild(card);
         });
 
-        grid.innerHTML = html;
+        gridContainer.appendChild(fragment);
 
-        grid.querySelectorAll('.park-card').forEach(function (card) {
-            card.addEventListener('click', function () {
-                openParkModal(card.dataset.parkId);
-            });
-            card.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openParkModal(card.dataset.parkId);
-                }
+        // Bind Explore button click handlers for modals
+        var exploreBtns = gridContainer.querySelectorAll('.btn-explore[data-park-id]');
+        exploreBtns.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                var pid = e.currentTarget.getAttribute('data-park-id');
+                openParkModal(pid);
             });
         });
-
-        initScrollAnimations();
     }
 
-    function getFilteredParks() {
-        return NATIONAL_PARKS.filter(function (park) {
-            var matchSearch = true;
-            if (activeFilters.search) {
-                var q = activeFilters.search.toLowerCase();
-                matchSearch =
-                    park.name.toLowerCase().indexOf(q) !== -1 ||
-                    park.state.toLowerCase().indexOf(q) !== -1 ||
-                    park.description.toLowerCase().indexOf(q) !== -1 ||
-                    park.keyFauna.some(function (f) {
-                        return f.toLowerCase().indexOf(q) !== -1;
+    /* ==========================================================================
+       10. INTERACTIVE INDIA SVG MAP ENGINE
+       ========================================================================== */
+    function initIndiaMap() {
+        var mapContainer = document.getElementById('india-svg-wrapper');
+        var tooltip = document.getElementById('map-tooltip');
+        var zoomInBtn = document.getElementById('map-zoom-in');
+        var zoomOutBtn = document.getElementById('map-zoom-out');
+        var resetZoomBtn = document.getElementById('map-reset');
+        if (!mapContainer) return;
+
+        // Check if map-data.js loaded INDIA_MAP_STATES
+        if (typeof INDIA_MAP_STATES === 'undefined' || !INDIA_MAP_STATES.length) {
+            mapContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Interactive map data is currently synchronizing...</p>';
+            return;
+        }
+
+        // Create high quality SVG elements
+        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 750 820');
+        svg.setAttribute('role', 'img');
+        svg.setAttribute('aria-label', 'Interactive vector map of India showing states and union territories');
+        svg.setAttribute('id', 'interactive-map-svg');
+
+        var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('id', 'map-zoom-group');
+        g.style.transition = 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
+        g.style.transformOrigin = 'center center';
+
+        INDIA_MAP_STATES.forEach(function (stateItem) {
+            var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', stateItem.path);
+            path.setAttribute('id', 'state-' + stateItem.id);
+            path.setAttribute('data-name', stateItem.name);
+            path.setAttribute('class', 'state-path');
+
+            // Count parks in this state from our featured database
+            var stateParkCount = PARKS_DATA.filter(function (p) {
+                return p.state.toLowerCase() === stateItem.name.toLowerCase();
+            }).length;
+            path.setAttribute('data-count', stateParkCount);
+
+            // Hover Tooltip Events
+            path.addEventListener('mouseenter', function (e) {
+                var sName = e.target.getAttribute('data-name');
+                var count = parseInt(e.target.getAttribute('data-count'), 10);
+                var countStr = count === 1 ? '1 Featured Sanctuary' : (count > 1 ? count + ' Featured Sanctuaries' : 'Explore regional biodiversity');
+                
+                if (tooltip) {
+                    tooltip.innerHTML = '<strong>' + sName + '</strong><br/><span style="font-size: 0.8rem; color: var(--accent-gold);">' + countStr + '</span>';
+                    tooltip.classList.add('visible');
+                }
+            });
+
+            path.addEventListener('mousemove', function (e) {
+                if (tooltip) {
+                    tooltip.style.left = e.clientX + 'px';
+                    tooltip.style.top = e.clientY + 'px';
+                }
+            });
+
+            path.addEventListener('mouseleave', function () {
+                if (tooltip) {
+                    tooltip.classList.remove('visible');
+                }
+            });
+
+            // Click to Filter Parks and Highlight State
+            path.addEventListener('click', function (e) {
+                var targetState = e.target.getAttribute('data-name');
+                document.querySelectorAll('.state-path').forEach(function (sp) { sp.classList.remove('active'); });
+                e.target.classList.add('active');
+
+                // Apply filter
+                var stateSelect = document.getElementById('state-select');
+                var matchFound = false;
+                if (stateSelect) {
+                    Array.from(stateSelect.options).forEach(function (opt) {
+                        if (opt.value.toLowerCase() === targetState.toLowerCase()) {
+                            stateSelect.value = opt.value;
+                            filterState.state = opt.value;
+                            matchFound = true;
+                        }
                     });
-            }
-            var matchState = activeFilters.state === 'all' || park.state === activeFilters.state;
-            var matchType = true;
-            if (activeFilters.type === 'tiger') matchType = park.isTigerReserve;
-            else if (activeFilters.type === 'unesco') matchType = park.isUNESCO;
-            else if (activeFilters.type === 'national')
-                matchType = !park.isTigerReserve && !park.isUNESCO && park.type.indexOf('Marine') === -1;
-            else if (activeFilters.type === 'marine') matchType = park.type.indexOf('Marine') !== -1;
-            var matchRegion = true;
-            if (activeFilters.region !== 'all') {
-                var st = STATES.find(function (s) {
-                    return s.name === park.state;
-                });
-                matchRegion = st && st.region === activeFilters.region;
-            }
-            return matchSearch && matchState && matchType && matchRegion;
+                }
+
+                if (!matchFound) {
+                    filterState.state = targetState;
+                }
+                updateGridDisplay();
+
+                // Scroll smoothly down to explore hub
+                var exploreHub = document.getElementById('explore-hub');
+                if (exploreHub) {
+                    exploreHub.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            g.appendChild(path);
         });
-    }
 
-    function hasActiveFilters() {
-        return (
-            activeFilters.search !== '' ||
-            activeFilters.state !== 'all' ||
-            activeFilters.type !== 'all' ||
-            activeFilters.region !== 'all'
-        );
-    }
+        svg.appendChild(g);
+        mapContainer.appendChild(svg);
 
-    /* ================================================================
-       7. FILTER EVENTS
-       ================================================================ */
-
-    function bindFilterEvents() {
-        var searchInput = document.getElementById('search-parks');
-        var stateSelect = document.getElementById('filter-state');
-        var typeSelect = document.getElementById('filter-type');
-        var regionSelect = document.getElementById('filter-region');
-        var resetBtn = document.getElementById('btn-reset');
-        var emptyResetBtn = document.getElementById('btn-empty-reset');
-        var timer = null;
-
-        if (searchInput)
-            searchInput.addEventListener('input', function () {
-                clearTimeout(timer);
-                var val = searchInput.value;
-                timer = setTimeout(function () {
-                    activeFilters.search = val.trim();
-                    renderParksGrid();
-                }, 250);
-            });
-        if (stateSelect)
-            stateSelect.addEventListener('change', function () {
-                activeFilters.state = stateSelect.value;
-                renderParksGrid();
-            });
-        if (typeSelect)
-            typeSelect.addEventListener('change', function () {
-                activeFilters.type = typeSelect.value;
-                renderParksGrid();
-            });
-        if (regionSelect)
-            regionSelect.addEventListener('change', function () {
-                activeFilters.region = regionSelect.value;
-                renderParksGrid();
-            });
-
-        function resetAll() {
-            activeFilters = { search: '', state: 'all', type: 'all', region: 'all' };
-            if (searchInput) searchInput.value = '';
-            if (stateSelect) stateSelect.value = 'all';
-            if (typeSelect) typeSelect.value = 'all';
-            if (regionSelect) regionSelect.value = 'all';
-            renderParksGrid();
+        // Map Zoom Controls
+        function applyMapTransform() {
+            var group = document.getElementById('map-zoom-group');
+            if (group) {
+                group.style.transform = 'translate(' + mapPanX + 'px, ' + mapPanY + 'px) scale(' + mapZoomLevel + ')';
+            }
         }
-        if (resetBtn) resetBtn.addEventListener('click', resetAll);
-        if (emptyResetBtn) emptyResetBtn.addEventListener('click', resetAll);
-    }
 
-    /* ================================================================
-       8. WILDLIFE GRID (with real images)
-       ================================================================ */
-
-    function renderWildlifeGrid() {
-        var grid = document.getElementById('wildlife-grid');
-        if (!grid) return;
-
-        var html = '';
-        WILDLIFE_SPECIES.forEach(function (sp, i) {
-            var statusClass = sp.status.toLowerCase().replace(/\s+/g, '-');
-
-            html +=
-                '<div class="wildlife-card animate-on-scroll" role="listitem" aria-label="' +
-                escA(sp.name) +
-                ', ' +
-                esc(sp.status) +
-                '" style="animation-delay:' +
-                i * 0.07 +
-                's">' +
-                '<div class="wildlife-card-img-wrap">' +
-                '<img class="wildlife-card-img" src="' +
-                escA(sp.image) +
-                '" alt="' +
-                escA(sp.name) +
-                '" loading="lazy" onerror="this.parentElement.classList.add(\'img-failed\')">' +
-                '<div class="wildlife-card-status-badge"><span class="wildlife-status ' +
-                statusClass +
-                '">' +
-                esc(sp.status) +
-                '</span></div>' +
-                '</div>' +
-                '<div class="wildlife-card-body">' +
-                '<div class="wildlife-card-header">' +
-                '<div class="wildlife-icon">' +
-                sp.icon +
-                '</div>' +
-                '<h3>' +
-                esc(sp.name) +
-                '</h3>' +
-                '</div>' +
-                '<p>' +
-                esc(sp.description) +
-                '</p>' +
-                '<div class="wildlife-card-parks">Found in ' +
-                sp.parks.length +
-                ' park' +
-                (sp.parks.length !== 1 ? 's' : '') +
-                '</div>' +
-                '</div></div>';
-        });
-
-        grid.innerHTML = html;
-        initScrollAnimations();
-    }
-
-    /* ================================================================
-       9. TIGER RESERVES (with real images)
-       ================================================================ */
-
-    function renderTigerSection() {
-        var list = document.getElementById('tiger-parks-list');
-        if (!list) return;
-
-        var html = '';
-        TIGER_RESERVES.forEach(function (park, i) {
-            html +=
-                '<div class="tiger-park-card animate-on-scroll" data-park-id="' +
-                park.id +
-                '" role="listitem" tabindex="0" ' +
-                'aria-label="' +
-                escA(park.name) +
-                ', Tiger Reserve in ' +
-                escA(park.state) +
-                '" ' +
-                'style="animation-delay:' +
-                i * 0.08 +
-                's">' +
-                '<div class="tiger-card-img-wrap">' +
-                '<img class="tiger-card-img" src="' +
-                escA(park.image) +
-                '" alt="' +
-                escA(park.name) +
-                '" loading="lazy" onerror="this.parentElement.classList.add(\'img-failed\')">' +
-                '<div class="tiger-card-number">' +
-                (i + 1) +
-                '</div>' +
-                '</div>' +
-                '<div class="tiger-card-body">' +
-                '<h4>' +
-                esc(park.name) +
-                '</h4>' +
-                '<div class="tiger-card-meta">' +
-                '<span>📍 ' +
-                esc(park.state) +
-                '</span>' +
-                '<span>📐 ' +
-                park.area +
-                ' ' +
-                park.areaUnit +
-                '</span>' +
-                '<span>📅 Est. ' +
-                park.established +
-                '</span>' +
-                '</div>' +
-                '<p class="tiger-card-desc">' +
-                esc(park.description) +
-                '</p>' +
-                '</div></div>';
-        });
-
-        list.innerHTML = html;
-
-        list.querySelectorAll('.tiger-park-card').forEach(function (card) {
-            card.addEventListener('click', function () {
-                openParkModal(card.dataset.parkId);
+        if (zoomInBtn) {
+            zoomInBtn.addEventListener('click', function () {
+                mapZoomLevel = Math.min(mapZoomLevel + 0.3, 3.0);
+                applyMapTransform();
             });
-            card.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openParkModal(card.dataset.parkId);
-                }
+        }
+        if (zoomOutBtn) {
+            zoomOutBtn.addEventListener('click', function () {
+                mapZoomLevel = Math.max(mapZoomLevel - 0.3, 0.7);
+                applyMapTransform();
             });
-        });
-
-        initScrollAnimations();
-    }
-
-    /* ================================================================
-       10. IMAGE GALLERY
-       ================================================================ */
-
-    function renderGallery() {
-        var grid = document.getElementById('gallery-grid');
-        if (!grid) return;
-
-        var html = '';
-        NATIONAL_PARKS.forEach(function (park, i) {
-            html +=
-                '<div class="gallery-item animate-on-scroll" data-park-id="' +
-                park.id +
-                '" role="listitem" tabindex="0" ' +
-                'aria-label="View ' +
-                escA(park.name) +
-                ' image" ' +
-                'style="animation-delay:' +
-                i * 0.05 +
-                's">' +
-                '<img src="' +
-                escA(park.image) +
-                '" alt="' +
-                escA(park.name) +
-                '" loading="lazy" onerror="this.parentElement.classList.add(\'img-failed\');this.style.display=\'none\'">' +
-                '<div class="gallery-fallback-icon">🌿</div>' +
-                '<div class="gallery-item-overlay">' +
-                '<div class="gallery-item-info">' +
-                '<span class="gallery-item-name">' +
-                esc(park.name) +
-                '</span>' +
-                '<span class="gallery-item-state">📍 ' +
-                esc(park.state) +
-                ' &middot; ' +
-                esc(park.type) +
-                '</span>' +
-                '</div></div></div>';
-        });
-
-        grid.innerHTML = html;
-
-        grid.querySelectorAll('.gallery-item').forEach(function (item, idx) {
-            item.addEventListener('click', function () {
-                openLightbox(idx);
+        }
+        if (resetZoomBtn) {
+            resetZoomBtn.addEventListener('click', function () {
+                mapZoomLevel = 1.0;
+                mapPanX = 0;
+                mapPanY = 0;
+                applyMapTransform();
             });
-            item.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openLightbox(idx);
-                }
+        }
+    }
+
+    /* ==========================================================================
+       11. NATIONAL PARK DETAILS MODAL SYSTEM
+       ========================================================================== */
+    function initModalEvents() {
+        var modalOverlay = document.getElementById('park-detail-modal');
+        var closeBtn = document.getElementById('close-modal-btn');
+        var closeFooterBtn = document.getElementById('modal-close-footer');
+        var safariBtn = document.getElementById('modal-safari-btn');
+        if (!modalOverlay) return;
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function () { closeParkModal(); });
+        }
+        if (closeFooterBtn) {
+            closeFooterBtn.addEventListener('click', function () { closeParkModal(); });
+        }
+        if (safariBtn) {
+            safariBtn.addEventListener('click', function () {
+                alert('Safari booking & permit portal guidance will be available in the upcoming eco-tourism season. Please contact regional park administrative offices for instant permit availability!');
             });
-        });
+        }
 
-        initScrollAnimations();
-    }
-
-    /* ================================================================
-       11. LIGHTBOX
-       ================================================================ */
-
-    function bindLightboxEvents() {
-        var closeBtn = document.getElementById('lightbox-close');
-        var prevBtn = document.getElementById('lightbox-prev');
-        var nextBtn = document.getElementById('lightbox-next');
-        var backdrop = document.getElementById('lightbox-backdrop');
-
-        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-        if (backdrop) backdrop.addEventListener('click', closeLightbox);
-        if (prevBtn)
-            prevBtn.addEventListener('click', function () {
-                navigateLightbox(-1);
-            });
-        if (nextBtn)
-            nextBtn.addEventListener('click', function () {
-                navigateLightbox(1);
-            });
-
-        document.addEventListener('keydown', function (e) {
-            var lb = document.getElementById('lightbox');
-            if (!lb || lb.classList.contains('hidden')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') navigateLightbox(-1);
-            if (e.key === 'ArrowRight') navigateLightbox(1);
-        });
-
-        trapFocus(document.getElementById('lightbox'));
-    }
-
-    function openLightbox(index) {
-        previouslyFocusedElement = document.activeElement;
-        lightboxState.images = NATIONAL_PARKS.map(function (p) {
-            return { src: p.image, caption: p.name + ' — ' + p.state };
-        });
-        lightboxState.currentIndex = index;
-        var lb = document.getElementById('lightbox');
-        lb.classList.remove('hidden');
-        lb.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        updateLightboxImage();
-        var closeBtn = document.getElementById('lightbox-close');
-        if (closeBtn) closeBtn.focus();
-    }
-
-    function closeLightbox() {
-        var lb = document.getElementById('lightbox');
-        lb.classList.add('hidden');
-        lb.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (previouslyFocusedElement) previouslyFocusedElement.focus();
-    }
-
-    function navigateLightbox(dir) {
-        lightboxState.currentIndex += dir;
-        var len = lightboxState.images.length;
-        if (lightboxState.currentIndex < 0) lightboxState.currentIndex = len - 1;
-        if (lightboxState.currentIndex >= len) lightboxState.currentIndex = 0;
-        updateLightboxImage();
-    }
-
-    function updateLightboxImage() {
-        var img = document.getElementById('lightbox-img');
-        var cap = document.getElementById('lightbox-caption');
-        var item = lightboxState.images[lightboxState.currentIndex];
-        if (!item) return;
-        img.src = item.src;
-        img.alt = item.caption;
-        cap.textContent = lightboxState.currentIndex + 1 + ' / ' + lightboxState.images.length + ' — ' + item.caption;
-    }
-
-    /* ================================================================
-       12. PARK DETAIL MODAL
-       ================================================================ */
-
-    var previouslyFocusedElement = null;
-
-    function trapFocus(container) {
-        var focusable = container.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (focusable.length === 0) return;
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
-
-        container.addEventListener('keydown', function handler(e) {
-            if (e.key !== 'Tab') return;
-            if (container.classList.contains('hidden')) {
-                container.removeEventListener('keydown', handler);
-                return;
-            }
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
+        modalOverlay.addEventListener('click', function (e) {
+            if (e.target === modalOverlay) {
+                closeParkModal();
             }
         });
-    }
 
-    function bindModalEvents() {
-        var closeBtn = document.getElementById('park-modal-close');
-        var backdrop = document.getElementById('park-modal-backdrop');
-        if (closeBtn) closeBtn.addEventListener('click', closeParkModal);
-        if (backdrop) backdrop.addEventListener('click', closeParkModal);
         document.addEventListener('keydown', function (e) {
-            var m = document.getElementById('park-modal');
-            if (!m || m.classList.contains('hidden')) return;
-            if (e.key === 'Escape') closeParkModal();
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeParkModal();
+            }
         });
-        trapFocus(document.getElementById('park-modal'));
     }
 
     function openParkModal(parkId) {
-        var park = NATIONAL_PARKS.find(function (p) {
-            return p.id === parkId;
-        });
-        if (!park) return;
+        var modalOverlay = document.getElementById('park-detail-modal');
+        var park = PARKS_DATA.find(function (p) { return p.id === parkId; });
+        if (!modalOverlay || !park) return;
 
-        previouslyFocusedElement = document.activeElement;
+        document.getElementById('modal-park-title').textContent = park.name;
+        document.getElementById('modal-park-state').innerHTML = '📍 State: <strong>' + park.state + '</strong>';
+        document.getElementById('modal-park-region').innerHTML = '🧭 Region: <strong>' + park.region + ' India</strong>';
+        document.getElementById('modal-park-year').innerHTML = '📅 Established: <strong>' + park.established + '</strong>';
+        document.getElementById('modal-park-desc').textContent = park.description;
+        
+        var imgElem = document.getElementById('modal-park-img');
+        imgElem.src = park.image;
+        imgElem.alt = park.name + ' Scenic Canopy';
 
-        var body = document.getElementById('park-modal-body');
-        var tags = '';
-        if (park.isTigerReserve) tags += '<span class="park-tag tiger">Tiger Reserve</span>';
-        if (park.isUNESCO) tags += '<span class="park-tag unesco">UNESCO World Heritage</span>';
-        if (!park.isTigerReserve && !park.isUNESCO) tags += '<span class="park-tag np">' + esc(park.type) + '</span>';
+        var wildlifeContainer = document.getElementById('modal-wildlife-container');
+        wildlifeContainer.innerHTML = park.wildlife.map(function (species) {
+            return '<span class="wildlife-tag" style="padding: 8px 16px; font-size: 0.9rem; background: rgba(33, 161, 104, 0.18); color: #ffffff; border: 1px solid rgba(33, 161, 104, 0.4);">🌿 ' + species + '</span>';
+        }).join('');
 
-        var faunaHtml = park.keyFauna
-            .map(function (f) {
-                return '<span class="modal-chip">' + esc(f) + '</span>';
-            })
-            .join('');
-
-        var floraHtml = park.keyFlora
-            .map(function (fl) {
-                return '<span class="modal-chip modal-flora-chip">' + esc(fl) + '</span>';
-            })
-            .join('');
-
-        body.innerHTML =
-            '<img class="modal-hero-img" src="' +
-            escA(park.image) +
-            '" alt="' +
-            escA(park.name) +
-            '" onerror="this.style.display=\'none\'">' +
-            '<div class="modal-body">' +
-            '<h2>' +
-            esc(park.name) +
-            '</h2>' +
-            '<div class="modal-park-state">📍 ' +
-            esc(park.state) +
-            '</div>' +
-            '<div class="modal-tags">' +
-            tags +
-            '</div>' +
-            '<p class="modal-description">' +
-            esc(park.description) +
-            '</p>' +
-            '<div class="modal-info-grid">' +
-            '<div class="modal-info-item"><label>Established</label><strong>' +
-            park.established +
-            '</strong></div>' +
-            '<div class="modal-info-item"><label>Area</label><strong>' +
-            park.area +
-            ' ' +
-            park.areaUnit +
-            '</strong></div>' +
-            '<div class="modal-info-item"><label>Climate</label><strong>' +
-            esc(park.climate) +
-            '</strong></div>' +
-            '<div class="modal-info-item"><label>Best Time to Visit</label><strong>' +
-            esc(park.bestTime) +
-            '</strong></div>' +
-            '<div class="modal-info-item"><label>Entry Fee</label><strong>' +
-            esc(park.entryFee) +
-            '</strong></div>' +
-            '<div class="modal-info-item"><label>Coordinates</label><strong>' +
-            park.coordinates.lat.toFixed(2) +
-            ', ' +
-            park.coordinates.lng.toFixed(2) +
-            '</strong></div>' +
-            '</div>' +
-            '<div class="modal-section-title">Key Fauna</div>' +
-            '<div class="modal-fauna-list">' +
-            faunaHtml +
-            '</div>' +
-            '<div class="modal-section-title">Key Flora</div>' +
-            '<div class="modal-flora-list">' +
-            floraHtml +
-            '</div>' +
-            '</div>';
-
-        var modal = document.getElementById('park-modal');
-        modal.classList.remove('hidden');
-        modal.setAttribute('aria-hidden', 'false');
+        modalOverlay.classList.add('active');
+        modalOverlay.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
-
-        var closeBtn = document.getElementById('park-modal-close');
-        if (closeBtn) closeBtn.focus();
     }
 
     function closeParkModal() {
-        var modal = document.getElementById('park-modal');
-        modal.classList.add('hidden');
-        modal.setAttribute('aria-hidden', 'true');
+        var modalOverlay = document.getElementById('park-detail-modal');
+        if (!modalOverlay) return;
+
+        modalOverlay.classList.remove('active');
+        modalOverlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        if (previouslyFocusedElement) previouslyFocusedElement.focus();
     }
 
-    /* ================================================================
-       13. UTILITIES
-       ================================================================ */
-
-    function esc(str) {
-        var d = document.createElement('div');
-        d.textContent = str;
-        return d.innerHTML;
+    /* ==========================================================================
+       12. FOOTER QUICK LINKS BINDING
+       ========================================================================== */
+    function initFooterLinks() {
+        var footerLinks = document.querySelectorAll('.footer-park-link[data-park]');
+        footerLinks.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                var targetName = e.currentTarget.getAttribute('data-park');
+                var searchInput = document.getElementById('search-input');
+                if (searchInput) {
+                    searchInput.value = targetName;
+                    filterState.search = targetName.toLowerCase();
+                    updateGridDisplay();
+                }
+            });
+        });
     }
 
-    function escA(str) {
-        return str
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-    }
 })();

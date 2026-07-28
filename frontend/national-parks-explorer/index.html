@@ -1,376 +1,455 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <script>
-            (function () {
-                const theme = localStorage.getItem('theme') || 'dark';
-                if (theme === 'light') {
-                    document.body.classList.add('light-theme');
-                }
-            })();
-        </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="Explore India's National Parks interactively — discover tiger reserves, UNESCO World Heritage Sites, wildlife species, and plan your next wildlife adventure."
+            content="Explore India's 106 National Parks, 54 Tiger Reserves, and UNESCO World Heritage Sites. Immerse yourself in wildlife conservation, interactive mapping, and biodiversity tourism."
         />
-        <title>National Parks of India Explorer | Incredible India</title>
+        <meta name="keywords" content="India National Parks, Wildlife Tourism, Tiger Reserves, Kaziranga, Ranthambore, Jim Corbett, Sundarbans, Eco Tourism" />
+        <title>National Parks Explorer – India | Untamed Wilderness Guide</title>
 
+        <!-- Google Fonts: Outfit & Inter -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
+        <!-- Custom Modular Stylesheets -->
         <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="style.css" />
     </head>
-    <body>
-        <header class="navbar scrolled" id="navbar">
-            <div class="nav-container">
-                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
-                    <span class="saffron">Incredible</span>
-                    <span class="gold">India</span>
-                    <span class="green">Explorer</span>
+    <body class="dark-theme">
+        <!-- Sticky Transparent Navigation Bar -->
+        <header class="navbar" id="navbar">
+            <div class="container nav-container">
+                <a href="#home" class="nav-logo" aria-label="National Parks Explorer Home">
+                    <div class="logo-icon" aria-hidden="true">🐾</div>
+                    <span><strong class="text-gold">India</strong> Parks Explorer</span>
                 </a>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <nav class="nav-menu" id="nav-menu">
-                    <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
-                    <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
-                    <a href="../wildlife/wildlife.html" class="nav-link" id="link-wildlife">Wildlife</a>
-                    <a href="index.html" class="nav-link active" id="link-parks" style="color: var(--saffron)"
-                        >National Parks</a
-                    >
-                    <a
-                        href="../national-parks-timeline/national-parks-timeline.html"
-                        class="nav-link"
-                        id="link-timeline"
-                        >Parks Timeline</a
-                    >
-                    <div class="nav-dropdown">
-                        <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
-                        <div class="dropdown-menu">
-                            <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
-                            <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
-                            <a href="../monuments/monuments.html" class="dropdown-item">Monuments</a>
-                            <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
-                            <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
-                        </div>
-                    </div>
-                    <button
-                        id="theme-toggle"
-                        class="btn-theme-toggle"
-                        aria-label="Toggle Dark/Light Mode"
-                        title="Toggle Light Mode"
-                    >
-                        ☀️
-                    </button>
+
+                <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#explore-hub" class="nav-link">National Parks</a>
+                    <a href="#search-filter-section" class="nav-link">States</a>
+                    <a href="#interactive-map-section" class="nav-link">Map</a>
+                    <a href="#about-section" class="nav-link">About</a>
+                    <a href="#contact-section" class="nav-link">Contact</a>
+                    <a href="#explore-hub" class="btn btn-nav-cta">Start Safari</a>
                 </nav>
+
+                <button class="hamburger" id="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </header>
 
-        <main class="parks-page">
-            <!-- Hero Section -->
-            <section class="parks-hero">
-                <div class="hero-forest-bg"></div>
+        <main>
+            <!-- Full-Screen Hero Section -->
+            <section class="hero" id="home" aria-label="Hero Overview">
+                <div class="hero-bg" id="hero-bg"></div>
                 <div class="hero-overlay"></div>
-                <div class="hero-container">
-                    <span class="hero-badge">Fauna & Conservation</span>
-                    <h1>National Parks of <span>India</span></h1>
+                <div class="hero-particles"></div>
+                
+                <div class="hero-content">
+                    <div class="hero-tag">🌿 Untamed Biodiversity & Protected Sanctuaries</div>
+                    <h1>Explore India's <span class="text-gold">National Parks</span></h1>
                     <p>
-                        Explore India's rich biodiversity — from the Royal Bengal Tigers of Ranthambore to the
-                        one-horned rhinoceros of Kaziranga. Discover 50+ tiger reserves, UNESCO World Heritage Sites,
-                        and incredible wildlife.
+                        Immerse yourself in India's majestic wilderness and protected ecosystems. From the Royal Bengal Tigers of Ranthambore and Jim Corbett to the one-horned rhinoceroses of Kaziranga and the floating mangrove forests of the Sundarbans.
                     </p>
-                    <div class="hero-quick-stats">
-                        <div class="quick-stat">
-                            <strong id="stat-total">106</strong>
-                            <span>National Parks</span>
-                        </div>
-                        <div class="quick-stat">
-                            <strong id="stat-tigers">54</strong>
-                            <span>Tiger Reserves</span>
-                        </div>
-                        <div class="quick-stat">
-                            <strong id="stat-unesco">7</strong>
-                            <span>UNESCO Sites</span>
-                        </div>
+                    <div class="hero-actions">
+                        <a href="#explore-hub" class="btn btn-primary ripple">Explore Parks</a>
+                        <a href="#interactive-map-section" class="btn btn-secondary ripple">View India Map</a>
                     </div>
                 </div>
+
+                <a href="#about-section" class="scroll-indicator" aria-label="Scroll down to explore more">
+                    <div class="mouse"><div class="wheel"></div></div>
+                    <span>Scroll to Discover</span>
+                </a>
             </section>
 
-            <!-- Interactive Map Section -->
-            <section class="map-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-badge">Explore the Map</span>
-                        <h2>Parks Across India</h2>
-                        <p class="section-subtitle">
-                            Click on any park marker on the map to view details. Hover for a quick preview.
+            <!-- Introduction Section -->
+            <section class="intro-section section-padding" id="about-section" aria-label="About National Parks">
+                <div class="container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-badge">✨ Sacred Ecosystems</span>
+                        <h2>Where Wilderness Reaches <span class="text-gold">Eternity</span></h2>
+                        <p>
+                            India stands as a prominent pillar of ecological conservation, safeguarding endangered species and preserving diverse habitats across twenty-eight sovereign states.
                         </p>
                     </div>
-                    <div class="map-wrapper">
-                        <div
-                            class="india-map-container"
-                            id="india-map-container"
-                            role="img"
-                            aria-label="Interactive map of India showing national park locations"
-                        >
-                            <svg
-                                id="india-svg-map"
-                                viewBox="0 0 612 696"
-                                xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true"
-                            ></svg>
-                            <div id="map-park-markers" role="group" aria-label="National park markers"></div>
+
+                    <div class="intro-grid">
+                        <article class="intro-card reveal-on-scroll" style="transition-delay: 0.1s;">
+                            <div class="intro-icon-wrapper">🏞️</div>
+                            <h3>What are National Parks?</h3>
+                            <p>
+                                National Parks are sovereign protected natural reserves dedicated to conserving pure ecosystems, endangered fauna, endemic flora, and rare geological landscapes from human exploitation, hunting, and industrial deforestation.
+                            </p>
+                        </article>
+
+                        <article class="intro-card reveal-on-scroll" style="transition-delay: 0.2s;">
+                            <div class="intro-icon-wrapper">🐅</div>
+                            <h3>Wildlife Conservation</h3>
+                            <p>
+                                Through historical triumphs like Project Tiger and Project Elephant, Indian conservation initiatives actively restore vital ecological balance, breeding populations, and secure corridors for apex predators and gentle giants alike.
+                            </p>
+                        </article>
+
+                        <article class="intro-card reveal-on-scroll" style="transition-delay: 0.3s;">
+                            <div class="intro-icon-wrapper">🌱</div>
+                            <h3>India's Biodiversity</h3>
+                            <p>
+                                As a recognized global mega-biodiversity hotspot, India harbours four prominent ecological zones—ranging from alpine Himalayan heights and Western Ghats rainforests to semi-arid desert reserves and coastal marine sanctuaries.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Counters Section -->
+            <section class="stats-section" id="stats-section" aria-label="Wildlife Conservation Statistics">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card reveal-on-scroll" style="transition-delay: 0.1s;">
+                            <span class="stat-icon" aria-hidden="true">🌲</span>
+                            <div class="stat-number" data-target="106">0</div>
+                            <div class="stat-label">National Parks</div>
                         </div>
-                        <div class="map-legend">
-                            <div class="legend-item"><span class="legend-dot tiger"></span> Tiger Reserve</div>
-                            <div class="legend-item"><span class="legend-dot unesco"></span> UNESCO Site</div>
-                            <div class="legend-item"><span class="legend-dot park"></span> National Park</div>
+                        <div class="stat-card reveal-on-scroll" style="transition-delay: 0.2s;">
+                            <span class="stat-icon" aria-hidden="true">🐅</span>
+                            <div class="stat-number" data-target="54">0</div>
+                            <div class="stat-label">Tiger Reserves</div>
+                        </div>
+                        <div class="stat-card reveal-on-scroll" style="transition-delay: 0.3s;">
+                            <span class="stat-icon" aria-hidden="true">🏛️</span>
+                            <div class="stat-number" data-target="8">0</div>
+                            <div class="stat-label">UNESCO Heritage Sites</div>
+                        </div>
+                        <div class="stat-card reveal-on-scroll" style="transition-delay: 0.4s;">
+                            <span class="stat-icon" aria-hidden="true">🗺️</span>
+                            <div class="stat-number" data-target="28">0</div>
+                            <div class="stat-label">States & UTs Covered</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Filters Section -->
-            <section class="filters-section">
-                <div class="section-container">
-                    <div class="filters-panel glass-card" role="search" aria-label="Filter national parks">
-                        <div class="filters-row">
-                            <div class="filter-group">
-                                <label for="search-parks">Search Parks</label>
-                                <div class="search-input-wrapper">
-                                    <svg
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        aria-hidden="true"
-                                    >
-                                        <circle cx="11" cy="11" r="8" />
-                                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                                    </svg>
-                                    <input
-                                        type="text"
-                                        id="search-parks"
-                                        placeholder="Search by name, state, wildlife..."
-                                        autocomplete="off"
-                                        aria-label="Search parks by name, state, or wildlife"
-                                    />
-                                </div>
+            <!-- Search & Filters Section -->
+            <section class="filter-section" id="search-filter-section" aria-label="Search and Filter Sanctuaries">
+                <div class="container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-badge">🔍 Interactive Discovery</span>
+                        <h2>Filter Your <span class="text-gold">Next Adventure</span></h2>
+                        <p>Search by park name, regional coordinates, or specific Indian state to dynamically tailor your safari catalog.</p>
+                    </div>
+
+                    <div class="filter-panel reveal-on-scroll">
+                        <div class="filter-row-top">
+                            <div class="search-wrapper">
+                                <input
+                                    type="text"
+                                    id="search-input"
+                                    class="search-input"
+                                    placeholder="Search by park name, wildlife (e.g. Tiger, Rhino)..."
+                                    aria-label="Search National Parks"
+                                />
+                                <span class="search-icon" aria-hidden="true">🔍</span>
                             </div>
-                            <div class="filter-group">
-                                <label for="filter-state">State / UT</label>
-                                <select id="filter-state" aria-label="Filter by state or union territory">
-                                    <!-- Populated by JS -->
+
+                            <div class="filter-select-wrapper">
+                                <select id="state-select" class="filter-select" aria-label="Filter by State">
+                                    <option value="all">All States & UTs</option>
+                                    <!-- Populated automatically via script.js -->
                                 </select>
                             </div>
-                            <div class="filter-group">
-                                <label for="filter-type">Category</label>
-                                <select id="filter-type" aria-label="Filter by park category">
-                                    <option value="all">All Parks</option>
-                                    <option value="tiger">Tiger Reserves</option>
-                                    <option value="unesco">UNESCO Sites</option>
-                                    <option value="national">National Parks</option>
-                                    <option value="marine">Marine Parks</option>
-                                </select>
-                            </div>
-                            <div class="filter-group">
-                                <label for="filter-region">Region</label>
-                                <select id="filter-region" aria-label="Filter by geographic region">
-                                    <option value="all">All Regions</option>
-                                    <option value="north">North India</option>
-                                    <option value="south">South India</option>
-                                    <option value="east">East India</option>
-                                    <option value="west">West India</option>
-                                    <option value="central">Central India</option>
-                                    <option value="northeast">Northeast India</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="filter-summary">
-                            <span id="results-count" aria-live="polite" aria-atomic="true">Showing all parks</span>
-                            <button id="btn-reset" class="btn-reset hidden" aria-label="Reset all filters">
-                                Reset Filters
+
+                            <button id="reset-filters-btn" class="btn-reset ripple" type="button">
+                                <span>↺ Reset Filters</span>
                             </button>
                         </div>
+
+                        <div class="filter-row-regions">
+                            <span class="region-label">Select Region:</span>
+                            <div class="region-pills" role="group" aria-label="Regional Filters">
+                                <button type="button" class="pill-btn active ripple" data-region="all">All Regions</button>
+                                <button type="button" class="pill-btn ripple" data-region="North">North India</button>
+                                <button type="button" class="pill-btn ripple" data-region="South">South India</button>
+                                <button type="button" class="pill-btn ripple" data-region="East">East India</button>
+                                <button type="button" class="pill-btn ripple" data-region="West">West India</button>
+                                <button type="button" class="pill-btn ripple" data-region="Central">Central India</button>
+                                <button type="button" class="pill-btn ripple" data-region="Northeast">Northeast India</button>
+                            </div>
+                        </div>
+
+                        <div class="filter-status">
+                            <span id="parks-counter">Showing all featured parks...</span>
+                            <span id="active-filter-badge" style="color: var(--accent-gold); font-weight: 600;"></span>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Parks Grid Section -->
-            <section class="parks-grid-section">
-                <div class="section-container">
-                    <div id="parks-grid" class="parks-grid" role="list" aria-label="National parks">
-                        <!-- Populated by JS -->
+            <!-- Interactive India Map Section -->
+            <section class="map-section" id="interactive-map-section" aria-label="Interactive India Map">
+                <div class="container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-badge">🧭 Geographical Cartography</span>
+                        <h2>Interactive <span class="text-gold">India Map</span></h2>
+                        <p>Hover over any Indian State or Union Territory to inspect its territorial expanse. Click directly on a state to automatically isolate and exhibit its local sanctuaries.</p>
                     </div>
-                    <div id="empty-state" class="empty-state hidden" role="status">
-                        <div class="empty-icon" aria-hidden="true">🍃</div>
-                        <h3>No Parks Found</h3>
-                        <p>Try adjusting your search or filters to find national parks.</p>
-                        <button id="btn-empty-reset" class="btn-reset" aria-label="Clear all filters">
-                            Clear All Filters
-                        </button>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Wildlife Species Section -->
-            <section class="wildlife-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-badge">Wildlife</span>
-                        <h2>Iconic Wildlife Species</h2>
-                        <p class="section-subtitle">
-                            Discover the incredible fauna that call India's national parks home — from the majestic
-                            Bengal Tiger to the elusive Snow Leopard.
-                        </p>
-                    </div>
-                    <div id="wildlife-grid" class="wildlife-grid" role="list" aria-label="Wildlife species">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </section>
+                    <div class="map-layout">
+                        <div class="map-svg-container reveal-on-scroll" style="transition-delay: 0.1s;">
+                            <div class="map-controls">
+                                <button type="button" class="btn-map-control" id="map-zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
+                                <button type="button" class="btn-map-control" id="map-zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
+                                <button type="button" class="btn-map-control" id="map-reset" title="Reset Map Zoom" aria-label="Reset Map Zoom">⌂</button>
+                            </div>
+                            <div class="india-svg-wrapper" id="india-svg-wrapper">
+                                <!-- Dynamic Vector SVG Map Injected by script.js using map-data.js -->
+                            </div>
+                        </div>
 
-            <!-- Tiger Reserves Section -->
-            <section class="tiger-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-badge">Tiger Conservation</span>
-                        <h2>India's Tiger Reserves</h2>
-                        <p class="section-subtitle">
-                            India is home to over 70% of the world's wild tigers. Explore the network of Project Tiger
-                            reserves protecting this magnificent species.
-                        </p>
-                    </div>
-                    <div class="tiger-stats-row">
-                        <div class="tiger-stat-card glass-card">
-                            <div class="tiger-stat-icon">🐅</div>
-                            <div class="tiger-stat-info">
-                                <strong>3,682</strong>
-                                <span>Wild Tigers (2023)</span>
-                            </div>
-                        </div>
-                        <div class="tiger-stat-card glass-card">
-                            <div class="tiger-stat-icon">🏞️</div>
-                            <div class="tiger-stat-info">
-                                <strong>54</strong>
-                                <span>Tiger Reserves</span>
-                            </div>
-                        </div>
-                        <div class="tiger-stat-card glass-card">
-                            <div class="tiger-stat-icon">📈</div>
-                            <div class="tiger-stat-info">
-                                <strong>30%</strong>
-                                <span>Population Growth (Decade)</span>
-                            </div>
-                        </div>
-                        <div class="tiger-stat-card glass-card">
-                            <div class="tiger-stat-icon">🌍</div>
-                            <div class="tiger-stat-info">
-                                <strong>70%</strong>
-                                <span>World's Wild Tigers</span>
+                        <div class="map-guide-panel reveal-on-scroll" style="transition-delay: 0.3s;">
+                            <div class="map-info-card">
+                                <h3><span aria-hidden="true">📍</span> Territory Insights</h3>
+                                <p id="map-guide-text">
+                                    India's national parks extend from the frigid high-altitude deserts of Hemis in Ladakh down to the dense tropical evergreens of Periyar in Kerala. Click on any territorial state on the map to filter our featured sanctuaries.
+                                </p>
+                                <div class="map-feature-list">
+                                    <div class="map-feature-item">
+                                        <span class="map-feature-icon">✨</span>
+                                        <span>Real-time hover highlighting & boundaries</span>
+                                    </div>
+                                    <div class="map-feature-item">
+                                        <span class="map-feature-icon">🔍</span>
+                                        <span>Instant click-to-filter grid synchronization</span>
+                                    </div>
+                                    <div class="map-feature-item">
+                                        <span class="map-feature-icon">🦁</span>
+                                        <span>Comprehensive wildlife species mapping</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div id="tiger-parks-list" class="tiger-parks-list" role="list" aria-label="Tiger reserves">
-                        <!-- Populated by JS -->
+                </div>
+
+                <!-- Floating Tooltip for SVG Map -->
+                <div id="map-tooltip" class="map-tooltip" role="tooltip"></div>
+            </section>
+
+            <!-- Featured National Parks Section -->
+            <section class="parks-section section-padding" id="explore-hub" aria-label="Featured National Parks Grid">
+                <div class="container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-badge">🐘 Sanctuary Hub</span>
+                        <h2>Featured <span class="text-gold">National Parks</span></h2>
+                        <p>Explore our curated showcase of India’s most celebrated wildlife reserves, each offering distinctive ecological encounters, historic origins, and thriving wildlife populations.</p>
+                    </div>
+
+                    <!-- Dynamic Park Cards Grid -->
+                    <div class="parks-grid" id="parks-grid" aria-live="polite">
+                        <!-- Populated dynamically via script.js from our structured JavaScript array -->
                     </div>
                 </div>
             </section>
 
-            <!-- Image Gallery Section -->
-            <section class="gallery-section">
-                <div class="section-container">
-                    <div class="section-header">
-                        <span class="section-badge">Visual Journey</span>
-                        <h2>National Park Gallery</h2>
-                        <p class="section-subtitle">
-                            A visual exploration of India's stunning national parks and wildlife.
-                        </p>
+            <!-- Did You Know? Section -->
+            <section class="facts-section section-padding" id="did-you-know" aria-label="Wildlife Facts">
+                <div class="container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-badge">💡 Did You Know?</span>
+                        <h2>Fascinating <span class="text-gold">Wildlife Chronicles</span></h2>
+                        <p>Uncover extraordinary triumphs, biological records, and surprising phenomena surrounding Indian ecological history.</p>
                     </div>
-                    <div id="gallery-grid" class="gallery-grid" role="list" aria-label="National park gallery">
-                        <!-- Populated by JS -->
+
+                    <div class="facts-grid">
+                        <article class="fact-card reveal-on-scroll" style="transition-delay: 0.1s;">
+                            <div class="fact-icon" aria-hidden="true">🇮🇳</div>
+                            <h3>Over 100 Sanctuaries</h3>
+                            <p>India hosts more than 106 official National Parks spanning upwards of 44,000 square kilometers, forming one of Asia's most robust conservation networks.</p>
+                        </article>
+
+                        <article class="fact-card reveal-on-scroll" style="transition-delay: 0.2s;">
+                            <div class="fact-icon" aria-hidden="true">🐅</div>
+                            <h3>Bengal Tiger Empire</h3>
+                            <p>The majestic Royal Bengal Tiger is India's cherished national animal. Through rigorous anti-poaching measures, India today protects over 75% of the wild global tiger population.</p>
+                        </article>
+
+                        <article class="fact-card reveal-on-scroll" style="transition-delay: 0.3s;">
+                            <div class="fact-icon" aria-hidden="true">🦏</div>
+                            <h3>Rhino Citadel in Kaziranga</h3>
+                            <p>Assam’s Kaziranga National Park is famously credited with rescuing the greater one-horned rhinoceros from almost sure extinction, housing over 2,600 surviving rhinos today.</p>
+                        </article>
+
+                        <article class="fact-card reveal-on-scroll" style="transition-delay: 0.4s;">
+                            <div class="fact-icon" aria-hidden="true">🌊</div>
+                            <h3>The Mangrove Labyrinth</h3>
+                            <p>The UNESCO-listed Sundarbans is the world's largest uninterrupted coastal mangrove forest, celebrated for amphibious tigers that readily swim across expansive tidal channels.</p>
+                        </article>
                     </div>
                 </div>
             </section>
 
-            <!-- Park Detail Modal -->
-            <div
-                id="park-modal"
-                class="park-modal hidden"
-                role="dialog"
-                aria-modal="true"
-                aria-label="Park Details"
-                aria-hidden="true"
-            >
-                <div class="park-modal-backdrop" id="park-modal-backdrop"></div>
-                <div class="park-modal-content glass-card">
-                    <button class="park-modal-close" id="park-modal-close" aria-label="Close park details">
-                        &times;
-                    </button>
-                    <div id="park-modal-body">
-                        <!-- Populated by JS -->
+            <!-- Features Section -->
+            <section class="features-section section-padding" id="features-section" aria-label="Conservation & Tourism Features">
+                <div class="container">
+                    <div class="section-header reveal-on-scroll">
+                        <span class="section-badge">🛡️ Preservation Pillars</span>
+                        <h2>Conservation & <span class="text-gold">Eco Tourism</span></h2>
+                        <p>Discover how responsible travel and dedicated scientific guardianship unite to safeguard India’s priceless biological heritage.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-box reveal-on-scroll" style="transition-delay: 0.1s;">
+                            <div class="feature-box-icon" aria-hidden="true">🐾</div>
+                            <div class="feature-box-content">
+                                <h3>Wildlife Protection</h3>
+                                <p>Specialized anti-poaching forces and wireless drone monitoring preserve endangered species across designated buffer and core sanctuary zones.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box reveal-on-scroll" style="transition-delay: 0.2s;">
+                            <div class="feature-box-icon" aria-hidden="true">🍃</div>
+                            <div class="feature-box-content">
+                                <h3>Eco Tourism Initiatives</h3>
+                                <p>Sustainable safari lodges and community-run nature enterprises empower indigenous tribal villages while maintaining a near-zero carbon footprint.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box reveal-on-scroll" style="transition-delay: 0.3s;">
+                            <div class="feature-box-icon" aria-hidden="true">🌺</div>
+                            <div class="feature-box-content">
+                                <h3>Biodiversity Hotspots</h3>
+                                <p>Safeguarding critical global biological reserves such as the Western Ghats and Himalayan forest corridors rich in endemic flora and medicinal herbs.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box reveal-on-scroll" style="transition-delay: 0.4s;">
+                            <div class="feature-box-icon" aria-hidden="true">👑</div>
+                            <div class="feature-box-content">
+                                <h3>Tiger Conservation</h3>
+                                <p>Spearheaded by Project Tiger since 1973, India's tiger reserves have expanded dramatically, marking one of human history's greatest ecological restorations.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box reveal-on-scroll" style="transition-delay: 0.5s;">
+                            <div class="feature-box-icon" aria-hidden="true">🏅</div>
+                            <div class="feature-box-content">
+                                <h3>UNESCO World Heritage</h3>
+                                <p>Internationally recognized natural wonders including Great Himalayan, Sundarbans, Manas, Keoladeo, and Kaziranga preserve irreplaceable biological phenomena.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box reveal-on-scroll" style="transition-delay: 0.6s;">
+                            <div class="feature-box-icon" aria-hidden="true">🚙</div>
+                            <div class="feature-box-content">
+                                <h3>Guided Nature Trails</h3>
+                                <p>Regulated open-top safari expeditions and birdwatching walks led by expert naturalist guides facilitate unforgettable wild animal photography.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Lightbox for Gallery -->
-            <div
-                id="lightbox"
-                class="lightbox hidden"
-                role="dialog"
-                aria-modal="true"
-                aria-label="Image Lightbox"
-                aria-hidden="true"
-            >
-                <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
-                <div class="lightbox-content">
-                    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
-                    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#8249;</button>
-                    <button class="lightbox-next" id="lightbox-next" aria-label="Next image">&#8250;</button>
-                    <img id="lightbox-img" src="" alt="" />
-                    <div class="lightbox-caption" id="lightbox-caption" aria-live="polite"></div>
-                </div>
-            </div>
+            </section>
         </main>
 
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-brand">
-                    <h3>Incredible India Explorer</h3>
-                    <p>
-                        An interactive digital guide to the geography, food, festivals, and cultural heritage of India.
-                    </p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Navigation</h3>
-                    <ul>
-                        <li><a href="../../index.html#home">Home</a></li>
-                        <li><a href="../../index.html#map">Interactive Map</a></li>
-                        <li><a href="../wildlife/wildlife.html">Nature & Wildlife</a></li>
-                        <li><a href="../national-parks-timeline/national-parks-timeline.html">Parks Timeline</a></li>
-                    </ul>
+        <!-- Park Details Modal -->
+        <div id="park-detail-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-park-title">
+            <div class="modal-content">
+                <button type="button" class="btn-close-modal" id="close-modal-btn" aria-label="Close modal window">&times;</button>
+                <img id="modal-park-img" class="modal-header-image" src="" alt="National Park View" />
+                <div class="modal-body">
+                    <span id="modal-park-badge" class="section-badge" style="margin-bottom: 12px;">National Park</span>
+                    <h2 id="modal-park-title" class="modal-title">Park Name</h2>
+                    
+                    <div class="modal-meta-row">
+                        <span id="modal-park-state" class="modal-meta-item">📍 State</span>
+                        <span id="modal-park-region" class="modal-meta-item">🧭 Region</span>
+                        <span id="modal-park-year" class="modal-meta-item">📅 Established</span>
+                    </div>
+
+                    <h3 class="modal-section-title">Overview & Ecological Significance</h3>
+                    <p id="modal-park-desc" class="modal-text"></p>
+
+                    <h3 class="modal-section-title">Key Wildlife & Flagship Species</h3>
+                    <div id="modal-wildlife-container" class="modal-wildlife-grid"></div>
+
+                    <div style="margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap;">
+                        <button type="button" id="modal-safari-btn" class="btn btn-primary ripple">Plan Safari & Directions</button>
+                        <button type="button" id="modal-close-footer" class="btn btn-secondary ripple">Return to Catalog</button>
+                    </div>
                 </div>
             </div>
-            <div class="footer-credits footer-credits-center">
-                <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+        </div>
+
+        <!-- Floating Back-to-Top FAB Button -->
+        <a href="#home" id="back-to-top-btn" class="back-to-top ripple" aria-label="Scroll back to top">↑</a>
+
+        <!-- Footer Section -->
+        <footer class="footer" id="contact-section">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <h3><span aria-hidden="true">🐾</span> India Parks Explorer</h3>
+                        <p>
+                            An official collaborative gateway promoting India's natural national heritage, wildlife conservation awareness, and sustainable ecotourism adventures.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon" aria-label="Follow on Instagram" title="Instagram">📸</a>
+                            <a href="#" class="social-icon" aria-label="Subscribe on YouTube" title="YouTube">▶️</a>
+                            <a href="#" class="social-icon" aria-label="Follow on Twitter/X" title="Twitter/X">🐦</a>
+                            <a href="#" class="social-icon" aria-label="Like on Facebook" title="Facebook">📘</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home Dashboard</a></li>
+                            <li><a href="#explore-hub">Featured Sanctuaries</a></li>
+                            <li><a href="#interactive-map-section">Interactive India Map</a></li>
+                            <li><a href="#did-you-know">Wildlife Chronicles</a></li>
+                            <li><a href="../../index.html">Incredible India Home</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Popular Parks</h4>
+                        <ul class="footer-links">
+                            <li><a href="#explore-hub" class="footer-park-link" data-park="Jim Corbett">Jim Corbett Tiger Reserve</a></li>
+                            <li><a href="#explore-hub" class="footer-park-link" data-park="Kaziranga">Kaziranga National Park</a></li>
+                            <li><a href="#explore-hub" class="footer-park-link" data-park="Ranthambore">Ranthambore Fortress</a></li>
+                            <li><a href="#explore-hub" class="footer-park-link" data-park="Sundarbans">Sundarbans Mangroves</a></li>
+                            <li><a href="#explore-hub" class="footer-park-link" data-park="Periyar">Periyar Sanctuary</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contact & Help</h4>
+                        <ul class="footer-links">
+                            <li><span>📍 Paryavaran Bhawan, New Delhi, India</span></li>
+                            <li><span>📧 info@india-parks-explorer.org</span></li>
+                            <li><span>📞 +91 (011) 2469-5262 (Helpline)</span></li>
+                            <li><span>🕐 Mon–Sat: 8:00 AM – 6:00 PM IST</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 National Parks Explorer — Incredible India. Engineered with pure HTML5, CSS3 & Vanilla JavaScript. Built for sustainability.</p>
+                </div>
             </div>
         </footer>
 
-        <script src="../../app.js" defer></script>
+        <!-- Core Scripts & Data Modules -->
         <script src="map-data.js" defer></script>
         <script src="data.js" defer></script>
         <script src="script.js" defer></script>
-        <script type="module" src="../../auth.js"></script>
+        <script src="../../app.js" defer></script>
     </body>
 </html>
