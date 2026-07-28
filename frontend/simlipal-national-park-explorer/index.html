@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Simlipal National Park & Biosphere Reserve in Odisha — world's only natural habitat for Melanistic Black Tigers, home to Barehipani (399m) waterfall, Mayurbhanj elephants, 94+ orchid species, and Santhal tribal heritage."
+        />
+        <title>Simlipal National Park Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="simlipal.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Simlipal National Park Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive guide to Simlipal National Park in Odisha — UNESCO Biosphere Reserve, home to Barehipani & Joranda waterfalls, Melanistic Black Tigers, Mayurbhanj Elephants, and indigenous Santhal tribes."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="simlipal-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="../wildlife/wildlife.html" class="nav-link">Wildlife</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)"
+                        >Simlipal Explorer</a
+                    >
+                    <a href="../national-parks-timeline/national-parks-timeline.html" class="nav-link">Timeline</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="simlipal-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-biosphere">🌐 UNESCO Biosphere Reserve</span>
+                        <span class="hero-pill pill-waterfall">🌊 Barehipani Fall (399m)</span>
+                        <span class="hero-pill pill-tiger">🐅 Exclusive Black Tiger Habitat</span>
+                    </div>
+                    <h1>Simlipal <span>National Park</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Immerse yourself in one of India's largest biosphere reserves in Mayurbhanj, Odisha — 
+                        famed for roaring 399-meter waterfalls, wild elephant herds, 94+ orchid species, and the world's only wild melanistic black tigers.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by simlipal.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Waterfalls Section -->
+            <section class="waterfalls-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Spectacular Cascades</span>
+                        <h2>Waterfalls & Deep River Gorges</h2>
+                        <p class="section-subtitle">
+                            Simlipal's high plateau feeds majestic waterfalls that plunge into forested abysses across the Eastern Ghats.
+                        </p>
+                    </div>
+
+                    <div id="waterfalls-grid" class="waterfalls-grid">
+                        <!-- Populated by simlipal.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Melanistic Black Tigers Spotlight -->
+            <section class="black-tiger-section">
+                <div class="section-container">
+                    <div class="black-tiger-card glass-card">
+                        <div>
+                            <span class="section-badge">World Exclusive</span>
+                            <h2 style="font-family:var(--font-heading); font-size:2.2rem; color:var(--gold-bright); margin-bottom:1rem;">
+                                The Melanistic (Black) Tigers of Simlipal
+                            </h2>
+                            <p style="color:var(--simlipal-text-muted-dark); line-height:1.7; margin-bottom:1.2rem;">
+                                Simlipal is the <strong>only place on Earth</strong> where wild pseudo-melanistic black tigers exist. A rare recessive gene mutation (Transmembrane Peptidase Q) causes their stripes to broaden and merge, giving them a striking dark coat.
+                            </p>
+                            <div style="font-size:0.9rem; padding:0.9rem; border-radius:10px; background:rgba(220,38,38,0.1); border-left:4px solid var(--simlipal-crimson); color:#fca5a5;">
+                                🧬 <strong>60%+ Population Trait:</strong> Genetic research by NCBS confirms that over 60% of Simlipal's tiger population carries this unique coat mutation.
+                            </div>
+                        </div>
+                        <div style="border-radius:14px; overflow:hidden; position:relative; background:#0f172a; height:260px;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/800px-Neofelis_nebulosa.jpg" alt="Melanistic Black Tiger" style="width:100%; height:100%; object-fit:cover;" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mayurbhanj Elephants & Wildlife -->
+            <section class="forest-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Rich Biodiversity</span>
+                        <h2>Mayurbhanj Elephants & Wildlife</h2>
+                        <p class="section-subtitle">
+                            Simlipal forms the core of the Mayurbhanj Elephant Reserve, providing sanctuary to hundreds of wild Asian Elephants, Sambar deer, and Hill Mynas.
+                        </p>
+                    </div>
+
+                    <div id="wildlife-grid" class="forest-grid">
+                        <!-- Populated by simlipal.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forest Types & Orchid Flora -->
+            <section class="forest-section" style="background:rgba(21,128,61,0.02);">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Botanical Paradise</span>
+                        <h2>Forest Types & 94+ Orchid Species</h2>
+                        <p class="section-subtitle">
+                            Named after the red silk cotton tree ('Simul'), Simlipal's varied elevations nurture moist Sal forests and 94 wild orchid species.
+                        </p>
+                    </div>
+
+                    <div id="forest-grid" class="forest-grid">
+                        <!-- Populated by simlipal.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Indigenous Tribal Communities -->
+            <section class="tribal-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Indigenous Stewardship</span>
+                        <h2>Tribal Communities & Cultural Heritage</h2>
+                        <p class="section-subtitle">
+                            Simlipal has been protected for centuries by indigenous tribes who live in harmony with the forest.
+                        </p>
+                    </div>
+
+                    <div id="tribal-grid" class="tribal-grid">
+                        <!-- Populated by simlipal.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- History & Biosphere Timeline -->
+            <section class="history-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Protection Milestones</span>
+                        <h2>History & Biosphere Timeline</h2>
+                        <p class="section-subtitle">
+                            From royal hunting reserve of the Mayurbhanj Maharajas to Project Tiger and UNESCO Biosphere Reserve status.
+                        </p>
+                    </div>
+
+                    <div id="timeline-container" class="timeline-container">
+                        <!-- Populated by simlipal.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive SVG Park Map -->
+            <section class="map-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Park Geography</span>
+                        <h2>Interactive Map of Simlipal National Park</h2>
+                        <p class="section-subtitle">
+                            Click on map hotspot pins to locate Pithabata Gate, Jashipur Entrance, Barehipani Waterfall, Joranda Waterfall, and Chala Core Tiger Zone.
+                        </p>
+                    </div>
+
+                    <div class="map-card-wrapper glass-card">
+                        <div class="map-svg-container">
+                            <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="1000" height="600" fill="#140d1a" />
+                                <path d="M80,100 Q500,20 920,120 L920,530 L80,530 Z" fill="#29121d" stroke="rgba(220,38,38,0.3)" stroke-width="2"/>
+                                <!-- Budhabalanga River Channel -->
+                                <path d="M250,150 Q480,280 580,380 T880,480" fill="none" stroke="#0284c7" stroke-width="18" opacity="0.65"/>
+                                <text x="500" y="320" fill="#38bdf8" font-size="14" font-family="Outfit">Budhabalanga River & Barehipani</text>
+                                <text x="660" y="500" fill="#fca5a5" font-size="14" font-weight="bold" font-family="Outfit">Chala Core Tiger Area</text>
+                            </svg>
+
+                            <!-- Pins Layer -->
+                            <div id="map-hotspots-layer">
+                                <!-- Populated by simlipal.js -->
+                            </div>
+
+                            <!-- Info Popup -->
+                            <div id="map-info-popup" class="map-info-popup hidden">
+                                <!-- Populated by simlipal.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="gallery-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Journey</span>
+                        <h2>Simlipal Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Immerse yourself in photographs of Barehipani waterfall, Melanistic tigers, Asian elephants, and wild orchids. Click any photo for a full-screen view.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid">
+                        <!-- Populated by simlipal.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer" style="margin-top:4rem; border-top:1px solid var(--simlipal-border-dark);">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>
+                        An interactive digital guide to the geography, food, festivals, wildlife, and cultural heritage of India.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../national-parks-explorer/index.html">National Parks Explorer</a></li>
+                        <li><a href="../wildlife/wildlife.html">Nature & Wildlife</a></li>
+                        <li><a href="../national-parks-timeline/national-parks-timeline.html">Parks Timeline</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Simlipal National Park Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Core Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="simlipal-data.js" defer></script>
+        <script src="simlipal.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

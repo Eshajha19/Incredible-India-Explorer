@@ -87,8 +87,50 @@ const ISLANDS_DATA = [
     islandCount: "1 island",
     tagline: "Home of Radhanagar Beach, Asia's Best Beach",
     description: "Formerly Havelock Island, renamed Swaraj Dweep in 2018 — the Andamans' premier tourism hub, famed for Radhanagar and Elephant Beach, accessible coral reefs, rich marine life, and some of the best scuba diving in India.",
-    highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
+highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
     image: "../../assets/travel_beaches.png"
+  },
+  {
+    id: "narcondam",
+    name: "Narcondam Island",
+    group: "Andaman & Nicobar",
+    location: "North Andaman, Bay of Bengal",
+    state: "Union Territory",
+    lat: 13.4287,
+    lng: 94.2557,
+    islandCount: "1 island",
+    tagline: "An extinct volcano and the only home of the Narcondam Hornbill",
+    description: "A small, remote, densely-forested volcanic island east of the main Andaman group. Formed by an extinct volcano, it is the sole habitat of the endemic Narcondam Hornbill and is protected as a wildlife sanctuary.",
+    highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
+    image: "../../assets/travel_hidden.png"
+  },
+  {
+    id: "lakshadweep",    name: "Lakshadweep Islands",
+    id: "barren-island",
+    name: "Barren Island",
+    group: "Andaman & Nicobar",
+    location: "Andaman Sea",
+    state: "Union Territory",
+    lat: 12.2783,
+    lng: 93.858,
+    islandCount: "1 island",
+    tagline: "India's only confirmed active volcano",
+    description: "An uninhabited volcanic island in the Andaman Sea, home to India's only confirmed active volcano, a 2-km-wide caldera, and dive sites known for volcanic drop-offs and rich marine life.",
+    highlights: ["India's only confirmed active volcano", "First recorded eruption in 1787, most recently in 2022", "Horseshoe-shaped caldera roughly 2 km wide", "Popular deep-sea diving site around the island"],
+  },
+  {
+    id: "north-sentinel-island",
+    name: "North Sentinel Island",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 11.5533,
+    lng: 92.2367,
+    islandCount: "1 island",
+    tagline: "A protected, off-limits home to the Sentinelese people",
+    description: "North Sentinel Island is home to the Sentinelese, one of the world's last uncontacted tribes. Entry is strictly prohibited by Indian law to protect the tribe's health, safety and way of life.",
+    highlights: ["Home to the uncontacted Sentinelese tribe", "Protected under the Protection of Aboriginal Tribes Regulation, 1956", "Off-limits — no tourism or unauthorised entry permitted", "Part of the Andaman & Nicobar tribal reserve system"],
+    image: "../../assets/travel_hidden.png"
   },
   {
     id: "lakshadweep",
@@ -314,18 +356,20 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-  if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
-      "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html"
+      "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
+      "narcondam": "../narcondam-island/narcondam-island.html"
+      "barren-island": "../barren-island/barren-island.html"
+      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html"
     };
     window.location.href = pageMap[island.id];
     return;
   }
-
   document.getElementById("island-modal-title").textContent = island.name;
   document.getElementById("island-modal-location").textContent = island.location;
   document.getElementById("island-modal-group").textContent = island.group;

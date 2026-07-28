@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Manas National Park in Assam — a UNESCO World Heritage Site, Project Tiger Reserve, Elephant Reserve, and Biosphere Reserve. Discover Golden Langurs, Pygmy Hogs, Bengal Tigers, Manas River, and interactive maps."
+        />
+        <title>Manas National Park Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="manas.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Manas National Park Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive guide to Manas National Park in Assam — UNESCO World Heritage Site, home to Golden Langur, Pygmy Hog, Bengal Tiger, Manas River, and transboundary reserves."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="manas-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="../wildlife/wildlife.html" class="nav-link">Wildlife</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)"
+                        >Manas Explorer</a
+                    >
+                    <a href="../national-parks-timeline/national-parks-timeline.html" class="nav-link">Timeline</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="manas-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-unesco">🏛️ UNESCO World Heritage Site</span>
+                        <span class="hero-pill pill-tiger">🐅 Project Tiger Reserve</span>
+                        <span class="hero-pill pill-river">💧 Manas River Basin</span>
+                    </div>
+                    <h1>Manas <span>National Park</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Step into a pristine Eastern Himalayan sanctuary — holding five prestigious conservation statuses and serving as the exclusive natural habitat for the endemic Golden Langur and the world's smallest wild pig, the Pygmy Hog.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by manas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5-Fold Conservation Statuses -->
+            <section class="statuses-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Five Protection Designations</span>
+                        <h2>5-Fold Conservation Protection</h2>
+                        <p class="section-subtitle">
+                            Manas is uniquely endowed with five official conservation designations protecting its rich riverine and grassland biodiversity.
+                        </p>
+                    </div>
+
+                    <div id="statuses-grid" class="statuses-grid">
+                        <!-- Populated by manas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Manas River & Hydrology -->
+            <section class="river-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Transboundary Hydrology</span>
+                        <h2>The Manas River & Alluvial Plains</h2>
+                        <p class="section-subtitle">
+                            Flowing down from the high peaks of Bhutan, the Manas River shapes the sanctuary's landscape before joining the Brahmaputra.
+                        </p>
+                    </div>
+
+                    <div class="river-grid">
+                        <div class="river-card glass-card">
+                            <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom:0.8rem; color:var(--river-blue);">Transboundary Waterway</h3>
+                            <p style="color:var(--manas-text-muted-dark); line-height:1.65; margin-bottom:1.2rem;">
+                                Known as <strong>Drangme Chhu</strong> in Bhutan, the Manas River flows south across the international boundary into Assam, creating a seamless ecological corridor shared between India and Bhutan.
+                            </p>
+                            <div style="font-size:0.9rem; padding:0.8rem; border-radius:8px; background:rgba(2,132,199,0.1); border-left:3px solid var(--river-blue);">
+                                🚣 <strong>Eco-Rafting:</strong> Visitors can enjoy scenic boat rafting along the crystal-clear river waters from Mathanguri Lodge to Bansbari.
+                            </div>
+                        </div>
+
+                        <div class="river-card glass-card">
+                            <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom:0.8rem; color:var(--grassland-emerald);">River Split into Manas & Beki</h3>
+                            <p style="color:var(--manas-text-muted-dark); line-height:1.65; margin-bottom:1.2rem;">
+                                As the river hits the flat plains at Mathanguri, it splits into two primary channels — the main Manas River and the Beki River — depositing fertile silt that sustains extensive savannah grass beds.
+                            </p>
+                            <div style="font-size:0.9rem; padding:0.8rem; border-radius:8px; background:rgba(16,185,129,0.1); border-left:3px solid var(--grassland-emerald);">
+                                🌾 <strong>Grassland Ecosystem:</strong> Supports wild water buffaloes, rhinos, swamp deer, and the endangered Bengal Florican.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Endangered Species Spotlight -->
+            <section class="species-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Iconic Wildlife</span>
+                        <h2>Endangered Species Spotlight</h2>
+                        <p class="section-subtitle">
+                            Manas is the exclusive refuge for some of the world's most endangered species, including the Golden Langur and Pygmy Hog.
+                        </p>
+                    </div>
+
+                    <div id="species-grid" class="species-grid">
+                        <!-- Populated by manas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Birdlife Catalog -->
+            <section class="birds-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Avian Sanctuary</span>
+                        <h2>Birdlife Explorer (450+ Species)</h2>
+                        <p class="section-subtitle">
+                            Explore the rich avian diversity of Manas's grasslands, river channels, and semi-evergreen forests.
+                        </p>
+                    </div>
+
+                    <div class="filter-bar glass-card">
+                        <div style="width:100%; max-width:400px; position:relative;">
+                            <span style="position:absolute; left:0.9rem; top:50%; transform:translateY(-50%); color:var(--manas-text-muted-dark);">🔍</span>
+                            <input
+                                type="text"
+                                id="bird-search"
+                                class="search-input"
+                                placeholder="Search birds by name or species..."
+                                aria-label="Search birds by name or description"
+                            />
+                        </div>
+                    </div>
+
+                    <div id="birds-grid" class="birds-grid">
+                        <!-- Populated by manas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- History & Recovery Timeline -->
+            <section class="history-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Conservation Journey</span>
+                        <h2>History & UNESCO Danger List Comeback</h2>
+                        <p class="section-subtitle">
+                            A story of resilience — from royal hunting grounds to overcoming severe poaching threats and regaining UNESCO World Heritage glory in 2011.
+                        </p>
+                    </div>
+
+                    <div id="timeline-container" class="timeline-container">
+                        <!-- Populated by manas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interesting Facts Grid -->
+            <section class="facts-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Did You Know?</span>
+                        <h2>Fascinating Facts About Manas</h2>
+                        <p class="section-subtitle">
+                            Key facts that make Manas National Park a unique wildlife treasure in Northeast India.
+                        </p>
+                    </div>
+
+                    <div id="facts-grid" class="facts-grid">
+                        <!-- Populated by manas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive SVG Park Map -->
+            <section class="map-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Park Geography</span>
+                        <h2>Interactive Map of Manas National Park</h2>
+                        <p class="section-subtitle">
+                            Click on any marker pin to view Bansbari Entrance, Mathanguri Lodge on the Manas riverbank, Bhuyanpara East Range, and Bhutan border line.
+                        </p>
+                    </div>
+
+                    <div class="map-card-wrapper glass-card">
+                        <div class="map-svg-container">
+                            <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="1000" height="600" fill="#091a14" />
+                                <path d="M50,80 Q500,20 950,100 L950,550 L50,550 Z" fill="#0e2a20" stroke="rgba(245,158,11,0.3)" stroke-width="2"/>
+                                <!-- Manas River Main Flow -->
+                                <path d="M480,80 Q520,200 480,300 T220,550" fill="none" stroke="#0284c7" stroke-width="22" opacity="0.65"/>
+                                <!-- Beki River Branch -->
+                                <path d="M480,300 Q620,400 750,550" fill="none" stroke="#10b981" stroke-width="16" opacity="0.55"/>
+                                <text x="540" y="100" fill="#fbbf24" font-size="14" font-family="Outfit" font-weight="bold">Bhutan Border Line</text>
+                                <text x="490" y="270" fill="#38bdf8" font-size="14" font-family="Outfit">Mathanguri River Split</text>
+                            </svg>
+
+                            <!-- Pins Layer -->
+                            <div id="map-hotspots-layer">
+                                <!-- Populated by manas.js -->
+                            </div>
+
+                            <!-- Info Popup -->
+                            <div id="map-info-popup" class="map-info-popup hidden">
+                                <!-- Populated by manas.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="gallery-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Journey</span>
+                        <h2>Manas Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Immerse yourself in images of the Golden Langur, Pygmy Hog, Bengal Tiger, and Manas River. Click any photo for a full-screen view.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid">
+                        <!-- Populated by manas.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer" style="margin-top:4rem; border-top:1px solid var(--manas-border-dark);">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>
+                        An interactive digital guide to the geography, food, festivals, wildlife, and cultural heritage of India.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../national-parks-explorer/index.html">National Parks Explorer</a></li>
+                        <li><a href="../wildlife/wildlife.html">Nature & Wildlife</a></li>
+                        <li><a href="../national-parks-timeline/national-parks-timeline.html">Parks Timeline</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Manas National Park Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Core Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="manas-data.js" defer></script>
+        <script src="manas.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

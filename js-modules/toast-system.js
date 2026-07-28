@@ -2,7 +2,7 @@
     'use strict';
 
     const TOAST_CONTAINER_ID = 'app-toast-container';
-    const DEFAULT_DURATION = 4000;
+    const DEFAULT_DURATION = AppConfig.TOAST_DURATION;
 
     let container = null;
 

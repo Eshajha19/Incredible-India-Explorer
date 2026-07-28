@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Namdapha National Park in Arunachal Pradesh — India's 4th largest national park and biodiversity hotspot featuring 4 big cat species, Red Panda, Hoolock Gibbon, trekking trails, and interactive maps."
+        />
+        <title>Namdapha National Park Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="namdapha.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Namdapha National Park Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive explorer for Namdapha National Park — home to four big cat species, Red Panda, pristine rainforests, altitudinal gradients, and wilderness treks."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="namdapha-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="../wildlife/wildlife.html" class="nav-link">Wildlife</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)"
+                        >Namdapha Explorer</a
+                    >
+                    <a href="../national-parks-timeline/national-parks-timeline.html" class="nav-link">Timeline</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="namdapha-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-biodiversity">🌿 Global Biodiversity Hotspot</span>
+                        <span class="hero-pill pill-cats">🐆 4 Feline Big Cat Species</span>
+                        <span class="hero-pill pill-state">📍 Changlang, Arunachal Pradesh</span>
+                    </div>
+                    <h1>Namdapha <span>National Park</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Discover India's 4th largest national park — a wild rainforest wilderness spanning an extraordinary 
+                        altitudinal gradient from 200m tropical dipterocarp jungles to 4,571m snow-capped Himalayan peaks.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by namdapha.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Geography & Altitudinal Gradient -->
+            <section class="geography-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Altitudinal Span</span>
+                        <h2>Geography & Altitudinal Zones</h2>
+                        <p class="section-subtitle">
+                            Namdapha is famous for its extreme elevation gradient from 200 meters along the Noa-Dihing River to the 4,571-meter summit of Daphabum Peak, encompassing four distinct climate zones.
+                        </p>
+                    </div>
+
+                    <div id="altitude-zones-grid" class="altitude-zones-grid">
+                        <!-- Populated by namdapha.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Four Big Cats -->
+            <section class="cats-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Unique Sanctuary</span>
+                        <h2>The Four Feline Big Cats of Namdapha</h2>
+                        <p class="section-subtitle">
+                            Namdapha is uniquely renowned as the only national park in the world harboring four feline big cat species within a single protected ecosystem.
+                        </p>
+                    </div>
+
+                    <div id="cats-grid" class="cats-grid">
+                        <!-- Populated by namdapha.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Red Panda & Rare Mammals -->
+            <section class="mammals-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Faunal Diversity</span>
+                        <h2>Red Panda & Endangered Mammals</h2>
+                        <p class="section-subtitle">
+                            Beyond big cats, Namdapha is home to 96+ mammal species, including India's only ape and endemic rare mammals.
+                        </p>
+                    </div>
+
+                    <div id="mammals-grid" class="mammals-grid">
+                        <!-- Populated by namdapha.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Birdlife Catalog Explorer -->
+            <section class="birds-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Avian Paradise</span>
+                        <h2>Birdlife Explorer (425+ Species)</h2>
+                        <p class="section-subtitle">
+                            Discover the rich birdlife of Namdapha's primary rainforests — from massive Great Hornbills to secretive forest ducks and tragopans.
+                        </p>
+                    </div>
+
+                    <div class="filter-bar glass-card">
+                        <div id="category-tabs" class="category-tabs">
+                            <!-- Populated by namdapha.js -->
+                        </div>
+                        <div class="search-wrapper">
+                            <span class="search-icon">🔍</span>
+                            <input
+                                type="text"
+                                id="bird-search"
+                                class="search-input"
+                                placeholder="Search birds by name..."
+                                aria-label="Search birds by name or description"
+                            />
+                        </div>
+                    </div>
+
+                    <div id="birds-grid" class="birds-grid">
+                        <!-- Populated by namdapha.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trekking & Expedition Guide -->
+            <section class="trekking-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Wilderness Adventures</span>
+                        <h2>Trekking & Expedition Trails</h2>
+                        <p class="section-subtitle">
+                            Explore Namdapha on foot along ancient wilderness trails through primary rainforests, bamboo brakes, and high-altitude ridges.
+                        </p>
+                    </div>
+
+                    <div class="routes-wrapper">
+                        <div id="route-list-selector" class="route-list-selector">
+                            <!-- Populated by namdapha.js -->
+                        </div>
+                        <div id="route-details-panel" class="route-details-panel glass-card">
+                            <!-- Populated by namdapha.js -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive SVG Park Map -->
+            <section class="map-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Park Map</span>
+                        <h2>Interactive Map of Namdapha National Park</h2>
+                        <p class="section-subtitle">
+                            Click on map hotspot pins to locate Miao entrance gate, Deban basecamp, Haldibari camp, Hornbill glade, Firmbase, and Daphabum Peak.
+                        </p>
+                    </div>
+
+                    <div class="map-card-wrapper glass-card">
+                        <div class="map-svg-container">
+                            <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="1000" height="600" fill="#041812" />
+                                <path d="M50,100 Q400,20 950,150 L950,550 L50,550 Z" fill="#06281e" stroke="rgba(16,185,129,0.3)" stroke-width="2"/>
+                                <!-- Noa-Dihing River Path -->
+                                <path d="M50,420 Q300,380 500,320 T950,220" fill="none" stroke="#0284c7" stroke-width="20" opacity="0.65"/>
+                                <!-- Namdapha River Branch -->
+                                <path d="M500,320 Q650,220 880,120" fill="none" stroke="#10b981" stroke-width="12" opacity="0.5"/>
+                                <!-- Main Trek Line -->
+                                <path d="M120,390 L280,348 L420,288 L580,240 L740,192 L880,108" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8,6"/>
+                                <text x="70" y="445" fill="#38bdf8" font-size="14" font-family="Outfit">Noa-Dihing River</text>
+                                <text x="320" y="325" fill="#f59e0b" font-size="14" font-weight="bold" font-family="Outfit">Core Jungle Trek Route</text>
+                            </svg>
+
+                            <!-- Interactive Pins Layer -->
+                            <div id="map-hotspots-layer">
+                                <!-- Populated by namdapha.js -->
+                            </div>
+
+                            <!-- Info Popup -->
+                            <div id="map-info-popup" class="map-info-popup hidden">
+                                <!-- Populated by namdapha.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="gallery-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Journey</span>
+                        <h2>Namdapha Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Immerse yourself in photos of Namdapha's primary rainforests, rare wildlife, big cats, and mountain streams.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid">
+                        <!-- Populated by namdapha.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer" style="margin-top:4rem; border-top:1px solid var(--namdapha-border-dark);">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>
+                        An interactive digital guide to the geography, food, festivals, wildlife, and cultural heritage of India.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../national-parks-explorer/index.html">National Parks Explorer</a></li>
+                        <li><a href="../wildlife/wildlife.html">Nature & Wildlife</a></li>
+                        <li><a href="../national-parks-timeline/national-parks-timeline.html">Parks Timeline</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Namdapha National Park Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Core Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="namdapha-data.js" defer></script>
+        <script src="namdapha.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

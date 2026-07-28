@@ -1,0 +1,327 @@
+/* ============================================================
+   North Sentinel Island — north-sentinel-island.css
+   Uses the shared design tokens defined in ../../styles.css
+   ============================================================ */
+
+.sentinel-page {
+  padding-top: var(--navbar-height);
+  overflow-x: hidden;
+}
+
+.sentinel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Hero ---------- */
+.sentinel-hero {
+  position: relative;
+  padding: 90px 24px 70px;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(4, 23, 42, 0.55) 0%, rgba(4, 23, 42, 0.92) 100%),
+    url("../../assets/travel_hidden.png") center/cover no-repeat;
+}
+
+.sentinel-hero-content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.sentinel-hero-kicker {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--primary-saffron);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.sentinel-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 18px;
+  color: var(--text-light);
+}
+
+.sentinel-hero h1 span {
+  background: var(--gradient-saffron-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sentinel-hero p {
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.sentinel-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.sentinel-stat-box {
+  background: var(--bg-dark-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 18px 12px;
+  transition: var(--transition-snappy);
+}
+
+.sentinel-stat-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.sentinel-stat-box strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-saffron);
+}
+
+.sentinel-stat-box span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Legal / Ethical Notice ---------- */
+.sentinel-notice-section {
+  padding: 0 0 20px;
+}
+
+.sentinel-notice {
+  max-width: 1000px;
+  margin: -30px auto 0;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  border-radius: var(--border-radius-lg);
+  padding: 24px 28px;
+}
+
+.sentinel-notice-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.sentinel-notice-text h3 {
+  font-family: var(--font-heading);
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.sentinel-notice-text p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ---------- Section heading ---------- */
+.sentinel-section {
+  padding: 70px 0;
+}
+
+.sentinel-section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 44px;
+}
+
+.sentinel-section-badge {
+  display: inline-block;
+  color: var(--primary-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.sentinel-section-heading h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  color: var(--text-light);
+  margin-bottom: 14px;
+}
+
+.sentinel-section-heading p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---------- Tabs ---------- */
+.sentinel-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.sentinel-tab-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition-snappy);
+}
+
+.sentinel-tab-btn:hover {
+  border-color: var(--primary-saffron);
+  color: var(--text-light);
+}
+
+.sentinel-tab-btn.active {
+  background: var(--gradient-saffron-gold);
+  color: #1a1200;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.sentinel-tab-panel {
+  display: none;
+  background: var(--bg-dark-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+  animation: sentinel-fade-in 0.3s ease;
+}
+
+.sentinel-tab-panel.active {
+  display: block;
+}
+
+@keyframes sentinel-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sentinel-tab-panel h3 {
+  font-family: var(--font-heading);
+  color: var(--primary-gold);
+  margin-bottom: 14px;
+  font-size: 1.3rem;
+}
+
+.sentinel-tab-panel p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.sentinel-tab-panel ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.sentinel-tab-panel ul li {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.sentinel-tab-panel ul li::before {
+  content: "🌴";
+  position: absolute;
+  left: 0;
+}
+
+/* ---------- Did You Know ---------- */
+.sentinel-fact-panel {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--gradient-card-border);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 40px 36px;
+  text-align: center;
+}
+
+.sentinel-fact-icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+}
+
+#sentinel-fact-text {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  transition: opacity 0.2s ease;
+  min-height: 84px;
+}
+
+.sentinel-fact-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.sentinel-fact-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--glass-border);
+  cursor: pointer;
+  transition: var(--transition-snappy);
+}
+
+.sentinel-fact-dot.active {
+  background: var(--primary-saffron);
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* ---------- Back to Islands link ---------- */
+.sentinel-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-saffron);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.sentinel-back-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .sentinel-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sentinel-notice {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}

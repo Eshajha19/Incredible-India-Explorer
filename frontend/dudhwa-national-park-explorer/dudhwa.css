@@ -1,0 +1,527 @@
+/* ==========================================================================
+   Dudhwa National Park Explorer — Styling
+   Terai Savanna & Sal Forest dark/light theme design system
+   ========================================================================== */
+
+:root {
+    --dudhwa-bg-dark: #0f1c15;
+    --dudhwa-card-bg-dark: rgba(21, 42, 30, 0.78);
+    --dudhwa-text-primary-dark: #f8fafc;
+    --dudhwa-text-muted-dark: #94a3b8;
+    --dudhwa-border-dark: rgba(255, 255, 255, 0.12);
+
+    /* Palette Accent Tokens */
+    --terai-amber: #d97706;
+    --sal-emerald: #15803d;
+    --wetland-azure: #0284c7;
+    --gold-bright: #fbbf24;
+    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.55);
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+body.light-theme {
+    --dudhwa-bg-dark: #fefce8;
+    --dudhwa-card-bg-dark: rgba(255, 255, 255, 0.88);
+    --dudhwa-text-primary-dark: #14532d;
+    --dudhwa-text-muted-dark: #334155;
+    --dudhwa-border-dark: rgba(21, 128, 61, 0.15);
+    --card-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.12);
+}
+
+.dudhwa-main {
+    background-color: var(--dudhwa-bg-dark);
+    color: var(--dudhwa-text-primary-dark);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Glassmorphism Card Utility */
+.glass-card {
+    background: var(--dudhwa-card-bg-dark);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--dudhwa-border-dark);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(217, 119, 6, 0.4);
+}
+
+/* Hero Section */
+.dudhwa-hero {
+    position: relative;
+    padding: 8rem 1.5rem 5rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(15, 28, 21, 0.82) 0%, rgba(15, 28, 21, 0.96) 100%),
+                url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/1280px-Swamp_Deer_Barasingha.jpg") center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero-badges-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.pill-terai {
+    background: rgba(217, 119, 6, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(217, 119, 6, 0.4);
+}
+
+.pill-deer {
+    background: rgba(21, 128, 61, 0.2);
+    color: #4ade80;
+    border: 1px solid rgba(21, 128, 61, 0.4);
+}
+
+.pill-state {
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(2, 132, 199, 0.4);
+}
+
+.dudhwa-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.dudhwa-hero h1 span {
+    color: var(--terai-amber);
+    background: linear-gradient(135deg, #fbbf24 0%, #15803d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    max-width: 780px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+}
+
+/* Quick Stats Bar */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold-bright);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--dudhwa-text-muted-dark);
+}
+
+/* Section Header Component */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(217, 119, 6, 0.15);
+    color: var(--gold-bright);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    margin-bottom: 0.8rem;
+}
+
+.section-subtitle {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--dudhwa-text-muted-dark);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Ecosystem Section */
+.ecosystem-section {
+    padding: 5rem 0;
+}
+
+.ecosystem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+}
+
+.eco-card {
+    padding: 2rem;
+}
+
+.eco-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.8rem;
+}
+
+.eco-card p {
+    font-size: 0.92rem;
+    color: var(--dudhwa-text-muted-dark);
+    line-height: 1.65;
+}
+
+/* Barasingha & Rhino Section */
+.conservation-section {
+    padding: 5rem 0;
+    background: rgba(217, 119, 6, 0.03);
+    border-top: 1px solid var(--dudhwa-border-dark);
+    border-bottom: 1px solid var(--dudhwa-border-dark);
+}
+
+.conservation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 868px) {
+    .conservation-grid { grid-template-columns: 1fr; }
+}
+
+.conserve-card { padding: 2rem; }
+
+/* Safari Information Section */
+.safari-section {
+    padding: 5rem 0;
+}
+
+.safari-wrapper {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2rem;
+}
+
+@media (max-width: 868px) {
+    .safari-wrapper { grid-template-columns: 1fr; }
+}
+
+.zone-list-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.zone-btn {
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: var(--dudhwa-card-bg-dark);
+    border: 1px solid var(--dudhwa-border-dark);
+    color: var(--dudhwa-text-primary-dark);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.zone-btn:hover,
+.zone-btn.active {
+    border-color: var(--terai-amber);
+    background: rgba(217, 119, 6, 0.12);
+}
+
+.zone-btn h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+}
+
+.zone-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+}
+
+.zone-details-panel { padding: 2rem; }
+
+/* History Timeline Section */
+.history-section {
+    padding: 5rem 0;
+    background: rgba(21, 128, 61, 0.02);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--terai-amber);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .timeline-container::before { left: 20px; }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    width: 50%;
+    padding: 0 2rem;
+}
+
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left !important;
+    }
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 0.5rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    border: 3px solid var(--dudhwa-bg-dark);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot { right: -8px; }
+.timeline-item:nth-child(even) .timeline-dot { left: -8px; }
+
+@media (max-width: 768px) {
+    .timeline-dot { left: 12px !important; }
+}
+
+.timeline-card { padding: 1.5rem; }
+
+/* Interactive SVG Map Section */
+.map-section {
+    padding: 5rem 0;
+    background: rgba(2, 132, 199, 0.02);
+}
+
+.map-card-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.map-svg-container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background: radial-gradient(circle at 50% 50%, #173225 0%, #0f1c15 100%);
+    border-radius: 16px;
+    border: 1px solid var(--dudhwa-border-dark);
+    overflow: hidden;
+}
+
+.park-map-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.map-hotspot-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--terai-amber);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    box-shadow: 0 0 14px rgba(217, 119, 6, 0.6);
+    border: 2px solid #ffffff;
+}
+
+.map-hotspot-pin:hover {
+    transform: translate(-50%, -50%) scale(1.25);
+    background: var(--wetland-azure);
+}
+
+.map-info-popup {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    max-width: 450px;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(15, 28, 21, 0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--terai-amber);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+.map-info-popup h4 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--gold-bright);
+    margin-bottom: 0.4rem;
+}
+
+.map-info-popup p {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+/* Gallery Section */
+.gallery-section { padding: 5rem 0; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-img { transform: scale(1.08); }
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(15, 28, 21, 0.9) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+/* Lightbox Modal */
+.lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.lightbox-modal.hidden { display: none; }
+
+.lightbox-content {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.lightbox-img {
+    max-height: 75vh;
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.lightbox-caption {
+    margin-top: 1rem;
+    color: #cbd5e1;
+    font-size: 1rem;
+}
+
+.hidden { display: none !important; }

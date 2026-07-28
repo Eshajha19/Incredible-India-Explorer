@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Keoladeo National Park (Bharatpur Bird Sanctuary), a UNESCO World Heritage Site & Ramsar Wetland. Discover 370+ bird species, Central Asian flyways, cycling routes, history, and interactive park maps."
+        />
+        <title>Keoladeo National Park Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="keoladeo.css" />
+
+        <!-- Open Graph / Social Media -->
+        <meta property="og:title" content="Keoladeo National Park Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive digital guide to Bharatpur's Keoladeo Bird Sanctuary — UNESCO World Heritage site, 370+ bird species, Central Asian flyways, and cycling safari trails."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="keoladeo-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="../wildlife/wildlife.html" class="nav-link">Wildlife</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)"
+                        >Keoladeo Explorer</a
+                    >
+                    <a href="../national-parks-timeline/national-parks-timeline.html" class="nav-link">Timeline</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="keoladeo-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-unesco">🏛️ UNESCO World Heritage Site (1985)</span>
+                        <span class="hero-pill pill-ramsar">💧 Ramsar Wetland of International Importance</span>
+                        <span class="hero-pill pill-state">📍 Bharatpur, Rajasthan</span>
+                    </div>
+                    <h1>Keoladeo <span>National Park</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Step into one of the world's most vital bird sanctuaries — a man-made wetland mosaic hosting over 
+                        370 species of resident and Palaearctic migratory waterfowl along the Central Asian Flyway.
+                    </p>
+
+                    <!-- Quick Stats Grid -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by keoladeo.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- UNESCO World Heritage & Ramsar Highlights -->
+            <section class="heritage-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Global Importance</span>
+                        <h2>UNESCO World Heritage & Ramsar Wetland</h2>
+                        <p class="section-subtitle">
+                            Recognized globally for its exceptional biodiversity, artificial hydrology system, and critical role as a wintering sanctuary for endangered Palaearctic birds.
+                        </p>
+                    </div>
+
+                    <div class="heritage-grid">
+                        <div class="heritage-card glass-card">
+                            <div class="heritage-card-header">
+                                <div class="heritage-icon">🏛️</div>
+                                <div>
+                                    <h3>UNESCO Natural Criterion (x)</h3>
+                                    <span style="font-size:0.85rem; color:var(--wetland-teal)">Inscribed in 1985</span>
+                                </div>
+                            </div>
+                            <p>
+                                Keoladeo Ghana National Park was inscribed on the World Heritage List under Natural Criteria (x) for containing the most important habitats for in-situ conservation of biological diversity, especially threatened waterfowl species.
+                            </p>
+                            <ul class="fact-list">
+                                <li>Winter refuge for tens of thousands of migratory birds</li>
+                                <li>Highest concentration of breeding storks, herons & cormorants in Asia</li>
+                                <li>Protected under strict National Park and Wildlife Protection statutes</li>
+                            </ul>
+                        </div>
+
+                        <div class="heritage-card glass-card">
+                            <div class="heritage-card-header">
+                                <div class="heritage-icon">💧</div>
+                                <div>
+                                    <h3>Ramsar Wetland Site</h3>
+                                    <span style="font-size:0.85rem; color:var(--wetland-teal)">Designated 1 October 1981</span>
+                                </div>
+                            </div>
+                            <p>
+                                Designated as Ramsar Site No. 230, Keoladeo is a artificial wetland oasis engineered in the 18th century by Maharaja Suraj Mal. Water impounded from Ajan Bund feeds 10 distinct dyked blocks covering 29 km².
+                            </p>
+                            <ul class="fact-list">
+                                <li>Complex canal network with sluice gates controlling water depths</li>
+                                <li>Interconnected ecosystem of marshes, woodlands, and savannahs</li>
+                                <li>Sustained by Chambal River pipeline and local monsoon inflows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wetlands Hydrology & Seasonal Cycle -->
+            <section class="wetlands-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Hydrology & Ecology</span>
+                        <h2>Wetland Ecosystem & Seasonal Cycles</h2>
+                        <p class="section-subtitle">
+                            Explore how water management transforms the park across the four seasons, turning dry clay beds into lush aquatic feeding grounds.
+                        </p>
+                    </div>
+
+                    <div id="seasons-grid" class="seasons-grid">
+                        <!-- Populated by keoladeo.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Central Asian Flyway & Siberian Crane -->
+            <section class="flyway-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Avian Migration</span>
+                        <h2>Central Asian Flyway & Siberian Crane Legacy</h2>
+                        <p class="section-subtitle">
+                            Every autumn, millions of birds navigate thousands of kilometers across high mountain passes and Central Asian steppes to winter in Keoladeo.
+                        </p>
+                    </div>
+
+                    <div class="flyway-content-grid">
+                        <div class="flyway-card glass-card">
+                            <h3>The Central Asian Flyway (CAF)</h3>
+                            <p style="color:var(--keoladeo-text-muted-dark); line-height:1.65; margin-top:0.8rem;">
+                                Keoladeo lies at the southern terminus of the Central Asian Flyway. Waterfowl breeding across Siberia, Kazakhstan, Mongolia, and the Tibetan Plateau fly south over the Himalayas to find sanctuary in Bharatpur's warm, food-rich marshes.
+                            </p>
+                            <div id="flyway-regions" class="regions-list">
+                                <!-- Populated by keoladeo.js -->
+                            </div>
+                        </div>
+
+                        <div class="siberian-crane-spotlight glass-card">
+                            <span class="spotlight-badge">Conservation Icon</span>
+                            <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom:0.8rem;">The Siberian Crane Legend</h3>
+                            <p style="font-size:0.92rem; color:var(--keoladeo-text-muted-dark); line-height:1.65;">
+                                Bharatpur was world-famous as the sole wintering refuge in India for the western/central population of the Critically Endangered <strong>Siberian Crane</strong> (<em>Leucogeranus leucogeranus</em>). 
+                            </p>
+                            <p style="font-size:0.92rem; color:var(--keoladeo-text-muted-dark); line-height:1.65; margin-top:0.8rem;">
+                                Traveling 6,400 km from the Ob River marshes in Russia, these magnificent snow-white birds wintered in Keoladeo until 2002. Today, Keoladeo remains a flagship symbol for international crane conservation efforts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bird Species Catalog Explorer -->
+            <section class="birds-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Species Catalog</span>
+                        <h2>Bird Species Explorer</h2>
+                        <p class="section-subtitle">
+                            Discover the 370+ bird species recorded at Keoladeo — filter by category or search by common and scientific names.
+                        </p>
+                    </div>
+
+                    <div class="filter-bar glass-card">
+                        <div id="category-tabs" class="category-tabs">
+                            <!-- Populated by keoladeo.js -->
+                        </div>
+                        <div class="search-wrapper">
+                            <span class="search-icon">🔍</span>
+                            <input
+                                type="text"
+                                id="bird-search"
+                                class="search-input"
+                                placeholder="Search birds by name or diet..."
+                                aria-label="Search birds by name or description"
+                            />
+                        </div>
+                    </div>
+
+                    <div id="birds-grid" class="birds-grid">
+                        <!-- Populated by keoladeo.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cycling Routes & Safari Trails -->
+            <section class="cycling-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Eco-Tourism</span>
+                        <h2>Cycling Routes & Foot Safari Trails</h2>
+                        <p class="section-subtitle">
+                            Keoladeo is one of the few national parks in India explored by bicycle, cycle rickshaw, or on foot. Select a trail to view distance, duration, and birding hides.
+                        </p>
+                    </div>
+
+                    <div class="routes-wrapper">
+                        <div id="route-list-selector" class="route-list-selector">
+                            <!-- Populated by keoladeo.js -->
+                        </div>
+                        <div id="route-details-panel" class="route-details-panel glass-card">
+                            <!-- Populated by keoladeo.js -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historical Timeline -->
+            <section class="history-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Heritage & Evolution</span>
+                        <h2>History of Keoladeo Ghana</h2>
+                        <p class="section-subtitle">
+                            From an 18th-century royal duck hunting preserve to a world-renowned UNESCO natural sanctuary.
+                        </p>
+                    </div>
+
+                    <div id="timeline-container" class="timeline-container">
+                        <!-- Populated by keoladeo.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive SVG Park Map -->
+            <section class="map-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Park Geography</span>
+                        <h2>Interactive Map of Keoladeo National Park</h2>
+                        <p class="section-subtitle">
+                            Click on any marker pin to explore entrance gates, keoladeo shiva temple, python basking burrows, and deep wetland watchtowers.
+                        </p>
+                    </div>
+
+                    <div class="map-card-wrapper glass-card">
+                        <div class="map-svg-container">
+                            <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background Water & Grass Blocks -->
+                                <rect width="1000" height="600" fill="#071521" />
+                                <path d="M100,50 Q400,100 850,80 L900,550 L50,550 Z" fill="#0d2c45" stroke="rgba(20,184,166,0.3)" stroke-width="2"/>
+                                <!-- Marsh Water Channels -->
+                                <path d="M180,120 Q350,220 420,280 T720,228 T850,490" fill="none" stroke="#0284c7" stroke-width="24" opacity="0.6"/>
+                                <path d="M280,210 Q500,280 640,432" fill="none" stroke="#14b8a6" stroke-width="16" opacity="0.5"/>
+                                <!-- Central Paved Trail Axis -->
+                                <path d="M180,132 L420,288 L850,492" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8,6"/>
+                                <text x="210" y="110" fill="#94a3b8" font-size="14" font-family="Outfit">Ajan Bund Feeder Canal</text>
+                                <text x="460" y="270" fill="#f59e0b" font-size="14" font-weight="bold" font-family="Outfit">Main Safari Corridor</text>
+                            </svg>
+
+                            <!-- Interactive Pins Layer -->
+                            <div id="map-hotspots-layer">
+                                <!-- Populated by keoladeo.js -->
+                            </div>
+
+                            <!-- Popup Card -->
+                            <div id="map-info-popup" class="map-info-popup hidden">
+                                <!-- Populated by keoladeo.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visual Gallery & Lightbox -->
+            <section class="gallery-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Journey</span>
+                        <h2>Keoladeo Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Capturing the vibrant avian species and serene wetland landscapes of Bharatpur. Click any photo for a full-screen view.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid">
+                        <!-- Populated by keoladeo.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer" style="margin-top:4rem; border-top:1px solid var(--keoladeo-border-dark);">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>
+                        An interactive digital guide to the geography, food, festivals, wildlife, and cultural heritage of India.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../national-parks-explorer/index.html">National Parks Explorer</a></li>
+                        <li><a href="../wildlife/wildlife.html">Nature & Wildlife</a></li>
+                        <li><a href="../national-parks-timeline/national-parks-timeline.html">Parks Timeline</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Keoladeo National Park Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Core Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="keoladeo-data.js" defer></script>
+        <script src="keoladeo.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

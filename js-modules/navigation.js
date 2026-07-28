@@ -21,57 +21,59 @@ function initNavigation() {
         }
     });
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/dance/dance.html"]')) {
+    var C = window.AppConfig;
+
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.DANCE + '"]')) {
         const danceLink = document.createElement('a');
-        danceLink.href = 'frontend/dance/dance.html';
+        danceLink.href = C.NAV_PATHS.DANCE;
         danceLink.className = 'dropdown-item';
         danceLink.textContent = 'Dance';
-        if (currentPath.includes('frontend/dance/dance.html')) {
-            danceLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.DANCE)) {
+            danceLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(danceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/sports/sports.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.SPORTS + '"]')) {
         const sportsLink = document.createElement('a');
-        sportsLink.href = 'frontend/sports/sports.html';
+        sportsLink.href = C.NAV_PATHS.SPORTS;
         sportsLink.className = 'dropdown-item';
         sportsLink.textContent = 'Sports';
-        if (currentPath.includes('frontend/sports/sports.html')) {
-            sportsLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.SPORTS)) {
+            sportsLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(sportsLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/science/science.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.SCIENCE + '"]')) {
         const scienceLink = document.createElement('a');
-        scienceLink.href = 'frontend/science/science.html';
+        scienceLink.href = C.NAV_PATHS.SCIENCE;
         scienceLink.className = 'dropdown-item';
         scienceLink.textContent = 'Science';
-        if (currentPath.includes('frontend/science/science.html')) {
-            scienceLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.SCIENCE)) {
+            scienceLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(scienceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/music/music.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.MUSIC + '"]')) {
         const musicLink = document.createElement('a');
-        musicLink.href = 'frontend/music/music.html';
+        musicLink.href = C.NAV_PATHS.MUSIC;
         musicLink.className = 'dropdown-item';
         musicLink.textContent = 'Music';
-        if (currentPath.includes('frontend/music/music.html')) {
-            musicLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.MUSIC)) {
+            musicLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(musicLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/literature/literature.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.LITERATURE + '"]')) {
         const literatureLink = document.createElement('a');
-        literatureLink.href = 'frontend/literature/literature.html';
+        literatureLink.href = C.NAV_PATHS.LITERATURE;
         literatureLink.className = 'dropdown-item';
         literatureLink.textContent = 'Literature';
-        if (currentPath.includes('frontend/literature/literature.html')) {
-            literatureLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.LITERATURE)) {
+            literatureLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(literatureLink);
     }

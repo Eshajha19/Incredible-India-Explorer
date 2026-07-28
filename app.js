@@ -59,10 +59,10 @@ window.setupFocusTrap = function(modalElement) {
     const previousActiveElement = document.activeElement;
     
     if (focusableElements.length > 0) {
-        setTimeout(() => focusableElements[0].focus(), 50);
+        setTimeout(() => focusableElements[0].focus(), AppConfig.FOCUS_TRAP_DELAY);
     } else {
         modalElement.setAttribute('tabindex', '-1');
-        setTimeout(() => modalElement.focus(), 50);
+        setTimeout(() => modalElement.focus(), AppConfig.FOCUS_TRAP_DELAY);
     }
     
     const keydownHandler = function(e) {
@@ -92,7 +92,7 @@ window.setupFocusTrap = function(modalElement) {
         deactivate: function() {
             modalElement.removeEventListener('keydown', keydownHandler);
             if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
-                setTimeout(() => previousActiveElement.focus(), 50);
+                setTimeout(() => previousActiveElement.focus(), AppConfig.FOCUS_TRAP_DELAY);
             }
         }
     };
@@ -242,57 +242,59 @@ function initNavigation() {
         }
     });
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/dance/dance.html"]')) {
+    var C = AppConfig;
+
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.DANCE + '"]')) {
         const danceLink = document.createElement('a');
-        danceLink.href = 'frontend/dance/dance.html';
+        danceLink.href = C.NAV_PATHS.DANCE;
         danceLink.className = 'dropdown-item';
         danceLink.textContent = 'Dance';
-        if (currentPath.includes('frontend/dance/dance.html')) {
-            danceLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.DANCE)) {
+            danceLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(danceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/sports/sports.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.SPORTS + '"]')) {
         const sportsLink = document.createElement('a');
-        sportsLink.href = 'frontend/sports/sports.html';
+        sportsLink.href = C.NAV_PATHS.SPORTS;
         sportsLink.className = 'dropdown-item';
         sportsLink.textContent = 'Sports';
-        if (currentPath.includes('frontend/sports/sports.html')) {
-            sportsLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.SPORTS)) {
+            sportsLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(sportsLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/science/science.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.SCIENCE + '"]')) {
         const scienceLink = document.createElement('a');
-        scienceLink.href = 'frontend/science/science.html';
+        scienceLink.href = C.NAV_PATHS.SCIENCE;
         scienceLink.className = 'dropdown-item';
         scienceLink.textContent = 'Science';
-        if (currentPath.includes('frontend/science/science.html')) {
-            scienceLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.SCIENCE)) {
+            scienceLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(scienceLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/music/music.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.MUSIC + '"]')) {
         const musicLink = document.createElement('a');
-        musicLink.href = 'frontend/music/music.html';
+        musicLink.href = C.NAV_PATHS.MUSIC;
         musicLink.className = 'dropdown-item';
         musicLink.textContent = 'Music';
-        if (currentPath.includes('frontend/music/music.html')) {
-            musicLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.MUSIC)) {
+            musicLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(musicLink);
     }
 
-    if (exploreDropdown && !exploreDropdown.querySelector('a[href="frontend/literature/literature.html"]')) {
+    if (exploreDropdown && !exploreDropdown.querySelector('a[href="' + C.NAV_PATHS.LITERATURE + '"]')) {
         const literatureLink = document.createElement('a');
-        literatureLink.href = 'frontend/literature/literature.html';
+        literatureLink.href = C.NAV_PATHS.LITERATURE;
         literatureLink.className = 'dropdown-item';
         literatureLink.textContent = 'Literature';
-        if (currentPath.includes('frontend/literature/literature.html')) {
-            literatureLink.classList.add('active');
+        if (currentPath.includes(C.NAV_PATHS.LITERATURE)) {
+            literatureLink.classList.add(C.CLASS_ACTIVE);
         }
         exploreDropdown.appendChild(literatureLink);
     }
@@ -390,20 +392,20 @@ function initThemeToggle() {
         }
     };
 
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'light') {
-        document.body.classList.add('light-theme');
+    const currentTheme = localStorage.getItem(AppConfig.THEME_STORAGE_KEY);
+    if (currentTheme === AppConfig.THEME_LIGHT) {
+        document.body.classList.add(AppConfig.THEME_CLASS_LIGHT);
         setThemeIcon(true);
     } else {
         setThemeIcon(false);
     }
 
     themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('light-theme');
-        const isLightTheme = document.body.classList.contains('light-theme');
+        document.body.classList.toggle(AppConfig.THEME_CLASS_LIGHT);
+        const isLightTheme = document.body.classList.contains(AppConfig.THEME_CLASS_LIGHT);
         setThemeIcon(isLightTheme);
-        const theme = isLightTheme ? 'light' : 'dark';
-        localStorage.setItem('theme', theme);
+        const theme = isLightTheme ? AppConfig.THEME_LIGHT : AppConfig.THEME_DARK;
+        localStorage.setItem(AppConfig.THEME_STORAGE_KEY, theme);
     });
 }
 
@@ -1768,7 +1770,7 @@ function playNavratriSoundscape(sticksElement) {
             synthesizeDandiyaStrike(strength);
             if (sticksElement) {
                 sticksElement.classList.add('beat-pulse');
-                setTimeout(() => sticksElement.classList.remove('beat-pulse'), 150);
+                setTimeout(() => sticksElement.classList.remove('beat-pulse'), AppConfig.BEAT_PULSE_DELAY);
             }
         }
 
@@ -1812,7 +1814,7 @@ function playBihuSoundscape(drumElement) {
             synthesizeDholStrike(strength * 1.1);
             if (drumElement) {
                 drumElement.classList.add('beat-pulse');
-                setTimeout(() => drumElement.classList.remove('beat-pulse'), 150);
+                setTimeout(() => drumElement.classList.remove('beat-pulse'), AppConfig.BEAT_PULSE_DELAY);
             }
         }
 

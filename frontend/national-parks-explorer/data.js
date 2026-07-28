@@ -192,6 +192,7 @@ const NATIONAL_PARKS = [
         climate: 'Semi-Arid',
         bestTime: 'August to November',
         entryFee: '₹50 (Indian), ₹400 (Foreign)',
+        explorerUrl: '../keoladeo-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg/960px-Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg'
     },
     {
@@ -258,6 +259,28 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg/960px-Pushpawati_river_inside_the_Valley_of_Flowers_Uttarakhand_I.jpg'
     },
     {
+        id: 'namdapha',
+        name: 'Namdapha National Park',
+        state: 'Arunachal Pradesh',
+        stateId: 'ar',
+        established: 1983,
+        area: 1985,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'India’s 4th largest national park and biodiversity hotspot in Arunachal Pradesh, famous for harbouring four big cat species and Red Pandas.',
+        keyFauna: ['Snow Leopard', 'Clouded Leopard', 'Red Panda', 'Bengal Tiger', 'Hoolock Gibbon'],
+        keyFlora: ['Hollong', 'Dipterocarps', 'Blue Vanda Orchids'],
+        coordinates: { lat: 27.49, lng: 96.38 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹50 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../namdapha-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+    },
+    {
         id: 'nanda-devi',
         name: 'Nanda Devi National Park',
         state: 'Uttarakhand',
@@ -277,6 +300,66 @@ const NATIONAL_PARKS = [
         bestTime: 'May to September',
         entryFee: '₹150 (Indian), ₹600 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg/960px-Nanda_Devi_Biosphere_Reserve_-_Chamoli.jpg'
+    },
+    {
+        id: 'dudhwa',
+        name: 'Dudhwa National Park',
+        state: 'Uttar Pradesh',
+        stateId: 'up',
+        established: 1977,
+        area: 490,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description:
+            'Crown jewel of the Terai Arc in Uttar Pradesh, famous for holding 50% of the world’s Swamp Deer (Barasingha) and reintroduced One-horned Rhinos.',
+        keyFauna: ['Barasingha (Swamp Deer)', 'One-Horned Rhinoceros', 'Bengal Tiger', 'Asian Elephant', 'Gangetic Dolphin'],
+        keyFlora: ['Sal Forest', 'Elephant Grass', 'Narkul', 'Jamun'],
+        coordinates: { lat: 28.49, lng: 80.65 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'November to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../dudhwa-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'
+    },
+    {
+        id: 'simlipal',
+        name: 'Simlipal National Park',
+        state: 'Odisha',
+        stateId: 'or',
+        established: 1980,
+        area: 2750,
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Swamp_Deer_Barasingha.jpg/960px-Swamp_Deer_Barasingha.jpg'},
+  {id: 'manas',
+        name: 'Manas National Park',
+        state: 'Assam',
+        stateId: 'as',
+        established: 1990,
+        area: 950,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: true,
+        description:
+            "UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
+        keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
+        keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
+        coordinates: { lat: 21.93, lng: 86.35 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'November to June',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../simlipal-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Neofelis_nebulosa.jpg/960px-Neofelis_nebulosa.jpg'
+            'A UNESCO World Heritage Site, Biosphere Reserve, and Elephant Reserve in Assam, famous for Golden Langurs, Pygmy Hogs, and the Manas River.',
+        keyFauna: ['Golden Langur', 'Pygmy Hog', 'Bengal Tiger', 'Wild Water Buffalo', 'Asian Elephant'],
+        keyFlora: ['Semi-Evergreen Forest', 'Alluvial Grassland', 'Elephant Grass'],
+        coordinates: { lat: 26.65, lng: 91.0 },
+        climate: 'Tropical Monsoon',
+        bestTime: 'October to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../manas-national-park-explorer/index.html',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Golden_Langur_Manas.jpg/960px-Golden_Langur_Manas.jpg'
     },
     {
         id: 'bandipur',
@@ -664,6 +747,7 @@ const WILDLIFE_SPECIES = [
 const STATES = [
     { id: 'all', name: 'All India', region: 'all' },
     { id: 'uk', name: 'Uttarakhand', region: 'north' },
+    { id: 'up', name: 'Uttar Pradesh', region: 'north' },
     { id: 'rj', name: 'Rajasthan', region: 'north' },
     { id: 'hp', name: 'Himachal Pradesh', region: 'north' },
     { id: 'jk', name: 'Jammu and Kashmir', region: 'north' },
@@ -675,5 +759,8 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
+    { id: 'wb', name: 'West Bengal', region: 'east' },
+    { id: 'or', name: 'Odisha', region: 'east' }
+    { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' },
     { id: 'wb', name: 'West Bengal', region: 'east' }
 ];

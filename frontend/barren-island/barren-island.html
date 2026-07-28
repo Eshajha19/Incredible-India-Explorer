@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Barren Island — India's only confirmed active volcano. Eruption history, marine life, geological formation, wildlife, an interactive map and image gallery.">
+    <title>Barren Island Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="barren-island.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Barren Island Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Eruption history, marine life, geological formation, wildlife, an interactive map and image gallery for Barren Island, India's only active volcano.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_hidden.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/barren-island/barren-island.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Barren Island Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Eruption history, marine life, geology, wildlife, map and gallery for Barren Island, India's only active volcano.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_hidden.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/barren-island/barren-island.html">
+</head>
+
+<body class="barren-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../islands/islands.html" class="nav-link">Islands</a>
+                <a href="barren-island.html" class="nav-link active" style="color: var(--saffron)">Barren Island</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="barren-page">
+        <!-- Hero -->
+        <section class="barren-hero">
+            <div class="barren-hero-content">
+                <a href="../islands/islands.html" class="barren-back-link">← Back to Islands of India</a>
+                <span class="barren-hero-kicker">🌋 India's Only Active Volcano</span>
+                <h1>Barren <span>Island</span></h1>
+                <p>An uninhabited volcanic island in the Andaman Sea, home to India's only confirmed active volcano — a stark, ash-covered landscape ringed by rich coral reefs and deep offshore marine life.</p>
+
+                <div class="barren-hero-stats">
+                    <div class="barren-stat-box">
+                        <strong>~8.1 km²</strong>
+                        <span>Island Area</span>
+                    </div>
+                    <div class="barren-stat-box">
+                        <strong>354 m</strong>
+                        <span>Summit Elevation</span>
+                    </div>
+                    <div class="barren-stat-box">
+                        <strong>1787</strong>
+                        <span>First Recorded Eruption</span>
+                    </div>
+                    <div class="barren-stat-box">
+                        <strong>2022</strong>
+                        <span>Most Recent Eruption</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed info -->
+        <section class="barren-section" id="barren-explore">
+            <div class="barren-container">
+                <div class="barren-section-heading">
+                    <span class="barren-section-badge">Explore Barren Island</span>
+                    <h2>Volcano, Geology &amp; Wildlife</h2>
+                    <p>Select a tab to learn more about the island.</p>
+                </div>
+
+                <div class="barren-tabs" role="tablist">
+                    <button type="button" class="barren-tab-btn active" data-tab="volcano">Volcano &amp; Eruptions</button>
+                    <button type="button" class="barren-tab-btn" data-tab="geology">Geological History</button>
+                    <button type="button" class="barren-tab-btn" data-tab="marine">Marine Life</button>
+                    <button type="button" class="barren-tab-btn" data-tab="wildlife">Wildlife</button>
+                </div>
+
+                <div class="barren-tab-panel active" id="tab-volcano">
+                    <h3>🌋 Volcano &amp; Eruptions</h3>
+                    <p>Barren Island is home to the only confirmed active volcano in South Asia, rising to 354 m above sea level from a caldera formed by earlier eruptions. Its first recorded eruption dates to 1787, and it has erupted more than a dozen times since, with recent activity in 1991, 1994–95, 2005 (shortly after the Indian Ocean tsunami), 2017, and most recently 2022.</p>
+                    <p>Eruptions are typically Strombolian in style — periodic bursts of lava, ash and gas rather than a single catastrophic explosion — and are monitored from a safe distance by the Geological Survey of India, since the island itself is uninhabited and landing is restricted.</p>
+                </div>
+
+                <div class="barren-tab-panel" id="tab-geology">
+                    <h3>🪨 Geological History</h3>
+                    <p>Barren Island sits along the Andaman-Sumatra subduction zone, where the Indian tectonic plate is pushed beneath the Burma microplate — the same geological setting that produces frequent seismic activity across the Andaman Islands. The volcano is part of the Alpide volcanic belt that extends from the Mediterranean through the Himalayas into Southeast Asia.</p>
+                    <p>The island's terrain is dominated by a horseshoe-shaped caldera, roughly 2 km wide, open toward the west and formed by a prehistoric eruption that collapsed the original volcanic cone. A newer cone has since grown inside this caldera from repeated lava flows and ash deposits.</p>
+                </div>
+
+                <div class="barren-tab-panel" id="tab-marine">
+                    <h3>🐠 Marine Life</h3>
+                    <p>The waters surrounding Barren Island are considered among the best deep-sea diving sites in India, with steep volcanic drop-offs, black sand slopes and clear visibility that attract experienced divers.</p>
+                    <ul>
+                        <li>Pelagic species including reef sharks, barracuda and occasional manta rays</li>
+                        <li>Healthy coral growth on the island's submerged volcanic slopes</li>
+                        <li>Schools of reef fish and macro life along the drop-offs</li>
+                        <li>Dive access is permitted only with authorised operators from Port Blair; landing on the island itself is restricted</li>
+                    </ul>
+                </div>
+
+                <div class="barren-tab-panel" id="tab-wildlife">
+                    <h3>🦎 Wildlife</h3>
+                    <p>Barren Island's harsh, ash-covered terrain supports little vegetation and no permanent human population, but pockets of hardy plant life persist in the caldera's more sheltered areas alongside a small number of resilient land species.</p>
+                    <ul>
+                        <li>Feral goats, descendants of animals introduced in the 19th century</li>
+                        <li>Seabirds that nest along the island's rocky coastline</li>
+                        <li>Sparse scrub vegetation adapted to volcanic ash and rocky soil</li>
+                        <li>Rich offshore marine biodiversity along the coral-fringed slopes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section class="barren-section" id="barren-map-section">
+            <div class="barren-container">
+                <div class="barren-section-heading">
+                    <span class="barren-section-badge">Interactive Map</span>
+                    <h2>Key Locations on Barren Island</h2>
+                    <p>Click a marker to learn about that location.</p>
+                </div>
+                <div class="barren-map-wrap">
+                    <div id="barren-map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="barren-section" id="barren-gallery-section">
+            <div class="barren-container">
+                <div class="barren-section-heading">
+                    <span class="barren-section-badge">Image Gallery</span>
+                    <h2>Glimpses of Barren Island</h2>
+                    <p>Click an image to view it larger.</p>
+                </div>
+                <div id="barren-gallery-grid" class="barren-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="barren-section">
+            <div class="barren-container">
+                <div class="barren-section-heading">
+                    <span class="barren-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="barren-fact-panel">
+                    <div class="barren-fact-icon">💡</div>
+                    <p id="barren-fact-text">Loading fact...</p>
+                    <div class="barren-fact-dots" id="barren-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="barren-lightbox-overlay" id="barren-lightbox" hidden>
+        <div class="barren-lightbox-content">
+            <button class="barren-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="barren-lightbox-nav prev" id="barren-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="barren-lightbox-image" src="" alt="">
+            <button class="barren-lightbox-nav next" id="barren-lightbox-next" aria-label="Next image">›</button>
+            <p class="barren-lightbox-caption" id="barren-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="barren-island.html">Barren Island</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="barren-island.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

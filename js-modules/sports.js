@@ -215,8 +215,10 @@ function initSportsPage() {
     renderAthletes();
     setActiveFilterButton(activeFilter);
 
+    const cleanup = window.ResourceCleanup;
+
     filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
+        cleanup.addManagedListener(btn, 'click', () => {
             activeFilter = btn.getAttribute('data-sports-filter') || 'all';
             setActiveFilterButton(activeFilter);
 
@@ -228,11 +230,11 @@ function initSportsPage() {
         });
     });
 
-    searchInput.addEventListener('input', () => {
+    cleanup.addManagedListener(searchInput, 'input', () => {
         renderAthletes();
     });
 
-    timelineGrid.addEventListener('click', (event) => {
+    cleanup.addManagedListener(timelineGrid, 'click', (event) => {
         const button = event.target.closest('[data-timeline-filter]');
         if (!button) return;
 
@@ -248,12 +250,12 @@ function initSportsPage() {
         sportsSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (event) => {
+    cleanup.addManagedListener(modalClose, 'click', closeModal);
+    cleanup.addManagedListener(modal, 'click', (event) => {
         if (event.target === modal) closeModal();
     });
 
-    document.addEventListener('keydown', (event) => {
+    cleanup.addManagedListener(document, 'keydown', (event) => {
         if (!isModalOpen) return;
 
         if (event.key === 'Escape') {

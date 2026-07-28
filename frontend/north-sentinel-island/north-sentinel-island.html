@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An educational, respectful look at North Sentinel Island — home to the uncontacted Sentinelese people. Geography, conservation status, history and wildlife. Entry is prohibited by law; this page does not promote tourism.">
+    <title>North Sentinel Island | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="north-sentinel-island.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="North Sentinel Island | Incredible India Explorer">
+    <meta property="og:description" content="An educational look at North Sentinel Island's geography, the Sentinelese tribe, conservation status and history. Entry is legally prohibited; this page does not promote tourism.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_hidden.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/north-sentinel-island/north-sentinel-island.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="North Sentinel Island | Incredible India Explorer">
+    <meta name="twitter:description" content="Geography, the Sentinelese tribe, conservation status and history of North Sentinel Island — educational content only.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_hidden.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/north-sentinel-island/north-sentinel-island.html">
+</head>
+
+<body class="sentinel-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../islands/islands.html" class="nav-link">Islands</a>
+                <a href="north-sentinel-island.html" class="nav-link active" style="color: var(--saffron)">North Sentinel Island</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="sentinel-page">
+        <!-- Hero -->
+        <section class="sentinel-hero">
+            <div class="sentinel-hero-content">
+                <a href="../islands/islands.html" class="sentinel-back-link">← Back to Islands of India</a>
+                <span class="sentinel-hero-kicker">⚠️ Restricted &amp; Protected Territory</span>
+                <h1>North <span>Sentinel Island</span></h1>
+                <p>Home to the Sentinelese — one of the world's last uncontacted peoples. This page is provided for educational purposes only. Entry to the island is strictly prohibited by Indian law, to protect the tribe's health, safety and way of life.</p>
+
+                <div class="sentinel-hero-stats">
+                    <div class="sentinel-stat-box">
+                        <strong>~59.67 km²</strong>
+                        <span>Island Area</span>
+                    </div>
+                    <div class="sentinel-stat-box">
+                        <strong>1956</strong>
+                        <span>Protected Since (Regulation)</span>
+                    </div>
+                    <div class="sentinel-stat-box">
+                        <strong>5 nm</strong>
+                        <span>Enforced Exclusion Zone</span>
+                    </div>
+                    <div class="sentinel-stat-box">
+                        <strong>~150</strong>
+                        <span>Estimated Sentinelese Population</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal / Ethical Notice -->
+        <section class="sentinel-notice-section">
+            <div class="sentinel-container">
+                <div class="sentinel-notice">
+                    <div class="sentinel-notice-icon">🚫</div>
+                    <div class="sentinel-notice-text">
+                        <h3>Access is prohibited by law</h3>
+                        <p>Under the Protection of Aboriginal Tribes Regulation, 1956, and Indian Navy-enforced exclusion rules, travel to North Sentinel Island — and photographing or approaching its residents — is illegal. This is a firsthand-contact restriction designed to protect the Sentinelese from disease and harm, and to respect their choice to remain isolated. This page contains no travel information and does not encourage visiting the island.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed info -->
+        <section class="sentinel-section" id="sentinel-explore">
+            <div class="sentinel-container">
+                <div class="sentinel-section-heading">
+                    <span class="sentinel-section-badge">Learn More</span>
+                    <h2>Geography, People &amp; Conservation</h2>
+                    <p>Select a tab to learn more about the island.</p>
+                </div>
+
+                <div class="sentinel-tabs" role="tablist">
+                    <button type="button" class="sentinel-tab-btn active" data-tab="geography">Geography</button>
+                    <button type="button" class="sentinel-tab-btn" data-tab="tribe">Sentinelese Tribe</button>
+                    <button type="button" class="sentinel-tab-btn" data-tab="conservation">Conservation &amp; Protected Area</button>
+                    <button type="button" class="sentinel-tab-btn" data-tab="history">History</button>
+                    <button type="button" class="sentinel-tab-btn" data-tab="wildlife">Wildlife</button>
+                </div>
+
+                <div class="sentinel-tab-panel active" id="tab-geography">
+                    <h3>🗺️ Geography</h3>
+                    <p>North Sentinel Island is a small, roughly triangular island covering approximately 59.67 sq. km, part of the Andaman Islands in the Bay of Bengal. It lies about 36 km west of Port Blair, the capital of the Andaman &amp; Nicobar Islands.</p>
+                    <p>The island is ringed by coral reefs that make its coastline difficult to approach by boat, with a narrow fringe of sandy beach giving way to dense tropical forest that covers most of the interior. There is no natural harbour, which has historically limited outside contact.</p>
+                </div>
+
+                <div class="sentinel-tab-panel" id="tab-tribe">
+                    <h3>🧑‍🤝‍🧑 The Sentinelese Tribe</h3>
+                    <p>The Sentinelese are believed to be descendants of some of the earliest human populations to migrate out of Africa, having lived in isolation on the island for an estimated 30,000–55,000 years. Their population is thought to number roughly 50 to 200 individuals, though exact figures are unknown since no census or survey has ever been conducted at close range.</p>
+                    <p>Very little is known about their language, customs or social structure, as it remains linguistically and culturally distinct from other Andamanese groups. They are known to sustain themselves through hunting, fishing and foraging, and have consistently resisted contact with outsiders — a choice that Indian policy has, since the late 1990s, chosen to respect rather than override.</p>
+                </div>
+
+                <div class="sentinel-tab-panel" id="tab-conservation">
+                    <h3>🛡️ Conservation &amp; Protected Area</h3>
+                    <p>North Sentinel Island falls under the Andaman &amp; Nicobar tribal reserve system and is protected under the Protection of Aboriginal Tribes Regulation, 1956, which makes it illegal to visit, photograph or attempt contact with the island's inhabitants.</p>
+                    <ul>
+                        <li>The Indian Navy patrols and enforces a several-nautical-mile exclusion zone around the island</li>
+                        <li>India's "eyes-on, hands-off" policy, adopted in the late 1990s, ended earlier attempts at direct contact</li>
+                        <li>The restriction protects the Sentinelese from infectious diseases to which they have no immunity</li>
+                        <li>The policy also protects their right to self-determination and continued isolation</li>
+                    </ul>
+                </div>
+
+                <div class="sentinel-tab-panel" id="tab-history">
+                    <h3>📜 History</h3>
+                    <p>Outside knowledge of North Sentinel Island dates back to colonial-era surveys, including a 19th-century expedition led by British naval officer Maurice Vidal Portman, which involved a brief and forced encounter that ended in tragedy for several islanders taken away by the visitors. This early contact reinforced the community's wariness of outsiders.</p>
+                    <p>Sporadic contact attempts continued through the 20th century, including some in the 1970s–1990s that occasionally saw gifts exchanged from a safe distance. India formally ended these outreach attempts by the late 1990s in favour of a strict no-contact policy. The island survived the 2004 Indian Ocean tsunami with the Sentinelese reportedly having moved to higher ground beforehand, drawing on traditional ecological knowledge. Fatal encounters involving outsiders who breached the exclusion zone in 2006 and 2018 further underscored why the restricted-access policy remains in force today.</p>
+                </div>
+
+                <div class="sentinel-tab-panel" id="tab-wildlife">
+                    <h3>🌿 Wildlife</h3>
+                    <p>Because the island's interior has never been surveyed by outside researchers, detailed wildlife data is limited. What is known comes largely from offshore observation and comparison with similar Andaman ecosystems.</p>
+                    <ul>
+                        <li>Dense tropical evergreen forest covering most of the island's interior</li>
+                        <li>Surrounding coral reefs supporting diverse reef fish and marine invertebrates</li>
+                        <li>Coastal and forest bird species typical of the Andaman Islands</li>
+                        <li>Native fauna such as the Andaman wild pig, believed to be part of the traditional Sentinelese diet</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="sentinel-section">
+            <div class="sentinel-container">
+                <div class="sentinel-section-heading">
+                    <span class="sentinel-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="sentinel-fact-panel">
+                    <div class="sentinel-fact-icon">💡</div>
+                    <p id="sentinel-fact-text">Loading fact...</p>
+                    <div class="sentinel-fact-dots" id="sentinel-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="north-sentinel-island.html">North Sentinel Island</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="north-sentinel-island.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

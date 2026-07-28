@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Narcondam Island — a remote, extinct volcanic island in the Bay of Bengal and the only home of the endemic Narcondam Hornbill.">
+    <title>Narcondam Island Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="narcondam-island.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Narcondam Island Explorer | Incredible India Explorer">
+    <meta property="og:description" content="A remote, extinct volcanic island in the Bay of Bengal and the only home of the endemic Narcondam Hornbill.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_hidden.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/narcondam-island/narcondam-island.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Narcondam Island Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Geography, the Narcondam Hornbill, its extinct volcano, conservation efforts and the flora & fauna of Narcondam Island.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_hidden.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/narcondam-island/narcondam-island.html">
+</head>
+
+<body class="narcondam-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../islands/islands.html" class="nav-link">Islands</a>
+                <a href="narcondam-island.html" class="nav-link active" style="color: var(--saffron)">Narcondam Island</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="narcondam-page">
+        <!-- Hero -->
+        <section class="narcondam-hero">
+            <div class="narcondam-hero-content">
+                <a href="../islands/islands.html" class="narcondam-back-link">← Back to Islands of India</a>
+                <span class="narcondam-hero-kicker">🌋 An Extinct Volcano in the Bay of Bengal</span>
+                <h1>Narcondam <span>Island</span></h1>
+                <p>A tiny, densely-forested volcanic island rising sharply from the Bay of Bengal, cut off from the rest of the Andamans by open sea — and the only place on Earth where the Narcondam Hornbill is found.</p>
+
+                <div class="narcondam-hero-stats">
+                    <div class="narcondam-stat-box">
+                        <strong>~6.8 sq km</strong>
+                        <span>Total Land Area</span>
+                    </div>
+                    <div class="narcondam-stat-box">
+                        <strong>~710 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="narcondam-stat-box">
+                        <strong>~120 km</strong>
+                        <span>From Main Andaman Group</span>
+                    </div>
+                    <div class="narcondam-stat-box">
+                        <strong>1977</strong>
+                        <span>Declared Wildlife Sanctuary</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed info -->
+        <section class="narcondam-section" id="narcondam-explore">
+            <div class="narcondam-container">
+                <div class="narcondam-section-heading">
+                    <span class="narcondam-section-badge">Explore Narcondam</span>
+                    <h2>Geology, Wildlife &amp; Conservation</h2>
+                    <p>Select a tab to learn more.</p>
+                </div>
+
+                <div class="narcondam-tabs" role="tablist">
+                    <button type="button" class="narcondam-tab-btn active" data-tab="geography">Geography</button>
+                    <button type="button" class="narcondam-tab-btn" data-tab="hornbill">Narcondam Hornbill</button>
+                    <button type="button" class="narcondam-tab-btn" data-tab="volcano">Extinct Volcano</button>
+                    <button type="button" class="narcondam-tab-btn" data-tab="conservation">Conservation</button>
+                    <button type="button" class="narcondam-tab-btn" data-tab="flora-fauna">Flora &amp; Fauna</button>
+                </div>
+
+                <div class="narcondam-tab-panel active" id="tab-geography">
+                    <h3>🗺️ Geography</h3>
+                    <p>Narcondam is a small, roughly circular island in the Bay of Bengal, lying about 120 km east of the main Andaman archipelago and closer to the coast of Myanmar than to Port Blair. Administratively it falls under the North Andaman district of the Andaman & Nicobar Islands.</p>
+                    <p>Unlike most of the Andamans, Narcondam is an isolated volcanic peak rather than part of a connected island chain, surrounded by deep open sea on all sides. Its coastline is mostly steep and rocky, with very limited flat ground for landing.</p>
+                    <ul>
+                        <li>Located roughly 120 km east of the main Andaman group</li>
+                        <li>Falls under the North Andaman administrative district</li>
+                        <li>Small, steep, roughly circular island with a rocky shoreline</li>
+                    </ul>
+                </div>
+
+                <div class="narcondam-tab-panel" id="tab-hornbill">
+                    <h3>🦜 Narcondam Hornbill</h3>
+                    <p>The island's best-known resident is the Narcondam Hornbill (Rhyticeros narcondami), a species found nowhere else on Earth. It nests in the island's tall forest trees and feeds mainly on fruit, playing an important role in dispersing seeds across the forest.</p>
+                    <p>Because its entire population is confined to this single small island, the hornbill is considered highly vulnerable — any disturbance to the forest or introduction of predators could put the whole species at risk. This has made its protection a key conservation priority.</p>
+                    <ul>
+                        <li>Endemic to Narcondam Island — found nowhere else in the wild</li>
+                        <li>A fruit-eating hornbill that helps disperse forest seeds</li>
+                        <li>Entire global population confined to one small island</li>
+                    </ul>
+                </div>
+
+                <div class="narcondam-tab-panel" id="tab-volcano">
+                    <h3>🌋 Extinct Volcano</h3>
+                    <p>Narcondam Island is the exposed summit of an extinct volcano, rising steeply to a peak of around 710 metres above sea level. There are no records of the volcano having erupted in recorded history, and it is generally classed as extinct rather than dormant.</p>
+                    <p>The island's volcanic origin has shaped its steep terrain and rocky coastline, leaving very little level ground and making the interior accessible mainly along a few narrow forest trails.</p>
+                    <ul>
+                        <li>The exposed summit of an extinct volcanic cone</li>
+                        <li>Peak elevation of roughly 710 metres</li>
+                        <li>Steep, rugged terrain with little flat land</li>
+                    </ul>
+                </div>
+
+                <div class="narcondam-tab-panel" id="tab-conservation">
+                    <h3>🛡️ Conservation</h3>
+                    <p>Narcondam was declared a Wildlife Sanctuary in 1977, primarily to protect the Narcondam Hornbill and its forest habitat. Public access to the island is tightly restricted, and only a small forest department and police presence is stationed there.</p>
+                    <p>Because the hornbill's entire population lives on this one island, conservation efforts focus on keeping the forest cover intact and preventing the introduction of species — such as goats or predators — that could disturb the fragile ecosystem.</p>
+                    <ul>
+                        <li>Declared a Wildlife Sanctuary in 1977</li>
+                        <li>Access to the island is tightly restricted</li>
+                        <li>Focus on protecting forest cover and excluding invasive species</li>
+                    </ul>
+                </div>
+
+                <div class="narcondam-tab-panel" id="tab-flora-fauna">
+                    <h3>🌿 Flora &amp; Fauna</h3>
+                    <p>The island is covered in dense tropical evergreen forest, which supports the Narcondam Hornbill along with other birds, reptiles and insects adapted to its isolated environment. The surrounding waters are also home to a variety of reef fish and marine life.</p>
+                    <p>Because of its isolation, Narcondam supports a self-contained mini ecosystem where the forest canopy, birdlife and coastal waters are closely interlinked — making the health of the forest directly tied to the survival of its most famous resident.</p>
+                    <ul>
+                        <li>Dense tropical evergreen forest covering most of the island</li>
+                        <li>Home to birds, reptiles and insects adapted to isolation</li>
+                        <li>Surrounding reef waters support varied marine life</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section class="narcondam-section" id="narcondam-map-section">
+            <div class="narcondam-container">
+                <div class="narcondam-section-heading">
+                    <span class="narcondam-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Narcondam</h2>
+                    <p>Click a marker to learn about that location.</p>
+                </div>
+                <div class="narcondam-map-wrap">
+                    <div id="narcondam-map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="narcondam-section" id="narcondam-gallery-section">
+            <div class="narcondam-container">
+                <div class="narcondam-section-heading">
+                    <span class="narcondam-section-badge">Image Gallery</span>
+                    <h2>Glimpses of Narcondam Island</h2>
+                    <p>Click an image to view it larger.</p>
+                </div>
+                <div id="narcondam-gallery-grid" class="narcondam-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="narcondam-section">
+            <div class="narcondam-container">
+                <div class="narcondam-section-heading">
+                    <span class="narcondam-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="narcondam-fact-panel">
+                    <div class="narcondam-fact-icon">💡</div>
+                    <p id="narcondam-fact-text">Loading fact...</p>
+                    <div class="narcondam-fact-dots" id="narcondam-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="narcondam-lightbox-overlay" id="narcondam-lightbox" hidden>
+        <div class="narcondam-lightbox-content">
+            <button class="narcondam-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="narcondam-lightbox-nav prev" id="narcondam-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="narcondam-lightbox-image" src="" alt="">
+            <button class="narcondam-lightbox-nav next" id="narcondam-lightbox-next" aria-label="Next image">›</button>
+            <p class="narcondam-lightbox-caption" id="narcondam-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="narcondam-island.html">Narcondam Island</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="narcondam-island.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>
