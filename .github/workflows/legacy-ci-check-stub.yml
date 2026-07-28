@@ -1,7 +1,0 @@
-name: Legacy CI Check Stub
-on: push
-jobs:
-  stub:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Deprecated legacy check"
