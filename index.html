@@ -333,8 +333,10 @@
                         <a href="frontend/national-days-calendar/index.html" class="dropdown-item"> National Days Calendar</a>
                         <a href="frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols Gallery</a>
                         <a href="frontend/ganga-ghats-experience/index.html" class="dropdown-item">Ganga Ghats Experience</a>
-                        <a href="frontend/crowd-density/index.html" class="dropdown-item">🧑‍🤝‍🧑 Crowd Density Predictor</a>
+                        <a href="frontend/crowd-density/index.html" class="dropdown-item"> Crowd Density Predictor</a>
                         <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland Explorer</a>
+                        <a href="wular-lake/wular-lake.html" class="dropdown-item"> Wular Lake Explorer</a>
                         <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
                         <a href="frontend/one-day-history/one-day-history.html" class="dropdown-item">One Day in History</a>
                         <a href="frontend/monuments/monuments.html" class="dropdown-item">Monuments</a>
@@ -388,11 +390,6 @@
                         <a href="renewable-energy.html" class="dropdown-item">Renewable Energy</a>
                         <a href="governance/prime-ministers/index.html" class="dropdown-item">Prime Ministers Timeline</a>
                         <a href="learn.html" class="dropdown-item">Learn & Quiz</a>
-            <a href="frontend/friendship-peak/index.html" class="dropdown-item">Friendship Peak Mountain</a>
-            <a href="frontend/deo-tibba/index.html" class="dropdown-item">Deo Tibba Mountain</a>
-            <a href="frontend/kalanka/index.html" class="dropdown-item">Kalanka Mountain</a>
-            <a href="frontend/mana-peak/index.html" class="dropdown-item">Mana Peak Mountain</a>
-            <a href="frontend/abi-gamin/index.html" class="dropdown-item">Abi Gamin Mountain</a>
             <a href="frontend/highest-point-challenge/index.html" class="dropdown-item">Highest Point Challenge</a>
             <a href="frontend/silk-route-scrollytelling/index.html" class="dropdown-item">Silk Route Scrollytelling</a>
             <a href="frontend/population-growth/index.html" class="dropdown-item">Population Growth Infographic</a>
@@ -667,45 +664,7 @@
             </div>
         </section>
 
-    
-        <article class="mountain-card friendship-peak-card">
-          <img src="assets/travel_mountains.png" alt="Friendship Peak mountain in Himachal Pradesh">
-          <div class="mountain-card-content">
-            <span class="mountain-badge">Himachal Pradesh · 5,289 m</span>
-            <h3>Friendship Peak</h3>
-            <p>Explore Friendship Peak's Pir Panjal geography, quick facts, trekking guide, natural beauty, and gallery.</p>
-            <a href="frontend/friendship-peak/index.html" class="btn-primary">Explore Friendship Peak</a>
-        <article class="mountain-card deo-tibba-card">
-          <img src="assets/travel_mountains.png" alt="Deo Tibba mountain in Himachal Pradesh">
-          <div class="mountain-card-content">
-            <span class="mountain-badge">Himachal Pradesh · 6,001 m</span>
-            <h3>Deo Tibba</h3>
-            <p>Explore Deo Tibba's Pir Panjal geography, natural beauty, quick facts, trekking information, and gallery.</p>
-            <a href="frontend/deo-tibba/index.html" class="btn-primary">Explore Deo Tibba</a>
-        <article class="mountain-card kalanka-card">
-          <img src="assets/travel_mountains.png" alt="Kalanka mountain in the Garhwal Himalayas">
-          <div class="mountain-card-content">
-            <span class="mountain-badge">Uttarakhand · 6,931 m</span>
-            <h3>Kalanka</h3>
-            <p>Explore Kalanka's Garhwal Himalaya geography, quick facts, gallery, and mountaineering context.</p>
-            <a href="frontend/kalanka/index.html" class="btn-primary">Explore Kalanka</a>
-        <article class="mountain-card mana-peak-card">
-          <img src="assets/travel_mountains.png" alt="Mana Peak mountain in the Garhwal Himalayas">
-          <div class="mountain-card-content">
-            <span class="mountain-badge">Uttarakhand · 7,272 m</span>
-            <h3>Mana Peak</h3>
-            <p>Explore Mana Peak's Garhwal Himalaya geography, quick facts, gallery, and trekking guide.</p>
-            <a href="frontend/mana-peak/index.html" class="btn-primary">Explore Mana Peak</a>
-        <article class="mountain-card abi-gamin-card">
-          <img src="assets/travel_mountains.png" alt="Abi Gamin mountain in the Garhwal Himalayas">
-          <div class="mountain-card-content">
-            <span class="mountain-badge">Uttarakhand · 7,355 m</span>
-            <h3>Abi Gamin</h3>
-            <p>Explore Abi Gamin's Garhwal Himalaya geography, climbing history, facts, gallery, and expedition details.</p>
-            <a href="frontend/abi-gamin/index.html" class="btn-primary">Explore Abi Gamin</a>
-          </div>
-        </article>
-</main>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -924,13 +883,11 @@
     <script src="dist/map-data.js" defer></script>
     <script src="chatbot-data.js" defer></script>
     <script src="sw-register.js" defer></script>
-    <script src="js-modules/config.js" defer></script>
     <script src="app.js" defer></script>
-    <script src="js-modules/resource-cleanup.js" defer></script>
     <script type="module" src="firebase-config.js"></script>
     <script type="module" src="auth.js"></script>
     <script src="router.js" defer></script>
-    <script src="js-modules/navbar-shared.js" defer></script>
+    <script src="frontend/navbar-redesign/navbar.js" defer></script>
 
     <!-- SW Update handler – runs after sw-register.js -->
     <script>

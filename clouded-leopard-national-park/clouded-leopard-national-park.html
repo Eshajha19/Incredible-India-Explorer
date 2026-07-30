@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Clouded Leopard National Park Explorer - Explore India's only national park named after the elusive Clouded Leopard, located in Tripura." name="description"/>
+    <meta property="og:title" content="Clouded Leopard National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Discover the dense evergreen forests, rare primates, and elusive Clouded Leopards of Tripura's premier National Park."/>
+    
+    <title>Clouded Leopard National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="clouded-leopard-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Clouded Leopard National Park",
+      "description": "A national park in Tripura, India, renowned for its evergreen forests and being the only park in the country named after the Clouded Leopard.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Tripura",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="leopard-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge leopard"><i class="fa-solid fa-cat"></i> Clouded Leopard</span>
+                    <span class="badge evergreen"><i class="fa-solid fa-tree"></i> Evergreen Forests</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Tripura</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Clouded Leopard National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 700px; font-size: 1.1rem; line-height: 1.6;">
+                    Venture into the dense, misty tropical evergreen forests of Tripura. Discover India's only national park dedicated to the elusive, arboreal Clouded Leopard.
+                </p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Explore Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem & Landscapes -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Ecosystem</span>
+                    <h2>Forests & Avifauna</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-leaf"></i> Evergreen Ecosystem</h3>
+                        <p>The park boasts thick tropical evergreen and semi-evergreen forests, intertwined with rich bamboo and cane brakes, crucial for carbon storage.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-crow"></i> Birdwatching Paradise</h3>
+                        <p>A haven for birders, supporting over 150 species including Hornbills, Green Pigeons, Barbets, and numerous migratory birds.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Conservation History</h3>
+                        <p>Established within the Sipahijala Wildlife Sanctuary in 2007, it represents a crucial milestone in protecting Northeast India's unique biodiversity corridor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife / Fauna -->
+        <section id="wildlife" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Fauna</span>
+                    <h2>Mammals of the Canopy</h2>
+                    <p class="section-subtitle">Discover the secretive wildlife adapted to the dense foliage.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Neofelis_nebulosa.jpg/800px-Neofelis_nebulosa.jpg" alt="Clouded Leopard" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Clouded Leopard</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>An incredibly elusive, arboreal cat with striking cloud-like spots. It possesses the longest canine teeth relative to skull size of any feline.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Capped_langur.jpg/800px-Capped_langur.jpg" alt="Capped Langur" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Capped Langur</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>A distinctive primate often seen traversing the high forest canopy in troops.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Muntiacus_muntjak_%28Barking_deer%29.jpg/800px-Muntiacus_muntjak_%28Barking_deer%29.jpg" alt="Barking Deer" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Barking Deer (Muntjac)</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>Small, solitary deer known for their sharp, bark-like alarm calls when predators are near.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Slow_Loris.jpg/800px-Slow_Loris.jpg" alt="Slow Loris" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Slow Loris</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>A rare, nocturnal primate with large eyes, relying on stealth and toxic secretions for defense.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities and Conservation -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="trekking-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #ff5722; color: white;">Trekking</span>
+                        <h2>Nature Trails</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Experience the forest closely through guided walks.</p>
+                    <ul>
+                        <li><strong>Guided Walks:</strong> Explore the complex layers of the evergreen forest on foot with experienced forest guards.</li>
+                        <li><strong>Birdwatching:</strong> Early morning trails offer the best chances to spot rare hornbills and barbets.</li>
+                        <li><strong>Best Season:</strong> Winter (November to March) provides the most pleasant climate for extended trekking.</li>
+                    </ul>
+                </div>
+                <div class="conservation-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Conservation</span>
+                        <h2>Protecting the Habitat</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Dedicated efforts to preserve Tripura's ecological heritage.</p>
+                    <ul>
+                        <li><strong>Camera Trapping:</strong> Essential for monitoring the secretive Clouded Leopard population.</li>
+                        <li><strong>Habitat Restoration:</strong> Active management of bamboo and cane ecosystems to support native primate species.</li>
+                        <li><strong>Community Eco-tourism:</strong> Engaging local communities to reduce dependency on forest resources.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #9c27b0; color: white;">Facts</span>
+                    <h2>Did You Know?</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card" style="border-left: 4px solid var(--saffron);">
+                        <p>This is the <strong>only</strong> national park in India specifically named after the Clouded Leopard.</p>
+                    </div>
+                    <div class="info-card" style="border-left: 4px solid var(--green);">
+                        <p>The Clouded Leopard is the State Animal of Tripura.</p>
+                    </div>
+                    <div class="info-card" style="border-left: 4px solid #03a9f4;">
+                        <p>The park is an essential wildlife corridor connecting various habitats in the Northeast Indian bio-geographic zone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Tripura Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Park Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Clouded Leopard">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Neofelis_nebulosa.jpg/800px-Neofelis_nebulosa.jpg" alt="Clouded Leopard resting">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Forest Canopy">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Tropical_Evergreen_Forest.jpg/800px-Tropical_Evergreen_Forest.jpg" alt="Dense Tropical Evergreen Forest Canopy">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Langur">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Capped_langur.jpg/800px-Capped_langur.jpg" alt="Capped Langur in the trees">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Hornbill">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Great_Hornbill_at_Khao_Yai_National_Park.jpg/800px-Great_Hornbill_at_Khao_Yai_National_Park.jpg" alt="Hornbill bird">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore trekking trails and primate observation zones.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Clouded Leopard National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="clouded-leopard-national-park.js"></script>
+</body>
+</html>

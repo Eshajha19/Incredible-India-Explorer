@@ -1,0 +1,617 @@
+/* ================================================================
+   Bird Sanctuaries Explorer Styles
+   ================================================================ */
+
+.birds-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+body.light-theme .birds-page {
+    background-color: var(--bg-light);
+}
+
+/* ================================================================
+   Hero Section
+   ================================================================ */
+
+.birds-hero {
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1e3a8a 100%);
+    z-index: 0;
+}
+
+body.light-theme .hero-bg {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #dbeafe 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 1;
+}
+
+body.light-theme .hero-overlay {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+body.light-theme .hero-badge {
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.hero-container h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--text-light);
+}
+
+body.light-theme .hero-container h1 {
+    color: var(--text-dark);
+}
+
+.hero-container h1 span {
+    color: #60a5fa;
+}
+
+body.light-theme .hero-container h1 span {
+    color: #2563eb;
+}
+
+.hero-container p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+body.light-theme .hero-container p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Educational Section
+   ================================================================ */
+
+.education-section {
+    padding: 2rem 2rem 0;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.edu-container {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
+
+body.light-theme .edu-container {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.edu-item h3 {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.light-theme .edu-item h3 {
+    color: var(--text-dark);
+}
+
+.edu-item p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+body.light-theme .edu-item p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Controls (Search & Filter)
+   ================================================================ */
+
+.explorer-section {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.controls-container {
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body.light-theme .controls-container {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.search-box {
+    flex: 1 1 300px;
+    max-width: 500px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+body.light-theme .search-box input {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: var(--text-dark);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+body.light-theme .search-box input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    padding: 0.6rem 1.25rem;
+    border-radius: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.light-theme .filter-btn {
+    background: #f8fafc;
+    color: var(--text-secondary);
+    border: 1px solid #e2e8f0;
+}
+
+.filter-btn:hover {
+    color: var(--text-light);
+    border-color: rgba(96, 165, 250, 0.4);
+}
+
+body.light-theme .filter-btn:hover {
+    color: var(--text-dark);
+    border-color: #93c5fd;
+}
+
+.filter-btn.active {
+    background: rgba(96, 165, 250, 0.15);
+    color: #60a5fa;
+    border-color: #60a5fa;
+}
+
+body.light-theme .filter-btn.active {
+    background: #dbeafe;
+    color: #2563eb;
+    border-color: #60a5fa;
+}
+
+/* ================================================================
+   Sanctuaries Grid
+   ================================================================ */
+
+.sanctuaries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.sanctuary-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+body.light-theme .sanctuary-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.sanctuary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+body.light-theme .sanctuary-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: #93c5fd;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    background: #1e293b;
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-theme .card-image {
+    background: #e2e8f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.sanctuary-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    margin-bottom: 1rem;
+}
+
+.card-header h3 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+body.light-theme .card-header h3 {
+    color: var(--text-dark);
+}
+
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.25rem;
+}
+
+body.light-theme .badge {
+    background: #f1f5f9;
+    color: var(--text-secondary);
+}
+
+.badge.ramsar {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+body.light-theme .badge.ramsar {
+    background: #d1fae5;
+    color: #059669;
+    border-color: #34d399;
+}
+
+.card-summary {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+body.light-theme .card-summary {
+    color: var(--text-secondary);
+}
+
+.card-action {
+    color: #60a5fa;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+}
+
+body.light-theme .card-action {
+    color: #2563eb;
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    grid-column: 1 / -1;
+}
+
+body.light-theme .no-results {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Modal
+   ================================================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal:not([hidden]) {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+body.light-theme .modal-backdrop {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border-radius: 1rem;
+    z-index: 1;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+body.light-theme .modal-content {
+    background: #ffffff;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.modal:not([hidden]) .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-hero {
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.modal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.modal-hero h2 {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-info {
+    padding: 2rem;
+}
+
+.modal-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .modal-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.detail-section h4 {
+    color: #60a5fa;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.light-theme .detail-section h4 {
+    color: #2563eb;
+}
+
+.detail-section p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+body.light-theme .detail-section p {
+    color: var(--text-secondary);
+}
+
+.bird-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.bird-list li {
+    color: var(--text-muted);
+    padding: 0.25rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+body.light-theme .bird-list li {
+    color: var(--text-secondary);
+}
+
+.bird-list li::before {
+    content: "•";
+    color: #60a5fa;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+body.light-theme .bird-list li::before {
+    color: #2563eb;
+}
+
+/* Custom Scrollbar */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+body.light-theme .modal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+}

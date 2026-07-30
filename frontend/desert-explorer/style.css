@@ -1,0 +1,221 @@
+/* 
+   Desert Landscapes Explorer Styles
+   Imports global variables from ../../css/global.css implicitly via class structure
+*/
+
+/* --- Base & Header --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background-color: var(--bg-light, #f5f5f5);
+    color: var(--text-main, #333);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: var(--bg-dark, #121212);
+    color: var(--text-light, #f0f0f0);
+}
+
+.desert-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .desert-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.header-content h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.theme-toggle {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.theme-toggle:hover {
+    opacity: 0.9;
+}
+
+body.dark-theme .theme-toggle {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid currentColor;
+}
+
+
+/* --- Split Screen Layout --- */
+.desert-main {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 150px);
+}
+
+@media (min-width: 900px) {
+    .desert-main {
+        flex-direction: row;
+    }
+}
+
+.desert-split {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+/* Subtle gradient theming for light mode */
+.hot-desert {
+    background: linear-gradient(135deg, rgba(255,235,153,0.3) 0%, rgba(255,165,0,0.1) 100%);
+}
+.cold-desert {
+    background: linear-gradient(135deg, rgba(173,216,230,0.3) 0%, rgba(0,0,139,0.1) 100%);
+}
+
+/* Subtle gradient theming for dark mode */
+body.dark-theme .hot-desert {
+    background: linear-gradient(135deg, rgba(139,69,19,0.2) 0%, rgba(210,105,30,0.05) 100%);
+}
+body.dark-theme .cold-desert {
+    background: linear-gradient(135deg, rgba(70,130,180,0.2) 0%, rgba(25,25,112,0.05) 100%);
+}
+
+.desert-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.desert-hero h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* --- Accordions --- */
+.desert-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.accordion-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s, background-color 0.3s;
+}
+
+body.dark-theme .accordion-item {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.accordion-btn:hover {
+    background-color: rgba(0,0,0,0.02);
+}
+body.dark-theme .accordion-btn:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.accordion-btn[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-inner {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+body.dark-theme .accordion-inner {
+    color: #ccc;
+}
+
+/* Specific inner content styling */
+.accordion-inner ul {
+    margin: 0.5rem 0 0 1.2rem;
+    padding: 0;
+}
+
+.accordion-inner li {
+    margin-bottom: 0.25rem;
+}
+
+/* --- Footer --- */
+.desert-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+body.dark-theme .desert-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+}

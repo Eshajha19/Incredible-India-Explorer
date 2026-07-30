@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandipur National Park Explorer | Incredible India Explorer</title>
+  <meta name="description" content="Explore Bandipur National Park with tiger reserve, elephants, deer, biodiversity, forest types, safari, gallery, and interesting facts.">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../travel.html" class="nav-link">Travel</a>
+        <a href="../../learn.html" class="nav-link">Learn</a>
+        <a href="index.html" class="nav-link bandipur-current">Bandipur</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="bandipur-page">
+    <section class="bandipur-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Karnataka · Tiger Reserve · Nilgiri Landscape</span>
+        <h1>Bandipur National Park <span>Explorer</span></h1>
+        <p>
+          Discover Bandipur through tiger reserve stories, elephants, deer, forest types,
+          biodiversity cards, safari etiquette, interactive map points, gallery, and interesting facts.
+        </p>
+        <div class="hero-stats">
+          <div><strong>🐅 Tiger</strong><span>Reserve focus</span></div>
+          <div><strong>🐘 Elephant</strong><span>Corridor story</span></div>
+          <div><strong>Nilgiri</strong><span>Landscape</span></div>
+        </div>
+        <a href="#overview" class="hero-cta">Start exploring ↓</a>
+      </div>
+    </section>
+
+    <section class="overview-section" id="overview">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Park overview</span>
+          <h2>A tiger reserve in the Nilgiri forest landscape</h2>
+          <p>
+            Bandipur National Park protects a rich southern Indian forest ecosystem
+            where tigers, elephants, deer, gaur, leopards, birds, and forest communities
+            are connected through habitats, water sources, and wildlife corridors.
+          </p>
+        </div>
+        <div class="overview-grid">
+          <article class="overview-card large">
+            <h3>Tiger reserve</h3>
+            <p>
+              Bandipur is known for its role in tiger conservation and for protecting
+              forest habitats that sustain prey animals, predators, and a wider
+              biodiversity web across the Nilgiri landscape.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>Elephants</h3>
+            <p>
+              Asian elephants move through Bandipur and neighbouring forests, making
+              corridors and careful road behaviour important conservation themes.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>Deer and prey base</h3>
+            <p>
+              Deer such as chital and sambar help explain how herbivores, predators,
+              grasslands, water, and forest cover connect.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Quick facts</span>
+          <h2>Bandipur at a glance</h2>
+        </div>
+        <div class="facts-grid" id="facts-grid"></div>
+      </div>
+    </section>
+
+    <section class="wildlife-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Wildlife</span>
+          <h2>Tigers, elephants, deer and more</h2>
+          <p>Filter the wildlife cards to explore Bandipur's predators, elephants, deer, herbivores, and birds.</p>
+        </div>
+        <div class="filter-row" role="group" aria-label="Wildlife filters">
+          <button class="filter-btn active" data-filter="All" type="button">All</button>
+          <button class="filter-btn" data-filter="Big cat" type="button">Big cats</button>
+          <button class="filter-btn" data-filter="Elephant" type="button">Elephants</button>
+          <button class="filter-btn" data-filter="Deer" type="button">Deer</button>
+          <button class="filter-btn" data-filter="Bird" type="button">Birds</button>
+        </div>
+        <div class="wildlife-grid" id="wildlife-grid"></div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Interactive map</span>
+          <h2>Explore Bandipur's forest zones</h2>
+          <p>Tap each point to learn about visitor gateways, tiger habitats, elephant corridors, water zones, and biodiversity edges.</p>
+        </div>
+        <div class="map-layout">
+          <div class="bandipur-map" id="bandipur-map" aria-label="Interactive Bandipur map">
+            <div class="forest-shape"></div>
+            <div class="corridor-line corridor-one"></div>
+            <div class="corridor-line corridor-two"></div>
+            <div id="map-pins"></div>
+          </div>
+          <aside class="map-info" id="map-info">
+            <span>Selected point</span>
+            <h3>Tap a map pin</h3>
+            <p>Map points explain Bandipur's safari gateway, wildlife corridors, tiger zones, and forest edges.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="forest-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Forest types</span>
+          <h2>Habitats that shape biodiversity</h2>
+        </div>
+        <div class="forest-grid" id="forest-grid"></div>
+      </div>
+    </section>
+
+    <section class="safari-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Safari guide</span>
+          <h2>Responsible safari behaviour</h2>
+        </div>
+        <div class="safari-grid" id="safari-grid"></div>
+      </div>
+    </section>
+
+    <section class="facts-story-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Interesting facts</span>
+          <h2>Why Bandipur matters</h2>
+        </div>
+        <div class="interesting-grid" id="interesting-grid"></div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Gallery</span>
+          <h2>Visual story of Bandipur</h2>
+          <p>Existing project assets are used as visual placeholders for tiger habitat, elephant corridors, forest safari, and deer landscapes.</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <section class="source-section">
+      <div class="page-container">
+        <h2>Source notes</h2>
+        <p>
+          This page is an educational explorer built from the issue requirements:
+          Tiger Reserve, Elephants, Deer, Biodiversity, Forest Types, Safari,
+          Gallery, Interesting Facts, and Landing Page Integration. Safari content
+          is awareness guidance, not official booking or route advice.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bandipur-footer">
+    <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Dedicated national park explorer for Bandipur.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../../app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

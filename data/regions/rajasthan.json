@@ -1,0 +1,111 @@
+{
+  "id": "rajasthan",
+  "state": "Rajasthan",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Hawa_Mahal.png",
+  "destinationCount": 5,
+  "destinations": [
+    {
+      "id": "jaipur",
+      "name": "Jaipur",
+      "lat": 26.9124,
+      "lng": 75.7873,
+      "categories": [
+        "historical",
+        "heritage",
+        "desert"
+      ],
+      "highlights": [
+        "Amber Fort",
+        "City Palace",
+        "Hawa Mahal"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 9,
+      "bestSeason": "Oct-Mar",
+      "description": "The Pink City, gateway to royal Rajasthan."
+    },
+    {
+      "id": "jodhpur",
+      "name": "Jodhpur",
+      "lat": 26.2389,
+      "lng": 73.0243,
+      "categories": [
+        "historical",
+        "heritage",
+        "desert"
+      ],
+      "highlights": [
+        "Mehrangarh Fort",
+        "Blue City streets",
+        "Jaswant Thada"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Oct-Mar",
+      "description": "The Blue City beneath a dramatic hilltop fort."
+    },
+    {
+      "id": "jaisalmer",
+      "name": "Jaisalmer",
+      "lat": 26.9157,
+      "lng": 70.9083,
+      "categories": [
+        "desert",
+        "historical",
+        "adventure"
+      ],
+      "highlights": [
+        "Living Fort",
+        "Sam Sand Dunes",
+        "Camel safari"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 8,
+      "bestSeason": "Nov-Feb",
+      "description": "Golden sandstone fort on the edge of the Thar Desert."
+    },
+    {
+      "id": "udaipur",
+      "name": "Udaipur",
+      "lat": 24.5854,
+      "lng": 73.7125,
+      "categories": [
+        "historical",
+        "heritage"
+      ],
+      "highlights": [
+        "Lake Pichola",
+        "City Palace",
+        "Jag Mandir"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 9,
+      "bestSeason": "Oct-Mar",
+      "description": "Romantic lake city known as the Venice of the East."
+    },
+    {
+      "id": "ranthambore",
+      "name": "Ranthambore",
+      "lat": 26.0173,
+      "lng": 76.5026,
+      "categories": [
+        "wildlife"
+      ],
+      "highlights": [
+        "Tiger safari",
+        "Ranthambore Fort"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 8,
+      "bestSeason": "Oct-Jun",
+      "description": "One of India's best tiger reserves."
+    }
+  ]
+}

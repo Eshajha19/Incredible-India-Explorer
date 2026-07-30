@@ -1,0 +1,30 @@
+{
+  "id": "punjab",
+  "state": "Punjab",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Golden_Temple.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "amritsar",
+      "name": "Amritsar",
+      "lat": 31.634,
+      "lng": 74.8723,
+      "categories": [
+        "spiritual",
+        "historical"
+      ],
+      "highlights": [
+        "Golden Temple",
+        "Jallianwala Bagh",
+        "Wagah Border ceremony"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 8,
+      "bestSeason": "Oct-Mar",
+      "description": "Home to the Golden Temple, spiritual heart of Sikhism."
+    }
+  ]
+}

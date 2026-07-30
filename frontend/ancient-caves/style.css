@@ -1,0 +1,331 @@
+/* 
+   Ancient Caves & Rock Shelters Explorer Styles
+   Imports global variables from ../../css/global.css implicitly
+*/
+
+/* --- Base & Header --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background-color: var(--bg-light, #fdfbf7);
+    color: var(--text-main, #333);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: var(--bg-dark, #121212);
+    color: var(--text-light, #f0f0f0);
+}
+
+.caves-header {
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(139, 107, 78, 0.2) 0%, transparent 100%);
+}
+
+body.dark-theme .caves-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, rgba(139, 107, 78, 0.1) 0%, transparent 100%);
+}
+
+.back-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.header-content h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    color: #5d4037;
+}
+body.dark-theme .header-content h1 { color: #d7ccc8; }
+
+.header-content p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+body.dark-theme .header-content p {
+    color: #ccc;
+}
+
+.theme-toggle {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: #555;
+}
+
+body.dark-theme .theme-toggle {
+    background-color: #f0f0f0;
+    color: #121212;
+}
+body.dark-theme .theme-toggle:hover {
+    background-color: #ccc;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+body.dark-theme .section-subtitle { color: #aaa; }
+
+/* --- Educational Section --- */
+.educational-section {
+    padding: 4rem 1rem;
+    background-color: rgba(0,0,0,0.02);
+}
+body.dark-theme .educational-section { background-color: rgba(255,255,255,0.02); }
+
+.edu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .edu-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.edu-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid #795548;
+}
+body.dark-theme .edu-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.edu-card h3 { 
+    margin-top: 0; 
+    color: #4e342e; 
+}
+body.dark-theme .edu-card h3 { color: #bcaaa4; }
+
+.edu-card p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0;
+}
+body.dark-theme .edu-card p { color: #ccc; }
+
+/* --- Gallery Section --- */
+.gallery-section {
+    padding: 4rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.caves-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.cave-card {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    outline: none;
+}
+body.dark-theme .cave-card {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.cave-card:hover, .cave-card:focus {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+body.dark-theme .cave-card:hover, body.dark-theme .cave-card:focus {
+    box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+}
+
+/* Ensure focus outline is visible for accessibility */
+.cave-card:focus {
+    outline: 3px solid #795548;
+    outline-offset: 2px;
+}
+body.dark-theme .cave-card:focus {
+    outline: 3px solid #bcaaa4;
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #3e2723;
+    margin: 0 0 0.5rem 0;
+}
+body.dark-theme .card-title { color: #d7ccc8; }
+
+.card-state {
+    font-size: 0.95rem;
+    color: #6d4c41;
+    font-weight: 500;
+}
+body.dark-theme .card-state { color: #a1887f; }
+
+/* --- Modal Dialog --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+    /* Hidden state */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-dialog {
+    background-color: #fff;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    position: relative;
+    padding: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    
+    /* Animation state */
+    transform: scale(0.95) translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal-overlay.active .modal-dialog {
+    transform: scale(1) translateY(0);
+}
+
+body.dark-theme .modal-dialog {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0;
+}
+.modal-close:hover, .modal-close:focus {
+    color: #000;
+}
+body.dark-theme .modal-close { color: #aaa; }
+body.dark-theme .modal-close:hover, body.dark-theme .modal-close:focus { color: #fff; }
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #4e342e;
+    font-size: 2rem;
+    padding-right: 2rem; /* prevent overlap with close button */
+}
+body.dark-theme .modal-content h2 { color: #bcaaa4; }
+
+.modal-tag {
+    display: inline-block;
+    background-color: #ffe0b2;
+    color: #e65100;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+body.dark-theme .modal-tag {
+    background-color: #4e342e;
+    color: #ffb300;
+}
+
+.modal-section {
+    margin-bottom: 1.5rem;
+}
+
+.modal-section h4 {
+    margin: 0 0 0.5rem 0;
+    color: #3e2723;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3rem;
+}
+body.dark-theme .modal-section h4 { 
+    color: #d7ccc8; 
+    border-bottom-color: #333;
+}
+
+.modal-section p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+}
+body.dark-theme .modal-section p { color: #ccc; }
+
+/* --- Footer --- */
+.caves-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+body.dark-theme .caves-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Map of India Explorer | Incredible India</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+    <header class="agri-header">
+        <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+        <div class="header-content">
+            <h1>Agricultural Map of India</h1>
+            <p>Explore the vast diversity of crops, growing seasons, and the cultural harvest festivals that shape India's agrarian heartbeat.</p>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
+        </div>
+    </header>
+
+    <main class="agri-main">
+
+        <!-- Map Section -->
+        <section class="map-section" aria-labelledby="map-title">
+            <h2 id="map-title" class="section-title">Regional Agricultural Zones</h2>
+            <p class="section-subtitle">Select a region on the map to discover its primary crops and agricultural practices.</p>
+
+            <div class="map-container">
+                
+                <!-- Abstract India Map SVG -->
+                <svg viewBox="0 0 500 600" class="agri-map" id="agri-map" xmlns="http://www.w3.org/2000/svg" role="application" aria-label="Interactive map of India's agricultural regions">
+                    
+                    <!-- North Region -->
+                    <g class="map-region" data-region="north" role="button" tabindex="0" aria-label="Northern India Region">
+                        <path d="M 180 50 C 250 10, 320 80, 260 180 L 150 160 Z" fill="#b3e5fc" stroke="#fff" stroke-width="3"/>
+                        <text x="210" y="110" class="region-text">North</text>
+                    </g>
+
+                    <!-- East & North-East Region -->
+                    <g class="map-region" data-region="east" role="button" tabindex="0" aria-label="Eastern and North-Eastern India Region">
+                        <path d="M 260 180 C 350 200, 480 150, 480 250 C 480 320, 320 300, 260 250 Z" fill="#c8e6c9" stroke="#fff" stroke-width="3"/>
+                        <text x="350" y="230" class="region-text">East / NE</text>
+                    </g>
+
+                    <!-- Central Region -->
+                    <g class="map-region" data-region="central" role="button" tabindex="0" aria-label="Central India Region">
+                        <path d="M 150 160 L 260 180 L 260 250 C 200 300, 100 280, 150 160 Z" fill="#ffecb3" stroke="#fff" stroke-width="3"/>
+                        <text x="190" y="230" class="region-text">Central</text>
+                    </g>
+
+                    <!-- West Region -->
+                    <g class="map-region" data-region="west" role="button" tabindex="0" aria-label="Western India Region">
+                        <path d="M 50 180 C 120 180, 150 160, 150 160 C 100 280, 50 280, 50 180 Z" fill="#ffe0b2" stroke="#fff" stroke-width="3"/>
+                        <text x="90" y="220" class="region-text">West</text>
+                    </g>
+
+                    <!-- South Region -->
+                    <g class="map-region" data-region="south" role="button" tabindex="0" aria-label="Southern India Region">
+                        <path d="M 100 280 C 200 300, 260 250, 260 250 C 280 350, 250 500, 180 550 C 110 500, 100 350, 100 280 Z" fill="#d1c4e9" stroke="#fff" stroke-width="3"/>
+                        <text x="180" y="380" class="region-text">South</text>
+                    </g>
+
+                </svg>
+
+                <!-- Tooltip Popover Container -->
+                <div id="region-tooltip" class="custom-tooltip" role="tooltip" aria-live="assertive" aria-hidden="true">
+                    <!-- Dynamic content injected via JS -->
+                </div>
+            </div>
+            
+            <div class="legend">
+                <p><strong>Note:</strong> This abstract map divides India into 5 major geographical zones to highlight broad agricultural patterns.</p>
+            </div>
+        </section>
+
+        <!-- Harvest Festivals Section -->
+        <section class="festivals-section" aria-labelledby="festivals-title">
+            <h2 id="festivals-title" class="section-title">Celebrating the Harvest</h2>
+            <p class="section-subtitle">Agriculture in India is deeply intertwined with cultural celebrations. Explore major harvest festivals across the country.</p>
+            
+            <div class="festivals-grid">
+                
+                <article class="festival-card">
+                    <h3>🌾 Makar Sankranti / Pongal / Lohri</h3>
+                    <p class="festival-meta">Mid-January</p>
+                    <p>Celebrated under various names across India, this festival marks the end of the winter solstice and the harvest of Rabi crops like wheat and sugarcane. <strong>Lohri</strong> is massive in Punjab, <strong>Pongal</strong> in Tamil Nadu honors the sun god and cattle, and <strong>Makar Sankranti</strong> involves kite flying in Gujarat and Maharashtra.</p>
+                </article>
+
+                <article class="festival-card">
+                    <h3>🌸 Baisakhi / Rongali Bihu</h3>
+                    <p class="festival-meta">Mid-April</p>
+                    <p>Marks the harvest of the Rabi (winter) crops and the start of the solar new year. <strong>Baisakhi</strong> is celebrated with immense joy in Punjab involving Bhangra dances. <strong>Rongali Bihu</strong> in Assam celebrates the beginning of the Assamese New Year and the sowing season.</p>
+                </article>
+
+                <article class="festival-card">
+                    <h3>🌴 Onam</h3>
+                    <p class="festival-meta">August-September</p>
+                    <p>The biggest harvest festival of Kerala. It celebrates the rice harvest and the mythological homecoming of King Mahabali. Features elaborate flower carpets (Pookkalam), boat races (Vallam Kali), and a grand feast (Sadhya).</p>
+                </article>
+
+                <article class="festival-card">
+                    <h3>🍚 Nuakhai</h3>
+                    <p class="festival-meta">August-September</p>
+                    <p>An agricultural festival mainly observed in Odisha. The word 'Nua' means new and 'Khai' means food. It is celebrated to welcome the newly harvested rice of the season with deep cultural reverence.</p>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="agri-footer">
+        <p>Honor the hands that feed the nation. Incredible India.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

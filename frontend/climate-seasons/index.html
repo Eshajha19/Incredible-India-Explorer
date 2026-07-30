@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate & Six Seasons (Ritu) Explorer | Incredible India</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    
+    <header class="climate-header">
+        <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+        <div class="header-content">
+            <h1>Climate & Six Seasons (Ritu)</h1>
+            <p>Explore India's unique climatic diversity, driven by the powerful monsoons and deeply rooted in the traditional Hindu six-season calendar.</p>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
+        </div>
+    </header>
+
+    <main class="climate-main">
+        
+        <!-- Interactive Ritu Section -->
+        <section class="ritu-section" aria-labelledby="ritu-title">
+            <h2 id="ritu-title" class="section-title">The Wheel of Ritus</h2>
+            <p class="section-subtitle">Click on a season to learn more about its characteristics.</p>
+
+            <div class="ritu-interactive-container">
+                
+                <!-- SVG Wheel -->
+                <div class="svg-wheel-container">
+                    <svg viewBox="-110 -110 220 220" class="ritu-wheel" id="ritu-wheel" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Interactive seasons wheel">
+                        <!-- 
+                             The circle is divided into 6 segments of 60 degrees each.
+                             Using path with arc commands for precision.
+                        -->
+                        
+                        <!-- Vasant (Spring) - 0 to 60 deg -->
+                        <g class="wheel-wedge" data-season="vasant" role="button" tabindex="0" aria-label="Vasant (Spring)" transform="rotate(0)">
+                            <path d="M 0 0 L 100 0 A 100 100 0 0 1 50 86.6 Z" fill="#a8e6cf" stroke="#fff" stroke-width="2"/>
+                            <text x="60" y="35" transform="rotate(30 60 35)" class="wedge-text">Vasant</text>
+                        </g>
+
+                        <!-- Grishma (Summer) - 60 to 120 deg -->
+                        <g class="wheel-wedge" data-season="grishma" role="button" tabindex="0" aria-label="Grishma (Summer)" transform="rotate(60)">
+                            <path d="M 0 0 L 100 0 A 100 100 0 0 1 50 86.6 Z" fill="#ffd3b6" stroke="#fff" stroke-width="2"/>
+                            <text x="60" y="35" transform="rotate(30 60 35)" class="wedge-text">Grishma</text>
+                        </g>
+
+                        <!-- Varsha (Monsoon) - 120 to 180 deg -->
+                        <g class="wheel-wedge" data-season="varsha" role="button" tabindex="0" aria-label="Varsha (Monsoon)" transform="rotate(120)">
+                            <path d="M 0 0 L 100 0 A 100 100 0 0 1 50 86.6 Z" fill="#8bc9e3" stroke="#fff" stroke-width="2"/>
+                            <text x="60" y="35" transform="rotate(30 60 35)" class="wedge-text">Varsha</text>
+                        </g>
+
+                        <!-- Sharad (Autumn) - 180 to 240 deg -->
+                        <g class="wheel-wedge" data-season="sharad" role="button" tabindex="0" aria-label="Sharad (Autumn)" transform="rotate(180)">
+                            <path d="M 0 0 L 100 0 A 100 100 0 0 1 50 86.6 Z" fill="#ffaaa5" stroke="#fff" stroke-width="2"/>
+                            <text x="60" y="35" transform="rotate(30 60 35)" class="wedge-text">Sharad</text>
+                        </g>
+
+                        <!-- Hemant (Pre-Winter) - 240 to 300 deg -->
+                        <g class="wheel-wedge" data-season="hemant" role="button" tabindex="0" aria-label="Hemant (Pre-Winter)" transform="rotate(240)">
+                            <path d="M 0 0 L 100 0 A 100 100 0 0 1 50 86.6 Z" fill="#d4a5a5" stroke="#fff" stroke-width="2"/>
+                            <text x="60" y="35" transform="rotate(30 60 35)" class="wedge-text">Hemant</text>
+                        </g>
+
+                        <!-- Shishir (Winter) - 300 to 360 deg -->
+                        <g class="wheel-wedge" data-season="shishir" role="button" tabindex="0" aria-label="Shishir (Winter)" transform="rotate(300)">
+                            <path d="M 0 0 L 100 0 A 100 100 0 0 1 50 86.6 Z" fill="#c4faf8" stroke="#fff" stroke-width="2"/>
+                            <text x="60" y="35" transform="rotate(30 60 35)" class="wedge-text">Shishir</text>
+                        </g>
+
+                        <!-- Center decorative circle -->
+                        <circle cx="0" cy="0" r="25" fill="#fff" stroke="#eee" stroke-width="2" />
+                        <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="bold" fill="#555">Ritu</text>
+                    </svg>
+                </div>
+
+                <!-- Dynamic Content Panel -->
+                <article class="season-content-panel" id="season-content-panel" aria-live="polite">
+                    <div class="empty-state">
+                        <span class="emoji">👆</span>
+                        <h3>Select a season</h3>
+                        <p>Click on any wedge of the wheel to explore its characteristics.</p>
+                    </div>
+                    <!-- Content injected via JS -->
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Monsoon Section -->
+        <section class="monsoon-section" aria-labelledby="monsoon-title">
+            <div class="monsoon-container">
+                <h2 id="monsoon-title" class="section-title">The Lifeline of India: The Monsoons</h2>
+                
+                <div class="monsoon-grid">
+                    <article class="monsoon-card">
+                        <h3>🌊 Southwest Monsoon (June - Sept)</h3>
+                        <p>The primary rainy season for most of India. Driven by the intense heating of the Tibetan Plateau and the Indian subcontinent, it draws moisture-laden winds from the Indian Ocean. It splits into two branches: the Arabian Sea branch and the Bay of Bengal branch. It is vital for India's Kharif crops.</p>
+                    </article>
+                    
+                    <article class="monsoon-card">
+                        <h3>🌬️ Northeast Monsoon (Oct - Dec)</h3>
+                        <p>Often referred to as the 'Retreating Monsoon'. As the landmass cools, the wind direction reverses, blowing from the northeast. While it brings dry, cool air to most of the country, it picks up moisture over the Bay of Bengal, delivering heavy, crucial rainfall to the southeastern coast (Tamil Nadu and Andhra Pradesh).</p>
+                    </article>
+                </div>
+
+                <div class="climate-zones">
+                    <h3>Climate Zones Overview</h3>
+                    <p>Due to its vast geography, India experiences a wide range of climates:</p>
+                    <ul class="zones-list">
+                        <li><strong>Alpine & Mountainous:</strong> Himalayas (Freezing winters, cool summers).</li>
+                        <li><strong>Arid & Semi-Arid:</strong> Thar Desert and parts of the Deccan Plateau (Extreme heat, very low rainfall).</li>
+                        <li><strong>Tropical Wet:</strong> Western Ghats and Northeast India (Heavy year-round rainfall, high humidity).</li>
+                        <li><strong>Tropical Wet & Dry:</strong> Most of peninsular India (Distinct wet and dry seasons).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="climate-footer">
+        <p>Embrace the rhythm of nature. Explore India responsibly.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore the interactive Bird Sanctuaries Guide of India. Learn about major sanctuaries, migratory patterns, and wetland conservation."
+        />
+        <title>Bird Sanctuaries Guide | Incredible India</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                    <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                    <a href="index.html" class="nav-link active" id="link-birds">Bird Sanctuaries</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                        <div class="dropdown-menu">
+                            <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                            <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                            <a href="../monuments/monuments.html" class="dropdown-item">Monuments</a>
+                            <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+                        </div>
+                    </div>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main class="birds-page">
+            <section class="birds-hero">
+                <div class="hero-bg"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-container">
+                    <span class="hero-badge">Wildlife & Ecology</span>
+                    <h1>Bird Sanctuaries <span>Guide</span></h1>
+                    <p>
+                        Discover India's rich avian biodiversity. Explore critical wetland habitats, learn about the Central Asian Flyway, and trace the seasonal migration of millions of birds.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Educational Section -->
+            <section class="education-section">
+                <div class="edu-container glass-card">
+                    <div class="edu-grid">
+                        <div class="edu-item">
+                            <h3>🌍 The Central Asian Flyway</h3>
+                            <p>India lies at the heart of the Central Asian Flyway (CAF), a major migratory route spanning from the Arctic to the Indian Ocean. Millions of waterbirds use this route to escape harsh winters.</p>
+                        </div>
+                        <div class="edu-item">
+                            <h3>🦆 Wetland Conservation</h3>
+                            <p>Wetlands are the primary habitats for both resident and migratory birds. Designations like <strong>Ramsar Sites</strong> highlight wetlands of international importance critical for avian survival.</p>
+                        </div>
+                        <div class="edu-item">
+                            <h3>🦅 Endemic & Threatened</h3>
+                            <p>Sanctuaries play a vital role in protecting India's endemic species and globally threatened birds (like the Siberian Crane and Great Indian Bustard) from habitat loss and poaching.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="explorer-section">
+                <!-- Search & Filters -->
+                <div class="controls-container glass-card">
+                    <div class="search-box">
+                        <input type="text" id="bird-search" placeholder="Search by name, state, or bird species..." aria-label="Search bird sanctuaries">
+                    </div>
+                    <div class="filter-group" role="group" aria-label="Filter Sanctuaries">
+                        <button class="filter-btn active" data-filter="all">All Sanctuaries</button>
+                        <button class="filter-btn" data-filter="ramsar">Ramsar Sites</button>
+                        <button class="filter-btn" data-filter="migratory">Top Migratory Hubs</button>
+                    </div>
+                </div>
+
+                <!-- Sanctuaries Grid -->
+                <div class="sanctuaries-grid" id="sanctuaries-grid" aria-live="polite">
+                    <!-- Articles injected via JS -->
+                </div>
+                
+                <div id="no-results" class="no-results" hidden>
+                    <p>No sanctuaries match your search criteria. Try a different keyword or filter.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Wetlands Hub CTA -->
+        <section style="padding:40px 20px;background:var(--wetland-bg, linear-gradient(135deg, #0a1628, #0c1a2e));">
+            <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;background:var(--card-glass,rgba(15,23,42,0.5));backdrop-filter:blur(12px);border:1px solid var(--card-border,rgba(255,255,255,0.08));border-radius:20px;padding:36px 40px">
+                <div>
+                    <span style="display:inline-block;background:linear-gradient(135deg,#0d9488,#0284c7);color:#fff;padding:4px 14px;border-radius:12px;font-size:0.8rem;font-weight:600;margin-bottom:8px">🌿 New</span>
+                    <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:6px">Indian Wetlands Conservation Hub</h3>
+                    <p style="color:var(--text-sub,#94a3b8);max-width:500px">Discover the vital ecosystems that sustain India's biodiversity — from Ramsar sites to restoration projects, interactive quizzes, and more.</p>
+                </div>
+                <a href="../wetlands-conservation-hub/index.html" class="btn-primary" style="padding:14px 32px;background:linear-gradient(135deg,#0d9488,#0284c7);color:#fff;border:none;border-radius:12px;font-size:0.95rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:transform 0.2s ease,box-shadow 0.2s ease">Explore Wetlands Hub →</a>
+            </div>
+        </section>
+
+        <!-- Sanctuary Detail Modal -->
+        <div class="modal" id="sanctuary-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+            <div class="modal-backdrop"></div>
+            <div class="modal-content glass-card">
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+                <div class="modal-body" id="modal-body">
+                    <!-- Modal content injected via JS -->
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>
+                        An interactive digital guide to the geography, food, festivals, and cultural heritage of India.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+            </div>
+        </footer>
+
+        <script src="../../app.js" defer></script>
+        <script src="script.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

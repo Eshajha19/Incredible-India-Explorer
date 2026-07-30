@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Orang National Park Explorer - Discover the 'Mini Kaziranga', home to the One-Horned Rhinoceros and the Bengal Tiger in Assam." name="description"/>
+    <meta property="og:title" content="Orang National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Orang National Park, Assam's oldest game reserve turned national park, featuring rich wetland ecosystems and majestic rhinos."/>
+    
+    <title>Orang National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="orang-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Orang National Park",
+      "description": "Known as the Mini Kaziranga, this park in Assam is famous for its One-Horned Rhinoceros population and dense floodplain grasslands.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Assam",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="orang-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge kaziranga"><i class="fa-solid fa-leaf"></i> Mini Kaziranga</span>
+                    <span class="badge rhino"><i class="fa-solid fa-hippo"></i> One-Horned Rhino</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Assam</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Orang National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px; font-size: 1.1rem; line-height: 1.6;">
+                    Discover the "Mini Kaziranga" situated on the northern banks of the Brahmaputra River. Explore sprawling wetlands, floodplain grasslands, and a thriving population of rhinos and tigers.
+                </p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Explore Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Wetlands -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Heritage & Ecosystem</span>
+                    <h2>History & Wetlands</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Establishment</h3>
+                        <p>Established as a sanctuary in 1985 and declared a National Park in 1999. Orang holds a rich history and is an integral part of Assam's protected area network along the Brahmaputra.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> Floodplain Grasslands</h3>
+                        <p>The park's geography mimics Kaziranga, featuring marshes, streams, and grasslands that flood seasonally, providing an incredibly fertile ecosystem for flora and fauna.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-shield-cat"></i> Tiger Reserve</h3>
+                        <p>Recognized as a Tiger Reserve in 2016, Orang boasts a high density of Bengal Tigers, thriving on the robust prey base found within the dense vegetation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife -->
+        <section id="wildlife" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Fauna</span>
+                    <h2>Flagship Species</h2>
+                    <p class="section-subtitle">The iconic inhabitants of the Brahmaputra floodplains.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Indian_Rhinoceros.jpg/800px-Indian_Rhinoceros.jpg" alt="Indian Rhinoceros" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">One-Horned Rhinoceros</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>Orang contains a significant population of rhinos, carefully protected through intensive anti-poaching measures.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Panthera_tigris_tigris.jpg/800px-Panthera_tigris_tigris.jpg" alt="Bengal Tiger" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bengal Tiger</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Known for one of the highest densities of tigers in the country, preying on wild boars and deer.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pygmy_Hog.jpg/800px-Pygmy_Hog.jpg" alt="Pygmy Hog" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Pygmy Hog</h3>
+                            <span class="wildlife-status status-critically-endangered">Critically Endangered</span>
+                            <p>Reintroduced to Orang to save the world's smallest and rarest wild pig species.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Elephant_at_Kaziranga.jpg/800px-Elephant_at_Kaziranga.jpg" alt="Asian Elephant" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Asian Elephant</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Herds of elephants migrate through the park's forests and grasslands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Birdlife -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #03a9f4; color: white;">Avifauna</span>
+                    <h2>Birdlife of Orang</h2>
+                    <p class="section-subtitle">A paradise for birdwatchers and ornithologists.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Bengal_Florican_%28Houbaropsis_bengalensis%29.jpg/800px-Bengal_Florican_%28Houbaropsis_bengalensis%29.jpg" alt="Bengal Florican" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bengal Florican</h3>
+                            <span class="wildlife-status status-critically-endangered">Critically Endangered</span>
+                            <p>A rare bustard species that finds sanctuary in the tall grasslands of Orang.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Greater_Adjutant_%28Leptoptilos_dubius%29.jpg/800px-Greater_Adjutant_%28Leptoptilos_dubius%29.jpg" alt="Greater Adjutant" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Greater Adjutant Stork</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>A massive stork frequently seen foraging in the park's wetlands.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Spot-billed_Pelican_%28Pelecanus_philippensis%29.jpg/800px-Spot-billed_Pelican_%28Pelecanus_philippensis%29.jpg" alt="Spot-billed Pelican" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Spot-billed Pelican</h3>
+                            <span class="wildlife-status status-near-threatened">Near Threatened</span>
+                            <p>Thrives in the shallow water bodies formed during the monsoons.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/White-throated_Kingfisher_%28Halcyon_smyrnensis%29.jpg/800px-White-throated_Kingfisher_%28Halcyon_smyrnensis%29.jpg" alt="Kingfishers" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Kingfishers</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>Various species bring flashes of brilliant color to the river banks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation Details -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="conservation-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Conservation</span>
+                        <h2>Protecting Orang</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Preserving the intricate balance of the floodplain ecosystem requires ongoing effort and vigilance.</p>
+                    <ul>
+                        <li><strong>Anti-poaching Measures:</strong> Intense patrolling and surveillance to protect the rhino population.</li>
+                        <li><strong>Habitat Restoration:</strong> Managing invasive species and maintaining grassland health.</li>
+                        <li><strong>Community Participation:</strong> Engaging local communities in eco-tourism and wildlife protection.</li>
+                        <li><strong>Wildlife Monitoring:</strong> Utilizing camera traps and tracking for tiger and rhino populations.</li>
+                    </ul>
+                </div>
+                <div class="wetlands-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #1976d2; color: white;">Environment</span>
+                        <h2>Wetland Dynamics</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The Brahmaputra River defines the life cycle of Orang National Park.</p>
+                    <ul>
+                        <li><strong>Seasonal Flooding:</strong> Annual floods deposit nutrient-rich silt, rejuvenating the grasslands.</li>
+                        <li><strong>Water Bodies:</strong> Numerous beels (oxbow lakes) act as breeding grounds for fish and birds.</li>
+                        <li><strong>Ecological Balance:</strong> The wetland acts as a natural sponge, preventing severe downstream flooding.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Rhino Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Indian_Rhinoceros.jpg/800px-Indian_Rhinoceros.jpg" alt="One-Horned Rhinoceros">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Tiger Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Panthera_tigris_tigris.jpg/800px-Panthera_tigris_tigris.jpg" alt="Bengal Tiger">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetlands Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Orang_National_Park.jpg/800px-Orang_National_Park.jpg" alt="Wetland landscapes of Orang">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Birdlife Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Greater_Adjutant_%28Leptoptilos_dubius%29.jpg/800px-Greater_Adjutant_%28Leptoptilos_dubius%29.jpg" alt="Birdlife in the wetlands">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore the park boundaries, the Brahmaputra riverfront, and wildlife zones.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Orang National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="orang-national-park.js"></script>
+</body>
+</html>

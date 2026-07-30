@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Hanuman Tibba, a 5,982 m high peak in the Dhauladhar range of Himachal Pradesh. Discover facts, map locations, image gallery, and trek details.">
+    <title>Hanuman Tibba Mountain Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="hanuman-tibba.css">
+    <meta property="og:title" content="Hanuman Tibba Mountain Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Hanuman Tibba, a 5,982 m high peak in the Dhauladhar range of Himachal Pradesh. Discover facts, map locations, image gallery, and trek details.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/hanuman-tibba/hanuman-tibba.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hanuman Tibba Mountain Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Explore Hanuman Tibba, a 5,982 m high peak in the Dhauladhar range of Himachal Pradesh. Discover facts, map locations, image gallery, and trek details.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/hanuman-tibba/hanuman-tibba.html">
+</head>
+<body class="hanuman-tibba-body-wrapper">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="hanuman-tibba.html" class="nav-link active" style="color: var(--saffron)">Hanuman Tibba</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+    <main class="hanuman-tibba-page" id="app-root">
+        <section class="hanuman-tibba-hero">
+            <a href="../mountains/index.html" class="hanuman-tibba-back-link">← Back to Mountains</a>
+            <div class="hanuman-tibba-hero-inner">
+                <div class="hanuman-tibba-hero-content">
+                    <span class="hanuman-tibba-hero-kicker">🏔️ Dhauladhar Range, Himachal Pradesh</span>
+                    <h1>Hanuman Tibba <span>Explorer</span></h1>
+                    <p>Standing at 5,982 metres in the Dhauladhar range of Himachal Pradesh, Hanuman Tibba is the highest peak of the Dhauladhar and one of the most iconic mountains visible from Manali. Named after Lord Hanuman, the monkey god of Hindu mythology, this majestic peak towers over the Beas River valley and serves as a dramatic backdrop to the popular Solang Valley, drawing trekkers and mountaineers from across the globe.</p>
+                </div>
+                <div class="hanuman-tibba-hero-stats">
+                    <div class="hanuman-tibba-stat-box"><strong>5,982 m</strong><span>Peak Elevation</span></div>
+                    <div class="hanuman-tibba-stat-box"><strong>Himachal Pradesh</strong><span>State Location</span></div>
+                    <div class="hanuman-tibba-stat-box"><strong>Dhauladhar</strong><span>Mountain Range</span></div>
+                    <div class="hanuman-tibba-stat-box"><strong>Lord Hanuman</strong><span>Name Origin</span></div>
+                </div>
+            </div>
+        </section>
+        <section class="hanuman-tibba-section" id="hanuman-tibba-overview">
+            <div class="hanuman-tibba-container">
+                <div class="hanuman-tibba-section-heading">
+                    <span class="hanuman-tibba-section-badge">Peak Profile</span>
+                    <h2>Geography, History &amp; Significance</h2>
+                </div>
+                <div class="hanuman-tibba-overview-grid">
+                    <div class="hanuman-tibba-overview-text">
+                        <h3>The Abode of Hanuman</h3>
+                        <p>Hanuman Tibba stands at the western end of the Dhauladhar range, in the Kullu district of Himachal Pradesh. The peak dominates the skyline above Manali and the Solang Valley, its massive pyramid-shaped summit visible from nearly every vantage point in the Kullu Valley. The mountain's name translates to "Peak of Hanuman" in Hindi, honouring the Hindu monkey god who is said to have rested here during his mythical flight to Lanka.</p>
+                        <p>The Dhauladhar range forms the southern boundary of the Lahaul and Spiti district, rising abruptly from the lush green Kullu Valley. Hanuman Tibba, at 5,982 m, is the highest point of this range and feeds several glacial streams that flow into the Beas River. The mountain's north face is a dramatic wall of ice and rock, while its southern slopes descend through alpine meadows into the Solang Valley.</p>
+                        <p>The first recorded ascent was made in 1939 by a British expedition, and the peak has since become a popular objective for intermediate mountaineers seeking a challenging but accessible Himalayan summit. The mountain also holds spiritual significance for the local Himachali people, who consider it a sacred abode of Lord Hanuman.</p>
+                    </div>
+                    <div class="hanuman-tibba-overview-spec-card">
+                        <h3>Technical Specifications</h3>
+                        <ul class="ht-spec-list">
+                            <li><strong>Elevation:</strong> 5,982 m (19,626 ft)</li>
+                            <li><strong>Prominence:</strong> ~1,450 m</li>
+                            <li><strong>Coordinates:</strong> 32°21'N 77°10'E</li>
+                            <li><strong>Climbing Grade:</strong> Alpine PD+ (Peu Difficile)</li>
+                            <li><strong>First Ascent:</strong> 1939 (British Expedition)</li>
+                            <li><strong>District:</strong> Kullu, Himachal Pradesh</li>
+                            <li><strong>Valley:</strong> Beas / Solang</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hanuman-tibba-section" id="hanuman-tibba-facts-section">
+            <div class="hanuman-tibba-container">
+                <div class="hanuman-tibba-section-heading">
+                    <span class="hanuman-tibba-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="hanuman-tibba-fact-panel">
+                    <div class="hanuman-tibba-fact-icon">💡</div>
+                    <div class="hanuman-tibba-fact-nav">
+                        <button class="hanuman-tibba-fact-nav-btn" id="hanuman-tibba-fact-prev" aria-label="Previous fact">‹</button>
+                        <p id="hanuman-tibba-fact-text" aria-live="polite">Loading fact...</p>
+                        <button class="hanuman-tibba-fact-nav-btn" id="hanuman-tibba-fact-next" aria-label="Next fact">›</button>
+                    </div>
+                    <div class="hanuman-tibba-fact-dots" id="hanuman-tibba-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+        <section class="hanuman-tibba-section" id="hanuman-tibba-trekking">
+            <div class="hanuman-tibba-container">
+                <div class="hanuman-tibba-section-heading">
+                    <span class="hanuman-tibba-section-badge">Trekking Guide</span>
+                    <h2>Routes, Camps &amp; Conditions</h2>
+                    <p>Essential information for planning a safe and rewarding Hanuman Tibba trek or summit attempt.</p>
+                </div>
+                <div class="hanuman-tibba-trek-grid">
+                    <div class="hanuman-tibba-trek-card">
+                        <div class="hanuman-tibba-trek-icon">🥾</div>
+                        <h3>Base Route</h3>
+                        <p>The standard approach begins from Solang Valley near Manali, trekking through alpine meadows and moraine fields to reach the base camp at approximately 4,200 m on the Beas Glacier. The trail passes through dense pine forests before emerging onto open grazing lands used by local Gaddi shepherds.</p>
+                    </div>
+                    <div class="hanuman-tibba-trek-card">
+                        <div class="hanuman-tibba-trek-icon">⛺</div>
+                        <h3>Camp Strategy</h3>
+                        <p>A two-camp structure is typical: Camp 1 at ~4,800 m on the glacier moraine below the southwest face, and Camp 2 at ~5,400 m on the upper snowfield. Summit attempts begin before dawn from Camp 2 to take advantage of firm, frozen snow conditions and stable early morning weather.</p>
+                    </div>
+                    <div class="hanuman-tibba-trek-card">
+                        <div class="hanuman-tibba-trek-icon">🗓️</div>
+                        <h3>Best Season</h3>
+                        <p>June–September offers the most stable weather for climbing. The Dhauladhar range receives heavy snowfall in winter and early spring, making the approach extremely dangerous. Late June to mid-July and late August to September provide the best weather windows with clear skies and firm snow conditions.</p>
+                    </div>
+                    <div class="hanuman-tibba-trek-card">
+                        <div class="hanuman-tibba-trek-icon">📋</div>
+                        <h3>Permits &amp; Logistics</h3>
+                        <p>A trekking permit from the District Magistrate's office in Manali is required. Registration at the forest checkpost near Solang Valley is mandatory. All supplies must be carried from Manali, which is approximately 14 km from the trailhead. Local guides and porters can be hired in Manali town.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hanuman-tibba-section" id="hanuman-tibba-map-section">
+            <div class="hanuman-tibba-container">
+                <div class="hanuman-tibba-section-heading">
+                    <span class="hanuman-tibba-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Hanuman Tibba</h2>
+                    <p>Hover over markers for details. Click to expand full description.</p>
+                </div>
+                <div class="hanuman-tibba-map-wrap">
+                    <div id="hanuman-tibba-map" aria-label="Interactive Leaflet Map showing Hanuman Tibba and surrounding landmarks"></div>
+                </div>
+                <div class="hanuman-tibba-map-legend">
+                    <span class="hanuman-tibba-legend-item"><span class="hanuman-tibba-legend-dot peak"></span> Summit</span>
+                    <span class="hanuman-tibba-legend-item"><span class="hanuman-tibba-legend-dot landmark"></span> Landmark</span>
+                </div>
+            </div>
+        </section>
+        <section class="hanuman-tibba-section" id="hanuman-tibba-gallery-section">
+            <div class="hanuman-tibba-container">
+                <div class="hanuman-tibba-section-heading">
+                    <span class="hanuman-tibba-section-badge">Image Gallery</span>
+                    <h2>Views of the Dhauladhar &amp; Kullu Valley</h2>
+                    <p>Explore the peaks and valleys of the Beas River system. Click an image to view it larger.</p>
+                </div>
+                <div id="hanuman-tibba-gallery-grid" class="hanuman-tibba-gallery-grid"></div>
+            </div>
+        </section>
+        <section class="hanuman-tibba-section" id="hanuman-tibba-nearby-section">
+            <div class="hanuman-tibba-container">
+                <div class="hanuman-tibba-section-heading">
+                    <span class="hanuman-tibba-section-badge">Nearby Attractions</span>
+                    <h2>Explore the Surrounding Region</h2>
+                    <p>Discover remarkable destinations within reach of the Hanuman Tibba area.</p>
+                </div>
+                <div class="hanuman-tibba-nearby-grid">
+                    <div class="hanuman-tibba-nearby-card">
+                        <div class="hanuman-tibba-nearby-icon">⛷️</div>
+                        <h3>Solang Valley</h3>
+                        <p>A popular adventure sports destination at 2,560 m near Manali, offering paragliding, skiing, and zip-lining. It serves as the primary base camp for Hanuman Tibba treks and provides stunning views of the Dhauladhar range.</p>
+                        <span class="hanuman-tibba-nearby-distance">~14 km away</span>
+                    </div>
+                    <div class="hanuman-tibba-nearby-card">
+                        <div class="hanuman-tibba-nearby-icon">🏔️</div>
+                        <h3>Rohtang Pass</h3>
+                        <p>A high mountain pass at 3,978 m connecting the Kullu Valley to the Lahaul-Spiti valley. Famous for its snow-covered landscape and panoramic views of surrounding peaks including Hanuman Tibba.</p>
+                        <span class="hanuman-tibba-nearby-distance">~51 km away</span>
+                    </div>
+                    <div class="hanuman-tibba-nearby-card">
+                        <div class="hanuman-tibba-nearby-icon">🏯</div>
+                        <h3>Hadimba Temple</h3>
+                        <p>An ancient cave temple dedicated to Goddess Hadimba, surrounded by a cedar forest in Manali. Built in 1553, it is one of the most visited temples in Himachal Pradesh.</p>
+                        <span class="hanuman-tibba-nearby-distance">~15 km away</span>
+                    </div>
+                    <div class="hanuman-tibba-nearby-card">
+                        <div class="hanuman-tibba-nearby-icon">🏔️</div>
+                        <h3>Deo Tibba</h3>
+                        <p>A 6,001 m peak adjacent to Hanuman Tibba in the Pir Panjal range, visible from the Solang Valley approach. A popular climbing objective for those seeking a more challenging summit.</p>
+                        <span class="hanuman-tibba-nearby-distance">~25 km away</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hanuman-tibba-section" id="hanuman-tibba-faq-section">
+            <div class="hanuman-tibba-container">
+                <div class="hanuman-tibba-section-heading">
+                    <span class="hanuman-tibba-section-badge">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="hanuman-tibba-faq-container" id="hanuman-tibba-faq-accordion"></div>
+            </div>
+        </section>
+    </main>
+    <div class="hanuman-tibba-lightbox-overlay" id="hanuman-tibba-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="hanuman-tibba-lightbox-content">
+            <button class="hanuman-tibba-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="hanuman-tibba-lightbox-nav prev" id="hanuman-tibba-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="hanuman-tibba-lightbox-image" src="" alt="">
+            <button class="hanuman-tibba-lightbox-nav next" id="hanuman-tibba-lightbox-next" aria-label="Next image">›</button>
+            <p class="hanuman-tibba-lightbox-caption" id="hanuman-tibba-lightbox-caption"></p>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo footer-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage. Explore the diverse beauty of Incredible India.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook" class="footer-social-link">f</a>
+                    <a href="#" aria-label="Twitter" class="footer-social-link">𝕏</a>
+                    <a href="#" aria-label="Instagram" class="footer-social-link">📷</a>
+                    <a href="#" aria-label="YouTube" class="footer-social-link">▶</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../mountain-expedition/index.html">Mountain Expedition</a>
+                <a href="../mountains/index.html">Mountains of India</a>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+            </div>
+            <div class="footer-links">
+                <h4>Mountain Pages</h4>
+                <a href="hanuman-tibba.html">Hanuman Tibba</a>
+                <a href="../indrasan/indrasan.html">Indrasan</a>
+                <a href="../kanchenjunga/kanchenjunga.html">Kangchenjunga</a>
+                <a href="../nanda-devi/nanda-devi.html">Nanda Devi</a>
+            </div>
+            <div class="footer-links">
+                <h4>More</h4>
+                <a href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+                <a href="../coastal-india/coastal-india.html">Coastal India</a>
+                <a href="../heritage/heritage.html">Heritage Sites</a>
+                <a href="../../login.html">Login</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Developed with Vanilla Web Tech.</p>
+        </div>
+    </footer>
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="hanuman-tibba.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

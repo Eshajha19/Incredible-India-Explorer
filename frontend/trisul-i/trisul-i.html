@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Trisul I Mountain, a 7,120 m high peak in the Garhwal Himalayas of Uttarakhand. Discover facts, map locations, image gallery, and climb details.">
+    <title>Trisul I Mountain Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="trisul-i.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Trisul I Mountain Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Trisul I Mountain, a 7,120 m high peak in the Garhwal Himalayas of Uttarakhand. Discover facts, map locations, image gallery, and climb details.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Time_lapse_shot_of_Trishul_peak.jpg/960px-Time_lapse_shot_of_Trishul_peak.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/trisul-i/trisul-i.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trisul I Mountain Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Explore Trisul I Mountain, a 7,120 m high peak in the Garhwal Himalayas of Uttarakhand. Discover facts, map locations, image gallery, and climb details.">
+    <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Time_lapse_shot_of_Trishul_peak.jpg/960px-Time_lapse_shot_of_Trishul_peak.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/trisul-i/trisul-i.html">
+</head>
+
+<body class="trisul-i-body-wrapper">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="trisul-i.html" class="nav-link active" style="color: var(--saffron)">Trisul I</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="trisul-i-page" id="app-root">
+        <!-- Hero Section -->
+        <section class="trisul-i-hero">
+            <div class="trisul-i-hero-content">
+                <a href="../mountains/index.html" class="trisul-i-back-link">← Back to Mountains Explorer</a>
+                <span class="trisul-i-hero-kicker">🏔️ Garhwal Himalayas</span>
+                <h1>Trisul I <span>Explorer</span></h1>
+                <p>Standing majestically at 7,120 meters, Trisul I is the highest of the three iconic peaks named after Lord Shiva's trident. It holds a legendary place in mountaineering history as the first 7,000-meter peak ever to be climbed, marking a golden milestone in Himalayan exploration.</p>
+
+                <div class="trisul-i-hero-stats">
+                    <div class="trisul-i-stat-box">
+                        <strong>7,120 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="trisul-i-stat-box">
+                        <strong>Uttarakhand</strong>
+                        <span>State Location</span>
+                    </div>
+                    <div class="trisul-i-stat-box">
+                        <strong>Garhwal Himalayas</strong>
+                        <span>Mountain Range</span>
+                    </div>
+                    <div class="trisul-i-stat-box">
+                        <strong>First 7,000er</strong>
+                        <span>Climbing Milestone</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="trisul-i-section" id="trisul-i-overview">
+            <div class="trisul-i-container">
+                <div class="trisul-i-section-heading">
+                    <span class="trisul-i-section-badge">Peak Profile</span>
+                    <h2>Geography, History &amp; Significance</h2>
+                </div>
+                
+                <div class="trisul-i-overview-grid">
+                    <div class="trisul-i-overview-text">
+                        <h3>The Trident of Shiva</h3>
+                        <p>Trisul I is the highest of the three Trisul massif peaks in the Kumaon region of the Garhwal Himalayas, Uttarakhand. The three peaks — Trisul I (7,120 m), Trisul II (6,690 m), and Trisul III (6,008 m) — form a striking silhouette resembling Lord Shiva's trident, after which they are named.</p>
+                        <p>The mountain is located in the Nanda Devi Biosphere Reserve, surrounded by pristine alpine meadows and glaciers. Its prominence and relatively accessible route made it a target for early Himalayan mountaineering, leading to its historic first ascent in 1907.</p>
+                        <p>Today, Trisul I remains a sought destination for experienced trekkers and climbers. The standard route approaches via the Pindari Glacier and offers breathtaking views of the surrounding Kumaon peaks, including Nanda Devi, Nanda Kot, and Panchachuli.</p>
+                    </div>
+                    <div class="trisul-i-overview-spec-card">
+                        <h3>Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Elevation:</strong> 7,120 m (23,360 ft)</li>
+                            <li><strong>Prominence:</strong> 1,586 m (5,203 ft)</li>
+                            <li><strong>Coordinates:</strong> 30°18'44"N 79°46'35"E</li>
+                            <li><strong>Climbing Difficulty:</strong> Hard / Technical</li>
+                            <li><strong>First Ascent:</strong> June 12, 1907</li>
+                            <li><strong>Expedition Team:</strong> T.G. Longstaff &amp; Party</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trekking Information Section -->
+        <section class="trisul-i-section" id="trisul-i-trekking-section">
+            <div class="trisul-i-container">
+                <div class="trisul-i-section-heading">
+                    <span class="trisul-i-section-badge">Trekking Information</span>
+                    <h2>Plan Your Trisul Expedition</h2>
+                    <p>Essential details for trekkers and mountaineers planning to explore the Trisul massif region.</p>
+                </div>
+                <div class="trisul-i-trekking-grid">
+                    <div class="trisul-i-trek-card">
+                        <div class="trisul-i-trek-icon">🗓️</div>
+                        <h3>Best Season</h3>
+                        <p>May to June and September to October. The post-monsoon months offer clear skies and stable weather, while pre-monsoon provides moderate temperatures.</p>
+                    </div>
+                    <div class="trisul-i-trek-card">
+                        <div class="trisul-i-trek-icon">🥾</div>
+                        <h3>Trek Difficulty</h3>
+                        <p>Moderate to Difficult. The trek involves high-altitude hiking above 4,000 m with steep moraine sections. Prior Himalayan trekking experience is recommended.</p>
+                    </div>
+                    <div class="trisul-i-trek-card">
+                        <div class="trisul-i-trek-icon">⏱️</div>
+                        <h3>Duration</h3>
+                        <p>The Pindari Glacier trek typically takes 7–10 days round trip from Munsiyari, covering a distance of approximately 90 km with gradual altitude gain.</p>
+                    </div>
+                    <div class="trisul-i-trek-card">
+                        <div class="trisul-i-trek-icon">🏕️</div>
+                        <h3>Base Camp</h3>
+                        <p>Munsiyari (2,200 m) serves as the gateway. The trek proceeds through Khati village, Dwali, and Phurkia before reaching the Pindari Glacier snout.</p>
+                    </div>
+                    <div class="trisul-i-trek-card">
+                        <div class="trisul-i-trek-icon">📋</div>
+                        <h3>Permits</h3>
+                        <p>Trekking permits are required from the Forest Department in Munsiyari. The area falls within the Nanda Devi Biosphere Reserve, and entry fees apply.</p>
+                    </div>
+                    <div class="trisul-i-trek-card">
+                        <div class="trisul-i-trek-icon">🏔️</div>
+                        <h3>Key Highlights</h3>
+                        <p>Panoramic views of Trisul I, Nanda Devi, Nanda Kot, and Panchachuli peaks. The trek passes through dense rhododendron forests and alpine meadows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facts Section -->
+        <section class="trisul-i-section" id="trisul-i-facts-section">
+            <div class="trisul-i-container">
+                <div class="trisul-i-section-heading">
+                    <span class="trisul-i-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="trisul-i-fact-panel">
+                    <div class="trisul-i-fact-icon">💡</div>
+                    <p id="trisul-i-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="trisul-i-fact-dots" id="trisul-i-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="trisul-i-section" id="trisul-i-map-section">
+            <div class="trisul-i-container">
+                <div class="trisul-i-section-heading">
+                    <span class="trisul-i-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Trisul I</h2>
+                    <p>Click on any marker to learn about that geographic landmark.</p>
+                </div>
+                <div class="trisul-i-map-wrap">
+                    <div id="trisul-i-map" aria-label="Interactive Leaflet Map showing Trisul I and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="trisul-i-section" id="trisul-i-gallery-section">
+            <div class="trisul-i-container">
+                <div class="trisul-i-section-heading">
+                    <span class="trisul-i-section-badge">Image Gallery</span>
+                    <h2>Views of the Massif &amp; Kumaon Range</h2>
+                    <p>Explore the stunning peaks and valleys of Uttarakhand. Click an image to view it larger.</p>
+                </div>
+                <div id="trisul-i-gallery-grid" class="trisul-i-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="trisul-i-section" id="trisul-i-faq-section">
+            <div class="trisul-i-container">
+                <div class="trisul-i-section-heading">
+                    <span class="trisul-i-section-badge">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="trisul-i-faq-container" id="trisul-i-faq-accordion">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="trisul-i-lightbox-overlay" id="trisul-i-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="trisul-i-lightbox-content">
+            <button class="trisul-i-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="trisul-i-lightbox-nav prev" id="trisul-i-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="trisul-i-lightbox-image" src="" alt="">
+            <button class="trisul-i-lightbox-nav next" id="trisul-i-lightbox-next" aria-label="Next image">›</button>
+            <p class="trisul-i-lightbox-caption" id="trisul-i-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../mountains/index.html">Mountains Explorer</a>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="trisul-i.html">Trisul I Explorer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Developed with Vanilla Web Tech.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Local Javascript Module -->
+    <script type="module" src="trisul-i.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

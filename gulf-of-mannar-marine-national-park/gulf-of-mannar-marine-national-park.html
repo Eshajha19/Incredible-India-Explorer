@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Gulf of Mannar Marine National Park Explorer - Discover India's first marine biosphere reserve, home to coral reefs, dugongs, and dolphins." name="description"/>
+    <meta property="og:title" content="Gulf of Mannar Marine National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore the Gulf of Mannar, featuring 21 islands, vibrant coral reefs, and critical habitats for the endangered Dugong (Sea Cow)."/>
+    
+    <title>Gulf of Mannar Marine National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="gulf-of-mannar-marine-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Gulf of Mannar Marine National Park",
+      "description": "India's first Marine Biosphere Reserve, renowned for its coral reefs, seagrass beds, and population of Dugongs.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="marine-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge marine"><i class="fa-solid fa-water"></i> 1st Marine Biosphere Reserve</span>
+                    <span class="badge unesco"><i class="fa-solid fa-globe"></i> UNESCO Biosphere</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Tamil Nadu</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Gulf of Mannar Marine National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 700px; font-size: 1.1rem; line-height: 1.6;">
+                    Dive into a mesmerizing coastal ecosystem comprising 21 islands, vibrant coral reefs, and lush seagrass beds. A sanctuary for the gentle Dugong and playful dolphins.
+                </p>
+                <div class="hero-actions">
+                    <a href="#marine-life" class="btn btn-primary ripple">Explore Marine Life</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marine Ecosystem & Coral Reefs -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Ecosystem</span>
+                    <h2>Coastal & Coral Ecology</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-droplet"></i> Ocean Currents</h3>
+                        <p>The gulf acts as a mixing zone for currents from the Indian Ocean and the Bay of Bengal, creating a nutrient-rich environment that supports massive marine biodiversity.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-disease"></i> Coral Reef Ecosystem</h3>
+                        <p>Housing over 100 species of hard corals, these reefs act as critical nurseries for reef fish and invertebrates. Active restoration projects are combatting climate change impacts.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-seedling"></i> Seagrass Beds (Blue Carbon)</h3>
+                        <p>The extensive seagrass meadows trap massive amounts of carbon (Blue Carbon), protect the coast from erosion, and serve as the primary feeding ground for Dugongs.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-umbrella-beach"></i> The 21 Islands</h3>
+                        <p>An archipelago stretching from Rameswaram to Tuticorin. These islands feature pristine sandy beaches, mangrove forests, and crucial nesting sites for marine turtles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marine Life / Fauna -->
+        <section id="marine-life" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Marine Fauna</span>
+                    <h2>Denizens of the Deep</h2>
+                    <p class="section-subtitle">Discover the incredible species that call the Gulf of Mannar home.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Dugong_Marsa_Alam.jpg/800px-Dugong_Marsa_Alam.jpg" alt="Dugong (Sea Cow)" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Dugong (Sea Cow)</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>Gentle marine mammals that graze exclusively on the park's seagrass meadows. Highly protected under recovery initiatives.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Tursiops_aduncus%2C_Mikura_Island.jpg/800px-Tursiops_aduncus%2C_Mikura_Island.jpg" alt="Indo-Pacific Bottlenose Dolphin" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bottlenose Dolphin</h3>
+                            <span class="wildlife-status status-near-threatened">Near Threatened</span>
+                            <p>Highly intelligent and social, frequently sighted playing in the wakes of boats near the Tuticorin coast.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Stenella_longirostris_no_font.png/800px-Stenella_longirostris_no_font.png" alt="Spinner Dolphin" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Spinner Dolphin</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>Known for their spectacular acrobatic displays and spinning leaps out of the water.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Green_Sea_Turtle_grazing_seagrass.jpg/800px-Green_Sea_Turtle_grazing_seagrass.jpg" alt="Green Sea Turtle" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Green Sea Turtle</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Utilizes the isolated sandy beaches of the 21 islands as vital nesting grounds during breeding season.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Clownfish_%28Amphiprion_ocellaris%29.jpg/800px-Clownfish_%28Amphiprion_ocellaris%29.jpg" alt="Reef Fish" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Reef Fish</h3>
+                            <span class="wildlife-status status-least-concern">Various</span>
+                            <p>Hundreds of colorful tropical species navigate the complex architecture of the hard and soft corals.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Acropora_cervicornis.jpg/800px-Acropora_cervicornis.jpg" alt="Hard Corals" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Hard Corals</h3>
+                            <span class="wildlife-status status-critical">Threatened</span>
+                            <p>The reef-builders of the ecosystem, highly sensitive to climate change and ocean warming.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation Details -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="dugong-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #0288d1; color: white;">Dugongs</span>
+                        <h2>The Sea Cow Sanctuary</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The Gulf of Mannar is the last major stronghold for the Dugong in Indian waters.</p>
+                    <ul>
+                        <li><strong>Feeding:</strong> They can consume up to 40kg of seagrass daily, creating 'feeding trails' on the ocean floor.</li>
+                        <li><strong>Migration:</strong> Generally localized, but they track the health and availability of seagrass meadows.</li>
+                        <li><strong>Threats:</strong> Propeller strikes, entanglement in fishing nets, and habitat degradation.</li>
+                    </ul>
+                </div>
+                <div class="conservation-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Management</span>
+                        <h2>Conservation & Community</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Protecting a marine biosphere requires a multifaceted approach involving local populations.</p>
+                    <ul>
+                        <li><strong>Reef Restoration:</strong> Utilizing artificial reef modules to encourage coral polyp settlement and growth.</li>
+                        <li><strong>Sustainable Fishing:</strong> Educating coastal communities and enforcing seasonal fishing bans.</li>
+                        <li><strong>Plastic Reduction:</strong> Initiatives to clean the beaches and prevent marine debris from choking the corals and turtles.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Underwater Visuals</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Marine Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Coral Reef Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gulf_of_Mannar_Marine_National_Park.jpg/800px-Gulf_of_Mannar_Marine_National_Park.jpg" alt="Vibrant Coral Reefs">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Dugong Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Dugong_Marsa_Alam.jpg/800px-Dugong_Marsa_Alam.jpg" alt="Dugong grazing on seagrass">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Dolphin Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Tursiops_aduncus%2C_Mikura_Island.jpg/800px-Tursiops_aduncus%2C_Mikura_Island.jpg" alt="Dolphins swimming near the surface">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Seagrass Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Green_Sea_Turtle_grazing_seagrass.jpg/800px-Green_Sea_Turtle_grazing_seagrass.jpg" alt="Seagrass bed ecosystem">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore the 21 islands, coral zones, and dolphin sighting areas.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Gulf of Mannar Marine National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="gulf-of-mannar-marine-national-park.js"></script>
+</body>
+</html>

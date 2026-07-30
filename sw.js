@@ -13,6 +13,11 @@ const CACHE_NAME_STATIC = `india-explorer-static-${CACHE_VERSION}`;
 const CACHE_NAME_PAGES = `india-explorer-pages-${CACHE_VERSION}`;
 const CACHE_NAME_IMAGES = `india-explorer-images-${CACHE_VERSION}`;
 const CACHE_NAME_SHELL = `india-explorer-shell-${CACHE_VERSION}`;
+// Deliberately NOT suffixed with CACHE_VERSION: user-initiated offline
+// region downloads (see "10. OFFLINE REGION DOWNLOAD MANAGER" below)
+// should survive app/service-worker updates instead of being wiped by the
+// activate handler's version cleanup like the regular runtime caches.
+const CACHE_NAME_REGIONS = 'india-explorer-regions';
 
 // Static resources to cache immediately on worker installation
 const STATIC_ASSETS_TO_PRECACHE = [
@@ -26,7 +31,8 @@ const STATIC_ASSETS_TO_PRECACHE = [
   './offline.html',
   './sw-register.js',
   './router.js',
-  './assets/hero_banner.png'
+  './assets/hero_banner.png',
+  './data/regions/index.json'
 ];
 
 // Max items allowed in dynamic caches to prevent storage overflow
@@ -196,9 +202,13 @@ self.addEventListener('activate', event => {
         await Promise.all(
           cacheNames.map(name => {
             // Delete anything not matching the current version.
-            // Keep third-party caches intact.
+            // Keep third-party caches intact, and always keep the
+            // unversioned offline-region-downloads cache — it's cleared
+            // only by explicit user action (DELETE_REGION), never by a
+            // version bump.
             const isOurCache = name.startsWith(projectCachePrefix);
-            if (isOurCache && !expectedCaches.includes(name)) {
+            const isRegionCache = name === CACHE_NAME_REGIONS;
+            if (isOurCache && !isRegionCache && !expectedCaches.includes(name)) {
               logger.debug(`Deleting old cache repository: ${name}`);
               return caches.delete(name);
             }
@@ -545,7 +555,41 @@ self.addEventListener('message', event => {
               event.ports[0].postMessage({ status: 'SUCCESS', count: queueSize });
             }
             break;
-            
+
+          case 'DOWNLOAD_REGION':
+            if (data.payload && data.payload.regionId && Array.isArray(data.payload.files)) {
+              const result = await downloadRegionFiles(data.payload.regionId, data.payload.version, data.payload.files, event.source);
+              if (event.ports && event.ports[0]) {
+                event.ports[0].postMessage({ status: 'SUCCESS', region: result });
+              }
+            }
+            break;
+
+          case 'DELETE_REGION':
+            if (data.payload && data.payload.regionId) {
+              await deleteRegion(data.payload.regionId);
+              if (event.ports && event.ports[0]) {
+                event.ports[0].postMessage({ status: 'SUCCESS', regionId: data.payload.regionId });
+              }
+            }
+            break;
+
+          case 'GET_REGION_STATUS':
+            if (data.payload && data.payload.regionId) {
+              const record = await getRegionRecord(data.payload.regionId);
+              if (event.ports && event.ports[0]) {
+                event.ports[0].postMessage({ status: 'SUCCESS', record });
+              }
+            }
+            break;
+
+          case 'GET_ALL_REGION_STATUSES':
+            const allRecords = await getAllRegionRecords();
+            if (event.ports && event.ports[0]) {
+              event.ports[0].postMessage({ status: 'SUCCESS', records: allRecords });
+            }
+            break;
+
           default:
             logger.warn(`Unrecognized message action received: ${data.action}`);
             break;
@@ -702,6 +746,167 @@ async function processSyncQueue() {
       throw err;
     }
   }
+}
+
+// ==========================================================================
+// 7.5 OFFLINE REGION DOWNLOAD MANAGER
+// ==========================================================================
+//
+// Backs the "Implement Offline Region Download for Destination
+// Exploration" feature. Each downloaded region's files (its data JSON +
+// hero image, see js-modules/offline-region-engine.js) are cached in the
+// dedicated, unversioned CACHE_NAME_REGIONS cache, and a manifest record
+// per region (which files, which version, download timestamp, approx.
+// size) is kept in IndexedDB so the page can list/update/delete regions
+// without re-reading Cache Storage entry-by-entry.
+
+/**
+ * Opens (or creates) the offline region manifest IndexedDB database.
+ * Schema: store 'regions', keyPath 'regionId'.
+ */
+function openRegionsDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('IndiaExplorerOfflineRegions', 1);
+
+    request.onupgradeneeded = function (event) {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains('regions')) {
+        db.createObjectStore('regions', { keyPath: 'regionId' });
+      }
+    };
+
+    request.onsuccess = function () {
+      resolve(request.result);
+    };
+
+    request.onerror = function () {
+      reject(request.error);
+    };
+  });
+}
+
+async function putRegionRecord(record) {
+  const db = await openRegionsDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('regions', 'readwrite');
+    tx.objectStore('regions').put(record);
+    tx.oncomplete = () => resolve(record);
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+async function getRegionRecord(regionId) {
+  const db = await openRegionsDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('regions', 'readonly');
+    const req = tx.objectStore('regions').get(regionId);
+    req.onsuccess = () => resolve(req.result || null);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function getAllRegionRecords() {
+  const db = await openRegionsDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('regions', 'readonly');
+    const cursor = tx.objectStore('regions').openCursor();
+    const items = [];
+    cursor.onsuccess = (event) => {
+      const cur = event.target.result;
+      if (cur) {
+        items.push(cur.value);
+        cur.continue();
+      } else {
+        resolve(items);
+      }
+    };
+    cursor.onerror = () => reject(tx.error);
+  });
+}
+
+async function deleteRegionRecord(regionId) {
+  const db = await openRegionsDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('regions', 'readwrite');
+    tx.objectStore('regions').delete(regionId);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+/**
+ * Fetches and caches every file in `files` (each `{url, type}`, see
+ * OfflineRegionEngine#buildDownloadManifest/#diffForUpdate) into
+ * CACHE_NAME_REGIONS, reporting per-file progress to `client` (the page
+ * that requested the download) so it can render a progress bar. Files
+ * already cached from a prior partial download are re-verified (fetched
+ * again) rather than skipped, since `files` is expected to already be
+ * the diffed "what's missing/changed" list from the caller.
+ * On completion, upserts an IndexedDB manifest record for the region and
+ * returns it.
+ */
+async function downloadRegionFiles(regionId, version, files, client) {
+  const cache = await caches.open(CACHE_NAME_REGIONS);
+  const existing = await getRegionRecord(regionId);
+  const cachedFiles = new Set((existing && existing.files) || []);
+  let sizeBytes = existing ? existing.sizeBytes || 0 : 0;
+  let completed = 0;
+
+  const notifyProgress = () => {
+    if (client && client.postMessage) {
+      client.postMessage({
+        type: 'REGION_DOWNLOAD_PROGRESS',
+        regionId,
+        completed,
+        total: files.length
+      });
+    }
+  };
+
+  notifyProgress();
+
+  for (const file of files) {
+    try {
+      const response = await fetch(file.url);
+      if (response.status === 200) {
+        const contentLength = Number(response.headers.get('content-length')) || 0;
+        await cache.put(file.url, response.clone());
+        cachedFiles.add(file.url);
+        sizeBytes += contentLength;
+      } else {
+        logger.warn(`Region download: non-200 response for ${file.url} (${response.status})`);
+      }
+    } catch (err) {
+      logger.error(`Region download failed for ${file.url}`, err);
+    }
+    completed++;
+    notifyProgress();
+  }
+
+  const record = {
+    regionId,
+    version,
+    files: [...cachedFiles],
+    downloadedAt: Date.now(),
+    sizeBytes
+  };
+  await putRegionRecord(record);
+
+  if (client && client.postMessage) {
+    client.postMessage({ type: 'REGION_DOWNLOAD_COMPLETE', regionId, record });
+  }
+
+  return record;
+}
+
+/** Removes every cached file for a region and its IndexedDB manifest record. */
+async function deleteRegion(regionId) {
+  const record = await getRegionRecord(regionId);
+  if (record && record.files) {
+    const cache = await caches.open(CACHE_NAME_REGIONS);
+    await Promise.all(record.files.map((url) => cache.delete(url)));
+  }
+  await deleteRegionRecord(regionId);
 }
 
 // ==========================================================================

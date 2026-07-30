@@ -1,0 +1,534 @@
+/* style.css - The Complete Indian Freedom Movement Explorer Styles */
+
+:root {
+  --free-saffron: #f97316;
+  --free-gold: #eab308;
+  --free-blue: #3b82f6;
+  --free-green: #10b981;
+  --free-purple: #a855f7;
+  --free-card-bg: rgba(255, 255, 255, 0.04);
+  --free-border: rgba(255, 255, 255, 0.1);
+  --free-text: #f3f4f6;
+  --free-muted: #9ca3af;
+}
+
+body.freedom-body {
+  background-color: #0b0f19;
+  color: var(--free-text);
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.freedom-page {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.freedom-hero {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(11, 15, 25, 1) 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--free-border);
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-kicker {
+  display: inline-block;
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--free-saffron);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+.hero-content h1 span {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--free-gold);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+.hero-content p {
+  color: var(--free-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.freedom-workspace {
+  padding: 40px 20px 80px;
+}
+
+.freedom-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Stats Strip */
+.freedom-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.stat-box {
+  background: var(--free-card-bg);
+  border: 1px solid var(--free-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--free-saffron);
+  margin-bottom: 4px;
+}
+
+.stat-lbl {
+  font-size: 0.88rem;
+  color: var(--free-muted);
+}
+
+/* Tab Navigation */
+.freedom-tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--free-border);
+  margin-bottom: 32px;
+}
+
+.freedom-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--free-muted);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.freedom-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.freedom-tab-btn.active {
+  background: var(--free-saffron);
+  color: #ffffff;
+}
+
+.freedom-tab-pane {
+  display: none;
+}
+
+.freedom-tab-pane.active {
+  display: block;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.section-title p {
+  color: var(--free-muted);
+  margin: 0;
+}
+
+/* Timeline Toolbar */
+.timeline-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+  align-items: center;
+}
+
+.search-wrapper {
+  flex: 1;
+  min-width: 280px;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--free-border);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.filter-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.free-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--free-border);
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}
+
+/* Timeline Cards */
+.timeline-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.freedom-event-card {
+  background: var(--free-card-bg);
+  border: 1px solid var(--free-border);
+  border-left: 4px solid var(--free-saffron);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.freedom-event-card:hover {
+  border-color: var(--free-saffron);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+}
+
+.movement-badge {
+  background: rgba(249, 115, 22, 0.2);
+  color: var(--free-saffron);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.phase-badge {
+  color: var(--free-muted);
+}
+
+.event-headline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.event-year {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--free-gold);
+  font-size: 1.4rem;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--free-border);
+}
+
+.event-headline h3 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.event-meta {
+  font-size: 0.85rem;
+  color: var(--free-muted);
+}
+
+.event-desc {
+  color: #d1d5db;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.leaders-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.leader-tag {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+}
+
+.impact-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid var(--free-green);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+/* Revolutionary Orgs Grid */
+.orgs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.org-card {
+  background: var(--free-card-bg);
+  border: 1px solid var(--free-border);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+}
+
+.org-year-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(168, 85, 247, 0.2);
+  color: var(--free-purple);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.org-card h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 1.25rem;
+}
+
+.org-hq, .org-ideology {
+  margin: 0 0 6px;
+  font-size: 0.88rem;
+  color: var(--free-gold);
+}
+
+.org-desc {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.founders-box {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--free-muted);
+}
+
+.founders-box ul {
+  margin: 6px 0 0 16px;
+  padding: 0;
+  color: #d1d5db;
+}
+
+/* Leaders Gallery */
+.leaders-filter-bar {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.leader-profile-card {
+  background: var(--free-card-bg);
+  border: 1px solid var(--free-border);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.leader-avatar-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.avatar-icon {
+  font-size: 2rem;
+}
+
+.leader-category-badge {
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--free-saffron);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.leader-profile-card h3 {
+  margin: 0 0 4px;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.leader-title-tag {
+  display: inline-block;
+  color: var(--free-gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.leader-contrib {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.leader-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--free-muted);
+  font-size: 0.9rem;
+  margin: 0;
+  border-left: 2px solid var(--free-saffron);
+  padding-left: 10px;
+}
+
+/* Primary Documents Grid */
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.doc-card {
+  background: var(--free-card-bg);
+  border: 1px solid var(--free-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+}
+
+.doc-category {
+  color: var(--free-blue);
+  font-weight: 600;
+}
+
+.doc-year {
+  color: var(--free-gold);
+  font-weight: bold;
+}
+
+.doc-card h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 1.15rem;
+}
+
+.doc-author {
+  font-size: 0.88rem;
+  color: var(--free-muted);
+  margin-bottom: 12px;
+}
+
+.doc-excerpt {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #f3f4f6;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-left: 3px solid var(--free-gold);
+  border-radius: 4px;
+}
+
+.doc-context-box {
+  font-size: 0.85rem;
+  color: var(--free-muted);
+}
+
+/* Light Theme Overrides */
+body.light-theme {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+body.light-theme .freedom-hero {
+  background: linear-gradient(180deg, #e2e8f0 0%, #f8fafc 100%);
+}
+
+body.light-theme .hero-content h1 {
+  color: #0f172a;
+}
+
+body.light-theme .freedom-event-card,
+body.light-theme .stat-box,
+body.light-theme .org-card,
+body.light-theme .leader-profile-card,
+body.light-theme .doc-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #1e293b;
+}
+
+body.light-theme .freedom-event-card h3,
+body.light-theme .org-card h3,
+body.light-theme .leader-profile-card h3,
+body.light-theme .doc-card h3 {
+  color: #0f172a;
+}
+
+body.light-theme .doc-excerpt {
+  color: #1e293b;
+  background: #f1f5f9;
+}

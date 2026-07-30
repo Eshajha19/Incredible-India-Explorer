@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Valmiki National Park in Bihar — the state's only National Park and a vital Tiger Reserve in the Terai region." />
+  <title>Valmiki National Park Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="valmiki.css" />
+  <meta property="og:title" content="Valmiki National Park Explorer | Incredible India" />
+  <meta property="og:description" content="Interactive guide to Valmiki National Park, Bihar — a critical Tiger Reserve featuring the Gandak River and rich Terai biodiversity." />
+  <meta property="og:type" content="website" />
+</head>
+<body class="valmiki-main">
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+        <a href="index.html" class="nav-link active" style="color: var(--saffron)">Valmiki Explorer</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="valmiki-hero">
+      <div class="section-container">
+        <h1>Valmiki <span>National Park</span> Explorer</h1>
+        <p class="hero-subtitle">
+          Discover Bihar's only National Park and a vital Tiger Reserve. Nestled in the Terai region at the base of the
+          Himalayan foothills, Valmiki is a sanctuary of rich biodiversity, dense Sal forests, and the mighty Gandak River.
+        </p>
+        <div id="stats-grid" class="stats-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Heritage</span>
+        <h2>History & Conservation</h2>
+        <p class="section-subtitle">From a protected wildlife sanctuary to a cornerstone of India's Project Tiger.</p>
+      </div>
+      <div id="history-timeline" class="timeline-container"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Apex Predator</span>
+        <h2>Tiger Reserve</h2>
+        <p class="section-subtitle">The 19th Tiger Reserve of India, playing a pivotal role in the Terai Arc Landscape.</p>
+      </div>
+      <div id="tiger-reserve-box" class="glass-card feature-box"></div>
+    </section>
+
+    <section class="section-container" style="background: rgba(21, 128, 61, 0.05); border-radius: 24px;">
+      <div class="section-header">
+        <span class="section-badge">Geography</span>
+        <h2>Gandak River & Himalayan Foothills</h2>
+        <p class="section-subtitle">The unique ecotone that defines Valmiki's rich and diverse ecosystem.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+        <div id="gandak-river-box" class="glass-card feature-box"></div>
+        <div id="foothills-box" class="glass-card feature-box"></div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Biodiversity</span>
+        <h2>Wildlife of Valmiki</h2>
+        <p class="section-subtitle">Home to the majestic Bengal tiger, Asian elephants, and rare Terai specialists.</p>
+      </div>
+      <div id="wildlife-grid" class="wildlife-grid"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Avian Life</span>
+        <h2>Bird Species</h2>
+        <p class="section-subtitle">Over 250 species of resident and migratory birds thrive in the diverse habitats.</p>
+      </div>
+      <div id="birds-grid" class="birds-grid"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Geography</span>
+        <h2>Interactive Map</h2>
+        <p class="section-subtitle">Click on the map pins to explore key entry points, rivers, and grasslands.</p>
+      </div>
+      <div class="glass-card" style="padding: 1.5rem;">
+        <div class="map-svg-container">
+          <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+            <rect width="1000" height="600" fill="var(--valmiki-bg)" />
+            <path d="M100,100 Q500,50 900,150 L850,500 L150,500 Z" fill="rgba(21, 128, 61, 0.1)" stroke="var(--valmiki-accent)" stroke-width="2" />
+            <path d="M50,150 Q150,300 100,500" fill="none" stroke="#3b82f6" stroke-width="25" opacity="0.5" />
+            <text x="120" y="350" fill="#60a5fa" font-size="16" font-family="Outfit">Gandak River</text>
+          </svg>
+          <div id="map-hotspots-layer"></div>
+          <div id="map-info-popup" class="map-info-popup hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Visuals</span>
+        <h2>Photo Gallery</h2>
+        <p class="section-subtitle">Glimpses of the tigers, elephants, and the lush Terai landscape of Valmiki.</p>
+      </div>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <div class="lightbox-content">
+      <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 4rem; border-top: 1px solid var(--valmiki-border); padding: 3rem 1.5rem; text-align: center; color: var(--valmiki-muted);">
+    <p>&copy; 2026 Incredible India Explorer. Valmiki National Park Explorer.</p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+  <script src="valmiki-data.js" defer></script>
+  <script src="valmiki.js" defer></script>
+  <script type="module" src="../../auth.js"></script>
+</body>
+</html>

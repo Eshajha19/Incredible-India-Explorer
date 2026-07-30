@@ -31,10 +31,23 @@ const ISLANDS_DATA = [
     islandCount: "1 island",
     tagline: "India's southernmost island, home to Indira Point",
     description: "The largest island in the Nicobar group and India's southernmost territory, home to Indira Point, Campbell Bay National Park, and rare endemic wildlife.",
-    highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
+highlights: ["Indira Point — southernmost tip of India", "Campbell Bay National Park", "UNESCO Biosphere Reserve (2013)", "Nesting ground for Giant Leatherback turtles"],
     image: "../../assets/travel_hidden.png"
   },
   {
+    id: "car-nicobar",
+    name: "Car Nicobar",
+    group: "Andaman & Nicobar",
+    location: "Nicobar Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 9.1833,
+    lng: 92.7667,
+    islandCount: "1 island",
+    tagline: "The Nicobars' most populated island, home of the Nicobarese",
+    description: "A flat, coral-fringed island and the administrative headquarters of the Nicobar district, Car Nicobar is home to the indigenous Nicobarese community, vast coconut plantations, sandy beaches and traditional hodi boat races.",
+    highlights: ["Largest Nicobarese population in the islands", "Extensive coconut plantations and copra economy", "Traditional villages and Chowra-style huts", "Malacca and Kakana beaches"],
+    image: "../../assets/travel_beaches.png"
+  },  {
     id: "south-andaman",
     name: "South Andaman",
     group: "Andaman & Nicobar",
@@ -76,6 +89,20 @@ const ISLANDS_DATA = [
     highlights: ["Natural Bridge (Howrah Bridge)", "Bharatpur Beach snorkelling & coral reefs", "Laxmanpur Beach sunsets", "Vegetable farms — the 'vegetable bowl' of the Andamans"],
     image: "../../assets/travel_islands.png"
   },
+{
+    id: "little-andaman",
+    name: "Little Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 10.6,
+    lng: 92.5,
+    islandCount: "1 island",
+    tagline: "Butler Bay surfing, White Surf Waterfall & pristine forests",
+    description: "India's fourth-largest Andaman island (~730 km²) with world-class surfing at Butler Bay, the spectacular 60m White Surf Waterfall, ancient evergreen rainforests covering 80% of the island, and critical habitat for dugongs, sea turtles, and swimming elephants.",
+    highlights: ["Butler Bay — India's premier surfing beach", "White Surf Waterfall (60m cascade)", "Evergreen rainforests with high endemism", "Dugong & sea turtle nesting habitat", "Hut Bay — main settlement & ferry port"],
+    image: "../../assets/travel_beaches.png"
+  },
   {
     id: "swaraj-dweep",
     name: "Swaraj Dweep (Havelock Island)",
@@ -87,7 +114,7 @@ const ISLANDS_DATA = [
     islandCount: "1 island",
     tagline: "Home of Radhanagar Beach, Asia's Best Beach",
     description: "Formerly Havelock Island, renamed Swaraj Dweep in 2018 — the Andamans' premier tourism hub, famed for Radhanagar and Elephant Beach, accessible coral reefs, rich marine life, and some of the best scuba diving in India.",
-highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
+    highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Beach snorkelling & water sports", "20+ scuba diving sites, incl. Dixon's Pinnacle", "Renamed Swaraj Dweep in 2018 to honour Netaji Subhas Chandra Bose"],
     image: "../../assets/travel_beaches.png"
   },
   {
@@ -101,10 +128,23 @@ highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Be
     islandCount: "1 island",
     tagline: "An extinct volcano and the only home of the Narcondam Hornbill",
     description: "A small, remote, densely-forested volcanic island east of the main Andaman group. Formed by an extinct volcano, it is the sole habitat of the endemic Narcondam Hornbill and is protected as a wildlife sanctuary.",
-    highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
+highlights: ["Extinct volcanic cone rising steeply from the sea", "Endemic Narcondam Hornbill found nowhere else on Earth", "Declared a Wildlife Sanctuary in 1977", "Dense tropical evergreen forest cover"],
     image: "../../assets/travel_hidden.png"
   },
   {
+    id: "north-andaman",
+    name: "North Andaman",
+    group: "Andaman & Nicobar",
+    location: "Andaman Islands, Bay of Bengal",
+    state: "Union Territory",
+    lat: 13.1136,
+    lng: 92.9508,
+    islandCount: "1 island",
+    tagline: "Saddle Peak, mangrove creeks & the Andamans' highest point",
+    description: "The northernmost of the main Andaman islands, home to Saddle Peak — the highest point in the Andaman & Nicobar Islands — the Saddle Peak National Park, sprawling mangrove creeks, and the trekking and birding hub of Diglipur.",
+    highlights: ["Saddle Peak — highest peak in the Andaman & Nicobar Islands", "Saddle Peak National Park", "Extensive mangrove creeks and forests", "Trekking trails through tropical rainforest"],
+    image: "../../assets/travel_mountains.png"
+  },  {
     id: "lakshadweep",    name: "Lakshadweep Islands",
     id: "barren-island",
     name: "Barren Island",
@@ -117,6 +157,7 @@ highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Be
     tagline: "India's only confirmed active volcano",
     description: "An uninhabited volcanic island in the Andaman Sea, home to India's only confirmed active volcano, a 2-km-wide caldera, and dive sites known for volcanic drop-offs and rich marine life.",
     highlights: ["India's only confirmed active volcano", "First recorded eruption in 1787, most recently in 2022", "Horseshoe-shaped caldera roughly 2 km wide", "Popular deep-sea diving site around the island"],
+    image: "../../assets/travel_hidden.png"
   },
   {
     id: "north-sentinel-island",
@@ -143,10 +184,36 @@ highlights: ["Radhanagar Beach — Asia's Best Beach (Time, 2004)", "Elephant Be
     islandCount: "36 islands",
     tagline: "India's smallest Union Territory",
     description: "A cluster of 36 coral islands and atolls scattered in the Arabian Sea off the Kerala coast. Built entirely from coral deposits, the islands are ringed by turquoise lagoons and are among the most pristine coral reef ecosystems in India.",
-    highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Bangaram atoll", "Minicoy — largest island in the group"],
+highlights: ["Kavaratti — administrative capital", "Agatti coral lagoon", "Bangaram atoll", "Minicoy — largest island in the group"],
     image: "../../assets/travel_beaches.png"
   },
   {
+    id: "minicoy",
+    name: "Minicoy Island",
+    group: "Lakshadweep",
+    location: "Arabian Sea",
+    state: "Union Territory",
+    lat: 8.2833,
+    lng: 73.0500,
+    islandCount: "1 island",
+    tagline: "Lakshadweep's second-largest island, famed for its lighthouse and tuna fishing",
+    description: "Geographically and culturally distinct from the rest of Lakshadweep, Minicoy is known for its historic lighthouse, thriving tuna fishing industry, a large lagoon, rich marine biodiversity and the Mahl-speaking community that shares close ties with the Maldives.",
+    highlights: ["19th-century Minicoy Lighthouse", "Traditional pole-and-line tuna fishing", "Mahl — a language closely related to Dhivehi", "One of Lakshadweep's largest lagoons"],
+    image: "../../assets/travel_beaches.png"
+  },  {
+    id: "kavaratti",
+    name: "Kavaratti Island",
+    group: "Lakshadweep",
+    location: "Arabian Sea",
+    state: "Union Territory",
+    lat: 10.5669,
+    lng: 72.6420,
+    islandCount: "1 island",
+    tagline: "The administrative capital of Lakshadweep",
+    description: "The capital of the Lakshadweep Union Territory, Kavaratti is known for its calm turquoise lagoon, vivid coral reefs, a well-known marine aquarium and several historic mosques woven into the island's small, close-knit community.",
+    highlights: ["Wide, calm lagoon ideal for swimming and boating", "Marine Aquarium showcasing lagoon and reef life", "Vibrant coral reefs for snorkelling and diving", "Ujra Mosque and other historic island mosques"],
+    image: "../../assets/travel_beaches.png"
+  },  {
     id: "majuli",
     name: "Majuli",
     group: "River Islands",
@@ -356,18 +423,19 @@ function openModal(islandId) {
   const island = ISLANDS_DATA.find((i) => i.id === islandId);
   if (!island) return;
 
-if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam") {
+if (island.id === "great-nicobar" || island.id === "south-andaman" || island.id === "middle-andaman" || island.id === "shaheed-dweep" || island.id === "swaraj-dweep" || island.id === "narcondam" || island.id === "minicoy") {
     const pageMap = {
       "great-nicobar": "../great-nicobar/great-nicobar.html",
       "south-andaman": "../south-andaman/south-andaman.html",
       "middle-andaman": "../middle-andaman/middle-andaman.html",
       "shaheed-dweep": "../shaheed-dweep/shaheed-dweep.html",
+      "little-andaman": "../little-andaman/index.html",
       "swaraj-dweep": "../swaraj-dweep/swaraj-dweep.html",
-      "narcondam": "../narcondam-island/narcondam-island.html"
-      "barren-island": "../barren-island/barren-island.html"
-      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html"
-    };
-    window.location.href = pageMap[island.id];
+      "narcondam": "../narcondam-island/narcondam-island.html",
+      "barren-island": "../barren-island/barren-island.html",
+      "north-sentinel-island": "../north-sentinel-island/north-sentinel-island.html",
+      "minicoy": "../minicoy-island/minicoy-island.html"
+    };    window.location.href = pageMap[island.id];
     return;
   }
   document.getElementById("island-modal-title").textContent = island.name;

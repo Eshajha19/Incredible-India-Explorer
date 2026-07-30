@@ -1,0 +1,30 @@
+{
+  "id": "bihar",
+  "state": "Bihar",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_hero.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "bodhgaya",
+      "name": "Bodh Gaya",
+      "lat": 24.6959,
+      "lng": 84.9917,
+      "categories": [
+        "spiritual",
+        "historical"
+      ],
+      "highlights": [
+        "Mahabodhi Temple",
+        "Bodhi Tree",
+        "Meditation centers"
+      ],
+      "minDays": 1,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Oct-Mar",
+      "description": "Where Buddha attained enlightenment, UNESCO site."
+    }
+  ]
+}

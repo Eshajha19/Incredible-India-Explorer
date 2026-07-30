@@ -1,0 +1,806 @@
+/* ==========================================================================
+   Beas Conservation Wetlands Explorer — Styling
+   Riverine wetland-inspired dark/light theme design system
+   ========================================================================== */
+
+:root {
+    --beas-bg-dark: #0a1929;
+    --beas-card-bg-dark: rgba(15, 35, 55, 0.75);
+    --beas-text-primary-dark: #f8fafc;
+    --beas-text-muted-dark: #94a3b8;
+    --beas-border-dark: rgba(255, 255, 255, 0.12);
+
+    --river-blue: #0284c7;
+    --river-teal: #14b8a6;
+    --glacial-cyan: #22d3ee;
+    --sand-gold: #d4a373;
+    --saffron-bright: #ff9933;
+    --dolphin-gray: #e2e8f0;
+    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+body.light-theme {
+    --beas-bg-dark: #f0faff;
+    --beas-card-bg-dark: rgba(255, 255, 255, 0.88);
+    --beas-text-primary-dark: #0f172a;
+    --beas-text-muted-dark: #475569;
+    --beas-border-dark: rgba(15, 23, 42, 0.12);
+    --card-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.12);
+}
+
+.beas-main {
+    background-color: var(--beas-bg-dark);
+    color: var(--beas-text-primary-dark);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.glass-card {
+    background: var(--beas-card-bg-dark);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--beas-border-dark);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(20, 184, 166, 0.4);
+}
+
+/* Hero Section */
+.beas-hero {
+    position: relative;
+    padding: 8rem 1.5rem 5rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(2, 44, 67, 0.85) 0%, rgba(10, 25, 41, 0.95) 100%),
+                url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Beas_River_Kullu.jpg/1280px-Beas_River_Kullu.jpg") center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero-badges-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.pill-ramsar {
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(2, 132, 199, 0.4);
+}
+
+.pill-state {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.pill-conservation {
+    background: rgba(20, 184, 166, 0.2);
+    color: #2dd4bf;
+    border: 1px solid rgba(20, 184, 166, 0.4);
+}
+
+.beas-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.beas-hero h1 span {
+    background: linear-gradient(135deg, #22d3ee 0%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--river-teal);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--beas-text-muted-dark);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(20, 184, 166, 0.15);
+    color: var(--river-teal);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    margin-bottom: 0.8rem;
+}
+
+.section-subtitle {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--beas-text-muted-dark);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Heritage / Ramsar Details */
+.heritage-section {
+    padding: 5rem 0;
+}
+
+.heritage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 868px) {
+    .heritage-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.heritage-card {
+    padding: 2rem;
+}
+
+.heritage-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.heritage-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: rgba(2, 132, 199, 0.15);
+}
+
+.heritage-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.heritage-card p {
+    color: var(--beas-text-muted-dark);
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+}
+
+.fact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.fact-list li::before {
+    content: "✓";
+    color: var(--river-teal);
+    font-weight: bold;
+}
+
+/* Wetlands Hydrology Section */
+.wetlands-section {
+    padding: 5rem 0;
+    background: rgba(2, 132, 199, 0.03);
+    border-top: 1px solid var(--beas-border-dark);
+    border-bottom: 1px solid var(--beas-border-dark);
+}
+
+.hydrology-overview {
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.seasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.season-card {
+    padding: 1.8rem;
+    position: relative;
+}
+
+.season-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.season-icon {
+    font-size: 2rem;
+}
+
+.season-months {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--river-teal);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(20, 184, 166, 0.15);
+}
+
+.season-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.season-card p {
+    font-size: 0.92rem;
+    color: var(--beas-text-muted-dark);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.season-highlight {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    background: rgba(212, 163, 115, 0.1);
+    color: var(--sand-gold);
+    border-left: 3px solid var(--sand-gold);
+}
+
+/* Dolphin Section */
+.dolphin-section {
+    padding: 5rem 0;
+}
+
+.dolphin-content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .dolphin-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dolphin-card {
+    padding: 2rem;
+}
+
+.threats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+}
+
+.threat-item {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--beas-border-dark);
+    font-size: 0.9rem;
+}
+
+.dolphin-spotlight {
+    padding: 2rem;
+    border-color: rgba(20, 184, 166, 0.4);
+    background: linear-gradient(145deg, rgba(2, 132, 199, 0.08) 0%, rgba(10, 25, 41, 0.9) 100%);
+}
+
+.spotlight-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: #0d9488;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+}
+
+.conservation-list {
+    margin-top: 1rem;
+}
+
+.conservation-list li {
+    padding: 0.5rem 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--beas-border-dark);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+/* Fish Species Section */
+.fish-section {
+    padding: 5rem 0;
+    background: rgba(16, 185, 129, 0.03);
+    border-top: 1px solid var(--beas-border-dark);
+    border-bottom: 1px solid var(--beas-border-dark);
+}
+
+.fish-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+}
+
+.fish-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.fish-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.6rem;
+}
+
+.fish-card-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+}
+
+.fish-icon {
+    font-size: 1.5rem;
+}
+
+.fish-scientific {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--glacial-cyan);
+    margin-bottom: 0.4rem;
+}
+
+.fish-meta {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.8rem;
+}
+
+.fish-tag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.fish-tag.endangered { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+.fish-tag.vulnerable { background: rgba(245, 158, 11, 0.2); color: #fdba74; }
+.fish-tag.near-threatened { background: rgba(234, 179, 8, 0.2); color: #fde047; }
+.fish-tag.least-concern { background: rgba(16, 185, 129, 0.2); color: #86efac; }
+
+.fish-size {
+    font-size: 0.85rem;
+    color: var(--sand-gold);
+}
+
+.fish-desc {
+    font-size: 0.9rem;
+    color: var(--beas-text-muted-dark);
+    line-height: 1.55;
+    margin-bottom: 0.8rem;
+    flex-grow: 1;
+}
+
+.fish-habitat {
+    font-size: 0.82rem;
+    color: var(--beas-text-muted-dark);
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--beas-border-dark);
+}
+
+/* Wetland Ecology Section */
+.ecology-section {
+    padding: 5rem 0;
+}
+
+.ecology-overview {
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.habitats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.habitat-card {
+    padding: 1.8rem;
+    text-align: center;
+}
+
+.habitat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.habitat-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.habitat-card p {
+    font-size: 0.9rem;
+    color: var(--beas-text-muted-dark);
+    line-height: 1.6;
+}
+
+/* Timeline Section */
+.history-section {
+    padding: 5rem 0;
+    background: rgba(2, 132, 199, 0.02);
+    border-top: 1px solid var(--beas-border-dark);
+    border-bottom: 1px solid var(--beas-border-dark);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--glacial-cyan);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .timeline-container::before {
+        left: 20px;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    width: 50%;
+    padding: 0 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left !important;
+    }
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 0.5rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--sand-gold);
+    border: 3px solid var(--beas-bg-dark);
+    box-shadow: 0 0 0 3px var(--glacial-cyan);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -8px;
+}
+
+@media (max-width: 768px) {
+    .timeline-dot {
+        left: 12px !important;
+    }
+}
+
+.timeline-card {
+    padding: 1.5rem;
+}
+
+.timeline-year {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--glacial-cyan);
+    margin-bottom: 0.4rem;
+}
+
+.timeline-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+}
+
+.timeline-card p {
+    font-size: 0.92rem;
+    color: var(--beas-text-muted-dark);
+    line-height: 1.6;
+}
+
+/* Map Section */
+.map-section {
+    padding: 5rem 0;
+}
+
+.map-card-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.map-svg-container {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background: radial-gradient(circle at 50% 50%, #0d2c45 0%, #0a1929 100%);
+    border-radius: 16px;
+    border: 1px solid var(--beas-border-dark);
+    overflow: hidden;
+}
+
+.park-map-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.map-hotspot-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--river-teal);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    box-shadow: 0 0 12px rgba(20, 184, 166, 0.6);
+    border: 2px solid #ffffff;
+}
+
+.map-hotspot-pin:hover {
+    transform: translate(-50%, -50%) scale(1.25);
+    background: var(--sand-gold);
+}
+
+.map-info-popup {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    max-width: 450px;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    background: rgba(10, 25, 41, 0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--river-teal);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+    z-index: 10;
+}
+
+.map-info-popup h4 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--sand-gold);
+    margin-bottom: 0.4rem;
+}
+
+.map-info-popup p {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 5rem 0;
+    background: rgba(2, 132, 199, 0.02);
+    border-top: 1px solid var(--beas-border-dark);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(10, 25, 41, 0.9) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay h4 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+}
+
+.gallery-overlay p {
+    color: #cbd5e1;
+    font-size: 0.82rem;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.lightbox-modal.hidden {
+    display: none;
+}
+
+.lightbox-content {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.lightbox-img {
+    max-height: 75vh;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.lightbox-caption {
+    margin-top: 1rem;
+    color: #cbd5e1;
+    font-size: 1rem;
+}
+
+.hidden { display: none !important; }

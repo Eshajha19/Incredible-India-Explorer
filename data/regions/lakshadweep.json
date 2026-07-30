@@ -1,0 +1,31 @@
+{
+  "id": "lakshadweep",
+  "state": "Lakshadweep",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_beaches.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "lakshadweep",
+      "name": "Lakshadweep",
+      "lat": 10.5667,
+      "lng": 72.6417,
+      "categories": [
+        "beaches",
+        "wildlife",
+        "adventure"
+      ],
+      "highlights": [
+        "Coral reefs",
+        "Lagoon snorkeling",
+        "Kavaratti Island"
+      ],
+      "minDays": 3,
+      "maxDays": 4,
+      "popularity": 6,
+      "bestSeason": "Oct-May",
+      "description": "Coral-fringed island chain in the Arabian Sea."
+    }
+  ]
+}

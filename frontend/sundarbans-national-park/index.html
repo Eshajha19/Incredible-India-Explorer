@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sundarbans National Park Explorer | Incredible India Explorer</title>
+  <meta name="description" content="Explore Sundarbans National Park with mangrove forest, Royal Bengal tiger, UNESCO site, delta ecosystem, crocodiles, birds, conservation, and interactive map.">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../travel.html" class="nav-link">Travel</a>
+        <a href="../../learn.html" class="nav-link">Learn</a>
+        <a href="index.html" class="nav-link sundarbans-current">Sundarbans</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="sundarbans-page">
+    <section class="sundarbans-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">West Bengal · Mangrove Forest · UNESCO Site</span>
+        <h1>Sundarbans National Park <span>Explorer</span></h1>
+        <p>
+          Journey through the world's legendary mangrove delta with Royal Bengal tigers,
+          crocodiles, birds, tidal channels, conservation stories, and an interactive map.
+        </p>
+        <div class="hero-stats">
+          <div><strong>🐅 Tiger</strong><span>Flagship species</span></div>
+          <div><strong>Mangrove</strong><span>Forest ecosystem</span></div>
+          <div><strong>UNESCO</strong><span>World Heritage</span></div>
+        </div>
+        <a href="#overview" class="hero-cta">Start exploring ↓</a>
+      </div>
+    </section>
+
+    <section class="overview-section" id="overview">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Park overview</span>
+          <h2>A living delta of tides, roots, and wildlife</h2>
+          <p>
+            Sundarbans National Park protects an extraordinary mangrove ecosystem
+            shaped by rivers, sea tides, mudflats, islands, and brackish channels.
+            It is famous for Royal Bengal tigers, crocodiles, birds, and conservation challenges.
+          </p>
+        </div>
+        <div class="overview-grid">
+          <article class="overview-card large">
+            <h3>Mangrove forest</h3>
+            <p>
+              The Sundarbans landscape is built by salt-tolerant mangrove trees,
+              breathing roots, tidal creeks, and sediment-rich waterways. These
+              habitats protect coasts, support fisheries, and shelter diverse wildlife.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>Royal Bengal tiger</h3>
+            <p>
+              Tigers in the Sundarbans live in a demanding tidal environment where
+              water, mudflats, dense cover, and prey movement shape behaviour.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>UNESCO value</h3>
+            <p>
+              The park is recognised globally for its unique mangrove biodiversity,
+              ecological processes, and conservation importance.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Quick facts</span>
+          <h2>Sundarbans at a glance</h2>
+        </div>
+        <div class="facts-grid" id="facts-grid"></div>
+      </div>
+    </section>
+
+    <section class="wildlife-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Wildlife</span>
+          <h2>Meet delta biodiversity</h2>
+          <p>Filter wildlife cards to explore mammals, reptiles, and birds of the mangrove ecosystem.</p>
+        </div>
+        <div class="filter-row" role="group" aria-label="Wildlife filters">
+          <button class="filter-btn active" data-filter="All" type="button">All</button>
+          <button class="filter-btn" data-filter="Mammal" type="button">Mammals</button>
+          <button class="filter-btn" data-filter="Reptile" type="button">Reptiles</button>
+          <button class="filter-btn" data-filter="Bird" type="button">Birds</button>
+        </div>
+        <div class="wildlife-grid" id="wildlife-grid"></div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Interactive map</span>
+          <h2>Explore the mangrove delta</h2>
+          <p>Tap each point to learn about interpretation zones, watchtowers, creeks, and tidal-delta habitats.</p>
+        </div>
+        <div class="map-layout">
+          <div class="sundarbans-map" id="sundarbans-map" aria-label="Interactive Sundarbans map">
+            <div class="delta-shape"></div>
+            <div class="water-channel channel-one"></div>
+            <div class="water-channel channel-two"></div>
+            <div class="water-channel channel-three"></div>
+            <div id="map-pins"></div>
+          </div>
+          <aside class="map-info" id="map-info">
+            <span>Selected point</span>
+            <h3>Tap a map pin</h3>
+            <p>Map points explain visitor zones, creeks, watchtowers, and delta habitats.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecosystem-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Delta ecosystem</span>
+          <h2>How the Sundarbans works</h2>
+        </div>
+        <div class="ecosystem-grid" id="ecosystem-grid"></div>
+      </div>
+    </section>
+
+    <section class="conservation-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Conservation</span>
+          <h2>Protecting a fragile mangrove world</h2>
+        </div>
+        <div class="conservation-grid" id="conservation-grid"></div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Gallery</span>
+          <h2>Visual story of Sundarbans</h2>
+          <p>Existing project assets are used as visual placeholders for mangroves, delta waters, tigers, birds, and tidal landscapes.</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <section class="source-section">
+      <div class="page-container">
+        <h2>Source notes</h2>
+        <p>
+          This page is an educational explorer built from the issue requirements:
+          Mangrove Forest, Royal Bengal Tiger, UNESCO Site, Delta Ecosystem,
+          Crocodiles, Birds, Conservation, Interactive Map, and Landing Page Integration.
+          Visitor content is awareness guidance, not official booking or route advice.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sundarbans-footer">
+    <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Dedicated national park explorer for Sundarbans.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../../app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

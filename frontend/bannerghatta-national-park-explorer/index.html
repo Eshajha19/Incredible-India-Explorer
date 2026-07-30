@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Bannerghatta National Park near Bengaluru — famous for its grand safari, India's first Butterfly Park, and wildlife rescue centre." />
+  <title>Bannerghatta National Park Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="bannerghatta.css" />
+  <meta property="og:title" content="Bannerghatta National Park Explorer | Incredible India" />
+  <meta property="og:description" content="Interactive guide to Bannerghatta National Park, Karnataka — featuring safaris, butterfly conservatory, and wildlife rescue." />
+  <meta property="og:type" content="website" />
+</head>
+<body class="bannerghatta-main">
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+        <a href="index.html" class="nav-link active" style="color: var(--saffron)">Bannerghatta Explorer</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bannerghatta-hero">
+      <div class="section-container">
+        <h1>Bannerghatta <span>National Park</span> Explorer</h1>
+        <p class="hero-subtitle">
+          Located on the outskirts of Bengaluru, Bannerghatta is a unique biological park offering grand safaris,
+          India's first Butterfly Park, and a dedicated wildlife rescue centre, all within a vital elephant corridor.
+        </p>
+        <div id="stats-grid" class="stats-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Heritage</span>
+        <h2>History & Evolution</h2>
+        <p class="section-subtitle">From a biological park to a multifaceted conservation and education hub.</p>
+      </div>
+      <div id="history-timeline" class="timeline-container"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Unique Feature</span>
+        <h2>Butterfly Park</h2>
+        <p class="section-subtitle">India's first enclosed butterfly conservatory, right in the heart of the park.</p>
+      </div>
+      <div id="conservation-box" class="glass-card conservation-box"></div>
+    </section>
+
+    <section class="section-container" style="background: rgba(124, 58, 237, 0.05); border-radius: 24px;">
+      <div class="section-header">
+        <span class="section-badge">Biodiversity</span>
+        <h2>Wildlife of Bannerghatta</h2>
+        <p class="section-subtitle">A crucial corridor supporting elephants, leopards, and diverse dry deciduous fauna.</p>
+      </div>
+      <div id="wildlife-grid" class="wildlife-grid"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Compassion</span>
+        <h2>Wildlife Rescue Centre</h2>
+        <p class="section-subtitle">Providing sanctuary and veterinary care for injured, abandoned, and confiscated animals.</p>
+      </div>
+      <div id="rescue-centre-box" class="glass-card" style="border-left: 4px solid var(--bannerghatta-accent);"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Geography</span>
+        <h2>Interactive Map</h2>
+        <p class="section-subtitle">Click on the map pins to explore key zones of the biological park and forest.</p>
+      </div>
+      <div class="glass-card" style="padding: 1.5rem;">
+        <div class="map-svg-container">
+          <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+            <rect width="1000" height="600" fill="var(--bannerghatta-bg)" />
+            <path d="M200,150 Q500,100 800,150 L750,500 L250,500 Z" fill="rgba(124, 58, 237, 0.1)" stroke="var(--bannerghatta-accent)" stroke-width="2" />
+            <text x="400" y="300" fill="#a78bfa" font-size="16" font-family="Outfit">Core Forest Area</text>
+          </svg>
+          <div id="map-hotspots-layer"></div>
+          <div id="map-info-popup" class="map-info-popup hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Visuals</span>
+        <h2>Photo Gallery</h2>
+        <p class="section-subtitle">Glimpses of the safari, butterflies, and the lush green corridors of Bannerghatta.</p>
+      </div>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <div class="lightbox-content">
+      <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 4rem; border-top: 1px solid var(--bannerghatta-border); padding: 3rem 1.5rem; text-align: center; color: var(--bannerghatta-muted);">
+    <p>&copy; 2026 Incredible India Explorer. Bannerghatta National Park Explorer.</p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+  <script src="bannerghatta-data.js" defer></script>
+  <script src="bannerghatta.js" defer></script>
+  <script type="module" src="../../auth.js"></script>
+</body>
+</html>

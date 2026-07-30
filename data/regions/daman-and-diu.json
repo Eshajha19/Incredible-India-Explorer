@@ -1,0 +1,30 @@
+{
+  "id": "daman-and-diu",
+  "state": "Daman and Diu",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_beaches.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "diu",
+      "name": "Diu",
+      "lat": 20.7144,
+      "lng": 70.9874,
+      "categories": [
+        "beaches",
+        "heritage"
+      ],
+      "highlights": [
+        "Diu Fort",
+        "Nagoa Beach",
+        "St. Paul's Church"
+      ],
+      "minDays": 1,
+      "maxDays": 2,
+      "popularity": 5,
+      "bestSeason": "Oct-Mar",
+      "description": "Quiet Portuguese-colonial island off Gujarat's coast."
+    }
+  ]
+}

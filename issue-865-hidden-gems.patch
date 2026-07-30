@@ -1,0 +1,1935 @@
+diff --git a/docs/HIDDEN_GEMS.md b/docs/HIDDEN_GEMS.md
+new file mode 100644
+index 0000000..16eb382
+--- /dev/null
++++ b/docs/HIDDEN_GEMS.md
+@@ -0,0 +1,125 @@
++# Community-Contributed Hidden Gems Discovery Platform
++
++Resolves #865 — Implement Community-Contributed Hidden Gems Discovery
++Platform with AI-Based Quality Ranking.
++
++Extends the existing static `frontend/hidden-gems/hidden-gems.html` page
++(previously 8 hardcoded destinations with an inline script) into a
++community contribution platform: travelers can submit hidden gems,
++submissions get an automated content-quality score and duplicate check,
++a moderator reviews them, approved gems are ranked and surfaced in a
++trending section, and contributors build reputation and badges.
++
++Like the rest of this project, it's entirely client-side — no backend,
++no database, no API keys.
++
++## Files added / changed
++
++| File | Purpose |
++| ---- | ------- |
++| `js-modules/hidden-gems-data.js` | Config: categories, regions, moderation statuses, quality-scoring weights, banned/placeholder word lists, reputation events, badge tiers, ranking weights, duplicate thresholds, and the original 8 destinations re-modeled as pre-approved "editorial" seed gems. |
++| `js-modules/hidden-gems-core.js` | Pure logic: text-similarity duplicate detection, content-quality scoring, ranking/trending score, reputation & badges, moderation status transitions. No DOM, no fetch — unit-testable. |
++| `js-modules/hidden-gems-service.js` | `localStorage`-backed persistence: submissions, contributor reputation, votes, bookmarks, reports, moderator-mode toggle. |
++| `js-modules/hidden-gems-ui.js` | DOM layer (`initHiddenGemsPage`): grid rendering, search/filter, submission form, moderation dashboard, trending section, leaderboard, upvote/bookmark/report actions. |
++| `frontend/hidden-gems/hidden-gems.html` (modified) | Added submission form, trending section, moderator-mode toggle + dashboard, and contributor leaderboard markup. Removed the old inline `<script>` — logic now lives in the modules above. |
++| `frontend/hidden-gems/hidden-gems-community.css` | Styles for the new sections, reusing the page's existing design tokens. |
++| `tests/unit/hidden-gems-core.test.js` | Unit tests for scoring, duplicate detection, ranking, reputation, and moderation transitions. |
++| `js-modules/router-init.js` (modified) | `hidden-gems.html` now loads the four modules above and calls `initHiddenGemsPage()`, replacing the previous `log`-only entry. |
++
++## Why "AI-assisted" means a transparent heuristic here, not a model
++
++The issue asks for "AI-based duplicate detection" and "AI-generated
++content quality scoring." This repo has no backend and no way to call a
++trained model, so both are implemented as **deterministic, documented
++heuristics** — not machine learning:
++
++- **Duplicate detection** (`detectDuplicates` in `hidden-gems-core.js`):
++  Jaccard similarity (shared words ÷ total distinct words, stopwords
++  removed) between a new submission's name+description and every
++  existing gem's, combined with a straight-line distance check when both
++  have coordinates. A match on name, high text similarity (≥ 0.6), or
++  close text + close coordinates flags the pair.
++- **Content-quality scoring** (`computeQualityScore`): a weighted rubric
++  out of 100 — description length (30), has an image (15), has precise
++  coordinates (15), has a category (10), title looks reasonable (10),
++  and doesn't contain banned/placeholder text (20).
++
++Neither one auto-publishes or auto-deletes anything — they only produce
++a score and a list of flags that a human moderator sees before deciding.
++This is called out in code comments in `hidden-gems-core.js` as well, so
++it's clear to future contributors and isn't just a UI label.
++
++## Submission → moderation → publish flow
++
++1. A visitor fills out the submission form (name, description, category,
++   region, optional state/coordinates/photo URL, and a display name).
++2. `HiddenGemsService.submitGem()` runs `computeQualityScore()` and
++   `detectDuplicates()` against every existing gem (seed + community),
++   stores the submission with `status: 'pending'`, and shows the
++   contributor their score, any quality flags, and any duplicate
++   warning immediately.
++3. A moderator (see below) reviews the pending queue and can **Approve**,
++   **Reject**, or **Request Changes** — enforced by
++   `transitionStatus()`'s `VALID_TRANSITIONS` table, e.g. a rejected
++   submission can be resubmitted (`rejected -> pending`) but an approved
++   one can't jump straight back to pending.
++4. On approval, the gem appears in the public grid and trending section;
++   the contributor's reputation increases
++   (`REPUTATION_EVENTS.SUBMISSION_APPROVED`, +15).
++
++## Ranking / trending
++
++`computeRankScore()` combines:
++
++- **Quality component**: `qualityScore × 0.5`
++- **Engagement component**: `(upvotes × 3 + bookmarks × 1)`, multiplied
++  by a recency factor that halves every 21 days
++  (`RANKING_WEIGHTS.recencyHalfLifeDays`) since `approvedAt` — so an old
++  gem with a lot of historical upvotes doesn't permanently outrank
++  something newer and currently popular.
++
++`trendingGems()` filters to `status: 'approved'` and returns the top N
++by rank score.
++
++## Reputation & badges
++
++Every contributor is identified by the display name they type into the
++submission form (see limitations below). `REPUTATION_EVENTS` in
++`hidden-gems-data.js` defines the point values:
++
++| Event | Points |
++| ----- | ------ |
++| Submission approved | +15 |
++| Submission rejected | −3 |
++| Gem receives an upvote | +1 |
++| A report against your gem is upheld | −10 |
++
++Reputation maps to a badge tier (`badgeForReputation()`): Newcomer (0) →
++Explorer (20) → Pathfinder (60) → Trailblazer (150) → Local Legend (400).
++
++## Known limitations / follow-ups
++
++- **No real backend.** Submissions, votes, bookmarks, reports, and
++  reputation all live in `localStorage`, scoped to one browser. They
++  don't sync across devices or between different contributors' browsers
++  — the "community" aspect is a working local simulation of the intended
++  workflow, ready to swap onto a real API (`submitGem` /
++  `moderateSubmission` / `toggleUpvote` are already isolated in
++  `hidden-gems-service.js` as the seam to do that).
++- **Contributor identity is just a typed display name**, not an account.
++  Two people could type the same name and share a reputation record.
++  Wiring this to the site's existing optional Firebase login
++  (`auth.js`) would fix this and is a natural next step.
++- **Moderator Mode is a local toggle**, not a real permission check —
++  anyone can click "🛡️ Moderator Mode" to see the dashboard. This is
++  a stand-in until the project has server-verified roles (Firebase
++  custom claims + a Cloud Function, following the pattern hinted at by
++  `auth.js`'s existing `role` claim for premium users).
++- **Image upload isn't implemented** — contributors paste a photo URL
++  rather than uploading a file. Real file storage needs a backend
++  (or a third-party bucket + signed upload URLs); a client-only site
++  can't safely host arbitrary user-uploaded images.
++- **Quality/duplicate detection is a heuristic, not a trained model** —
++  see the section above. It's intentionally simple and transparent so
++  false positives/negatives are easy to reason about and tune via the
++  weights in `hidden-gems-data.js`.
+diff --git a/frontend/hidden-gems/hidden-gems-community.css b/frontend/hidden-gems/hidden-gems-community.css
+new file mode 100644
+index 0000000..83c2cf7
+--- /dev/null
++++ b/frontend/hidden-gems/hidden-gems-community.css
+@@ -0,0 +1,224 @@
++/* ==========================================================================
++   HIDDEN GEMS PAGE — community platform additions
++   ========================================================================== */
++
++.gem-category-badge {
++    position: absolute;
++    top: 15px;
++    left: 15px;
++    background: rgba(9, 13, 22, 0.75);
++    color: var(--text-light, #fff);
++    padding: 6px 12px;
++    border-radius: 999px;
++    font-size: 0.8rem;
++    z-index: 10;
++}
++
++.gem-meta-row {
++    display: flex;
++    align-items: center;
++    gap: 12px;
++    margin-top: 12px;
++    flex-wrap: wrap;
++}
++
++.gem-upvote-btn,
++.gem-report-btn {
++    background: transparent;
++    border: 1px solid rgba(255, 255, 255, 0.15);
++    color: inherit;
++    border-radius: 999px;
++    padding: 6px 12px;
++    cursor: pointer;
++    font-size: 0.85rem;
++}
++
++.gem-upvote-btn.active {
++    background: var(--primary-gold);
++    color: #000;
++    border-color: var(--primary-gold);
++}
++
++.gem-contributor {
++    margin-left: auto;
++    font-size: 0.8rem;
++    opacity: 0.7;
++}
++
++/* -- Submission form -------------------------------------------------- */
++.gem-submit-card {
++    max-width: 700px;
++    margin: 0 auto;
++    padding: 32px;
++}
++
++.gem-submit-card .form-row {
++    margin-bottom: 16px;
++}
++
++.gem-submit-card label {
++    display: block;
++    font-weight: 600;
++    margin-bottom: 6px;
++}
++
++.gem-submit-card input,
++.gem-submit-card select,
++.gem-submit-card textarea {
++    width: 100%;
++    padding: 12px 14px;
++    border-radius: 10px;
++    border: 1px solid rgba(255, 255, 255, 0.12);
++    background: rgba(255, 255, 255, 0.05);
++    color: inherit;
++    font-family: inherit;
++    font-size: 1rem;
++}
++
++.gem-submit-card textarea {
++    min-height: 100px;
++    resize: vertical;
++}
++
++.gem-submit-card .form-row-grid {
++    display: grid;
++    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
++    gap: 16px;
++}
++
++.gem-submit-result {
++    max-width: 700px;
++    margin: 24px auto 0;
++    padding: 24px;
++    border-radius: 16px;
++    background: rgba(255, 255, 255, 0.04);
++    border: 1px solid rgba(255, 255, 255, 0.08);
++}
++
++.gem-quality-score {
++    margin: 10px 0;
++    font-size: 1.05rem;
++}
++
++.gem-quality-flags {
++    margin: 8px 0 12px 20px;
++    opacity: 0.8;
++    font-size: 0.9rem;
++}
++
++.gem-submit-warning {
++    background: rgba(249, 168, 37, 0.12);
++    border-left: 3px solid #f9a825;
++    padding: 10px 14px;
++    border-radius: 8px;
++    margin: 12px 0;
++}
++
++.gem-submit-error {
++    color: #ef5350;
++}
++
++.gem-submit-note {
++    opacity: 0.75;
++    font-size: 0.9rem;
++}
++
++/* -- Moderator toggle & dashboard --------------------------------------- */
++.moderator-toggle-row {
++    text-align: center;
++    margin-bottom: 20px;
++}
++
++#moderatorModeToggle {
++    padding: 10px 22px;
++    border-radius: 999px;
++    border: 2px solid var(--primary-gold);
++    background: transparent;
++    color: var(--primary-gold);
++    cursor: pointer;
++    font-weight: 600;
++}
++
++#moderatorModeToggle[aria-pressed="true"] {
++    background: var(--primary-gold);
++    color: #000;
++}
++
++.moderation-card {
++    background: rgba(255, 255, 255, 0.04);
++    border: 1px solid rgba(255, 255, 255, 0.08);
++    border-radius: 14px;
++    padding: 18px 20px;
++    margin-bottom: 16px;
++}
++
++.moderation-card-header {
++    display: flex;
++    justify-content: space-between;
++    align-items: baseline;
++    flex-wrap: wrap;
++    gap: 8px;
++    margin-bottom: 8px;
++}
++
++.moderation-status {
++    font-size: 0.75rem;
++    padding: 2px 10px;
++    border-radius: 999px;
++    margin-left: 8px;
++    text-transform: capitalize;
++    background: rgba(255, 255, 255, 0.1);
++}
++
++.moderation-flags {
++    font-size: 0.85rem;
++    opacity: 0.75;
++}
++
++.moderation-actions {
++    display: flex;
++    gap: 10px;
++    margin-top: 12px;
++    flex-wrap: wrap;
++}
++
++.moderation-actions button {
++    padding: 8px 16px;
++    border-radius: 8px;
++    border: 1px solid rgba(255, 255, 255, 0.15);
++    background: rgba(255, 255, 255, 0.06);
++    color: inherit;
++    cursor: pointer;
++}
++
++/* -- Leaderboard ---------------------------------------------------------- */
++#leaderboardList {
++    list-style: none;
++    padding: 0;
++    max-width: 600px;
++    margin: 0 auto;
++}
++
++#leaderboardList li {
++    display: flex;
++    align-items: center;
++    gap: 12px;
++    padding: 10px 16px;
++    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
++}
++
++.leaderboard-rank {
++    font-weight: 700;
++    opacity: 0.6;
++    width: 32px;
++}
++
++.leaderboard-name {
++    font-weight: 600;
++    flex: 1;
++}
++
++.leaderboard-stats {
++    opacity: 0.7;
++    font-size: 0.85rem;
++}
+diff --git a/frontend/hidden-gems/hidden-gems.html b/frontend/hidden-gems/hidden-gems.html
+index c9b9a33..45b40e3 100644
+--- a/frontend/hidden-gems/hidden-gems.html
++++ b/frontend/hidden-gems/hidden-gems.html
+@@ -21,6 +21,7 @@
+ 
+     <!-- Shared site stylesheet -->
+     <link rel="stylesheet" href="../../styles.css">
++    <link rel="stylesheet" href="hidden-gems-community.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+ 
+     <!-- Page-specific styles (only what the shared stylesheet doesn't already cover) -->
+@@ -277,6 +278,105 @@
+         <div class="gems-grid" id="gemsGrid"></div>
+         <p class="gems-empty-state" id="gemsEmptyState">No hidden gems match your search. Try a different keyword or filter.</p>
+     </div>
++
++    <!-- Trending Hidden Gems -->
++    <div class="gems-container">
++        <div class="section-header">
++            <span class="section-badge">Community Favorites</span>
++            <h2>Trending Hidden Gems</h2>
++            <p class="section-subtitle">Ranked by content quality, upvotes, and bookmarks, with a boost for recent activity.</p>
++        </div>
++        <div class="gems-grid" id="trendingGrid"></div>
++    </div>
++
++    <!-- Submit a Hidden Gem -->
++    <div class="gems-container">
++        <div class="section-header">
++            <span class="section-badge">Contribute</span>
++            <h2>Submit a Hidden Gem</h2>
++            <p class="section-subtitle">Know a viewpoint, café, trekking route, or waterfall that deserves more love? Add it below. An AI-assisted check scores it for quality and flags likely duplicates before a moderator reviews it.</p>
++        </div>
++        <form id="gemSubmitForm" class="gem-submit-card glass-card">
++            <div class="form-row">
++                <label for="gemNameInput">Destination name</label>
++                <input type="text" id="gemNameInput" name="name" maxlength="60" required placeholder="e.g. Dzükou Valley"/>
++            </div>
++            <div class="form-row">
++                <label for="gemDescInput">Description</label>
++                <textarea id="gemDescInput" name="desc" required placeholder="What makes this place special? How do travelers get there?"></textarea>
++            </div>
++            <div class="form-row form-row-grid">
++                <div>
++                    <label for="gemCategoryInput">Category</label>
++                    <select id="gemCategoryInput" name="category" required>
++                        <option value="" disabled selected>Choose a category…</option>
++                    </select>
++                </div>
++                <div>
++                    <label for="gemRegionInput">Region</label>
++                    <select id="gemRegionInput" name="region" required>
++                        <option value="" disabled selected>Choose a region…</option>
++                        <option value="north">North</option>
++                        <option value="south">South</option>
++                        <option value="east">East &amp; Northeast</option>
++                        <option value="west">West</option>
++                        <option value="central">Central</option>
++                    </select>
++                </div>
++            </div>
++            <div class="form-row form-row-grid">
++                <div>
++                    <label for="gemStateInput">State</label>
++                    <input type="text" id="gemStateInput" name="state" placeholder="e.g. Nagaland"/>
++                </div>
++                <div>
++                    <label for="gemImgInput">Photo URL (optional)</label>
++                    <input type="url" id="gemImgInput" name="img" placeholder="https://…"/>
++                </div>
++            </div>
++            <div class="form-row form-row-grid">
++                <div>
++                    <label for="gemLatInput">Latitude (optional)</label>
++                    <input type="number" step="any" id="gemLatInput" name="lat" placeholder="e.g. 25.5941"/>
++                </div>
++                <div>
++                    <label for="gemLngInput">Longitude (optional)</label>
++                    <input type="number" step="any" id="gemLngInput" name="lng" placeholder="e.g. 94.1077"/>
++                </div>
++            </div>
++            <div class="form-row">
++                <label for="gemSubmittedByInput">Your name</label>
++                <input type="text" id="gemSubmittedByInput" name="submittedBy" maxlength="40" placeholder="How should we credit you?"/>
++            </div>
++            <button type="submit" class="btn btn-primary ripple">Submit Hidden Gem</button>
++        </form>
++        <div id="gemSubmitResult" class="gem-submit-result" hidden=""></div>
++    </div>
++
++    <!-- Moderator mode -->
++    <div class="gems-container">
++        <div class="moderator-toggle-row">
++            <button type="button" id="moderatorModeToggle" aria-pressed="false">🛡️ Moderator Mode</button>
++            <p class="section-subtitle" style="margin-top:10px;">A stand-in for real role-based auth — see docs/HIDDEN_GEMS.md. Anyone can toggle this locally to review the demo moderation queue.</p>
++        </div>
++        <div id="moderationSection" hidden="">
++            <div class="section-header">
++                <span class="section-badge">Moderation Queue</span>
++                <h2>Review Submissions</h2>
++            </div>
++            <div id="moderationQueue"></div>
++        </div>
++    </div>
++
++    <!-- Contributor leaderboard -->
++    <div class="gems-container">
++        <div class="section-header">
++            <span class="section-badge">Recognition</span>
++            <h2>Top Contributors</h2>
++            <p class="section-subtitle">Reputation grows with approved submissions and upvotes on your gems.</p>
++        </div>
++        <ul id="leaderboardList"></ul>
++    </div>
+   </main>
+ 
+   <!-- Footer -->
+@@ -308,147 +408,6 @@
+   <!-- Scroll To Top Button -->
+   <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+ 
+-  <script>
+-    const gems = [
+-      {
+-        id: 1,
+-        name: "Ziro Valley",
+-        state: "Arunachal Pradesh",
+-        region: "east",
+-        img: "https://picsum.photos/seed/ziro-valley/600/400",
+-        desc: "Mesmerizing rice terraces and Apatani tribal culture"
+-      },
+-      {
+-        id: 2,
+-        name: "Majuli Island",
+-        state: "Assam",
+-        region: "east",
+-        img: "https://picsum.photos/seed/majuli-island/600/400",
+-        desc: "World's largest river island and Vaishnavite culture"
+-      },
+-      {
+-        id: 3,
+-        name: "Spiti Valley",
+-        state: "Himachal Pradesh",
+-        region: "north",
+-        img: "https://picsum.photos/seed/spiti-valley/600/400",
+-        desc: "Cold desert with ancient monasteries"
+-      },
+-      {
+-        id: 4,
+-        name: "Gokarna",
+-        state: "Karnataka",
+-        region: "south",
+-        img: "https://picsum.photos/seed/gokarna-beach/600/400",
+-        desc: "Serene beaches and sacred temples"
+-      },
+-      {
+-        id: 5,
+-        name: "Kutch Rann",
+-        state: "Gujarat",
+-        region: "west",
+-        img: "https://picsum.photos/seed/white-desert/600/400",
+-        desc: "Magical white salt desert"
+-      },
+-      {
+-        id: 6,
+-        name: "Lonar Lake",
+-        state: "Maharashtra",
+-        region: "west",
+-        img: "https://picsum.photos/seed/lonar-lake/600/400",
+-        desc: "Mysterious meteor crater lake"
+-      },
+-      {
+-        id: 7,
+-        name: "Tawang",
+-        state: "Arunachal Pradesh",
+-        region: "east",
+-        img: "https://picsum.photos/seed/tawang-monastery/600/400",
+-        desc: "Ancient monastery and breathtaking Himalayan views"
+-      },
+-      {
+-        id: 8,
+-        name: "Nelliyampathy",
+-        state: "Kerala",
+-        region: "south",
+-        img: "https://picsum.photos/seed/kerala-hills/600/400",
+-        desc: "Hidden hill station with tea plantations"
+-      }
+-    ];
+-
+-    let favorites = JSON.parse(localStorage.getItem('hiddenGemsFavs')) || [];
+-
+-    function renderGems(data) {
+-      const grid = document.getElementById('gemsGrid');
+-      const emptyState = document.getElementById('gemsEmptyState');
+-      grid.innerHTML = '';
+-
+-      emptyState.classList.toggle('visible', data.length === 0);
+-
+-      data.forEach(gem => {
+-        const isFav = favorites.includes(gem.id);
+-        const card = document.createElement('div');
+-        card.className = 'gem-card glass-card';
+-        card.innerHTML = `
+-          <img src="${gem.img}" alt="${gem.name}, ${gem.state}" loading="lazy">
+-          <button class="gem-favorite" aria-label="${isFav ? 'Remove ' + gem.name + ' from favorites' : 'Add ' + gem.name + ' to favorites'}" aria-pressed="${isFav}" onclick="toggleFav(${gem.id}, this)">${isFav ? '❤️' : '♡'}</button>
+-          <div class="gem-info">
+-            <h3>${gem.name}</h3>
+-            <p class="region">${gem.state}</p>
+-            <p>${gem.desc}</p>
+-          </div>
+-        `;
+-        grid.appendChild(card);
+-      });
+-    }
+-
+-    function toggleFav(id, btn) {
+-      const gem = gems.find(g => g.id === id);
+-      if (favorites.includes(id)) {
+-        favorites = favorites.filter(f => f !== id);
+-        btn.textContent = '♡';
+-        btn.setAttribute('aria-pressed', 'false');
+-        btn.setAttribute('aria-label', `Add ${gem.name} to favorites`);
+-      } else {
+-        favorites.push(id);
+-        btn.textContent = '❤️';
+-        btn.setAttribute('aria-pressed', 'true');
+-        btn.setAttribute('aria-label', `Remove ${gem.name} from favorites`);
+-      }
+-      localStorage.setItem('hiddenGemsFavs', JSON.stringify(favorites));
+-    }
+-
+-    // Filters
+-    document.querySelectorAll('.filter-btn').forEach(btn => {
+-      btn.addEventListener('click', () => {
+-        document.querySelectorAll('.filter-btn').forEach(b => {
+-          b.classList.remove('active');
+-          b.setAttribute('aria-pressed', 'false');
+-        });
+-        btn.classList.add('active');
+-        btn.setAttribute('aria-pressed', 'true');
+-
+-        const region = btn.dataset.region;
+-        const filtered = region === 'all' ? gems : gems.filter(g => g.region === region);
+-        renderGems(filtered);
+-      });
+-    });
+-
+-    // Search
+-    document.getElementById('searchInput').addEventListener('input', (e) => {
+-      const term = e.target.value.toLowerCase();
+-      const filtered = gems.filter(g =>
+-        g.name.toLowerCase().includes(term) ||
+-        g.state.toLowerCase().includes(term) ||
+-        g.desc.toLowerCase().includes(term)
+-      );
+-      renderGems(filtered);
+-    });
+-
+-    // Initial Load
+-    renderGems(gems);
+-  </script>
+-
+   <!-- JavaScript Files -->
+   <script src="../../app.js" defer></script>
+   <script type="module" src="../../firebase-config.js"></script>
+diff --git a/js-modules/hidden-gems-core.js b/js-modules/hidden-gems-core.js
+new file mode 100644
+index 0000000..cf92f2a
+--- /dev/null
++++ b/js-modules/hidden-gems-core.js
+@@ -0,0 +1,276 @@
++/**
++ * js-modules/hidden-gems-core.js
++ * Community-Contributed Hidden Gems Discovery Platform (issue #865)
++ * — rule-based logic module.
++ *
++ * Pure functions only: no DOM, no fetch, no localStorage — mirrors the
++ * core/service/ui split used by travel-safety-core.js (issue #772) and
++ * weather-core.js (issue #286). Persistence lives in
++ * hidden-gems-service.js; DOM in hidden-gems-ui.js.
++ *
++ * IMPORTANT — on the "AI" in "AI-based duplicate detection" /
++ * "AI-generated content quality scoring": this project has no backend
++ * and no server-side model to call, so both are implemented as
++ * transparent, deterministic heuristics (text-similarity matching and a
++ * weighted rubric) rather than a trained ML model. They're labeled
++ * "AI-assisted" in the UI to match the issue's language, but the actual
++ * mechanism is documented here and in docs/HIDDEN_GEMS.md so nobody
++ * mistakes it for more than it is. Neither one auto-publishes or
++ * auto-deletes anything — they only flag items for a human moderator.
++ *
++ * Exposed as window.HiddenGemsCore (browser) and module.exports (Node/Vitest).
++ */
++(function (root) {
++    "use strict";
++
++    // ------------------------------------------------------------------
++    // Text similarity (duplicate detection)
++    // ------------------------------------------------------------------
++    const STOPWORDS = new Set([
++        "a", "an", "the", "and", "or", "of", "in", "on", "at", "to", "for",
++        "with", "is", "are", "this", "that", "near", "it", "its", "very"
++    ]);
++
++    function tokenize(text) {
++        if (!text) return [];
++        return String(text)
++            .toLowerCase()
++            .replace(/[^a-z0-9\s]/g, " ")
++            .split(/\s+/)
++            .filter((t) => t && !STOPWORDS.has(t));
++    }
++
++    /** Jaccard similarity between two token sets, 0 (no overlap) to 1 (identical). */
++    function jaccardSimilarity(tokensA, tokensB) {
++        const setA = new Set(tokensA);
++        const setB = new Set(tokensB);
++        if (!setA.size && !setB.size) return 0;
++        let intersection = 0;
++        setA.forEach((t) => { if (setB.has(t)) intersection++; });
++        const union = setA.size + setB.size - intersection;
++        return union === 0 ? 0 : intersection / union;
++    }
++
++    function textSimilarity(a, b) {
++        return jaccardSimilarity(tokenize(a), tokenize(b));
++    }
++
++    function haversineDistanceKm(lat1, lng1, lat2, lng2) {
++        if ([lat1, lng1, lat2, lng2].some((v) => typeof v !== "number" || Number.isNaN(v))) return Infinity;
++        const R = 6371;
++        const dLat = ((lat2 - lat1) * Math.PI) / 180;
++        const dLng = ((lng2 - lng1) * Math.PI) / 180;
++        const s =
++            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
++            Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
++        return R * (2 * Math.atan2(Math.sqrt(s), Math.sqrt(1 - s)));
++    }
++
++    /**
++     * Compares a new submission against existing gems and returns any
++     * likely duplicates, sorted strongest match first.
++     *
++     * @param {Object} submission - { name, desc, lat, lng }
++     * @param {Array} existingGems
++     * @param {Object} hiddenGemsData - window.HiddenGemsData (thresholds)
++     * @returns {Array<{gem, similarity, distanceKm}>}
++     */
++    function detectDuplicates(submission, existingGems, hiddenGemsData) {
++        const subTokens = tokenize((submission.name || "") + " " + (submission.desc || ""));
++        const matches = [];
++
++        existingGems.forEach((gem) => {
++            const gemTokens = tokenize((gem.name || "") + " " + (gem.desc || ""));
++            const similarity = jaccardSimilarity(subTokens, gemTokens);
++            const distanceKm = haversineDistanceKm(submission.lat, submission.lng, gem.lat, gem.lng);
++
++            const nameMatch = tokenize(submission.name).join(" ") === tokenize(gem.name).join(" ") && submission.name;
++            const textFlag = similarity >= hiddenGemsData.DUPLICATE_SIMILARITY_THRESHOLD;
++            const geoFlag = distanceKm <= hiddenGemsData.DUPLICATE_DISTANCE_KM;
++
++            if (nameMatch || textFlag || (geoFlag && similarity > 0.25)) {
++                matches.push({ gem, similarity: Math.round(similarity * 100) / 100, distanceKm: Number.isFinite(distanceKm) ? Math.round(distanceKm * 10) / 10 : null });
++            }
++        });
++
++        return matches.sort((a, b) => b.similarity - a.similarity);
++    }
++
++    // ------------------------------------------------------------------
++    // Content quality scoring
++    // ------------------------------------------------------------------
++    function containsBannedContent(submission, hiddenGemsData) {
++        const haystack = ((submission.name || "") + " " + (submission.desc || "")).toLowerCase();
++        const banned = hiddenGemsData.BANNED_WORDS.some((w) => haystack.includes(w));
++        const placeholder = hiddenGemsData.PLACEHOLDER_PHRASES.some((w) => haystack.includes(w));
++        return banned || placeholder;
++    }
++
++    /**
++     * @param {Object} submission - { name, desc, img, lat, lng, category }
++     * @param {Object} hiddenGemsData - window.HiddenGemsData
++     * @returns {{score:number, breakdown:Object, flags:Array<string>}}
++     */
++    function computeQualityScore(submission, hiddenGemsData) {
++        const weights = hiddenGemsData.QUALITY_WEIGHTS;
++        const flags = [];
++        const breakdown = {};
++
++        // Description length — rewards up to ~220 characters, no bonus beyond that.
++        const descLen = (submission.desc || "").trim().length;
++        const descScore = Math.min(1, descLen / 220);
++        breakdown.descriptionLength = Math.round(descScore * weights.descriptionLength);
++        if (descLen < 40) flags.push("description-too-short");
++
++        // Image present
++        const hasImage = !!(submission.img && submission.img.trim());
++        breakdown.hasImage = hasImage ? weights.hasImage : 0;
++        if (!hasImage) flags.push("missing-image");
++
++        // Precise location (lat/lng), not just a state name
++        const hasLocation = typeof submission.lat === "number" && typeof submission.lng === "number" && !Number.isNaN(submission.lat) && !Number.isNaN(submission.lng);
++        breakdown.hasLocation = hasLocation ? weights.hasLocation : 0;
++        if (!hasLocation) flags.push("missing-coordinates");
++
++        // Category tagged
++        const hasCategory = !!(submission.category && hiddenGemsData.CATEGORIES.some((c) => c.id === submission.category));
++        breakdown.hasCategory = hasCategory ? weights.hasCategory : 0;
++        if (!hasCategory) flags.push("missing-category");
++
++        // Title quality: reasonable length, not shouty/spammy
++        const name = (submission.name || "").trim();
++        const titleOk = name.length >= 3 && name.length <= 60 && name === name.replace(/!!!+/g, "!") && !/^[A-Z\s!]+$/.test(name.length > 4 ? name : "x");
++        breakdown.titleQuality = titleOk ? weights.titleQuality : 0;
++        if (!titleOk) flags.push("title-needs-review");
++
++        // No banned/placeholder content
++        const clean = !containsBannedContent(submission, hiddenGemsData);
++        breakdown.noBannedContent = clean ? weights.noBannedContent : 0;
++        if (!clean) flags.push("prohibited-or-placeholder-content");
++
++        const score = Object.values(breakdown).reduce((a, b) => a + b, 0);
++        return { score: Math.round(score), breakdown, flags };
++    }
++
++    const LOW_QUALITY_THRESHOLD = 50;
++
++    function isLowQuality(qualityResult) {
++        return qualityResult.score < LOW_QUALITY_THRESHOLD;
++    }
++
++    // ------------------------------------------------------------------
++    // Ranking / trending score
++    // ------------------------------------------------------------------
++    /**
++     * @param {Object} gem - { qualityScore, upvotes, bookmarkCount, approvedAt|createdAt }
++     * @param {Object} hiddenGemsData
++     * @param {Date} [now]
++     */
++    function computeRankScore(gem, hiddenGemsData, now) {
++        const weights = hiddenGemsData.RANKING_WEIGHTS;
++        now = now || new Date();
++
++        const qualityComponent = (gem.qualityScore || 0) * weights.quality;
++        const engagementRaw = (gem.upvotes || 0) * weights.upvote + (gem.bookmarkCount || 0) * weights.bookmark;
++
++        const referenceDate = new Date(gem.approvedAt || gem.createdAt || now);
++        const ageDays = Math.max(0, (now - referenceDate) / (1000 * 60 * 60 * 24));
++        const recencyMultiplier = Math.pow(0.5, ageDays / weights.recencyHalfLifeDays);
++
++        const engagementComponent = engagementRaw * recencyMultiplier;
++
++        return Math.round((qualityComponent + engagementComponent) * 100) / 100;
++    }
++
++    function rankGems(gems, hiddenGemsData, now) {
++        return gems
++            .map((gem) => Object.assign({}, gem, { rankScore: computeRankScore(gem, hiddenGemsData, now) }))
++            .sort((a, b) => b.rankScore - a.rankScore);
++    }
++
++    /** Trending = top N approved gems by rank score, engagement-weighted heavily toward recent activity. */
++    function trendingGems(gems, hiddenGemsData, limit, now) {
++        const approved = gems.filter((g) => g.status === hiddenGemsData.SUBMISSION_STATUS.APPROVED);
++        return rankGems(approved, hiddenGemsData, now).slice(0, limit || 6);
++    }
++
++    // ------------------------------------------------------------------
++    // Reputation & badges
++    // ------------------------------------------------------------------
++    function badgeForReputation(reputation, hiddenGemsData) {
++        const tiers = hiddenGemsData.BADGE_TIERS;
++        let current = tiers[0];
++        tiers.forEach((tier) => {
++            if (reputation >= tier.minReputation) current = tier;
++        });
++        return current;
++    }
++
++    /**
++     * @param {number} currentReputation
++     * @param {string} eventKey - a key in hiddenGemsData.REPUTATION_EVENTS
++     */
++    function applyReputationEvent(currentReputation, eventKey, hiddenGemsData) {
++        const delta = hiddenGemsData.REPUTATION_EVENTS[eventKey];
++        if (typeof delta !== "number") {
++            throw new Error("applyReputationEvent: unknown event key " + eventKey);
++        }
++        return Math.max(0, currentReputation + delta);
++    }
++
++    // ------------------------------------------------------------------
++    // Moderation workflow
++    // ------------------------------------------------------------------
++    const VALID_TRANSITIONS = {
++        pending: ["approved", "rejected", "changes_requested"],
++        changes_requested: ["pending", "approved", "rejected"],
++        approved: ["rejected"], // a moderator can still pull a published gem
++        rejected: ["pending"] // a contributor can resubmit
++    };
++
++    /**
++     * @param {Object} submission - must have a `status` field
++     * @param {string} nextStatus - one of hiddenGemsData.SUBMISSION_STATUS values
++     * @param {Object} [meta] - { moderatorNote, moderatedAt }
++     */
++    function transitionStatus(submission, nextStatus, meta) {
++        const current = submission.status;
++        const allowed = VALID_TRANSITIONS[current] || [];
++        if (!allowed.includes(nextStatus)) {
++            throw new Error(`Invalid moderation transition: ${current} -> ${nextStatus}`);
++        }
++        meta = meta || {};
++        return Object.assign({}, submission, {
++            status: nextStatus,
++            moderatorNote: meta.moderatorNote || null,
++            moderatedAt: meta.moderatedAt || new Date().toISOString(),
++            approvedAt: nextStatus === "approved" ? (meta.moderatedAt || new Date().toISOString()) : submission.approvedAt
++        });
++    }
++
++    const api = {
++        LOW_QUALITY_THRESHOLD,
++        tokenize,
++        jaccardSimilarity,
++        textSimilarity,
++        haversineDistanceKm,
++        detectDuplicates,
++        containsBannedContent,
++        computeQualityScore,
++        isLowQuality,
++        computeRankScore,
++        rankGems,
++        trendingGems,
++        badgeForReputation,
++        applyReputationEvent,
++        VALID_TRANSITIONS,
++        transitionStatus
++    };
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = api;
++    }
++    if (typeof window !== "undefined") {
++        window.HiddenGemsCore = api;
++    }
++})(typeof window !== "undefined" ? window : globalThis);
+diff --git a/js-modules/hidden-gems-data.js b/js-modules/hidden-gems-data.js
+new file mode 100644
+index 0000000..08b7c8c
+--- /dev/null
++++ b/js-modules/hidden-gems-data.js
+@@ -0,0 +1,150 @@
++/**
++ * js-modules/hidden-gems-data.js
++ * Config + seed data for the Community-Contributed Hidden Gems Discovery
++ * Platform (issue #865).
++ *
++ * The original hidden-gems.html page shipped with 8 hardcoded
++ * destinations. Those are preserved here as pre-approved seed entries
++ * (status: 'approved', source: 'editorial') so the page isn't empty on
++ * first load, and so community submissions render in the same grid
++ * alongside them.
++ */
++(function (root) {
++    "use strict";
++
++    // ------------------------------------------------------------------
++    // Categories a submission can be tagged with.
++    // ------------------------------------------------------------------
++    const CATEGORIES = [
++        { id: "viewpoint", label: "Viewpoint", icon: "🏔️" },
++        { id: "cafe", label: "Café / Local Eatery", icon: "☕" },
++        { id: "trek", label: "Trekking Route", icon: "🥾" },
++        { id: "waterfall", label: "Waterfall", icon: "💧" },
++        { id: "cultural", label: "Cultural / Heritage Spot", icon: "🏛️" },
++        { id: "village", label: "Village / Offbeat Town", icon: "🏘️" },
++        { id: "nature", label: "Nature / Wildlife Spot", icon: "🌿" },
++        { id: "other", label: "Other", icon: "📍" }
++    ];
++
++    const REGIONS = [
++        { id: "north", label: "North" },
++        { id: "south", label: "South" },
++        { id: "east", label: "East & Northeast" },
++        { id: "west", label: "West" },
++        { id: "central", label: "Central" }
++    ];
++
++    // ------------------------------------------------------------------
++    // Moderation statuses a submission can be in.
++    // ------------------------------------------------------------------
++    const SUBMISSION_STATUS = {
++        PENDING: "pending",
++        APPROVED: "approved",
++        REJECTED: "rejected",
++        CHANGES_REQUESTED: "changes_requested"
++    };
++
++    // ------------------------------------------------------------------
++    // Content-quality scoring weights (see hidden-gems-core.js for the
++    // scoring function itself). Kept here so the weights are easy to
++    // tune without touching logic.
++    // ------------------------------------------------------------------
++    const QUALITY_WEIGHTS = {
++        descriptionLength: 30, // rewards a substantive, non-trivial description
++        hasImage: 15,
++        hasLocation: 15, // lat/lng provided, not just a state name
++        hasCategory: 10,
++        titleQuality: 10, // reasonable title length, not all-caps/spammy
++        noBannedContent: 20 // penalize spammy/placeholder/prohibited content
++    };
++
++    // Very small, generic prohibited-content check — this is a basic
++    // safety net, not a real content-moderation model. Anything flagged
++    // still goes to a human moderator; nothing is auto-published or
++    // auto-deleted based on this alone.
++    const BANNED_WORDS = ["viagra", "crypto giveaway", "click here now", "free money", "xxx"];
++    const PLACEHOLDER_PHRASES = ["lorem ipsum", "test test", "asdf", "n/a", "todo"];
++
++    // ------------------------------------------------------------------
++    // Reputation / badge tiers, keyed by cumulative reputation points.
++    // ------------------------------------------------------------------
++    const REPUTATION_EVENTS = {
++        SUBMISSION_APPROVED: 15,
++        SUBMISSION_REJECTED: -3,
++        RECEIVED_UPVOTE: 1,
++        SUBMISSION_REPORTED_VALID: -10 // a moderator upholds a report against the contributor's gem
++    };
++
++    const BADGE_TIERS = [
++        { id: "newcomer", label: "Newcomer", minReputation: 0, icon: "🌱" },
++        { id: "explorer", label: "Explorer", minReputation: 20, icon: "🧭" },
++        { id: "pathfinder", label: "Pathfinder", minReputation: 60, icon: "🗺️" },
++        { id: "trailblazer", label: "Trailblazer", minReputation: 150, icon: "🔥" },
++        { id: "legend", label: "Local Legend", minReputation: 400, icon: "🏆" }
++    ];
++
++    // ------------------------------------------------------------------
++    // Ranking weights — how quality score vs. engagement vs. recency
++    // combine into the trending/rank score. See
++    // hidden-gems-core.js#computeRankScore.
++    // ------------------------------------------------------------------
++    const RANKING_WEIGHTS = {
++        quality: 0.5, // weight applied to the 0-100 quality score
++        upvote: 3, // points per upvote
++        bookmark: 1, // points per bookmark
++        recencyHalfLifeDays: 21 // engagement/recency boost halves every N days
++    };
++
++    // Similarity threshold above which a new submission is flagged as a
++    // likely duplicate of an existing gem (see hidden-gems-core.js).
++    const DUPLICATE_SIMILARITY_THRESHOLD = 0.6;
++    const DUPLICATE_DISTANCE_KM = 2; // gems within this distance + similar text are flagged
++
++    // ------------------------------------------------------------------
++    // Seed data — the original editorial hidden gems, now modeled with
++    // the same shape as a community submission so both render through
++    // one code path.
++    // ------------------------------------------------------------------
++    const SEED_GEMS = [
++        { id: "seed-1", name: "Ziro Valley", state: "Arunachal Pradesh", region: "east", category: "nature", img: "https://picsum.photos/seed/ziro-valley/600/400", desc: "Mesmerizing rice terraces and Apatani tribal culture.", lat: 27.5921, lng: 93.8317 },
++        { id: "seed-2", name: "Majuli Island", state: "Assam", region: "east", category: "cultural", img: "https://picsum.photos/seed/majuli-island/600/400", desc: "World's largest river island and Vaishnavite culture.", lat: 27.0230, lng: 94.2140 },
++        { id: "seed-3", name: "Spiti Valley", state: "Himachal Pradesh", region: "north", category: "nature", img: "https://picsum.photos/seed/spiti-valley/600/400", desc: "Cold desert with ancient monasteries.", lat: 32.2461, lng: 78.0092 },
++        { id: "seed-4", name: "Gokarna", state: "Karnataka", region: "south", category: "nature", img: "https://picsum.photos/seed/gokarna-beach/600/400", desc: "Serene beaches and sacred temples.", lat: 14.5479, lng: 74.3188 },
++        { id: "seed-5", name: "Kutch Rann", state: "Gujarat", region: "west", category: "viewpoint", img: "https://picsum.photos/seed/white-desert/600/400", desc: "Magical white salt desert.", lat: 23.7337, lng: 69.8597 },
++        { id: "seed-6", name: "Lonar Lake", state: "Maharashtra", region: "west", category: "nature", img: "https://picsum.photos/seed/lonar-lake/600/400", desc: "Mysterious meteor crater lake.", lat: 19.9807, lng: 76.5111 },
++        { id: "seed-7", name: "Tawang", state: "Arunachal Pradesh", region: "east", category: "cultural", img: "https://picsum.photos/seed/tawang-monastery/600/400", desc: "Ancient monastery and breathtaking Himalayan views.", lat: 27.5860, lng: 91.8594 },
++        { id: "seed-8", name: "Nelliyampathy", state: "Kerala", region: "south", category: "trek", img: "https://picsum.photos/seed/kerala-hills/600/400", desc: "Hidden hill station with tea plantations.", lat: 10.5167, lng: 76.6667 }
++    ].map((g) => Object.assign({}, g, {
++        status: SUBMISSION_STATUS.APPROVED,
++        source: "editorial",
++        submittedBy: "Incredible India Explorer Team",
++        createdAt: "2026-01-01T00:00:00.000Z",
++        approvedAt: "2026-01-01T00:00:00.000Z",
++        qualityScore: 100,
++        upvotes: 0,
++        bookmarkCount: 0,
++        reports: []
++    }));
++
++    const api = {
++        CATEGORIES,
++        REGIONS,
++        SUBMISSION_STATUS,
++        QUALITY_WEIGHTS,
++        BANNED_WORDS,
++        PLACEHOLDER_PHRASES,
++        REPUTATION_EVENTS,
++        BADGE_TIERS,
++        RANKING_WEIGHTS,
++        DUPLICATE_SIMILARITY_THRESHOLD,
++        DUPLICATE_DISTANCE_KM,
++        SEED_GEMS
++    };
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = api;
++    }
++    if (typeof window !== "undefined") {
++        window.HiddenGemsData = api;
++    }
++})(typeof window !== "undefined" ? window : globalThis);
+diff --git a/js-modules/hidden-gems-service.js b/js-modules/hidden-gems-service.js
+new file mode 100644
+index 0000000..bc8e8a0
+--- /dev/null
++++ b/js-modules/hidden-gems-service.js
+@@ -0,0 +1,299 @@
++/**
++ * js-modules/hidden-gems-service.js
++ * Persistence layer for the Community-Contributed Hidden Gems Discovery
++ * Platform (issue #865).
++ *
++ * This project has no backend (see docs/TRAVEL_SAFETY.md and
++ * docs/TRIP_PLANNER.md for the same pattern used elsewhere), so
++ * "Community contribution service" / "Backend APIs for submissions and
++ * moderation" / "Reputation management system" are all implemented as a
++ * localStorage-backed service layer, scoped to one browser. That's a
++ * real, documented limitation — see docs/HIDDEN_GEMS.md — not a hidden
++ * shortcut: submissions, votes, and reputation don't sync across
++ * devices or contributors without a real backend, which is a natural
++ * follow-up once this repo has one.
++ *
++ * Contributors are identified by a display name they type in (no
++ * account system beyond the site's existing optional Firebase login),
++ * plus an anonymous per-browser voter id so the same browser can't
++ * upvote a gem twice.
++ */
++(function (root) {
++    "use strict";
++
++    const KEYS = {
++        submissions: "hiddenGemsSubmissions",
++        contributors: "hiddenGemsContributors",
++        votes: "hiddenGemsVotes", // { [gemId]: [voterId, ...] }
++        bookmarks: "hiddenGemsBookmarks", // [gemId, ...] for this browser
++        reports: "hiddenGemsReports",
++        voterId: "hiddenGemsVoterId",
++        moderatorMode: "hiddenGemsModeratorMode"
++    };
++
++    function readJSON(key, fallback) {
++        try {
++            const raw = localStorage.getItem(key);
++            return raw ? JSON.parse(raw) : fallback;
++        } catch (e) {
++            return fallback;
++        }
++    }
++
++    function writeJSON(key, value) {
++        try {
++            localStorage.setItem(key, JSON.stringify(value));
++            return true;
++        } catch (e) {
++            return false;
++        }
++    }
++
++    function uid(prefix) {
++        return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
++    }
++
++    function getVoterId() {
++        let id = localStorage.getItem(KEYS.voterId);
++        if (!id) {
++            id = uid("voter");
++            localStorage.setItem(KEYS.voterId, id);
++        }
++        return id;
++    }
++
++    // ------------------------------------------------------------------
++    // Submissions
++    // ------------------------------------------------------------------
++    function getAllSubmissions() {
++        return readJSON(KEYS.submissions, []);
++    }
++
++    function saveAllSubmissions(list) {
++        return writeJSON(KEYS.submissions, list);
++    }
++
++    /** Approved seed gems + approved community submissions, for the public grid. */
++    function getPublishedGems(hiddenGemsData) {
++        const approved = getAllSubmissions().filter((s) => s.status === hiddenGemsData.SUBMISSION_STATUS.APPROVED);
++        return hiddenGemsData.SEED_GEMS.concat(approved);
++    }
++
++    /** Every gem, published or not — used for duplicate-checking new submissions. */
++    function getAllGemsForDuplicateCheck(hiddenGemsData) {
++        return hiddenGemsData.SEED_GEMS.concat(getAllSubmissions());
++    }
++
++    /**
++     * Create a new submission: runs quality scoring + duplicate
++     * detection (via hiddenGemsCore), stores it as 'pending', and
++     * records the contributor.
++     *
++     * @param {Object} formData - { name, desc, img, category, region, state, lat, lng, submittedBy }
++     * @returns {{ submission, qualityResult, duplicates }}
++     */
++    function submitGem(formData, hiddenGemsCore, hiddenGemsData) {
++        const qualityResult = hiddenGemsCore.computeQualityScore(formData, hiddenGemsData);
++        const duplicates = hiddenGemsCore.detectDuplicates(formData, getAllGemsForDuplicateCheck(hiddenGemsData), hiddenGemsData);
++
++        const submission = Object.assign({}, formData, {
++            id: uid("gem"),
++            status: hiddenGemsData.SUBMISSION_STATUS.PENDING,
++            source: "community",
++            createdAt: new Date().toISOString(),
++            approvedAt: null,
++            qualityScore: qualityResult.score,
++            qualityFlags: qualityResult.flags,
++            duplicateOf: duplicates.length ? duplicates[0].gem.id : null,
++            upvotes: 0,
++            bookmarkCount: 0,
++            reports: []
++        });
++
++        const all = getAllSubmissions();
++        all.push(submission);
++        saveAllSubmissions(all);
++        ensureContributor(formData.submittedBy).submissionCount++;
++        persistContributors();
++
++        return { submission, qualityResult, duplicates };
++    }
++
++    /**
++     * Moderator action on a pending/changes-requested submission.
++     * @param {string} submissionId
++     * @param {string} nextStatus - hiddenGemsData.SUBMISSION_STATUS value
++     * @param {string} [note]
++     */
++    function moderateSubmission(submissionId, nextStatus, note, hiddenGemsCore, hiddenGemsData) {
++        const all = getAllSubmissions();
++        const idx = all.findIndex((s) => s.id === submissionId);
++        if (idx === -1) throw new Error("Submission not found: " + submissionId);
++
++        const updated = hiddenGemsCore.transitionStatus(all[idx], nextStatus, { moderatorNote: note });
++        all[idx] = updated;
++        saveAllSubmissions(all);
++
++        const contributor = ensureContributor(updated.submittedBy);
++        if (nextStatus === hiddenGemsData.SUBMISSION_STATUS.APPROVED) {
++            contributor.reputation = hiddenGemsCore.applyReputationEvent(contributor.reputation, "SUBMISSION_APPROVED", hiddenGemsData);
++        } else if (nextStatus === hiddenGemsData.SUBMISSION_STATUS.REJECTED) {
++            contributor.reputation = hiddenGemsCore.applyReputationEvent(contributor.reputation, "SUBMISSION_REJECTED", hiddenGemsData);
++        }
++        persistContributors();
++
++        return updated;
++    }
++
++    // ------------------------------------------------------------------
++    // Contributors / reputation
++    // ------------------------------------------------------------------
++    let _contributorsCache = null;
++
++    function loadContributors() {
++        if (!_contributorsCache) {
++            _contributorsCache = readJSON(KEYS.contributors, {});
++        }
++        return _contributorsCache;
++    }
++
++    function persistContributors() {
++        writeJSON(KEYS.contributors, _contributorsCache || {});
++    }
++
++    function ensureContributor(name) {
++        const key = (name || "Anonymous Explorer").trim() || "Anonymous Explorer";
++        const contributors = loadContributors();
++        if (!contributors[key]) {
++            contributors[key] = { name: key, reputation: 0, submissionCount: 0, joinedAt: new Date().toISOString() };
++        }
++        return contributors[key];
++    }
++
++    function getContributor(name) {
++        return loadContributors()[(name || "").trim()] || null;
++    }
++
++    function getLeaderboard(hiddenGemsCore, hiddenGemsData, limit) {
++        const contributors = Object.values(loadContributors());
++        return contributors
++            .map((c) => Object.assign({}, c, { badge: hiddenGemsCore.badgeForReputation(c.reputation, hiddenGemsData) }))
++            .sort((a, b) => b.reputation - a.reputation)
++            .slice(0, limit || 10);
++    }
++
++    // ------------------------------------------------------------------
++    // Upvotes / bookmarks / reports
++    // ------------------------------------------------------------------
++    function toggleUpvote(gemId, hiddenGemsCore, hiddenGemsData) {
++        const votes = readJSON(KEYS.votes, {});
++        const voterId = getVoterId();
++        const voters = votes[gemId] || [];
++        const alreadyVoted = voters.includes(voterId);
++
++        votes[gemId] = alreadyVoted ? voters.filter((v) => v !== voterId) : voters.concat(voterId);
++        writeJSON(KEYS.votes, votes);
++
++        const delta = alreadyVoted ? -1 : 1;
++        const submissions = getAllSubmissions();
++        const idx = submissions.findIndex((s) => s.id === gemId);
++        if (idx !== -1) {
++            submissions[idx] = Object.assign({}, submissions[idx], { upvotes: Math.max(0, (submissions[idx].upvotes || 0) + delta) });
++            saveAllSubmissions(submissions);
++            if (!alreadyVoted && submissions[idx].submittedBy) {
++                const contributor = ensureContributor(submissions[idx].submittedBy);
++                contributor.reputation = hiddenGemsCore.applyReputationEvent(contributor.reputation, "RECEIVED_UPVOTE", hiddenGemsData);
++                persistContributors();
++            }
++        }
++        return { upvoted: !alreadyVoted, count: (votes[gemId] || []).length };
++    }
++
++    function hasUpvoted(gemId) {
++        const votes = readJSON(KEYS.votes, {});
++        return (votes[gemId] || []).includes(getVoterId());
++    }
++
++    function toggleBookmark(gemId) {
++        const bookmarks = readJSON(KEYS.bookmarks, []);
++        const has = bookmarks.includes(gemId);
++        const next = has ? bookmarks.filter((id) => id !== gemId) : bookmarks.concat(gemId);
++        writeJSON(KEYS.bookmarks, next);
++
++        const submissions = getAllSubmissions();
++        const idx = submissions.findIndex((s) => s.id === gemId);
++        if (idx !== -1) {
++            const delta = has ? -1 : 1;
++            submissions[idx] = Object.assign({}, submissions[idx], { bookmarkCount: Math.max(0, (submissions[idx].bookmarkCount || 0) + delta) });
++            saveAllSubmissions(submissions);
++        }
++        return !has;
++    }
++
++    function isBookmarked(gemId) {
++        return readJSON(KEYS.bookmarks, []).includes(gemId);
++    }
++
++    function getBookmarks() {
++        return readJSON(KEYS.bookmarks, []);
++    }
++
++    function reportGem(gemId, reason, note) {
++        const reports = readJSON(KEYS.reports, []);
++        const report = { id: uid("report"), gemId, reason, note: note || "", createdAt: new Date().toISOString(), status: "open" };
++        reports.push(report);
++        writeJSON(KEYS.reports, reports);
++        return report;
++    }
++
++    function getReportsForGem(gemId) {
++        return readJSON(KEYS.reports, []).filter((r) => r.gemId === gemId);
++    }
++
++    function getAllReports() {
++        return readJSON(KEYS.reports, []);
++    }
++
++    // ------------------------------------------------------------------
++    // Moderator mode (local placeholder — see docs/HIDDEN_GEMS.md for
++    // why this isn't wired to real role-based auth yet)
++    // ------------------------------------------------------------------
++    function isModeratorMode() {
++        return readJSON(KEYS.moderatorMode, false) === true;
++    }
++
++    function setModeratorMode(enabled) {
++        writeJSON(KEYS.moderatorMode, !!enabled);
++    }
++
++    const api = {
++        KEYS,
++        getVoterId,
++        getAllSubmissions,
++        saveAllSubmissions,
++        getPublishedGems,
++        getAllGemsForDuplicateCheck,
++        submitGem,
++        moderateSubmission,
++        ensureContributor,
++        getContributor,
++        getLeaderboard,
++        toggleUpvote,
++        hasUpvoted,
++        toggleBookmark,
++        isBookmarked,
++        getBookmarks,
++        reportGem,
++        getReportsForGem,
++        getAllReports,
++        isModeratorMode,
++        setModeratorMode
++    };
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = api;
++    }
++    if (typeof window !== "undefined") {
++        window.HiddenGemsService = api;
++    }
++})(typeof window !== "undefined" ? window : globalThis);
+diff --git a/js-modules/hidden-gems-ui.js b/js-modules/hidden-gems-ui.js
+new file mode 100644
+index 0000000..7b820cd
+--- /dev/null
++++ b/js-modules/hidden-gems-ui.js
+@@ -0,0 +1,332 @@
++/**
++ * js-modules/hidden-gems-ui.js
++ * DOM layer for the Community-Contributed Hidden Gems Discovery Platform
++ * (frontend/hidden-gems/hidden-gems.html, issue #865).
++ *
++ * Wires together hidden-gems-data.js (config/seed data),
++ * hidden-gems-core.js (pure scoring/duplicate/ranking/reputation/
++ * moderation logic), and hidden-gems-service.js (localStorage
++ * persistence) into the page. Registered in router-init.js for
++ * hidden-gems.html, called as initHiddenGemsPage().
++ */
++(function () {
++    "use strict";
++
++    function initHiddenGemsPage() {
++        const Data = window.HiddenGemsData;
++        const Core = window.HiddenGemsCore;
++        const Service = window.HiddenGemsService;
++
++        if (!Data || !Core || !Service) {
++            console.error("[HiddenGemsUI] Missing dependency (HiddenGemsData/HiddenGemsCore/HiddenGemsService) — hidden gems page disabled.");
++            return;
++        }
++
++        // -- DOM refs ------------------------------------------------------
++        const grid = document.getElementById("gemsGrid");
++        const emptyState = document.getElementById("gemsEmptyState");
++        const searchInput = document.getElementById("searchInput");
++        const filterButtons = document.querySelectorAll(".filter-btn");
++        const trendingGrid = document.getElementById("trendingGrid");
++        const leaderboardList = document.getElementById("leaderboardList");
++
++        const form = document.getElementById("gemSubmitForm");
++        const submitResultPanel = document.getElementById("gemSubmitResult");
++
++        const moderatorToggleBtn = document.getElementById("moderatorModeToggle");
++        const moderationSection = document.getElementById("moderationSection");
++        const moderationQueue = document.getElementById("moderationQueue");
++
++        if (!grid) return; // markup not present — nothing to wire up
++
++        let currentRegion = "all";
++        let currentSearch = "";
++
++        // -- Populate category select --------------------------------------
++        const categorySelect = document.getElementById("gemCategoryInput");
++        if (categorySelect) {
++            Data.CATEGORIES.forEach((c) => {
++                const opt = document.createElement("option");
++                opt.value = c.id;
++                opt.textContent = `${c.icon} ${c.label}`;
++                categorySelect.appendChild(opt);
++            });
++        }
++
++        // -- Rendering: gem grid --------------------------------------------
++        function getFilteredGems() {
++            const published = Service.getPublishedGems(Data);
++            const ranked = Core.rankGems(published, Data);
++            return ranked.filter((g) => {
++                const regionOk = currentRegion === "all" || g.region === currentRegion;
++                const term = currentSearch.toLowerCase();
++                const searchOk = !term || [g.name, g.state, g.desc].some((f) => (f || "").toLowerCase().includes(term));
++                return regionOk && searchOk;
++            });
++        }
++
++        function categoryMeta(id) {
++            return Data.CATEGORIES.find((c) => c.id === id) || Data.CATEGORIES[Data.CATEGORIES.length - 1];
++        }
++
++        function renderGemCard(gem) {
++            const isBookmarked = Service.isBookmarked(gem.id);
++            const isUpvoted = Service.hasUpvoted(gem.id);
++            const cat = categoryMeta(gem.category);
++            const contributor = gem.source === "community" ? Service.getContributor(gem.submittedBy) : null;
++            const badge = contributor ? Core.badgeForReputation(contributor.reputation, Data) : null;
++
++            const card = document.createElement("div");
++            card.className = "gem-card glass-card";
++            card.innerHTML = `
++                <img src="${escapeHtml(gem.img || "https://picsum.photos/seed/" + encodeURIComponent(gem.id) + "/600/400")}" alt="${escapeHtml(gem.name)}, ${escapeHtml(gem.state || "")}" loading="lazy">
++                <button class="gem-favorite" aria-label="${isBookmarked ? "Remove " + escapeHtml(gem.name) + " from bookmarks" : "Bookmark " + escapeHtml(gem.name)}" aria-pressed="${isBookmarked}" data-action="bookmark" data-gem-id="${gem.id}">${isBookmarked ? "❤️" : "♡"}</button>
++                <span class="gem-category-badge">${cat.icon} ${escapeHtml(cat.label)}</span>
++                <div class="gem-info">
++                    <h3>${escapeHtml(gem.name)}</h3>
++                    <p class="region">${escapeHtml(gem.state || "")}</p>
++                    <p>${escapeHtml(gem.desc || "")}</p>
++                    <div class="gem-meta-row">
++                        <button class="gem-upvote-btn ${isUpvoted ? "active" : ""}" data-action="upvote" data-gem-id="${gem.id}">▲ ${gem.upvotes || 0}</button>
++                        <button class="gem-report-btn" data-action="report" data-gem-id="${gem.id}" title="Report this gem">⚑ Report</button>
++                        ${contributor ? `<span class="gem-contributor">${badge.icon} ${escapeHtml(contributor.name)}</span>` : `<span class="gem-contributor">Editorial pick</span>`}
++                    </div>
++                </div>
++            `;
++            return card;
++        }
++
++        function renderGems() {
++            const data = getFilteredGems();
++            grid.innerHTML = "";
++            if (emptyState) emptyState.classList.toggle("visible", data.length === 0);
++            data.forEach((gem) => grid.appendChild(renderGemCard(gem)));
++            wireGemActions(grid);
++        }
++
++        function renderTrending() {
++            if (!trendingGrid) return;
++            const published = Service.getPublishedGems(Data);
++            const top = Core.trendingGems(published, Data, 6);
++            trendingGrid.innerHTML = "";
++            if (!top.length) {
++                trendingGrid.innerHTML = "<p class='gems-empty-state visible'>No trending gems yet — upvote your favorites!</p>";
++                return;
++            }
++            top.forEach((gem) => trendingGrid.appendChild(renderGemCard(gem)));
++            wireGemActions(trendingGrid);
++        }
++
++        function renderLeaderboard() {
++            if (!leaderboardList) return;
++            const top = Service.getLeaderboard(Core, Data, 8);
++            if (!top.length) {
++                leaderboardList.innerHTML = "<li class='leaderboard-empty'>No contributors yet — be the first to submit a hidden gem!</li>";
++                return;
++            }
++            leaderboardList.innerHTML = top.map((c, i) => `
++                <li>
++                    <span class="leaderboard-rank">#${i + 1}</span>
++                    <span class="leaderboard-badge">${c.badge.icon}</span>
++                    <span class="leaderboard-name">${escapeHtml(c.name)}</span>
++                    <span class="leaderboard-stats">${c.reputation} pts · ${c.submissionCount} submission${c.submissionCount === 1 ? "" : "s"}</span>
++                </li>
++            `).join("");
++        }
++
++        function wireGemActions(container) {
++            container.querySelectorAll("[data-action='bookmark']").forEach((btn) => {
++                btn.addEventListener("click", () => {
++                    const gemId = btn.dataset.gemId;
++                    const nowBookmarked = Service.toggleBookmark(gemId);
++                    btn.textContent = nowBookmarked ? "❤️" : "♡";
++                    btn.setAttribute("aria-pressed", String(nowBookmarked));
++                });
++            });
++            container.querySelectorAll("[data-action='upvote']").forEach((btn) => {
++                btn.addEventListener("click", () => {
++                    const gemId = btn.dataset.gemId;
++                    const result = Service.toggleUpvote(gemId, Core, Data);
++                    btn.textContent = `▲ ${result.count}`;
++                    btn.classList.toggle("active", result.upvoted);
++                    renderTrending();
++                    renderLeaderboard();
++                });
++            });
++            container.querySelectorAll("[data-action='report']").forEach((btn) => {
++                btn.addEventListener("click", () => {
++                    const gemId = btn.dataset.gemId;
++                    const reason = window.prompt("Why are you reporting this hidden gem? (e.g. inaccurate, inappropriate, duplicate)");
++                    if (reason && reason.trim()) {
++                        Service.reportGem(gemId, reason.trim());
++                        window.alert("Thanks — this has been flagged for a moderator to review.");
++                    }
++                });
++            });
++        }
++
++        // -- Filters & search -------------------------------------------------
++        filterButtons.forEach((btn) => {
++            btn.addEventListener("click", () => {
++                filterButtons.forEach((b) => { b.classList.remove("active"); b.setAttribute("aria-pressed", "false"); });
++                btn.classList.add("active");
++                btn.setAttribute("aria-pressed", "true");
++                currentRegion = btn.dataset.region;
++                renderGems();
++            });
++        });
++        if (searchInput) {
++            searchInput.addEventListener("input", (e) => {
++                currentSearch = e.target.value;
++                renderGems();
++            });
++        }
++
++        // -- Submission form ---------------------------------------------------
++        if (form) {
++            form.addEventListener("submit", (e) => {
++                e.preventDefault();
++                const fd = new FormData(form);
++                const lat = parseFloat(fd.get("lat"));
++                const lng = parseFloat(fd.get("lng"));
++
++                const submissionInput = {
++                    name: (fd.get("name") || "").toString().trim(),
++                    desc: (fd.get("desc") || "").toString().trim(),
++                    img: (fd.get("img") || "").toString().trim(),
++                    category: (fd.get("category") || "").toString(),
++                    state: (fd.get("state") || "").toString().trim(),
++                    region: (fd.get("region") || "").toString(),
++                    lat: Number.isNaN(lat) ? undefined : lat,
++                    lng: Number.isNaN(lng) ? undefined : lng,
++                    submittedBy: (fd.get("submittedBy") || "").toString().trim() || "Anonymous Explorer"
++                };
++
++                if (!submissionInput.name || !submissionInput.desc || !submissionInput.region) {
++                    renderSubmitResult({ error: "Please fill in at least a name, description, and region." });
++                    return;
++                }
++
++                const { submission, qualityResult, duplicates } = Service.submitGem(submissionInput, Core, Data);
++                renderSubmitResult({ submission, qualityResult, duplicates });
++                form.reset();
++                if (moderatorToggleBtn && Service.isModeratorMode()) renderModerationQueue();
++            });
++        }
++
++        function renderSubmitResult({ submission, qualityResult, duplicates, error }) {
++            if (!submitResultPanel) return;
++            submitResultPanel.hidden = false;
++
++            if (error) {
++                submitResultPanel.innerHTML = `<p class="gem-submit-error">${escapeHtml(error)}</p>`;
++                return;
++            }
++
++            const dupHtml = duplicates.length
++                ? `<div class="gem-submit-warning">⚠️ This looks similar to <strong>${escapeHtml(duplicates[0].gem.name)}</strong> already in the database (${Math.round(duplicates[0].similarity * 100)}% text match${duplicates[0].distanceKm !== null ? `, ${duplicates[0].distanceKm} km away` : ""}). A moderator will double-check before approving.</div>`
++                : "";
++
++            const lowQuality = Core.isLowQuality(qualityResult);
++
++            submitResultPanel.innerHTML = `
++                <h4>Thanks, ${escapeHtml(submission.submittedBy)}! Your submission is pending review.</h4>
++                <div class="gem-quality-score">AI content-quality score: <strong>${qualityResult.score}/100</strong>${lowQuality ? " — flagged as low quality for extra moderator attention" : ""}</div>
++                ${qualityResult.flags.length ? `<ul class="gem-quality-flags">${qualityResult.flags.map((f) => `<li>${escapeHtml(flagLabel(f))}</li>`).join("")}</ul>` : ""}
++                ${dupHtml}
++                <p class="gem-submit-note">A moderator will approve, reject, or request changes. You'll gain reputation once it's approved.</p>
++            `;
++        }
++
++        function flagLabel(flag) {
++            const labels = {
++                "description-too-short": "Consider adding more detail to your description",
++                "missing-image": "No image URL provided",
++                "missing-coordinates": "No precise location (lat/lng) provided",
++                "missing-category": "No category selected",
++                "title-needs-review": "Title may need a human look (length/formatting)",
++                "prohibited-or-placeholder-content": "Contains prohibited or placeholder-like text"
++            };
++            return labels[flag] || flag;
++        }
++
++        // -- Moderation dashboard --------------------------------------------
++        if (moderatorToggleBtn && moderationSection) {
++            const applyModeratorVisibility = () => {
++                const on = Service.isModeratorMode();
++                moderationSection.hidden = !on;
++                moderatorToggleBtn.textContent = on ? "🛡️ Exit Moderator Mode" : "🛡️ Moderator Mode";
++                moderatorToggleBtn.setAttribute("aria-pressed", String(on));
++                if (on) renderModerationQueue();
++            };
++            moderatorToggleBtn.addEventListener("click", () => {
++                Service.setModeratorMode(!Service.isModeratorMode());
++                applyModeratorVisibility();
++            });
++            applyModeratorVisibility();
++        }
++
++        function renderModerationQueue() {
++            if (!moderationQueue) return;
++            const pending = Service.getAllSubmissions().filter((s) =>
++                s.status === Data.SUBMISSION_STATUS.PENDING || s.status === Data.SUBMISSION_STATUS.CHANGES_REQUESTED
++            );
++
++            if (!pending.length) {
++                moderationQueue.innerHTML = "<p>No submissions waiting for review.</p>";
++                return;
++            }
++
++            moderationQueue.innerHTML = pending.map((s) => {
++                const dup = s.duplicateOf ? Service.getAllGemsForDuplicateCheck(Data).find((g) => g.id === s.duplicateOf) : null;
++                return `
++                <div class="moderation-card" data-submission-id="${s.id}">
++                    <div class="moderation-card-header">
++                        <h5>${escapeHtml(s.name)} <span class="moderation-status moderation-status-${s.status}">${escapeHtml(s.status.replace("_", " "))}</span></h5>
++                        <span>by ${escapeHtml(s.submittedBy)} · quality ${s.qualityScore}/100${dup ? ` · possible duplicate of ${escapeHtml(dup.name)}` : ""}</span>
++                    </div>
++                    <p>${escapeHtml(s.desc)}</p>
++                    ${s.qualityFlags && s.qualityFlags.length ? `<p class="moderation-flags">Flags: ${s.qualityFlags.map(flagLabel).map(escapeHtml).join(", ")}</p>` : ""}
++                    <div class="moderation-actions">
++                        <button data-mod-action="approved">✅ Approve</button>
++                        <button data-mod-action="changes_requested">✏️ Request Changes</button>
++                        <button data-mod-action="rejected">❌ Reject</button>
++                    </div>
++                </div>`;
++            }).join("");
++
++            moderationQueue.querySelectorAll("[data-mod-action]").forEach((btn) => {
++                btn.addEventListener("click", () => {
++                    const card = btn.closest("[data-submission-id]");
++                    const id = card.dataset.submissionId;
++                    const nextStatus = btn.dataset.modAction;
++                    let note = null;
++                    if (nextStatus === "changes_requested" || nextStatus === "rejected") {
++                        note = window.prompt("Add a note for the contributor (optional):") || "";
++                    }
++                    Service.moderateSubmission(id, nextStatus, note, Core, Data);
++                    renderModerationQueue();
++                    renderGems();
++                    renderTrending();
++                    renderLeaderboard();
++                });
++            });
++        }
++
++        // -- Utilities -----------------------------------------------------
++        function escapeHtml(str) {
++            return String(str).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
++        }
++
++        // -- Initial render --------------------------------------------------
++        renderGems();
++        renderTrending();
++        renderLeaderboard();
++    }
++
++    window.initHiddenGemsPage = initHiddenGemsPage;
++
++    if (typeof module !== "undefined" && module.exports) {
++        module.exports = { initHiddenGemsPage };
++    }
++})();
+diff --git a/js-modules/router-init.js b/js-modules/router-init.js
+index f3e4192..54ea1c9 100644
+--- a/js-modules/router-init.js
++++ b/js-modules/router-init.js
+@@ -82,7 +82,17 @@
+         },
+         'heritage.html': { log: '✅ Heritage page loaded successfully' },
+         'monuments.html': { log: '✅ Monuments page loaded successfully' },
+-        'hidden-gems.html': { log: '✅ Hidden Gems page loaded successfully' },
++        'hidden-gems.html': {
++            scripts: [
++                'js-modules/hidden-gems-data.js',
++                'js-modules/hidden-gems-core.js',
++                'js-modules/hidden-gems-service.js',
++                'js-modules/hidden-gems-ui.js'
++            ],
++            initName: 'initHiddenGemsPage',
++            useSafeInit: true,
++            name: 'Hidden Gems'
++        },
+         'railways.html': { log: '✅ Railways Explorer page loaded successfully' },
+         'adventure.html': { log: 'Adventure page loaded successfully' },
+         'contributors.html': {
+diff --git a/tests/unit/hidden-gems-core.test.js b/tests/unit/hidden-gems-core.test.js
+new file mode 100644
+index 0000000..b87f6dc
+--- /dev/null
++++ b/tests/unit/hidden-gems-core.test.js
+@@ -0,0 +1,198 @@
++/**
++ * hidden-gems-core.test.js
++ * Tests for js-modules/hidden-gems-core.js — the pure content-quality
++ * scoring, duplicate-detection, ranking, reputation, and moderation
++ * transition logic behind the Community-Contributed Hidden Gems
++ * Discovery Platform (issue #865).
++ */
++
++import { describe, it, expect } from 'vitest';
++import Core from '../../js-modules/hidden-gems-core.js';
++import Data from '../../js-modules/hidden-gems-data.js';
++
++function submission(overrides) {
++    return Object.assign({
++        name: 'Dzukou Valley',
++        desc: 'A remote valley on the Nagaland-Manipur border famous for its seasonal wildflowers and gentle rolling hills, reached via a steep multi-hour trek from Viswema village.',
++        img: 'https://example.com/photo.jpg',
++        category: 'trek',
++        region: 'east',
++        state: 'Nagaland',
++        lat: 25.5941,
++        lng: 94.1077,
++        submittedBy: 'Test User'
++    }, overrides);
++}
++
++describe('hidden-gems-core: text similarity', () => {
++    it('gives identical text a similarity of 1', () => {
++        expect(Core.textSimilarity('Ziro Valley rice terraces', 'Ziro Valley rice terraces')).toBe(1);
++    });
++
++    it('gives completely different text a similarity near 0', () => {
++        expect(Core.textSimilarity('mountain trekking route', 'seaside beach cafe')).toBe(0);
++    });
++
++    it('gives partially overlapping text a similarity between 0 and 1', () => {
++        const sim = Core.textSimilarity('Ziro Valley rice terraces Apatani', 'Ziro Valley Apatani culture');
++        expect(sim).toBeGreaterThan(0);
++        expect(sim).toBeLessThan(1);
++    });
++
++    it('ignores stopwords and punctuation', () => {
++        const sim = Core.textSimilarity('The waterfall near the village!', 'waterfall near village');
++        expect(sim).toBeGreaterThan(0.7);
++    });
++});
++
++describe('hidden-gems-core: detectDuplicates', () => {
++    it('flags a near-identical submission against an existing gem', () => {
++        const existing = [{ id: 'seed-1', name: 'Ziro Valley', desc: 'Mesmerizing rice terraces and Apatani tribal culture.', lat: 27.5921, lng: 93.8317 }];
++        const dup = submission({ name: 'Ziro Valley', desc: 'Mesmerizing rice terraces and Apatani tribal culture nearby.', lat: 27.59, lng: 93.83 });
++        const matches = Core.detectDuplicates(dup, existing, Data);
++        expect(matches.length).toBe(1);
++        expect(matches[0].gem.id).toBe('seed-1');
++    });
++
++    it('does not flag an unrelated submission', () => {
++        const existing = [{ id: 'seed-1', name: 'Ziro Valley', desc: 'Mesmerizing rice terraces and Apatani tribal culture.', lat: 27.5921, lng: 93.8317 }];
++        const unrelated = submission({ name: 'Dzukou Valley', lat: 25.5941, lng: 94.1077 });
++        expect(Core.detectDuplicates(unrelated, existing, Data)).toHaveLength(0);
++    });
++
++    it('flags gems that are geographically very close even with looser text overlap', () => {
++        const existing = [{ id: 'seed-1', name: 'Hidden Falls', desc: 'A quiet waterfall spot loved by locals.', lat: 10.0, lng: 76.0 }];
++        const close = submission({ name: 'Hidden Waterfall', desc: 'A quiet local waterfall spot for a picnic.', lat: 10.001, lng: 76.001 });
++        const matches = Core.detectDuplicates(close, existing, Data);
++        expect(matches.length).toBeGreaterThan(0);
++    });
++
++    it('sorts multiple matches strongest-first', () => {
++        const existing = [
++            { id: 'a', name: 'Dzukou Valley trek', desc: 'valley wildflowers trek hills', lat: 25.5, lng: 94.1 },
++            { id: 'b', name: 'Dzukou Valley', desc: 'A remote valley on the Nagaland-Manipur border famous for its seasonal wildflowers and gentle rolling hills, reached via a steep multi-hour trek from Viswema village.', lat: 25.5941, lng: 94.1077 }
++        ];
++        const matches = Core.detectDuplicates(submission(), existing, Data);
++        expect(matches[0].gem.id).toBe('b');
++    });
++});
++
++describe('hidden-gems-core: computeQualityScore', () => {
++    it('gives a complete, well-formed submission a high score', () => {
++        const result = Core.computeQualityScore(submission(), Data);
++        expect(result.score).toBeGreaterThan(80);
++        expect(result.flags).toHaveLength(0);
++    });
++
++    it('penalizes a submission missing image, coordinates, and category', () => {
++        const sparse = submission({ img: '', lat: undefined, lng: undefined, category: '' });
++        const result = Core.computeQualityScore(sparse, Data);
++        expect(result.flags).toEqual(expect.arrayContaining(['missing-image', 'missing-coordinates', 'missing-category']));
++        expect(result.score).toBeLessThan(80);
++    });
++
++    it('penalizes a very short description', () => {
++        const short = submission({ desc: 'Nice place.' });
++        const result = Core.computeQualityScore(short, Data);
++        expect(result.flags).toContain('description-too-short');
++    });
++
++    it('flags placeholder/prohibited content', () => {
++        const spammy = submission({ desc: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum' });
++        const result = Core.computeQualityScore(spammy, Data);
++        expect(result.flags).toContain('prohibited-or-placeholder-content');
++    });
++
++    it('isLowQuality reflects the configured threshold', () => {
++        const sparse = submission({ img: '', lat: undefined, lng: undefined, category: '', desc: 'short' });
++        const result = Core.computeQualityScore(sparse, Data);
++        expect(Core.isLowQuality(result)).toBe(result.score < Core.LOW_QUALITY_THRESHOLD);
++    });
++});
++
++describe('hidden-gems-core: computeRankScore / rankGems / trendingGems', () => {
++    const now = new Date('2026-07-01T00:00:00.000Z');
++
++    it('ranks a higher-quality, more-upvoted gem above a lower one', () => {
++        const strong = { id: 'a', qualityScore: 90, upvotes: 20, bookmarkCount: 5, approvedAt: now.toISOString(), status: Data.SUBMISSION_STATUS.APPROVED };
++        const weak = { id: 'b', qualityScore: 50, upvotes: 1, bookmarkCount: 0, approvedAt: now.toISOString(), status: Data.SUBMISSION_STATUS.APPROVED };
++        expect(Core.computeRankScore(strong, Data, now)).toBeGreaterThan(Core.computeRankScore(weak, Data, now));
++    });
++
++    it('decays engagement score for older gems relative to a fresher one with equal stats', () => {
++        const fresh = { id: 'a', qualityScore: 70, upvotes: 10, bookmarkCount: 2, approvedAt: now.toISOString() };
++        const old = { id: 'b', qualityScore: 70, upvotes: 10, bookmarkCount: 2, approvedAt: new Date('2026-01-01T00:00:00.000Z').toISOString() };
++        expect(Core.computeRankScore(fresh, Data, now)).toBeGreaterThan(Core.computeRankScore(old, Data, now));
++    });
++
++    it('rankGems sorts descending by rank score', () => {
++        const gems = [
++            { id: 'low', qualityScore: 40, upvotes: 0, bookmarkCount: 0, approvedAt: now.toISOString() },
++            { id: 'high', qualityScore: 95, upvotes: 30, bookmarkCount: 10, approvedAt: now.toISOString() }
++        ];
++        const ranked = Core.rankGems(gems, Data, now);
++        expect(ranked[0].id).toBe('high');
++    });
++
++    it('trendingGems only includes approved gems', () => {
++        const gems = [
++            { id: 'a', qualityScore: 90, upvotes: 10, bookmarkCount: 1, approvedAt: now.toISOString(), status: Data.SUBMISSION_STATUS.APPROVED },
++            { id: 'b', qualityScore: 99, upvotes: 50, bookmarkCount: 20, approvedAt: now.toISOString(), status: Data.SUBMISSION_STATUS.PENDING }
++        ];
++        const trending = Core.trendingGems(gems, Data, 6, now);
++        expect(trending.map((g) => g.id)).toEqual(['a']);
++    });
++});
++
++describe('hidden-gems-core: reputation & badges', () => {
++    it('maps 0 reputation to the newcomer badge', () => {
++        expect(Core.badgeForReputation(0, Data).id).toBe('newcomer');
++    });
++
++    it('maps a high reputation to a higher badge tier', () => {
++        expect(Core.badgeForReputation(500, Data).id).toBe('legend');
++    });
++
++    it('applies a positive reputation event', () => {
++        const next = Core.applyReputationEvent(10, 'SUBMISSION_APPROVED', Data);
++        expect(next).toBe(10 + Data.REPUTATION_EVENTS.SUBMISSION_APPROVED);
++    });
++
++    it('never lets reputation go below zero', () => {
++        const next = Core.applyReputationEvent(1, 'SUBMISSION_REJECTED', Data);
++        expect(next).toBeGreaterThanOrEqual(0);
++    });
++
++    it('throws on an unknown event key', () => {
++        expect(() => Core.applyReputationEvent(10, 'NOT_A_REAL_EVENT', Data)).toThrow();
++    });
++});
++
++describe('hidden-gems-core: moderation transitionStatus', () => {
++    it('allows pending -> approved', () => {
++        const result = Core.transitionStatus({ status: 'pending' }, 'approved');
++        expect(result.status).toBe('approved');
++        expect(result.approvedAt).toBeTruthy();
++    });
++
++    it('allows pending -> rejected with a moderator note', () => {
++        const result = Core.transitionStatus({ status: 'pending' }, 'rejected', { moderatorNote: 'Not enough detail' });
++        expect(result.status).toBe('rejected');
++        expect(result.moderatorNote).toBe('Not enough detail');
++    });
++
++    it('allows rejected -> pending (resubmission)', () => {
++        const result = Core.transitionStatus({ status: 'rejected' }, 'pending');
++        expect(result.status).toBe('pending');
++    });
++
++    it('rejects an invalid transition', () => {
++        expect(() => Core.transitionStatus({ status: 'approved' }, 'pending')).toThrow();
++    });
++
++    it('does not mutate the original submission object', () => {
++        const original = { status: 'pending' };
++        Core.transitionStatus(original, 'approved');
++        expect(original.status).toBe('pending');
++    });
++});

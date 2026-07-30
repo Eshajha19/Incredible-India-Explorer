@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Caves & Rock Shelters | Incredible India</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+    <header class="caves-header">
+        <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+        <div class="header-content">
+            <h1>Ancient Caves & Rock Shelters</h1>
+            <p>Journey back in time. Explore India's prehistoric rock art, monolithic rock-cut architecture, and centuries-old sanctuaries carved from solid stone.</p>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
+        </div>
+    </header>
+
+    <main class="caves-main">
+
+        <!-- Educational Section -->
+        <section class="educational-section" aria-labelledby="edu-title">
+            <h2 id="edu-title" class="section-title">The Dawn of Human Art & Architecture</h2>
+            <div class="edu-grid">
+                <article class="edu-card">
+                    <h3>Prehistoric Rock Art 🎨</h3>
+                    <p>India is home to some of the oldest rock art in the world, dating back to the Paleolithic era. Sites like Bhimbetka offer a glimpse into the daily lives, hunts, and dances of early humans.</p>
+                </article>
+                <article class="edu-card">
+                    <h3>Rock-Cut Architecture 🏛️</h3>
+                    <p>Instead of building up, ancient Indian artisans carved massive temples and monasteries directly into mountainsides. This tradition, spanning Buddhist, Hindu, and Jain faiths, peaked at Ajanta and Ellora.</p>
+                </article>
+                <article class="edu-card">
+                    <h3>Conservation 🛡️</h3>
+                    <p>Preserving these monuments from natural erosion and human impact is a monumental task. The ASI (Archaeological Survey of India) employs structural supports and chemical treatments to save them for future generations.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section" aria-labelledby="gallery-title">
+            <h2 id="gallery-title" class="section-title">Explore the Sites</h2>
+            <p class="section-subtitle">Click on a site to reveal its secrets.</p>
+
+            <div class="caves-grid" id="caves-grid">
+                <!-- Cards are injected dynamically by script.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="caves-footer">
+        <p>Preserve our heritage. Incredible India.</p>
+    </footer>
+
+    <!-- Modal Dialog for Cave Details -->
+    <div id="cave-modal-overlay" class="modal-overlay" aria-hidden="true">
+        <div id="cave-modal" class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
+            <div class="modal-content" id="modal-content">
+                <!-- Content injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+      Load the global focus-trap module before the specific script.
+      This provides window.setupFocusTrap if it's not already available.
+    -->
+    <script src="../../js-modules/focus-trap.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

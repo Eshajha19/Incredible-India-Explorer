@@ -1,0 +1,28 @@
+{
+  "id": "assam",
+  "state": "Assam",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_forests.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "kaziranga",
+      "name": "Kaziranga",
+      "lat": 26.5775,
+      "lng": 93.1714,
+      "categories": [
+        "wildlife"
+      ],
+      "highlights": [
+        "One-horned rhino safari",
+        "Elephant-back safari"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Nov-Apr",
+      "description": "UNESCO wildlife sanctuary famous for Indian one-horned rhinos."
+    }
+  ]
+}

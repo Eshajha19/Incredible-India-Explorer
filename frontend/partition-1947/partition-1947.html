@@ -11,8 +11,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Partition of India, 1947 — A Factual Overview: Understated, respectful scrollytelling exploring pre-1947 political context, Radcliffe Line, migration demographics, and nation-building aftermath.">
-    <title>Partition of India, 1947 — A Factual Overview | Incredible India</title>
+    <meta name="description" content="Partition of India, 1947 — Interactive Educational Explorer covering pre-1947 political history (1905-1950), Mountbatten Plan, Radcliffe Line, migration maps, refugee camps, leaders, oral history, and knowledge quiz.">
+    <title>Partition of India, 1947 — Interactive Historical Explorer | Incredible India</title>
     <link rel="icon" href="data:,">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
 </head>
 
 <body class="partition-body">
+    <!-- Navbar -->
     <header class="navbar scrolled" id="navbar">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
@@ -77,17 +78,17 @@
         <!-- Hero Banner -->
         <section class="partition-hero">
             <div class="hero-content">
-                <span class="hero-kicker">📜 Historical Narrative · Scrollytelling · Factual & Neutral Overview</span>
-                <h1>Partition of India, 1947 <span>A Factual Overview</span></h1>
-                <p>A dignified, non-graphic historical record documenting the political context, boundary demarcation, migration scale, and subsequent nation-building of 1947.</p>
+                <span class="hero-kicker">📜 Interactive Historical Module · Factual & Neutral Overview</span>
+                <h1>The Partition of India (1947) <span>Interactive Explorer</span></h1>
+                <p>A comprehensive educational portal covering the timeline (1905–1950), Mountbatten Plan, Radcliffe Line, migration statistics, refugee crisis, political leaders, interactive maps, archival media, oral histories, and knowledge assessment.</p>
             </div>
         </section>
 
-        <!-- Main Workspace -->
+        <!-- Main Content Area -->
         <section class="partition-workspace">
             <div class="partition-container">
 
-                <!-- Editorial Note Card -->
+                <!-- Editorial Framing Note -->
                 <div class="editorial-card">
                     <div class="editorial-header">
                         <span class="editorial-icon">⚖️</span>
@@ -100,7 +101,7 @@
                 <section class="demographics-section">
                     <div class="section-title">
                         <h2>Demographic & Migration Scale (Sourced Data)</h2>
-                        <p>Verified figures on population movements during the 1947 demarcation.</p>
+                        <p>Verified figures on population displacement during the 1947 demarcation.</p>
                     </div>
 
                     <div class="stats-grid">
@@ -125,82 +126,239 @@
                             <p class="stat-note">7.2M from East Punjab, Delhi, and UP (Government of Pakistan Reports).</p>
                         </div>
                     </div>
-
-                    <div class="sources-box">
-                        <h4>📚 Verified Historical Data Sources:</h4>
-                        <ul>
-                            <li>Census of India 1951 (Vol. I, Part I-A Report)</li>
-                            <li>UNHCR Historical Reports on 20th Century Population Movements</li>
-                            <li>The Great Partition: The Making of India and Pakistan (Yasmin Khan, Yale University Press)</li>
-                            <li>India After Gandhi: The History of the World's Largest Democracy (Ramachandra Guha)</li>
-                        </ul>
-                    </div>
                 </section>
 
-                <!-- Border Demarcation & Radcliffe Line Map Section -->
-                <section class="radcliffe-map-section">
+                <!-- Interactive Tab Navigation -->
+                <nav class="partition-tab-nav" aria-label="Explorer Sections Navigation">
+                    <button class="partition-tab-btn active" data-tab="timeline">📅 Timeline (1905–1950)</button>
+                    <button class="partition-tab-btn" data-tab="mountbatten">📜 Mountbatten Plan</button>
+                    <button class="partition-tab-btn" data-tab="radcliffe">🗺️ Radcliffe Line</button>
+                    <button class="partition-tab-btn" data-tab="migration">🚶 Migration Maps</button>
+                    <button class="partition-tab-btn" data-tab="refugee">⛺ Refugee Crisis</button>
+                    <button class="partition-tab-btn" data-tab="leaders">👤 Political Leaders</button>
+                    <button class="partition-tab-btn" data-tab="archival">🖼️ Archival Photos</button>
+                    <button class="partition-tab-btn" data-tab="oral">🎙️ Oral History</button>
+                    <button class="partition-tab-btn" data-tab="quiz">❓ Knowledge Quiz</button>
+                </nav>
+
+                <!-- TAB 1: Timeline (1905–1950) -->
+                <div id="tab-timeline" class="partition-tab-pane active">
                     <div class="section-title">
-                        <h2>The Radcliffe Line & Boundary Commissions</h2>
-                        <p>Understated map representation of the Punjab & Bengal boundary awards.</p>
-                    </div>
-
-                    <div class="radcliffe-map-box">
-                        <svg viewBox="0 0 800 400" class="radcliffe-svg">
-                            <!-- Background Subcontinent Outline Path -->
-                            <rect width="800" height="400" fill="rgba(255,255,255,0.02)" rx="16"/>
-                            <!-- Punjab Region Marker -->
-                            <circle cx="220" cy="160" r="45" fill="rgba(234,179,8,0.12)" stroke="var(--part-gold)" stroke-dasharray="4 4"/>
-                            <text x="220" y="155" text-anchor="middle" fill="var(--part-gold)" font-size="13" font-weight="bold">PUNJAB BORDER</text>
-                            <text x="220" y="175" text-anchor="middle" fill="var(--part-muted)" font-size="11">553 km Line</text>
-
-                            <!-- Bengal Region Marker -->
-                            <circle cx="620" cy="240" r="45" fill="rgba(59,130,246,0.12)" stroke="var(--part-blue)" stroke-dasharray="4 4"/>
-                            <text x="620" y="235" text-anchor="middle" fill="var(--part-blue)" font-size="13" font-weight="bold">BENGAL BORDER</text>
-                            <text x="620" y="255" text-anchor="middle" fill="var(--part-muted)" font-size="11">4,096 km Line</text>
-
-                            <!-- Animated Border Lines -->
-                            <path id="radcliffe-svg-line" d="M 220 100 L 220 220 M 620 180 L 620 300" stroke="var(--part-saffron)" stroke-width="3" stroke-dasharray="200" stroke-dashoffset="200"/>
-                        </svg>
-                        <p class="map-caption">Understated SVG animation illustrating the dual boundary commission lines in Punjab and Bengal.</p>
-                    </div>
-                </section>
-
-                <!-- Scrollytelling Timeline Section -->
-                <section class="scrolly-timeline-section">
-                    <div class="section-title">
-                        <h2>Chronological Timeline (1946–1950)</h2>
-                        <p>Search or scroll through verified milestones of the Partition era.</p>
+                        <h2>Historical Timeline (1905–1950)</h2>
+                        <p>14 verified milestones from the 1905 Partition of Bengal to the 1950 Nehru-Liaquat Pact & Constitution.</p>
                     </div>
 
                     <div class="timeline-toolbar">
                         <div class="search-field">
-                            <input id="partition-search" type="search" placeholder="Search Mountbatten, Radcliffe, Resettlement, Independence Act, Nehru-Liaquat..." autocomplete="off">
+                            <input id="partition-search" type="search" placeholder="Search milestones (e.g. Mountbatten, Radcliffe, Swadeshi, Lucknow, Cabinet Mission)..." autocomplete="off">
                         </div>
                     </div>
 
                     <div id="timeline-cards-container" class="timeline-cards-container"></div>
-                </section>
+                </div>
 
-                <!-- Aftermath & Nation-Building Section -->
-                <section class="aftermath-section">
+                <!-- TAB 2: Mountbatten Plan -->
+                <div id="tab-mountbatten" class="partition-tab-pane">
                     <div class="section-title">
-                        <h2>Aftermath & Nation-Building (1950 Onwards)</h2>
-                        <p>Constitutional guarantees, township rehabilitation, and post-independence recovery.</p>
+                        <h2>The Mountbatten Plan (June 3, 1947)</h2>
+                        <p>Detailed analysis of the 3rd June Plan that structured the British exit and partition mechanism.</p>
                     </div>
 
-                    <div class="aftermath-grid">
-                        <div class="aftermath-card">
-                            <span class="card-icon">🏛️</span>
-                            <h3>Constitutional Integration (1950)</h3>
-                            <p>The Constitution of India came into effect on January 26, 1950, guaranteeing secular democracy, fundamental rights, and equal citizenship regardless of religion or origin.</p>
+                    <div class="mountbatten-card-box">
+                        <div class="mountbatten-banner">
+                            <h3>June 3, 1947 Announcement</h3>
+                            <p>Viceroy Lord Mountbatten announced the decision to transfer power to two sovereign dominions—India and Pakistan—advancing the British withdrawal date from June 1948 to August 15, 1947.</p>
                         </div>
-                        <div class="aftermath-card">
-                            <span class="card-icon">🏗️</span>
-                            <h3>Refugee Townships & Rehabilitation</h3>
-                            <p>New model townships like Faridabad, Nilokheri, and Ulhasnagar were constructed to house displaced families and foster industrial & handicraft livelihoods.</p>
+                        <div class="mountbatten-grid">
+                            <div class="plan-provision-card">
+                                <h4>⏱️ Accelerated Timetable</h4>
+                                <p>Compressed the administrative transition window into 72 days, necessitating urgent division of treasury, military assets, and civil services.</p>
+                            </div>
+                            <div class="plan-provision-card">
+                                <h4>🗳️ Assembly Votes & Referendums</h4>
+                                <p>Legislative assemblies of Punjab and Bengal voted on partition; referendums were ordered for Sylhet (Assam) and the North-West Frontier Province (NWFP).</p>
+                            </div>
+                            <div class="plan-provision-card">
+                                <h4>📐 Twin Boundary Commissions</h4>
+                                <p>Established dual commissions for Punjab and Bengal, chaired by British barrister Sir Cyril Radcliffe, tasked with boundary demarcation in 5 weeks.</p>
+                            </div>
+                            <div class="plan-provision-card">
+                                <h4>👑 Princely States Mandate</h4>
+                                <p>Terminated British paramountcy, giving 565 Princely States the legal choice to accede to either India or Pakistan.</p>
+                            </div>
                         </div>
                     </div>
-                </section>
+                </div>
+
+                <!-- TAB 3: Radcliffe Line -->
+                <div id="tab-radcliffe" class="partition-tab-pane">
+                    <div class="section-title">
+                        <h2>The Radcliffe Line & Boundary Demarcation</h2>
+                        <p>Understated visual map and economic analysis of the Punjab and Bengal boundary commissions.</p>
+                    </div>
+
+                    <div class="radcliffe-map-box">
+                        <svg viewBox="0 0 800 400" class="radcliffe-svg" aria-label="Radcliffe Line Boundary Diagram">
+                            <rect width="800" height="400" fill="rgba(255,255,255,0.02)" rx="16"/>
+                            <circle cx="220" cy="160" r="55" fill="rgba(234,179,8,0.12)" stroke="var(--part-gold)" stroke-dasharray="4 4"/>
+                            <text x="220" y="150" text-anchor="middle" fill="var(--part-gold)" font-size="14" font-weight="bold">PUNJAB BORDER</text>
+                            <text x="220" y="170" text-anchor="middle" fill="var(--part-muted)" font-size="12">553 km Line</text>
+
+                            <circle cx="620" cy="240" r="55" fill="rgba(59,130,246,0.12)" stroke="var(--part-blue)" stroke-dasharray="4 4"/>
+                            <text x="620" y="230" text-anchor="middle" fill="var(--part-blue)" font-size="14" font-weight="bold">BENGAL BORDER</text>
+                            <text x="620" y="250" text-anchor="middle" fill="var(--part-muted)" font-size="12">4,096 km Line</text>
+
+                            <path id="radcliffe-svg-line" d="M 220 90 L 220 230 M 620 170 L 620 310" stroke="var(--part-saffron)" stroke-width="4" stroke-dasharray="200" stroke-dashoffset="0"/>
+                        </svg>
+                        <p class="map-caption">SVG visual representation of the dual Boundary Commission lines in Punjab (553 km) and Bengal (4,096 km).</p>
+                    </div>
+
+                    <div class="radcliffe-details-grid">
+                        <div class="radcliffe-card">
+                            <h3>🌾 Punjab Boundary Commission</h3>
+                            <p><strong>Chairman:</strong> Sir Cyril Radcliffe</p>
+                            <p><strong>Districts Divided:</strong> Gurdaspur, Amritsar, Lahore, Firozpur, Jalandhar</p>
+                            <p><strong>Economic Impact:</strong> Bisected rich agricultural canal colonies, separating wheat fields from central distribution centers and irrigation networks.</p>
+                        </div>
+                        <div class="radcliffe-card">
+                            <h3>🌿 Bengal Boundary Commission</h3>
+                            <p><strong>Chairman:</strong> Sir Cyril Radcliffe</p>
+                            <p><strong>Districts Divided:</strong> Nadia, Jessore, Dinajpur, Malda, Sylhet</p>
+                            <p><strong>Economic Impact:</strong> Separated 80% of raw jute growing regions in East Bengal from all 108 jute processing mills located around Kolkata.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: Interactive Migration Maps -->
+                <div id="tab-migration" class="partition-tab-pane">
+                    <div class="section-title">
+                        <h2>Interactive Migration Corridors</h2>
+                        <p>Select a major corridor below to explore movement routes and volume statistics.</p>
+                    </div>
+
+                    <div class="corridors-selector-grid">
+                        <div class="corridor-card selected" data-corridor="corridor-punjab">
+                            <span class="corridor-icon">🛤️</span>
+                            <h4>Western Corridor (Punjab)</h4>
+                            <p>Lahore ↔ Amritsar / Delhi (~10M People)</p>
+                        </div>
+                        <div class="corridor-card" data-corridor="corridor-bengal">
+                            <span class="corridor-icon">🚢</span>
+                            <h4>Eastern Corridor (Bengal)</h4>
+                            <p>Dhaka ↔ Kolkata / Ranaghat (~3.5M People)</p>
+                        </div>
+                        <div class="corridor-card" data-corridor="corridor-sindh">
+                            <span class="corridor-icon">🌊</span>
+                            <h4>Southern Corridor (Sindh)</h4>
+                            <p>Karachi ↔ Bombay / Gujarat (~1.2M People)</p>
+                        </div>
+                    </div>
+
+                    <div id="corridor-detail-display" class="corridor-detail-box">
+                        <h3>Western Corridor (Punjab)</h3>
+                        <p><strong>Primary Route:</strong> Lahore ↔ Amritsar / Jalandhar / Ludhiana / Delhi</p>
+                        <p><strong>Estimated Volume:</strong> 10 Million People</p>
+                        <p><strong>Directional Flow:</strong> Bi-directional across East and West Punjab</p>
+                        <div class="corridor-note-box">
+                            <p>Massive foot columns ('kaflas') and special refugee trains crossed the new boundary. Heavy demand on transit camps at Kurukshetra and Delhi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: Refugee Crisis & Rehabilitation -->
+                <div id="tab-refugee" class="partition-tab-pane">
+                    <div class="section-title">
+                        <h2>Refugee Crisis & Rehabilitation Initiatives</h2>
+                        <p>Overview of relief camps, ration management, and pioneer model townships.</p>
+                    </div>
+
+                    <div class="refugee-camps-grid">
+                        <div class="camp-card">
+                            <span class="camp-tag">Tent City</span>
+                            <h3>Kurukshetra Relief Camp</h3>
+                            <p><strong>Location:</strong> Haryana (East Punjab)</p>
+                            <p><strong>Capacity:</strong> 300,000 residents</p>
+                            <p>Constructed with over 50,000 military tents, complete with central kitchens, sanitation units, and field hospitals.</p>
+                        </div>
+                        <div class="camp-card">
+                            <span class="camp-tag">Urban Transit</span>
+                            <h3>Purana Qila & Humayun's Tomb Camps</h3>
+                            <p><strong>Location:</strong> New Delhi</p>
+                            <p><strong>Capacity:</strong> 100,000 residents</p>
+                            <p>Historical fort complexes temporarily repurposed as safe transit sanctuaries for displaced families awaiting housing.</p>
+                        </div>
+                        <div class="camp-card">
+                            <span class="camp-tag">Eastern Hub</span>
+                            <h3>Ranaghat & Cooper's Camp</h3>
+                            <p><strong>Location:</strong> Nadia, West Bengal</p>
+                            <p><strong>Capacity:</strong> 150,000 residents</p>
+                            <p>Primary transit hub providing immediate relief, rations, and medical checks for displaced persons arriving in Bengal.</p>
+                        </div>
+                        <div class="camp-card">
+                            <span class="camp-tag">Model Township</span>
+                            <h3>Faridabad & Ulhasnagar Townships</h3>
+                            <p><strong>Location:</strong> Haryana & Maharashtra</p>
+                            <p><strong>Capacity:</strong> 250,000 resettled</p>
+                            <p>Planned industrial model cities constructed via self-help cooperative housing initiatives.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 6: Political Leaders -->
+                <div id="tab-leaders" class="partition-tab-pane">
+                    <div class="section-title">
+                        <h2>Political Leaders Involved</h2>
+                        <p>Key political figures, viceroys, and leaders during the Partition era.</p>
+                    </div>
+
+                    <div class="leaders-toolbar">
+                        <label for="leader-category-filter">Filter by Category:</label>
+                        <select id="leader-category-filter" class="partition-select">
+                            <option value="all">All Categories</option>
+                            <option value="Indian Leadership">Indian Leadership</option>
+                            <option value="British Official">British Officials</option>
+                            <option value="Muslim League Leadership">Muslim League Leadership</option>
+                            <option value="Regional Leadership">Regional Leadership</option>
+                        </select>
+                    </div>
+
+                    <div id="leaders-grid-container" class="leaders-grid"></div>
+                </div>
+
+                <!-- TAB 7: Archival Photographs -->
+                <div id="tab-archival" class="partition-tab-pane">
+                    <div class="section-title">
+                        <h2>Archival Photographs & Media</h2>
+                        <p>Dignified archival photos, official records, and historical gallery entries.</p>
+                    </div>
+
+                    <div id="gallery-grid-container" class="archival-gallery-grid"></div>
+                </div>
+
+                <!-- TAB 8: Oral History -->
+                <div id="tab-oral" class="partition-tab-pane">
+                    <div class="section-title">
+                        <h2>Oral History & Survivor Testimonies</h2>
+                        <p>First-person accounts highlighting resilience, memory, and community rebuilding.</p>
+                    </div>
+
+                    <div id="oral-history-container" class="oral-history-grid"></div>
+                </div>
+
+                <!-- TAB 9: Knowledge Quiz -->
+                <div id="tab-quiz" class="partition-tab-pane">
+                    <div class="section-title">
+                        <h2>Partition History Knowledge Quiz</h2>
+                        <p>Test your knowledge with 10 verified educational questions.</p>
+                    </div>
+
+                    <div id="quiz-questions-container" class="quiz-container"></div>
+                    <div class="quiz-action-bar">
+                        <button id="quiz-submit-btn" class="btn-submit-quiz" type="button">Submit Quiz & View Results</button>
+                    </div>
+
+                    <div id="quiz-results-display" class="quiz-results-box" style="display: none;"></div>
+                </div>
 
             </div>
         </section>
@@ -215,7 +373,7 @@
                     <span class="gold">India</span>
                     <span class="green">Explorer</span>
                 </a>
-                <p>Scrollytelling educational portal presenting a dignified, factual, and respectful historical overview of the 1947 Partition of India.</p>
+                <p>Interactive educational portal presenting a dignified, factual, and neutral historical overview of the Partition of India (1947).</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>

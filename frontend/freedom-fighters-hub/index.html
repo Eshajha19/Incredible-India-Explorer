@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Freedom Fighters Interactive Knowledge Hub — Educational encyclopedia celebrating India's heroic freedom fighters, timelines, revolutionary movements, rare facts, and inspiring quotes."
+        />
+        <title>Freedom Fighters Interactive Knowledge Hub | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body class="ff-hub-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../historical-timeline/index.html" class="nav-link">History</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Freedom Fighters</a>
+                    <a href="../constitution-makers/index.html" class="nav-link">Constitution Makers</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="ff-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-courage">🔥 Valor & Sacrifice</span>
+                        <span class="hero-pill pill-independence">🇮🇳 Indian Independence</span>
+                        <span class="hero-pill pill-history">📜 Interactive Encyclopedia</span>
+                    </div>
+                    <h1>Freedom Fighters <span>Knowledge Hub</span></h1>
+                    <p class="hero-subtitle">
+                        Honor the brave men and women who fought tirelessly for India's liberty. Explore biographies, 
+                        key timelines, revolutionary movements, rare historical facts, and immortal quotes.
+                    </p>
+
+                    <!-- Quote Spotlight Banner -->
+                    <div class="quote-spotlight glass-card" id="quote-spotlight">
+                        <p class="quote-text" id="quote-text">"Swaraj is my birthright and I shall have it!"</p>
+                        <p class="quote-author" id="quote-author">&mdash; Lokmanya Bal Gangadhar Tilak</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls Section -->
+            <section class="controls-section">
+                <div class="section-container">
+                    <div class="search-filter-wrapper glass-card">
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input
+                                type="text"
+                                id="ff-search-input"
+                                placeholder="Search by freedom fighter name, quote, movement, or region..."
+                                aria-label="Search Freedom Fighters"
+                            />
+                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">&times;</button>
+                        </div>
+
+                        <div class="filter-groups">
+                            <div class="filter-group">
+                                <label for="era-filter">Era / Phase:</label>
+                                <select id="era-filter" class="custom-select">
+                                    <option value="all">All Eras</option>
+                                    <option value="1857 Revolt">1857 First War of Independence</option>
+                                    <option value="Early Nationalist">Early Nationalists (Pre-1920)</option>
+                                    <option value="Revolutionary">Revolutionary Movement</option>
+                                    <option value="Gandhian Era">Gandhian Era (1920-1947)</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label for="region-filter">Region:</label>
+                                <select id="region-filter" class="custom-select">
+                                    <option value="all">All Regions</option>
+                                    <option value="North">North India</option>
+                                    <option value="South">South India</option>
+                                    <option value="East">East India</option>
+                                    <option value="West">West India</option>
+                                    <option value="Central">Central India</option>
+                                    <option value="Northeast">Northeast India</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Freedom Fighters Grid -->
+            <section class="ff-grid-section">
+                <div class="section-container">
+                    <div id="ff-grid" class="ff-grid">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Profile Modal -->
+            <div id="ff-modal" class="ff-modal hidden" role="dialog" aria-modal="true" aria-label="Freedom Fighter Profile">
+                <div class="ff-modal-content glass-card">
+                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Profile">&times;</button>
+                    <div id="modal-body">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Site Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>An interactive digital guide to the history, culture, and heroes of India.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../historical-timeline/index.html">History Timeline</a></li>
+                        <li><a href="../constitution-makers/index.html">Constitution Makers</a></li>
+                        <li><a href="../bharat-ratna-gallery/index.html">Bharat Ratna Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Freedom Fighters Knowledge Hub.</p>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="script.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

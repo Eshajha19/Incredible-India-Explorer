@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Indravati National Park Explorer - Discover the Tiger Reserve, Wild Buffalo, Indravati River, and dense forests of Chhattisgarh." name="description"/>
+    <meta property="og:title" content="Indravati National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Indravati National Park, a pristine Tiger Reserve in Chhattisgarh known for the endangered Wild Water Buffalo and lush biodiversity."/>
+    
+    <title>Indravati National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="indravati-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Indravati National Park",
+      "description": "A prominent Tiger Reserve and national park in Chhattisgarh, India, renowned for its population of the endangered Wild Water Buffalo.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Chhattisgarh",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="indravati-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge tiger"><i class="fa-solid fa-paw"></i> Tiger Reserve</span>
+                    <span class="badge buffalo"><i class="fa-solid fa-hippo"></i> Wild Buffalo</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Chhattisgarh</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Indravati National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px; font-size: 1.1rem; line-height: 1.6;">
+                    Venture into one of central India's finest tiger habitats. Explore the dense tropical forests, the majestic Indravati River, and the sanctuary of the endangered Wild Water Buffalo.
+                </p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Explore Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Conservation -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Heritage</span>
+                    <h2>History & Ecological Significance</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Establishment</h3>
+                        <p>Established as a National Park in 1981, Indravati takes its name from the nearby Indravati River. In 1983, it was declared a Tiger Reserve under Project Tiger to protect the declining tiger population.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-arrow-up-right-dots"></i> Conservation Initiatives</h3>
+                        <p>The park is a vital stronghold for the endangered Wild Water Buffalo. Intensive conservation initiatives have been put in place to monitor the species and prevent habitat loss and poaching.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-earth-asia"></i> Central Indian Forests</h3>
+                        <p>Serving as a crucial corridor, Indravati connects with neighboring reserves like Bhairamgarh and Pamed, ensuring genetic exchange for tigers and other large mammals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Indravati River & Ecosystem -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #1976d2; color: white;">River Ecosystem</span>
+                    <h2>The Lifeline: Indravati River</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> Origin & Course</h3>
+                        <p>The Indravati River originates in the Eastern Ghats of Odisha and flows westwards to join the Godavari River, forming the northern boundary of the National Park and acting as a natural frontier.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-leaf"></i> Riverine Habitats</h3>
+                        <p>The river sustains a diverse aquatic ecosystem and creates crucial riparian habitats along its banks. These wetlands are vital for the survival of the Wild Water Buffalo, which relies on the river for cooling and foraging.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife -->
+        <section id="wildlife" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Fauna</span>
+                    <h2>Incredible Biodiversity</h2>
+                    <p class="section-subtitle">Discover the majestic predators and endangered herbivores of Indravati.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Panthera_tigris_tigris.jpg/800px-Panthera_tigris_tigris.jpg" alt="Bengal Tiger" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bengal Tiger</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>The apex predator of the reserve, utilizing the dense canopy and abundant prey base.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Wild_water_buffalo_%28Bubalus_arnee%29.jpg/800px-Wild_water_buffalo_%28Bubalus_arnee%29.jpg" alt="Wild Water Buffalo" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Wild Water Buffalo</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Indravati is one of the last remaining refuges for the state animal of Chhattisgarh.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Leopard_in_tree.jpg/800px-Leopard_in_tree.jpg" alt="Indian Leopard" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Leopard</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>Highly adaptable and stealthy, Leopards thrive alongside tigers in the mixed forests.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sloth_Bear_%28Melursus_ursinus%29.jpg/800px-Sloth_Bear_%28Melursus_ursinus%29.jpg" alt="Sloth Bear" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Sloth Bear</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>These unique bears inhabit the rocky terrain and termite-rich forest floors.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Dhole_%28Cuon_alpinus%29_in_Nagarhole_National_Park.jpg/800px-Dhole_%28Cuon_alpinus%29_in_Nagarhole_National_Park.jpg" alt="Dhole (Wild Dog)" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Dhole (Wild Dog)</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Fierce pack hunters that are highly efficient and critical for ecological balance.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Gaur_in_Bandipur.jpg/800px-Gaur_in_Bandipur.jpg" alt="Gaur (Indian Bison)" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Gaur (Indian Bison)</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>The largest extant bovine, commonly seen grazing in the forest clearings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flora & Fauna -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="flora-fauna-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Flora</span>
+                        <h2>Forest Ecosystem</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The diverse terrain of Indravati includes undulating hills, river valleys, and plains, nurturing a rich combination of tropical moist and dry deciduous forests.</p>
+                    <ul>
+                        <li><strong>Deciduous Forests:</strong> Dominated by Teak, Sal, and Mahua, shedding leaves in the dry season.</li>
+                        <li><strong>Bamboo Forests:</strong> Extensive tracts of bamboo provide crucial forage and shelter.</li>
+                        <li><strong>Grasslands:</strong> Essential for supporting the park's large herbivore populations like Chital and Sambar.</li>
+                        <li><strong>Bird Diversity:</strong> Home to Hornbills, Peafowl, Hill Mynas, and several species of raptors.</li>
+                        <li><strong>Micro-habitats:</strong> Rich in reptiles, amphibians, and a stunning variety of butterflies.</li>
+                    </ul>
+                </div>
+                <div class="facts-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge gold-bg">Focus</span>
+                        <h2>Wild Water Buffalo</h2>
+                    </div>
+                    <div class="facts-list">
+                        <div class="fact-item">
+                            <strong><i class="fa-solid fa-triangle-exclamation"></i> Extremely Rare</strong><br>
+                            The wild water buffalo population has seen severe declines due to habitat loss and interbreeding with domestic cattle.
+                        </div>
+                        <div class="fact-item">
+                            <strong><i class="fa-solid fa-shield-halved"></i> Dedicated Protection</strong><br>
+                            Indravati remains one of the final protected strongholds where purebred wild buffaloes can still be observed in their natural habitat.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Tiger Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Tiger_in_Panna_Tiger_Reserve.jpg/800px-Tiger_in_Panna_Tiger_Reserve.jpg" alt="Tiger in the wild">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wild Buffalo Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Wild_water_buffalo_%28Bubalus_arnee%29.jpg/800px-Wild_water_buffalo_%28Bubalus_arnee%29.jpg" alt="Wild Water Buffalo grazing">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Forest Landscape Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sal_forest_in_Kanha.jpg/800px-Sal_forest_in_Kanha.jpg" alt="Dense Sal forest">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View River Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Indravati_river.jpg/800px-Indravati_river.jpg" alt="The Indravati River">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore the park boundaries, the Indravati River, and entry points.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Indravati National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="indravati-national-park.js"></script>
+</body>
+</html>

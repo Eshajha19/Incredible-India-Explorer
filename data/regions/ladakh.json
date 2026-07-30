@@ -1,0 +1,31 @@
+{
+  "id": "ladakh",
+  "state": "Ladakh",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/explorer-images/pangong-lake.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "leh",
+      "name": "Leh",
+      "lat": 34.1526,
+      "lng": 77.5771,
+      "categories": [
+        "mountains",
+        "adventure",
+        "spiritual"
+      ],
+      "highlights": [
+        "Pangong Lake",
+        "Nubra Valley",
+        "Leh Palace"
+      ],
+      "minDays": 3,
+      "maxDays": 5,
+      "popularity": 9,
+      "bestSeason": "May-Sep",
+      "description": "High-altitude Himalayan desert with monasteries and mountain passes."
+    }
+  ]
+}

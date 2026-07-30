@@ -1,0 +1,401 @@
+/* Gir National Park Explorer - Issue #812 */
+:root {
+  --gir-accent: var(--saffron, #ff9933);
+  --gir-green: var(--green, #138808);
+  --gir-gold: #f6c453;
+  --gir-surface: var(--glass-bg, rgba(255, 255, 255, 0.08));
+  --gir-border: var(--glass-border, rgba(255, 255, 255, 0.14));
+  --gir-text: var(--text-primary, #f8fafc);
+  --gir-muted: var(--text-secondary, #cbd5e1);
+  --gir-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+}
+
+.gir-current {
+  color: var(--gir-accent);
+}
+
+.gir-page {
+  min-height: 100vh;
+  color: var(--gir-text);
+}
+
+.gir-hero {
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(17, 24, 39, 0.96), rgba(89, 55, 21, 0.78)),
+    url("../../assets/heritage_forts.png") center / cover no-repeat;
+}
+
+.gir-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 153, 51, 0.28), transparent 30%),
+    radial-gradient(circle at 82% 24%, rgba(19, 136, 8, 0.23), transparent 26%),
+    linear-gradient(to top, rgba(8, 8, 14, 0.84), transparent 55%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 92%);
+  padding: 145px 0 76px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-kicker {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gir-hero h1 {
+  margin: 18px 0;
+  font-size: clamp(3rem, 7.2vw, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.gir-hero h1 span {
+  display: block;
+  color: var(--gir-accent);
+}
+
+.gir-hero p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.hero-stats {
+  width: min(780px, 100%);
+  margin: 30px auto 26px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hero-stats div {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.hero-stats strong {
+  display: block;
+  color: var(--gir-gold);
+  font-size: 1.45rem;
+}
+
+.hero-stats span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--gir-accent);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.overview-section,
+.facts-section,
+.wildlife-section,
+.map-section,
+.ecosystem-section,
+.safari-section,
+.gallery-section,
+.source-section {
+  padding: 78px 0;
+}
+
+.page-container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.section-heading {
+  max-width: 900px;
+  margin-bottom: 26px;
+}
+
+.section-heading h2,
+.source-section h2 {
+  margin: 9px 0 10px;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+}
+
+.section-heading p,
+.overview-card p,
+.map-info p,
+.source-section p {
+  margin: 0;
+  color: var(--gir-muted);
+  line-height: 1.7;
+}
+
+.overview-grid,
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.overview-card,
+.fact-card,
+.wildlife-card,
+.map-info,
+.ecosystem-card,
+.safari-card,
+.gallery-card,
+.source-section .page-container,
+.gir-map {
+  border: 1px solid var(--gir-border);
+  border-radius: 26px;
+  background: var(--gir-surface);
+  box-shadow: var(--gir-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.overview-card,
+.map-info,
+.source-section .page-container {
+  padding: 24px;
+}
+
+.overview-card.large {
+  grid-row: span 2;
+}
+
+.overview-card h3,
+.fact-card h3,
+.wildlife-card h3,
+.map-info h3,
+.ecosystem-card h3,
+.safari-card h3,
+.gallery-card h3 {
+  margin: 0 0 10px;
+}
+
+.facts-grid,
+.wildlife-grid,
+.ecosystem-grid,
+.safari-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.fact-card,
+.wildlife-card,
+.ecosystem-card,
+.safari-card {
+  padding: 20px;
+}
+
+.fact-card span,
+.wildlife-card span,
+.map-info span,
+.ecosystem-card span,
+.safari-card span {
+  display: block;
+  color: var(--gir-muted);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fact-card strong,
+.wildlife-card strong {
+  display: block;
+  margin: 7px 0;
+  color: var(--gir-accent);
+  font-size: 1.35rem;
+}
+
+.fact-card p,
+.wildlife-card p,
+.ecosystem-card p,
+.safari-card p,
+.gallery-card p {
+  margin: 0;
+  color: var(--gir-muted);
+  line-height: 1.55;
+}
+
+.wildlife-emoji {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.filter-btn {
+  border: 1px solid var(--gir-border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--gir-text);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  border-color: var(--gir-accent);
+  background: rgba(255, 153, 51, 0.16);
+}
+
+.gir-map {
+  position: relative;
+  min-height: 470px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 24% 24%, rgba(255, 153, 51, 0.16), transparent 25%),
+    radial-gradient(circle at 72% 70%, rgba(19, 136, 8, 0.2), transparent 28%),
+    linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(46, 61, 31, 0.9));
+}
+
+.forest-shape {
+  position: absolute;
+  inset: 12%;
+  clip-path: polygon(19% 28%, 36% 13%, 58% 18%, 78% 34%, 83% 57%, 67% 78%, 43% 85%, 22% 70%, 11% 50%);
+  background:
+    linear-gradient(135deg, rgba(19, 136, 8, 0.38), rgba(255, 153, 51, 0.22));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--gir-accent), var(--gir-green));
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.28);
+}
+
+.map-pin.active {
+  transform: translate(-50%, -50%) scale(1.13);
+  box-shadow: 0 0 0 6px rgba(255,153,51,0.18), 0 12px 26px rgba(0,0,0,0.28);
+}
+
+.map-info h3 {
+  color: var(--gir-accent);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gallery-card {
+  overflow: hidden;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.gallery-card div {
+  padding: 16px;
+}
+
+.gir-footer {
+  padding: 40px 20px;
+  border-top: 1px solid var(--gir-border);
+  color: var(--gir-muted);
+  text-align: center;
+}
+
+.gir-footer a {
+  color: var(--gir-accent);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+body.light-theme .overview-card,
+body.light-theme .fact-card,
+body.light-theme .wildlife-card,
+body.light-theme .map-info,
+body.light-theme .ecosystem-card,
+body.light-theme .safari-card,
+body.light-theme .gallery-card,
+body.light-theme .source-section .page-container {
+  background: rgba(255,255,255,0.88);
+}
+
+@media (max-width: 1020px) {
+  .overview-grid,
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .facts-grid,
+  .wildlife-grid,
+  .ecosystem-grid,
+  .safari-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overview-card.large {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-stats,
+  .facts-grid,
+  .wildlife-grid,
+  .ecosystem-grid,
+  .safari-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gir-map {
+    min-height: 380px;
+  }
+
+  .gallery-card img {
+    height: 220px;
+  }
+}

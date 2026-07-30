@@ -1,0 +1,866 @@
+/* ==========================================================================
+   How India Got Its State Names — Explorer Stylesheet
+   Namespaced under "snx-" to avoid collisions with shared styles.css.
+   Reuses the site's shared design tokens (--saffron, --gold, --green,
+   --text-primary, --glass-bg, etc. from ../../styles.css) so dark/light
+   theme switching works automatically via body.light-theme.
+   ========================================================================== */
+
+:root {
+    --snx-accent: var(--saffron, #ff9933);
+    --snx-gold: var(--gold, #ffb703);
+    --snx-green: var(--green, #128807);
+    --snx-bg: var(--bg-dark, #04172a);
+    --snx-card-bg: var(--glass-bg, rgba(255, 255, 255, 0.06));
+    --snx-card-border: var(--glass-border, rgba(255, 255, 255, 0.14));
+    --snx-text: var(--text-primary, #f5f5f5);
+    --snx-text-muted: var(--text-secondary, #b7b7b7);
+    --snx-radius: var(--border-radius-lg, 18px);
+    --snx-radius-sm: var(--border-radius-sm, 8px);
+    --snx-shadow: var(--shadow-soft, 0 8px 30px rgba(0, 0, 0, 0.3));
+    --snx-transition: var(--transition-smooth, all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1));
+    --snx-capital: #38bdf8;
+    --snx-reorg: #a78bfa;
+    --snx-attempted: #f87171;
+}
+
+.snx-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 110px 24px 60px;
+}
+
+.snx-page h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.snx-page h2 i {
+    color: var(--snx-accent);
+    font-size: 1.3rem;
+}
+
+/* ---------------------------------------------------------------- Hero */
+
+.snx-hero {
+    text-align: center;
+    padding: 20px 0 40px;
+    background: linear-gradient(185deg, rgba(255, 153, 51, 0.14), transparent 75%);
+    border-radius: var(--snx-radius);
+}
+
+.snx-hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--snx-accent);
+    margin-bottom: 16px;
+}
+
+.snx-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.snx-hero h1 span {
+    background: var(--gradient-saffron-gold, linear-gradient(135deg, var(--snx-accent), var(--snx-gold)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.snx-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--snx-text-muted);
+    font-size: 1.08rem;
+}
+
+.snx-hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 34px;
+}
+
+.snx-stat-box {
+    min-width: 130px;
+    padding: 16px 22px;
+    background: var(--snx-card-bg);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius-sm);
+    text-align: center;
+}
+
+.snx-stat-box strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--snx-accent);
+}
+
+.snx-stat-box span {
+    font-size: 0.82rem;
+    color: var(--snx-text-muted);
+}
+
+/* ---------------------------------------------------------------- Legend */
+
+.snx-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 30px 0;
+}
+
+.snx-legend-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--snx-card-bg);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius-sm);
+    padding: 16px 18px;
+}
+
+.snx-legend-item i {
+    color: var(--snx-gold);
+    font-size: 1.2rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.snx-legend-item p {
+    font-size: 0.92rem;
+    color: var(--snx-text-muted);
+}
+
+.snx-legend-item strong {
+    color: var(--snx-text);
+}
+
+/* ---------------------------------------------------------------- Controls */
+
+.snx-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    background: var(--snx-card-bg);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius);
+    padding: 18px 22px;
+    margin-bottom: 34px;
+    position: sticky;
+    top: calc(var(--navbar-height, 80px) + 10px);
+    z-index: 30;
+    backdrop-filter: blur(14px);
+}
+
+.snx-search-wrap {
+    position: relative;
+    flex: 1 1 280px;
+    min-width: 220px;
+}
+
+.snx-search-wrap i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--snx-text-muted);
+}
+
+.snx-search-wrap input {
+    width: 100%;
+    padding: 11px 14px 11px 40px;
+    border-radius: 999px;
+    border: 1px solid var(--snx-card-border);
+    background: rgba(0, 0, 0, 0.15);
+    color: var(--snx-text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+.snx-search-wrap input:focus {
+    outline: 2px solid var(--snx-accent);
+    outline-offset: 1px;
+}
+
+.snx-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.snx-filters select {
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--snx-card-border);
+    background: rgba(0, 0, 0, 0.15);
+    color: var(--snx-text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.snx-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--snx-text-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.snx-toggle input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--snx-accent);
+    cursor: pointer;
+}
+
+.snx-clear-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--snx-card-border);
+    background: transparent;
+    color: var(--snx-text-muted);
+    cursor: pointer;
+    transition: var(--snx-transition);
+    font-size: 0.9rem;
+}
+
+.snx-clear-btn:hover {
+    color: var(--snx-text);
+    border-color: var(--snx-accent);
+}
+
+.snx-result-summary {
+    width: 100%;
+    font-size: 0.85rem;
+    color: var(--snx-text-muted);
+}
+
+.snx-result-summary span {
+    color: var(--snx-accent);
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- Map + Grid layout */
+
+.snx-explore {
+    display: grid;
+    grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 50px;
+}
+
+.snx-map-panel {
+    position: sticky;
+    top: calc(var(--navbar-height, 80px) + 90px);
+    background: var(--snx-card-bg);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius);
+    padding: 20px;
+}
+
+.snx-map-hint {
+    font-size: 0.85rem;
+    color: var(--snx-text-muted);
+    margin-bottom: 14px;
+}
+
+.snx-map-wrap {
+    position: relative;
+}
+
+#snx-map-mount {
+    width: 100%;
+}
+
+.snx-svg-map {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    overflow: visible;
+}
+
+.snx-region {
+    fill: rgba(255, 255, 255, 0.09);
+    stroke: var(--snx-card-border);
+    stroke-width: 1;
+    cursor: pointer;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.snx-region:hover,
+.snx-region.is-active,
+.snx-region:focus-visible {
+    fill: var(--snx-accent);
+    stroke: var(--snx-gold);
+    outline: none;
+}
+
+.snx-region.is-selected {
+    fill: var(--snx-green);
+    stroke: var(--snx-gold);
+}
+
+.snx-map-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--bg-dark-modal, #10151f);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius-sm);
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    max-width: 220px;
+    box-shadow: var(--snx-shadow);
+    z-index: 40;
+}
+
+.snx-map-tooltip strong {
+    display: block;
+    color: var(--snx-accent);
+    margin-bottom: 2px;
+}
+
+.snx-map-tooltip span {
+    color: var(--snx-text-muted);
+}
+
+.snx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.snx-card {
+    background: var(--snx-card-bg);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius);
+    padding: 20px;
+    cursor: pointer;
+    transition: var(--snx-transition);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.snx-card:hover,
+.snx-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--snx-accent);
+    box-shadow: var(--snx-shadow);
+    outline: none;
+}
+
+.snx-card-top {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.snx-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+}
+
+.snx-badge--type {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--snx-text-muted);
+}
+
+.snx-badge--renamed {
+    background: rgba(248, 113, 113, 0.15);
+    color: var(--snx-attempted);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.snx-card h3 {
+    font-size: 1.2rem;
+    margin: 2px 0 0;
+}
+
+.snx-card-pronunciation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--snx-gold);
+    font-style: italic;
+}
+
+.snx-speak-btn {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--snx-card-border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--snx-text);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--snx-transition);
+    font-size: 0.78rem;
+}
+
+.snx-speak-btn:hover {
+    background: var(--snx-accent);
+    color: #1a1a1a;
+    border-color: var(--snx-accent);
+}
+
+.snx-speak-btn--lg {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+}
+
+.snx-card-meaning {
+    font-size: 0.95rem;
+    color: var(--snx-text);
+}
+
+.snx-card-region {
+    font-size: 0.78rem;
+    color: var(--snx-text-muted);
+}
+
+.snx-card-btn {
+    margin-top: auto;
+    align-self: flex-start;
+    background: none;
+    border: none;
+    color: var(--snx-accent);
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    transition: gap 0.2s ease;
+}
+
+.snx-card-btn:hover {
+    gap: 10px;
+}
+
+.snx-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--snx-text-muted);
+    grid-column: 1 / -1;
+}
+
+.snx-empty-state i {
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: var(--snx-accent);
+}
+
+/* ---------------------------------------------------------------- Timeline */
+
+.snx-timeline-section {
+    margin-bottom: 50px;
+}
+
+.snx-timeline-intro {
+    color: var(--snx-text-muted);
+    max-width: 800px;
+    margin-bottom: 16px;
+}
+
+.snx-timeline-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+    color: var(--snx-text-muted);
+}
+
+.snx-timeline-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.snx-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.snx-dot--state { background: var(--snx-accent); }
+.snx-dot--capital { background: var(--snx-capital); }
+.snx-dot--reorganization { background: var(--snx-reorg); }
+.snx-dot--attempted { background: var(--snx-attempted); }
+
+.snx-timeline-scroll {
+    overflow-x: auto;
+    padding-bottom: 14px;
+}
+
+.snx-timeline-track {
+    display: flex;
+    gap: 20px;
+    min-width: max-content;
+    padding: 6px 4px 16px;
+    position: relative;
+}
+
+.snx-timeline-track::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 46px;
+    height: 2px;
+    background: var(--snx-card-border);
+}
+
+.snx-timeline-item {
+    width: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.snx-timeline-year {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--snx-accent);
+    margin-bottom: 10px;
+}
+
+.snx-timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 44px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--snx-accent);
+    z-index: 2;
+}
+
+.snx-timeline-item--capital::before { background: var(--snx-capital); }
+.snx-timeline-item--reorganization::before { background: var(--snx-reorg); }
+.snx-timeline-item--attempted::before { background: var(--snx-attempted); }
+
+.snx-timeline-card {
+    margin-top: 18px;
+    background: var(--snx-card-bg);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius-sm);
+    padding: 14px;
+    height: 100%;
+}
+
+.snx-timeline-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--snx-text-muted);
+    margin-bottom: 6px;
+}
+
+.snx-timeline-card h4 {
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    margin-bottom: 6px;
+}
+
+.snx-timeline-card p {
+    font-size: 0.82rem;
+    color: var(--snx-text-muted);
+}
+
+/* ---------------------------------------------------------------- Related */
+
+.snx-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.snx-related-card {
+    display: block;
+    background: var(--snx-card-bg);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius);
+    padding: 22px;
+    transition: var(--snx-transition);
+}
+
+.snx-related-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--snx-accent);
+}
+
+.snx-related-card i {
+    font-size: 1.4rem;
+    color: var(--snx-accent);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.snx-related-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.snx-related-card p {
+    font-size: 0.85rem;
+    color: var(--snx-text-muted);
+}
+
+/* ---------------------------------------------------------------- Modal */
+
+.snx-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* The [hidden] attribute alone isn't enough once we set our own `display`
+   above — an author-stylesheet `display` declaration always wins over the
+   browser's default [hidden]{display:none} UA rule for the same property,
+   regardless of selector specificity. Without this rule the modal renders
+   full-screen on every page load, even before any state is selected. */
+.snx-modal[hidden] {
+    display: none;
+}
+
+.snx-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 15, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+.snx-modal-dialog {
+    position: relative;
+    background: var(--bg-dark-modal, #10151f);
+    border: 1px solid var(--snx-card-border);
+    border-radius: var(--snx-radius);
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 32px;
+    box-shadow: var(--snx-shadow);
+}
+
+.snx-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--snx-card-border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--snx-text);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--snx-transition);
+}
+
+.snx-modal-close:hover {
+    background: var(--snx-attempted);
+    color: #1a1a1a;
+}
+
+.snx-modal-header h2 {
+    font-size: 1.6rem;
+    margin: 10px 0 8px;
+}
+
+.snx-modal-pronunciation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--snx-gold);
+    font-style: italic;
+    margin-bottom: 14px;
+}
+
+.snx-modal-meaning {
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+
+.snx-modal-section {
+    margin-bottom: 18px;
+}
+
+.snx-modal-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+}
+
+.snx-modal-section h3 i {
+    color: var(--snx-accent);
+}
+
+.snx-modal-section p {
+    color: var(--snx-text-muted);
+    font-size: 0.95rem;
+}
+
+.snx-modal-section ul {
+    padding-left: 4px;
+}
+
+.snx-modal-section li {
+    color: var(--snx-text-muted);
+    font-size: 0.92rem;
+    padding: 4px 0 4px 20px;
+    position: relative;
+}
+
+.snx-modal-section li::before {
+    content: "\2022";
+    position: absolute;
+    left: 4px;
+    color: var(--snx-accent);
+}
+
+.snx-modal-rename,
+.snx-modal-capital-note {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.25);
+    border-radius: var(--snx-radius-sm);
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    color: var(--snx-text);
+    margin-top: 10px;
+}
+
+.snx-modal-rename i,
+.snx-modal-capital-note i {
+    color: var(--snx-attempted);
+    margin-top: 2px;
+}
+
+.snx-modal-rename--muted {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--snx-card-border);
+}
+
+.snx-modal-rename--muted i {
+    color: var(--snx-text-muted);
+}
+
+.snx-modal-capital-note {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.25);
+}
+
+.snx-modal-capital-note i {
+    color: var(--snx-capital);
+}
+
+.snx-modal-meta {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--snx-text-muted);
+    border-top: 1px solid var(--snx-card-border);
+    padding-top: 14px;
+}
+
+.snx-muted {
+    color: var(--snx-text-muted);
+    font-size: 0.9rem;
+}
+
+body.snx-modal-open {
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------------------- Responsive */
+
+@media (max-width: 960px) {
+    .snx-explore {
+        grid-template-columns: 1fr;
+    }
+
+    .snx-map-panel {
+        position: static;
+    }
+
+    .snx-legend {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .snx-page {
+        padding: 100px 16px 40px;
+    }
+
+    .snx-controls {
+        position: static;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .snx-filters {
+        justify-content: space-between;
+    }
+
+    .snx-modal-dialog {
+        padding: 24px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .snx-card,
+    .snx-related-card,
+    .snx-region {
+        transition: none;
+    }
+}

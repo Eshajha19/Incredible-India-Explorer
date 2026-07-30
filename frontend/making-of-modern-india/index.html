@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Making of Modern India (1757–1947) — Interactive historical journey from the Battle of Plassey to Indian Independence featuring Governors-General, British Acts, Revolts, Social Reforms, Freedom Movements, and Interactive SVG Historic Centers Map.">
+    <title>The Making of Modern India (1757–1947) | Incredible India Explorer</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="modern-india-body">
+    <!-- Navbar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="index.html" class="nav-link active" style="color: var(--mod-gold)">Modern India (1757–1947)</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../freedom-story/freedom-story.html" class="dropdown-item">Freedom Movement</a>
+                        <a href="../partition-1947/partition-1947.html" class="dropdown-item">Partition of 1947</a>
+                        <a href="../constitution-timeline/index.html" class="dropdown-item">Constitution Timeline</a>
+                        <a href="../historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="modern-india-page">
+        <!-- Hero Banner -->
+        <section class="modern-india-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">📜 Comprehensive Historical Portal (1757–1947)</span>
+                <h1>The Making of Modern India <span>From Plassey to Independence</span></h1>
+                <p>An interactive educational exploration tracing the evolution of British rule, resistance revolts, legislative acts, social reforms, Governors-General, freedom movements, and historic centers across South Asia.</p>
+            </div>
+        </section>
+
+        <!-- Main Workspace -->
+        <section class="modern-india-workspace">
+            <div class="workspace-container">
+
+                <!-- Summary Stat Badges -->
+                <div class="history-summary-strip">
+                    <div class="summary-card">
+                        <span class="sum-num">190 Years</span>
+                        <span class="sum-label">Colonial Era (1757–1947)</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="sum-num">20+ Milestones</span>
+                        <span class="sum-label">Verified Historical Events</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="sum-num">10 Viceroys</span>
+                        <span class="sum-label">Governors-General Profiled</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="sum-num">9 Centers</span>
+                        <span class="sum-label">Interactive Map Nodes</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Map of Historic Centers -->
+                <section class="historic-map-section">
+                    <div class="section-header">
+                        <h2>📍 Interactive Map of Historic Epicenters</h2>
+                        <p>Click on any marker to explore pivotal locations of revolts, battles, and freedom movements.</p>
+                    </div>
+
+                    <div class="map-layout-box">
+                        <svg viewBox="0 0 800 450" class="modern-india-map-svg" aria-label="Map of Historic Centers (1757-1947)">
+                            <!-- Subcontinent Background Frame -->
+                            <rect width="800" height="450" fill="rgba(15, 23, 42, 0.7)" rx="16" stroke="var(--mod-border)"/>
+
+                            <!-- Map Nodes -->
+                            <!-- Plassey (650, 220) -->
+                            <g class="map-center-node active" data-center="center-plassey" transform="translate(650, 220)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Plassey (1757)</text>
+                            </g>
+
+                            <!-- Buxar (520, 200) -->
+                            <g class="map-center-node" data-center="center-buxar" transform="translate(520, 200)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Buxar (1764)</text>
+                            </g>
+
+                            <!-- Meerut (310, 150) -->
+                            <g class="map-center-node" data-center="center-meerut" transform="translate(310, 150)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Meerut (1857)</text>
+                            </g>
+
+                            <!-- Jhansi (340, 230) -->
+                            <g class="map-center-node" data-center="center-jhansi" transform="translate(340, 230)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Jhansi (1857)</text>
+                            </g>
+
+                            <!-- Champaran (540, 175) -->
+                            <g class="map-center-node" data-center="center-champaran" transform="translate(540, 175)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Champaran (1917)</text>
+                            </g>
+
+                            <!-- Chauri Chaura (480, 185) -->
+                            <g class="map-center-node" data-center="center-chauri-chaura" transform="translate(480, 185)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Chauri Chaura (1922)</text>
+                            </g>
+
+                            <!-- Kakori (410, 180) -->
+                            <g class="map-center-node" data-center="center-kakori" transform="translate(410, 180)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Kakori (1925)</text>
+                            </g>
+
+                            <!-- Dandi (180, 280) -->
+                            <g class="map-center-node" data-center="center-dandi" transform="translate(180, 280)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Dandi (1930)</text>
+                            </g>
+
+                            <!-- Bombay (200, 330) -->
+                            <g class="map-center-node" data-center="center-mumbai" transform="translate(200, 330)">
+                                <circle r="12" class="node-pulse"/>
+                                <circle r="6" class="node-core"/>
+                                <text y="-16" text-anchor="middle" class="node-label">Bombay (1885/1942/1946)</text>
+                            </g>
+                        </svg>
+
+                        <div id="center-detail-display" class="center-detail-card">
+                            <h3>Plassey (West Bengal)</h3>
+                            <span class="center-year-badge">Year: 1757</span>
+                            <h4>Battle of Plassey Site</h4>
+                            <p>Site of EIC's pivotal 1757 victory over Siraj-ud-Daulah, initiating Company rule.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interactive Timeline Controls & Filters -->
+                <section class="timeline-section">
+                    <div class="section-header">
+                        <h2>📅 Chronological History Engine (1757–1947)</h2>
+                        <p>Filter by historical era, category, or search specific events and figures.</p>
+                    </div>
+
+                    <!-- Era Tabs -->
+                    <div class="era-tab-bar">
+                        <button class="era-tab-btn active" data-era="all">All Eras (1757–1947)</button>
+                        <button class="era-tab-btn" data-era="EIC Expansion (1757–1857)">EIC Expansion (1757–1857)</button>
+                        <button class="era-tab-btn" data-era="Crown Rule (1858–1918)">Crown Rule (1858–1918)</button>
+                        <button class="era-tab-btn" data-era="Mass Movements & Independence (1919–1947)">Freedom Era (1919–1947)</button>
+                    </div>
+
+                    <!-- Search & Filter Controls -->
+                    <div class="timeline-filter-toolbar">
+                        <div class="search-input-wrapper">
+                            <input id="modern-india-search" type="search" placeholder="Search events, figures, acts (e.g. Plassey, Bentinck, Dandi, 1857, Quit India)..." autocomplete="off">
+                        </div>
+
+                        <div class="category-select-wrapper">
+                            <label for="timeline-category-filter">Category:</label>
+                            <select id="timeline-category-filter" class="mod-select">
+                                <option value="all">All Categories</option>
+                                <option value="Major Event">Major Events</option>
+                                <option value="British Act">British Acts</option>
+                                <option value="Revolt">Revolts & Uprisings</option>
+                                <option value="Reform">Social Reforms</option>
+                                <option value="National Movement">National Movements</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Event Cards Container -->
+                    <div id="timeline-events-container" class="timeline-grid"></div>
+                </section>
+
+                <!-- Governors-General & Viceroys Section -->
+                <section class="governors-section">
+                    <div class="section-header">
+                        <h2>👑 Governors-General & Viceroys Catalogue</h2>
+                        <p>Key British administrators, policies, and tenure achievements (1773–1947).</p>
+                    </div>
+
+                    <div id="governors-grid-container" class="governors-grid"></div>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Educational historical narrative portal exploring modern Indian history from Plassey (1757) to Independence (1947).</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="index.html">Modern India (1757–1947)</a>
+                <a href="../freedom-story/freedom-story.html">Freedom Movement</a>
+                <a href="../partition-1947/partition-1947.html">Partition of 1947</a>
+                <a href="../constitution-timeline/index.html">Constitution Timeline</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Historical Narrative Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="modern-india-timeline.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

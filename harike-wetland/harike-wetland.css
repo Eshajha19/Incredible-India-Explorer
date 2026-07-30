@@ -1,0 +1,334 @@
+/* Harike Wetland Explorer — dark + gold theme, no external assets */
+
+.hw-page {
+  background: #0d1117;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.hw-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hw-back {
+  display: inline-block;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 20px 24px 0;
+}
+
+.hw-back:hover {
+  color: #f5a524;
+}
+
+/* Kicker label (small uppercase orange text) */
+.hw-kicker {
+  color: #f5a524;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+/* Hero */
+.hw-hero {
+  text-align: center;
+  padding: 60px 24px 50px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hw-hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin: 0 0 16px;
+}
+
+.hw-hero-sub {
+  font-size: 17px;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.hw-hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hw-btn {
+  padding: 11px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hw-btn-primary {
+  background: #f5a524;
+  color: #0d1117;
+}
+
+.hw-btn-outline {
+  background: transparent;
+  color: #e2e8f0;
+  border: 1.5px solid #334155;
+}
+
+.hw-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 165, 36, 0.2);
+}
+
+/* Sections */
+.hw-section {
+  padding: 56px 24px;
+}
+
+.hw-section-alt {
+  background: #11161d;
+}
+
+.hw-section h2 {
+  font-size: 26px;
+  color: #f1f5f9;
+  text-align: center;
+  margin: 0 0 18px;
+}
+
+.hw-section-sub {
+  text-align: center;
+  color: #94a3b8;
+  margin: -6px 0 30px;
+}
+
+.hw-body-text {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #cbd5e1;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Map zones */
+.hw-map-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.hw-map-zone {
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-left: 4px solid #f5a524;
+  border-radius: 14px;
+  padding: 26px 20px;
+  text-align: center;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+  font-family: inherit;
+  width: 100%;
+  display: block;
+}
+
+.hw-map-zone:hover,
+.hw-map-zone.hw-zone-active {
+  transform: translateY(-4px);
+  border-color: #f5a524;
+}
+
+.hw-map-zone:focus-visible {
+  outline: 3px solid #f5a524;
+  outline-offset: 2px;
+}
+
+.hw-zone-emoji {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.hw-map-zone h3 {
+  font-size: 17px;
+  color: #f1f5f9;
+  margin: 0 0 8px;
+}
+
+.hw-map-zone p {
+  font-size: 13.5px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Gallery tiles */
+.hw-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.hw-gallery-tile {
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-top: 4px solid var(--tile-color, #f5a524);
+  border-radius: 14px;
+  padding: 32px 16px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.hw-gallery-tile:hover {
+  transform: translateY(-4px);
+}
+
+.hw-gallery-tile span {
+  font-size: 38px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.hw-gallery-tile p {
+  margin: 0;
+  font-size: 13.5px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+/* Bird cards */
+.hw-bird-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.hw-bird-card {
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-left: 4px solid var(--card-accent, #f5a524);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.hw-bird-card:hover {
+  transform: translateY(-4px);
+}
+
+.hw-bird-emoji {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hw-bird-card h3 {
+  font-size: 16.5px;
+  color: #f1f5f9;
+  margin: 0 0 8px;
+}
+
+.hw-bird-card p {
+  font-size: 13.5px;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.hw-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(245, 165, 36, 0.12);
+  color: #f5a524;
+}
+
+.hw-tag-endangered {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+}
+
+/* Biodiversity cards */
+.hw-bio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.hw-bio-card {
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 14px;
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.hw-bio-emoji {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.hw-bio-card h4 {
+  color: #f1f5f9;
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+.hw-bio-card p {
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Facts */
+.hw-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+}
+
+.hw-fact-card {
+  text-align: center;
+  padding: 22px;
+  border-radius: 14px;
+  background: #161b22;
+  border: 1px solid #21262d;
+}
+
+.hw-fact-emoji {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.hw-fact-card h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.hw-fact-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #f5a524;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hw-hero h1 {
+    font-size: 28px;
+  }
+}

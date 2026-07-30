@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore North Andaman — home to Saddle Peak, the highest point in the Andaman & Nicobar Islands, along with Saddle Peak National Park, mangrove creeks, wildlife, trekking trails and tropical climate.">
+    <title>North Andaman Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="north-andaman-island.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="North Andaman Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Saddle Peak, Saddle Peak National Park, mangroves, wildlife, trekking and climate of North Andaman.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/north-andaman-island/north-andaman-island.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="North Andaman Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Saddle Peak, national park, mangroves, wildlife, trekking and climate of North Andaman.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_mountains.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/north-andaman-island/north-andaman-island.html">
+</head>
+
+<body class="north-andaman-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../islands/islands.html" class="nav-link">Islands</a>
+                <a href="north-andaman-island.html" class="nav-link active" style="color: var(--saffron)">North Andaman</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="north-andaman-page">
+        <!-- Hero -->
+        <section class="north-andaman-hero">
+            <div class="north-andaman-hero-content">
+                <a href="../islands/islands.html" class="north-andaman-back-link">← Back to Islands of India</a>
+                <span class="north-andaman-hero-kicker">⛰️ Home of the Andamans' Highest Peak</span>
+                <h1>North <span>Andaman</span></h1>
+                <p>The northernmost of the main Andaman islands — a land of rainforest-covered hills, tidal mangrove creeks and quiet beaches, anchored by Saddle Peak, the highest point in the Andaman & Nicobar Islands.</p>
+
+                <div class="north-andaman-hero-stats">
+                    <div class="north-andaman-stat-box">
+                        <strong>732 m</strong>
+                        <span>Saddle Peak — Highest Point</span>
+                    </div>
+                    <div class="north-andaman-stat-box">
+                        <strong>44.7 sq km</strong>
+                        <span>Saddle Peak National Park</span>
+                    </div>
+                    <div class="north-andaman-stat-box">
+                        <strong>1987</strong>
+                        <span>National Park Declared</span>
+                    </div>
+                    <div class="north-andaman-stat-box">
+                        <strong>Diglipur</strong>
+                        <span>Main Town & Gateway</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed info -->
+        <section class="north-andaman-section" id="north-andaman-explore">
+            <div class="north-andaman-container">
+                <div class="north-andaman-section-heading">
+                    <span class="north-andaman-section-badge">Explore North Andaman</span>
+                    <h2>Peaks, Parks, Mangroves &amp; More</h2>
+                    <p>Select a tab to learn more.</p>
+                </div>
+
+                <div class="north-andaman-tabs" role="tablist">
+                    <button type="button" class="north-andaman-tab-btn active" data-tab="saddle-peak">Saddle Peak</button>
+                    <button type="button" class="north-andaman-tab-btn" data-tab="national-park">National Park</button>
+                    <button type="button" class="north-andaman-tab-btn" data-tab="mangroves">Mangroves</button>
+                    <button type="button" class="north-andaman-tab-btn" data-tab="wildlife">Wildlife</button>
+                    <button type="button" class="north-andaman-tab-btn" data-tab="trekking">Trekking</button>
+                    <button type="button" class="north-andaman-tab-btn" data-tab="climate">Climate</button>
+                </div>
+
+                <div class="north-andaman-tab-panel active" id="tab-saddle-peak">
+                    <h3>⛰️ Saddle Peak</h3>
+                    <p>Saddle Peak rises to about 732 metres, making it the highest point anywhere in the Andaman & Nicobar Islands. Its distinctive saddle-shaped double summit gives the peak its name and makes it a landmark visible from much of North Andaman.</p>
+                    <p>The peak lies close to Diglipur and is reached via a forest trail that climbs steadily through changing vegetation zones, from coastal forest to montane rainforest near the summit.</p>
+                    <ul>
+                        <li>Highest point in the Andaman & Nicobar Islands at ~732 m</li>
+                        <li>Distinctive twin-summit "saddle" shape</li>
+                        <li>Accessible via forest trail from near Diglipur</li>
+                    </ul>
+                </div>
+
+                <div class="north-andaman-tab-panel" id="tab-national-park">
+                    <h3>🌳 National Park</h3>
+                    <p>Saddle Peak National Park covers roughly 44.7 sq km and was declared in 1987 to protect the island's highest hill range and its surrounding rainforest. It is the only national park in the Andaman & Nicobar Islands centred on a mountain ecosystem rather than a coastal or marine one.</p>
+                    <p>The park protects a corridor of tropical evergreen and semi-evergreen forest running from near sea level up to the summit, sheltering species found only in the northern Andamans.</p>
+                    <ul>
+                        <li>Declared a National Park in 1987</li>
+                        <li>Covers approximately 44.7 sq km around Saddle Peak</li>
+                        <li>Andaman & Nicobar's only mountain-ecosystem national park</li>
+                    </ul>
+                </div>
+
+                <div class="north-andaman-tab-panel" id="tab-mangroves">
+                    <h3>🌿 Mangroves</h3>
+                    <p>North Andaman's coastline is fringed by extensive mangrove creeks, particularly around Kalighat and the tidal inlets near Diglipur. These forests buffer the coast from erosion and storm surge while forming a nursery habitat for fish and crustaceans.</p>
+                    <p>Boat trips through the mangrove creeks are a popular way to see the tangled root systems and the birdlife that shelters within them, especially at dawn and dusk.</p>
+                    <ul>
+                        <li>Extensive tidal mangrove creeks along the coast</li>
+                        <li>Natural buffer against coastal erosion and storm surge</li>
+                        <li>Boat rides through creeks near Kalighat and Diglipur</li>
+                    </ul>
+                </div>
+
+                <div class="north-andaman-tab-panel" id="tab-wildlife">
+                    <h3>🦎 Wildlife</h3>
+                    <p>The forests of North Andaman support a range of wildlife adapted to island life, including the Andaman wild pig, saltwater crocodiles in the creeks and mangroves, and numerous endemic and migratory bird species drawn to the park's varied habitats.</p>
+                    <p>Ross & Smith Islands and the beaches near Aerial Bay also serve as nesting sites for marine turtles, adding to the region's ecological importance.</p>
+                    <ul>
+                        <li>Andaman wild pig and other endemic forest species</li>
+                        <li>Saltwater crocodiles in coastal creeks and mangroves</li>
+                        <li>Marine turtle nesting beaches near Aerial Bay</li>
+                    </ul>
+                </div>
+
+                <div class="north-andaman-tab-panel" id="tab-trekking">
+                    <h3>🥾 Trekking</h3>
+                    <p>The trek to Saddle Peak is the main draw for hikers, a roughly 4-5 km forest trail (one way) that begins near the park entrance and climbs through progressively denser rainforest to the summit ridge.</p>
+                    <p>The trail is best attempted with a local guide and during the drier months, since the path can turn slippery in monsoon rain and the dense canopy makes navigation difficult without local knowledge.</p>
+                    <ul>
+                        <li>Saddle Peak trail — approx. 4-5 km one way through rainforest</li>
+                        <li>Local guides recommended for the climb</li>
+                        <li>Best attempted outside the monsoon months</li>
+                    </ul>
+                </div>
+
+                <div class="north-andaman-tab-panel" id="tab-climate">
+                    <h3>🌦️ Climate</h3>
+                    <p>North Andaman has a tropical monsoon climate with warm temperatures year-round, typically ranging between 23°C and 31°C. Humidity stays high through most of the year, moderated by sea breezes along the coast.</p>
+                    <p>The island receives heavy rainfall from both the southwest monsoon (May to September) and the northeast monsoon (November to December), making the winter and early summer months the most favourable for trekking and outdoor exploration.</p>
+                    <ul>
+                        <li>Tropical monsoon climate, roughly 23°C to 31°C year-round</li>
+                        <li>Rainfall from both southwest and northeast monsoons</li>
+                        <li>December to April is the most favourable period to visit</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section class="north-andaman-section" id="north-andaman-map-section">
+            <div class="north-andaman-container">
+                <div class="north-andaman-section-heading">
+                    <span class="north-andaman-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around North Andaman</h2>
+                    <p>Click a marker to learn about that location.</p>
+                </div>
+                <div class="north-andaman-map-wrap">
+                    <div id="north-andaman-map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="north-andaman-section" id="north-andaman-gallery-section">
+            <div class="north-andaman-container">
+                <div class="north-andaman-section-heading">
+                    <span class="north-andaman-section-badge">Image Gallery</span>
+                    <h2>Glimpses of North Andaman</h2>
+                    <p>Click an image to view it larger.</p>
+                </div>
+                <div id="north-andaman-gallery-grid" class="north-andaman-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="north-andaman-section">
+            <div class="north-andaman-container">
+                <div class="north-andaman-section-heading">
+                    <span class="north-andaman-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="north-andaman-fact-panel">
+                    <div class="north-andaman-fact-icon">💡</div>
+                    <p id="north-andaman-fact-text">Loading fact...</p>
+                    <div class="north-andaman-fact-dots" id="north-andaman-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="north-andaman-lightbox-overlay" id="north-andaman-lightbox" hidden>
+        <div class="north-andaman-lightbox-content">
+            <button class="north-andaman-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="north-andaman-lightbox-nav prev" id="north-andaman-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="north-andaman-lightbox-image" src="" alt="">
+            <button class="north-andaman-lightbox-nav next" id="north-andaman-lightbox-next" aria-label="Next image">›</button>
+            <p class="north-andaman-lightbox-caption" id="north-andaman-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="north-andaman-island.html">North Andaman</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="north-andaman-island.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seasonal Travel Recommendations | Incredible India Explorer</title>
+  <meta name="description" content="Get destination recommendations ranked by travel month, matched to festivals happening at that time, with alternatives suggested when conditions are unfavorable.">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../travel.html" class="nav-link">Travel</a>
+        <a href="../event-discovery/index.html" class="nav-link">Event Discovery</a>
+        <a href="index.html" class="nav-link" style="color: var(--saffron)">Seasonal Picks</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="seasonal-page">
+    <section class="seasonal-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Month-by-month · festival-aware · with alternatives</span>
+        <h1>Seasonal Travel <span>Recommendations</span></h1>
+        <p>
+          Pick the month you're planning to travel and we'll rank destinations by how good a fit
+          that month actually is, surface festivals happening around that time, and suggest
+          alternatives when your first choice is out of season.
+        </p>
+      </div>
+    </section>
+
+    <section class="filters-section" id="filters">
+      <div class="filters-container">
+        <form id="filters-form" class="filters-card">
+          <div class="filter-row">
+            <div class="filter-field">
+              <label for="month-select">Travel month</label>
+              <select id="month-select" required></select>
+            </div>
+          </div>
+
+          <div class="filter-field interests-field">
+            <label>Interests (optional)</label>
+            <div class="interest-chips" id="interest-chips"></div>
+          </div>
+
+          <div class="filter-actions">
+            <button type="submit" class="btn-primary">Get recommendations</button>
+            <button type="button" id="reset-filters" class="btn-secondary">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="results-section" id="results-section" hidden>
+      <div class="results-container">
+        <div class="results-heading">
+          <h2 id="results-title">Recommended for you</h2>
+          <span id="results-count" class="results-count"></span>
+        </div>
+        <div class="destination-grid" id="destination-grid"></div>
+        <p class="empty-state" id="empty-state" hidden>No destinations match those interests for this month yet &mdash; try widening your interests.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="seasonal-footer">
+    <p>
+      Part of <a href="../../index.html">Incredible India Explorer</a> · Seasonal fit is based on
+      each destination's curated best-season window, not a live weather forecast &mdash; always
+      check current conditions before travelling.
+    </p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../../app.js"></script>
+  <script src="../../trip-data.js"></script>
+  <script src="../../js-modules/event-data.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

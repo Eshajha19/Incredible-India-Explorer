@@ -1,0 +1,326 @@
+:root {
+  --sr-accent: var(--saffron, #ff9933);
+  --sr-green: var(--green, #138808);
+  --sr-surface: var(--glass-bg, rgba(255, 255, 255, 0.08));
+  --sr-border: var(--glass-border, rgba(255, 255, 255, 0.14));
+  --sr-text: var(--text-primary, #f8fafc);
+  --sr-muted: var(--text-secondary, #cbd5e1);
+  --sr-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+}
+
+.seasonal-page {
+  min-height: 100vh;
+  color: var(--sr-text);
+}
+
+/* Hero */
+.seasonal-hero {
+  min-height: 44vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(16, 24, 44, 0.95), rgba(20, 60, 92, 0.68)),
+    url("../../assets/heroriver.png") center / cover no-repeat;
+}
+
+.seasonal-hero .hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(880px, 92%);
+  padding: 130px 0 64px;
+  text-align: center;
+  color: #fff;
+}
+
+.seasonal-hero .hero-kicker {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.seasonal-hero h1 {
+  margin: 18px 0;
+  font-family: var(--font-heading, serif);
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+}
+
+.seasonal-hero h1 span {
+  color: var(--sr-accent);
+}
+
+.seasonal-hero p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* Shared section shell */
+.filters-section,
+.results-section {
+  padding: 40px 0;
+}
+
+.filters-container,
+.results-container {
+  width: min(1080px, 92%);
+  margin: 0 auto;
+}
+
+/* Filters */
+.filters-card {
+  background: var(--sr-surface);
+  border: 1px solid var(--sr-border);
+  border-radius: var(--border-radius-lg, 18px);
+  padding: 24px;
+  box-shadow: var(--sr-shadow);
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 320px;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-field label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--sr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filter-field select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--sr-border);
+  border-radius: var(--border-radius-sm, 8px);
+  padding: 10px 12px;
+  color: var(--sr-text);
+  font-family: inherit;
+  font-size: 0.92rem;
+}
+
+.interests-field {
+  margin-top: 18px;
+}
+
+.interest-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.interest-chip {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--sr-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--sr-text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition-snappy, all 0.2s ease);
+  user-select: none;
+  text-transform: capitalize;
+}
+
+.interest-chip.active {
+  background: var(--gradient-saffron-gold, var(--sr-accent));
+  color: #1a1200;
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 11px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-snappy, all 0.25s ease);
+}
+
+.btn-primary {
+  background: var(--gradient-saffron-gold, var(--sr-accent));
+  color: #1a1200;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--sr-border);
+  color: var(--sr-text);
+}
+
+/* Results */
+.results-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.results-heading h2 {
+  font-family: var(--font-heading, serif);
+  font-size: 1.4rem;
+}
+
+.results-count {
+  color: var(--sr-muted);
+  font-size: 0.85rem;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.empty-state {
+  color: var(--sr-muted);
+  font-size: 0.92rem;
+  padding: 16px 0;
+}
+
+.destination-card {
+  background: var(--sr-surface);
+  border: 1px solid var(--sr-border);
+  border-radius: var(--border-radius-lg, 18px);
+  overflow: hidden;
+  box-shadow: var(--sr-shadow);
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  gap: 10px;
+}
+
+.destination-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.destination-card h3 {
+  font-size: 1.1rem;
+  font-family: var(--font-heading, serif);
+}
+
+.destination-state {
+  color: var(--sr-muted);
+  font-size: 0.8rem;
+}
+
+.fit-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.fit-badge.ideal {
+  background: rgba(19, 136, 8, 0.16);
+  color: var(--sr-green);
+}
+
+.fit-badge.shoulder {
+  background: rgba(255, 153, 51, 0.16);
+  color: var(--sr-accent);
+}
+
+.fit-badge.off-season {
+  background: rgba(220, 60, 60, 0.16);
+  color: #ff8080;
+}
+
+.fit-badge.unknown {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--sr-muted);
+}
+
+.destination-explanation {
+  font-size: 0.86rem;
+  color: var(--sr-muted);
+  flex: 1;
+}
+
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.category-tag {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.72rem;
+  color: var(--sr-muted);
+  text-transform: capitalize;
+}
+
+.alternatives-toggle {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--sr-border);
+  color: var(--sr-accent);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.alternatives-panel {
+  border-top: 1px solid var(--sr-border);
+  padding-top: 10px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alternatives-panel p {
+  font-size: 0.82rem;
+  color: var(--sr-muted);
+}
+
+.seasonal-footer {
+  text-align: center;
+  padding: 26px 16px;
+  color: var(--sr-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--sr-border);
+}
+
+.seasonal-footer a {
+  color: var(--sr-accent);
+}
+
+@media (max-width: 720px) {
+  .filter-row {
+    max-width: none;
+  }
+}

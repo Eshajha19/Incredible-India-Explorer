@@ -1,0 +1,90 @@
+{
+  "id": "tamil-nadu",
+  "state": "Tamil Nadu",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Meenakshi_Temple.png",
+  "destinationCount": 4,
+  "destinations": [
+    {
+      "id": "ooty",
+      "name": "Ooty",
+      "lat": 11.4102,
+      "lng": 76.695,
+      "categories": [
+        "mountains"
+      ],
+      "highlights": [
+        "Nilgiri toy train",
+        "Botanical Gardens",
+        "Doddabetta Peak"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Oct-Jun",
+      "description": "Queen of the Nilgiris hill stations."
+    },
+    {
+      "id": "chennai",
+      "name": "Chennai",
+      "lat": 13.0827,
+      "lng": 80.2707,
+      "categories": [
+        "city",
+        "beaches",
+        "heritage"
+      ],
+      "highlights": [
+        "Marina Beach",
+        "Kapaleeshwarar Temple",
+        "Fort St. George"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Nov-Feb",
+      "description": "Gateway to South India on the Coromandel Coast."
+    },
+    {
+      "id": "mahabalipuram",
+      "name": "Mahabalipuram",
+      "lat": 12.6269,
+      "lng": 80.1927,
+      "categories": [
+        "historical",
+        "beaches",
+        "heritage"
+      ],
+      "highlights": [
+        "Shore Temple",
+        "Pancha Rathas",
+        "Arjuna's Penance"
+      ],
+      "minDays": 1,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Nov-Feb",
+      "description": "UNESCO shore temples carved by the Pallava dynasty."
+    },
+    {
+      "id": "madurai",
+      "name": "Madurai",
+      "lat": 9.9252,
+      "lng": 78.1198,
+      "categories": [
+        "spiritual",
+        "historical"
+      ],
+      "highlights": [
+        "Meenakshi Amman Temple",
+        "Thirumalai Nayakkar Palace"
+      ],
+      "minDays": 1,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Oct-Mar",
+      "description": "Ancient temple city on the Vaigai river."
+    }
+  ]
+}

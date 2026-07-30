@@ -1,0 +1,109 @@
+{
+  "id": "himachal-pradesh",
+  "state": "Himachal Pradesh",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Shimlakaza.png",
+  "destinationCount": 5,
+  "destinations": [
+    {
+      "id": "shimla",
+      "name": "Shimla",
+      "lat": 31.1048,
+      "lng": 77.1734,
+      "categories": [
+        "mountains"
+      ],
+      "highlights": [
+        "The Ridge",
+        "Mall Road",
+        "Kalka-Shimla toy train"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 8,
+      "bestSeason": "Mar-Jun, Sep-Nov",
+      "description": "Colonial-era hill station in the Himalayan foothills."
+    },
+    {
+      "id": "manali",
+      "name": "Manali",
+      "lat": 32.2432,
+      "lng": 77.1892,
+      "categories": [
+        "mountains",
+        "adventure"
+      ],
+      "highlights": [
+        "Solang Valley",
+        "Rohtang Pass",
+        "Old Manali cafes"
+      ],
+      "minDays": 2,
+      "maxDays": 4,
+      "popularity": 9,
+      "bestSeason": "Mar-Jun, Oct-Feb",
+      "description": "Snow-capped adventure hub in the Kullu Valley."
+    },
+    {
+      "id": "mcleodganj",
+      "name": "McLeodganj",
+      "lat": 32.2432,
+      "lng": 76.3234,
+      "categories": [
+        "mountains",
+        "spiritual"
+      ],
+      "highlights": [
+        "Dalai Lama Temple",
+        "Triund trek",
+        "Tibetan markets"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 7,
+      "bestSeason": "Mar-Jun, Sep-Nov",
+      "description": "Little Lhasa in the Dhauladhar mountains."
+    },
+    {
+      "id": "spiti",
+      "name": "Spiti Valley",
+      "lat": 32.2461,
+      "lng": 78.0349,
+      "categories": [
+        "mountains",
+        "adventure",
+        "spiritual"
+      ],
+      "highlights": [
+        "Key Monastery",
+        "Chandratal Lake",
+        "Kibber village"
+      ],
+      "minDays": 3,
+      "maxDays": 5,
+      "popularity": 7,
+      "bestSeason": "May-Oct",
+      "description": "Cold desert valley of ancient monasteries, Little Tibet."
+    },
+    {
+      "id": "dharamshala",
+      "name": "Dharamshala",
+      "lat": 32.219,
+      "lng": 76.3234,
+      "categories": [
+        "mountains",
+        "spiritual"
+      ],
+      "highlights": [
+        "Himalayan views",
+        "Norbulingka Institute"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Mar-Jun, Sep-Nov",
+      "description": "Gateway hill town to McLeodganj."
+    }
+  ]
+}

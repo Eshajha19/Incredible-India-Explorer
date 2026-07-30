@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Expense Splitter | Incredible India Explorer</title>
+  <meta name="description" content="Split group trip expenses fairly, track who owes whom, and settle up with the fewest possible payments.">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../travel.html" class="nav-link">Travel</a>
+        <a href="index.html" class="nav-link" style="color: var(--saffron)">Expense Splitter</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="expense-page">
+    <section class="expense-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Equal · percentage · custom splits</span>
+        <h1>Trip Expense <span>Splitter</span></h1>
+        <p>
+          Add everyone on the trip, log shared expenses as they happen, and see exactly who owes
+          whom — settled in the fewest possible payments. Everything is saved in this browser, so
+          it works offline and picks up right where you left off.
+        </p>
+      </div>
+    </section>
+
+    <section class="setup-section">
+      <div class="expense-container setup-grid">
+        <div class="panel-card">
+          <h2>Trip</h2>
+          <div class="filter-field">
+            <label for="trip-name">Trip name</label>
+            <input type="text" id="trip-name" placeholder="e.g. Goa with college friends">
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h2>Participants</h2>
+          <form id="add-participant-form" class="inline-form">
+            <input type="text" id="participant-name" placeholder="Add a participant" required>
+            <button type="submit" class="btn-secondary">Add</button>
+          </form>
+          <div class="participant-chips" id="participant-chips"></div>
+          <p class="form-error" id="participant-error" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="expense-section">
+      <div class="expense-container">
+        <div class="panel-card">
+          <h2>Add an expense</h2>
+          <form id="add-expense-form" class="expense-form">
+            <div class="form-row">
+              <div class="filter-field">
+                <label for="expense-description">Description</label>
+                <input type="text" id="expense-description" placeholder="e.g. Hotel booking" required>
+              </div>
+              <div class="filter-field">
+                <label for="expense-amount">Amount (₹)</label>
+                <input type="number" id="expense-amount" min="0.01" step="0.01" required>
+              </div>
+              <div class="filter-field">
+                <label for="expense-category">Category</label>
+                <select id="expense-category">
+                  <option value="accommodation">Accommodation</option>
+                  <option value="transport">Transport</option>
+                  <option value="food">Food</option>
+                  <option value="activities">Activities/Entry tickets</option>
+                  <option value="shopping">Shopping</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="filter-field">
+                <label for="expense-paid-by">Paid by</label>
+                <select id="expense-paid-by" required></select>
+              </div>
+            </div>
+
+            <div class="filter-field">
+              <label>Split among</label>
+              <div class="participant-checkboxes" id="split-participants"></div>
+            </div>
+
+            <div class="filter-field">
+              <label>Split method</label>
+              <div class="split-type-toggle" id="split-type-toggle">
+                <button type="button" class="split-type-btn active" data-split-type="equal">Equal</button>
+                <button type="button" class="split-type-btn" data-split-type="percentage">Percentage</button>
+                <button type="button" class="split-type-btn" data-split-type="custom">Custom amount</button>
+              </div>
+            </div>
+
+            <div id="split-details" class="split-details" hidden></div>
+
+            <div class="filter-actions">
+              <button type="submit" class="btn-primary">Add expense</button>
+            </div>
+            <p class="form-error" id="expense-error" hidden></p>
+          </form>
+        </div>
+
+        <div class="panel-card">
+          <h2>Expenses</h2>
+          <div class="expense-list" id="expense-list"></div>
+          <p class="empty-state" id="expense-empty-state">No expenses logged yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary-section">
+      <div class="expense-container summary-grid">
+        <div class="panel-card">
+          <div class="panel-heading">
+            <h2>Balances</h2>
+          </div>
+          <div class="balance-list" id="balance-list"></div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-heading">
+            <h2>Settle up</h2>
+            <span class="results-count" id="settlement-count"></span>
+          </div>
+          <div class="settlement-list" id="settlement-list"></div>
+          <p class="empty-state" id="settlement-empty-state">Nothing to settle yet.</p>
+        </div>
+
+        <div class="panel-card">
+          <h2>By category</h2>
+          <div class="category-list" id="category-list"></div>
+        </div>
+      </div>
+
+      <div class="expense-container export-actions">
+        <button type="button" id="export-csv" class="btn-secondary">Export CSV</button>
+        <button type="button" id="export-pdf" class="btn-secondary">Export / Print PDF</button>
+        <button type="button" id="reset-group" class="btn-danger">Start a new trip</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="expense-footer">
+    <p>
+      Part of <a href="../../index.html">Incredible India Explorer</a> · All expense data is
+      stored locally in this browser only — nothing is sent to a server.
+    </p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../../app.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

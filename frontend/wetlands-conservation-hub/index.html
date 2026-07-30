@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>(function(){const t=localStorage.getItem('theme')||'dark';if(t==='light')document.body.classList.add('light-theme')})();</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore the Indian Wetlands Conservation Hub — an interactive guide to wetlands, Ramsar sites, ecosystem services, conservation initiatives, and biodiversity." />
+  <title>Indian Wetlands Conservation Hub | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+        <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+        <a href="../bird-sanctuaries/index.html" class="nav-link" id="link-birds">Bird Sanctuaries</a>
+        <a href="index.html" class="nav-link active" id="link-wetlands" style="color:var(--saffron)">Wetlands Hub</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" id="link-explore-more">Explore More ▾</button>
+          <div class="dropdown-menu">
+            <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+            <a href="../national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+            <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+            <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+          </div>
+        </div>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wetlands-page">
+    <section class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <span class="hero-badge">🌿 Conservation & Ecology</span>
+        <h1>Indian Wetlands <span>Conservation Hub</span></h1>
+        <p>Discover the vital ecosystems that sustain India's biodiversity, climate resilience, and cultural heritage. From the high-altitude marshes of Ladakh to the mangrove forests of Sundarbans — explore, learn, and act.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="number">80</span><span class="label">Ramsar Sites</span></div>
+          <div class="hero-stat"><span class="number">15.3M</span><span class="label">Hectares of Wetlands</span></div>
+          <div class="hero-stat"><span class="number">4.7%</span><span class="label">of India's Area</span></div>
+          <div class="hero-stat"><span class="number">757K+</span><span class="label">Wetlands</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="what-are-wetlands">
+      <div class="section-header">
+        <span class="section-badge">Understanding Wetlands</span>
+        <h2>What Are Wetlands?</h2>
+        <p class="section-subtitle">Wetlands are ecosystems where water covers the soil or is present at or near the surface for varying periods, creating unique habitats that support extraordinary biodiversity.</p>
+      </div>
+      <div class="content-section glass-card">
+        <div class="content-text">
+          <p>Under the <strong>Ramsar Convention</strong>, wetlands are defined as "areas of marsh, fen, peatland or water, whether natural or artificial, permanent or temporary, with water that is static or flowing, fresh, brackish or salt."</p>
+          <p>India's wetlands range from the icy marshes of the Himalayas to the sun-drenched mangroves of the Sundarbans, from the floating phumdis of Loktak to the man-made tanks of Tamil Nadu.</p>
+          <p>These ecosystems are among the most productive on Earth — rivalling rainforests and coral reefs in the diversity of life they support.</p>
+          <ul>
+            <li>Cover only 6% of Earth's surface but support 40% of all species</li>
+            <li>Store 3-5x more carbon per hectare than tropical rainforests</li>
+            <li>Provide freshwater, food, and livelihoods to billions</li>
+            <li>Act as natural water purifiers and flood buffers</li>
+          </ul>
+        </div>
+        <div style="background:var(--card-glass);border-radius:16px;padding:30px;border:1px solid var(--card-border);text-align:center">
+          <div style="font-size:4rem;margin-bottom:16px">🌾</div>
+          <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:8px">Did You Know?</h3>
+          <p style="color:var(--text-sub);line-height:1.6">Wetlands are often called "Nature's Kidneys" because of their ability to filter pollutants and "Biological Supermarkets" for the vast array of life they support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="types">
+      <div class="section-header">
+        <span class="section-badge">Diversity</span>
+        <h2>Types of Indian Wetlands</h2>
+        <p class="section-subtitle">India's diverse geography creates six major wetland types, each with unique characteristics and ecological roles.</p>
+      </div>
+      <div class="info-grid"></div>
+    </section>
+
+    <section class="section-container" id="ramsar">
+      <div class="section-header">
+        <span class="section-badge">Global Recognition</span>
+        <h2>Ramsar Convention & India's Commitment</h2>
+        <p class="section-subtitle">The Ramsar Convention is an international treaty for wetland conservation. India, a signatory since 1982, now has more Ramsar Sites than any other Asian country.</p>
+      </div>
+      <div class="content-section glass-card" style="grid-template-columns:1fr">
+        <div class="content-text">
+          <p>The Convention on Wetlands of International Importance (Ramsar Convention) was adopted in 1971 in the Iranian city of Ramsar. It provides the framework for national action and international cooperation for the conservation and wise use of wetlands.</p>
+          <p>India's journey from 2 Ramsar Sites in 1981 to <strong>80 sites today</strong> reflects a growing recognition of wetland values. Each Ramsar Site is designated based on criteria including representative wetland types, support for vulnerable species, and provision of ecosystem services.</p>
+        </div>
+      </div>
+      <div class="section-header" style="margin-top:40px">
+        <h2 style="font-size:1.8rem">Ramsar Sites Timeline</h2>
+        <p class="section-subtitle">Tracking India's expanding network of internationally important wetlands</p>
+      </div>
+      <div class="timeline"></div>
+    </section>
+
+    <section class="section-container" id="services">
+      <div class="section-header">
+        <span class="section-badge">Nature's Benefits</span>
+        <h2>Ecosystem Services</h2>
+        <p class="section-subtitle">Wetlands provide invaluable services that sustain life, mitigate climate change, and support human well-being.</p>
+      </div>
+      <div class="service-grid"></div>
+    </section>
+
+    <section class="section-container" id="threats">
+      <div class="section-header">
+        <span class="section-badge">Challenges</span>
+        <h2>Threats to Wetlands</h2>
+        <p class="section-subtitle">Indian wetlands face multiple pressures from human activities and climate change. Understanding these threats is the first step towards effective conservation.</p>
+      </div>
+      <div class="info-grid"></div>
+    </section>
+
+    <section class="section-container" id="restoration">
+      <div class="section-header">
+        <span class="section-badge">Hope in Action</span>
+        <h2>Restoration Projects</h2>
+        <p class="section-subtitle">Across India, communities and organizations are working to restore degraded wetlands and revive their ecological functions.</p>
+      </div>
+      <div class="project-grid"></div>
+    </section>
+
+    <section class="section-container" id="climate">
+      <div class="section-header">
+        <span class="section-badge">Global Challenge</span>
+        <h2>Climate Change Impact</h2>
+        <p class="section-subtitle">Wetlands are both victims of and solutions to climate change. Their protection is essential for climate adaptation and mitigation.</p>
+      </div>
+      <div class="content-section glass-card">
+        <div class="content-text">
+          <h2>How Climate Change Affects Wetlands</h2>
+          <p>Climate change poses existential threats to wetland ecosystems through rising temperatures, altered precipitation patterns, sea-level rise, and increased frequency of extreme weather events.</p>
+          <ul>
+            <li><strong>Sea-level rise</strong> threatens coastal wetlands — a 1m rise could inundate 50% of India's mangroves</li>
+            <li><strong>Glacial melt</strong> reduces water supply to Himalayan wetlands and downstream riverine systems</li>
+            <li><strong>Changing rainfall</strong> disrupts flood-pulse timing essential for wetland breeding cycles</li>
+            <li><strong>Higher temperatures</strong> increase evapotranspiration, drying out shallow wetlands</li>
+            <li><strong>Intense cyclones</strong> cause saltwater intrusion into freshwater wetlands</li>
+          </ul>
+        </div>
+        <div style="background:var(--card-glass);border-radius:16px;padding:30px;border:1px solid var(--card-border)">
+          <h3 style="font-size:1.1rem;font-weight:600;margin-bottom:16px">Wetlands as Climate Solutions</h3>
+          <p style="color:var(--text-sub);line-height:1.6;margin-bottom:16px">Despite covering only 6% of land, wetlands store 20-30% of Earth's soil carbon. Peatlands alone store twice as much carbon as all the world's forests combined.</p>
+          <p style="color:var(--text-sub);line-height:1.6">Mangroves along India's coast protect over 40 million people from storm surges and reduce wave height by up to 66%, making them one of the most cost-effective natural climate defenses.</p>
+          <div style="margin-top:20px;padding:16px;border-radius:12px;background:rgba(13,148,136,0.1);border-left:4px solid var(--wetland-teal)">
+            <p style="color:var(--wetland-teal);font-weight:500">Restoring 15% of degraded wetlands could reduce global flood damage by $24 billion annually.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="initiatives">
+      <div class="section-header">
+        <span class="section-badge">Taking Action</span>
+        <h2>Wetland Conservation Initiatives</h2>
+        <p class="section-subtitle">Government programs, international conventions, and community efforts working together to protect India's wetlands.</p>
+      </div>
+      <div class="initiative-grid"></div>
+    </section>
+
+    <section class="section-container" id="map">
+      <div class="section-header">
+        <span class="section-badge">Explore</span>
+        <h2>Interactive India Wetlands Map</h2>
+        <p class="section-subtitle">Explore India's Ramsar Sites and major wetlands across the country.</p>
+      </div>
+      <div class="interactive-map" id="wetlands-map">
+        <div class="map-placeholder">
+          <div class="big-icon">🗺️</div>
+          <h3>India Wetlands Map</h3>
+          <p>India's 80 Ramsar Sites span from the high-altitude Tso Kar in Ladakh (4,500m) to the coastal mangroves of Sundarbans. Major wetland clusters exist in the <strong>Gangetic floodplains</strong>, the <strong>coasts of Gujarat and Tamil Nadu</strong>, and the <strong>Brahmaputra Valley</strong> of Assam.</p>
+          <div style="margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;text-align:left">
+            <div><span style="color:var(--wetland-teal)">●</span> Uttar Pradesh — 10 Sites</div>
+            <div><span style="color:var(--wetland-teal)">●</span> Tamil Nadu — 14 Sites</div>
+            <div><span style="color:var(--wetland-teal)">●</span> Karnataka — 8 Sites</div>
+            <div><span style="color:var(--wetland-teal)">●</span> Gujarat — 4 Sites</div>
+            <div><span style="color:var(--wetland-teal)">●</span> Odisha — 6 Sites</div>
+            <div><span style="color:var(--wetland-teal)">●</span> Jammu & Kashmir — 5 Sites</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container" id="quiz">
+      <div class="section-header">
+        <span class="section-badge">Test Your Knowledge</span>
+        <h2>Wetlands Quiz</h2>
+        <p class="section-subtitle">How much do you know about India's wetlands and their global significance?</p>
+      </div>
+      <div class="quiz-section" id="quiz-section"></div>
+    </section>
+
+    <section class="section-container" id="explorers">
+      <div class="section-header">
+        <span class="section-badge">Interactive Guides</span>
+        <h2>Featured Wetland Explorers</h2>
+        <p class="section-subtitle">Dive deeper into India's incredible wetland ecosystems with our interactive explorer pages.</p>
+      </div>
+      <div id="explorers-grid" class="explorers-grid">
+        <!-- Populated by script.js -->
+      </div>
+    </section>
+
+    <section class="section-container" id="infographics">
+      <div class="section-header">
+        <span class="section-badge">Resources</span>
+        <h2>Downloadable Infographics</h2>
+        <p class="section-subtitle">Educational resources about Indian wetlands for students, educators, and conservation advocates.</p>
+      </div>
+      <div class="download-grid">
+        <a href="#" class="download-card"><div class="icon">📊</div><h4>Wetlands of India Overview</h4><p>PDF Infographic</p></a>
+        <a href="#" class="download-card"><div class="icon">🗺️</div><h4>Ramsar Sites Map</h4><p>PDF Poster</p></a>
+        <a href="#" class="download-card"><div class="icon">🌿</div><h4>Wetland Types Guide</h4><p>PDF Reference</p></a>
+        <a href="#" class="download-card"><div class="icon">📋</div><h4>Conservation Checklist</h4><p>PDF Action Guide</p></a>
+      </div>
+    </section>
+
+    <section class="section-container" id="gallery">
+      <div class="section-header">
+        <span class="section-badge">Visual Journey</span>
+        <h2>Image Gallery</h2>
+        <p class="section-subtitle">A visual exploration of India's stunning wetland landscapes and biodiversity.</p>
+      </div>
+      <div class="gallery-grid"></div>
+    </section>
+
+    <section class="section-container" id="facts">
+      <div class="section-header">
+        <span class="section-badge">Did You Know?</span>
+        <h2>Interesting Facts</h2>
+        <p class="section-subtitle">Fascinating insights into India's wetland heritage and their global importance.</p>
+      </div>
+      <div class="facts-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Incredible India Explorer</h3>
+        <p>An interactive digital guide to the geography, wildlife, and natural heritage of India.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Navigation</h3>
+        <ul>
+          <li><a href="../../index.html#home">Home</a></li>
+          <li><a href="../../index.html#map">Interactive Map</a></li>
+          <li><a href="../bird-sanctuaries/index.html">Bird Sanctuaries</a></li>
+          <li><a href="../national-parks-explorer/index.html">National Parks</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-credits footer-credits-center">
+      <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</button>
+    <img id="lightbox-img" src="" alt="Gallery Image" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script src="../../app.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+  <script type="module" src="../../auth.js"></script>
+</body>
+</html>

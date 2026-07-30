@@ -1,0 +1,417 @@
+/* Sundarbans National Park Explorer - Issue #813 */
+:root {
+  --sd-accent: var(--saffron, #ff9933);
+  --sd-green: var(--green, #138808);
+  --sd-blue: #4f8cff;
+  --sd-gold: #f6c453;
+  --sd-surface: var(--glass-bg, rgba(255, 255, 255, 0.08));
+  --sd-border: var(--glass-border, rgba(255, 255, 255, 0.14));
+  --sd-text: var(--text-primary, #f8fafc);
+  --sd-muted: var(--text-secondary, #cbd5e1);
+  --sd-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+}
+
+.sundarbans-current {
+  color: var(--sd-accent);
+}
+
+.sundarbans-page {
+  min-height: 100vh;
+  color: var(--sd-text);
+}
+
+.sundarbans-hero {
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(10, 28, 30, 0.96), rgba(21, 91, 73, 0.78)),
+    url("../../assets/travel_rivers.png") center / cover no-repeat;
+}
+
+.sundarbans-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(79, 140, 255, 0.22), transparent 30%),
+    radial-gradient(circle at 82% 24%, rgba(19, 136, 8, 0.28), transparent 26%),
+    linear-gradient(to top, rgba(8, 8, 14, 0.84), transparent 55%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 92%);
+  padding: 145px 0 76px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-kicker {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sundarbans-hero h1 {
+  margin: 18px 0;
+  font-size: clamp(3rem, 7.2vw, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.sundarbans-hero h1 span {
+  display: block;
+  color: var(--sd-accent);
+}
+
+.sundarbans-hero p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.hero-stats {
+  width: min(780px, 100%);
+  margin: 30px auto 26px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hero-stats div {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.hero-stats strong {
+  display: block;
+  color: var(--sd-gold);
+  font-size: 1.45rem;
+}
+
+.hero-stats span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--sd-accent);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.overview-section,
+.facts-section,
+.wildlife-section,
+.map-section,
+.ecosystem-section,
+.conservation-section,
+.gallery-section,
+.source-section {
+  padding: 78px 0;
+}
+
+.page-container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.section-heading {
+  max-width: 900px;
+  margin-bottom: 26px;
+}
+
+.section-heading h2,
+.source-section h2 {
+  margin: 9px 0 10px;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+}
+
+.section-heading p,
+.overview-card p,
+.map-info p,
+.source-section p {
+  margin: 0;
+  color: var(--sd-muted);
+  line-height: 1.7;
+}
+
+.overview-grid,
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.overview-card,
+.fact-card,
+.wildlife-card,
+.map-info,
+.ecosystem-card,
+.conservation-card,
+.gallery-card,
+.source-section .page-container,
+.sundarbans-map {
+  border: 1px solid var(--sd-border);
+  border-radius: 26px;
+  background: var(--sd-surface);
+  box-shadow: var(--sd-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.overview-card,
+.map-info,
+.source-section .page-container {
+  padding: 24px;
+}
+
+.overview-card.large {
+  grid-row: span 2;
+}
+
+.overview-card h3,
+.fact-card h3,
+.wildlife-card h3,
+.map-info h3,
+.ecosystem-card h3,
+.conservation-card h3,
+.gallery-card h3 {
+  margin: 0 0 10px;
+}
+
+.facts-grid,
+.wildlife-grid,
+.ecosystem-grid,
+.conservation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.fact-card,
+.wildlife-card,
+.ecosystem-card,
+.conservation-card {
+  padding: 20px;
+}
+
+.fact-card span,
+.wildlife-card span,
+.map-info span,
+.ecosystem-card span,
+.conservation-card span {
+  display: block;
+  color: var(--sd-muted);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fact-card strong,
+.wildlife-card strong {
+  display: block;
+  margin: 7px 0;
+  color: var(--sd-accent);
+  font-size: 1.35rem;
+}
+
+.fact-card p,
+.wildlife-card p,
+.ecosystem-card p,
+.conservation-card p,
+.gallery-card p {
+  margin: 0;
+  color: var(--sd-muted);
+  line-height: 1.55;
+}
+
+.wildlife-emoji {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.filter-btn {
+  border: 1px solid var(--sd-border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--sd-text);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  border-color: var(--sd-accent);
+  background: rgba(255, 153, 51, 0.16);
+}
+
+.sundarbans-map {
+  position: relative;
+  min-height: 470px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 24% 24%, rgba(79, 140, 255, 0.14), transparent 25%),
+    radial-gradient(circle at 72% 70%, rgba(19, 136, 8, 0.22), transparent 28%),
+    linear-gradient(135deg, rgba(17, 43, 46, 0.96), rgba(28, 74, 54, 0.9));
+}
+
+.delta-shape {
+  position: absolute;
+  inset: 12%;
+  clip-path: polygon(14% 25%, 34% 12%, 62% 18%, 86% 35%, 78% 59%, 92% 76%, 64% 84%, 42% 75%, 22% 88%, 10% 62%);
+  background:
+    linear-gradient(135deg, rgba(19, 136, 8, 0.38), rgba(79, 140, 255, 0.22));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.water-channel {
+  position: absolute;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(79, 140, 255, 0.38);
+  filter: blur(0.4px);
+  transform-origin: left center;
+}
+
+.channel-one { left: 18%; top: 46%; width: 66%; transform: rotate(13deg); }
+.channel-two { left: 24%; top: 60%; width: 58%; transform: rotate(-9deg); }
+.channel-three { left: 35%; top: 35%; width: 38%; transform: rotate(38deg); }
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--sd-blue), var(--sd-green));
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.28);
+}
+
+.map-pin.active {
+  transform: translate(-50%, -50%) scale(1.13);
+  box-shadow: 0 0 0 6px rgba(79,140,255,0.18), 0 12px 26px rgba(0,0,0,0.28);
+}
+
+.map-info h3,
+.ecosystem-card h3,
+.conservation-card h3 {
+  color: var(--sd-accent);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gallery-card {
+  overflow: hidden;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.gallery-card div {
+  padding: 16px;
+}
+
+.sundarbans-footer {
+  padding: 40px 20px;
+  border-top: 1px solid var(--sd-border);
+  color: var(--sd-muted);
+  text-align: center;
+}
+
+.sundarbans-footer a {
+  color: var(--sd-accent);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+body.light-theme .overview-card,
+body.light-theme .fact-card,
+body.light-theme .wildlife-card,
+body.light-theme .map-info,
+body.light-theme .ecosystem-card,
+body.light-theme .conservation-card,
+body.light-theme .gallery-card,
+body.light-theme .source-section .page-container {
+  background: rgba(255,255,255,0.88);
+}
+
+@media (max-width: 1020px) {
+  .overview-grid,
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .facts-grid,
+  .wildlife-grid,
+  .ecosystem-grid,
+  .conservation-grid,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .overview-card.large {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-stats,
+  .facts-grid,
+  .wildlife-grid,
+  .ecosystem-grid,
+  .conservation-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sundarbans-map {
+    min-height: 380px;
+  }
+
+  .gallery-card img {
+    height: 220px;
+  }
+}

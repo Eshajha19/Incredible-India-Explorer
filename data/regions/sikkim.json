@@ -1,0 +1,30 @@
+{
+  "id": "sikkim",
+  "state": "Sikkim",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_mountains.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "gangtok",
+      "name": "Gangtok",
+      "lat": 27.3389,
+      "lng": 88.6065,
+      "categories": [
+        "mountains",
+        "spiritual"
+      ],
+      "highlights": [
+        "Tsomgo Lake",
+        "Rumtek Monastery",
+        "MG Marg"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 7,
+      "bestSeason": "Mar-Jun, Sep-Dec",
+      "description": "Capital of Sikkim, framed by the Kanchenjunga range."
+    }
+  ]
+}

@@ -1,0 +1,645 @@
+/* ==========================================================================
+   Kaziranga National Park Explorer — Styling
+   Rhino gold & monsoon green dark/light theme design system
+   ========================================================================== */
+
+:root {
+    --kaziranga-bg-dark: #0a1f1a;
+    --kaziranga-card-bg-dark: rgba(10, 35, 28, 0.82);
+    --kaziranga-text-primary-dark: #f8fafc;
+    --kaziranga-text-muted-dark: #94a3b8;
+    --kaziranga-border-dark: rgba(255, 255, 255, 0.1);
+
+    /* Palette Accent Tokens */
+    --rhino-gold: #d4a843;
+    --monsoon-green: #166534;
+    --wetland-blue: #0284c7;
+    --grassland-amber: #d97706;
+    --sunrise-orange: #ea580c;
+    --gold-bright: #fbbf24;
+    --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.55);
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+body.light-theme {
+    --kaziranga-bg-dark: #fefce8;
+    --kaziranga-card-bg-dark: rgba(255, 255, 255, 0.88);
+    --kaziranga-text-primary-dark: #422006;
+    --kaziranga-text-muted-dark: #334155;
+    --kaziranga-border-dark: rgba(212, 168, 67, 0.2);
+    --card-shadow: 0 10px 25px -5px rgba(212, 168, 67, 0.12);
+}
+
+.kaziranga-main {
+    background-color: var(--kaziranga-bg-dark);
+    color: var(--kaziranga-text-primary-dark);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Glassmorphism Card Utility */
+.glass-card {
+    background: var(--kaziranga-card-bg-dark);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--kaziranga-border-dark);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(212, 168, 67, 0.4);
+}
+
+/* Hero Section */
+.kaziranga-hero {
+    position: relative;
+    padding: 8rem 1.5rem 5rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(10, 31, 26, 0.82) 0%, rgba(10, 31, 26, 0.96) 100%),
+                url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/1280px-Elephant_safari_in_Kaziranga.jpg") center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero-badges-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.pill-unesco {
+    background: rgba(212, 168, 67, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(212, 168, 67, 0.4);
+}
+
+.pill-rhino {
+    background: rgba(22, 101, 52, 0.2);
+    color: #4ade80;
+    border: 1px solid rgba(22, 101, 52, 0.4);
+}
+
+.pill-wetland {
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(2, 132, 199, 0.4);
+}
+
+.kaziranga-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.kaziranga-hero h1 span {
+    color: var(--rhino-gold);
+    background: linear-gradient(135deg, #d4a843 0%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    max-width: 780px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+}
+
+/* Quick Stats Bar */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold-bright);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--kaziranga-text-muted-dark);
+}
+
+/* Section Header Component */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(212, 168, 67, 0.15);
+    color: #fbbf24;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.6rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    margin-bottom: 0.8rem;
+}
+
+.section-subtitle {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--kaziranga-text-muted-dark);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Sections Base */
+.rhino-section,
+.wetland-section,
+.wildlife-section,
+.birds-section,
+.conservation-section,
+.safari-section,
+.gallery-section,
+.map-section,
+.history-section {
+    padding: 5rem 0;
+}
+
+.rhino-section {
+    background: rgba(22, 101, 52, 0.03);
+}
+
+.wetland-section {
+    background: rgba(2, 132, 199, 0.02);
+}
+
+.wildlife-section {
+    background: rgba(212, 168, 67, 0.02);
+}
+
+.birds-section {
+    background: rgba(22, 101, 52, 0.03);
+}
+
+.conservation-section {
+    background: rgba(212, 168, 67, 0.02);
+}
+
+.safari-section {
+    background: rgba(10, 31, 26, 0.5);
+}
+
+.map-section {
+    background: rgba(2, 132, 199, 0.02);
+}
+
+/* Rhino Spotlight Card */
+.rhino-spotlight {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.rhino-spotlight h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--gold-bright);
+    margin-bottom: 1rem;
+}
+
+.rhino-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+}
+
+.rhino-stat-item {
+    background: rgba(212, 168, 67, 0.08);
+    padding: 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(212, 168, 67, 0.12);
+}
+
+.rhino-stat-item .stat-emoji {
+    font-size: 1.4rem;
+    display: block;
+}
+
+.rhino-stat-item .stat-val {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.rhino-stat-item .stat-lbl {
+    font-size: 0.75rem;
+    color: var(--kaziranga-text-muted-dark);
+}
+
+/* Wildlife Grid */
+.wildlife-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Bird Grid */
+.birds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Safari Cards */
+.safari-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 2rem;
+}
+
+.safari-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.safari-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+}
+
+.safari-detail-label {
+    color: var(--kaziranga-text-muted-dark);
+}
+
+.safari-detail-value {
+    font-weight: 600;
+    color: var(--gold-bright);
+}
+
+.safari-highlights {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.safari-highlights li {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    color: var(--kaziranga-text-muted-dark);
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+/* Conservation Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(212, 168, 67, 0.3);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -1.6rem;
+    top: 0.8rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--monsoon-green);
+    border: 3px solid var(--rhino-gold);
+    z-index: 1;
+}
+
+.timeline-card {
+    padding: 1.2rem 1.5rem;
+}
+
+/* Interactive Map */
+.map-card-wrapper {
+    padding: 1.5rem;
+}
+
+.map-svg-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.park-map-svg {
+    width: 100%;
+    display: block;
+}
+
+.map-hotspot-pin {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--rhino-gold);
+    background: rgba(10, 31, 26, 0.85);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+}
+
+.map-hotspot-pin:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    box-shadow: 0 0 20px rgba(212, 168, 67, 0.6);
+    z-index: 10;
+}
+
+.map-info-popup {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 31, 26, 0.95);
+    border: 1px solid var(--rhino-gold);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    max-width: 340px;
+    text-align: center;
+    z-index: 20;
+    backdrop-filter: blur(8px);
+}
+
+.map-info-popup h4 {
+    color: var(--gold-bright);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.map-info-popup p {
+    color: var(--kaziranga-text-muted-dark);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    height: 240px;
+    background: #0f172a;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    pointer-events: none;
+}
+
+.gallery-overlay h4 {
+    color: #fff;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+}
+
+.gallery-overlay p {
+    color: #cbd5e1;
+    font-size: 0.82rem;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 900px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -2.5rem;
+    right: -0.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    margin-top: 1rem;
+    color: #cbd5e1;
+    text-align: center;
+    font-size: 0.95rem;
+    max-width: 600px;
+}
+
+/* Hidden Utility */
+.hidden {
+    display: none !important;
+}
+
+/* Footer */
+.footer {
+    padding: 3rem 1.5rem 1.5rem;
+    background: rgba(10, 31, 26, 0.8);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.footer-brand h3 {
+    font-family: var(--font-heading);
+    color: var(--rhino-gold);
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    color: var(--kaziranga-text-muted-dark);
+    font-size: 0.9rem;
+}
+
+.footer-links h3 {
+    color: var(--rhino-gold);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.3rem;
+}
+
+.footer-links a {
+    color: var(--kaziranga-text-muted-dark);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--gold-bright);
+}
+
+.footer-credits-center {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--kaziranga-border-dark);
+    color: var(--kaziranga-text-muted-dark);
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rhino-spotlight {
+        grid-template-columns: 1fr;
+    }
+
+    .safari-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}

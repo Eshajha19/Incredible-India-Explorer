@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="State Chief Ministers Explorer — Discover current Chief Ministers, political parties, capitals, and state facts across all Indian states and Union Territories."
+        />
+        <title>State Chief Ministers Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body class="cm-explorer-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../state/state.html" class="nav-link">States</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Chief Ministers</a>
+                    <a href="../parliament-learning/index.html" class="nav-link">Governance</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="cm-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-govt">🏛️ Democratic Governance</span>
+                        <span class="hero-pill pill-states">🇮🇳 28 States & 3 UTs</span>
+                        <span class="hero-pill pill-leaders">👨‍💼 Executive Leaders</span>
+                    </div>
+                    <h1>State Chief Ministers <span>Explorer</span></h1>
+                    <p class="hero-subtitle">
+                        An interactive educational hub to discover Chief Ministers across India — their political affiliations, 
+                        state capitals, key socio-economic facts, and administrative governance.
+                    </p>
+
+                    <!-- Stats Overview Bar -->
+                    <div id="stats-overview" class="stats-overview-grid">
+                        <!-- Injected by script.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search & Filter Controls -->
+            <section class="controls-section">
+                <div class="section-container">
+                    <div class="search-filter-wrapper glass-card">
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input
+                                type="text"
+                                id="cm-search-input"
+                                placeholder="Search by Chief Minister, State, Party, or Capital..."
+                                aria-label="Search Chief Ministers"
+                            />
+                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">&times;</button>
+                        </div>
+
+                        <div class="filter-groups">
+                            <div class="filter-group">
+                                <label for="region-filter">Region:</label>
+                                <select id="region-filter" class="custom-select">
+                                    <option value="all">All Regions</option>
+                                    <option value="North">North India</option>
+                                    <option value="South">South India</option>
+                                    <option value="East">East India</option>
+                                    <option value="West">West India</option>
+                                    <option value="Central">Central India</option>
+                                    <option value="Northeast">Northeast India</option>
+                                    <option value="UT">Union Territories</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label for="party-filter">Party:</label>
+                                <select id="party-filter" class="custom-select">
+                                    <option value="all">All Parties</option>
+                                    <option value="BJP">BJP</option>
+                                    <option value="INC">INC (Congress)</option>
+                                    <option value="AAP">AAP</option>
+                                    <option value="Regional">Regional Parties</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Map / State Selector -->
+            <section class="map-interactive-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Interactive Selection</span>
+                        <h2>Select a State or Union Territory</h2>
+                        <p class="section-subtitle">
+                            Click on any state card or map node to instantly view the Chief Minister's detailed profile and state facts.
+                        </p>
+                    </div>
+
+                    <!-- CM Cards Grid -->
+                    <div id="cm-grid" class="cm-grid">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Profile Modal -->
+            <div id="cm-modal" class="cm-modal hidden" role="dialog" aria-modal="true" aria-label="Chief Minister Profile">
+                <div class="cm-modal-content glass-card">
+                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Profile">&times;</button>
+                    <div id="modal-body">
+                        <!-- Populated by script.js -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Site Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>An interactive digital guide to the governance, culture, geography, and heritage of India.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../state/state.html">State Explorer</a></li>
+                        <li><a href="../parliament-learning/index.html">Parliament & Laws</a></li>
+                        <li><a href="../constitution-explorer/index.html">Constitution Explorer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. State Chief Ministers Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="script.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

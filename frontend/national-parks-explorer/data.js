@@ -6,6 +6,27 @@
 
 const NATIONAL_PARKS = [
     {
+        id: 'rajaji',
+        name: 'Rajaji National Park',
+        state: 'Uttarakhand',
+        stateId: 'uk',
+        established: 1983,
+        area: 820,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: 'Spread across the Shivalik Hills, Rajaji is famous for its large population of Asian elephants and diverse Shivalik ecosystem. It was formed by merging three sanctuaries.',
+        keyFauna: ['Asian Elephant', 'Bengal Tiger', 'Leopard', 'Himalayan Black Bear', 'Sambar'],
+        keyFlora: ['Sal Forest', 'Shisham', 'Khair', 'Tall Grasslands'],
+        coordinates: { lat: 30.05, lng: 78.15 },
+        climate: 'Subtropical',
+        bestTime: 'November to June',
+        entryFee: '₹150 (Indian), ₹600 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Elephants_in_Rajaji_National_Park.jpg/960px-Elephants_in_Rajaji_National_Park.jpg',
+        explorerUrl: '../rajaji-national-park-explorer/index.html'
+    },
+    {
         id: 'jim-corbett',
         name: 'Jim Corbett National Park',
         state: 'Uttarakhand',
@@ -45,7 +66,8 @@ const NATIONAL_PARKS = [
         climate: 'Subtropical Monsoon',
         bestTime: 'November to April',
         entryFee: '₹650 (Indian), ₹2500 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Elephant_safari_in_Kaziranga.jpg/960px-Elephant_safari_in_Kaziranga.jpg',
+        explorerUrl: '../kaziranga-national-park-explorer/index.html'
     },
     {
         id: 'ranthambore',
@@ -90,6 +112,27 @@ const NATIONAL_PARKS = [
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jungle_safari_-_Kanha_National_Park.jpg/960px-Jungle_safari_-_Kanha_National_Park.jpg'
     },
     {
+        id: 'kuno',
+        name: 'Kuno National Park',
+        state: 'Madhya Pradesh',
+        stateId: 'mp',
+        established: 2018,
+        area: 748,
+        areaUnit: 'km²',
+        type: 'National Park',
+        isTigerReserve: false,
+        isUNESCO: false,
+        description: 'Globally recognized for the historic African Cheetah reintroduction project (Project Cheetah). Features dry deciduous forests, grasslands, and a growing prey base.',
+        keyFauna: ['African Cheetah', 'Bengal Tiger', 'Leopard', 'Sloth Bear', 'Chital'],
+        keyFlora: ['Khair', 'Salar', 'Teak', 'Grasslands'],
+        coordinates: { lat: 25.85, lng: 77.35 },
+        climate: 'Tropical Dry Deciduous',
+        bestTime: 'October to March',
+        entryFee: '₹50 (Indian), ₹200 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Acinonyx_jubatus_2.jpg/960px-Acinonyx_jubatus_2.jpg',
+        explorerUrl: '../kuno-national-park-explorer/index.html'
+    },
+    {
         id: 'bandhavgarh',
         name: 'Bandhavgarh National Park',
         state: 'Madhya Pradesh',
@@ -129,6 +172,7 @@ const NATIONAL_PARKS = [
         climate: 'Tropical Monsoon',
         bestTime: 'September to March',
         entryFee: '₹45 (Indian), ₹500 (Foreign)',
+        explorerUrl: '../periyar-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Periyar_National_Park_02.jpg/960px-Periyar_National_Park_02.jpg'
     },
     {
@@ -151,6 +195,27 @@ const NATIONAL_PARKS = [
         bestTime: 'September to March',
         entryFee: '₹200 (Indian), ₹1000 (Foreign)',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Sundarbans_National_Park.jpg/960px-Sundarbans_National_Park.jpg'
+    },
+    {
+        id: 'valmiki',
+        name: 'Valmiki National Park',
+        state: 'Bihar',
+        stateId: 'br',
+        established: 1990,
+        area: 898,
+        areaUnit: 'km²',
+        type: 'Tiger Reserve',
+        isTigerReserve: true,
+        isUNESCO: false,
+        description: "Bihar's only National Park and a critical Tiger Reserve. Located in the Terai region at the Himalayan foothills, it features rich Sal forests, tall grasslands, and the Gandak River.",
+        keyFauna: ['Bengal Tiger', 'Asian Elephant', 'Sloth Bear', 'Hispid Hare', 'Pygmy Hog', 'Gangetic Dolphin'],
+        keyFlora: ['Sal Forest', 'Tall Grasslands', 'Riverine Vegetation', 'Shisham'],
+        coordinates: { lat: 27.35, lng: 83.95 },
+        climate: 'Subtropical Monsoon',
+        bestTime: 'November to April',
+        entryFee: '₹100 (Indian), ₹500 (Foreign)',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Royal_Bengal_Tiger_at_Nandankanan.jpg/960px-Royal_Bengal_Tiger_at_Nandankanan.jpg',
+        explorerUrl: '../valmiki-national-park-explorer/index.html'
     },
     {
         id: 'gir',
@@ -214,6 +279,7 @@ const NATIONAL_PARKS = [
         climate: 'Cold Desert',
         bestTime: 'June to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
+        explorerUrl: '../hemis-national-park-explorer/index.html',
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Hemis_national_park.jpg/960px-Hemis_national_park.jpg'
     },
     {
@@ -335,7 +401,7 @@ const NATIONAL_PARKS = [
         isTigerReserve: true,
         isUNESCO: true,
         description:
-            "UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
+            "A UNESCO Biosphere Reserve in Odisha, famous for Barehipani waterfall (399m), world's only melanistic black tigers, and Mayurbhanj elephants.",
         keyFauna: ['Melanistic Black Tiger', 'Asian Elephant', 'Sambar Deer', 'Mugger Crocodile', 'Hill Myna'],
         keyFlora: ['Sal Forest', 'Red Silk Cotton (Simul)', 'Epiphytic Orchids', 'Jamun'],
         coordinates: { lat: 21.93, lng: 86.35 },
@@ -470,7 +536,8 @@ const NATIONAL_PARKS = [
         climate: 'Temperate',
         bestTime: 'April to September',
         entryFee: '₹30 (Indian), ₹300 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg/960px-A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg/960px-A_view_of_Lower_Dachigam_where_most_of_the_hangul_get_confined_in_winter%2C_AJT_Johnsingh.jpg',
+        explorerUrl: '../dachigam-national-park-explorer/index.html'
     },
     {
         id: 'desert',
@@ -554,7 +621,8 @@ const NATIONAL_PARKS = [
         climate: 'Tropical Savanna',
         bestTime: 'October to May',
         entryFee: '₹80 (Indian), ₹400 (Foreign)',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/960px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG'
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/960px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG',
+        explorerUrl: '../bannerghatta-national-park-explorer/index.html'
     },
     {
         id: 'madhav',
@@ -765,6 +833,7 @@ const STATES = [
     { id: 'kl', name: 'Kerala', region: 'south' },
     { id: 'tn', name: 'Tamil Nadu', region: 'south' },
     { id: 'as', name: 'Assam', region: 'northeast' },
+    { id: 'br', name: 'Bihar', region: 'east' },
     { id: 'wb', name: 'West Bengal', region: 'east' },
     { id: 'or', name: 'Odisha', region: 'east' },
     { id: 'ar', name: 'Arunachal Pradesh', region: 'northeast' }

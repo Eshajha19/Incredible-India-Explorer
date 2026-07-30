@@ -1,0 +1,110 @@
+{
+  "id": "karnataka",
+  "state": "Karnataka",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Mysore_Palace.png",
+  "destinationCount": 5,
+  "destinations": [
+    {
+      "id": "coorg",
+      "name": "Coorg",
+      "lat": 12.3375,
+      "lng": 75.8069,
+      "categories": [
+        "mountains",
+        "adventure"
+      ],
+      "highlights": [
+        "Abbey Falls",
+        "Coffee plantations",
+        "Dubare Elephant Camp"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 7,
+      "bestSeason": "Oct-Mar",
+      "description": "Misty coffee country known as the Scotland of India."
+    },
+    {
+      "id": "gokarna",
+      "name": "Gokarna",
+      "lat": 14.5479,
+      "lng": 74.3188,
+      "categories": [
+        "beaches",
+        "spiritual"
+      ],
+      "highlights": [
+        "Om Beach",
+        "Kudle Beach",
+        "Mahabaleshwar Temple"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 6,
+      "bestSeason": "Oct-Mar",
+      "description": "Laid-back temple town with quiet cliffside beaches."
+    },
+    {
+      "id": "hampi",
+      "name": "Hampi",
+      "lat": 15.335,
+      "lng": 76.46,
+      "categories": [
+        "historical",
+        "heritage",
+        "adventure"
+      ],
+      "highlights": [
+        "Virupaksha Temple",
+        "Vittala Temple stone chariot",
+        "Boulder landscape"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 8,
+      "bestSeason": "Oct-Feb",
+      "description": "Ruins of the Vijayanagara Empire amid a surreal boulder landscape."
+    },
+    {
+      "id": "mysore",
+      "name": "Mysore",
+      "lat": 12.2958,
+      "lng": 76.6394,
+      "categories": [
+        "historical",
+        "heritage"
+      ],
+      "highlights": [
+        "Mysore Palace",
+        "Chamundi Hills",
+        "Brindavan Gardens"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Oct-Mar",
+      "description": "Regal city of palaces and silk sarees."
+    },
+    {
+      "id": "bengaluru",
+      "name": "Bengaluru",
+      "lat": 12.9716,
+      "lng": 77.5946,
+      "categories": [
+        "city"
+      ],
+      "highlights": [
+        "Lalbagh Gardens",
+        "Cubbon Park",
+        "Craft breweries"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Oct-Feb",
+      "description": "India's Garden City and tech hub."
+    }
+  ]
+}

@@ -1,0 +1,495 @@
+/* ================================================================
+   Waterfalls Explorer Styles
+   ================================================================ */
+
+.waterfalls-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+body.light-theme .waterfalls-page {
+    background-color: var(--bg-light);
+}
+
+/* ================================================================
+   Hero Section
+   ================================================================ */
+
+.waterfalls-hero {
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #064e3b 100%);
+    z-index: 0;
+}
+
+body.light-theme .hero-bg {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #d1fae5 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 1;
+}
+
+body.light-theme .hero-overlay {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+body.light-theme .hero-badge {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.hero-container h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--text-light);
+}
+
+body.light-theme .hero-container h1 {
+    color: var(--text-dark);
+}
+
+.hero-container h1 span {
+    color: #34d399;
+}
+
+body.light-theme .hero-container h1 span {
+    color: #059669;
+}
+
+.hero-container p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+body.light-theme .hero-container p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Filters & Layout
+   ================================================================ */
+
+.explorer-section {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.filters-container {
+    padding: 1rem;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+body.light-theme .filters-container {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.light-theme .filter-btn {
+    background: #ffffff;
+    color: var(--text-secondary);
+    border: 1px solid #e2e8f0;
+}
+
+.filter-btn:hover {
+    color: var(--text-light);
+    border-color: rgba(52, 211, 153, 0.4);
+}
+
+body.light-theme .filter-btn:hover {
+    color: var(--text-dark);
+    border-color: #6ee7b7;
+}
+
+.filter-btn.active {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34d399;
+    border-color: #34d399;
+}
+
+body.light-theme .filter-btn.active {
+    background: #d1fae5;
+    color: #059669;
+    border-color: #34d399;
+}
+
+/* ================================================================
+   Masonry Grid
+   ================================================================ */
+
+.masonry-grid {
+    column-count: 3;
+    column-gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}
+
+.waterfall-card {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+body.light-theme .waterfall-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.waterfall-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.waterfall-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    border-color: rgba(52, 211, 153, 0.3);
+}
+
+body.light-theme .waterfall-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: #6ee7b7;
+}
+
+.card-image {
+    width: 100%;
+    position: relative;
+    background: #1e293b;
+    overflow: hidden;
+}
+
+body.light-theme .card-image {
+    background: #e2e8f0;
+}
+
+.card-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.waterfall-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.25rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.card-header h3 {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+body.light-theme .card-header h3 {
+    color: var(--text-dark);
+}
+
+.card-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+body.light-theme .card-badge {
+    background: #f1f5f9;
+    color: var(--text-secondary);
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+body.light-theme .card-meta {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Modal
+   ================================================================ */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal:not([hidden]) {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+body.light-theme .modal-backdrop {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border-radius: 1rem;
+    z-index: 1;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+body.light-theme .modal-content {
+    background: #ffffff;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.modal:not([hidden]) .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-hero {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.modal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.modal-hero h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-info {
+    padding: 2rem;
+}
+
+.modal-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light-theme .modal-stats {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.stat-item h4 {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+body.light-theme .stat-item h4 {
+    color: var(--text-secondary);
+}
+
+.stat-item p {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+body.light-theme .stat-item p {
+    color: var(--text-dark);
+}
+
+.modal-details h4 {
+    color: #34d399;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+body.light-theme .modal-details h4 {
+    color: #059669;
+}
+
+.modal-details p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+body.light-theme .modal-details p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Custom Scrollbar for Modal
+   ================================================================ */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+body.light-theme .modal-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+}

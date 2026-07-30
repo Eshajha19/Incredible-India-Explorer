@@ -1,0 +1,31 @@
+{
+  "id": "delhi",
+  "state": "Delhi",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/red_fort.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "delhi",
+      "name": "Delhi",
+      "lat": 28.6139,
+      "lng": 77.209,
+      "categories": [
+        "historical",
+        "heritage",
+        "city"
+      ],
+      "highlights": [
+        "Red Fort",
+        "Qutub Minar",
+        "India Gate"
+      ],
+      "minDays": 2,
+      "maxDays": 4,
+      "popularity": 10,
+      "bestSeason": "Oct-Mar",
+      "description": "Capital city layered with Mughal, colonial, and modern India."
+    }
+  ]
+}

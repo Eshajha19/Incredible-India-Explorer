@@ -1,3 +1,4 @@
+(function () {
 // ---------- Records Data (category, headline, detail clue, fact) ----------
 const allRecords = [
   { record: "Statue of Unity", category: "Tallest Statue", detail: "This 182-metre statue of a freedom fighter, located in Gujarat, is the tallest statue in the world.", fact: "The Statue of Unity depicts Sardar Vallabhbhai Patel and stands nearly twice as tall as the Statue of Liberty.", difficulty: "easy" },
@@ -318,3 +319,4 @@ saveScoreBtn.addEventListener("click", () => {
 // ---------- Init ----------
 renderLeaderboard(leaderboardPreviewList);
 loadBestScore();
+})();

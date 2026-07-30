@@ -1,0 +1,277 @@
+/* 
+   India's Coastlines Explorer Styles
+   Imports global variables from ../../css/global.css implicitly via class structure
+*/
+
+/* --- Base & Header --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background-color: var(--bg-light, #f5f5f5);
+    color: var(--text-main, #333);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scroll from slide animations */
+}
+
+body.dark-theme {
+    background-color: var(--bg-dark, #121212);
+    color: var(--text-light, #f0f0f0);
+}
+
+.coastal-header {
+    text-align: center;
+    padding: 4rem 1rem 3rem;
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 105, 148, 0.1) 0%, rgba(0, 123, 255, 0.05) 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+body.dark-theme .coastal-header {
+    background: linear-gradient(135deg, rgba(0, 105, 148, 0.3) 0%, rgba(0, 50, 100, 0.1) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.back-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.header-content h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    color: #006994;
+}
+
+body.dark-theme .header-content h1 {
+    color: #4db8ff;
+}
+
+.header-content p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.theme-toggle {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #006994;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: #004d70;
+    transform: translateY(-2px);
+}
+
+body.dark-theme .theme-toggle {
+    background-color: #4db8ff;
+    color: #121212;
+}
+
+body.dark-theme .theme-toggle:hover {
+    background-color: #2ea5f5;
+}
+
+/* --- Layout Sections --- */
+.coastal-section {
+    padding: 5rem 1.5rem;
+}
+
+.coastal-section.bg-alt {
+    background-color: #e9ecef;
+}
+
+body.dark-theme .coastal-section.bg-alt {
+    background-color: #1a1a1a;
+}
+
+.section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .section-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .section-container.reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.text-block {
+    flex: 1;
+}
+
+.text-block h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #006994;
+}
+
+body.dark-theme .text-block h2 {
+    color: #4db8ff;
+}
+
+.text-block p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.image-block {
+    flex: 1;
+    width: 100%;
+}
+
+.image-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: block;
+}
+
+body.dark-theme .image-block img {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.section-header {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.text-center {
+    flex-direction: column;
+    text-align: center;
+}
+.max-w-800 {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- Grid Gallery for Beaches --- */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .grid-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.gallery-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.dark-theme .gallery-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,105,148,0.2);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info {
+    padding: 1.5rem;
+}
+
+.card-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+body.dark-theme .card-info p {
+    color: #aaa;
+}
+
+
+/* --- ANIMATION CLASSES (IntersectionObserver Targets) --- */
+
+.reveal {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+/* Fade Up */
+.reveal.fade-up {
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Slide Right (From left to right) */
+.reveal.slide-right {
+    transform: translateX(-50px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Slide Left (From right to left) */
+.reveal.slide-left {
+    transform: translateX(50px);
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Active State applied via JS */
+.reveal.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* --- Footer --- */
+.coastal-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #003a52;
+    color: #fff;
+}
+body.dark-theme .coastal-footer {
+    background-color: #001a24;
+}

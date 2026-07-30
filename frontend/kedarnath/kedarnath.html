@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Kedarnath Peak, a sacred 6,940 m mountain in the Garhwal Himalayas of Uttarakhand. Discover facts, map locations, image gallery, trekking info, and more.">
+    <title>Kedarnath Peak Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="kedarnath.css">
+
+    <meta property="og:title" content="Kedarnath Peak Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Kedarnath Peak, a sacred 6,940 m mountain in the Garhwal Himalayas of Uttarakhand.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Mt._Kedarnath.jpg/960px-Mt._Kedarnath.jpg">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/kedarnath/kedarnath.html">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="kedarnath-body-wrapper">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="kedarnath.html" class="nav-link active" style="color: var(--saffron)">Kedarnath</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="kedarnath-page" id="app-root">
+        <!-- Hero Section -->
+        <section class="kedarnath-hero" id="hero">
+            <div class="kedarnath-hero-overlay"></div>
+            <a href="../../index.html#home" class="kedarnath-hero-back anim-fade-down" aria-label="Back to Home">
+                <span class="back-arrow">←</span> Back to Home
+            </a>
+            <div class="kedarnath-hero-content">
+                <span class="kedarnath-hero-kicker anim-fade-up" style="animation-delay:0.1s">🏔️ Garhwal Himalayas</span>
+                <h1 class="anim-fade-up" style="animation-delay:0.2s">Kedarnath <span>Explorer</span></h1>
+                <p class="anim-fade-up" style="animation-delay:0.35s">Rising majestically to 6,940 metres in the Garhwal Himalayas of Uttarakhand, Kedarnath Peak is one of the most sacred mountains in India. Located near the legendary Kedarnath Temple — one of the twelve Jyotirlingas — this peak holds profound religious significance and offers breathtaking Himalayan vistas.</p>
+
+                <div class="kedarnath-hero-stats anim-fade-up" style="animation-delay:0.5s">
+                    <div class="kedarnath-stat-box">
+                        <strong>6,940 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="kedarnath-stat-box">
+                        <strong>Uttarakhand</strong>
+                        <span>Indian State</span>
+                    </div>
+                    <div class="kedarnath-stat-box">
+                        <strong>Garhwal Himalayas</strong>
+                        <span>Mountain Range</span>
+                    </div>
+                    <div class="kedarnath-stat-box">
+                        <strong>Sacred Peak</strong>
+                        <span>Religious Significance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="kedarnath-section" id="kedarnath-overview">
+            <div class="kedarnath-container">
+                <div class="kedarnath-section-heading reveal">
+                    <span class="kedarnath-section-badge">Peak Profile</span>
+                    <h2>Geography, Glaciers &amp; Spirituality</h2>
+                </div>
+
+                <div class="kedarnath-overview-grid">
+                    <div class="kedarnath-overview-text reveal reveal-left">
+                        <h3>The Sacred Abode of Shiva</h3>
+                        <p>Kedarnath Peak, standing at 6,940 metres, is a prominent mountain in the Garhwal Himalayas of Uttarakhand. It is part of the same massif that houses the famous Kedarnath Temple, one of the twelve Jyotirlingas and a key destination in the Char Dham Yatra. The peak looms dramatically over the temple complex, creating one of the most awe-inspiring sacred landscapes in India.</p>
+                        <p>The mountain is fed by the Chorabari Glacier, which gives rise to the Mandakini River — a tributary of the Ganges. The entire region is steeped in mythology, with legends dating back to the Mahabharata. According to tradition, the Pandavas sought the blessings of Lord Shiva at this very site after the great war, and Shiva appeared as a bull, with parts of his body emerging at different locations across the Panch Kedar.</p>
+                        <p>The peak was first climbed in the early 20th century by European expeditions, and today it attracts both pilgrims and mountaineers. While the temple area is accessible via a popular trek, the high summit requires technical mountaineering skills and proper acclimatisation.</p>
+                    </div>
+                    <div class="kedarnath-overview-spec-card reveal reveal-right">
+                        <h3>Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Elevation:</strong> 6,940 m (22,769 ft)</li>
+                            <li><strong>Prominence:</strong> 1,200 m (3,937 ft)</li>
+                            <li><strong>Coordinates:</strong> 30°47′42″N 79°04′10″E</li>
+                            <li><strong>Climbing Difficulty:</strong> Grade V (Hard)</li>
+                            <li><strong>First Ascent:</strong> 1932</li>
+                            <li><strong>Team:</strong> Swiss Expedition led by G. O. Dyhrenfurth</li>
+                            <li><strong>Glacier:</strong> Chorabari Glacier</li>
+                            <li><strong>River Source:</strong> Mandakini River</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trekking Information Section -->
+        <section class="kedarnath-section" id="kedarnath-trekking">
+            <div class="kedarnath-container">
+                <div class="kedarnath-section-heading reveal">
+                    <span class="kedarnath-section-badge">Adventure</span>
+                    <h2>Trekking Information</h2>
+                    <p>Explore the trails and routes that lead to the base of this majestic peak.</p>
+                </div>
+
+                <div class="kedarnath-trekking-grid">
+                    <div class="kedarnath-trek-card reveal" style="transition-delay:0s">
+                        <div class="kedarnath-trek-icon">🗺️</div>
+                        <h3>Kedarnath Temple Trek</h3>
+                        <p>The most famous pilgrimage trek in Uttarakhand, leading to the Kedarnath Temple at 3,583 m. Passes through scenic meadows, river crossings, and dramatic mountain landscapes.</p>
+                        <div class="kedarnath-trek-details">
+                            <span class="trek-detail">📏 16 km One Way</span>
+                            <span class="trek-detail">⬆️ 3,583 m</span>
+                            <span class="trek-detail">⚡ Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="kedarnath-trek-card reveal" style="transition-delay:0.1s">
+                        <div class="kedarnath-trek-icon">🌲</div>
+                        <h3>Vasuki Tal Trek</h3>
+                        <p>A stunning high-altitude lake trek starting from Kedarnath. Vasuki Tal at 4,135 m offers mesmerising views of Kedarnath Peak, Chaukhamba, and the surrounding glaciers.</p>
+                        <div class="kedarnath-trek-details">
+                            <span class="trek-detail">📏 8 km Round Trip</span>
+                            <span class="trek-detail">⬆️ 4,135 m</span>
+                            <span class="trek-detail">⚡ Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="kedarnath-trek-card reveal" style="transition-delay:0.2s">
+                        <div class="kedarnath-trek-icon">🦅</div>
+                        <h3>Panch Kedar Trek</h3>
+                        <p>A spiritual circuit covering the five sacred Shiva temples — Kedarnath, Tungnath, Rudranath, Madhyamaheshwar, and Kalpeshwar. Offers a unique blend of faith and adventure.</p>
+                        <div class="kedarnath-trek-details">
+                            <span class="trek-detail">📏 10-12 Days</span>
+                            <span class="trek-detail">⬆️ 3,690 m</span>
+                            <span class="trek-detail">⚡ Challenging</span>
+                        </div>
+                    </div>
+
+                    <div class="kedarnath-trek-card reveal" style="transition-delay:0.3s">
+                        <div class="kedarnath-trek-icon">🌸</div>
+                        <h3>Best Season &amp; Permits</h3>
+                        <p>Best seasons: May-June (pre-monsoon) and September-October (post-monsoon). The temple opens from late April to November. Permits not required for the temple trek, but a guide is recommended for summit climbs.</p>
+                        <div class="kedarnath-trek-details">
+                            <span class="trek-detail">🗓️ May-Jun &amp; Sep-Oct</span>
+                            <span class="trek-detail">📋 No Permit Needed</span>
+                            <span class="trek-detail">👥 Guide Recommended</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Facts Section -->
+        <section class="kedarnath-section" id="kedarnath-facts-section">
+            <div class="kedarnath-container">
+                <div class="kedarnath-section-heading reveal">
+                    <span class="kedarnath-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="kedarnath-fact-panel reveal">
+                    <div class="kedarnath-fact-icon">💡</div>
+                    <div class="kedarnath-fact-nav">
+                        <button class="kedarnath-fact-nav-btn" id="kedarnath-fact-prev" aria-label="Previous fact">‹</button>
+                        <span class="kedarnath-fact-counter" id="kedarnath-fact-counter">1 / 7</span>
+                        <button class="kedarnath-fact-nav-btn" id="kedarnath-fact-next" aria-label="Next fact">›</button>
+                    </div>
+                    <p id="kedarnath-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="kedarnath-fact-dots" id="kedarnath-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map Section -->
+        <section class="kedarnath-section" id="kedarnath-map-section">
+            <div class="kedarnath-container">
+                <div class="kedarnath-section-heading reveal">
+                    <span class="kedarnath-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Kedarnath</h2>
+                    <p>Click on any marker to learn about that geographic landmark.</p>
+                </div>
+                <div class="kedarnath-map-wrap reveal">
+                    <div id="kedarnath-map" aria-label="Interactive Leaflet Map showing Kedarnath Peak and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="kedarnath-section" id="kedarnath-gallery-section">
+            <div class="kedarnath-container">
+                <div class="kedarnath-section-heading reveal">
+                    <span class="kedarnath-section-badge">Image Gallery</span>
+                    <h2>Views of Kedarnath &amp; Uttarakhand</h2>
+                    <p>Explore the majestic beauty of the mountain and its surroundings. Click an image to view it larger.</p>
+                </div>
+                <div id="kedarnath-gallery-grid" class="kedarnath-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Nearby Attractions Section -->
+        <section class="kedarnath-section" id="kedarnath-attractions-section">
+            <div class="kedarnath-container">
+                <div class="kedarnath-section-heading reveal">
+                    <span class="kedarnath-section-badge">Explore</span>
+                    <h2>Nearby Attractions</h2>
+                    <p>Discover remarkable destinations in the vicinity of Kedarnath.</p>
+                </div>
+                <div class="kedarnath-attractions-grid">
+                    <div class="kedarnath-attraction-card reveal" style="transition-delay:0s">
+                        <div class="attraction-icon">🏛️</div>
+                        <h3>Kedarnath Temple</h3>
+                        <p>One of the twelve Jyotirlingas and most sacred Shiva temples in India. Located at 3,583 m, this ancient stone temple has survived centuries of harsh Himalayan weather.</p>
+                    </div>
+                    <div class="kedarnath-attraction-card reveal" style="transition-delay:0.1s">
+                        <div class="attraction-icon">🌿</div>
+                        <h3>Vasuki Tal</h3>
+                        <p>A serene high-altitude lake at 4,135 m, named after the serpent king Vasuki. Surrounded by towering peaks and glaciers, it is a popular trekking destination.</p>
+                    </div>
+                    <div class="kedarnath-attraction-card reveal" style="transition-delay:0.2s">
+                        <div class="attraction-icon">🏔️</div>
+                        <h3>Chaukhamba Massif</h3>
+                        <p>A magnificent mountain massif with four peaks, visible from the Kedarnath region. The highest peak, Chaukhamba I, rises to 7,138 m.</p>
+                    </div>
+                    <div class="kedarnath-attraction-card reveal" style="transition-delay:0.3s">
+                        <div class="attraction-icon">🌸</div>
+                        <h3>Gandhi Sarovar</h3>
+                        <p>A glacial lake at 4,020 m near Kedarnath, also known as Chorabari Tal. It is the source of the Mandakini River and offers pristine natural beauty.</p>
+                    </div>
+                    <div class="kedarnath-attraction-card reveal" style="transition-delay:0.4s">
+                        <div class="attraction-icon">🏙️</div>
+                        <h3>Rudraprayag</h3>
+                        <p>The confluence town where the Alaknanda and Mandakini rivers meet. A key stop on the journey to Kedarnath, known for its scenic setting and temples.</p>
+                    </div>
+                    <div class="kedarnath-attraction-card reveal" style="transition-delay:0.5s">
+                        <div class="attraction-icon">⛰️</div>
+                        <h3>Madhyamaheshwar</h3>
+                        <p>One of the Panch Kedar temples, located at 3,490 m. The trek passes through lush meadows and offers spectacular views of the Garhwal peaks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Home Bottom -->
+        <section class="kedarnath-bottom-nav">
+            <a href="../../index.html#home" class="kedarnath-bottom-home-btn">
+                <span class="back-arrow">←</span> Back to Home
+            </a>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="kedarnath-lightbox-overlay" id="kedarnath-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="kedarnath-lightbox-content">
+            <button class="kedarnath-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="kedarnath-lightbox-nav prev" id="kedarnath-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="kedarnath-lightbox-image" src="" alt="">
+            <button class="kedarnath-lightbox-nav next" id="kedarnath-lightbox-next" aria-label="Next image">›</button>
+            <p class="kedarnath-lightbox-caption" id="kedarnath-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Mountain Explorers</h4>
+                <a href="kedarnath.html">Kedarnath Peak</a>
+                <a href="../kanchenjunga/kanchenjunga.html">Kanchenjunga</a>
+                <a href="../satopanth/satopanth.html">Satopanth</a>
+                <a href="../shivling/shivling.html">Shivling</a>
+                <a href="../bandarpoonch/bandarpoonch.html">Bandarpoonch</a>
+            </div>
+            <div class="footer-links">
+                <h4>Experiences</h4>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="../mountains/index.html">Mountains of India</a>
+                <a href="../highest-point-challenge/index.html">Highest Point Challenge</a>
+                <a href="../mountain-expedition/index.html">Mountain Expedition Game</a>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+                <a href="../heritage/heritage.html">Heritage Sites</a>
+                <a href="../coastal-india/coastal-india.html">Coastal India</a>
+                <a href="../crowd-density/index.html">Crowd Density</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Celebrating India's natural wonders.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script type="module" src="kedarnath.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

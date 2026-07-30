@@ -1,0 +1,30 @@
+{
+  "id": "goa",
+  "state": "Goa",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Basilica_of_Bom_Jesus.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "goa",
+      "name": "Goa",
+      "lat": 15.2993,
+      "lng": 74.124,
+      "categories": [
+        "beaches",
+        "heritage"
+      ],
+      "highlights": [
+        "Baga & Palolem beaches",
+        "Old Goa churches",
+        "Sunset cruise"
+      ],
+      "minDays": 3,
+      "maxDays": 5,
+      "popularity": 10,
+      "bestSeason": "Nov-Feb",
+      "description": "India's beach capital, blending Portuguese heritage and coastline."
+    }
+  ]
+}

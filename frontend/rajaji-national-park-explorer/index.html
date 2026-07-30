@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Rajaji National Park in Uttarakhand — a vital elephant corridor and tiger reserve nestled in the Shivalik Hills." />
+  <title>Rajaji National Park Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="rajaji.css" />
+  <meta property="og:title" content="Rajaji National Park Explorer | Incredible India" />
+  <meta property="og:description" content="Interactive guide to Rajaji National Park, Uttarakhand — home to Asian elephants, Bengal tigers, and the majestic Shivalik ecosystem." />
+  <meta property="og:type" content="website" />
+</head>
+<body class="rajaji-main">
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+        <a href="index.html" class="nav-link active" style="color: var(--saffron)">Rajaji Explorer</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="rajaji-hero">
+      <div class="section-container">
+        <h1>Rajaji <span>National Park</span> Explorer</h1>
+        <p class="hero-subtitle">
+          Immerse yourself in the Shivalik foothills of Uttarakhand. Rajaji is a vital elephant corridor,
+          a thriving tiger reserve, and a sanctuary of rich biodiversity where the Ganga river meets the forest.
+        </p>
+        <div id="stats-grid" class="stats-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Heritage</span>
+        <h2>History & Conservation</h2>
+        <p class="section-subtitle">From separate sanctuaries to a unified tiger reserve, tracing the journey of Rajaji.</p>
+      </div>
+      <div id="history-timeline" class="timeline-container"></div>
+    </section>
+
+    <section class="section-container" style="background: rgba(5, 150, 105, 0.05); border-radius: 24px;">
+      <div class="section-header">
+        <span class="section-badge">Megafauna</span>
+        <h2>Wildlife of Rajaji</h2>
+        <p class="section-subtitle">Home to the majestic Asian elephant, elusive Bengal tiger, and diverse Shivalik fauna.</p>
+      </div>
+      <div id="wildlife-grid" class="wildlife-grid"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Avian Life</span>
+        <h2>Bird Species</h2>
+        <p class="section-subtitle">Over 315 species of resident and migratory birds call the Rajaji forests home.</p>
+      </div>
+      <div id="birds-grid" class="birds-grid"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Hydrology</span>
+        <h2>Rivers & Waterways</h2>
+        <p class="section-subtitle">The lifeblood of the park, shaping the landscape and sustaining its wildlife.</p>
+      </div>
+      <div id="rivers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Experience</span>
+        <h2>Safari Options</h2>
+        <p class="section-subtitle">Explore the wilderness through guided jeep safaris in the Chilla and Motichur ranges.</p>
+      </div>
+      <div id="safari-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Geography</span>
+        <h2>Interactive Map</h2>
+        <p class="section-subtitle">Click on the map pins to explore key entry points and wildlife corridors.</p>
+      </div>
+      <div class="glass-card" style="padding: 1.5rem;">
+        <div class="map-svg-container">
+          <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+            <rect width="1000" height="600" fill="var(--rajaji-bg)" />
+            <path d="M100,150 Q400,50 800,150 L850,500 L150,500 Z" fill="rgba(5, 150, 105, 0.1)" stroke="var(--rajaji-accent)" stroke-width="2" />
+            <path d="M50,200 Q300,300 600,250 T950,350" fill="none" stroke="#3b82f6" stroke-width="30" opacity="0.4" />
+            <text x="400" y="280" fill="#60a5fa" font-size="16" font-family="Outfit">Ganga River Corridor</text>
+          </svg>
+          <div id="map-hotspots-layer"></div>
+          <div id="map-info-popup" class="map-info-popup hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Visuals</span>
+        <h2>Photo Gallery</h2>
+        <p class="section-subtitle">Glimpses of the elephants, rivers, and Shivalik landscapes of Rajaji.</p>
+      </div>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <div class="lightbox-content">
+      <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 4rem; border-top: 1px solid var(--rajaji-border); padding: 3rem 1.5rem; text-align: center; color: var(--rajaji-muted);">
+    <p>&copy; 2026 Incredible India Explorer. Rajaji National Park Explorer.</p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+  <script src="rajaji-data.js" defer></script>
+  <script src="rajaji.js" defer></script>
+  <script type="module" src="../../auth.js"></script>
+</body>
+</html>

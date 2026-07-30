@@ -1,0 +1,311 @@
+/* 
+   Climate & Six Seasons Explorer Styles
+   Imports global variables from ../../css/global.css implicitly via class structure
+*/
+
+/* --- Base & Header --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background-color: var(--bg-light, #fdfbf7);
+    color: var(--text-main, #333);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: var(--bg-dark, #121212);
+    color: var(--text-light, #f0f0f0);
+}
+
+.climate-header {
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(168, 230, 207, 0.15) 0%, transparent 100%);
+}
+
+body.dark-theme .climate-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, rgba(168, 230, 207, 0.05) 0%, transparent 100%);
+}
+
+.back-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.header-content h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.header-content p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+body.dark-theme .header-content p {
+    color: #ccc;
+}
+
+.theme-toggle {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: #555;
+}
+
+body.dark-theme .theme-toggle {
+    background-color: #f0f0f0;
+    color: #121212;
+}
+body.dark-theme .theme-toggle:hover {
+    background-color: #ccc;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+body.dark-theme .section-subtitle { color: #aaa; }
+
+/* --- Ritu Interactive Section --- */
+.ritu-section {
+    padding: 4rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.ritu-interactive-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .ritu-interactive-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+/* --- SVG Wheel --- */
+.svg-wheel-container {
+    flex: 1;
+    width: 100%;
+    max-width: 450px;
+}
+
+.ritu-wheel {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+body.dark-theme .ritu-wheel {
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+}
+
+.wheel-wedge {
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* slight bounce */
+    transform-origin: 0 0;
+    outline: none;
+}
+
+.wheel-wedge:hover, .wheel-wedge:focus {
+    transform: scale(1.05);
+}
+
+/* Specific active state logic handled in JS, we just scale it out */
+.wheel-wedge.active {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+.wedge-text {
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    fill: #222;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+/* Ensure text on darker wedges is readable */
+.wheel-wedge[data-season="varsha"] .wedge-text {
+    fill: #fff;
+}
+
+/* --- Content Panel --- */
+.season-content-panel {
+    flex: 1;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    min-height: 350px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-theme .season-content-panel {
+    background-color: #1e1e1e;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.empty-state {
+    text-align: center;
+    color: #888;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 250px;
+}
+.empty-state .emoji { font-size: 3rem; margin-bottom: 1rem; }
+
+.panel-header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.4s ease-out;
+}
+body.dark-theme .panel-header { border-bottom-color: #333; }
+
+.panel-header h3 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.panel-meta {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 500;
+}
+body.dark-theme .panel-meta { color: #aaa; }
+
+.panel-body {
+    animation: slideUp 0.4s ease-out;
+}
+
+.panel-body h4 {
+    margin: 1.5rem 0 0.5rem 0;
+    color: #444;
+}
+body.dark-theme .panel-body h4 { color: #ddd; }
+
+.panel-body p, .panel-body ul {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+    color: #555;
+}
+body.dark-theme .panel-body p, body.dark-theme .panel-body ul { color: #ccc; }
+.panel-body ul { padding-left: 1.2rem; }
+.panel-body li { margin-bottom: 0.3rem; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Monsoon Section --- */
+.monsoon-section {
+    background-color: rgba(0,0,0,0.03);
+    padding: 4rem 1rem;
+}
+body.dark-theme .monsoon-section {
+    background-color: rgba(255,255,255,0.03);
+}
+
+.monsoon-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.monsoon-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+    .monsoon-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.monsoon-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+body.dark-theme .monsoon-card {
+    background-color: #252525;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.monsoon-card h3 { margin-top: 0; }
+.monsoon-card p { line-height: 1.6; color: #555; margin-bottom: 0; }
+body.dark-theme .monsoon-card p { color: #ccc; }
+
+.climate-zones {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+body.dark-theme .climate-zones {
+    background-color: #252525;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.zones-list {
+    line-height: 1.8;
+    color: #555;
+}
+body.dark-theme .zones-list { color: #ccc; }
+
+/* --- Footer --- */
+.climate-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+body.dark-theme .climate-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Minicoy Island — home to a historic lighthouse, a thriving tuna fishing industry, the Mahl-speaking community, expansive lagoons, rich marine biodiversity and a distinct culture.">
+    <title>Minicoy Island Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="minicoy-island.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Minicoy Island Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Lighthouse, tuna fishing, Mahl language, lagoons, marine biodiversity and culture of Minicoy Island.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/minicoy-island/minicoy-island.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Minicoy Island Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Lighthouse, tuna fishing, Mahl language, lagoons, marine biodiversity and culture of Minicoy Island.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/minicoy-island/minicoy-island.html">
+</head>
+
+<body class="minicoy-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../islands/islands.html" class="nav-link">Islands</a>
+                <a href="minicoy-island.html" class="nav-link active" style="color: var(--saffron)">Minicoy Island</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="minicoy-page">
+        <!-- Hero -->
+        <section class="minicoy-hero">
+            <div class="minicoy-hero-content">
+                <a href="../islands/islands.html" class="minicoy-back-link">← Back to Islands of India</a>
+                <span class="minicoy-hero-kicker">🗼 Lakshadweep's Southernmost Island</span>
+                <h1>Minicoy <span>Island</span></h1>
+                <p>Geographically and culturally distinct from the rest of Lakshadweep, Minicoy is home to a historic lighthouse, a thriving tuna fishing tradition, a large lagoon and the Mahl-speaking community with close ties to the Maldives.</p>
+
+                <div class="minicoy-hero-stats">
+                    <div class="minicoy-stat-box">
+                        <strong>~4.8 sq km</strong>
+                        <span>Total Land Area</span>
+                    </div>
+                    <div class="minicoy-stat-box">
+                        <strong>1885</strong>
+                        <span>Lighthouse Built</span>
+                    </div>
+                    <div class="minicoy-stat-box">
+                        <strong>Mahl</strong>
+                        <span>Local Language</span>
+                    </div>
+                    <div class="minicoy-stat-box">
+                        <strong>2nd</strong>
+                        <span>Largest Island in Lakshadweep</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed info -->
+        <section class="minicoy-section" id="minicoy-explore">
+            <div class="minicoy-container">
+                <div class="minicoy-section-heading">
+                    <span class="minicoy-section-badge">Explore Minicoy</span>
+                    <h2>Lighthouse, Lagoon &amp; Island Life</h2>
+                    <p>Select a tab to learn more.</p>
+                </div>
+
+                <div class="minicoy-tabs" role="tablist">
+                    <button type="button" class="minicoy-tab-btn active" data-tab="lighthouse">Lighthouse</button>
+                    <button type="button" class="minicoy-tab-btn" data-tab="tuna-fishing">Tuna Fishing</button>
+                    <button type="button" class="minicoy-tab-btn" data-tab="mahl-language">Mahl Language</button>
+                    <button type="button" class="minicoy-tab-btn" data-tab="lagoons">Lagoons</button>
+                    <button type="button" class="minicoy-tab-btn" data-tab="biodiversity">Marine Biodiversity</button>
+                    <button type="button" class="minicoy-tab-btn" data-tab="culture">Culture</button>
+                </div>
+
+                <div class="minicoy-tab-panel active" id="tab-lighthouse">
+                    <h3>🗼 Lighthouse</h3>
+                    <p>The Minicoy Lighthouse, built by the British in 1885, stands as one of the oldest and tallest lighthouses in Lakshadweep. It has long guided ships navigating the busy sea lanes near the Nine Degree Channel.</p>
+                    <p>Visitors who climb its spiral staircase are rewarded with sweeping views of the island's palm groves, lagoon and surrounding reef, making it one of Minicoy's most recognisable landmarks.</p>
+                    <ul>
+                        <li>Built by the British in 1885</li>
+                        <li>One of the oldest and tallest lighthouses in Lakshadweep</li>
+                        <li>Offers panoramic views of the island and lagoon</li>
+                    </ul>
+                </div>
+
+                <div class="minicoy-tab-panel" id="tab-tuna-fishing">
+                    <h3>🐟 Tuna Fishing</h3>
+                    <p>Tuna fishing is central to Minicoy's economy and identity, with local fishermen traditionally using the pole-and-line method — a selective technique that targets tuna one at a time without large nets.</p>
+                    <p>Processed and dried tuna, known locally as "Maas," is both a staple food and an important trade product, connecting Minicoy's fishing traditions to those of the nearby Maldives.</p>
+                    <ul>
+                        <li>Traditional pole-and-line tuna fishing</li>
+                        <li>Tuna fishing is the backbone of the local economy</li>
+                        <li>Dried tuna ("Maas") is a staple food and trade product</li>
+                    </ul>
+                </div>
+
+                <div class="minicoy-tab-panel" id="tab-mahl-language">
+                    <h3>🗣️ Mahl Language</h3>
+                    <p>Unlike the rest of Lakshadweep, where Malayalam is widely spoken, Minicoy's people speak Mahl, a language closely related to Dhivehi, the national language of the Maldives.</p>
+                    <p>This linguistic difference reflects Minicoy's closer historical and cultural ties to the Maldives compared to the northern islands of Lakshadweep, giving the island a distinct identity within the Union Territory.</p>
+                    <ul>
+                        <li>Mahl is closely related to Dhivehi, spoken in the Maldives</li>
+                        <li>Distinct from Malayalam, spoken elsewhere in Lakshadweep</li>
+                        <li>Reflects Minicoy's historical ties to the Maldives</li>
+                    </ul>
+                </div>
+
+                <div class="minicoy-tab-panel" id="tab-lagoons">
+                    <h3>🌊 Lagoons</h3>
+                    <p>Minicoy is home to one of the largest and most picturesque lagoons in Lakshadweep, stretching along the island's western side and enclosed by a long, curving reef.</p>
+                    <p>The calm, shallow waters of the lagoon support water sports, traditional boat racing, and a rich variety of marine life, making it a centrepiece of daily life on the island.</p>
+                    <ul>
+                        <li>One of Lakshadweep's largest lagoons</li>
+                        <li>Enclosed by a long, curving reef</li>
+                        <li>Supports water sports and traditional boat racing</li>
+                    </ul>
+                </div>
+
+                <div class="minicoy-tab-panel" id="tab-biodiversity">
+                    <h3>🐠 Marine Biodiversity</h3>
+                    <p>The waters around Minicoy support a wide variety of marine life, including colourful reef fish, sea turtles, and healthy coral formations, thanks to the island's relatively undisturbed reef ecosystem.</p>
+                    <p>The surrounding waters are also an important habitat for tuna and other pelagic fish species, underscoring the close link between the island's biodiversity and its fishing-based economy.</p>
+                    <ul>
+                        <li>Rich coral reefs and colourful reef fish</li>
+                        <li>Sea turtles found in the surrounding waters</li>
+                        <li>Important habitat for tuna and other pelagic fish</li>
+                    </ul>
+                </div>
+
+                <div class="minicoy-tab-panel" id="tab-culture">
+                    <h3>🎎 Culture</h3>
+                    <p>Minicoy's culture is shaped by its seafaring traditions, with the island organised into traditional wards called "Avahs," each with its own community hall and identity, reflecting a matrilineal social structure unique within Lakshadweep.</p>
+                    <p>Traditional dance forms like Lava and Bandiya, performed during festivals, along with distinctive boat-building skills, highlight Minicoy's cultural closeness to Maldivian traditions.</p>
+                    <ul>
+                        <li>Island organised into traditional wards called "Avahs"</li>
+                        <li>Matrilineal social structure, distinct within Lakshadweep</li>
+                        <li>Traditional Lava and Bandiya dances performed at festivals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section class="minicoy-section" id="minicoy-map-section">
+            <div class="minicoy-container">
+                <div class="minicoy-section-heading">
+                    <span class="minicoy-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Minicoy</h2>
+                    <p>Click a marker to learn about that location.</p>
+                </div>
+                <div class="minicoy-map-wrap">
+                    <div id="minicoy-map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="minicoy-section" id="minicoy-gallery-section">
+            <div class="minicoy-container">
+                <div class="minicoy-section-heading">
+                    <span class="minicoy-section-badge">Image Gallery</span>
+                    <h2>Glimpses of Minicoy Island</h2>
+                    <p>Click an image to view it larger.</p>
+                </div>
+                <div id="minicoy-gallery-grid" class="minicoy-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="minicoy-section">
+            <div class="minicoy-container">
+                <div class="minicoy-section-heading">
+                    <span class="minicoy-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="minicoy-fact-panel">
+                    <div class="minicoy-fact-icon">💡</div>
+                    <p id="minicoy-fact-text">Loading fact...</p>
+                    <div class="minicoy-fact-dots" id="minicoy-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="minicoy-lightbox-overlay" id="minicoy-lightbox" hidden>
+        <div class="minicoy-lightbox-content">
+            <button class="minicoy-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="minicoy-lightbox-nav prev" id="minicoy-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="minicoy-lightbox-image" src="" alt="">
+            <button class="minicoy-lightbox-nav next" id="minicoy-lightbox-next" aria-label="Next image">›</button>
+            <p class="minicoy-lightbox-caption" id="minicoy-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="minicoy-island.html">Minicoy Island</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="minicoy-island.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

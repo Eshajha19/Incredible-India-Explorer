@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  const theme = localStorage.getItem('theme') || 'dark';
+  if (theme === 'light') document.body.classList.add('light-theme');
+})();
+</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Download complete destination packages for any Indian state and explore them fully offline — no connection required." name="description"/>
+<title>Offline Region Downloads | Incredible India</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="../../styles.css" rel="stylesheet"/>
+<style>
+  .offline-hero { padding: 140px 24px 30px; max-width: 1000px; margin: 0 auto; text-align: center; }
+  .offline-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; margin-bottom: 10px; }
+  .offline-hero p { opacity: 0.8; max-width: 640px; margin: 0 auto; }
+
+  .offline-connectivity { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 6px 16px; border-radius: 999px; border: 1px solid var(--glass-border); background: var(--glass-bg); font-size: 0.85rem; }
+  .offline-connectivity .dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; }
+  .offline-connectivity.offline .dot { background: #ff6b6b; }
+
+  .offline-toolbar { max-width: 1100px; margin: 24px auto; padding: 0 24px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+  .offline-search-box { flex: 1; min-width: 240px; display: flex; gap: 8px; }
+  .offline-search-box input { flex: 1; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: inherit; font-family: 'Outfit', sans-serif; }
+  .offline-storage-summary { font-size: 0.85rem; opacity: 0.75; white-space: nowrap; }
+
+  #offline-search-results { max-width: 1100px; margin: 0 auto 10px; padding: 0 24px; }
+  .offline-search-result { padding: 10px 14px; border-radius: 12px; border: 1px solid var(--glass-border); background: var(--glass-bg); margin-bottom: 8px; font-size: 0.88rem; }
+  .offline-search-result .osr-region { opacity: 0.6; font-size: 0.75rem; }
+
+  .region-grid { max-width: 1100px; margin: 0 auto 80px; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+  .region-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 18px; overflow: hidden; backdrop-filter: blur(10px); display: flex; flex-direction: column; }
+  .region-card img { width: 100%; height: 130px; object-fit: cover; }
+  .region-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .region-card-title { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; }
+  .region-card-meta { font-size: 0.78rem; opacity: 0.7; }
+
+  .region-status-badge { align-self: flex-start; font-size: 0.72rem; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+  .region-status-badge.not-downloaded { background: rgba(255,255,255,0.08); }
+  .region-status-badge.downloaded { background: rgba(46,204,113,0.18); color: #2ecc71; }
+  .region-status-badge.update-available { background: rgba(255,193,7,0.18); color: var(--saffron); }
+  .region-status-badge.downloading { background: rgba(52,152,219,0.18); color: #3498db; }
+
+  .region-progress-track { height: 6px; border-radius: 4px; background: rgba(255,255,255,0.08); overflow: hidden; display: none; }
+  .region-progress-track.active { display: block; }
+  .region-progress-fill { height: 100%; background: var(--saffron); width: 0%; transition: width 0.2s ease; }
+
+  .region-card-actions { display: flex; gap: 8px; margin-top: auto; }
+  .region-card-actions button { flex: 1; padding: 8px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: inherit; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.8rem; }
+  .region-card-actions button.primary { background: var(--saffron); border-color: var(--saffron); color: #fff; }
+  .region-card-actions button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .region-destination-list { font-size: 0.78rem; opacity: 0.75; margin: 0; padding-left: 16px; }
+
+  .offline-empty-note { text-align: center; opacity: 0.6; padding: 40px; max-width: 1100px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="../../index.html#home" class="nav-logo">
+      <span class="saffron">Incredible</span>
+      <span class="gold">India</span>
+      <span class="green">Explorer</span>
+    </a>
+    <nav class="nav-menu">
+      <a href="../../index.html#home" class="nav-link">Home</a>
+      <a href="../trip-planner/index.html" class="nav-link">Trip Planner</a>
+      <a href="index.html" class="nav-link active">📥 Offline Downloads</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="offline-hero">
+    <h1>📥 Offline Region Downloads</h1>
+    <p>Download a complete destination package for any state — details, highlights, and a hero image — so you can keep exploring even with no signal.</p>
+    <div class="offline-connectivity" id="offline-connectivity">
+      <span class="dot"></span>
+      <span id="offline-connectivity-label">Online</span>
+    </div>
+  </section>
+
+  <div class="offline-toolbar">
+    <div class="offline-search-box">
+      <input type="text" id="offline-search-input" placeholder="Search downloaded destinations (works offline)…" />
+    </div>
+    <div class="offline-storage-summary" id="offline-storage-summary">0 KB used across 0 regions</div>
+  </div>
+
+  <div id="offline-search-results"></div>
+
+  <div class="region-grid" id="region-grid">
+    <p class="offline-empty-note">Loading regions…</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>Incredible India Explorer</h3>
+      <p>An interactive digital guide to the geography, food, festivals, and cultural heritage of India. Built with passion and pure vanilla web technologies.</p>
+    </div>
+  </div>
+  <div class="footer-credits" style="align-self: center;">
+    <p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
+  </div>
+</footer>
+
+<script src="../../sw-register.js" defer></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>

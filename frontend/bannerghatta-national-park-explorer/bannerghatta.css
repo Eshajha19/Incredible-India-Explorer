@@ -1,0 +1,369 @@
+/**
+ * Bannerghatta National Park Explorer — Stylesheet
+ * Supports both dark and light themes using CSS variables.
+ * Designed for readability, accessibility, and responsive layouts.
+ */
+
+:root {
+  --bannerghatta-bg-dark: #0f172a;
+  --bannerghatta-bg-light: #f8fafc;
+  --bannerghatta-card-dark: rgba(30, 41, 59, 0.85);
+  --bannerghatta-card-light: rgba(255, 255, 255, 0.95);
+  --bannerghatta-text-dark: #e2e8f0;
+  --bannerghatta-text-light: #1e293b;
+  --bannerghatta-muted-dark: #94a3b8;
+  --bannerghatta-muted-light: #64748b;
+  --bannerghatta-accent: #7c3aed; /* Royal Purple for diversity/zoo theme */
+  --bannerghatta-accent-bright: #a78bfa;
+  --bannerghatta-border-dark: rgba(255, 255, 255, 0.1);
+  --bannerghatta-border-light: rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme {
+  --bannerghatta-bg: var(--bannerghatta-bg-light);
+  --bannerghatta-card: var(--bannerghatta-card-light);
+  --bannerghatta-text: var(--bannerghatta-text-light);
+  --bannerghatta-muted: var(--bannerghatta-muted-light);
+  --bannerghatta-border: var(--bannerghatta-border-light);
+}
+
+body:not(.light-theme) {
+  --bannerghatta-bg: var(--bannerghatta-bg-dark);
+  --bannerghatta-card: var(--bannerghatta-card-dark);
+  --bannerghatta-text: var(--bannerghatta-text-dark);
+  --bannerghatta-muted: var(--bannerghatta-muted-dark);
+  --bannerghatta-border: var(--bannerghatta-border-dark);
+}
+
+.bannerghatta-main {
+  background-color: var(--bannerghatta-bg);
+  color: var(--bannerghatta-text);
+  font-family: 'Outfit', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--bannerghatta-accent-bright);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--bannerghatta-text);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--bannerghatta-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.glass-card {
+  background: var(--bannerghatta-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bannerghatta-border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Section */
+.bannerghatta-hero {
+  padding: 6rem 1.5rem 4rem;
+  text-align: center;
+  background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)),
+              url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/1200px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG') center/cover no-repeat;
+}
+
+body.light-theme .bannerghatta-hero {
+  background: linear-gradient(rgba(248, 250, 252, 0.8), rgba(248, 250, 252, 0.95)),
+              url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG/1200px-Bannerghatta_National_Park_4-24-2011_1-09-20_PM.JPG') center/cover no-repeat;
+}
+
+.bannerghatta-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--bannerghatta-text);
+}
+
+.bannerghatta-hero h1 span {
+  color: var(--bannerghatta-accent-bright);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--bannerghatta-muted);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bannerghatta-accent-bright);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--bannerghatta-muted);
+}
+
+/* Wildlife & Feature Grids */
+.wildlife-grid, .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.wildlife-card img, .features-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Timeline */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--bannerghatta-accent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.6rem;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bannerghatta-accent-bright);
+  border: 3px solid var(--bannerghatta-bg);
+}
+
+/* Conservation Highlight Box */
+.conservation-box {
+  border-left: 4px solid var(--bannerghatta-accent);
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.features-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--bannerghatta-muted);
+}
+
+.features-list li::before {
+  content: '🦋';
+  position: absolute;
+  left: 0;
+}
+
+/* Map */
+.map-svg-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bannerghatta-card);
+}
+
+.map-hotspot-pin {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--bannerghatta-accent-bright);
+  background: var(--bannerghatta-card);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+.map-hotspot-pin:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.map-info-popup {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bannerghatta-card);
+  border: 1px solid var(--bannerghatta-border);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  max-width: 300px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 220px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+/* Lightbox */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 900px;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 12px;
+}
+
+.lightbox-caption {
+  margin-top: 1rem;
+  color: #cbd5e1;
+  font-size: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .bannerghatta-hero h1 { font-size: 2.5rem; }
+  .section-header h2 { font-size: 2rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline-container { padding-left: 1.5rem; }
+}

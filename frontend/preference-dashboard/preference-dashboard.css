@@ -1,0 +1,77 @@
+/* Issue #864 — Preference Dashboard styles */
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #14131f;
+  color: #f1f1f1;
+  margin: 0;
+  padding: 2rem;
+}
+
+.pref-dashboard { max-width: 900px; margin: 0 auto; }
+.pref-dashboard__header p { color: #c9c9d6; line-height: 1.5; }
+
+.pref-dashboard__confidence { margin: 1.5rem 0; }
+.confidence-bar {
+  background: #1f1e30;
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+.confidence-bar__fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff6f3c, #ffd166);
+  transition: width 0.4s ease;
+}
+
+.pref-dashboard__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.pref-card {
+  background: #1a1929;
+  border: 1px solid #2a293e;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.pref-card h2 { font-size: 1rem; margin-top: 0; color: #ffb01f; }
+
+.tag-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag-pill {
+  background: rgba(255, 176, 31, 0.15);
+  color: #ffd166;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+.tag-pill--empty { background: rgba(255,255,255,0.08); color: #9a99ad; }
+
+.pref-dashboard__recommendations { margin: 1.5rem 0; }
+.rec-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.rec-item {
+  background: #1a1929;
+  border: 1px solid #2a293e;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+.rec-item h3 { margin: 0 0 0.25rem; }
+.rec-item__tagline { color: #9a99ad; font-size: 0.85rem; margin: 0 0 0.5rem; }
+.rec-item__explanation { font-size: 0.85rem; color: #d8d7e6; margin: 0; }
+
+.pref-dashboard__actions { margin-top: 2rem; text-align: center; }
+.danger-btn {
+  background: #7a1f2e;
+  color: #ffe0e6;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pref-dashboard__note { color: #9a99ad; font-size: 0.8rem; margin-top: 0.5rem; }

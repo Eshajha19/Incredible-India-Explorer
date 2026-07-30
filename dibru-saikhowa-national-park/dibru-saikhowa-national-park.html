@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Dibru-Saikhowa National Park Explorer - Discover the unique river island ecosystem, feral horses, and wetlands of Assam." name="description"/>
+    <meta property="og:title" content="Dibru-Saikhowa National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Dibru-Saikhowa National Park, a dynamic river island ecosystem in Assam, known for its feral horses, diverse wetlands, and incredible bird sanctuary."/>
+    
+    <title>Dibru-Saikhowa National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="dibru-saikhowa-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Dibru-Saikhowa National Park",
+      "description": "A unique river island national park and biosphere reserve in Assam, known for feral horses and rich avian life.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Assam",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="dibru-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge biodiversity"><i class="fa-solid fa-leaf"></i> Biodiversity Hotspot</span>
+                    <span class="badge island"><i class="fa-solid fa-water"></i> River Island Ecosystem</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Assam</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Dibru-Saikhowa National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px; font-size: 1.1rem; line-height: 1.6;">
+                    Explore a unique river island ecosystem formed by the Brahmaputra and Lohit rivers. Discover the famous feral horses, intricate wetlands, and a paradise for birdwatchers.
+                </p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Explore Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem & River Islands -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Landscape</span>
+                    <h2>River Islands & Ecosystem</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> River Island Formation</h3>
+                        <p>Bounded by the Brahmaputra, Lohit, and Dibru rivers, the park's topography is a dynamic maze of shifting sandbanks, river islands (saporis), and changing channels.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-cloud-sun-rain"></i> Seasonal Changes</h3>
+                        <p>The landscape is profoundly shaped by the monsoon. Seasonal flooding inundates the floodplain ecosystem, replenishing the soil and sustaining the marshlands.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-leaf"></i> Wetland Habitats</h3>
+                        <p>Oxbow lakes, swamps, and marshes form critical habitats for aquatic biodiversity, acting as natural water conservation systems and fish nurseries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife & Flora Fauna -->
+        <section id="wildlife" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Fauna</span>
+                    <h2>Flora & Fauna</h2>
+                    <p class="section-subtitle">The diverse inhabitants of the Brahmaputra floodplains.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Wild_Horses_at_Dibru_Saikhowa.jpg/800px-Wild_Horses_at_Dibru_Saikhowa.jpg" alt="Feral Horses" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Feral Horses</h3>
+                            <span class="wildlife-status status-feral">Feral</span>
+                            <p>Descendants of cavalry horses left behind after WWII, now living wild in the Churkey Sapori grasslands.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Panthera_tigris_tigris.jpg/800px-Panthera_tigris_tigris.jpg" alt="Bengal Tiger" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bengal Tiger</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>An elusive predator navigating the dense semi-evergreen and deciduous forests of the park.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Asian_Elephant_in_Kaziranga.jpg/800px-Asian_Elephant_in_Kaziranga.jpg" alt="Asian Elephant" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Asian Elephant</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Significant populations roam the riverine habitats, relying on the abundant water sources.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Platanista_gangetica_no_font.png/800px-Platanista_gangetica_no_font.png" alt="Gangetic Dolphin" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Gangetic Dolphin</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Often spotted during boat safaris in the deeper channels of the Brahmaputra and Lohit rivers.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Clouded_Leopard.jpg/800px-Clouded_Leopard.jpg" alt="Clouded Leopard" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Clouded Leopard</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>A highly arboreal and secretive cat found in the dense canopy areas.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Bengal_Slow_Loris.jpg/800px-Bengal_Slow_Loris.jpg" alt="Slow Loris" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Slow Loris</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>A nocturnal primate inhabiting the tropical forests of the biosphere reserve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bird Sanctuary -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #03a9f4; color: white;">Avian Paradise</span>
+                    <h2>Bird Sanctuary</h2>
+                    <p class="section-subtitle">Over 500 species of resident and migratory birds.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/White-winged_Duck.jpg/800px-White-winged_Duck.jpg" alt="White-winged Wood Duck" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">White-winged Wood Duck</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>The state bird of Assam, finding refuge in the park's secluded forest pools.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Greater_Adjutant_%28Leptoptilos_dubius%29.jpg/800px-Greater_Adjutant_%28Leptoptilos_dubius%29.jpg" alt="Greater Adjutant" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Greater Adjutant Stork</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>A vital scavenger, frequently observed in the wetland fringes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Details -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="bird-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Birdwatching</span>
+                        <h2>A Haven for Birds</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The diverse habitat makes it one of the most important bird areas in the world.</p>
+                    <ul>
+                        <li><strong>Migratory Season:</strong> Winter (Nov-Feb) attracts thousands of waterfowl from Siberia and Central Asia.</li>
+                        <li><strong>Resident Species:</strong> Hornbills, Kingfishers, Eagles, and Herons are present year-round.</li>
+                        <li><strong>Endangered Species:</strong> Critical habitat for the Jerdon's Babbler and Black-breasted Parrotbill.</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #1976d2; color: white;">Dynamics</span>
+                        <h2>Brahmaputra Ecosystem</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The immense power of the rivers dictates the rhythm of life in the park.</p>
+                    <ul>
+                        <li><strong>Sediment Deposition:</strong> The rivers continually reshape the land, creating new saporis (islands) rich in nutrients.</li>
+                        <li><strong>Climate Resilience:</strong> The extensive wetlands act as a buffer against both floods and droughts.</li>
+                        <li><strong>Unique Safaris:</strong> Due to the terrain, exploration is primarily conducted via boat safaris on the rivers and channels.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Feral Horses Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Wild_Horses_at_Dibru_Saikhowa.jpg/800px-Wild_Horses_at_Dibru_Saikhowa.jpg" alt="Feral horses grazing on the river islands">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetlands Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dibru-Saikhowa_National_Park_Assam.jpg/800px-Dibru-Saikhowa_National_Park_Assam.jpg" alt="Wetland landscapes">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Boat Safari Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Brahmaputra_River_Sunset.jpg/800px-Brahmaputra_River_Sunset.jpg" alt="Sunset over the Brahmaputra River">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Forest Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/White-winged_Duck.jpg/800px-White-winged_Duck.jpg" alt="White-winged Wood Duck">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore the river islands, wetlands, and boat safari routes.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Dibru-Saikhowa National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="dibru-saikhowa-national-park.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Gorumara National Park Explorer - Discover the Indian One-Horned Rhinoceros, dense Sal forests, and watchtowers in the Dooars region of West Bengal." name="description"/>
+    <meta property="og:title" content="Gorumara National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Gorumara National Park in West Bengal, famous for its population of One-Horned Rhinos, thrilling jeep safaris, and panoramic watchtowers."/>
+    
+    <title>Gorumara National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="gorumara-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Gorumara National Park",
+      "description": "A prominent national park in the Dooars region of West Bengal, renowned for its One-Horned Rhinoceros population and dense Sal forests.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="gorumara-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge rhino"><i class="fa-solid fa-hippo"></i> One-Horned Rhinoceros</span>
+                    <span class="badge biodiversity"><i class="fa-solid fa-leaf"></i> Dooars Biodiversity</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> West Bengal</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Gorumara National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 700px; font-size: 1.1rem; line-height: 1.6;">
+                    Venture into the heart of the Dooars region. Discover rolling grasslands, dense Sal forests, and the iconic Indian One-Horned Rhinoceros from panoramic watchtowers.
+                </p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Explore Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem & Forests -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Ecosystem</span>
+                    <h2>Forests & Rivers</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-tree"></i> Moist Deciduous Forests</h3>
+                        <p>The park is dominated by dense Sal forests (Shorea robusta), interspersed with Teak, Simul, and Khair, forming a thick canopy that shelters diverse wildlife.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> River Ecosystems</h3>
+                        <p>The Murti and Jaldhaka rivers flow through the park. These perennial water sources are the lifeline of the forest, attracting large herds of herbivores during dry seasons.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Rich History</h3>
+                        <p>Established as a reserve forest in 1895, declared a Wildlife Sanctuary in 1949, and upgraded to a National Park in 1994, reflecting over a century of conservation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife / Fauna -->
+        <section id="wildlife" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Fauna</span>
+                    <h2>Iconic Wildlife</h2>
+                    <p class="section-subtitle">Discover the majestic species that roam the Dooars.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Indian_Rhinoceros.jpg/800px-Indian_Rhinoceros.jpg" alt="Indian One-Horned Rhinoceros" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian One-Horned Rhino</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>The star attraction of Gorumara, known for its armor-plated appearance. They are frequently seen grazing in the riverine grasslands.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Asian_Elephant_in_Kaziranga.jpg/800px-Asian_Elephant_in_Kaziranga.jpg" alt="Asian Elephant" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Asian Elephant</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Large herds migrate through the park's elephant corridors, heavily relying on the Jaldhaka and Murti rivers.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Gaur_in_Bandipur.jpg/800px-Gaur_in_Bandipur.jpg" alt="Indian Bison (Gaur)" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Bison (Gaur)</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>The largest extant bovine. These massive, muscular animals can often be spotted near the salt licks by the watchtowers.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Leopard_africa.jpg/800px-Leopard_africa.jpg" alt="Indian Leopard" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Leopard</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>The apex predator of Gorumara, utilizing the dense Sal forest canopy and tall grasses for stealthy hunting.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bird Species -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #03a9f4; color: white;">Avifauna</span>
+                    <h2>Bird Species</h2>
+                    <p class="section-subtitle">A paradise for birdwatchers in the Sub-Himalayan foothills.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Great_Hornbill_at_Khao_Yai_National_Park.jpg/800px-Great_Hornbill_at_Khao_Yai_National_Park.jpg" alt="Great Hornbill" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Great Hornbill</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>An impressive bird with a massive casque, found in the upper canopies of the old-growth forests.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Scarlet_Minivet_Male.jpg/800px-Scarlet_Minivet_Male.jpg" alt="Scarlet Minivet" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Scarlet Minivet</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>Strikingly colorful birds that flutter through the foliage in small, active flocks.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/White-throated_Kingfisher_%28Halcyon_smyrnensis%29.jpg/800px-White-throated_Kingfisher_%28Halcyon_smyrnensis%29.jpg" alt="Kingfishers" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Kingfishers</h3>
+                            <span class="wildlife-status status-least-concern">Various</span>
+                            <p>Frequently sighted diving for fish along the banks of the Murti and Jaldhaka rivers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safari & Watchtowers Details -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="towers-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #0288d1; color: white;">Observation</span>
+                        <h2>Watch Towers</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Gorumara is famous for its strategically placed watchtowers offering panoramic views.</p>
+                    <ul>
+                        <li><strong>Jatraprasad:</strong> The most famous tower, named after a legendary forest elephant. Overlooks the Murti river.</li>
+                        <li><strong>Medla:</strong> Accessible via a unique buffalo cart ride. Overlooks the elephant corridor.</li>
+                        <li><strong>Chandrachur:</strong> Built deep in the forest, offering incredible views of wild vegetation and bison herds.</li>
+                        <li><strong>Chukchuki:</strong> The prime spot for birdwatchers, located at the edge of the park.</li>
+                    </ul>
+                </div>
+                <div class="safari-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Experience</span>
+                        <h2>Safari Experience</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Immerse yourself in the Dooars wilderness.</p>
+                    <ul>
+                        <li><strong>Jeep Safari:</strong> The most popular way to explore the dense trails and reach the various watchtowers.</li>
+                        <li><strong>Elephant Safari:</strong> Offers a unique, elevated perspective, often allowed only for guests staying at specific forest lodges.</li>
+                        <li><strong>Timings:</strong> Safaris operate in morning and evening shifts. The park remains closed during the monsoon (mid-June to mid-September).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Dooars Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Gorumara Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Rhino Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Indian_Rhinoceros.jpg/800px-Indian_Rhinoceros.jpg" alt="Indian One-Horned Rhino">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Forest Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Gorumara_National_Park.jpg/800px-Gorumara_National_Park.jpg" alt="Dense Sal Forests of Gorumara">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View River Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Brahmaputra_River_Sunset.jpg/800px-Brahmaputra_River_Sunset.jpg" alt="Sunset over the river">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Elephant Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Asian_Elephant_in_Kaziranga.jpg/800px-Asian_Elephant_in_Kaziranga.jpg" alt="Asian Elephant in the tall grass">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore the watchtowers, rivers, and safari routes.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Gorumara National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="gorumara-national-park.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "id": "madhya-pradesh",
+  "state": "Madhya Pradesh",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_hidden.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "khajuraho",
+      "name": "Khajuraho",
+      "lat": 24.8318,
+      "lng": 79.9199,
+      "categories": [
+        "historical",
+        "heritage",
+        "spiritual"
+      ],
+      "highlights": [
+        "Western Group temples",
+        "Intricate stone carvings"
+      ],
+      "minDays": 1,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Oct-Mar",
+      "description": "UNESCO temple complex famed for its sculptural artistry."
+    }
+  ]
+}

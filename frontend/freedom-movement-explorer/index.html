@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Complete Indian Freedom Movement Explorer (1770–1947) — Comprehensive educational portal covering Early Resistance, Swadeshi Movement, Non-Cooperation, Civil Disobedience, Quit India, INA, Revolutionary Organizations, Major Leaders, and Primary Historical Documents.">
+    <title>The Complete Indian Freedom Movement Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="freedom-body">
+    <!-- Navbar -->
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <a href="index.html" class="nav-link active" style="color: var(--free-saffron)">Freedom Movement</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../making-of-modern-india/index.html" class="dropdown-item">Modern India (1757–1947)</a>
+                        <a href="../partition-1947/partition-1947.html" class="dropdown-item">Partition of 1947</a>
+                        <a href="../constitution-timeline/index.html" class="dropdown-item">Constitution Timeline</a>
+                        <a href="../historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="freedom-page">
+        <!-- Hero Banner -->
+        <section class="freedom-hero">
+            <div class="hero-content">
+                <span class="hero-kicker">🇮🇳 Interactive Educational Portal · 1770–1947 Freedom Struggle</span>
+                <h1>The Complete Indian Freedom Movement <span>Interactive Explorer</span></h1>
+                <p>An exhaustive digital portal celebrating the heroic journey of Indian independence — from early peasant and tribal revolts to the Swadeshi, Non-Cooperation, Civil Disobedience, Quit India movements, the Indian National Army (INA), revolutionary societies, freedom pioneers, and historical primary documents.</p>
+            </div>
+        </section>
+
+        <!-- Main Workspace -->
+        <section class="freedom-workspace">
+            <div class="freedom-container">
+
+                <!-- Summary Badges -->
+                <div class="freedom-stats-strip">
+                    <div class="stat-box">
+                        <span class="stat-num">1770–1947</span>
+                        <span class="stat-lbl">177 Years of Resistance</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">6 Phases</span>
+                        <span class="stat-lbl">Major National Movements</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">6 Societies</span>
+                        <span class="stat-lbl">Revolutionary Secret Groups</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-num">18 Leaders</span>
+                        <span class="stat-lbl">Pioneer Freedom Fighters</span>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation Switcher -->
+                <nav class="freedom-tab-nav" aria-label="Freedom Movement Explorer Sections">
+                    <button class="freedom-tab-btn active" data-tab="timeline">📅 Movements & Timeline</button>
+                    <button class="freedom-tab-btn" data-tab="orgs">💣 Revolutionary Societies</button>
+                    <button class="freedom-tab-btn" data-tab="leaders">👤 Freedom Leaders</button>
+                    <button class="freedom-tab-btn" data-tab="documents">📜 Primary Documents</button>
+                </nav>
+
+                <!-- TAB 1: Movements & Timeline -->
+                <div id="tab-timeline" class="freedom-tab-pane active">
+                    <div class="section-title">
+                        <h2>Chronological Timeline of Movements (1770–1947)</h2>
+                        <p>Explore the evolution of early revolts, Swadeshi, Satyagraha, Quit India, and INA military campaigns.</p>
+                    </div>
+
+                    <div class="timeline-toolbar">
+                        <div class="search-wrapper">
+                            <input id="freedom-search" type="search" placeholder="Search events, movements, figures (e.g. Swadeshi, Non-Cooperation, Dandi, Quit India, INA, Sannyasi, Bhagat Singh)..." autocomplete="off">
+                        </div>
+
+                        <div class="filter-wrapper">
+                            <label for="movement-filter">Movement:</label>
+                            <select id="movement-filter" class="free-select">
+                                <option value="all">All Movements</option>
+                                <option value="Early Resistance">Early Resistance</option>
+                                <option value="Swadeshi Movement">Swadeshi Movement</option>
+                                <option value="Home Rule">Home Rule Movement</option>
+                                <option value="Non-Cooperation">Non-Cooperation Movement</option>
+                                <option value="Civil Disobedience">Civil Disobedience (Salt March)</option>
+                                <option value="Quit India">Quit India Movement</option>
+                                <option value="INA">Indian National Army (INA)</option>
+                                <option value="Revolutionary Struggle">Revolutionary Movements</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="freedom-timeline-container" class="timeline-cards-grid"></div>
+                </div>
+
+                <!-- TAB 2: Revolutionary Societies -->
+                <div id="tab-orgs" class="freedom-tab-pane">
+                    <div class="section-title">
+                        <h2>Revolutionary Secret Societies & Organizations</h2>
+                        <p>Profiles of secret patriotic organizations, revolutionary hubs, and armed freedom groups.</p>
+                    </div>
+
+                    <div id="revolutionary-orgs-container" class="orgs-grid"></div>
+                </div>
+
+                <!-- TAB 3: Freedom Leaders -->
+                <div id="tab-leaders" class="freedom-tab-pane">
+                    <div class="section-title">
+                        <h2>Major Freedom Leaders & Pioneers</h2>
+                        <p>Comprehensive gallery of satyagrahis, revolutionaries, extremists, moderates, and women freedom heroes.</p>
+                    </div>
+
+                    <div class="leaders-filter-bar">
+                        <label for="leader-category-select">Filter Category:</label>
+                        <select id="leader-category-select" class="free-select">
+                            <option value="all">All Leader Categories</option>
+                            <option value="Gandhian Satyagrahi">Gandhian Satyagrahis</option>
+                            <option value="Revolutionary">Revolutionary Freedom Fighters</option>
+                            <option value="Extremist Trio (Lal-Bal-Pal)">Extremist Trio (Lal-Bal-Pal)</option>
+                            <option value="INA Commander">INA Commanders</option>
+                            <option value="Women Pioneer">Women Freedom Pioneers</option>
+                        </select>
+                    </div>
+
+                    <div id="leaders-grid-container" class="leaders-grid"></div>
+                </div>
+
+                <!-- TAB 4: Primary Documents -->
+                <div id="tab-documents" class="freedom-tab-pane">
+                    <div class="section-title">
+                        <h2>Primary Historical Documents & Speeches</h2>
+                        <p>Landmark declarations, constitutional drafts, patriotic proclamations, and iconic battle cries.</p>
+                    </div>
+
+                    <div id="documents-grid-container" class="documents-grid"></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Open-source educational portal documenting the complete story of the Indian Freedom Struggle (1770–1947).</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html">Home</a>
+                <a href="index.html">Freedom Movement</a>
+                <a href="../making-of-modern-india/index.html">Modern India (1757–1947)</a>
+                <a href="../partition-1947/partition-1947.html">Partition of 1947</a>
+                <a href="../constitution-timeline/index.html">Constitution Timeline</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Historical Initiative.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="freedom-movement.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

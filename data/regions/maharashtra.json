@@ -1,0 +1,52 @@
+{
+  "id": "maharashtra",
+  "state": "Maharashtra",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/ajanta_caves.png",
+  "destinationCount": 2,
+  "destinations": [
+    {
+      "id": "mumbai",
+      "name": "Mumbai",
+      "lat": 19.076,
+      "lng": 72.8777,
+      "categories": [
+        "city",
+        "heritage",
+        "beaches"
+      ],
+      "highlights": [
+        "Gateway of India",
+        "Marine Drive",
+        "Elephanta Caves"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 9,
+      "bestSeason": "Nov-Feb",
+      "description": "India's coastal megacity of movies, markets, and monuments."
+    },
+    {
+      "id": "ajanta-ellora",
+      "name": "Aurangabad (Ajanta & Ellora)",
+      "lat": 19.8762,
+      "lng": 75.3433,
+      "categories": [
+        "historical",
+        "heritage",
+        "spiritual"
+      ],
+      "highlights": [
+        "Ajanta Caves",
+        "Ellora Caves",
+        "Bibi Ka Maqbara"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Oct-Mar",
+      "description": "Rock-cut Buddhist, Hindu, and Jain cave temples, UNESCO listed."
+    }
+  ]
+}

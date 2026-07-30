@@ -106,6 +106,15 @@ export default async function handler(req, res) {
     return;
   }
 
+  const apiSecret = process.env.TRANSLATE_API_SECRET;
+  if (apiSecret) {
+    const provided = req.headers['x-translate-secret'];
+    if (!provided || provided !== apiSecret) {
+      res.status(401).json({ error: 'Unauthorized.' });
+      return;
+    }
+  }
+
   const { text, targetLang, sourceLang = 'en', context } = req.body || {};
 
   if (!text || typeof text !== 'string' || !targetLang) {

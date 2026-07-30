@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Little Andaman Island — Butler Bay surfing, White Surf Waterfall, pristine rainforests, dugong habitat, and the island's unique geography. Interactive map, image gallery, and detailed guides.">
+    <title>Little Andaman Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="little-andaman.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Little Andaman Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Butler Bay surfing, White Surf Waterfall, evergreen rainforests, dugong & sea turtle habitat — explore Little Andaman Island.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/little-andaman/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Little Andaman Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Butler Bay surfing, White Surf Waterfall, pristine forests, dugong habitat — explore Little Andaman.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/little-andaman/index.html">
+</head>
+
+<body class="little-andaman-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../islands/islands.html" class="nav-link">Islands</a>
+                <a href="index.html" class="nav-link active" style="color: var(--saffron)">Little Andaman</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="little-andaman-page">
+        <!-- Hero -->
+        <section class="little-andaman-hero">
+            <div class="little-andaman-hero-content">
+                <a href="../islands/islands.html" class="little-andaman-back-link">← Back to Islands of India</a>
+                <span class="little-andaman-hero-kicker">🏝️ Andaman & Nicobar Islands</span>
+                <h1>Little <span>Andaman</span></h1>
+                <p>Discover Butler Bay's world-class surf breaks, the cascading White Surf Waterfall, ancient evergreen rainforests, and thriving dugong populations — all on India's fourth-largest island in the Andaman archipelago.</p>
+
+                <div class="little-andaman-hero-stats">
+                    <div class="little-andaman-stat-box">
+                        <strong>~730 km²</strong>
+                        <span>Island Area</span>
+                    </div>
+                    <div class="little-andaman-stat-box">
+                        <strong>~18,000</strong>
+                        <span>Population (2011)</span>
+                    </div>
+                    <div class="little-andaman-stat-box">
+                        <strong>10.6° N</strong>
+                        <span>Latitude</span>
+                    </div>
+                    <div class="little-andaman-stat-box">
+                        <strong>92.5° E</strong>
+                        <span>Longitude</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed Info Sections -->
+        <section class="little-andaman-section" id="little-andaman-explore">
+            <div class="little-andaman-container">
+                <div class="little-andaman-section-heading">
+                    <span class="little-andaman-section-badge">Explore Little Andaman</span>
+                    <h2>Beaches, Waterfalls, Forests & Wildlife</h2>
+                    <p>Select a tab to learn more about the island's highlights.</p>
+                </div>
+
+                <div class="little-andaman-tabs" role="tablist">
+                    <button type="button" class="little-andaman-tab-btn active" data-tab="butler-bay">Butler Bay</button>
+                    <button type="button" class="little-andaman-tab-btn" data-tab="waterfalls">Waterfalls</button>
+                    <button type="button" class="little-andaman-tab-btn" data-tab="forests">Forests</button>
+                    <button type="button" class="little-andaman-tab-btn" data-tab="surfing">Surfing</button>
+                    <button type="button" class="little-andaman-tab-btn" data-tab="wildlife">Wildlife</button>
+                    <button type="button" class="little-andaman-tab-btn" data-tab="geography">Geography</button>
+                </div>
+
+                <!-- Butler Bay Tab -->
+                <div class="little-andaman-tab-panel active" id="tab-butler-bay">
+                    <h3>🏖️ Butler Bay</h3>
+                    <p>Butler Bay, located on the southeastern coast of Little Andaman, is a pristine crescent-shaped beach stretching over 2 kilometers. Known for its golden sand, clear turquoise waters, and gentle palm-fringed shoreline, it is one of the most picturesque beaches in the Andaman Islands.</p>
+                    <p>The bay faces the open Indian Ocean, making it an exceptional surfing destination (see the Surfing tab). Beyond surfing, the beach offers excellent swimming conditions during calm seasons, beachcombing, and spectacular sunrise views. The area behind the beach features coastal vegetation and provides access to nearby forest trails.</p>
+                    <h4>Highlights</h4>
+                    <ul>
+                        <li>2+ km crescent beach with golden sand</li>
+                        <li>Clear turquoise waters — ideal for swimming (seasonal)</li>
+                        <li>Prime surfing location with consistent swells</li>
+                        <li>Stunning sunrise views over the Indian Ocean</li>
+                        <li>Access point for forest treks to White Surf Waterfall</li>
+                    </ul>
+                </div>
+
+                <!-- Waterfalls Tab -->
+                <div class="little-andaman-tab-panel" id="tab-waterfalls">
+                    <h3>💧 Waterfalls</h3>
+                    <p>Little Andaman is home to several stunning waterfalls, the most famous being White Surf Waterfall (also called Whisper Wave Waterfall). Located about 6.5 km from Hut Bay, this multi-tiered cascade drops approximately 60 meters through dense evergreen forest, creating a spectacular white curtain of water — hence the name "White Surf".</p>
+                    <p>Other notable waterfalls include Whisper Wave Waterfall and the smaller cascades along the island's perennial streams. Most waterfalls are accessible via forest trails that wind through the island's protected rainforest, offering opportunities to spot endemic birds, butterflies, and occasionally wild elephants that swim between islands.</p>
+                    <h4>Key Waterfalls</h4>
+                    <ul>
+                        <li><strong>White Surf Waterfall:</strong> 60m multi-tiered cascade, 6.5 km from Hut Bay</li>
+                        <li><strong>Whisper Wave Waterfall:</strong> Scenic forest waterfall near the coast</li>
+                        <li><strong>Seasonal streams:</strong> Numerous smaller cascades during monsoon (May–September)</li>
+                    </ul>
+                </div>
+
+                <!-- Forests Tab -->
+                <div class="little-andaman-tab-panel" id="tab-forests">
+                    <h3>🌳 Evergreen Rainforests</h3>
+                    <p>Over 80% of Little Andaman is covered by tropical evergreen rainforest, part of the Andaman Islands rainforest ecoregion — one of the most biodiverse regions in India. These ancient forests have evolved in isolation, resulting in high endemism among flora and fauna.</p>
+                    <p>The forests are characterized by towering dipterocarp trees (gurjan, hollong), dense canopy layers, lianas, epiphytes, and a rich understory. They serve as critical habitat for the Andaman wild pig, Andaman horseshoe bat, numerous endemic bird species (Andaman woodpecker, Andaman drongo, Andaman serpent eagle), and act as corridors for swimming elephants that move between islands.</p>
+                    <h4>Forest Highlights</h4>
+                    <ul>
+                        <li>Primary evergreen rainforest covering ~600 km²</li>
+                        <li>High endemism — many species found nowhere else</li>
+                        <li>Critical elephant corridor (swimming elephants)</li>
+                        <li>Timber species: gurjan, hollong, padauk, marjan</li>
+                        <li>Medicinal plants and rare orchids in the understory</li>
+                    </ul>
+                </div>
+
+                <!-- Surfing Tab -->
+                <div class="little-andaman-tab-panel" id="tab-surfing">
+                    <h3>🏄 Surfing at Butler Bay</h3>
+                    <p>Butler Bay is recognized as one of India's premier surfing destinations. The beach's exposure to the open Indian Ocean generates consistent swells, particularly during the pre-monsoon (March–May) and post-monsoon (September–November) seasons. The sandy bottom and reef-free breaks make it relatively safe for intermediate surfers.</p>
+                    <p>The main break at Butler Bay offers both left and right-handers. Wave heights typically range from 3–6 feet, with occasional larger swells during cyclonic systems. The Andaman administration and local surf clubs have begun promoting surfing tourism, with basic board rentals and guidance available in Hut Bay during peak season.</p>
+                    <h4>Surfing Details</h4>
+                    <ul>
+                        <li><strong>Best season:</strong> March–May & September–November</li>
+                        <li><strong>Wave type:</strong> Beach break (sandy bottom), lefts & rights</li>
+                        <li><strong>Typical size:</strong> 3–6 ft (1–2 m), up to 8+ ft on big swells</li>
+                        <li><strong>Skill level:</strong> Intermediate (currents can be strong)</li>
+                        <li><strong>Facilities:</strong> Basic board rental in Hut Bay (seasonal)</li>
+                        <li><strong>Access:</strong> 20-min drive from Hut Bay + short walk</li>
+                    </ul>
+                </div>
+
+                <!-- Wildlife Tab -->
+                <div class="little-andaman-tab-panel" id="tab-wildlife">
+                    <h3>🦋 Wildlife & Marine Life</h3>
+                    <p>Little Andaman's isolation has created a unique wildlife sanctuary. The island is a critical habitat for the dugong (sea cow) — India's state animal of Andaman & Nicobar — which feeds on seagrass meadows in the shallow coastal waters. Green and hawksbill sea turtles nest on the island's beaches, particularly at Butler Bay and nearby coves.</p>
+                    <p>Terrestrial wildlife includes the endemic Andaman wild pig, Andaman horseshoe bat, saltwater crocodiles in mangrove creeks, and a rich avifauna with over 30 endemic bird subspecies. The island also serves as a corridor for Asian elephants that swim between Little Andaman, Great Nicobar, and other islands — a remarkable natural phenomenon.</p>
+                    <h4>Key Species</h4>
+                    <ul>
+                        <li><strong>Dugong:</strong> Vulnerable; seagrass beds around the island</li>
+                        <li><strong>Sea Turtles:</strong> Green & Hawksbill nesting (Dec–Mar)</li>
+                        <li><strong>Asian Elephant:</strong> Swimming corridor between islands</li>
+                        <li><strong>Saltwater Crocodile:</strong> Mangrove creeks & coastal areas</li>
+                        <li><strong>Endemic Birds:</strong> Andaman woodpecker, drongo, serpent eagle, crake</li>
+                        <li><strong>Marine Life:</strong> Coral reefs, reef fish, dolphins offshore</li>
+                    </ul>
+                </div>
+
+                <!-- Geography Tab -->
+                <div class="little-andaman-tab-panel" id="tab-geography">
+                    <h3>🗺️ Geography & Geology</h3>
+                    <p>Little Andaman is the fourth-largest island in the Andaman archipelago, located at the southern end of the Andaman group, separated from Rutland Island by the Duncan Passage. The island is roughly oval-shaped, measuring approximately 30 km north–south and 28 km east–west.</p>
+                    <p>Geologically, the island is part of the accretionary prism formed by the subduction of the Indian Plate beneath the Burma Microplate. The terrain rises from coastal plains to a central ridge reaching ~450 m at its highest point. The coastline alternates between sandy beaches (Butler Bay, RK Bay, Jackson Creek), rocky headlands, and mangrove-lined creeks. Freshwater streams radiate from the central highlands, creating the island's waterfalls and sustaining its rainforests.</p>
+                    <h4>Geographic Facts</h4>
+                    <ul>
+                        <li><strong>Area:</strong> ~730 km² (4th largest in Andamans)</li>
+                        <li><strong>Coordinates:</strong> 10°36′N 92°30′E</li>
+                        <li><strong>Highest point:</strong> ~450 m (central ridge)</li>
+                        <li><strong>Separated from:</strong> Rutland Island by Duncan Passage (~15 km)</li>
+                        <li><strong>Main settlement:</strong> Hut Bay (northeast coast)</li>
+                        <li><strong>Geology:</strong> Accretionary prism — sedimentary & volcanic rocks</li>
+                        <li><strong>Climate:</strong> Tropical monsoon (2000–3000 mm annual rainfall)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section class="little-andaman-section" id="little-andaman-map-section">
+            <div class="little-andaman-container">
+                <div class="little-andaman-section-heading">
+                    <span class="little-andaman-section-badge">Interactive Map</span>
+                    <h2>Key Locations on Little Andaman</h2>
+                    <p>Click a marker to learn about that location.</p>
+                </div>
+                <div class="little-andaman-map-wrap">
+                    <div id="little-andaman-map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="little-andaman-section" id="little-andaman-gallery-section">
+            <div class="little-andaman-container">
+                <div class="little-andaman-section-heading">
+                    <span class="little-andaman-section-badge">Image Gallery</span>
+                    <h2>Glimpses of Little Andaman</h2>
+                    <p>Click an image to view it larger.</p>
+                </div>
+                <div id="little-andaman-gallery-grid" class="little-andaman-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="little-andaman-section">
+            <div class="little-andaman-container">
+                <div class="little-andaman-section-heading">
+                    <span class="little-andaman-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="little-andaman-fact-panel">
+                    <div class="little-andaman-fact-icon">💡</div>
+                    <p id="little-andaman-fact-text">Loading fact...</p>
+                    <div class="little-andaman-fact-dots" id="little-andaman-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="little-andaman-lightbox-overlay" id="little-andaman-lightbox" hidden>
+        <div class="little-andaman-lightbox-content">
+            <button class="little-andaman-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="little-andaman-lightbox-nav prev" id="little-andaman-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="little-andaman-lightbox-image" src="" alt="">
+            <button class="little-andaman-lightbox-nav next" id="little-andaman-lightbox-next" aria-label="Next image">›</button>
+            <p class="little-andaman-lightbox-caption" id="little-andaman-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="index.html">Little Andaman</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="little-andaman.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

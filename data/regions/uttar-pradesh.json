@@ -1,0 +1,50 @@
+{
+  "id": "uttar-pradesh",
+  "state": "Uttar Pradesh",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Taj_Mahal.png",
+  "destinationCount": 2,
+  "destinations": [
+    {
+      "id": "agra",
+      "name": "Agra",
+      "lat": 27.1767,
+      "lng": 78.0081,
+      "categories": [
+        "historical",
+        "heritage"
+      ],
+      "highlights": [
+        "Taj Mahal",
+        "Agra Fort",
+        "Fatehpur Sikri"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 10,
+      "bestSeason": "Oct-Mar",
+      "description": "Home to the Taj Mahal and Mughal-era forts."
+    },
+    {
+      "id": "varanasi",
+      "name": "Varanasi",
+      "lat": 25.3176,
+      "lng": 82.9739,
+      "categories": [
+        "spiritual",
+        "historical"
+      ],
+      "highlights": [
+        "Ganga Aarti",
+        "Kashi Vishwanath",
+        "Boat ride at dawn"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 9,
+      "bestSeason": "Oct-Mar",
+      "description": "One of the world's oldest living cities, on the banks of the Ganges."
+    }
+  ]
+}

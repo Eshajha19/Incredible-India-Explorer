@@ -1,0 +1,390 @@
+/* Tadoba-Andhari National Park Explorer - Issue #819 */
+:root {
+  --ta-accent: var(--saffron, #ff9933);
+  --ta-green: var(--green, #138808);
+  --ta-blue: #4f8cff;
+  --ta-gold: #f6c453;
+  --ta-surface: var(--glass-bg, rgba(255, 255, 255, 0.08));
+  --ta-border: var(--glass-border, rgba(255, 255, 255, 0.14));
+  --ta-text: var(--text-primary, #f8fafc);
+  --ta-muted: var(--text-secondary, #cbd5e1);
+  --ta-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+}
+
+.tadoba-current { color: var(--ta-accent); }
+.tadoba-page { min-height: 100vh; color: var(--ta-text); }
+
+.tadoba-hero {
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(17,24,39,0.96), rgba(83,58,24,0.78)),
+    url("../../assets/heritage_forts.png") center / cover no-repeat;
+}
+
+.tadoba-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255,153,51,0.28), transparent 30%),
+    radial-gradient(circle at 82% 24%, rgba(19,136,8,0.24), transparent 26%),
+    linear-gradient(to top, rgba(8,8,14,0.84), transparent 55%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 92%);
+  padding: 145px 0 76px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-kicker {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.25);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tadoba-hero h1 {
+  margin: 18px 0;
+  font-size: clamp(3rem, 7.2vw, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.tadoba-hero h1 span { display: block; color: var(--ta-accent); }
+
+.tadoba-hero p {
+  max-width: 900px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.88);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.hero-stats {
+  width: min(780px, 100%);
+  margin: 30px auto 26px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hero-stats div {
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  background: rgba(0,0,0,0.28);
+  backdrop-filter: blur(10px);
+}
+
+.hero-stats strong { display: block; color: var(--ta-gold); font-size: 1.45rem; }
+.hero-stats span { font-size: 0.76rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.hero-cta {
+  display: inline-block;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--ta-accent);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.overview-section,
+.facts-section,
+.history-section,
+.wildlife-section,
+.flora-section,
+.map-section,
+.lakes-section,
+.birds-section,
+.facts-story-section,
+.gallery-section,
+.source-section { padding: 78px 0; }
+
+.page-container { width: min(1180px, 92%); margin: 0 auto; }
+.section-heading { max-width: 900px; margin-bottom: 26px; }
+
+.section-heading h2,
+.source-section h2 {
+  margin: 9px 0 10px;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+}
+
+.section-heading p,
+.overview-card p,
+.map-info p,
+.source-section p {
+  margin: 0;
+  color: var(--ta-muted);
+  line-height: 1.7;
+}
+
+.overview-grid,
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.overview-card,
+.fact-card,
+.history-card,
+.wildlife-card,
+.flora-card,
+.map-info,
+.lake-card,
+.bird-card,
+.interesting-card,
+.gallery-card,
+.source-section .page-container,
+.tadoba-map {
+  border: 1px solid var(--ta-border);
+  border-radius: 26px;
+  background: var(--ta-surface);
+  box-shadow: var(--ta-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.overview-card,
+.map-info,
+.source-section .page-container { padding: 24px; }
+
+.overview-card.large { grid-row: span 2; }
+
+.overview-card h3,
+.fact-card h3,
+.history-card h3,
+.wildlife-card h3,
+.flora-card h3,
+.map-info h3,
+.lake-card h3,
+.bird-card h3,
+.interesting-card h3,
+.gallery-card h3 { margin: 0 0 10px; }
+
+.facts-grid,
+.history-grid,
+.wildlife-grid,
+.flora-grid,
+.lakes-grid,
+.birds-grid,
+.interesting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.fact-card,
+.history-card,
+.wildlife-card,
+.flora-card,
+.lake-card,
+.bird-card,
+.interesting-card { padding: 20px; }
+
+.fact-card span,
+.history-card span,
+.wildlife-card span,
+.flora-card span,
+.map-info span,
+.lake-card span,
+.bird-card span,
+.interesting-card span {
+  display: block;
+  color: var(--ta-muted);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fact-card strong,
+.wildlife-card strong,
+.bird-card strong {
+  display: block;
+  margin: 7px 0;
+  color: var(--ta-accent);
+  font-size: 1.35rem;
+}
+
+.fact-card p,
+.history-card p,
+.wildlife-card p,
+.flora-card p,
+.lake-card p,
+.bird-card p,
+.interesting-card p,
+.gallery-card p {
+  margin: 0;
+  color: var(--ta-muted);
+  line-height: 1.55;
+}
+
+.wildlife-emoji { font-size: 2.2rem; margin-bottom: 10px; }
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.filter-btn {
+  border: 1px solid var(--ta-border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--ta-text);
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  border-color: var(--ta-accent);
+  background: rgba(255,153,51,0.16);
+}
+
+.tadoba-map {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 24% 24%, rgba(255,153,51,0.14), transparent 25%),
+    radial-gradient(circle at 72% 70%, rgba(19,136,8,0.22), transparent 28%),
+    linear-gradient(135deg, rgba(17,24,39,0.96), rgba(52,68,33,0.9));
+}
+
+.forest-shape {
+  position: absolute;
+  inset: 10%;
+  clip-path: polygon(19% 22%, 41% 10%, 72% 18%, 88% 43%, 78% 72%, 51% 88%, 23% 75%, 9% 47%);
+  background: linear-gradient(135deg, rgba(19,136,8,0.38), rgba(255,153,51,0.18));
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.lake-shape {
+  position: absolute;
+  left: 46%;
+  top: 47%;
+  width: 100px;
+  height: 70px;
+  border-radius: 48% 52% 60% 40%;
+  background: rgba(79,140,255,0.42);
+  box-shadow: 0 0 26px rgba(79,140,255,0.22);
+}
+
+.river-line {
+  position: absolute;
+  left: 22%;
+  top: 61%;
+  width: 62%;
+  height: 15px;
+  border-radius: 999px;
+  background: rgba(79,140,255,0.28);
+  transform: rotate(16deg);
+}
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--ta-accent), var(--ta-green));
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.28);
+}
+
+.map-pin.active {
+  transform: translate(-50%, -50%) scale(1.13);
+  box-shadow: 0 0 0 6px rgba(255,153,51,0.18), 0 12px 26px rgba(0,0,0,0.28);
+}
+
+.map-info h3,
+.history-card h3,
+.flora-card h3,
+.lake-card h3,
+.interesting-card h3 { color: var(--ta-accent); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gallery-card { overflow: hidden; }
+.gallery-card img { width: 100%; height: 190px; object-fit: cover; }
+.gallery-card div { padding: 16px; }
+
+.tadoba-footer {
+  padding: 40px 20px;
+  border-top: 1px solid var(--ta-border);
+  color: var(--ta-muted);
+  text-align: center;
+}
+
+.tadoba-footer a { color: var(--ta-accent); font-weight: 800; text-decoration: none; }
+
+body.light-theme .overview-card,
+body.light-theme .fact-card,
+body.light-theme .history-card,
+body.light-theme .wildlife-card,
+body.light-theme .flora-card,
+body.light-theme .map-info,
+body.light-theme .lake-card,
+body.light-theme .bird-card,
+body.light-theme .interesting-card,
+body.light-theme .gallery-card,
+body.light-theme .source-section .page-container {
+  background: rgba(255,255,255,0.88);
+}
+
+@media (max-width: 1020px) {
+  .overview-grid,
+  .map-layout { grid-template-columns: 1fr; }
+
+  .facts-grid,
+  .history-grid,
+  .wildlife-grid,
+  .flora-grid,
+  .lakes-grid,
+  .birds-grid,
+  .interesting-grid,
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .overview-card.large { grid-row: auto; }
+}
+
+@media (max-width: 680px) {
+  .hero-stats,
+  .facts-grid,
+  .history-grid,
+  .wildlife-grid,
+  .flora-grid,
+  .lakes-grid,
+  .birds-grid,
+  .interesting-grid,
+  .gallery-grid { grid-template-columns: 1fr; }
+
+  .tadoba-map { min-height: 390px; }
+  .gallery-card img { height: 220px; }
+}

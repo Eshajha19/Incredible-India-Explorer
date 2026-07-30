@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Panna National Park Explorer - Discover the UNESCO Biosphere Reserve, Tiger Conservation, Ken River, and rich wildlife." name="description"/>
+    <meta property="og:title" content="Panna National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Panna National Park, a UNESCO Biosphere Reserve known for tiger conservation and the beautiful Ken River."/>
+    
+    <title>Panna National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../../styles.css" rel="stylesheet"/>
+    <link href="../../pages-common.css" rel="stylesheet"/>
+    <link href="panna-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Panna National Park",
+      "description": "A UNESCO Biosphere Reserve and Tiger Reserve in Madhya Pradesh, India, known for its diverse wildlife, Ken River, and Raneh Falls.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Madhya Pradesh",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine/cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals/festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture/culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities/personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual/spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts/arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="panna-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge tiger"><i class="fa-solid fa-paw"></i> Tiger Reserve</span>
+                    <span class="badge unesco"><i class="fa-solid fa-leaf"></i> UNESCO Biosphere</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Madhya Pradesh</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Panna National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 600px; font-size: 1.1rem; line-height: 1.6;">
+                    Discover the jewel of Madhya Pradesh, renowned for its incredible tiger conservation success, the pristine Ken River, breathtaking waterfalls, and diverse wildlife.
+                </p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Explore Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- History & Conservation -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Heritage</span>
+                    <h2>History & Conservation</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-landmark"></i> Establishment</h3>
+                        <p>Established in 1981, Panna National Park spans across the Panna and Chhatarpur districts. In 1994, it was declared India's 22nd Tiger Reserve under Project Tiger.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-arrow-up-right-dots"></i> Tiger Reintroduction</h3>
+                        <p>After losing all its native tigers to poaching by 2009, Panna executed a globally recognized successful tiger reintroduction programme, bringing tigers from other reserves to revive the population.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-earth-asia"></i> UNESCO Biosphere</h3>
+                        <p>Designated as a Biosphere Reserve by the Ministry of Environment and Forests in 2011, and brought into the UNESCO World Network of Biosphere Reserves in 2020.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ken River & Raneh Falls -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #1976d2; color: white;">Water Ecosystem</span>
+                    <h2>The Lifeline: Ken River & Raneh Falls</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> Ken River</h3>
+                        <p>Originating from the Ahirgawan village, the Ken River flows northward through the park, serving as its primary water source. It supports a rich ecosystem and is home to endangered Gharials and Mugger crocodiles. Boat safaris offer a unique vantage point for bird watching and reptile spotting.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-mountain-sun"></i> Raneh Falls</h3>
+                        <p>Located on the Ken River, Raneh Falls is famous for its mesmerizing canyon formed by purely crystalline granite and dolomite in varying shades of pink, red, and grey. The falls are most spectacular during and just after the monsoon season.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife -->
+        <section id="wildlife" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Fauna</span>
+                    <h2>Incredible Wildlife</h2>
+                    <p class="section-subtitle">Home to a wide variety of mammals, reptiles, and over 200 species of birds.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Panthera_tigris_tigris.jpg/800px-Panthera_tigris_tigris.jpg" alt="Bengal Tiger" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Bengal Tiger</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>The apex predator of Panna, thriving after the successful reintroduction program.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Leopard_in_tree.jpg/800px-Leopard_in_tree.jpg" alt="Indian Leopard" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Leopard</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>Elusive and agile cats that share the dense forest habitats with the tigers.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sloth_Bear_%28Melursus_ursinus%29.jpg/800px-Sloth_Bear_%28Melursus_ursinus%29.jpg" alt="Sloth Bear" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Sloth Bear</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>Frequently seen foraging for termites and fruits in the rocky outcrops.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Indian_wolf_%28Canis_lupus_pallipes%29_by_Sandeep_Thakur.jpg/800px-Indian_wolf_%28Canis_lupus_pallipes%29_by_Sandeep_Thakur.jpg" alt="Indian Wolf" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Wolf</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>Inhabits the buffer zones and grasslands, hunting in small packs.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Gharial_%28Gavialis_gangeticus%29_at_Chambal_River.jpg/800px-Gharial_%28Gavialis_gangeticus%29_at_Chambal_River.jpg" alt="Gharial" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Gharial</h3>
+                            <span class="wildlife-status status-endangered">Critically Endangered</span>
+                            <p>A fish-eating crocodile with a long, thin snout, found in the Ken River.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flora & Fauna & Facts -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="flora-fauna-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--green); color: white;">Flora</span>
+                        <h2>Rich Vegetation</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The terrain consists of extensive plateaus and gorges. The park's vegetation is predominantly dry deciduous forest with vast open grasslands.</p>
+                    <ul>
+                        <li><strong>Teak Forests:</strong> Southern tropical dry deciduous teak dominating the landscape.</li>
+                        <li><strong>Bamboo Thickets:</strong> Dense bamboo clusters providing excellent cover for wildlife.</li>
+                        <li><strong>Grasslands:</strong> Tall grasses offering ideal camouflage for tigers and grazing for herbivores.</li>
+                        <li><strong>Medicinal Plants:</strong> A variety of indigenous herbs used in traditional medicine.</li>
+                        <li><strong>Bird Diversity:</strong> Over 200 species including vultures, eagles, and kingfishers.</li>
+                    </ul>
+                </div>
+                <div class="facts-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge gold-bg">Trivia</span>
+                        <h2>Interesting Facts</h2>
+                    </div>
+                    <div class="facts-list">
+                        <div class="fact-item">
+                            <strong><i class="fa-solid fa-trophy"></i> Success Story</strong><br>
+                            From zero tigers in 2009, Panna has grown to host over 80 tigers today.
+                        </div>
+                        <div class="fact-item">
+                            <strong><i class="fa-solid fa-camera"></i> Canyon Wonders</strong><br>
+                            The granite rocks at Raneh Falls change color from pink to grey depending on sunlight.
+                        </div>
+                        <div class="fact-item">
+                            <strong><i class="fa-solid fa-dove"></i> Vulture Haven</strong><br>
+                            Panna's steep gorges are a crucial nesting ground for several endangered vulture species.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Visual Journey</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Tiger Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Tiger_in_Panna_Tiger_Reserve.jpg/800px-Tiger_in_Panna_Tiger_Reserve.jpg" alt="Tiger in Panna National Park">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Raneh Falls Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Raneh_Falls_in_Monsoon.jpg/800px-Raneh_Falls_in_Monsoon.jpg" alt="Raneh Falls during monsoon">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Ken River Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Ken_River_at_Panna.jpg/800px-Ken_River_at_Panna.jpg" alt="Ken River flowing through Panna">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Safari Image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Panna_Safari.jpg/800px-Panna_Safari.jpg" alt="Tourists on a Jeep Safari">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore safari gates, watch towers, and the Ken River.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Panna National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../../pages-common.js"></script>
+    <script src="panna-national-park.js"></script>
+</body>
+</html>

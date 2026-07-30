@@ -1,0 +1,658 @@
+/* Hemis National Park Explorer Stylesheet */
+
+:root {
+    --hemis-primary: #0284c7;
+    --hemis-primary-glow: rgba(2, 132, 199, 0.25);
+    --hemis-accent: #f59e0b;
+    --hemis-snow: #e0f2fe;
+    --hemis-dark-bg: #0b1329;
+    --hemis-card-bg: rgba(15, 23, 42, 0.75);
+    --hemis-card-border: rgba(56, 189, 248, 0.2);
+    --hemis-text-main: #f1f5f9;
+    --hemis-text-sub: #94a3b8;
+}
+
+body.light-theme {
+    --hemis-dark-bg: #f0f9ff;
+    --hemis-card-bg: rgba(255, 255, 255, 0.9);
+    --hemis-card-border: rgba(2, 132, 199, 0.2);
+    --hemis-text-main: #0f172a;
+    --hemis-text-sub: #475569;
+}
+
+body.hemis-main {
+    background-color: var(--hemis-dark-bg);
+    color: var(--hemis-text-main);
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.section-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Navbar Theme Overrides */
+.navbar {
+    background: rgba(11, 19, 41, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hemis-card-border);
+}
+body.light-theme .navbar {
+    background: rgba(240, 249, 255, 0.9);
+}
+
+/* Hero Section */
+.hemis-hero {
+    position: relative;
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, rgba(2, 132, 199, 0.15) 0%, rgba(11, 19, 41, 0) 100%);
+    text-align: center;
+}
+
+.hero-badges-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.hero-pill {
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: rgba(2, 132, 199, 0.15);
+    border: 1px solid var(--hemis-card-border);
+    color: #38bdf8;
+}
+
+.hemis-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+}
+
+.hemis-hero h1 span {
+    background: linear-gradient(135deg, #38bdf8 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.15rem;
+    color: var(--hemis-text-sub);
+    line-height: 1.7;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--hemis-text-sub);
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #f59e0b;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    margin: 0 0 0.75rem;
+}
+
+.section-header p {
+    color: var(--hemis-text-sub);
+    font-size: 1.05rem;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Snow Leopard Spotlight */
+.snow-leopard-section {
+    padding: 5rem 0;
+}
+
+.leopard-spotlight-card {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    align-items: center;
+}
+
+.leopard-img-wrapper {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 100%;
+    min-height: 320px;
+}
+
+.leopard-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(15, 23, 42, 0.85);
+    padding: 0.35rem 0.85rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #38bdf8;
+    border: 1px solid var(--hemis-card-border);
+}
+
+.adaptations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.adaptation-item {
+    background: rgba(2, 132, 199, 0.08);
+    border-left: 3px solid #38bdf8;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.adaptation-item h4 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    color: #38bdf8;
+}
+
+.adaptation-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--hemis-text-sub);
+    line-height: 1.5;
+}
+
+.tracking-season-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 0.75rem;
+    color: #fde68a;
+    font-size: 0.95rem;
+}
+
+/* Ecosystem & Zones */
+.ecosystem-section {
+    padding: 5rem 0;
+}
+
+.zones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.zone-card {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    transition: transform 0.3s ease;
+}
+
+.zone-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+}
+
+.zone-card h3 {
+    margin: 0 0 0.75rem;
+    color: #38bdf8;
+    font-size: 1.25rem;
+}
+
+.zone-card p {
+    margin: 0;
+    color: var(--hemis-text-sub);
+    line-height: 1.6;
+}
+
+/* Wildlife Grid */
+.wildlife-section {
+    padding: 5rem 0;
+}
+
+.wildlife-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.wildlife-card {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.wildlife-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wildlife-icon {
+    font-size: 2.25rem;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.wildlife-card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.wildlife-card p {
+    margin: 0;
+    color: var(--hemis-text-sub);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Trekking Grid */
+.trekking-section {
+    padding: 5rem 0;
+}
+
+.treks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+}
+
+.trek-card {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+}
+
+.trek-card h3 {
+    margin: 0 0 1rem;
+    color: #38bdf8;
+    font-size: 1.35rem;
+}
+
+.trek-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.meta-pill {
+    background: rgba(2, 132, 199, 0.15);
+    padding: 0.3rem 0.75rem;
+    border-radius: 0.5rem;
+    color: #e0f2fe;
+}
+
+.trek-card p {
+    color: var(--hemis-text-sub);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.highlights-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f59e0b;
+    margin-bottom: 0.5rem;
+}
+
+.highlights-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--hemis-text-sub);
+    font-size: 0.9rem;
+}
+
+.highlights-list li {
+    margin-bottom: 0.35rem;
+}
+
+/* Geography & Climate Box */
+.geography-climate-section {
+    padding: 4rem 0;
+}
+
+.geo-climate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.info-box {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+}
+
+.box-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.info-box h3 {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    color: #38bdf8;
+}
+
+.info-box p {
+    color: var(--hemis-text-sub);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.best-time-pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid #38bdf8;
+    border-radius: 0.75rem;
+    color: #e0f2fe;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Map Section */
+.map-section {
+    padding: 5rem 0;
+}
+
+.map-container-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.hotspots-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hotspot-item-btn {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    padding: 1.25rem;
+    border-radius: 1rem;
+    text-align: left;
+    color: var(--hemis-text-main);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.hotspot-item-btn:hover,
+.hotspot-item-btn.active {
+    border-color: #38bdf8;
+    background: rgba(2, 132, 199, 0.15);
+    transform: translateX(6px);
+}
+
+.hotspot-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.hotspot-category {
+    font-size: 0.8rem;
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.hotspot-detail-card {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-placeholder {
+    color: var(--hemis-text-sub);
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.active-detail-title {
+    font-size: 1.6rem;
+    color: #38bdf8;
+    margin: 0 0 0.5rem;
+}
+
+.active-detail-cat {
+    display: inline-block;
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.active-detail-desc {
+    color: var(--hemis-text-sub);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.active-detail-coords {
+    font-family: monospace;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 5rem 0;
+}
+
+.gallery-filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    color: var(--hemis-text-main);
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #0284c7;
+    border-color: #38bdf8;
+    color: #ffffff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item-card {
+    background: var(--hemis-card-bg);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-card:hover {
+    transform: translateY(-6px);
+}
+
+.gallery-item-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-caption {
+    padding: 1.25rem;
+}
+
+.gallery-caption h4 {
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+}
+
+.gallery-caption p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--hemis-text-sub);
+    line-height: 1.5;
+}
+
+/* Conservation Card */
+.conservation-section {
+    padding: 5rem 0;
+}
+
+.conservation-card {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+}
+
+.initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.initiative-item {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--hemis-card-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.initiative-item h4 {
+    margin: 0 0 0.5rem;
+    color: #38bdf8;
+}
+
+.initiative-item p {
+    margin: 0;
+    color: var(--hemis-text-sub);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+    .leopard-spotlight-card,
+    .geo-climate-grid,
+    .map-container-layout {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,459 @@
+/* ================================================================
+   Islands Explorer Styles
+   ================================================================ */
+
+.islands-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+body.light-theme .islands-page {
+    background-color: var(--bg-light);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ================================================================
+   Hero Section
+   ================================================================ */
+
+.islands-hero {
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #0369a1 100%);
+    z-index: 0;
+}
+
+body.light-theme .hero-bg {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #e0f2fe 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 1;
+}
+
+body.light-theme .hero-overlay {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+body.light-theme .hero-badge {
+    color: #0284c7;
+    background: rgba(2, 132, 199, 0.1);
+    border-color: rgba(2, 132, 199, 0.2);
+}
+
+.hero-container h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--text-light);
+}
+
+body.light-theme .hero-container h1 {
+    color: var(--text-dark);
+}
+
+.hero-container h1 span {
+    color: #38bdf8;
+}
+
+body.light-theme .hero-container h1 span {
+    color: #0284c7;
+}
+
+.hero-container p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+body.light-theme .hero-container p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Tabs Navigation
+   ================================================================ */
+
+.explorer-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tabs-container {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+body.light-theme .tabs-container {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.tab-list {
+    display: flex;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+}
+
+body.light-theme .tab-list {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.light-theme .tab-btn {
+    color: var(--text-secondary);
+}
+
+.tab-btn:hover {
+    color: var(--text-light);
+}
+
+body.light-theme .tab-btn:hover {
+    color: var(--text-dark);
+}
+
+.tab-btn.active {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+}
+
+body.light-theme .tab-btn.active {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.tab-btn:focus {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+}
+
+/* ================================================================
+   Panels
+   ================================================================ */
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.island-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.island-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: #38bdf8;
+    margin-bottom: 1rem;
+}
+
+body.light-theme .island-header h2 {
+    color: #0284c7;
+}
+
+.island-header p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+body.light-theme .island-header p {
+    color: var(--text-secondary);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+body.light-theme .info-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+body.light-theme .info-card:hover {
+    border-color: #7dd3fc;
+}
+
+.info-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+body.light-theme .info-card h3 {
+    color: var(--text-dark);
+}
+
+.info-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+body.light-theme .info-card p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Flexbox Gallery
+   ================================================================ */
+
+.gallery-section h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+body.light-theme .gallery-section h3 {
+    color: var(--text-dark);
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1 1 300px;
+    max-width: 400px;
+    height: 250px;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: #1e293b;
+}
+
+body.light-theme .gallery-item {
+    background: #e2e8f0;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-overlay span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: block;
+}
+
+/* Modal Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.lightbox-caption {
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ================================================================
+   Animations
+   ================================================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+
+@media (max-width: 768px) {
+    .hero-container h1 {
+        font-size: 2.5rem;
+    }
+    
+    .tab-list {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .tab-btn {
+        width: 100%;
+    }
+    
+    .island-header h2 {
+        font-size: 2rem;
+    }
+}

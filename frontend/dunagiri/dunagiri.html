@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Dunagiri, a majestic 7,066 m peak in the Garhwal Himalayas of Uttarakhand. Discover facts, trekking info, map locations, image gallery, and FAQs.">
+    <title>Dunagiri Mountain Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="dunagiri.css">
+
+    <meta property="og:title" content="Dunagiri Mountain Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Explore Dunagiri, a majestic 7,066 m peak in the Garhwal Himalayas of Uttarakhand.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Dunagiri_from_Kuari_Pass.jpg/960px-Dunagiri_from_Kuari_Pass.jpg">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/dunagiri/dunagiri.html">
+    <meta property="og:type" content="website">
+</head>
+
+<body class="dunagiri-body-wrapper">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../travel/travel.html" class="nav-link" id="link-travel">Travel</a>
+                <a href="dunagiri.html" class="nav-link active" style="color: var(--saffron)">Dunagiri</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dunagiri-page" id="app-root">
+        <section class="dunagiri-hero" id="hero">
+            <div class="dunagiri-hero-overlay"></div>
+            <a href="../../index.html#home" class="dunagiri-hero-back anim-fade-down" aria-label="Back to Home">
+                <span class="back-arrow">&larr;</span> Back to Home
+            </a>
+            <div class="dunagiri-hero-content">
+                <span class="dunagiri-hero-kicker anim-fade-up" style="animation-delay:0.1s">🏔️ Garhwal Himalayas, Uttarakhand</span>
+                <h1 class="anim-fade-up" style="animation-delay:0.2s">Dunagiri <span>Explorer</span></h1>
+                <p class="anim-fade-up" style="animation-delay:0.35s">Standing at 7,066 meters in the Garhwal Himalayas of Uttarakhand, Dunagiri is one of the most sacred and imposing peaks of the Kumaon region. Revered locally as the abode of Goddess Duna, this mountain guards the ancient trail to the sacred Nanda Devi sanctuary and has drawn adventurers and pilgrims for centuries.</p>
+
+                <div class="dunagiri-hero-stats anim-fade-up" style="animation-delay:0.5s">
+                    <div class="dunagiri-stat-box">
+                        <strong>7,066 m</strong>
+                        <span>Peak Elevation</span>
+                    </div>
+                    <div class="dunagiri-stat-box">
+                        <strong>Uttarakhand</strong>
+                        <span>Indian State</span>
+                    </div>
+                    <div class="dunagiri-stat-box">
+                        <strong>Garhwal</strong>
+                        <span>Mountain Range</span>
+                    </div>
+                    <div class="dunagiri-stat-box">
+                        <strong>1958</strong>
+                        <span>First Ascent</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dunagiri-section" id="dunagiri-overview">
+            <div class="dunagiri-container">
+                <div class="dunagiri-section-heading reveal">
+                    <span class="dunagiri-section-badge">Peak Profile</span>
+                    <h2>Geography, Glaciers &amp; History</h2>
+                </div>
+
+                <div class="dunagiri-overview-grid">
+                    <div class="dunagiri-overview-text reveal reveal-left">
+                        <h3>The Guardian of the Inner Sanctuary</h3>
+                        <p>Dunagiri, rising to 7,066 meters, is a prominent peak in the Garhwal Himalayas of Uttarakhand, located in the Chamoli district. It stands as one of the sentinels guarding the approach to the legendary Nanda Devi Inner Sanctuary, a natural amphitheater once considered unclimbable.</p>
+                        <p>The name "Dunagiri" derives from "Drona" (a sage in Hindu mythology) and "giri" (mountain), linking it to the ancient epic Mahabharata. Locals revere the peak as the abode of Goddess Duna, a form of Parvati, and consider it sacred. The mountain holds deep spiritual significance for the people of Chamoli, who perform rituals before any expedition.</p>
+                        <p>The first successful ascent was achieved on August 5, 1958, by an Indo-Japanese expedition team led by Hukam Singh. The route from the north face was particularly challenging, involving steep ice walls and technical rock climbing at extreme altitude. Dunagiri remains one of the less frequently climbed 7,000-meter peaks, preserving its remote and pristine character.</p>
+                    </div>
+                    <div class="dunagiri-overview-spec-card reveal reveal-right">
+                        <h3>Technical Specifications</h3>
+                        <ul class="spec-list">
+                            <li><strong>Elevation:</strong> 7,066 m (23,182 ft)</li>
+                            <li><strong>Prominence:</strong> 1,346 m (4,416 ft)</li>
+                            <li><strong>Coordinates:</strong> 30.8737°N 79.3832°E</li>
+                            <li><strong>Climbing Difficulty:</strong> Grade IV (Difficult)</li>
+                            <li><strong>First Ascent:</strong> August 5, 1958</li>
+                            <li><strong>Team:</strong> Indo-Japanese Expedition</li>
+                            <li><strong>Prominence Rank:</strong> ~163rd worldwide</li>
+                            <li><strong>District:</strong> Chamoli, Uttarakhand</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dunagiri-section" id="dunagiri-trekking">
+            <div class="dunagiri-container">
+                <div class="dunagiri-section-heading reveal">
+                    <span class="dunagiri-section-badge">Adventure</span>
+                    <h2>Trekking Guide</h2>
+                    <p>Explore the legendary trails that wind through the sacred valleys and alpine meadows at the foot of Dunagiri.</p>
+                </div>
+
+                <div class="dunagiri-trekking-grid">
+                    <div class="dunagiri-trek-card reveal" style="transition-delay:0s">
+                        <div class="dunagiri-trek-icon">🗺️</div>
+                        <h3>Dunagiri Base Camp Trek</h3>
+                        <p>The classic trek starting from Wan village through dense forests of oak and rhododendron, crossing alpine meadows with panoramic views of Dunagiri and the Nanda Devi massif. The trail passes through Lata and Jhinjhi villages.</p>
+                        <div class="dunagiri-trek-details">
+                            <span class="trek-detail">📏 8-10 Days</span>
+                            <span class="trek-detail">⬆️ 4,200 m</span>
+                            <span class="trek-detail">⚡ Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="dunagiri-trek-card reveal" style="transition-delay:0.1s">
+                        <div class="dunagiri-trek-icon">🌲</div>
+                        <h3>Dunagiri Kund Trek</h3>
+                        <p>A serene trek to the sacred Dunagiri Kund (lake) at the base of the mountain, considered holy by local communities. The trail winds through alpine pastures with stunning views of the north face and surrounding peaks.</p>
+                        <div class="dunagiri-trek-details">
+                            <span class="trek-detail">📏 6-7 Days</span>
+                            <span class="trek-detail">⬆️ 3,800 m</span>
+                            <span class="trek-detail">⚡ Easy-Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="dunagiri-trek-card reveal" style="transition-delay:0.2s">
+                        <div class="dunagiri-trek-icon">🦅</div>
+                        <h3>Rataban Peak Trek</h3>
+                        <p>A challenging trek to Rataban Peak (6,126 m) offering close-up views of Dunagiri, Nanda Devi, and the Dronagiri range. The trail passes through the upper Rishi Ganga valley and high-altitude camps.</p>
+                        <div class="dunagiri-trek-details">
+                            <span class="trek-detail">📏 7-9 Days</span>
+                            <span class="trek-detail">⬆️ 4,100 m</span>
+                            <span class="trek-detail">⚡ Moderate</span>
+                        </div>
+                    </div>
+
+                    <div class="dunagiri-trek-card reveal" style="transition-delay:0.3s">
+                        <div class="dunagiri-trek-icon">🌸</div>
+                        <h3>Best Season &amp; Permits</h3>
+                        <p>Best seasons: May-June (pre-monsoon wildflowers) and September-October (clear post-monsoon skies). Permits required from the Forest Department for trekking in the Nanda Devi Biosphere Reserve area.</p>
+                        <div class="dunagiri-trek-details">
+                            <span class="trek-detail">🗓️ May-Jun &amp; Sep-Oct</span>
+                            <span class="trek-detail">📋 Permit Required</span>
+                            <span class="trek-detail">👥 Guide Recommended</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dunagiri-section" id="dunagiri-facts-section">
+            <div class="dunagiri-container">
+                <div class="dunagiri-section-heading reveal">
+                    <span class="dunagiri-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="dunagiri-fact-panel reveal">
+                    <div class="dunagiri-fact-icon">💡</div>
+                    <div class="dunagiri-fact-nav">
+                        <button class="dunagiri-fact-nav-btn" id="dunagiri-fact-prev" aria-label="Previous fact">‹</button>
+                        <span class="dunagiri-fact-counter" id="dunagiri-fact-counter">1 / 7</span>
+                        <button class="dunagiri-fact-nav-btn" id="dunagiri-fact-next" aria-label="Next fact">›</button>
+                    </div>
+                    <p id="dunagiri-fact-text" aria-live="polite">Loading fact...</p>
+                    <div class="dunagiri-fact-dots" id="dunagiri-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dunagiri-section" id="dunagiri-map-section">
+            <div class="dunagiri-container">
+                <div class="dunagiri-section-heading reveal">
+                    <span class="dunagiri-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Dunagiri</h2>
+                    <p>Click on any marker to learn about that geographic landmark.</p>
+                </div>
+                <div class="dunagiri-map-wrap reveal">
+                    <div id="dunagiri-map" aria-label="Interactive Leaflet Map showing Dunagiri and surrounding landmarks"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dunagiri-section" id="dunagiri-gallery-section">
+            <div class="dunagiri-container">
+                <div class="dunagiri-section-heading reveal">
+                    <span class="dunagiri-section-badge">Image Gallery</span>
+                    <h2>Views of Dunagiri &amp; Uttarakhand</h2>
+                    <p>Explore the majestic beauty of the mountain and its surroundings. Click an image to view it larger.</p>
+                </div>
+                <div id="dunagiri-gallery-grid" class="dunagiri-gallery-grid"></div>
+            </div>
+        </section>
+
+        <section class="dunagiri-section" id="dunagiri-faq-section">
+            <div class="dunagiri-container">
+                <div class="dunagiri-section-heading reveal">
+                    <span class="dunagiri-section-badge">FAQ</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="dunagiri-faq-container" id="dunagiri-faq-accordion">
+                </div>
+            </div>
+        </section>
+
+        <section class="dunagiri-bottom-nav">
+            <a href="../../index.html#home" class="dunagiri-bottom-home-btn">
+                <span class="back-arrow">&larr;</span> Back to Home
+            </a>
+        </section>
+    </main>
+
+    <div class="dunagiri-lightbox-overlay" id="dunagiri-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+        <div class="dunagiri-lightbox-content">
+            <button class="dunagiri-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="dunagiri-lightbox-nav prev" id="dunagiri-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="dunagiri-lightbox-image" src="" alt="">
+            <button class="dunagiri-lightbox-nav next" id="dunagiri-lightbox-next" aria-label="Next image">›</button>
+            <p class="dunagiri-lightbox-caption" id="dunagiri-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Highlighting and documenting India's magnificent geography, mountains, and cultural heritage.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Mountain Explorers</h4>
+                <a href="../kanchenjunga/kanchenjunga.html">Kanchenjunga</a>
+                <a href="../nanda-devi/nanda-devi.html">Nanda Devi</a>
+                <a href="../rimo-i/rimo-i.html">Rimo I</a>
+                <a href="../satopanth/satopanth.html">Satopanth</a>
+                <a href="../shivling/shivling.html">Shivling</a>
+            </div>
+            <div class="footer-links">
+                <h4>Experiences</h4>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
+                <a href="../mountains/index.html">Mountains of India</a>
+                <a href="../highest-point-challenge/index.html">Highest Point Challenge</a>
+                <a href="../mountain-expedition/index.html">Mountain Expedition Game</a>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
+                <a href="../heritage/heritage.html">Heritage Sites</a>
+                <a href="../coastal-india/coastal-india.html">Coastal India</a>
+                <a href="../crowd-density/index.html">Crowd Density</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Celebrating India's natural wonders.</p>
+        </div>
+    </footer>
+
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script type="module" src="dunagiri.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

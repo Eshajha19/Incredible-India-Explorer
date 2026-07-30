@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tadoba-Andhari National Park Explorer | Incredible India Explorer</title>
+  <meta name="description" content="Explore Tadoba-Andhari National Park with history, geography, tiger reserve, flora and fauna, lakes, safari zones, birds, interactive map, gallery, and facts.">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../travel.html" class="nav-link">Travel</a>
+        <a href="../../learn.html" class="nav-link">Learn</a>
+        <a href="index.html" class="nav-link tadoba-current">Tadoba-Andhari</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="tadoba-page">
+    <section class="tadoba-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Maharashtra · Tiger Reserve · Lakes & Safari Zones</span>
+        <h1>Tadoba-Andhari National Park <span>Explorer</span></h1>
+        <p>
+          Explore Maharashtra's iconic tiger reserve through history, geography,
+          tiger habitat, flora and fauna, lakes, safari zones, bird species, map points, gallery, and interesting facts.
+        </p>
+        <div class="hero-stats">
+          <div><strong>🐅 Tiger</strong><span>Reserve focus</span></div>
+          <div><strong>Lake</strong><span>Water ecosystem</span></div>
+          <div><strong>Safari</strong><span>Zone explorer</span></div>
+        </div>
+        <a href="#overview" class="hero-cta">Start exploring ↓</a>
+      </div>
+    </section>
+
+    <section class="overview-section" id="overview">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Park overview</span>
+          <h2>Maharashtra's iconic tiger reserve landscape</h2>
+          <p>
+            Tadoba-Andhari National Park combines dry deciduous forest, lakes,
+            river belts, bamboo, meadows, safari zones, birds, reptiles, herbivores,
+            and predators into one of central India's most exciting wildlife classrooms.
+          </p>
+        </div>
+
+        <div class="overview-grid">
+          <article class="overview-card large">
+            <h3>Tiger reserve</h3>
+            <p>
+              The park is known for tiger sightings and tiger conservation.
+              Its habitats support prey animals, water-dependent wildlife,
+              forest birds, and predators across core and buffer landscapes.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>Geography</h3>
+            <p>
+              Forests, lakes, the Andhari landscape, dry-season water sources,
+              and safari gates create a diverse visitor and wildlife map.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>History</h3>
+            <p>
+              The reserve's identity is tied to Maharashtra's early protected-area
+              story and its evolution into a major tiger reserve destination.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Quick facts</span>
+          <h2>Tadoba-Andhari at a glance</h2>
+        </div>
+        <div class="facts-grid" id="facts-grid"></div>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">History</span>
+          <h2>From protected forest to tiger reserve identity</h2>
+        </div>
+        <div class="history-grid" id="history-grid"></div>
+      </div>
+    </section>
+
+    <section class="wildlife-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Flora and fauna</span>
+          <h2>Predators, prey, birds and forest plants</h2>
+          <p>Filter wildlife cards and explore forest-type cards to understand the biodiversity web.</p>
+        </div>
+        <div class="filter-row" role="group" aria-label="Wildlife filters">
+          <button class="filter-btn active" data-filter="All" type="button">All</button>
+          <button class="filter-btn" data-filter="Tiger Reserve" type="button">Tiger</button>
+          <button class="filter-btn" data-filter="Predator" type="button">Predators</button>
+          <button class="filter-btn" data-filter="Herbivore" type="button">Herbivores</button>
+          <button class="filter-btn" data-filter="Bird" type="button">Birds</button>
+          <button class="filter-btn" data-filter="Reptile" type="button">Reptiles</button>
+        </div>
+        <div class="wildlife-grid" id="wildlife-grid"></div>
+      </div>
+    </section>
+
+    <section class="flora-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Flora</span>
+          <h2>Forest types and plant communities</h2>
+        </div>
+        <div class="flora-grid" id="flora-grid"></div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Interactive map</span>
+          <h2>Safari zones, lakes and forest belts</h2>
+          <p>Tap each point to learn about safari zones, water ecosystems, buffer landscapes, and the Andhari river belt.</p>
+        </div>
+        <div class="map-layout">
+          <div class="tadoba-map" id="tadoba-map" aria-label="Interactive Tadoba-Andhari map">
+            <div class="forest-shape"></div>
+            <div class="lake-shape"></div>
+            <div class="river-line"></div>
+            <div id="map-pins"></div>
+          </div>
+          <aside class="map-info" id="map-info">
+            <span>Selected point</span>
+            <h3>Tap a map pin</h3>
+            <p>Map points explain safari gates, lake ecology, tiger habitat, and forest belts.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="lakes-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Lakes</span>
+          <h2>Water makes the forest come alive</h2>
+        </div>
+        <div class="lakes-grid" id="lakes-grid"></div>
+      </div>
+    </section>
+
+    <section class="birds-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Bird species</span>
+          <h2>Birdlife around forest and water</h2>
+        </div>
+        <div class="birds-grid" id="birds-grid"></div>
+      </div>
+    </section>
+
+    <section class="facts-story-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Interesting facts</span>
+          <h2>Why Tadoba-Andhari matters</h2>
+        </div>
+        <div class="interesting-grid" id="interesting-grid"></div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Image gallery</span>
+          <h2>Visual story of Tadoba-Andhari</h2>
+          <p>Existing project assets are used as visual placeholders for tiger reserve forest, lakes, safari tracks, bamboo, and woodland.</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <section class="source-section">
+      <div class="page-container">
+        <h2>Source notes</h2>
+        <p>
+          This page is an educational explorer built from the issue requirements:
+          History, Geography, Tiger Reserve, Flora & Fauna, Lakes, Safari Zones,
+          Bird Species, Interactive Map, Image Gallery, Interesting Facts, and
+          Landing Page Integration. Safari content is awareness guidance, not official booking or route advice.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="tadoba-footer">
+    <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Dedicated national park explorer for Tadoba-Andhari.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../../app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

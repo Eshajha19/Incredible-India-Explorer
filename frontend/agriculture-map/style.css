@@ -1,0 +1,304 @@
+/* 
+   Agricultural Map of India Explorer Styles
+   Imports global variables from ../../css/global.css implicitly
+*/
+
+/* --- Base & Header --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
+    background-color: var(--bg-light, #fdfbf7);
+    color: var(--text-main, #333);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: var(--bg-dark, #121212);
+    color: var(--text-light, #f0f0f0);
+}
+
+.agri-header {
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(180deg, rgba(165, 214, 167, 0.2) 0%, transparent 100%);
+}
+
+body.dark-theme .agri-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, rgba(165, 214, 167, 0.05) 0%, transparent 100%);
+}
+
+.back-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.header-content h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    color: #2e7d32;
+}
+body.dark-theme .header-content h1 { color: #81c784; }
+
+.header-content p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+body.dark-theme .header-content p {
+    color: #ccc;
+}
+
+.theme-toggle {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: #555;
+}
+
+body.dark-theme .theme-toggle {
+    background-color: #f0f0f0;
+    color: #121212;
+}
+body.dark-theme .theme-toggle:hover {
+    background-color: #ccc;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+body.dark-theme .section-subtitle { color: #aaa; }
+
+/* --- Map Section --- */
+.map-section {
+    padding: 4rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.map-container {
+    position: relative; /* important for tooltip positioning */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* SVG Abstract Map */
+.agri-map {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+body.dark-theme .agri-map {
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+}
+
+.map-region {
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    transform-origin: center;
+    outline: none;
+}
+
+.map-region:hover, .map-region:focus {
+    opacity: 0.8;
+}
+
+.map-region.active {
+    opacity: 1;
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* Dim other regions when one is active */
+.agri-map.has-active .map-region:not(.active) {
+    opacity: 0.5;
+    filter: grayscale(0.5);
+}
+
+.region-text {
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: bold;
+    fill: #222;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+/* --- Tooltip Popover --- */
+.custom-tooltip {
+    position: absolute;
+    background-color: #fff;
+    color: #333;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 300px;
+    z-index: 100;
+    pointer-events: none; /* so it doesn't block hover on map */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) translateX(-50%); /* Base transform */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    border-top: 4px solid #4caf50;
+    
+    /* Default position center-bottom relative to container if we don't do mouse tracking */
+    left: 50%;
+    bottom: -20px; 
+}
+
+/* Tooltip active state */
+.custom-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) translateX(-50%);
+    pointer-events: auto; /* allow clicking inside tooltip if needed */
+}
+
+body.dark-theme .custom-tooltip {
+    background-color: #2a2a2a;
+    color: #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.custom-tooltip h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: #2e7d32;
+    font-size: 1.4rem;
+}
+body.dark-theme .custom-tooltip h3 { color: #81c784; }
+
+.custom-tooltip p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.custom-tooltip strong {
+    color: #111;
+}
+body.dark-theme .custom-tooltip strong { color: #fff; }
+
+.custom-tooltip .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Hide close button on desktop hover interactions, show for mobile clicks */
+@media (min-width: 768px) {
+    .custom-tooltip .close-btn {
+        display: none;
+    }
+}
+
+.legend {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 1rem;
+}
+body.dark-theme .legend { color: #999; }
+
+/* --- Festivals Section --- */
+.festivals-section {
+    background-color: rgba(0,0,0,0.03);
+    padding: 4rem 1rem;
+}
+body.dark-theme .festivals-section {
+    background-color: rgba(255,255,255,0.03);
+}
+
+.festivals-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .festivals-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.festival-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-left: 4px solid #ffb300;
+}
+body.dark-theme .festival-card {
+    background-color: #252525;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.festival-card h3 { 
+    margin-top: 0; 
+    margin-bottom: 0.5rem;
+    color: #e65100;
+}
+body.dark-theme .festival-card h3 { color: #ffb300; }
+
+.festival-meta {
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+body.dark-theme .festival-meta { color: #aaa; }
+
+.festival-card p:not(.festival-meta) {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0;
+}
+body.dark-theme .festival-card p:not(.festival-meta) { color: #ccc; }
+
+/* --- Footer --- */
+.agri-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+body.dark-theme .agri-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+}

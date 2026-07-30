@@ -1,0 +1,229 @@
+/* gorumara-national-park.css */
+
+.gorumara-hero {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Gorumara_National_Park.jpg/1200px-Gorumara_National_Park.jpg') center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5%;
+    position: relative;
+}
+
+.hero-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge.rhino { background: #795548; color: #fff; }
+.badge.biodiversity { background: var(--green); color: #fff; }
+.badge.location { background: rgba(255, 255, 255, 0.2); color: #fff; border: 1px solid rgba(255, 255, 255, 0.4); }
+
+.hero-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--saffron);
+    color: var(--saffron);
+}
+
+.btn-secondary:hover {
+    background: var(--saffron);
+    color: #000;
+}
+
+.content-section {
+    padding: 60px 0;
+}
+
+/* Info Grids */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.info-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.info-card h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Wildlife Cards */
+.wildlife-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.wildlife-card {
+    background: var(--glass-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s;
+}
+
+.wildlife-card:hover {
+    transform: scale(1.03);
+}
+
+.wildlife-img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    background: #333;
+}
+
+.wildlife-info {
+    padding: 15px;
+}
+
+.wildlife-name {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.wildlife-status {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.status-endangered { background: #d32f2f; color: white; }
+.status-vulnerable { background: #f57c00; color: white; }
+.status-least-concern { background: #388e3c; color: white; }
+.status-near-threatened { background: #fbc02d; color: black; }
+
+/* Lists */
+.safari-section ul, .towers-section ul {
+    list-style: none;
+    padding: 0;
+}
+.safari-section li, .towers-section li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+.safari-section li::before {
+    content: "🚙";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.towers-section li::before {
+    content: "🔭";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Map Container */
+#map-container {
+    height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 30px;
+    border: 2px solid var(--glass-border);
+    z-index: 1;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    height: 200px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Lightbox overlay */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}

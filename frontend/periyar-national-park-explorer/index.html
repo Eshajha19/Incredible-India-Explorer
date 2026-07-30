@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Periyar National Park in Kerala — centered on Periyar Lake in Cardamom Hills. Discover Asian Elephants, KTDC Boat Safaris, spice forests, and rich biodiversity."
+        />
+        <title>Periyar National Park Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="periyar.css" />
+    </head>
+
+    <body class="periyar-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="../wildlife/wildlife.html" class="nav-link">Wildlife</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Periyar Explorer</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="periyar-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-kerala">📍 Thekkady, Kerala</span>
+                        <span class="hero-pill pill-lake">🌊 26 km² Periyar Lake</span>
+                        <span class="hero-pill pill-elephant">🐘 Project Elephant Reserve</span>
+                    </div>
+                    <h1>Periyar <span>National Park</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Step into Kerala's premier wildlife sanctuary high in the Cardamom Hills — home to wild Asian Elephant herds, 
+                        scenic boat safaris across Periyar Lake, dense evergreen spice forests, and thriving biodiversity.
+                    </p>
+
+                    <!-- Quick Stats Grid -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by periyar.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Periyar Lake & Boat Safari Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Aquatic Lifeline</span>
+                        <h2>Periyar Lake & Boat Safaris</h2>
+                        <p class="section-subtitle">
+                            Formed by the Mullaperiyar Dam in 1895, the 26 km² artificial lake offers India's unique boat safari experience for wildlife observation.
+                        </p>
+                    </div>
+
+                    <div class="glass-card" style="margin-bottom: 2rem;">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--periyar-gold); margin-bottom: 0.8rem;">
+                            The Aquatic Wildlife Haven
+                        </h3>
+                        <p style="color: var(--periyar-text-muted-dark); line-height: 1.7; margin-bottom: 1.2rem;">
+                            Periyar Lake winds through dense forest hills, creating scenic submerged tree snags where cormorants, darters, and fish eagles roost. During dry seasons, herds of wild elephants, gaurs, sambar deer, and wild boars assemble along the lake banks to drink and bathe.
+                        </p>
+
+                        <div style="font-size: 0.9rem; padding: 1rem; border-radius: 10px; background: rgba(2, 132, 199, 0.12); border-left: 4px solid var(--periyar-blue); color: var(--periyar-text-primary-dark);">
+                            🚢 <strong>KTDC Boat Safaris:</strong> Scheduled cruises depart daily from Kumily boat jetty with mandatory safety gear.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Elephants & Biodiversity Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Rich Biodiversity</span>
+                        <h2>Fauna & Wildlife Protection</h2>
+                        <p class="section-subtitle">
+                            Periyar safeguards over 1,000 Asian Elephants, 40+ Bengal Tigers, rare endemic primates, and 320+ species of birds.
+                        </p>
+                    </div>
+
+                    <div id="fauna-grid" class="ecosystem-grid">
+                        <!-- Populated by periyar.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Spice Forests Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Aromatic Canopy</span>
+                        <h2>Cardamom Hills & Spice Forests</h2>
+                        <p class="section-subtitle">
+                            Thekkady is India's spice capital — producing cardamom, black pepper, cinnamon, nutmeg, and organic tea estates.
+                        </p>
+                    </div>
+
+                    <div class="ecosystem-grid">
+                        <div class="glass-card">
+                            <h3 style="font-size: 1.2rem; color: var(--periyar-gold); margin-bottom: 0.5rem;">🌱 Green Cardamom</h3>
+                            <p style="color: var(--periyar-text-muted-dark); font-size: 0.9rem; line-height: 1.55;">
+                                Thrives under shady evergreen forest canopy, yielding aromatic green pods celebrated globally.
+                            </p>
+                        </div>
+                        <div class="glass-card">
+                            <h3 style="font-size: 1.2rem; color: var(--periyar-gold); margin-bottom: 0.5rem;">🖤 Malabar Black Pepper</h3>
+                            <p style="color: var(--periyar-text-muted-dark); font-size: 0.9rem; line-height: 1.55;">
+                                Known as "Black Gold", harvested from climbing vines entwined around native forest trees.
+                            </p>
+                        </div>
+                        <div class="glass-card">
+                            <h3 style="font-size: 1.2rem; color: var(--periyar-gold); margin-bottom: 0.5rem;">☕ Tea & Coffee Estates</h3>
+                            <p style="color: var(--periyar-text-muted-dark); font-size: 0.9rem; line-height: 1.55;">
+                                Rolling tea gardens around Kumily and Vandiperiyar offering scenic plantation walks and tasting tours.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safari Information Guide -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Eco-Tourism Programs</span>
+                        <h2>Safari Options & Experiences</h2>
+                        <p class="section-subtitle">
+                            Select an eco-tourism program to view details, timings, and highlights.
+                        </p>
+                    </div>
+
+                    <div class="safari-wrapper">
+                        <div id="zone-selector" class="zone-list-selector">
+                            <!-- Populated by periyar.js -->
+                        </div>
+                        <div id="zone-details" class="zone-details-panel glass-card">
+                            <!-- Populated by periyar.js -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Park Map Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Geography & Hotspots</span>
+                        <h2>Interactive Map of Periyar Reserve</h2>
+                        <p class="section-subtitle">
+                            Click on map pins to discover Thekkady Gate, Boat Jetty, Bamboo Rafting Zone, and Elephant Banks.
+                        </p>
+                    </div>
+
+                    <div class="map-card-wrapper glass-card">
+                        <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="1000" height="600" fill="#04140c" />
+                            <path d="M60,100 Q480,30 940,150 L940,540 L60,540 Z" fill="#0c2b1d" stroke="rgba(16,185,129,0.3)" stroke-width="2"/>
+                            <!-- Periyar Lake Channel -->
+                            <path d="M120,380 Q320,220 540,280 T920,240" fill="none" stroke="#0284c7" stroke-width="22" opacity="0.75"/>
+                            <text x="340" y="230" fill="#38bdf8" font-size="16" font-weight="bold" font-family="Outfit">Periyar Artificial Lake (26 km²)</text>
+                        </svg>
+
+                        <!-- Map Hotspots Layer -->
+                        <div id="map-hotspots-layer">
+                            <!-- Populated by periyar.js -->
+                        </div>
+
+                        <!-- Info Popup -->
+                        <div id="map-info-popup" class="map-info-popup hidden">
+                            <!-- Populated by periyar.js -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="ecosystem-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Exploration</span>
+                        <h2>Periyar Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Click any photo to view full-screen image with caption details.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid">
+                        <!-- Populated by periyar.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+                <div id="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>An interactive digital guide to the wildlife, ecosystems, and culture of India.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../national-parks-explorer/index.html">National Parks Explorer</a></li>
+                        <li><a href="../wildlife/wildlife.html">Wildlife</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Periyar National Park Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="periyar-data.js" defer></script>
+        <script src="periyar.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

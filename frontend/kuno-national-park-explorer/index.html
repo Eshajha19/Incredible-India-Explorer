@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Kuno National Park in Madhya Pradesh — globally recognized for the historic African Cheetah reintroduction project." />
+  <title>Kuno National Park Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="kuno.css" />
+  <meta property="og:title" content="Kuno National Park Explorer | Incredible India" />
+  <meta property="og:description" content="Interactive guide to Kuno National Park, MP — the historic site of Project Cheetah and a thriving dry deciduous ecosystem." />
+  <meta property="og:type" content="website" />
+</head>
+<body class="kuno-main">
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+        <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+        <a href="index.html" class="nav-link active" style="color: var(--saffron)">Kuno Explorer</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="kuno-hero">
+      <div class="section-container">
+        <h1>Kuno <span>National Park</span> Explorer</h1>
+        <p class="hero-subtitle">
+          Witness history in the making. Kuno is globally recognized as the site of Project Cheetah,
+          the world's first intercontinental translocation of large carnivores, restoring a species extinct in India since 1952.
+        </p>
+        <div id="stats-grid" class="stats-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Heritage</span>
+        <h2>History & Evolution</h2>
+        <p class="section-subtitle">From a protected sanctuary to a globally significant conservation landscape.</p>
+      </div>
+      <div id="history-timeline" class="timeline-container"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Global Milestone</span>
+        <h2>Project Cheetah</h2>
+        <p class="section-subtitle">The ambitious and historic effort to reintroduce the cheetah to Indian soil.</p>
+      </div>
+      <div id="conservation-box" class="glass-card conservation-box"></div>
+    </section>
+
+    <section class="section-container" style="background: rgba(217, 119, 6, 0.05); border-radius: 24px;">
+      <div class="section-header">
+        <span class="section-badge">Biodiversity</span>
+        <h2>Wildlife of Kuno</h2>
+        <p class="section-subtitle">Beyond the cheetah, the park supports a rich array of dry deciduous fauna.</p>
+      </div>
+      <div id="wildlife-grid" class="wildlife-grid"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Ecosystem</span>
+        <h2>Habitat & Landscape</h2>
+        <p class="section-subtitle">Diverse terrain ranging from dense forests to open grasslands and deep ravines.</p>
+      </div>
+      <div id="habitat-grid" class="habitat-grid"></div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Geography</span>
+        <h2>Interactive Map</h2>
+        <p class="section-subtitle">Click on the map pins to explore key zones of the park.</p>
+      </div>
+      <div class="glass-card" style="padding: 1.5rem;">
+        <div class="map-svg-container">
+          <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style="width:100%; display:block;">
+            <rect width="1000" height="600" fill="var(--kuno-bg)" />
+            <path d="M150,150 Q500,50 850,150 L800,500 L200,500 Z" fill="rgba(217, 119, 6, 0.1)" stroke="var(--kuno-accent)" stroke-width="2" />
+            <path d="M200,400 Q500,350 800,400" fill="none" stroke="#f59e0b" stroke-width="15" opacity="0.5" />
+            <text x="400" y="380" fill="#f59e0b" font-size="16" font-family="Outfit">Kuno River</text>
+          </svg>
+          <div id="map-hotspots-layer"></div>
+          <div id="map-info-popup" class="map-info-popup hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Visuals</span>
+        <h2>Photo Gallery</h2>
+        <p class="section-subtitle">Glimpses of the cheetahs, tigers, and the savanna-like landscape of Kuno.</p>
+      </div>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </section>
+  </main>
+
+  <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <div class="lightbox-content">
+      <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top: 4rem; border-top: 1px solid var(--kuno-border); padding: 3rem 1.5rem; text-align: center; color: var(--kuno-muted);">
+    <p>&copy; 2026 Incredible India Explorer. Kuno National Park Explorer.</p>
+  </footer>
+
+  <script src="../../app.js" defer></script>
+  <script src="kuno-data.js" defer></script>
+  <script src="kuno.js" defer></script>
+  <script type="module" src="../../auth.js"></script>
+</body>
+</html>

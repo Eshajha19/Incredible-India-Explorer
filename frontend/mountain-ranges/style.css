@@ -1,0 +1,414 @@
+/* ================================================================
+   Mountain Ranges Explorer Styles
+   ================================================================ */
+
+.mountains-page {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+body.light-theme .mountains-page {
+    background-color: var(--bg-light);
+}
+
+/* ================================================================
+   Hero Section
+   ================================================================ */
+
+.mountains-hero {
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    text-align: center;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use a nice gradient for the mountain hero if no image is available */
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1e293b 100%);
+    z-index: 0;
+}
+
+body.light-theme .hero-bg {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #e2e8f0 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    z-index: 1;
+}
+
+body.light-theme .hero-overlay {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--green);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.hero-container h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: var(--text-light);
+}
+
+body.light-theme .hero-container h1 {
+    color: var(--text-dark);
+}
+
+.hero-container h1 span {
+    color: var(--green);
+}
+
+.hero-container p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+body.light-theme .hero-container p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Explorer Section
+   ================================================================ */
+
+.explorer-section {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.explorer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.map-panel,
+.details-panel {
+    padding: 2rem;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Base Map */
+.map-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+body.light-theme .map-header h2 {
+    color: var(--text-dark);
+}
+
+.map-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+body.light-theme .map-header p {
+    color: var(--text-secondary);
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#india-svg-map {
+    width: 100%;
+    max-height: 550px;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+}
+
+#base-map .state-path {
+    fill: #1e293b;
+    stroke: #334155;
+    stroke-width: 1;
+    transition: fill 0.3s ease;
+}
+
+body.light-theme #base-map .state-path {
+    fill: #e2e8f0;
+    stroke: #cbd5e1;
+}
+
+/* Mountain Overlays */
+.mountain-path {
+    fill: rgba(34, 197, 94, 0.4);
+    stroke: var(--green);
+    stroke-width: 2;
+    stroke-dasharray: 4 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.mountain-path:hover,
+.mountain-path:focus {
+    fill: rgba(34, 197, 94, 0.7);
+    stroke-width: 3;
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.5));
+}
+
+.mountain-path.active {
+    fill: var(--green);
+    stroke: #fff;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.8));
+}
+
+/* ================================================================
+   Details Panel
+   ================================================================ */
+
+.details-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    color: var(--text-muted);
+}
+
+body.light-theme .details-empty {
+    color: var(--text-secondary);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.details-empty h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+body.light-theme .details-empty h3 {
+    color: var(--text-dark);
+}
+
+.details-content {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.details-content.hidden {
+    display: none;
+}
+
+.details-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+}
+
+.mr-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+body.light-theme .mr-meta {
+    color: var(--text-dark);
+}
+
+.mr-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+body.light-theme .mr-description {
+    color: var(--text-secondary);
+}
+
+.mr-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mr-stat {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light-theme .mr-stat {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mr-stat label {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+body.light-theme .mr-stat label {
+    color: var(--text-secondary);
+}
+
+.mr-stat strong {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+body.light-theme .mr-stat strong {
+    color: var(--text-dark);
+}
+
+.mr-info-section {
+    margin-bottom: 1.5rem;
+}
+
+.mr-info-section h3 {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.light-theme .mr-info-section h3 {
+    color: var(--text-dark);
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip {
+    padding: 0.25rem 0.75rem;
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+}
+
+.ecological-section p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+body.light-theme .ecological-section p {
+    color: var(--text-secondary);
+}
+
+/* ================================================================
+   Animations
+   ================================================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+
+@media (max-width: 1024px) {
+    .explorer-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-panel {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container h1 {
+        font-size: 2.5rem;
+    }
+    
+    .mountains-hero {
+        padding: 5rem 1.5rem 3rem;
+    }
+    
+    .explorer-section {
+        padding: 1.5rem;
+    }
+    
+    .mr-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-container h1 {
+        font-size: 2rem;
+    }
+    
+    .map-panel,
+    .details-panel {
+        padding: 1.5rem;
+    }
+}

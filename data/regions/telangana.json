@@ -1,0 +1,30 @@
+{
+  "id": "telangana",
+  "state": "Telangana",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_hero.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "hyderabad",
+      "name": "Hyderabad",
+      "lat": 17.385,
+      "lng": 78.4867,
+      "categories": [
+        "historical",
+        "city"
+      ],
+      "highlights": [
+        "Charminar",
+        "Golconda Fort",
+        "Hyderabadi biryani"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Oct-Mar",
+      "description": "City of pearls and Nizami heritage."
+    }
+  ]
+}

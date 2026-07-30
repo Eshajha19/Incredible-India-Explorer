@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the origin and meaning behind the names of every Indian state and union territory — etymology, pronunciation, former names, historical references, and the full timeline of official renamings, on an interactive map.">
+    <title>How India Got Its State Names | Incredible India Explorer</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="state-names-explorer.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="How India Got Its State Names | Incredible India Explorer">
+    <meta property="og:description" content="Etymology, pronunciation, former names and the timeline of renamings for every Indian state and union territory, on an interactive map.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/state-names-explorer/state-names-explorer.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How India Got Its State Names | Incredible India Explorer">
+    <meta name="twitter:description" content="Etymology, pronunciation, former names and the timeline of renamings for every Indian state and union territory.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/state-names-explorer/state-names-explorer.html">
+</head>
+
+<body class="snx-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="state-names-explorer.html" class="nav-link active" style="color: var(--saffron)">State Names</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../state-evolution/state-evolution.html" class="dropdown-item">State Evolution</a>
+                        <a href="../state-border-changes/state-border-changes.html" class="dropdown-item">State Border Changes</a>
+                        <a href="../historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                        <a href="../state-symbols/state-symbols.html" class="dropdown-item">State Symbols</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="snx-page">
+
+        <!-- Hero -->
+        <section class="snx-hero">
+            <div class="snx-hero-content">
+                <span class="snx-hero-kicker"><i class="fa-solid fa-scroll"></i> Names, Reimagined Through History</span>
+                <h1>How India Got Its <span>State Names</span></h1>
+                <p>Every state and union territory carries a story in its name — a language, a dynasty, a landscape, or a hard-won political movement. Explore the etymology, pronunciation and renaming history of all 36 of them.</p>
+
+                <div class="snx-hero-stats">
+                    <div class="snx-stat-box">
+                        <strong id="snx-stat-total">–</strong>
+                        <span>States &amp; UTs</span>
+                    </div>
+                    <div class="snx-stat-box">
+                        <strong id="snx-stat-states">–</strong>
+                        <span>States</span>
+                    </div>
+                    <div class="snx-stat-box">
+                        <strong id="snx-stat-uts">–</strong>
+                        <span>Union Territories</span>
+                    </div>
+                    <div class="snx-stat-box">
+                        <strong id="snx-stat-renamed">–</strong>
+                        <span>Officially renamed</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to read this page -->
+        <section class="snx-legend">
+            <div class="snx-legend-item">
+                <i class="fa-solid fa-volume-high"></i>
+                <p><strong>Pronunciation guide:</strong> capitalised syllables mark the stress, e.g. <em>kar-NAA-tuh-kuh</em>. Tap the speaker icon for a best-effort spoken pronunciation from your browser — it's a helpful guide, not a native-speaker recording.</p>
+            </div>
+            <div class="snx-legend-item">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <p><strong>About the map:</strong> outlines match the map used on the homepage. Ladakh (a separate UT since 2019) has no distinct outline here, but it's fully covered in the list, search and timeline below.</p>
+            </div>
+        </section>
+
+        <!-- Controls -->
+        <section class="snx-controls" aria-label="Search and filter states">
+            <div class="snx-search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" id="snx-search-input" placeholder="Search a name, meaning, language, or old name (e.g. &quot;Bombay&quot;)" aria-label="Search states and union territories">
+            </div>
+
+            <div class="snx-filters">
+                <select id="snx-region-filter" aria-label="Filter by region">
+                    <option value="all">All regions</option>
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                    <option value="East">East</option>
+                    <option value="West">West</option>
+                    <option value="Central">Central</option>
+                    <option value="Northeast">Northeast</option>
+                </select>
+
+                <select id="snx-type-filter" aria-label="Filter by type">
+                    <option value="all">States &amp; UTs</option>
+                    <option value="State">States only</option>
+                    <option value="Union Territory">Union Territories only</option>
+                </select>
+
+                <label class="snx-toggle">
+                    <input type="checkbox" id="snx-renamed-toggle">
+                    <span>Renamed only</span>
+                </label>
+
+                <button type="button" id="snx-clear-filters" class="snx-clear-btn">
+                    <i class="fa-solid fa-rotate-left"></i> Clear
+                </button>
+            </div>
+
+            <p class="snx-result-summary"><span id="snx-result-count">36 regions</span> shown</p>
+        </section>
+
+        <!-- Map + Grid -->
+        <section class="snx-explore">
+            <div class="snx-map-panel">
+                <h2><i class="fa-solid fa-map"></i> Interactive Map</h2>
+                <p class="snx-map-hint">Hover or tab through the map to preview a name's meaning. Click a region — or a card — to read its full story.</p>
+                <div class="snx-map-wrap">
+                    <div id="snx-map-mount"></div>
+                    <div id="snx-map-tooltip" class="snx-map-tooltip" hidden></div>
+                </div>
+            </div>
+
+            <div class="snx-grid-panel">
+                <h2><i class="fa-solid fa-layer-group"></i> Every Name, Explained</h2>
+                <div id="snx-grid" class="snx-grid"></div>
+                <p id="snx-empty-state" class="snx-empty-state" hidden>
+                    <i class="fa-solid fa-magnifying-glass-minus"></i>
+                    No states or union territories match your search/filters. Try clearing them.
+                </p>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="snx-timeline-section">
+            <h2><i class="fa-solid fa-timeline"></i> Timeline of Renaming</h2>
+            <p class="snx-timeline-intro">Not every headline-grabbing "renaming" is what it seems — several famous ones (Bombay, Madras, Calcutta, Bangalore) were <strong>city</strong> renamings, not state ones. Here's the full, correctly labelled sequence.</p>
+
+            <div class="snx-timeline-legend">
+                <span><i class="snx-dot snx-dot--state"></i> State rename</span>
+                <span><i class="snx-dot snx-dot--capital"></i> Capital city rename</span>
+                <span><i class="snx-dot snx-dot--reorganization"></i> Reorganization</span>
+                <span><i class="snx-dot snx-dot--attempted"></i> Attempted (not enacted)</span>
+            </div>
+
+            <div class="snx-timeline-scroll">
+                <div id="snx-timeline-track" class="snx-timeline-track"></div>
+            </div>
+        </section>
+
+        <!-- Related explorers -->
+        <section class="snx-related">
+            <h2><i class="fa-solid fa-compass"></i> Keep Exploring</h2>
+            <div class="snx-related-grid">
+                <a href="../state-evolution/state-evolution.html" class="snx-related-card">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h3>State Evolution</h3>
+                    <p>How today's state borders took shape after 1947.</p>
+                </a>
+                <a href="../state-border-changes/state-border-changes.html" class="snx-related-card">
+                    <i class="fa-solid fa-border-all"></i>
+                    <h3>State Border Changes</h3>
+                    <p>A closer look at boundary shifts over the decades.</p>
+                </a>
+                <a href="../historical-timeline/index.html" class="snx-related-card">
+                    <i class="fa-solid fa-landmark-dome"></i>
+                    <h3>Historical Timeline</h3>
+                    <p>India's broader history, from ancient to modern.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail Modal -->
+    <div id="snx-modal" class="snx-modal" hidden role="dialog" aria-modal="true" aria-labelledby="snx-modal-title">
+        <div id="snx-modal-overlay" class="snx-modal-overlay"></div>
+        <div class="snx-modal-dialog">
+            <button type="button" id="snx-modal-close" class="snx-modal-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="snx-modal-body" class="snx-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating the stories behind India's states and union territories.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../state-evolution/state-evolution.html">State Evolution</a>
+                <a href="state-names-explorer.html">State Names</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="state-names-explorer.js" defer></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

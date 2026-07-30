@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Sri Venkateswara National Park Explorer - Discover the rugged Eastern Ghats, majestic waterfalls like Talakona, and sacred forests of Andhra Pradesh." name="description"/>
+    <meta property="og:title" content="Sri Venkateswara National Park Explorer | Incredible India"/>
+    <meta property="og:description" content="Explore Sri Venkateswara National Park in Andhra Pradesh. Hike to the Talakona waterfall, spot rare wildlife, and discover the endangered Red Sanders."/>
+    
+    <title>Sri Venkateswara National Park Explorer | Incredible India</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="../pages-common.css" rel="stylesheet"/>
+    <link href="sri-venkateswara-national-park.css" rel="stylesheet"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "Sri Venkateswara National Park",
+      "description": "A national park and biosphere reserve in Andhra Pradesh, located in the Seshachalam hills of the Eastern Ghats, famous for its waterfalls and sacred significance.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Andhra Pradesh",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../cuisine.html" class="nav-link" id="link-cuisine">Cuisine</a>
+                <a href="../festivals.html" class="nav-link" id="link-festivals">Festivals</a>
+                <a href="../culture.html" class="nav-link" id="link-culture">Culture</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more" style="color: var(--saffron)">Explore More ▾</button>
+                    <div class="dropdown-menu">
+                        <a href="../travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife.html" class="dropdown-item" style="color: var(--saffron)">Nature & Wildlife</a>
+                        <a href="../personalities.html" class="dropdown-item">Famous Personalities</a>
+                        <a href="../spiritual.html" class="dropdown-item">Spiritual India</a>
+                        <a href="../arts-crafts.html" class="dropdown-item">Arts & Crafts</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">☀️</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app-root" style="padding-top: 80px;">
+        
+        <!-- Hero Section -->
+        <section class="ghats-hero">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge ghats"><i class="fa-solid fa-mountain"></i> Eastern Ghats</span>
+                    <span class="badge sacred"><i class="fa-solid fa-om"></i> Sacred Forests</span>
+                    <span class="badge location"><i class="fa-solid fa-map-pin"></i> Andhra Pradesh</span>
+                </div>
+                <h1 class="hero-title animate-slide-up" style="color: white; font-size: 3.5rem;">Sri Venkateswara National Park</h1>
+                <p class="hero-description animate-fade-in-delayed" style="color: #eee; max-width: 700px; font-size: 1.1rem; line-height: 1.6;">
+                    Explore the rugged beauty of the Eastern Ghats. Trek through dry deciduous forests, discover majestic cascading waterfalls, and uncover a landscape deeply entwined with spiritual heritage.
+                </p>
+                <div class="hero-actions">
+                    <a href="#wildlife" class="btn btn-primary ripple">Explore Wildlife</a>
+                    <a href="#map" class="btn btn-secondary ripple">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem & Landscapes -->
+        <section class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge gold-bg">Landscape</span>
+                    <h2>Eastern Ghats & Flora</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-mountain-sun"></i> Mountain Terrain</h3>
+                        <p>Located in the Seshachalam Hills, the park features deep gorges, rugged ridges, and steep valleys characteristic of the ancient Eastern Ghats geological formation.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-water"></i> Majestic Waterfalls</h3>
+                        <p>Home to the spectacular Talakona waterfall (highest in AP) and Gundalakona. These cascades create micro-habitats crucial for amphibians and unique flora.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fa-solid fa-tree"></i> Flora & Red Sanders</h3>
+                        <p>The tropical dry deciduous forest is globally significant as one of the last strongholds of the highly endangered and valuable Red Sanders (Pterocarpus santalinus) tree.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife / Fauna -->
+        <section id="wildlife" class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: var(--saffron); color: black;">Fauna</span>
+                    <h2>Wildlife of the Ghats</h2>
+                    <p class="section-subtitle">Discover the elusive species navigating the rocky terrain.</p>
+                </div>
+                <div class="wildlife-grid">
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Leopard_africa.jpg/800px-Leopard_africa.jpg" alt="Indian Leopard" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Leopard</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>The apex predator of these hills, highly adapted to the rocky outcrops and dry scrub forests.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Sloth_Bear_%28Melursus_ursinus%29.jpg/800px-Sloth_Bear_%28Melursus_ursinus%29.jpg" alt="Sloth Bear" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Sloth Bear</h3>
+                            <span class="wildlife-status status-vulnerable">Vulnerable</span>
+                            <p>Frequently found foraging for termites and fruits in the lower valleys and forested slopes.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ratufa_indica_centralis_-_Indian_giant_squirrel_at_BR_Hills.jpg/800px-Ratufa_indica_centralis_-_Indian_giant_squirrel_at_BR_Hills.jpg" alt="Indian Giant Squirrel" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Giant Squirrel</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>A striking, large arboreal squirrel often seen leaping through the canopy in the denser, moister valleys.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Indian_Pangolin_%28Manis_crassicaudata%29.jpg/800px-Indian_Pangolin_%28Manis_crassicaudata%29.jpg" alt="Indian Pangolin" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Indian Pangolin</h3>
+                            <span class="wildlife-status status-endangered">Endangered</span>
+                            <p>A highly reclusive, scale-covered mammal that relies on the park's ant and termite mounds.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Chital_%28Axis_axis%29_male.jpg/800px-Chital_%28Axis_axis%29_male.jpg" alt="Chital (Spotted Deer)" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Chital</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>Graceful spotted deer that form the primary prey base for the park's leopard population.</p>
+                        </div>
+                    </div>
+                    <div class="wildlife-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Jungle_Cat_%28Felis_chaus%29.jpg/800px-Jungle_Cat_%28Felis_chaus%29.jpg" alt="Jungle Cat" class="wildlife-img">
+                        <div class="wildlife-info">
+                            <h3 class="wildlife-name">Jungle Cat</h3>
+                            <span class="wildlife-status status-least-concern">Least Concern</span>
+                            <p>A medium-sized feline adapted to the dry scrublands and tall grass patches of the Ghats.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities and Sacred Sites -->
+        <section class="content-section fade-in-section">
+            <div class="section-container" style="display: flex; gap: 40px; flex-wrap: wrap;">
+                <div class="trekking-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: #ff5722; color: white;">Adventure</span>
+                        <h2>Trekking & Waterfalls</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The park offers excellent eco-tourism and hiking opportunities.</p>
+                    <ul>
+                        <li><strong>Talakona Trek:</strong> A scenic trail leading to the stunning 270-foot Talakona Waterfall, passing through dense canopy and medicinal plants.</li>
+                        <li><strong>Canopy Walk:</strong> Experience the forest from above on the suspended canopy walkway near Talakona.</li>
+                        <li><strong>Best Season:</strong> Post-monsoon (October to February) when the waterfalls are at their most vibrant.</li>
+                    </ul>
+                </div>
+                <div class="sacred-section" style="flex: 1; min-width: 300px;">
+                    <div class="section-header" style="text-align: left;">
+                        <span class="section-badge" style="background: var(--gold); color: black;">Heritage</span>
+                        <h2>Sacred Forests</h2>
+                    </div>
+                    <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">The ecosystem is intertwined with the spiritual heart of Southern India.</p>
+                    <ul>
+                        <li><strong>Tirumala Connection:</strong> The park encompasses the sacred Tirumala Hills, home to the world-renowned Sri Venkateswara Temple.</li>
+                        <li><strong>Pilgrimage Routes:</strong> Ancient footpaths cross through the park's forests, used by millions of devotees annually.</li>
+                        <li><strong>Conservation:</strong> The religious significance has historically aided in protecting patches of old-growth forest.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery (Lazy Loaded) -->
+        <section class="content-section fade-in-section" style="background: var(--secondary-bg);">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #e91e63; color: white;">Gallery</span>
+                    <h2>Eastern Ghats Visuals</h2>
+                </div>
+                <div class="gallery-grid" id="gallery-grid" role="group" aria-label="Park Image Gallery">
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Talakona Waterfall Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Talakona_Waterfalls.jpg/800px-Talakona_Waterfalls.jpg" alt="Talakona Waterfalls cascading down rocks">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Eastern Ghats Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Tirumala_hills_view_from_Srivari_mettu.jpg/800px-Tirumala_hills_view_from_Srivari_mettu.jpg" alt="Scenic view of the Tirumala Hills and Eastern Ghats">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Giant Squirrel Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ratufa_indica_centralis_-_Indian_giant_squirrel_at_BR_Hills.jpg/800px-Ratufa_indica_centralis_-_Indian_giant_squirrel_at_BR_Hills.jpg" alt="Indian Giant Squirrel">
+                    </div>
+                    <div class="gallery-item" tabindex="0" role="button" aria-label="View Leopard Image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Leopard_africa.jpg/800px-Leopard_africa.jpg" alt="Indian Leopard resting">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section id="map" class="content-section fade-in-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge" style="background: #00bcd4; color: white;">Map</span>
+                    <h2>Interactive Map</h2>
+                    <p class="section-subtitle">Explore the waterfalls, trekking routes, and sacred hills.</p>
+                </div>
+                <div id="map-container" aria-label="Interactive map of Sri Venkateswara National Park"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../pages-common.js"></script>
+    <script src="sri-venkateswara-national-park.js"></script>
+</body>
+</html>

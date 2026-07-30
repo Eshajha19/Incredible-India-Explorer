@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Car Nicobar — the most populated island in the Nicobar group, home to the Nicobarese people, coconut plantations, sandy beaches and a rich cultural history.">
+    <title>Car Nicobar Explorer | Incredible India</title>
+    <link rel="icon" href="data:,">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="car-nicobar-island.css">
+
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Car Nicobar Explorer | Incredible India Explorer">
+    <meta property="og:description" content="Geography, culture, coconut plantations, economy, beaches and history of Car Nicobar.">
+    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/car-nicobar-island/car-nicobar-island.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Incredible India Explorer">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Car Nicobar Explorer | Incredible India Explorer">
+    <meta name="twitter:description" content="Geography, culture, coconut plantations, economy, beaches and history of Car Nicobar.">
+    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/travel_beaches.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/car-nicobar-island/car-nicobar-island.html">
+</head>
+
+<body class="car-nicobar-body">
+    <header class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                <span class="saffron">Incredible</span>
+                <span class="gold">India</span>
+                <span class="green">Explorer</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
+                <a href="../../index.html#map" class="nav-link" id="link-map">Interactive Map</a>
+                <a href="../islands/islands.html" class="nav-link">Islands</a>
+                <a href="car-nicobar-island.html" class="nav-link active" style="color: var(--saffron)">Car Nicobar</a>
+
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" id="link-explore-more">
+                        Explore More ▾
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../coastal-india/coastal-india.html" class="dropdown-item">Coastal India</a>
+                        <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    </div>
+                </div>
+
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                    ☀️
+                </button>
+                <a href="../../login.html" class="nav-link" id="link-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="car-nicobar-page">
+        <!-- Hero -->
+        <section class="car-nicobar-hero">
+            <div class="car-nicobar-hero-content">
+                <a href="../islands/islands.html" class="car-nicobar-back-link">← Back to Islands of India</a>
+                <span class="car-nicobar-hero-kicker">🥥 Land of Coconut Groves & the Nicobarese</span>
+                <h1>Car <span>Nicobar</span></h1>
+                <p>A flat, coral-fringed island and the administrative headquarters of the Nicobar district — home to the largest Nicobarese population, sweeping coconut plantations, quiet beaches and a distinct island culture.</p>
+
+                <div class="car-nicobar-hero-stats">
+                    <div class="car-nicobar-stat-box">
+                        <strong>~127 sq km</strong>
+                        <span>Total Land Area</span>
+                    </div>
+                    <div class="car-nicobar-stat-box">
+                        <strong>Malacca</strong>
+                        <span>Administrative Headquarters</span>
+                    </div>
+                    <div class="car-nicobar-stat-box">
+                        <strong>15+</strong>
+                        <span>Traditional Villages</span>
+                    </div>
+                    <div class="car-nicobar-stat-box">
+                        <strong>Nicobarese</strong>
+                        <span>Indigenous Community</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed info -->
+        <section class="car-nicobar-section" id="car-nicobar-explore">
+            <div class="car-nicobar-container">
+                <div class="car-nicobar-section-heading">
+                    <span class="car-nicobar-section-badge">Explore Car Nicobar</span>
+                    <h2>Geography, Culture &amp; Everyday Life</h2>
+                    <p>Select a tab to learn more.</p>
+                </div>
+
+                <div class="car-nicobar-tabs" role="tablist">
+                    <button type="button" class="car-nicobar-tab-btn active" data-tab="geography">Geography</button>
+                    <button type="button" class="car-nicobar-tab-btn" data-tab="culture">Culture</button>
+                    <button type="button" class="car-nicobar-tab-btn" data-tab="coconut">Coconut Plantations</button>
+                    <button type="button" class="car-nicobar-tab-btn" data-tab="economy">Economy</button>
+                    <button type="button" class="car-nicobar-tab-btn" data-tab="beaches">Beaches</button>
+                    <button type="button" class="car-nicobar-tab-btn" data-tab="history">History</button>
+                </div>
+
+                <div class="car-nicobar-tab-panel active" id="tab-geography">
+                    <h3>🗺️ Geography</h3>
+                    <p>Car Nicobar is a low-lying, roughly oval island in the northern Nicobar group, unlike the hillier, forested islands further south. Its flat terrain and sandy soil are ringed by coral reefs and fringing beaches.</p>
+                    <p>Malacca, on the island's western coast, serves as the administrative headquarters of the Nicobar district, connecting the island to Port Blair by air and sea.</p>
+                    <ul>
+                        <li>Flat, low-lying island in the northern Nicobar group</li>
+                        <li>Surrounded by coral reefs and sandy beaches</li>
+                        <li>Malacca is the Nicobar district's administrative headquarters</li>
+                    </ul>
+                </div>
+
+                <div class="car-nicobar-tab-panel" id="tab-culture">
+                    <h3>🎎 Culture</h3>
+                    <p>Car Nicobar is home to the largest population of the Nicobarese, an indigenous community with their own language, customs and communal way of life organised around villages rather than individual land ownership.</p>
+                    <p>Traditional round or oval huts on stilts, communal feasts, and the annual Ossuary Feast (a ceremony honouring ancestors) are central to Nicobarese cultural life, alongside more recent Christian influences introduced in the 19th century.</p>
+                    <ul>
+                        <li>Home to the largest Nicobarese population in the islands</li>
+                        <li>Traditional stilt huts and community-based village life</li>
+                        <li>Ossuary Feast honouring ancestors is a key cultural event</li>
+                    </ul>
+                </div>
+
+                <div class="car-nicobar-tab-panel" id="tab-coconut">
+                    <h3>🥥 Coconut Plantations</h3>
+                    <p>Coconut palms dominate the island's landscape, planted in dense groves that shape both its scenery and its economy. Nearly every household is connected to coconut cultivation in some way, whether for food, oil or trade.</p>
+                    <p>Copra (dried coconut kernel) production has traditionally been a mainstay of the local economy, with coconut products used in cooking, construction and craftwork across Nicobarese villages.</p>
+                    <ul>
+                        <li>Dense coconut groves cover much of the island</li>
+                        <li>Copra production is a long-standing local industry</li>
+                        <li>Coconut products used in food, construction and crafts</li>
+                    </ul>
+                </div>
+
+                <div class="car-nicobar-tab-panel" id="tab-economy">
+                    <h3>💰 Economy</h3>
+                    <p>Alongside coconut and copra production, the island's economy includes fishing, small-scale agriculture, and government services centred around Malacca, since the island hosts key administrative offices for the Nicobar district.</p>
+                    <p>An Indian Air Force base on the island also contributes to local employment and infrastructure, while sea and air links to Port Blair support trade and the movement of goods and people.</p>
+                    <ul>
+                        <li>Coconut, copra production and fishing form the traditional economy</li>
+                        <li>Government offices in Malacca support local employment</li>
+                        <li>Indian Air Force base contributes to infrastructure and jobs</li>
+                    </ul>
+                </div>
+
+                <div class="car-nicobar-tab-panel" id="tab-beaches">
+                    <h3>🏖️ Beaches</h3>
+                    <p>Car Nicobar's coastline features quiet, coral-fringed beaches such as those near Malacca and Kakana, with calm, shallow waters that reflect the island's flat, sheltered geography.</p>
+                    <p>Traditional hodi (dugout canoe) races are held along the coast during local festivals, combining the island's beach culture with its seafaring traditions.</p>
+                    <ul>
+                        <li>Coral-fringed beaches near Malacca and Kakana</li>
+                        <li>Calm, shallow coastal waters</li>
+                        <li>Traditional hodi boat races held during festivals</li>
+                    </ul>
+                </div>
+
+                <div class="car-nicobar-tab-panel" id="tab-history">
+                    <h3>📜 History</h3>
+                    <p>Car Nicobar has long been inhabited by the Nicobarese, with historical trade contacts across the Bay of Bengal. Danish and later British administrations established a presence in the wider Nicobar Islands from the 18th and 19th centuries onward.</p>
+                    <p>Christian missionary activity from the 1800s introduced significant cultural and religious change, while the island later became part of independent India's Union Territory of Andaman & Nicobar Islands, retaining strong Nicobarese self-governance in village affairs.</p>
+                    <ul>
+                        <li>Long history of Nicobarese settlement and regional trade</li>
+                        <li>Danish and British colonial contact from the 18th-19th centuries</li>
+                        <li>Part of the Andaman & Nicobar Union Territory since Indian independence</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Map -->
+        <section class="car-nicobar-section" id="car-nicobar-map-section">
+            <div class="car-nicobar-container">
+                <div class="car-nicobar-section-heading">
+                    <span class="car-nicobar-section-badge">Interactive Map</span>
+                    <h2>Key Locations Around Car Nicobar</h2>
+                    <p>Click a marker to learn about that location.</p>
+                </div>
+                <div class="car-nicobar-map-wrap">
+                    <div id="car-nicobar-map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery -->
+        <section class="car-nicobar-section" id="car-nicobar-gallery-section">
+            <div class="car-nicobar-container">
+                <div class="car-nicobar-section-heading">
+                    <span class="car-nicobar-section-badge">Image Gallery</span>
+                    <h2>Glimpses of Car Nicobar</h2>
+                    <p>Click an image to view it larger.</p>
+                </div>
+                <div id="car-nicobar-gallery-grid" class="car-nicobar-gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- Interesting Facts -->
+        <section class="car-nicobar-section">
+            <div class="car-nicobar-container">
+                <div class="car-nicobar-section-heading">
+                    <span class="car-nicobar-section-badge">Did You Know?</span>
+                    <h2>Interesting Facts</h2>
+                </div>
+                <div class="car-nicobar-fact-panel">
+                    <div class="car-nicobar-fact-icon">💡</div>
+                    <p id="car-nicobar-fact-text">Loading fact...</p>
+                    <div class="car-nicobar-fact-dots" id="car-nicobar-fact-dots"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="car-nicobar-lightbox-overlay" id="car-nicobar-lightbox" hidden>
+        <div class="car-nicobar-lightbox-content">
+            <button class="car-nicobar-lightbox-close" data-close-lightbox="true" aria-label="Close">&times;</button>
+            <button class="car-nicobar-lightbox-nav prev" id="car-nicobar-lightbox-prev" aria-label="Previous image">‹</button>
+            <img id="car-nicobar-lightbox-image" src="" alt="">
+            <button class="car-nicobar-lightbox-nav next" id="car-nicobar-lightbox-next" aria-label="Next image">›</button>
+            <p class="car-nicobar-lightbox-caption" id="car-nicobar-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="../../index.html#home" class="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <p>Preserving and celebrating India's rich island territories, coastlines and culture.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../../index.html#home">Home</a>
+                <a href="../islands/islands.html">Islands of India</a>
+                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="car-nicobar-island.html">Car Nicobar</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Incredible India Explorer. Open Source Cultural Heritage Initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="car-nicobar-island.js"></script>
+    <script src="../../pages-common.js"></script>
+</body>
+</html>

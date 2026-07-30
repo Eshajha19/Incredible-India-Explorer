@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore the Wetlands of India — Interactive guide to India's Ramsar Sites, coastal lagoons, freshwater lakes, mangroves, and migratory bird sanctuaries."
+        />
+        <title>Wetlands of India Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Wetlands of India Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Discover India's biodiverse wetlands — Chilika, Loktak, Kolleru, Wular, Sundarbans, and Ramsar sites with interactive maps, search, and filters."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="wetlands-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Wetlands Hub</a>
+                    <a href="../chilika-lake/index.html" class="nav-link">Chilika Lake</a>
+                    <a href="../loktak-lake/index.html" class="nav-link">Loktak Lake</a>
+                    <a href="../kolleru-lake/index.html" class="nav-link">Kolleru Lake</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="wetlands-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-ramsar">🪷 85+ Designated Ramsar Sites</span>
+                        <span class="hero-pill pill-eco">🌿 Vital Ecological Life-Support Systems</span>
+                        <span class="hero-pill pill-birds">🦩 Central Asian Flyway Haven</span>
+                    </div>
+                    <h1>Wetlands of <span>India</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Discover the cradle of aquatic life across India's vibrant ecosystems — from brackish coastal lagoons and floating freshwater islands to carbon-rich mangrove deltas and high-altitude Himalayan lakes.
+                    </p>
+
+                    <!-- Stats Cards Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated dynamically by script.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Introduction & Ecological Importance Section -->
+            <section class="intro-section" id="introduction">
+                <div class="section-container">
+                    <div class="intro-card">
+                        <div class="intro-text">
+                            <span class="section-tag">ECOLOGICAL VALUE</span>
+                            <h2>Why Indian Wetlands Matter</h2>
+                            <p>
+                                Wetlands are among the world's most productive environments. Covering over 1.3 million hectares in India, they buffer coastal storm surges, filter toxic river runoff, store vast amounts of blue carbon, and provide livelihoods for millions of fishing and farming communities.
+                            </p>
+                            <div class="benefits-pills">
+                                <span class="b-pill">🌊 Flood Control</span>
+                                <span class="b-pill">💧 Water Purification</span>
+                                <span class="b-pill">🌍 Carbon Sink</span>
+                                <span class="b-pill">🐟 Fisheries Support</span>
+                                <span class="b-pill">🦅 Avian Sanctuary</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Map & Hotspots Section -->
+            <section class="map-section" id="interactive-map">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">GEOGRAPHIC MAP</span>
+                        <h2>Interactive Wetlands Map of India</h2>
+                        <p>Click on any wetland location marker on the map to inspect key stats, wetland type, and direct page explorer access.</p>
+                    </div>
+
+                    <div class="map-layout">
+                        <div class="map-list" id="map-hotspots-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="map-preview-card" id="map-preview-card">
+                            <div class="map-placeholder">📍 Select a wetland site to preview details.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search and Filter Controls Section -->
+            <section class="controls-section" id="explorer">
+                <div class="section-container">
+                    <div class="controls-card">
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input
+                                type="text"
+                                id="search-input"
+                                placeholder="Search wetlands by name, state, key fauna, or keyword..."
+                                aria-label="Search wetlands"
+                            />
+                        </div>
+
+                        <div class="filters-row">
+                            <div class="filter-group">
+                                <label for="state-filter">Filter by State:</label>
+                                <select id="state-filter" aria-label="Filter by State">
+                                    <!-- Populated dynamically -->
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Filter by Wetland Type:</label>
+                                <div class="type-pills-row" id="type-pills-row">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Wetlands Section -->
+            <section class="featured-section" id="featured">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">HIGHLIGHTS</span>
+                        <h2>Featured Wetlands of National Importance</h2>
+                        <p>Explore India's premier Ramsar sites renowned worldwide for their ecological wonder.</p>
+                    </div>
+                    <div class="wetlands-grid" id="featured-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- All Wetlands Card Layout Section -->
+            <section class="all-wetlands-section" id="all-wetlands">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">EXPLORE ALL</span>
+                        <h2>Wetland Explorer Directory</h2>
+                        <p id="results-count-text">Showing all wetlands</p>
+                    </div>
+                    <div class="wetlands-grid" id="all-wetlands-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- "Did You Know?" Trivia Section -->
+            <section class="trivia-section" id="did-you-know">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">ECOLOGICAL TRIVIA</span>
+                        <h2>Did You Know?</h2>
+                        <p>Fascinating facts about India's diverse wetland heritage.</p>
+                    </div>
+                    <div class="trivia-grid" id="trivia-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="section-container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Incredible India Explorer</h3>
+                        <p>Promoting eco-tourism, biodiversity awareness, and sustainable exploration across India.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="../../index.html#home">Home</a>
+                        <a href="../chilika-lake/index.html">Chilika Lake</a>
+                        <a href="../loktak-lake/index.html">Loktak Lake</a>
+                        <a href="../kolleru-lake/index.html">Kolleru Lake</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Incredible India Explorer. Open Source Educational Platform.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script type="module" src="script.js"></script>
+    </body>
+</html>

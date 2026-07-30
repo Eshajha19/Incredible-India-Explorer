@@ -1,0 +1,189 @@
+{
+  "version": "2026.1",
+  "regions": [
+    {
+      "id": "andaman-and-nicobar-islands",
+      "state": "Andaman and Nicobar Islands",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_beaches.png",
+      "url": "data/regions/andaman-and-nicobar-islands.json"
+    },
+    {
+      "id": "assam",
+      "state": "Assam",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_forests.png",
+      "url": "data/regions/assam.json"
+    },
+    {
+      "id": "bihar",
+      "state": "Bihar",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_hero.png",
+      "url": "data/regions/bihar.json"
+    },
+    {
+      "id": "daman-and-diu",
+      "state": "Daman and Diu",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_beaches.png",
+      "url": "data/regions/daman-and-diu.json"
+    },
+    {
+      "id": "delhi",
+      "state": "Delhi",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/red_fort.png",
+      "url": "data/regions/delhi.json"
+    },
+    {
+      "id": "goa",
+      "state": "Goa",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/Basilica_of_Bom_Jesus.png",
+      "url": "data/regions/goa.json"
+    },
+    {
+      "id": "gujarat",
+      "state": "Gujarat",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_deserts.png",
+      "url": "data/regions/gujarat.json"
+    },
+    {
+      "id": "himachal-pradesh",
+      "state": "Himachal Pradesh",
+      "version": "2026.1",
+      "destinationCount": 5,
+      "heroImage": "assets/Shimlakaza.png",
+      "url": "data/regions/himachal-pradesh.json"
+    },
+    {
+      "id": "karnataka",
+      "state": "Karnataka",
+      "version": "2026.1",
+      "destinationCount": 5,
+      "heroImage": "assets/Mysore_Palace.png",
+      "url": "data/regions/karnataka.json"
+    },
+    {
+      "id": "kerala",
+      "state": "Kerala",
+      "version": "2026.1",
+      "destinationCount": 5,
+      "heroImage": "assets/travel_mountains.png",
+      "url": "data/regions/kerala.json"
+    },
+    {
+      "id": "ladakh",
+      "state": "Ladakh",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/explorer-images/pangong-lake.png",
+      "url": "data/regions/ladakh.json"
+    },
+    {
+      "id": "lakshadweep",
+      "state": "Lakshadweep",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_beaches.png",
+      "url": "data/regions/lakshadweep.json"
+    },
+    {
+      "id": "madhya-pradesh",
+      "state": "Madhya Pradesh",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_hidden.png",
+      "url": "data/regions/madhya-pradesh.json"
+    },
+    {
+      "id": "maharashtra",
+      "state": "Maharashtra",
+      "version": "2026.1",
+      "destinationCount": 2,
+      "heroImage": "assets/ajanta_caves.png",
+      "url": "data/regions/maharashtra.json"
+    },
+    {
+      "id": "puducherry",
+      "state": "Puducherry",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_beaches.png",
+      "url": "data/regions/puducherry.json"
+    },
+    {
+      "id": "punjab",
+      "state": "Punjab",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/Golden_Temple.png",
+      "url": "data/regions/punjab.json"
+    },
+    {
+      "id": "rajasthan",
+      "state": "Rajasthan",
+      "version": "2026.1",
+      "destinationCount": 5,
+      "heroImage": "assets/Hawa_Mahal.png",
+      "url": "data/regions/rajasthan.json"
+    },
+    {
+      "id": "sikkim",
+      "state": "Sikkim",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_mountains.png",
+      "url": "data/regions/sikkim.json"
+    },
+    {
+      "id": "tamil-nadu",
+      "state": "Tamil Nadu",
+      "version": "2026.1",
+      "destinationCount": 4,
+      "heroImage": "assets/Meenakshi_Temple.png",
+      "url": "data/regions/tamil-nadu.json"
+    },
+    {
+      "id": "telangana",
+      "state": "Telangana",
+      "version": "2026.1",
+      "destinationCount": 1,
+      "heroImage": "assets/travel_hero.png",
+      "url": "data/regions/telangana.json"
+    },
+    {
+      "id": "uttar-pradesh",
+      "state": "Uttar Pradesh",
+      "version": "2026.1",
+      "destinationCount": 2,
+      "heroImage": "assets/Taj_Mahal.png",
+      "url": "data/regions/uttar-pradesh.json"
+    },
+    {
+      "id": "uttarakhand",
+      "state": "Uttarakhand",
+      "version": "2026.1",
+      "destinationCount": 3,
+      "heroImage": "assets/Kedarnath.png",
+      "url": "data/regions/uttarakhand.json"
+    },
+    {
+      "id": "west-bengal",
+      "state": "West Bengal",
+      "version": "2026.1",
+      "destinationCount": 3,
+      "heroImage": "assets/Darjeeling.png",
+      "url": "data/regions/west-bengal.json"
+    }
+  ]
+}

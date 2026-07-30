@@ -1,0 +1,383 @@
+/* Freedom Fighters Knowledge Hub Styles */
+
+:root {
+    --ff-bg-dark: #0a0f1d;
+    --ff-card-bg: rgba(22, 33, 62, 0.75);
+    --ff-card-border: rgba(255, 255, 255, 0.12);
+    --ff-text-primary: #f8fafc;
+    --ff-text-secondary: #94a3b8;
+    --ff-saffron: #ff6f3c;
+    --ff-gold: #ffb01f;
+    --ff-green: #10b981;
+    --ff-maroon: #b91c1c;
+}
+
+body.light-theme {
+    --ff-bg-dark: #f8fafc;
+    --ff-card-bg: rgba(255, 255, 255, 0.9);
+    --ff-card-border: rgba(0, 0, 0, 0.1);
+    --ff-text-primary: #0f172a;
+    --ff-text-secondary: #475569;
+}
+
+.ff-hub-main {
+    background-color: var(--ff-bg-dark);
+    color: var(--ff-text-primary);
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Hero Section */
+.ff-hero {
+    padding: 6rem 1.5rem 2.5rem;
+    text-align: center;
+    background: radial-gradient(circle at 50% 20%, rgba(255, 176, 31, 0.15), transparent 70%);
+}
+
+.hero-badges-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.hero-pill {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--ff-card-border);
+}
+
+.ff-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.ff-hero h1 span {
+    color: var(--ff-saffron);
+}
+
+.hero-subtitle {
+    max-width: 740px;
+    margin: 0 auto 2rem;
+    color: var(--ff-text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Quote Spotlight */
+.quote-spotlight {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--ff-gold);
+    background: rgba(255, 176, 31, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ff-gold);
+    margin-bottom: 0.5rem;
+}
+
+.quote-author {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ff-text-primary);
+}
+
+/* Controls */
+.controls-section {
+    padding: 1rem 1.5rem 2rem;
+}
+
+.search-filter-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
+    border-radius: 16px;
+    background: var(--ff-card-bg);
+    border: 1px solid var(--ff-card-border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    font-size: 1.1rem;
+    opacity: 0.6;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 2.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--ff-card-border);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--ff-text-primary);
+    font-size: 0.95rem;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--ff-saffron);
+}
+
+.clear-btn {
+    position: absolute;
+    right: 0.8rem;
+    background: none;
+    border: none;
+    color: var(--ff-text-secondary);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.filter-groups {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.custom-select {
+    padding: 0.65rem 1rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--ff-card-border);
+    color: var(--ff-text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Grid & Cards */
+.ff-grid-section {
+    padding: 1rem 1.5rem 4rem;
+}
+
+.ff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ff-card {
+    background: var(--ff-card-bg);
+    border: 1px solid var(--ff-card-border);
+    border-radius: 18px;
+    padding: 1.6rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+    border-color: var(--ff-saffron);
+}
+
+.ff-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.ff-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(255, 111, 60, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    border: 2px solid var(--ff-saffron);
+    flex-shrink: 0;
+}
+
+.ff-title-box h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.ff-title-box p {
+    font-size: 0.85rem;
+    color: var(--ff-gold);
+    font-weight: 600;
+}
+
+.ff-era-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.ff-bio-snippet {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--ff-text-secondary);
+    margin-bottom: 1rem;
+}
+
+.ff-movements-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.tag-movement {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--ff-text-primary);
+}
+
+.ff-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.84rem;
+    color: var(--ff-saffron);
+    font-weight: 600;
+    border-top: 1px solid var(--ff-card-border);
+    padding-top: 0.8rem;
+}
+
+/* Modal */
+.ff-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.ff-modal.hidden {
+    display: none;
+}
+
+.ff-modal-content {
+    max-width: 720px;
+    width: 100%;
+    background: var(--ff-bg-dark);
+    border: 1px solid var(--ff-saffron);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: var(--ff-text-primary);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal-header-flex {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 111, 60, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    border: 3px solid var(--ff-saffron);
+}
+
+.modal-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ff-gold);
+    margin: 1.2rem 0 0.5rem;
+}
+
+.timeline-list {
+    border-left: 2px solid var(--ff-saffron);
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+}
+
+.timeline-item {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.timeline-item strong {
+    color: var(--ff-gold);
+}
+
+.rare-fact-box {
+    background: rgba(255, 111, 60, 0.1);
+    border-left: 4px solid var(--ff-saffron);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+    color: var(--ff-text-primary);
+}
+
+@media (max-width: 768px) {
+    .ff-hero h1 { font-size: 2.2rem; }
+    .search-filter-wrapper { flex-direction: column; align-items: stretch; }
+}

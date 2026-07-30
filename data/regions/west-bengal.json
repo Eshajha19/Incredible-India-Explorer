@@ -1,0 +1,68 @@
+{
+  "id": "west-bengal",
+  "state": "West Bengal",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Darjeeling.png",
+  "destinationCount": 3,
+  "destinations": [
+    {
+      "id": "darjeeling",
+      "name": "Darjeeling",
+      "lat": 27.041,
+      "lng": 88.2663,
+      "categories": [
+        "mountains"
+      ],
+      "highlights": [
+        "Tiger Hill sunrise",
+        "Toy train",
+        "Tea gardens"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 7,
+      "bestSeason": "Mar-May, Oct-Nov",
+      "description": "Misty tea-garden hill station with Kanchenjunga views."
+    },
+    {
+      "id": "sundarbans",
+      "name": "Sundarbans",
+      "lat": 21.9497,
+      "lng": 88.9468,
+      "categories": [
+        "wildlife",
+        "backwaters"
+      ],
+      "highlights": [
+        "Mangrove boat safari",
+        "Royal Bengal Tiger territory"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 5,
+      "bestSeason": "Oct-Mar",
+      "description": "World's largest mangrove delta, home to the Royal Bengal Tiger."
+    },
+    {
+      "id": "kolkata",
+      "name": "Kolkata",
+      "lat": 22.5726,
+      "lng": 88.3639,
+      "categories": [
+        "city",
+        "heritage"
+      ],
+      "highlights": [
+        "Victoria Memorial",
+        "Howrah Bridge",
+        "College Street"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 7,
+      "bestSeason": "Oct-Mar",
+      "description": "City of joy, culture, and colonial architecture."
+    }
+  ]
+}

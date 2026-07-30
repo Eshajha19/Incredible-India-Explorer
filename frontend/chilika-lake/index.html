@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Chilika Lake in Odisha — Asia's largest brackish water lagoon, Ramsar Site #229, Irrawaddy Dolphins, Nalabana Bird Sanctuary, and rich migratory bird ecosystem."
+        />
+        <title>Chilika Lake Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Chilika Lake Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Dedicated page on Chilika Lake in Odisha — Irrawaddy Dolphins, Nalabana Bird Sanctuary, Ramsar site history, interactive map, and photo gallery."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="chilika-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../wetlands/index.html" class="nav-link">Wetlands Hub</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Chilika Explorer</a>
+                    <a href="../loktak-lake/index.html" class="nav-link">Loktak Lake</a>
+                    <a href="../kolleru-lake/index.html" class="nav-link">Kolleru Lake</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="chilika-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-ramsar">🪷 India's 1st Ramsar Site (#229)</span>
+                        <span class="hero-pill pill-dolphin">🐬 150+ Irrawaddy Dolphins</span>
+                        <span class="hero-pill pill-lagoon">🌊 1,165 km² Coastal Lagoon</span>
+                    </div>
+                    <h1>Chilika <span>Lake</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Discover Asia's largest brackish water lagoon. Nestled along the Odisha coast, Chilika is a world-renowned ecological hotspot, sanctuary for endangered Irrawaddy Dolphins, and winter home to over a million migratory birds.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section" id="history">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">ANCIENT KINGS & TRADERS</span>
+                        <h2 id="history-title"></h2>
+                        <p id="history-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Geography & Ecosystem Section -->
+            <section class="geography-section" id="geography">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">SALINITY ZONES</span>
+                        <h2>Geography & Lagoon Ecosystem</h2>
+                        <p id="geo-desc"></p>
+                    </div>
+                    <div class="zones-grid" id="zones-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ramsar Site & Eco-Restoration Section -->
+            <section class="ramsar-section" id="ramsar">
+                <div class="section-container">
+                    <div class="info-card highlight-card">
+                        <span class="section-tag">GLOBAL RECOGNITION</span>
+                        <h2 id="ramsar-title"></h2>
+                        <p id="ramsar-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Irrawaddy Dolphins Section -->
+            <section class="dolphins-section" id="dolphins">
+                <div class="section-container">
+                    <div class="dolphin-card">
+                        <div class="dolphin-info">
+                            <span class="section-tag">FLAGSHIP MARINE SPECIES</span>
+                            <h2>Irrawaddy Dolphins</h2>
+                            <p id="dolphin-content"></p>
+                            <div class="facts-list" id="dolphin-facts">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Migratory Birds & Nalabana Section -->
+            <section class="birds-section" id="birds">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">AVIAN SANCTUARY</span>
+                        <h2>Migratory Birds & Nalabana Sanctuary</h2>
+                        <p id="birds-content"></p>
+                    </div>
+                    <div class="birds-grid" id="birds-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <div class="info-card" style="margin-top: 2rem;">
+                        <h3>Nalabana Bird Sanctuary Island</h3>
+                        <p id="nalabana-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fishing Communities Section -->
+            <section class="fishing-section" id="fishing">
+                <div class="section-container">
+                    <div class="info-card">
+                        <span class="section-tag">HUMAN & LAGOON HARMONY</span>
+                        <h2>Traditional Fishing Communities</h2>
+                        <p id="fishing-content"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Map Section -->
+            <section class="map-section" id="interactive-map">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">HOTSPOT EXPLORER</span>
+                        <h2>Interactive Chilika Map & Destinations</h2>
+                        <p>Select key islands and spotting points around the lagoon.</p>
+                    </div>
+                    <div class="map-layout">
+                        <div class="map-list" id="hotspots-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="map-detail" id="hotspot-detail">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="gallery-section" id="gallery">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">MEDIA SHOTS</span>
+                        <h2>Image Gallery</h2>
+                        <p>Glimpse the wildlife and scenic waters of Chilika.</p>
+                    </div>
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interesting Facts Section -->
+            <section class="facts-section" id="facts">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">TRIVIA</span>
+                        <h2>Interesting Facts</h2>
+                    </div>
+                    <div class="facts-grid" id="facts-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="section-container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Incredible India Explorer</h3>
+                        <p>Promoting eco-tourism, biodiversity awareness, and sustainable exploration across India.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="../../index.html#home">Home</a>
+                        <a href="../wetlands/index.html">Wetlands Hub</a>
+                        <a href="../loktak-lake/index.html">Loktak Lake</a>
+                        <a href="../kolleru-lake/index.html">Kolleru Lake</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Incredible India Explorer. Open Source Educational Platform.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script type="module" src="script.js"></script>
+    </body>
+</html>

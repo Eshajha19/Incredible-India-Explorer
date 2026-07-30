@@ -5,11 +5,11 @@
 
   const CONFIG = {
     containerSelector:
-      "[data-smart-empty-container], .cards-grid, .heritage-grid, .wildlife-grid, .textile-grid, .water-grid, .instrument-grid, .butterfly-grid, .bazaar-grid, .script-grid, .glossary-grid, .destinations-grid, .festival-grid, .cuisine-grid, .universities-grid, .plants-grid, .wonders-grid, .trees-grid, .unesco-grid",
+      "[data-smart-empty-container], .cards-grid, .heritage-grid, .wildlife-grid, .textile-grid, .water-grid, .instrument-grid, .butterfly-grid, .bazaar-grid, .script-grid, .glossary-grid, .destinations-grid, .festival-grid, .cuisine-grid, .universities-grid, .plants-grid, .wonders-grid, .trees-grid, .unesco-grid, .biosphere-grid",
     itemSelector:
-      "[data-search-item], [data-filter-item], .heritage-card, .wildlife-card, .textile-card, .water-card, .instrument-card, .butterfly-card, .bazaar-card, .script-card, .glossary-card, .destination-card, .festival-card, .cuisine-card, .university-card, .plant-card, .wonder-card, .tree-card, .unesco-card",
+      "[data-search-item], [data-filter-item], .heritage-card, .wildlife-card, .textile-card, .water-card, .instrument-card, .butterfly-card, .bazaar-card, .script-card, .glossary-card, .destination-card, .festival-card, .cuisine-card, .university-card, .plant-card, .wonder-card, .tree-card, .unesco-card, .reserve-card",
     searchSelector:
-      "input[type='search'], input[id*='search' i], input[placeholder*='search' i]",
+      "input[type='search'], input[id*='search' i], input[placeholder*='search' i], input[class*='search' i], input[id*='filter' i], input[placeholder*='filter' i]",
     filterSelector:
       "select, [data-filter], button[data-category], button[data-region], .filter-btn, .category-chip",
   };
@@ -47,8 +47,10 @@
   }
 
   function getSearchInput(scope) {
+    const parentSection = scope.closest("section, main, article, .page-container, .container") || scope.parentElement || document;
     return (
       scope.querySelector(CONFIG.searchSelector) ||
+      parentSection.querySelector(CONFIG.searchSelector) ||
       document.querySelector(CONFIG.searchSelector)
     );
   }
@@ -255,7 +257,7 @@
   function updateState(container, state) {
     const allItems = getAllItems(container);
     const visibleItems = getVisibleItems(container);
-    const searchInput = getSearchInput(document);
+    const searchInput = getSearchInput(container);
     const query = searchInput ? searchInput.value.trim() : "";
     const shouldShow = allItems.length > 0 && visibleItems.length === 0;
 

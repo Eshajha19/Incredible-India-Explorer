@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Issue #864 — Preference dashboard for users -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Travel Preferences · Incredible India Explorer</title>
+  <link rel="stylesheet" href="preference-dashboard.css" />
+</head>
+<body>
+  <main class="pref-dashboard">
+    <header class="pref-dashboard__header">
+      <h1>🧭 My Travel Companion</h1>
+      <p>
+        This is what we've learned from how you use the site — bookmarks,
+        searches, ratings, and planned trips. Nothing here is sent anywhere;
+        it's built entirely from your browser's local activity.
+      </p>
+    </header>
+
+    <section class="pref-dashboard__confidence">
+      <h2>Profile strength</h2>
+      <div class="confidence-bar">
+        <div class="confidence-bar__fill" id="confidence-fill"></div>
+      </div>
+      <p id="confidence-label">Loading…</p>
+    </section>
+
+    <section class="pref-dashboard__grid">
+      <div class="pref-card">
+        <h2>Top interests</h2>
+        <ul id="top-tags-list" class="tag-list"></ul>
+      </div>
+      <div class="pref-card">
+        <h2>Budget affinity</h2>
+        <p id="budget-affinity">—</p>
+      </div>
+      <div class="pref-card">
+        <h2>Signals collected</h2>
+        <p id="signal-count">—</p>
+      </div>
+    </section>
+
+    <section class="pref-dashboard__recommendations">
+      <h2>Recommended for you right now</h2>
+      <div id="recommendation-list" class="rec-list"></div>
+    </section>
+
+    <section class="pref-dashboard__actions">
+      <button id="reset-btn" type="button" class="danger-btn">Reset my preference profile</button>
+      <p class="pref-dashboard__note">
+        This clears your learned interaction history. Your bookmarks in "My
+        Journey" are not affected.
+      </p>
+    </section>
+  </main>
+
+  <script type="module" src="preference-dashboard.js"></script>
+</body>
+</html>

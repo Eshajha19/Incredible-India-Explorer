@@ -1365,6 +1365,13 @@ window.indiaSearchIndex = [
     description: "Dedicated explorer for Indrasan, a 6,221 m high peak in the Pir Panjal range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
     url: "frontend/indrasan/indrasan.html"
   },
+  // --- Hanuman Tibba Mountain ---
+  {
+    title: "Hanuman Tibba Mountain Explorer",
+    category: "Mountains & Geography",
+    description: "Dedicated explorer for Hanuman Tibba, a 5,982 m high peak in the Dhauladhar range of Himachal Pradesh, featuring facts, map locations, image gallery, trekking details, and FAQs.",
+    url: "frontend/hanuman-tibba/hanuman-tibba.html"
+  },
   // --- Neelkanth Mountain ---
   {
     title: "Neelkanth Mountain Explorer",
@@ -1419,5 +1426,106 @@ window.indiaSearchIndex = [
     category: "National Parks & Wildlife",
     description: "Develop an educational page about Simlipal National Park & Biosphere Reserve in Odisha — featuring Barehipani (399m) & Joranda waterfalls, world's only Melanistic Black Tigers, Mayurbhanj elephants, 94+ orchids, and Santhal tribal heritage.",
     url: "frontend/simlipal-national-park-explorer/index.html"
+  },
+  // --- The Making of Modern India (1757–1947) Timeline ---
+  {
+    title: "The Making of Modern India (1757–1947) Interactive Timeline",
+    category: "Modern History",
+    description: "Interactive journey from the Battle of Plassey (1757) to Independence (1947) featuring major events, Governors-General, British Acts, Revolts, Social Reforms, National Movements, and Historic Centers Map.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  {
+    title: "British Raj Governors-General & Legislative Acts Catalogue",
+    category: "Colonial History",
+    description: "Detailed catalog of British Governors-General and Viceroys (Warren Hastings to Mountbatten), British Acts (1773 to 1947), Paika & Santhal revolts, and social reforms.",
+    url: "frontend/making-of-modern-india/index.html"
+  },
+  // --- The Complete Indian Freedom Movement Explorer ---
+  {
+    title: "The Complete Indian Freedom Movement Explorer",
+    category: "Freedom Struggle",
+    description: "Exhaustive educational explorer documenting the Indian Freedom Struggle (1770–1947) — Early Resistance, Swadeshi, Non-Cooperation, Civil Disobedience, Quit India, INA, Revolutionary Societies, Freedom Leaders, and Primary Documents.",
+    url: "frontend/freedom-movement-explorer/index.html"
+  },
+  {
+    title: "Revolutionary Organizations & Primary Freedom Documents Archive",
+    category: "Freedom Struggle & History",
+    description: "Detailed catalog of revolutionary societies (Anushilan Samiti, Ghadar, HSRA, INA) and primary documents (Poorna Swaraj Declaration 1930, Nehru Report 1928, Tryst with Destiny 1947, Give Me Blood Speech 1944).",
+    url: "frontend/freedom-movement-explorer/index.html"
+  },
+  // --- Every Major Empire of India Interactive Timeline ---
+  {
+    title: "Every Major Empire of India Interactive Timeline",
+    category: "Indian Empires & History",
+    description: "Explore 10 great empires and civilizations from Indus Valley, Mahajanapadas, Maurya, Gupta, Chalukya, Chola, Vijayanagara, Mughal, Maratha, and Sikh Empire with interactive territorial expansion and decline maps.",
+    url: "frontend/indian-empires-explorer/index.html"
+  },
+{
+    title: "Territorial Expansion & Decline Maps of Indian Empires",
+    category: "Historical Cartography",
+    description: "Interactive SVG maps rendering foundation, peak apex territory, and decline stages for Maurya, Gupta, Chola, Vijayanagara, Mughal, Maratha, and Sikh empires.",
+    url: "frontend/indian-empires-explorer/index.html"},
+  
+  // --- General Elections Timeline ---
+  {
+    title: "Interactive General Elections Timeline",
+    category: "Governance & Politics",
+    description: "Historical timeline of all Lok Sabha elections from 1951 to 2024 featuring winning parties, Prime Ministers, voter turnout trends, major issues, and coalition dynamics.",
+    url: "frontend/general-elections-timeline/index.html"},
+  // --- Chief Justices of India Timeline ---
+  {
+    title: "Interactive Chief Justices of India Timeline",
+    category: "Governance & Politics",
+    description: "Educational page showcasing Chief Justices of India, appointment dates, landmark judgments, court reforms, and search by decade.",
+    url: "frontend/chief-justices-timeline/index.html"},
+  // --- Periyar National Park Explorer ---
+  {
+    title: "Periyar National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Periyar National Park & Tiger Reserve in Kerala — Periyar Lake boat safaris, Asian Elephants, Cardamom Hills spice forests, interactive map, and photo gallery.",
+    url: "frontend/periyar-national-park-explorer/index.html"} ,
+  // --- Freedom Fighters Knowledge Hub ---
+  {
+    title: "Freedom Fighters Interactive Knowledge Hub",
+    category: "History & Heritage",
+    description: "Educational encyclopedia featuring biographies, timelines, revolutionary movements, rare facts, and quotes of India's freedom fighters.",
+    url: "frontend/freedom-fighters-hub/index.html"},
+  // --- State Chief Ministers Explorer ---
+  {
+    title: "State Chief Ministers Explorer",
+    category: "Governance & Politics",
+    description: "Interactive educational explorer covering current Chief Ministers across all states and union territories, political parties, capitals, and state facts.",
+    url: "frontend/state-chief-ministers-explorer/index.html"
+  },
+  // --- Kolleru Lake Explorer ---
+  {
+    title: "Kolleru Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Kolleru Lake in Andhra Pradesh — India's premier Spot-billed Pelican sanctuary, Krishna-Godavari freshwater basin, Ramsar Site #1209, and rich fish diversity.",
+    url: "frontend/kolleru-lake/index.html"},
+  // --- Loktak Lake Explorer ---
+  {
+    title: "Loktak Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Loktak Lake in Manipur — World's only floating national park (Keibul Lamjao), floating Phumdis, endangered Sangai Dancing Deer, and Meitei culture.",
+    url: "frontend/loktak-lake/index.html"},
+  // --- Chilika Lake Explorer ---
+  {
+    title: "Chilika Lake Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Explore Chilika Lake in Odisha — Asia's largest brackish water lagoon, Ramsar Site #229, Irrawaddy Dolphins, Nalabana Bird Sanctuary, and winter migratory waterfowl.",
+    url: "frontend/chilika-lake/index.html"},
+  // --- Wetlands of India Explorer Landing Page ---
+  {
+    title: "Wetlands of India Explorer",
+    category: "Ecosystems & Wetlands",
+    description: "Interactive central landing page for exploring the Wetlands of India — Ramsar Sites, lagoons, lakes, marshes, mangroves, interactive maps, search, and state/type filters.",
+    url: "frontend/wetlands/index.html"},
+  // --- Hemis National Park Explorer ---
+  {
+    title: "Hemis National Park Explorer",
+    category: "National Parks & Wildlife",
+    description: "Explore Hemis National Park in Ladakh — World's highest density of Snow Leopards, high-altitude cold desert ecosystem, Markha Valley trekking, Himalayan wildlife, and Buddhist culture.",
+    url: "frontend/hemis-national-park-explorer/index.html"
   }
 ];

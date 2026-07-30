@@ -1,0 +1,160 @@
+/* ==========================================================================
+   REUSABLE UTILITIES & COMPONENTS
+   ========================================================================== */
+
+.section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 24px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(255, 176, 31, 0.1);
+    color: var(--primary-gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 176, 31, 0.2);
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.section-header h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-saffron-gold);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Buttons and Ripple effect foundation */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary {
+    background: var(--gradient-saffron-gold);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 153, 51, 0.5);
+    background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-saffron) 100%);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-light);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.btn-gold {
+    background: transparent;
+    color: var(--primary-gold);
+    border: 2px solid var(--primary-gold);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-gold:hover {
+    background: var(--primary-gold);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 176, 31, 0.4);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Glassmorphism Cards Base */
+.glass-card {
+    background: var(--bg-dark-card);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+}
+
+/* Highlight badge coloring rules */
+.saffron {
+    color: var(--primary-saffron);
+}
+
+.gold {
+    color: var(--primary-gold);
+}
+
+.green {
+    color: var(--primary-green);
+}
+
+.saffron-bg {
+    background: var(--primary-saffron);
+    color: #000;
+}
+
+.gold-bg {
+    background: var(--primary-gold);
+    color: #000;
+}
+
+.green-bg {
+    background: var(--primary-green);
+    color: #fff;
+}
+

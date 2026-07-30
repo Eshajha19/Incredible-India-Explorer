@@ -1,0 +1,438 @@
+/* style.css - Every Major Empire of India Interactive Timeline Styles */
+
+:root {
+  --emp-gold: #eab308;
+  --emp-saffron: #f97316;
+  --emp-blue: #3b82f6;
+  --emp-green: #10b981;
+  --emp-purple: #a855f7;
+  --emp-card-bg: rgba(255, 255, 255, 0.04);
+  --emp-border: rgba(255, 255, 255, 0.1);
+  --emp-text: #f3f4f6;
+  --emp-muted: #9ca3af;
+}
+
+body.empires-body {
+  background-color: #0b0f19;
+  color: var(--emp-text);
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.empires-page {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.empires-hero {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(11, 15, 25, 1) 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--emp-border);
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-kicker {
+  display: inline-block;
+  background: rgba(234, 179, 8, 0.15);
+  color: var(--emp-gold);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+.hero-content h1 span {
+  display: block;
+  font-size: 1.6rem;
+  color: var(--emp-gold);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+.hero-content p {
+  color: var(--emp-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.empires-workspace {
+  padding: 40px 20px 80px;
+}
+
+.empires-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Stats Strip */
+.empires-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: var(--emp-card-bg);
+  border: 1px solid var(--emp-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-val {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--emp-gold);
+  margin-bottom: 4px;
+}
+
+.stat-lbl {
+  font-size: 0.88rem;
+  color: var(--emp-muted);
+}
+
+/* Map Section */
+.map-interactive-section {
+  margin-bottom: 50px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.section-title p {
+  color: var(--emp-muted);
+  margin: 0;
+}
+
+.map-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--emp-border);
+  margin-bottom: 20px;
+}
+
+.select-empire-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emp-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--emp-border);
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}
+
+.stage-btns-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stage-label-text {
+  font-size: 0.9rem;
+  color: var(--emp-muted);
+  margin-right: 4px;
+}
+
+.map-stage-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--emp-border);
+  color: var(--emp-muted);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.map-stage-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.map-stage-btn.active {
+  background: var(--emp-gold);
+  color: #0b0f19;
+  border-color: var(--emp-gold);
+}
+
+.map-viewport-box {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--emp-border);
+}
+
+.empires-map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#empire-svg-polygon {
+  transition: d 0.5s ease-in-out, fill 0.3s ease;
+}
+
+.map-overlay-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--emp-gold);
+}
+
+.map-overlay-info h3 {
+  margin: 0 0 4px;
+  color: var(--emp-gold);
+  font-size: 1.4rem;
+}
+
+.map-stage-badge {
+  font-size: 0.85rem;
+  color: #d1d5db;
+}
+
+/* Empire Cards Grid */
+.era-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.empire-era-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--emp-border);
+  color: var(--emp-muted);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.empire-era-btn:hover {
+  color: #ffffff;
+}
+
+.empire-era-btn.active {
+  background: var(--emp-saffron);
+  color: #ffffff;
+  border-color: var(--emp-saffron);
+}
+
+.empires-search-bar {
+  margin-bottom: 28px;
+}
+
+.empires-search-bar input {
+  width: 100%;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--emp-border);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.empires-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.empire-card {
+  background: var(--emp-card-bg);
+  border: 1px solid var(--emp-border);
+  border-radius: 14px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.empire-card:hover, .empire-card.selected {
+  border-color: var(--emp-gold);
+  transform: translateY(-4px);
+}
+
+.empire-card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+}
+
+.era-tag {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--emp-blue);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.area-badge {
+  color: var(--emp-gold);
+  font-weight: bold;
+}
+
+.empire-card h3 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.empire-period {
+  font-size: 0.9rem;
+  color: var(--emp-gold);
+  margin-bottom: 6px;
+}
+
+.empire-capital {
+  font-size: 0.88rem;
+  color: var(--emp-muted);
+  margin-bottom: 12px;
+}
+
+.rulers-flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.ruler-tag {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.expansion-info-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid var(--emp-green);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.expansion-info-box h4 {
+  margin: 0 0 4px;
+  font-size: 0.88rem;
+  color: var(--emp-green);
+}
+
+.expansion-info-box p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+.decline-info-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid #ef4444;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.decline-info-box h4 {
+  margin: 0 0 4px;
+  font-size: 0.88rem;
+  color: #f87171;
+}
+
+.decline-info-box p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+.btn-inspect-map {
+  background: var(--emp-gold);
+  color: #0b0f19;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+
+.btn-inspect-map:hover {
+  background: #facc15;
+}
+
+/* Light Theme Overrides */
+body.light-theme {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+body.light-theme .empires-hero {
+  background: linear-gradient(180deg, #e2e8f0 0%, #f8fafc 100%);
+}
+
+body.light-theme .hero-content h1 {
+  color: #0f172a;
+}
+
+body.light-theme .empire-card,
+body.light-theme .stat-card,
+body.light-theme .map-toolbar {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #1e293b;
+}
+
+body.light-theme .empire-card h3 {
+  color: #0f172a;
+}

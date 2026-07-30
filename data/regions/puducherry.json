@@ -1,0 +1,31 @@
+{
+  "id": "puducherry",
+  "state": "Puducherry",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_beaches.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "pondicherry",
+      "name": "Pondicherry",
+      "lat": 11.9416,
+      "lng": 79.8083,
+      "categories": [
+        "beaches",
+        "heritage",
+        "spiritual"
+      ],
+      "highlights": [
+        "French Quarter",
+        "Auroville",
+        "Promenade Beach"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Oct-Mar",
+      "description": "French colonial charm on the Coromandel Coast."
+    }
+  ]
+}

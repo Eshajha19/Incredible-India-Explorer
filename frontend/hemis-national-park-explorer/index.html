@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Hemis National Park in Ladakh — World Capital of Snow Leopards, High-Altitude Cold Desert Ecosystem, Himalayan Wildlife, Markha Valley Trekking, and Tibetan Buddhist Culture."
+        />
+        <title>Hemis National Park Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="hemis.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Hemis National Park Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive guide to Hemis National Park in Ladakh — sanctuary of the elusive Snow Leopard, Bharal blue sheep, Stok Kangri, and high-altitude trans-Himalayan trekking."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="hemis-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Hemis Explorer</a>
+                    <a href="../national-parks-timeline/national-parks-timeline.html" class="nav-link">Timeline</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hemis-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-leopard">🐆 World's Highest Snow Leopard Density</span>
+                        <span class="hero-pill pill-altitude">🏔️ 4,400 km² High-Altitude Reserve</span>
+                        <span class="hero-pill pill-trekking">🥾 Markha Valley Trek</span>
+                    </div>
+                    <h1>Hemis <span>National Park</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Step into the spellbinding high-altitude wilderness of Ladakh. Nestled in the trans-Himalayan Zanskar Range, 
+                        Hemis National Park is India's largest protected area and the global stronghold for the elusive Snow Leopard. 
+                        Explore jagged icy peaks, ancient Buddhist Gompas, and high alpine passes.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by hemis.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Snow Leopard Spotlight Section -->
+            <section class="snow-leopard-section" id="snow-leopard">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">APEX PREDATOR</span>
+                        <h2>Snow Leopard — The Ghost of the Mountains</h2>
+                        <p>With an estimated 200+ individuals, Hemis holds the densest population of Snow Leopards on Earth.</p>
+                    </div>
+
+                    <div class="leopard-spotlight-card">
+                        <div class="leopard-img-wrapper">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Snow_leopard_portrait.jpg/960px-Snow_leopard_portrait.jpg"
+                                alt="Snow Leopard in Hemis National Park"
+                                loading="lazy"
+                            />
+                            <div class="image-badge">Panthera uncia</div>
+                        </div>
+                        <div class="leopard-details">
+                            <h3>Adaptations to the High Himalayas</h3>
+                            <div class="adaptations-grid" id="adaptations-grid">
+                                <!-- Populated dynamically -->
+                            </div>
+                            <div class="tracking-season-box">
+                                <strong>❄️ Best Tracking Season:</strong>
+                                <span id="tracking-season-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- High-Altitude Ecosystem Section -->
+            <section class="ecosystem-section" id="ecosystem">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">UNIQUE HABITAT</span>
+                        <h2>High-Altitude Cold Desert Ecosystem</h2>
+                        <p>In the rain-shadow of the Himalayas, Hemis features stark scree slopes, glacial river valleys, and alpine meadows.</p>
+                    </div>
+                    <div class="zones-grid" id="zones-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Himalayan Wildlife Section -->
+            <section class="wildlife-section" id="wildlife">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">TRANS-HIMALAYAN FAUNA</span>
+                        <h2>Himalayan Wildlife</h2>
+                        <p>Meet the resilient species that survive in one of the world's most extreme environments.</p>
+                    </div>
+                    <div class="wildlife-grid" id="wildlife-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trekking Expeditions Section -->
+            <section class="trekking-section" id="trekking">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">ADVENTURE & TRAILS</span>
+                        <h2>Trekking & Expeditions</h2>
+                        <p>Traverse high mountain passes, dramatic river gorges, and remote Buddhist settlements.</p>
+                    </div>
+                    <div class="treks-grid" id="treks-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Geography & Climate Section -->
+            <section class="geography-climate-section" id="geography-climate">
+                <div class="section-container">
+                    <div class="geo-climate-grid">
+                        <div class="info-box geo-box">
+                            <span class="box-icon">🗺️</span>
+                            <h3>Geography & Terrain</h3>
+                            <p id="geography-text"></p>
+                        </div>
+                        <div class="info-box climate-box">
+                            <span class="box-icon">🌡️</span>
+                            <h3>Sub-Arctic Climate</h3>
+                            <p id="climate-text"></p>
+                            <div class="best-time-pill" id="best-time-text"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Map & Hotspots Section -->
+            <section class="map-section" id="map-hotspots">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">INTERACTIVE GUIDE</span>
+                        <h2>Explorer Hotspots & Valleys</h2>
+                        <p>Click on any hotspot to explore key valleys, mountain passes, and cultural landmarks.</p>
+                    </div>
+
+                    <div class="map-container-layout">
+                        <div class="hotspots-list" id="hotspots-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                        <div class="hotspot-detail-card" id="hotspot-detail-card">
+                            <div class="detail-placeholder">
+                                📍 Select a hotspot from the list to view detailed info and coordinates.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="gallery-section" id="gallery">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag">VISUAL SHOTS</span>
+                        <h2>Photo Gallery</h2>
+                        <p>Capturing the breathtaking landscapes, wildlife, and monasteries of Hemis.</p>
+                    </div>
+                    <div class="gallery-filter-buttons" id="gallery-filters">
+                        <button class="filter-btn active" data-filter="All">All</button>
+                        <button class="filter-btn" data-filter="Wildlife">Wildlife</button>
+                        <button class="filter-btn" data-filter="Landscapes">Landscapes</button>
+                        <button class="filter-btn" data-filter="Treks">Treks</button>
+                        <button class="filter-btn" data-filter="Culture">Culture</button>
+                    </div>
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conservation Section -->
+            <section class="conservation-section" id="conservation">
+                <div class="section-container">
+                    <div class="conservation-card">
+                        <div class="conservation-header">
+                            <span class="section-tag">COMMUNITY STEWARDSHIP</span>
+                            <h2 id="conservation-title"></h2>
+                            <p id="conservation-desc"></p>
+                        </div>
+                        <div class="initiatives-grid" id="initiatives-grid">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="section-container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>Incredible India Explorer</h3>
+                        <p>Promoting eco-tourism, biodiversity awareness, and sustainable exploration across India.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="../../index.html#home">Home</a>
+                        <a href="../national-parks-explorer/index.html">National Parks Explorer</a>
+                        <a href="../national-parks-timeline/national-parks-timeline.html">Timeline</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Incredible India Explorer. Open Source Educational Platform.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script type="module" src="hemis.js"></script>
+    </body>
+</html>

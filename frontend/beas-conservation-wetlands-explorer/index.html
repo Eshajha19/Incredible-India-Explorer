@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore the Beas Conservation Wetlands Explorer — a Ramsar-designated riverine ecosystem in Himachal Pradesh & Punjab. Discover Indus River Dolphins, rich fish diversity, and the Beas River's wetland ecology."
+        />
+        <title>Beas Conservation Wetlands Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="beas.css" />
+
+        <!-- Open Graph / Social Media -->
+        <meta property="og:title" content="Beas Conservation Wetlands Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive digital guide to the Beas Conservation Reserve — Ramsar site, Indus River Dolphin habitat, 50+ fish species, and riverine wetland ecology."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="beas-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="../wildlife/wildlife.html" class="nav-link">Wildlife</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)"
+                        >Beas Explorer</a
+                    >
+                    <a href="../national-parks-timeline/national-parks-timeline.html" class="nav-link">Timeline</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="beas-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-ramsar">💧 Ramsar Wetland of International Importance</span>
+                        <span class="hero-pill pill-conservation">🌿 Conservation Reserve</span>
+                        <span class="hero-pill pill-state">📍 Himachal Pradesh & Punjab</span>
+                    </div>
+                    <h1>Beas <span>Conservation Wetlands</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Journey along the mighty Beas River — a lifeline of northern India, a Ramsar-designated
+                        riverine wetland, and the last refuge of the endangered Indus River Dolphin in India.
+                    </p>
+
+                    <!-- Quick Stats Grid -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by beas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ramsar & Riverine Wetland Highlights -->
+            <section class="heritage-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Global Importance</span>
+                        <h2>Ramsar Site & Riverine Wetland Ecosystem</h2>
+                        <p class="section-subtitle">
+                            Designated a Wetland of International Importance in 2020, the Beas Conservation Reserve
+                            protects a dynamic riverine ecosystem critical for aquatic biodiversity and migratory species.
+                        </p>
+                    </div>
+
+                    <div class="heritage-grid">
+                        <div class="heritage-card glass-card">
+                            <div class="heritage-card-header">
+                                <div class="heritage-icon">💧</div>
+                                <div>
+                                    <h3>Ramsar Site No. 2448</h3>
+                                    <span style="font-size:0.85rem; color:var(--river-teal)">Designated 2020</span>
+                                </div>
+                            </div>
+                            <p>
+                                The Beas Conservation Reserve was designated a Ramsar Site for its riverine wetland
+                                ecosystem supporting threatened species, including the Indus River Dolphin, Indian
+                                Mahseer, and numerous migratory waterfowl along the Central Asian Flyway.
+                            </p>
+                            <ul class="fact-list">
+                                <li>6,429 hectares of riverine wetland habitat</li>
+                                <li>Critical habitat for 8–10 Indus River Dolphins</li>
+                                <li>Over 50 fish species, including endemic cold-water taxa</li>
+                                <li>200+ bird species recorded annually</li>
+                            </ul>
+                        </div>
+
+                        <div class="heritage-card glass-card">
+                            <div class="heritage-card-header">
+                                <div class="heritage-icon">🏞️</div>
+                                <div>
+                                    <h3>Beas River System</h3>
+                                    <span style="font-size:0.85rem; color:var(--river-teal)">470 km Himalayan River</span>
+                                </div>
+                            </div>
+                            <p>
+                                Originating from Beas Kund at Rohtang Pass (4,361 m), the Beas flows 470 km through
+                                the Kullu Valley and Punjab plains before merging with the Sutlej at Harike. Its
+                                braided channels, sandbars, and riparian forests create a dynamic riverine ecosystem.
+                            </p>
+                            <ul class="fact-list">
+                                <li>Lifeline for millions in Himachal Pradesh and Punjab</li>
+                                <li>Major tributary of the Indus River system</li>
+                                <li>Supports hydroelectric projects and irrigation canals</li>
+                                <li>Sacred river mentioned in the Rigveda as Vipasa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- River Hydrology & Seasonal Cycles -->
+            <section class="wetlands-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Hydrology & Ecology</span>
+                        <h2>River Ecosystem & Seasonal Dynamics</h2>
+                        <p class="section-subtitle">
+                            The Beas River undergoes dramatic seasonal transformations driven by Himalayan
+                            snowmelt and monsoon rainfall, shaping the rhythms of its aquatic life.
+                        </p>
+                    </div>
+
+                    <div id="seasons-grid" class="seasons-grid">
+                        <!-- Populated by beas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Indus River Dolphin Conservation -->
+            <section class="dolphin-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Flagship Species</span>
+                        <h2>Indus River Dolphin — Conservation Icon</h2>
+                        <p class="section-subtitle">
+                            The Beas Conservation Reserve is the only confirmed breeding habitat of the endangered
+                            Indus River Dolphin in India, representing the easternmost population of this rare species.
+                        </p>
+                    </div>
+
+                    <div class="dolphin-content-grid">
+                        <div class="dolphin-card glass-card">
+                            <h3>About the Indus River Dolphin</h3>
+                            <p style="color:var(--beas-text-muted-dark); line-height:1.65; margin-top:0.8rem;">
+                                The Indus River Dolphin (<em>Platanista gangetica minor</em>) is a freshwater dolphin
+                                subspecies found only in the Indus River system. Blind and highly adapted to murky
+                                river waters, it navigates using echolocation. The Beas population of 8–10 individuals
+                                represents a critically important conservation stronghold.
+                            </p>
+                            <h4 style="margin-top:1.5rem; margin-bottom:0.8rem; color:var(--sand-gold);">Threats to Survival</h4>
+                            <div id="threats-list" class="threats-list">
+                                <!-- Populated by beas.js -->
+                            </div>
+                        </div>
+
+                        <div class="dolphin-spotlight glass-card">
+                            <span class="spotlight-badge">Conservation Action</span>
+                            <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom:0.8rem;">Protecting the Beas Dolphins</h3>
+                            <p style="font-size:0.92rem; color:var(--beas-text-muted-dark); line-height:1.65;">
+                                India's first dedicated dolphin passage at Vikas-1 Barrage, community-based
+                                monitoring programs, and active habitat restoration efforts are giving the Indus
+                                River Dolphin a fighting chance for survival in the Beas.
+                            </p>
+                            <ul id="conservation-list" class="conservation-list">
+                                <!-- Populated by beas.js -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fish Diversity Catalog -->
+            <section class="fish-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Aquatic Biodiversity</span>
+                        <h2>Fish Diversity of the Beas River</h2>
+                        <p class="section-subtitle">
+                            The Beas hosts over 50 fish species, from the iconic Indian Mahseer to endemic
+                            cold-water snow trout. Explore the remarkable diversity of this Himalayan river system.
+                        </p>
+                    </div>
+
+                    <div id="fish-grid" class="fish-grid">
+                        <!-- Populated by beas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wetland Ecology -->
+            <section class="ecology-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Ecosystem Diversity</span>
+                        <h2>Riverine Wetland Habitats</h2>
+                        <p class="section-subtitle">
+                            The Beas Conservation Reserve encompasses five distinct habitat types, each supporting
+                            unique communities of plants and animals adapted to life along a dynamic river system.
+                        </p>
+                    </div>
+
+                    <div id="habitats-grid" class="habitats-grid">
+                        <!-- Populated by beas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historical Timeline -->
+            <section class="history-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Heritage & Evolution</span>
+                        <h2>Timeline of the Beas Conservation Reserve</h2>
+                        <p class="section-subtitle">
+                            From sacred Vedic river to modern conservation success story — tracing the journey
+                            of the Beas River and its protection.
+                        </p>
+                    </div>
+
+                    <div id="timeline-container" class="timeline-container">
+                        <!-- Populated by beas.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Map -->
+            <section class="map-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">River Geography</span>
+                        <h2>Interactive Map of the Beas River System</h2>
+                        <p class="section-subtitle">
+                            Explore the Beas from its glacial source at Rohtang Pass to the Harike confluence.
+                            Click markers to learn about key locations along this vital river.
+                        </p>
+                    </div>
+
+                    <div class="map-card-wrapper glass-card">
+                        <div class="map-svg-container">
+                            <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="1000" height="600" fill="#0a1929" />
+                                <path d="M50,20 Q200,80 300,160 T500,240 T650,380 T850,520 L950,580" fill="none" stroke="#0284c7" stroke-width="20" opacity="0.5"/>
+                                <path d="M50,20 Q200,80 300,160 T500,240 T650,380 T850,520 L950,580" fill="none" stroke="#22d3ee" stroke-width="6" opacity="0.8"/>
+                                <path d="M120,50 Q220,100 280,150" fill="none" stroke="#14b8a6" stroke-width="10" opacity="0.4" stroke-dasharray="6,4"/>
+                                <path d="M420,200 Q520,240 580,300" fill="none" stroke="#14b8a6" stroke-width="10" opacity="0.4" stroke-dasharray="6,4"/>
+                                <text x="80" y="40" fill="#94a3b8" font-size="14" font-family="Outfit">Rohtang Pass (Origin)</text>
+                                <text x="570" y="340" fill="#22d3ee" font-size="14" font-weight="bold" font-family="Outfit">Beas River Course</text>
+                                <text x="680" y="490" fill="#94a3b8" font-size="13" font-family="Outfit">Harike Confluence</text>
+                            </svg>
+
+                            <div id="map-hotspots-layer">
+                                <!-- Populated by beas.js -->
+                            </div>
+
+                            <div id="map-info-popup" class="map-info-popup hidden">
+                                <!-- Populated by beas.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visual Gallery -->
+            <section class="gallery-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Journey</span>
+                        <h2>Beas River Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Capturing the beauty and biodiversity of the Beas River — from its Himalayan origin
+                            to its vital role as a conservation wetland.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid">
+                        <!-- Populated by beas.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer" style="margin-top:4rem; border-top:1px solid var(--beas-border-dark);">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>
+                        An interactive digital guide to the geography, food, festivals, wildlife, and cultural heritage of India.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../national-parks-explorer/index.html">National Parks Explorer</a></li>
+                        <li><a href="../wildlife/wildlife.html">Nature & Wildlife</a></li>
+                        <li><a href="../wetlands-conservation-hub/index.html">Wetlands Hub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Beas Conservation Wetlands Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Core Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="beas-data.js" defer></script>
+        <script src="beas.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

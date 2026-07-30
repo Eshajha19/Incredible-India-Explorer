@@ -1,7 +1,6 @@
 /**
  * partition-1947.test.js
- * Unit tests for Scrollytelling: Partition of India, 1947 dataset integrity,
- * editorial neutrality verification, non-graphic content scanner, demographic statistics, and search helpers.
+ * Comprehensive Unit Tests for "The Partition of India (1947)" Interactive Explorer.
  */
 
 import { describe, it, expect } from 'vitest';
@@ -10,8 +9,19 @@ import {
   demographicStats,
   radcliffeRegions,
   partitionTimeline,
+  mountbattenPlanDetails,
+  politicalLeaders,
+  migrationCorridors,
+  refugeeCampsData,
+  archivalGallery,
+  oralHistories,
+  partitionQuiz,
   getTimelineEventById,
   filterTimelineEvents,
+  filterLeaders,
+  filterOralHistories,
+  getCorridorById,
+  evaluateQuiz,
   verifyNeutralityAndNonGraphicContent
 } from '../../frontend/partition-1947/partition-1947.js';
 
@@ -57,17 +67,31 @@ describe('Sourced Demographic & Migration Statistics', () => {
 });
 
 describe('Radcliffe Boundary Commission Regions', () => {
-  it('covers Punjab and Bengal boundary commissions', () => {
+  it('covers Punjab and Bengal boundary commissions with economic impacts', () => {
     expect(radcliffeRegions.length).toBe(2);
     const names = radcliffeRegions.map(r => r.name.toLowerCase());
     expect(names.some(n => n.includes('punjab'))).toBe(true);
     expect(names.some(n => n.includes('bengal'))).toBe(true);
+    radcliffeRegions.forEach(region => {
+      expect(region.economicImpact).toBeDefined();
+      expect(region.economicImpact.length).toBeGreaterThan(10);
+    });
   });
 });
 
-describe('Timeline Events Dataset Integrity', () => {
-  it('contains at least 7 verified chronological events', () => {
-    expect(partitionTimeline.length).toBeGreaterThanOrEqual(7);
+describe('Mountbatten Plan Structure', () => {
+  it('defines the 3rd June 1947 Plan with 4 key provisions', () => {
+    expect(mountbattenPlanDetails).toBeDefined();
+    expect(mountbattenPlanDetails.announcementDate).toBe('June 3, 1947');
+    expect(mountbattenPlanDetails.keyProvisions.length).toBe(4);
+  });
+});
+
+describe('Timeline Events Dataset Integrity (1905–1950)', () => {
+  it('contains 14 chronological events spanning from 1905 to 1950', () => {
+    expect(partitionTimeline.length).toBe(14);
+    expect(partitionTimeline[0].date).toContain('1905');
+    expect(partitionTimeline[partitionTimeline.length - 1].date).toContain('1950');
   });
 
   it('every timeline event contains required properties with valid text', () => {
@@ -97,9 +121,12 @@ describe('Timeline Query Helpers', () => {
     expect(indEvent.title).toContain('Independence');
   });
 
-  it('filters timeline events by search query (e.g. Radcliffe or Resettlement)', () => {
+  it('filters timeline events by search query (e.g. Radcliffe or Resettlement or Swadeshi)', () => {
     const radcliffeRes = filterTimelineEvents('Radcliffe');
     expect(radcliffeRes.length).toBeGreaterThan(0);
+
+    const swadeshiRes = filterTimelineEvents('Swadeshi');
+    expect(swadeshiRes.length).toBeGreaterThan(0);
 
     const pactRes = filterTimelineEvents('Nehru-Liaquat');
     expect(pactRes.length).toBeGreaterThan(0);
@@ -108,5 +135,88 @@ describe('Timeline Query Helpers', () => {
   it('returns empty array when search query matches nothing', () => {
     const res = filterTimelineEvents('NonExistentPartitionEventXYZ');
     expect(res).toEqual([]);
+  });
+});
+
+describe('Political Leaders Dataset & Filtering', () => {
+  it('contains major political figures across Indian, British, League, and Regional categories', () => {
+    expect(politicalLeaders.length).toBeGreaterThanOrEqual(8);
+    const names = politicalLeaders.map(l => l.name);
+    expect(names).toContain('Lord Louis Mountbatten');
+    expect(names).toContain('Jawaharlal Nehru');
+    expect(names).toContain('Sardar Vallabhbhai Patel');
+    expect(names).toContain('Mahatma Gandhi');
+    expect(names).toContain('Muhammad Ali Jinnah');
+    expect(names).toContain('Sir Cyril Radcliffe');
+  });
+
+  it('filters leaders correctly by category or search query', () => {
+    const britishOnly = filterLeaders('British Official');
+    expect(britishOnly.length).toBeGreaterThan(0);
+    expect(britishOnly.every(l => l.category === 'British Official')).toBe(true);
+
+    const patel = filterLeaders('Vallabhbhai');
+    expect(patel.length).toBe(1);
+    expect(patel[0].name).toContain('Patel');
+  });
+});
+
+describe('Migration Corridors & Refugee Crisis', () => {
+  it('defines 3 primary migration corridors (Punjab, Bengal, Sindh)', () => {
+    expect(migrationCorridors.length).toBe(3);
+    const punjabCorridor = getCorridorById('corridor-punjab');
+    expect(punjabCorridor).toBeDefined();
+    expect(punjabCorridor.name).toContain('Western Corridor');
+  });
+
+  it('includes records of major relief camps like Kurukshetra and Ranaghat', () => {
+    expect(refugeeCampsData.length).toBeGreaterThanOrEqual(4);
+    const kurukshetra = refugeeCampsData.find(c => c.id === 'camp-kurukshetra');
+    expect(kurukshetra).toBeDefined();
+    expect(kurukshetra.capacity || kurukshetra.peakCapacity).toContain('300,000');
+  });
+});
+
+describe('Archival Gallery & Oral Histories', () => {
+  it('contains archival media cards with valid historical citations', () => {
+    expect(archivalGallery.length).toBeGreaterThanOrEqual(4);
+    archivalGallery.forEach(photo => {
+      expect(photo.title).toBeDefined();
+      expect(photo.credit).toBeDefined();
+    });
+  });
+
+  it('contains oral history survivor testimonies and filter function', () => {
+    expect(oralHistories.length).toBeGreaterThanOrEqual(4);
+    const filtered = filterOralHistories('Resilience');
+    expect(filtered.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Knowledge Quiz Evaluation Engine', () => {
+  it('has 10 educational questions with explanations', () => {
+    expect(partitionQuiz.length).toBe(10);
+    partitionQuiz.forEach(q => {
+      expect(q.options.length).toBe(4);
+      expect(q.explanation.length).toBeGreaterThan(5);
+    });
+  });
+
+  it('evaluates perfect score and returns Master badge', () => {
+    const perfectAnswers = {};
+    partitionQuiz.forEach(q => {
+      perfectAnswers[q.id] = q.correctIndex;
+    });
+    const result = evaluateQuiz(perfectAnswers);
+    expect(result.score).toBe(10);
+    expect(result.percentage).toBe(100);
+    expect(result.badge).toBe('Master Historical Archivist');
+  });
+
+  it('handles partial or empty quiz answers gracefully', () => {
+    const emptyResult = evaluateQuiz({});
+    expect(emptyResult.score).toBe(0);
+    expect(emptyResult.percentage).toBe(0);
+    expect(emptyResult.badge).toBe('Historical Explorer');
   });
 });

@@ -1,0 +1,69 @@
+{
+  "id": "uttarakhand",
+  "state": "Uttarakhand",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/Kedarnath.png",
+  "destinationCount": 3,
+  "destinations": [
+    {
+      "id": "rishikesh",
+      "name": "Rishikesh",
+      "lat": 30.0869,
+      "lng": 78.2676,
+      "categories": [
+        "spiritual",
+        "adventure",
+        "mountains"
+      ],
+      "highlights": [
+        "Ganga Aarti at Triveni Ghat",
+        "River rafting",
+        "Yoga ashrams"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 8,
+      "bestSeason": "Sep-Apr",
+      "description": "Yoga capital of the world on the banks of the Ganges."
+    },
+    {
+      "id": "haridwar",
+      "name": "Haridwar",
+      "lat": 29.9457,
+      "lng": 78.1642,
+      "categories": [
+        "spiritual"
+      ],
+      "highlights": [
+        "Har Ki Pauri Aarti",
+        "Mansa Devi Temple"
+      ],
+      "minDays": 1,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Sep-Apr",
+      "description": "Sacred gateway to the Himalayas, on the Ganges."
+    },
+    {
+      "id": "jim-corbett",
+      "name": "Jim Corbett",
+      "lat": 29.53,
+      "lng": 78.7747,
+      "categories": [
+        "wildlife",
+        "adventure"
+      ],
+      "highlights": [
+        "Tiger safari",
+        "Corbett Falls",
+        "River rafting nearby"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Nov-Jun",
+      "description": "India's oldest national park, on the Ramganga river."
+    }
+  ]
+}

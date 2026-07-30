@@ -9,6 +9,9 @@
   --wf-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
 }
 
+.nav-menu .nav-link.active {
+  color: var(--wf-accent);
+}
 .waterfall-page {
   min-height: 100vh;
   color: var(--wf-text);
@@ -325,6 +328,9 @@
   border-radius: 18px;
   padding: 12px;
   background: rgba(255, 255, 255, 0.045);
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .log-card.locked {
@@ -333,6 +339,8 @@
 
 .log-card h4 {
   margin: 0 0 6px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .log-card p {
@@ -340,6 +348,8 @@
   color: var(--wf-muted);
   font-size: 0.84rem;
   line-height: 1.45;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .waterfall-footer {

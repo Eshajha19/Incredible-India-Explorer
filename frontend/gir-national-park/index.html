@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gir National Park Explorer | Incredible India Explorer</title>
+  <meta name="description" content="Explore Gir National Park with Asiatic lions, wildlife, ecosystem, conservation, safari tips, interactive map, and gallery.">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="../../index.html#home" class="nav-logo">
+        <span class="saffron">Incredible</span>
+        <span class="gold">India</span>
+        <span class="green">Explorer</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../../index.html#home" class="nav-link">Home</a>
+        <a href="../../travel.html" class="nav-link">Travel</a>
+        <a href="../../learn.html" class="nav-link">Learn</a>
+        <a href="index.html" class="nav-link gir-current">Gir Explorer</a>
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="gir-page">
+    <section class="gir-hero">
+      <div class="hero-content">
+        <span class="hero-kicker">Gujarat · Asiatic Lions · Forest Safari</span>
+        <h1>Gir National Park <span>Explorer</span></h1>
+        <p>
+          Discover the last natural home of the Asiatic lion through wildlife cards,
+          ecosystem stories, conservation notes, safari etiquette, gallery views, and an interactive map.
+        </p>
+        <div class="hero-stats">
+          <div><strong>🦁 Lion</strong><span>Flagship species</span></div>
+          <div><strong>Gujarat</strong><span>Location</span></div>
+          <div><strong>Safari</strong><span>Learning mode</span></div>
+        </div>
+        <a href="#overview" class="hero-cta">Start exploring ↓</a>
+      </div>
+    </section>
+
+    <section class="overview-section" id="overview">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Park overview</span>
+          <h2>India's iconic lion landscape</h2>
+          <p>
+            Gir National Park and Wildlife Sanctuary protects a dry forest ecosystem
+            where Asiatic lions, leopards, deer, reptiles, birds, and local communities
+            form one of India's best-known conservation stories.
+          </p>
+        </div>
+        <div class="overview-grid">
+          <article class="overview-card large">
+            <h3>Gir Forest</h3>
+            <p>
+              Gir's landscape combines dry deciduous forest, thorn scrub, grassland
+              openings, riverine belts, rocky hills, and water bodies. This mixed
+              habitat supports predators, prey, scavengers, reptiles, and rich birdlife.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>Asiatic lions</h3>
+            <p>
+              The Asiatic lion is Gir's flagship species and the centre of the park's
+              global conservation importance.
+            </p>
+          </article>
+          <article class="overview-card">
+            <h3>Responsible safari</h3>
+            <p>
+              A good safari is quiet, respectful, distance-aware, and focused on
+              learning rather than chasing animals.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Quick facts</span>
+          <h2>Gir at a glance</h2>
+        </div>
+        <div class="facts-grid" id="facts-grid"></div>
+      </div>
+    </section>
+
+    <section class="wildlife-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Wildlife</span>
+          <h2>Meet Gir's biodiversity</h2>
+          <p>Use the wildlife cards to learn how predators, prey, birds, and reptiles share the forest ecosystem.</p>
+        </div>
+        <div class="filter-row" role="group" aria-label="Wildlife filters">
+          <button class="filter-btn active" data-filter="All" type="button">All</button>
+          <button class="filter-btn" data-filter="Big cat" type="button">Big cats</button>
+          <button class="filter-btn" data-filter="Deer" type="button">Deer</button>
+          <button class="filter-btn" data-filter="Bird" type="button">Birds</button>
+          <button class="filter-btn" data-filter="Reptile" type="button">Reptiles</button>
+        </div>
+        <div class="wildlife-grid" id="wildlife-grid"></div>
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Interactive map</span>
+          <h2>Explore the Gir landscape</h2>
+          <p>Tap each point to understand gateways, water zones, safari learning areas, habitats, and coexistence zones.</p>
+        </div>
+        <div class="map-layout">
+          <div class="gir-map" id="gir-map" aria-label="Interactive Gir National Park map">
+            <div class="forest-shape"></div>
+            <div id="map-pins"></div>
+          </div>
+          <aside class="map-info" id="map-info">
+            <span>Selected point</span>
+            <h3>Tap a map pin</h3>
+            <p>Map points explain Gir's safari gateway, wildlife habitats, water zones, and conservation story.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecosystem-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Ecosystem and conservation</span>
+          <h2>More than a lion park</h2>
+        </div>
+        <div class="ecosystem-grid" id="ecosystem-grid"></div>
+      </div>
+    </section>
+
+    <section class="safari-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Safari guide</span>
+          <h2>Responsible safari behaviour</h2>
+        </div>
+        <div class="safari-grid" id="safari-grid"></div>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="page-container">
+        <div class="section-heading">
+          <span class="section-badge">Gallery</span>
+          <h2>Visual story of Gir</h2>
+          <p>Existing project assets are used as visual placeholders for forest, safari, lion habitat, and water ecosystems.</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <section class="source-section">
+      <div class="page-container">
+        <h2>Source notes</h2>
+        <p>
+          This page is an educational explorer built from the issue requirements:
+          Asiatic lions, Gir Forest, wildlife, ecosystem, conservation, safari,
+          interactive map, gallery, and landing-page integration. Safari content
+          is awareness guidance, not official booking or route advice.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="gir-footer">
+    <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Dedicated national park explorer for Gir.</p>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+  <script src="../../app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

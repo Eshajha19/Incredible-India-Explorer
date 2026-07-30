@@ -1,0 +1,110 @@
+{
+  "id": "kerala",
+  "state": "Kerala",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_mountains.png",
+  "destinationCount": 5,
+  "destinations": [
+    {
+      "id": "munnar",
+      "name": "Munnar",
+      "lat": 10.0889,
+      "lng": 77.0595,
+      "categories": [
+        "mountains",
+        "backwaters"
+      ],
+      "highlights": [
+        "Tea plantations",
+        "Eravikulam National Park",
+        "Mattupetty Dam"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 8,
+      "bestSeason": "Sep-Mar",
+      "description": "Rolling green tea hills of the Western Ghats."
+    },
+    {
+      "id": "varkala",
+      "name": "Varkala",
+      "lat": 8.7379,
+      "lng": 76.7163,
+      "categories": [
+        "beaches",
+        "spiritual"
+      ],
+      "highlights": [
+        "Varkala cliff",
+        "Janardanaswamy Temple",
+        "Papanasam Beach"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 7,
+      "bestSeason": "Nov-Mar",
+      "description": "Clifftop beach town with mineral springs."
+    },
+    {
+      "id": "alleppey",
+      "name": "Alleppey (Alappuzha)",
+      "lat": 9.4981,
+      "lng": 76.3388,
+      "categories": [
+        "backwaters",
+        "beaches"
+      ],
+      "highlights": [
+        "Houseboat cruise",
+        "Backwater villages",
+        "Alappuzha Beach"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 9,
+      "bestSeason": "Nov-Feb",
+      "description": "Venice of the East — palm-fringed backwater houseboat cruises."
+    },
+    {
+      "id": "kochi",
+      "name": "Kochi",
+      "lat": 9.9312,
+      "lng": 76.2673,
+      "categories": [
+        "heritage",
+        "backwaters",
+        "city"
+      ],
+      "highlights": [
+        "Fort Kochi",
+        "Chinese fishing nets",
+        "Mattancherry Palace"
+      ],
+      "minDays": 2,
+      "maxDays": 3,
+      "popularity": 8,
+      "bestSeason": "Oct-Mar",
+      "description": "Colonial-era spice port on the Malabar coast."
+    },
+    {
+      "id": "periyar",
+      "name": "Thekkady (Periyar)",
+      "lat": 9.5916,
+      "lng": 77.16,
+      "categories": [
+        "wildlife",
+        "mountains"
+      ],
+      "highlights": [
+        "Periyar Lake boat safari",
+        "Spice plantations"
+      ],
+      "minDays": 2,
+      "maxDays": 2,
+      "popularity": 6,
+      "bestSeason": "Oct-Mar",
+      "description": "Wildlife sanctuary in the Cardamom Hills."
+    }
+  ]
+}

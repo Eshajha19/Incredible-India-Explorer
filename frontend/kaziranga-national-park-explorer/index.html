@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Kaziranga National Park & Tiger Reserve in Assam — UNESCO World Heritage Site, home to 2,600+ One-Horned Rhinoceroses, Bengal Tigers, Wild Water Buffalo, and 500+ bird species across the Brahmaputra floodplain wetlands."
+        />
+        <title>Kaziranga National Park Explorer | Incredible India</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="kaziranga.css" />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Kaziranga National Park Explorer | Incredible India" />
+        <meta
+            property="og:description"
+            content="Interactive guide to Kaziranga National Park in Assam — UNESCO World Heritage Site, sanctuary of the Great Indian One-Horned Rhinoceros, Bengal Tigers, and the rich wetlands of the Brahmaputra floodplain."
+        />
+        <meta property="og:type" content="website" />
+    </head>
+
+    <body class="kaziranga-main">
+        <!-- Site Navbar -->
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../national-parks-explorer/index.html" class="nav-link">National Parks</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)"
+                        >Kaziranga Explorer</a
+                    >
+                    <a href="../national-parks-timeline/national-parks-timeline.html" class="nav-link">Timeline</a>
+                    <button
+                        id="theme-toggle"
+                        class="btn-theme-toggle"
+                        aria-label="Toggle Dark/Light Mode"
+                        title="Toggle Light Mode"
+                    >
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="kaziranga-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-unesco">🏛️ UNESCO World Heritage Site</span>
+                        <span class="hero-pill pill-rhino">🦏 2,600+ One-Horned Rhinos</span>
+                        <span class="hero-pill pill-wetland">🌾 Brahmaputra Wetlands</span>
+                    </div>
+                    <h1>Kaziranga <span>National Park</span> Explorer</h1>
+                    <p class="hero-subtitle">
+                        Immerse yourself in India's most spectacular wildlife sanctuary — a UNESCO World Heritage Site
+                        on the floodplains of the Brahmaputra. Home to two-thirds of the world's Great Indian
+                        One-Horned Rhinoceroses, dense tiger populations, wild water buffalo herds, and over 500 species
+                        of migratory and resident birds.
+                    </p>
+
+                    <!-- Quick Stats Bar -->
+                    <div id="stats-grid" class="stats-grid">
+                        <!-- Populated by kaziranga.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- One-Horned Rhinoceros Spotlight -->
+            <section class="rhino-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Flagship Species</span>
+                        <h2>The Great Indian One-Horned Rhinoceros</h2>
+                        <p class="section-subtitle">
+                            Kaziranga is the last great stronghold of <em>Rhinoceros unicornis</em>. From fewer than 20
+                            individuals in 1908 to over 2,600 today — this is one of the most remarkable conservation
+                            success stories in the world.
+                        </p>
+                    </div>
+
+                    <div class="rhino-spotlight glass-card">
+                        <div>
+                            <h2>🦏 Rhinoceros unicornis</h2>
+                            <p style="color:var(--kaziranga-text-muted-dark); line-height:1.7; margin-bottom:1rem;">
+                                Kaziranga's rhino population is the single largest wild population of the
+                                One-Horned Rhinoceros anywhere on Earth. These gentle giants spend their days grazing
+                                in the tall grasslands and wallowing in muddy beels. Their thick grey hide is folded
+                                into protective plating, and their single horn — made of keratin, like human hair and
+                                nails — can grow up to 57 cm long.
+                            </p>
+                            <div style="font-size:0.9rem; padding:0.9rem; border-radius:10px; background:rgba(22,101,52,0.1); border-left:4px solid var(--monsoon-green); color:#86efac;">
+                                🧬 <strong>Conservation Success:</strong> From the brink of extinction at 12 individuals
+                                in the early 1900s, Kaziranga's rhino population has recovered to over 2,600 —
+                                protected by a dedicated force of 1,800 forest guards and 165 anti-poaching camps.
+                            </div>
+
+                            <!-- Rhino Stats Grid -->
+                            <div id="rhino-stats" class="rhino-stats-grid">
+                                <!-- Populated by kaziranga.js -->
+                            </div>
+                        </div>
+                        <div style="border-radius:14px; overflow:hidden; position:relative; background:#0f172a; height:300px;">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/One_horned_Rhino.jpg/800px-One_horned_Rhino.jpg"
+                                alt="Great Indian One-Horned Rhinoceros"
+                                style="width:100%; height:100%; object-fit:cover;"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wetlands & Floodplain Ecology -->
+            <section class="wetland-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Floodplain Ecosystem</span>
+                        <h2>Wetlands & Brahmaputra Floodplain Ecology</h2>
+                        <p class="section-subtitle">
+                            The annual monsoon floods of the Brahmaputra River shape Kaziranga's dynamic landscape,
+                            creating a mosaic of tall grasslands, wetlands, and forests that support extraordinary
+                            biodiversity.
+                        </p>
+                    </div>
+
+                    <div class="glass-card" style="padding:2rem; max-width:1000px; margin:0 auto;">
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                            <div style="display:flex; flex-direction:column; gap:1rem;">
+                                <div style="font-size:0.9rem; line-height:1.7; color:var(--kaziranga-text-muted-dark);">
+                                    <strong style="color:var(--gold-bright);">🌾 Tall Wet Grasslands</strong>
+                                    <p style="margin-top:0.3rem;">Dominant grass species: <em>Phragmites karka, Saccharum spontaneum</em> — growing 4–6 meters tall. Primary rhino habitat and tiger ambush cover.</p>
+                                    <strong style="color:var(--gold-bright); margin-top:1rem; display:block;">🌱 Short Grasslands</strong>
+                                    <p style="margin-top:0.3rem;"><em>Cynodon dactylon, Imperata cylindrica</em> — 0.5–1 meter. Preferred grazing areas for swamp deer and water buffalo.</p>
+                                    <strong style="color:var(--gold-bright); margin-top:1rem; display:block;">💧 Wetland Beels (Lakes)</strong>
+                                    <p style="margin-top:0.3rem;">Over 100 seasonal and perennial beels dot the park. Critical dry-season refuges for fish spawning, waterfowl congregations, and megafauna drinking water.</p>
+                                </div>
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:1rem;">
+                                <div style="border-radius:12px; overflow:hidden; background:#0f172a; height:180px;">
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg/800px-Keoladeo_Ghana_National_Park%2C_Bharatpur%2C_Rajasthan%2C_India.jpg"
+                                        alt="Kaziranga Wetlands"
+                                        style="width:100%; height:100%; object-fit:cover;"
+                                    />
+                                </div>
+                                <div style="font-size:0.88rem; padding:1rem; border-radius:10px; background:rgba(2,132,199,0.1); border-left:4px solid var(--wetland-blue); color:#7dd3fc;">
+                                    🌊 <strong>Annual Flood Cycle:</strong> The Brahmaputra overflows every monsoon,
+                                    inundating up to 70% of the park. These floods deposit nutrient-rich silt,
+                                    recharge aquifers, and reset the grassland succession — essential for rhino habitat.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wildlife Section -->
+            <section class="wildlife-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Rich Biodiversity</span>
+                        <h2>Wildlife of Kaziranga</h2>
+                        <p class="section-subtitle">
+                            From the iconic One-Horned Rhino to the Bengal Tiger, Wild Water Buffalo, Swamp Deer,
+                            and the Ganges River Dolphin — Kaziranga protects an extraordinary concentration of
+                            endangered species.
+                        </p>
+                    </div>
+
+                    <div id="wildlife-grid" class="wildlife-grid">
+                        <!-- Populated by kaziranga.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bird Species -->
+            <section class="birds-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Avian Diversity</span>
+                        <h2>Bird Species of Kaziranga</h2>
+                        <p class="section-subtitle">
+                            With over 500 recorded species, Kaziranga is a birdwatcher's paradise — hosting
+                            endangered Greater Adjutant Storks, Bengal Floricans, Spot-billed Pelicans, and
+                            thousands of migratory waterfowl from Central Asia.
+                        </p>
+                    </div>
+
+                    <div id="birds-grid" class="birds-grid">
+                        <!-- Populated by kaziranga.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conservation Timeline -->
+            <section class="conservation-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Conservation Milestones</span>
+                        <h2>Kaziranga Conservation Timeline</h2>
+                        <p class="section-subtitle">
+                            From a hunting reserve in the 1900s to one of the world's most successful rhino
+                            conservation stories — tracing the history of protection that saved the One-Horned
+                            Rhinoceros from extinction.
+                        </p>
+                    </div>
+
+                    <div id="conservation-timeline" class="timeline-container">
+                        <!-- Populated by kaziranga.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safari Options -->
+            <section class="safari-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Experience the Wild</span>
+                        <h2>Safari Options in Kaziranga</h2>
+                        <p class="section-subtitle">
+                            Explore Kaziranga's wilderness through two classic safari experiences — elephant-back
+                            safari for close-range rhino encounters, and jeep safari for covering more ground
+                            across the park's four ranges.
+                        </p>
+                    </div>
+
+                    <div id="safari-grid" class="safari-grid">
+                        <!-- Populated by kaziranga.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive SVG Park Map -->
+            <section class="map-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Park Geography</span>
+                        <h2>Interactive Map of Kaziranga National Park</h2>
+                        <p class="section-subtitle">
+                            Click on map hotspot pins to locate Kohora Central Range, Bagori Western Range,
+                            Agoratoli Eastern Range, Burapahar Range, Mihimukh Rhino Grazing Area, and
+                            the Difloo River wetland system.
+                        </p>
+                    </div>
+
+                    <div class="map-card-wrapper glass-card">
+                        <div class="map-svg-container">
+                            <svg class="park-map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="1000" height="600" fill="#0a1f1a" />
+                                <!-- Park Boundary — Brahmaputra Floodplain Shape -->
+                                <path d="M60,200 Q500,80 940,180 L940,520 L60,520 Z" fill="#0f2a22" stroke="rgba(212,168,67,0.3)" stroke-width="2"/>
+                                <!-- Brahmaputra River -->
+                                <path d="M0,80 Q250,180 500,160 T1000,100" fill="none" stroke="#075985" stroke-width="40" opacity="0.5"/>
+                                <path d="M0,80 Q250,180 500,160 T1000,100" fill="none" stroke="#0284c7" stroke-width="20" opacity="0.7"/>
+                                <!-- Difloo River / Inner Stream -->
+                                <path d="M200,250 Q400,320 600,400 T900,450" fill="none" stroke="#0e7490" stroke-width="12" opacity="0.5"/>
+                                <text x="400" y="140" fill="#38bdf8" font-size="14" font-family="Outfit">Brahmaputra River</text>
+                                <text x="700" y="460" fill="#86efac" font-size="13" font-weight="bold" font-family="Outfit">Mihimukh Rhino Zone</text>
+                            </svg>
+
+                            <!-- Pins Layer -->
+                            <div id="map-hotspots-layer">
+                                <!-- Populated by kaziranga.js -->
+                            </div>
+
+                            <!-- Info Popup -->
+                            <div id="map-info-popup" class="map-info-popup hidden">
+                                <!-- Populated by kaziranga.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="gallery-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-badge">Visual Journey</span>
+                        <h2>Kaziranga Photo Gallery</h2>
+                        <p class="section-subtitle">
+                            Immerse yourself in photographs of the One-Horned Rhinoceros, elephant safaris,
+                            Bengal Tigers, wild water buffalo herds, and the stunning floodplain landscapes
+                            of Kaziranga. Click any photo for a full-screen view.
+                        </p>
+                    </div>
+
+                    <div id="gallery-grid" class="gallery-grid">
+                        <!-- Populated by kaziranga.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal" class="lightbox-modal hidden" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+            <div class="lightbox-content">
+                <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+                <img id="lightbox-img" class="lightbox-img" src="" alt="Gallery Preview" />
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="footer" style="margin-top:4rem; border-top:1px solid var(--kaziranga-border-dark);">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3>Incredible India Explorer</h3>
+                    <p>
+                        An interactive digital guide to the geography, food, festivals, wildlife, and cultural heritage of India.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../national-parks-explorer/index.html">National Parks Explorer</a></li>
+                        <li><a href="index.html">Kaziranga Explorer</a></li>
+                        <li><a href="../national-parks-timeline/national-parks-timeline.html">Parks Timeline</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-credits footer-credits-center">
+                <p>&copy; 2026 Incredible India Explorer. Kaziranga National Park Explorer.</p>
+            </div>
+        </footer>
+
+        <!-- Core Scripts -->
+        <script src="../../app.js" defer></script>
+        <script src="kaziranga-data.js" defer></script>
+        <script src="kaziranga.js" defer></script>
+        <script type="module" src="../../auth.js"></script>
+    </body>
+</html>

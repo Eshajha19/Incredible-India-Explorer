@@ -1,3 +1,9 @@
+(function () {
+    const theme = localStorage.getItem('theme') || 'dark';
+    if (theme === 'light') {
+        document.body.classList.add('light-theme');
+    }
+
 /* ==========================================================================
    TRADITIONAL INDIAN TOYS EXPLORER - PAGE SPECIFIC JAVASCRIPT
    ========================================================================== */
@@ -586,3 +592,5 @@ function initToysPage() {
     renderCategories();
     applyFilters();
 }
+
+})();

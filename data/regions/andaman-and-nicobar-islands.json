@@ -1,0 +1,31 @@
+{
+  "id": "andaman-and-nicobar-islands",
+  "state": "Andaman and Nicobar Islands",
+  "version": "2026.1",
+  "generatedAt": "2026-07-28",
+  "heroImage": "assets/travel_beaches.png",
+  "destinationCount": 1,
+  "destinations": [
+    {
+      "id": "andaman",
+      "name": "Port Blair & Havelock",
+      "lat": 11.6234,
+      "lng": 92.7265,
+      "categories": [
+        "beaches",
+        "wildlife",
+        "adventure"
+      ],
+      "highlights": [
+        "Radhanagar Beach",
+        "Scuba diving",
+        "Cellular Jail"
+      ],
+      "minDays": 3,
+      "maxDays": 5,
+      "popularity": 8,
+      "bestSeason": "Oct-May",
+      "description": "Turquoise-water archipelago in the Bay of Bengal."
+    }
+  ]
+}

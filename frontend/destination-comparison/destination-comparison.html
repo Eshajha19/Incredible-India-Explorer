@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  (function () {
+    const theme = localStorage.getItem('theme') || 'dark';
+    if (theme === 'light') document.body.classList.add('light-theme');
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destination Comparison Tool | Incredible India Explorer</title>
+<meta name="description" content="Compare up to four Indian destinations side by side — budget, weather, attractions, adventure level, and family friendliness — with a personalized recommendation.">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  .dc-hero {
+    padding: 120px 0 50px;
+    text-align: center;
+  }
+  .dc-hero h1 { font-family: "Playfair Display", serif; font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0 0 12px; }
+  .dc-hero p { max-width: 680px; margin: 0 auto; color: var(--text-secondary, #b7b7b7); line-height: 1.7; }
+
+  .dc-container { width: min(1180px, 94%); margin: 0 auto; padding-bottom: 80px; }
+
+  .dc-panel {
+    background: var(--glass-bg, rgba(255,255,255,.05));
+    border: 1px solid var(--glass-border, rgba(255,255,255,.12));
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .dc-panel h2 { font-family: "Playfair Display", serif; font-size: 1.4rem; margin: 0 0 16px; }
+
+  /* --- Destination picker --- */
+  .dc-picker-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .dc-picker-row select {
+    flex: 1; min-width: 220px; padding: 10px 12px; border-radius: 10px;
+    border: 1px solid var(--glass-border, rgba(255,255,255,.14));
+    background: rgba(255,255,255,.05); color: inherit; font-family: 'Outfit', sans-serif;
+  }
+  .dc-picker-row button {
+    padding: 10px 18px; border-radius: 10px; border: none; cursor: pointer;
+    background: var(--green, #138808); color: #fff; font-weight: 600; font-family: 'Outfit', sans-serif;
+  }
+  .dc-picker-row button:disabled { opacity: .5; cursor: not-allowed; }
+  .dc-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .dc-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(23,184,176,.14); border: 1px solid rgba(23,184,176,.35);
+    padding: 6px 8px 6px 14px; border-radius: 999px; font-size: .88rem;
+  }
+  .dc-chip button {
+    background: none; border: none; color: inherit; cursor: pointer; font-size: 1rem;
+    width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+  }
+  .dc-chip button:hover { background: rgba(255,255,255,.15); }
+  .dc-hint { font-size: .82rem; color: var(--text-secondary, #b7b7b7); margin-top: 6px; }
+
+  /* --- Preferences --- */
+  .dc-pref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+  .dc-pref-field label { display: block; font-size: .85rem; margin-bottom: 6px; color: var(--text-secondary, #b7b7b7); }
+  .dc-pref-field input[type="range"] { width: 100%; }
+  .dc-pref-field input[type="number"], .dc-pref-field select {
+    width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--glass-border, rgba(255,255,255,.14));
+    background: rgba(255,255,255,.05); color: inherit; font-family: 'Outfit', sans-serif;
+  }
+  .dc-pref-value { font-weight: 600; color: var(--gold); }
+
+  .dc-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  .dc-actions button {
+    padding: 12px 22px; border-radius: 10px; border: 1px solid var(--glass-border, rgba(255,255,255,.14));
+    background: rgba(255,255,255,.06); color: inherit; font-weight: 600; cursor: pointer; font-family: 'Outfit', sans-serif;
+  }
+  .dc-actions .primary { background: var(--saffron, #ff9933); border-color: transparent; color: #1a1a1a; }
+  .dc-actions button:hover { filter: brightness(1.08); }
+
+  /* --- Recommendation --- */
+  .dc-recommendation {
+    border-radius: 16px; padding: 22px 24px; margin-bottom: 24px;
+    background: linear-gradient(135deg, rgba(255,153,51,.14), rgba(19,136,8,.1));
+    border: 1px solid rgba(255,153,51,.35);
+  }
+  .dc-recommendation h3 { margin: 0 0 8px; font-family: "Playfair Display", serif; font-size: 1.25rem; }
+  .dc-recommendation p { margin: 0; line-height: 1.7; }
+
+  /* --- Comparison cards --- */
+  .dc-compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .dc-compare-card {
+    background: var(--glass-bg, rgba(255,255,255,.05)); border: 1px solid var(--glass-border, rgba(255,255,255,.12));
+    border-radius: 14px; padding: 18px; position: relative;
+  }
+  .dc-compare-card.is-winner { border-color: var(--saffron, #ff9933); box-shadow: 0 0 0 1px rgba(255,153,51,.3); }
+  .dc-compare-card .winner-badge {
+    position: absolute; top: -10px; right: 14px; background: var(--saffron, #ff9933); color: #1a1a1a;
+    font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+  }
+  .dc-compare-card h4 { margin: 0 0 2px; font-family: "Playfair Display", serif; font-size: 1.15rem; }
+  .dc-compare-card .state { font-size: .82rem; color: var(--text-secondary, #b7b7b7); margin-bottom: 12px; }
+  .dc-attr { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: .87rem; }
+  .dc-attr:last-of-type { border-bottom: none; }
+  .dc-attr span:first-child { color: var(--text-secondary, #b7b7b7); }
+  .dc-attr span:last-child { text-align: right; font-weight: 600; }
+  .dc-attractions { margin: 10px 0 0; font-size: .85rem; color: var(--text-secondary, #b7b7b7); line-height: 1.6; }
+  .dc-nearby { margin: 8px 0 0; font-size: .8rem; color: var(--text-secondary, #b7b7b7); }
+
+  /* --- Saved comparisons --- */
+  .dc-saved-list { display: flex; flex-direction: column; gap: 8px; }
+  .dc-saved-item {
+    display: flex; justify-content: space-between; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid var(--glass-border, rgba(255,255,255,.1));
+    font-size: .88rem;
+  }
+  .dc-saved-item .actions { display: flex; gap: 8px; }
+  .dc-saved-item button {
+    background: none; border: 1px solid var(--glass-border, rgba(255,255,255,.16)); color: inherit;
+    border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: .8rem;
+  }
+  .dc-empty { color: var(--text-secondary, #b7b7b7); font-size: .88rem; font-style: italic; }
+  .dc-status { font-size: .85rem; margin-top: 10px; min-height: 1.2em; }
+  .dc-status.error { color: #ff6b6b; }
+  .dc-status.ok { color: var(--green, #138808); }
+</style>
+</head>
+<body>
+<header class="navbar scrolled" id="navbar">
+  <div class="nav-container">
+    <a href="../../index.html#home" class="nav-logo">
+      <span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <nav class="nav-menu" id="nav-menu">
+      <a href="../../index.html#home" class="nav-link">Home</a>
+      <a href="../trip-planner/trip-planner.html" class="nav-link">Trip Planner</a>
+      <a href="destination-comparison.html" class="nav-link current-link">Compare Destinations</a>
+      <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="dc-hero">
+    <h1>Destination Comparison Tool</h1>
+    <p>Pick up to four destinations, tell us what matters to you, and get a side-by-side comparison with a personalized, explainable recommendation.</p>
+  </section>
+
+  <div class="dc-container">
+
+    <div class="dc-panel">
+      <h2>1. Choose destinations <span style="font-weight:400; font-size:.85rem; color:var(--text-secondary,#b7b7b7);">(up to 4)</span></h2>
+      <div class="dc-picker-row">
+        <select id="dc-destination-select" aria-label="Choose a destination to add"></select>
+        <button type="button" id="dc-add-btn">+ Add</button>
+      </div>
+      <div class="dc-chips" id="dc-chips"></div>
+      <p class="dc-hint">Add at least one destination, then set your preferences below and compare.</p>
+    </div>
+
+    <div class="dc-panel">
+      <h2>2. What matters to you?</h2>
+      <div class="dc-pref-grid">
+        <div class="dc-pref-field">
+          <label for="dc-cost-tier">Travel style</label>
+          <select id="dc-cost-tier">
+            <option value="budget">Budget</option>
+            <option value="mid" selected>Mid-range</option>
+            <option value="luxury">Luxury</option>
+          </select>
+        </div>
+        <div class="dc-pref-field">
+          <label for="dc-max-days">Max trip length (days)</label>
+          <input type="number" id="dc-max-days" min="1" max="30" placeholder="e.g. 5">
+        </div>
+        <div class="dc-pref-field">
+          <label for="dc-budget-weight">Budget priority: <span class="dc-pref-value" id="dc-budget-weight-val">3</span></label>
+          <input type="range" id="dc-budget-weight" min="0" max="5" value="3">
+        </div>
+        <div class="dc-pref-field">
+          <label for="dc-adventure-weight">Adventure priority: <span class="dc-pref-value" id="dc-adventure-weight-val">2</span></label>
+          <input type="range" id="dc-adventure-weight" min="0" max="5" value="2">
+        </div>
+        <div class="dc-pref-field">
+          <label for="dc-family-weight">Family-friendliness priority: <span class="dc-pref-value" id="dc-family-weight-val">2</span></label>
+          <input type="range" id="dc-family-weight" min="0" max="5" value="2">
+        </div>
+        <div class="dc-pref-field">
+          <label for="dc-accessibility-weight">Ease of access priority: <span class="dc-pref-value" id="dc-accessibility-weight-val">2</span></label>
+          <input type="range" id="dc-accessibility-weight" min="0" max="5" value="2">
+        </div>
+      </div>
+
+      <div class="dc-actions">
+        <button type="button" id="dc-compare-btn" class="primary">Compare</button>
+        <button type="button" id="dc-save-btn">💾 Save this comparison</button>
+        <button type="button" id="dc-export-btn">⬇ Export report (.txt)</button>
+      </div>
+      <p class="dc-status" id="dc-status"></p>
+    </div>
+
+    <div id="dc-recommendation-panel" hidden></div>
+
+    <div class="dc-panel" id="dc-results-panel" hidden>
+      <h2>Side-by-side comparison</h2>
+      <div class="dc-compare-grid" id="dc-compare-grid"></div>
+    </div>
+
+    <div class="dc-panel">
+      <h2>Saved comparisons</h2>
+      <div class="dc-saved-list" id="dc-saved-list"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer style="padding: 30px 0; text-align: center; color: var(--text-secondary,#b7b7b7); border-top: 1px solid var(--glass-border, rgba(255,255,255,.1));">
+  <p>Part of <a href="../../index.html" style="color: var(--saffron,#ff9933);">Incredible India Explorer</a></p>
+</footer>
+
+<button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+<script src="../../app.js" defer></script>
+<script src="../../trip-data.js"></script>
+<script src="../../js-modules/destination-comparison-engine.js"></script>
+<script src="destination-comparison-ui.js" defer></script>
+</body>
+</html>
