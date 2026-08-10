@@ -1,0 +1,51 @@
+<svg viewBox="0 0 1024 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylised illustration of women's participation across India">
+  <defs>
+    <linearGradient id="womBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a101e"/>
+      <stop offset="50%" stop-color="#2a1a2e"/>
+      <stop offset="100%" stop-color="#4a2242"/>
+    </linearGradient>
+    <radialGradient id="womGlow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#f0cc7a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#d9a441" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1024" height="640" fill="url(#womBg)"/>
+  <circle cx="512" cy="300" r="220" fill="url(#womGlow)"/>
+
+  <!-- India outline -->
+  <path d="M320 20 C260 40 220 90 210 140 C170 150 120 170 100 220 C80 260 90 300 130 320 C110 360 120 410 160 440 C150 480 170 520 210 540 C220 590 260 630 320 660 C360 615 400 570 420 525 C460 515 500 485 510 448 C550 428 580 390 570 342 C600 302 600 252 560 212 C570 162 540 112 480 82 C440 42 380 12 320 20 Z"
+        fill="rgba(240,204,122,0.05)" stroke="rgba(240,204,122,0.3)" stroke-width="2"/>
+
+  <!-- marker points grouped by movement -->
+  <g fill="#d9a441" stroke="#1a101e" stroke-width="3">
+    <!-- 1857 markers -->
+    <circle cx="490" cy="490" r="9" data-movement="revolt"/>
+    <circle cx="440" cy="520" r="7" data-movement="revolt"/>
+    <!-- Swadeshi markers -->
+    <circle cx="500" cy="380" r="9" data-movement="swadeshi"/>
+    <circle cx="340" cy="180" r="7" data-movement="swadeshi"/>
+    <circle cx="630" cy="250" r="8" data-movement="swadeshi"/>
+    <!-- Non-Cooperation markers -->
+    <circle cx="500" cy="230" r="9" data-movement="noncoop"/>
+    <circle cx="660" cy="325" r="7" data-movement="noncoop"/>
+    <!-- Civil Disobedience markers -->
+    <circle cx="500" cy="230" r="8" data-movement="civdis"/>
+    <circle cx="340" cy="180" r="7" data-movement="civdis"/>
+    <!-- Quit India markers -->
+    <circle cx="500" cy="230" r="9" data-movement="quitindia"/>
+    <circle cx="660" cy="325" r="7" data-movement="quitindia"/>
+    <circle cx="700" cy="450" r="8" data-movement="quitindia"/>
+    <!-- Revolutionary markers -->
+    <circle cx="440" cy="520" r="7" data-movement="revolution"/>
+    <!-- INA markers -->
+    <circle cx="300" cy="180" r="9" data-movement="ina"/>
+    <circle cx="580" cy="380" r="7" data-movement="ina"/>
+  </g>
+
+  <!-- ground -->
+  <rect y="530" width="1024" height="110" fill="#0f0a14"/>
+
+  <text x="512" y="600" font-family="Georgia, serif" font-size="22" fill="#f0cc7a" text-anchor="middle" letter-spacing="2">WOMEN IN THE FREEDOM STRUGGLE</text>
+</svg>

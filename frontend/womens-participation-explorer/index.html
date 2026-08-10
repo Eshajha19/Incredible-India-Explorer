@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore how Indian women participated in the freedom struggle — from the Revolt of 1857 to Quit India, INA's Rani of Jhansi Regiment, revolutionary activities, and women-led protests across the subcontinent.">
+  <title>Women & Freedom Struggle Explorer | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
+
+  <!-- Open Graph / Social Media Tags -->
+  <meta property="og:title" content="Women & Freedom Struggle Explorer | Incredible India Explorer">
+  <meta property="og:description" content="Explore how Indian women participated across every phase of the freedom struggle — 1857, Swadeshi, Non-Cooperation, Civil Disobedience, Quit India, INA, and revolutionary activities.">
+  <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/womens_participation_hero.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/womens-participation-explorer/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Incredible India Explorer">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/womens-participation-explorer/index.html">
+</head>
+<body>
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'light') {
+        document.body.classList.add('light-theme');
+      }
+    })();
+  </script>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+            <span class="saffron">Incredible</span>
+            <span class="gold">India</span>
+            <span class="green">Explorer</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">History & Heritage ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../freedom-movement-explorer/index.html" class="dropdown-item">Freedom Movement Explorer</a>
+                    <a href="../freedom-fighters-hub/index.html" class="dropdown-item">Freedom Fighters Hub</a>
+                    <a href="../revolutionary-network-explorer/index.html" class="dropdown-item">Revolutionary Network</a>
+                    <a href="../student-youth-resistance-explorer/index.html" class="dropdown-item">Student & Youth Resistance</a>
+                    <a href="index.html" class="dropdown-item" style="color: var(--saffron)">Women & Freedom Struggle</a>
+                    <a href="../partition-1947/partition-1947.html" class="dropdown-item">Partition of 1947</a>
+                    <a href="../constitution-explorer/index.html" class="dropdown-item">Constitution Explorer</a>
+                    <a href="../historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
+                    <a href="../champaran-satyagraha-explorer/index.html" class="dropdown-item">Champaran Satyagraha</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
+                    <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                    <a href="../../frontend/route-planner/route-planner.html" class="dropdown-item">Route Planner</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
+                    <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
+                    <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
+                    <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
+                    <a href="../../frontend/monsoon-game/monsoon-game.html" class="dropdown-item">Monsoon Game</a>
+                    <a href="../../frontend/river-game/river-game.html" class="dropdown-item">River Explorer</a>
+                    <a href="../../frontend/geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown">
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
+                <div class="dropdown-menu">
+                    <a href="../../frontend/contributors/contributors.html" class="dropdown-item">Contributors</a>
+                    <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
+                </div>
+            </div>
+
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+        </nav>
+    </div>
+</header>
+
+  <!-- SPA Router Target Container -->
+  <main id="app-root" class="wom-main">
+
+    <!-- Hero Banner -->
+    <section class="wom-hero">
+      <div class="wom-hero-content">
+        <span class="wom-kicker">🇮🇳 From 1857 to 1947 · Women at Every Front</span>
+        <h1>Women &amp; the <span>Freedom Struggle</span></h1>
+        <p>Across every phase of India's freedom movement, women were not bystanders — they were combatants, organisers, spies, poets, and symbols of defiance. From Rani Lakshmibai on the battlefield to the Rani of Jhansi Regiment marching into Burma, from sarli-leaf protests in the bazaars to secret radio transmissions in Delhi bedrooms, women wove courage into the fabric of the nation.</p>
+        <div class="wom-bookmark-container">
+          <button class="wom-bookmark-btn journey-bookmark-btn" type="button" data-bookmark-id="wom-main" aria-pressed="false" aria-label="Bookmark Women & Freedom Struggle Explorer">
+            ♡ Save to Journey
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Overview -->
+    <section class="wom-section" id="overview">
+      <div class="wom-container wom-grid-2col">
+        <div class="wom-text-block">
+          <span class="wom-eyebrow">Forgotten Warriors, Untold Stories</span>
+          <h2>The Women Who Shaped India's Freedom</h2>
+          <p>Women's participation in the freedom struggle spans the full arc of resistance — from the battlefield heroism of Rani Lakshmibai during the Revolt of 1857, to the intellectual leadership of Sarojini Naidu and Annie Besant during the Swadeshi era, the grassroots organisation of Kasturba Gandhi and Kamaladevi Chattopadhyay during Non-Cooperation and Civil Disobedience, and the revolutionary fire of Aruna Asaf Ali and Captain Lakshmi Sahgal during Quit India and the INA.</p>
+          <p>From the tribal uprising led by Matangini Hazra in Bengal to the Karrani Kingdom's resistance in the east, from the Rani of Jhansi Regiment marching through Burma to Usha Mehta's clandestine radio in Delhi — women stitched the flag of freedom with threads of sacrifice, courage, and unwavering resolve.</p>
+        </div>
+        <div class="wom-highlight-box">
+          <h3>🧭 At a Glance</h3>
+          <ul>
+            <li><strong>Timeline span</strong>: 1857 Revolt to 1947 Independence — 90 years of continuous resistance.</li>
+            <li><strong>Geographic spread</strong>: Bengal, Awadh, Maharashtra, Tamil Nadu, Punjab, Bengal, Assam, and the Northeast.</li>
+            <li><strong>Movement types</strong>: Armed rebellion, boycott, civil disobedience, revolutionary sabotage, and cultural resistance.</li>
+            <li><strong>Key roles</strong>: Military leaders, political organisers, underground couriers, poets, and symbols of defiance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Statistics -->
+    <section class="wom-section" id="statistics">
+      <div class="wom-container">
+        <div class="wom-section-header">
+          <span class="wom-eyebrow">By the Numbers</span>
+          <h2>Women's Participation Statistics</h2>
+          <p>A look at the scale of women's involvement across the major phases of the freedom struggle.</p>
+        </div>
+
+        <div class="wom-stats-grid">
+          <div class="wom-stat-card">
+            <span class="wom-stat-num">10,000+</span>
+            <span class="wom-stat-lbl">Women imprisoned during Quit India (1942)</span>
+          </div>
+          <div class="wom-stat-card">
+            <span class="wom-stat-num">1,590+</span>
+            <span class="wom-stat-lbl">Women in the Rani of Jhansi Regiment</span>
+          </div>
+          <div class="wom-stat-card">
+            <span class="wom-stat-num">1857–1942</span>
+            <span class="wom-stat-lbl">85 years of continuous activism</span>
+          </div>
+          <div class="wom-stat-card">
+            <span class="wom-stat-num">1,000+</span>
+            <span class="wom-stat-lbl">Women freedom fighters documented</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Interactive Map -->
+    <section class="wom-section" id="map">
+      <div class="wom-container">
+        <div class="wom-section-header">
+          <span class="wom-eyebrow">Across the Subcontinent</span>
+          <h2>Women-led Activity Map</h2>
+          <p>Select a movement to see where women's resistance flared across India. Select "All" to see the full map.</p>
+        </div>
+
+        <div class="wom-filter-bar" role="group" aria-label="Filter women's resistance map by movement">
+          <button class="wom-filter-btn active" type="button" data-filter="all">All Movements</button>
+          <button class="wom-filter-btn" type="button" data-filter="revolt">Revolt of 1857</button>
+          <button class="wom-filter-btn" type="button" data-filter="swadeshi">Swadeshi (1905)</button>
+          <button class="wom-filter-btn" type="button" data-filter="noncoop">Non-Cooperation</button>
+          <button class="wom-filter-btn" type="button" data-filter="civdis">Civil Disobedience</button>
+          <button class="wom-filter-btn" type="button" data-filter="quitindia">Quit India (1942)</button>
+          <button class="wom-filter-btn" type="button" data-filter="ina">INA & Regiment</button>
+        </div>
+
+        <div class="wom-map-wrap">
+          <svg id="wom-map-svg" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" role="group" aria-labelledby="wom-map-svg-title">
+            <title id="wom-map-svg-title">Interactive map of women-led resistance across India during the freedom struggle</title>
+
+            <!-- India outline -->
+            <path class="wom-map-outline" d="M320 20 C260 40 220 90 210 140 C170 150 120 170 100 220 C80 260 90 300 130 320 C110 360 120 410 160 440 C150 480 170 520 210 540 C220 590 260 630 320 660 C360 615 400 570 420 525 C460 515 500 485 510 448 C550 428 580 390 570 342 C600 302 600 252 560 212 C570 162 540 112 480 82 C440 42 380 12 320 20 Z" />
+
+            <!-- Connection lines -->
+            <g id="wom-map-lines" stroke-width="2" fill="none">
+              <line class="wom-map-line" data-movement="revolt" x1="490" y1="490" x2="440" y2="520" />
+              <line class="wom-map-line" data-movement="swadeshi" x1="500" y1="340" x2="340" y2="180" />
+              <line class="wom-map-line" data-movement="swadeshi" x1="500" y1="340" x2="630" y2="250" />
+              <line class="wom-map-line" data-movement="swadeshi education" x1="630" y1="250" x2="340" y2="180" />
+              <line class="wom-map-line" data-movement="noncoop" x1="500" y1="230" x2="660" y2="325" />
+              <line class="wom-map-line" data-movement="civdis" x1="500" y1="230" x2="340" y2="180" />
+              <line class="wom-map-line" data-movement="quitindia" x1="500" y1="230" x2="700" y2="450" />
+              <line class="wom-map-line" data-movement="quitindia" x1="700" y1="450" x2="660" y2="325" />
+              <line class="wom-map-line" data-movement="ina" x1="300" y1="180" x2="580" y2="380" />
+              <line class="wom-map-line" data-movement="ina" x1="580" y1="380" x2="440" y2="520" />
+            </g>
+
+            <!-- Location nodes -->
+            <g id="wom-map-nodes">
+              <!-- Jhansi (Rani Lakshmibai) -->
+              <g class="wom-map-node" data-movement="revolt" tabindex="0" role="img" aria-label="Jhansi: Rani Lakshmibai's 1857 resistance — the war queen who became a symbol of women's valour">
+                <circle cx="490" cy="490" r="11" />
+                <text x="490" y="506" text-anchor="middle">Jhansi<br/>(Rani Lakshmibai)</text>
+              </g>
+
+              <!-- Kanpur -->
+              <g class="wom-map-node" data-movement="revolt" tabindex="0" role="img" aria-label="Kanpur: 1857 massacre and Begum Hazrat Mahal's resistance">
+                <circle cx="440" cy="520" r="8" />
+                <text x="440" y="536" text-anchor="middle">Kanpur<br/>(Hazrat Mahal)</text>
+              </g>
+
+              <!-- Calcutta / Kolkata -->
+                  <g class="wom-map-node" data-movement="swadeshi education noncoop" tabindex="0" role="img" aria-label="Calcutta: Sarojini Naidu, Annie Besant, Swadeshi protests, and the 1921 Congress session">
+                <circle cx="340" cy="60" r="10" />
+                <text x="340" y="76" text-anchor="middle">Calcutta<br/>(Naidu, Besant)</text>
+              </g>
+
+              <!-- Barrackpore -->
+              <g class="wom-map-node" data-movement="swadeshi" tabindex="0" role="img" aria-label="Barisal: Sarojini Naidu's first political speech and early Swadeshi activism">
+                <circle cx="340" cy="180" r="7" />
+                <text x="340" y="196" text-anchor="middle">Barisal<br/>(Naidu debut)</text>
+              </g>
+
+              <!-- Madras / Chennai -->
+              <g class="wom-map-node" data-movement="swadeshi education quitindia" tabindex="0" role="img" aria-label="Madras: Annie Besant's Home Rule, Madras University Women's Association, Quit India protests">
+                <circle cx="630" cy="250" r="8" />
+                <text x="630" y="266" text-anchor="middle">Madras<br/>(Besant, AV Rajwadee)</text>
+              </g>
+
+              <!-- Delhi -->
+              <g class="wom-map-node" data-movement="noncoop civdis quitindia" tabindex="0" role="img" aria-label="Delhi: Kasturba Gandhi's protests, Aruna Asaf Ali's Quit India flag hoisting, Usha Mehta's radio">
+                <circle cx="500" cy="120" r="10" />
+                <text x="500" y="136" text-anchor="middle">Delhi<br/>(Aruna Asaf Ali)</text>
+              </g>
+
+              <!-- Lucknow -->
+              <g class="wom-map-node" data-movement="noncoop civdis" tabindex="0" role="img" aria-label="Lucknow: Begum Hazrat Mahal and women's political mobilisation in Awadh">
+                <circle cx="510" cy="340" r="7" />
+                <text x="510" y="356" text-anchor="middle">Lucknow<br/>(Hazrat Mahal)</text>
+              </g>
+
+              <!-- Nagpur -->
+              <g class="wom-map-node" data-movement="quitindia" tabindex="0" role="img" aria-label="Nagpur: Vidya Vanmala Raje Scindia and Quit India women's protests">
+                <circle cx="660" cy="325" r="8" />
+                <text x="660" y="341" text-anchor="middle">Nagpur<br/>(Quit India)</text>
+              </g>
+
+              <!-- Bombay -->
+              <g class="wom-map-node" data-movement="swadeshi education quitindia ina" tabindex="0" role="img" aria-label="Bombay: Kamaladevi Chattopadhyay, Aruna Asaf Ali, INA recruitment, Quit India underground">
+                <circle cx="700" cy="450" r="9" />
+                <text x="700" y="466" text-anchor="middle">Bombay<br/>(Kamaladevi, Asaf Ali)</text>
+              </g>
+
+              <!-- Rangoon / Burma -->
+              <g class="wom-map-node" data-movement="ina" tabindex="0" role="img" aria-label="Rangoon: Captain Lakshmi Sahgal's Rani of Jhansi Regiment training centre">
+                <circle cx="580" cy="380" r="8" />
+                <text x="580" y="396" text-anchor="middle">Rangoon<br/>(INA Regiment)</text>
+              </g>
+
+              <!-- Kolkata Presidency College -->
+              <g class="wom-map-node" data-movement="education noncoop" tabindex="0" role="img" aria-label="Calcutta: Scottish Church College, Presidency College — women students in the freedom struggle">
+                <circle cx="300" cy="180" r="7" />
+                <text x="300" y="196" text-anchor="middle">Calcutta Uni<br/>(Student activism)</text>
+              </g>
+            </g>
+          </svg>
+
+          <p class="wom-map-caption" id="wom-map-caption">Showing all women-led resistance locations. Click a node for more details.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Movement Cards -->
+    <section class="wom-section" id="movements">
+      <div class="wom-container">
+        <div class="wom-section-header">
+          <span class="wom-eyebrow">By Movement</span>
+          <h2>Women in Every Phase of Resistance</h2>
+          <p>From the battlefield to the streets, women's roles evolved but never wavered. Explore how women participated across each major movement.</p>
+        </div>
+
+        <div class="wom-card-grid">
+          <div class="wom-card" data-movement="revolt">
+            <span class="wom-card-icon">⚔️</span>
+            <h3>Revolt of 1857</h3>
+            <span class="wom-card-year">1857 · Jhansi, Kanpur, Lucknow</span>
+            <p>Rani Lakshmibai of Jhansi led cavalry into battle. Begum Hazrat Mahal organised resistance in Awadh. In Delhi, women fought alongside men in the Red Fort. These queen-ruled kingdoms became symbols of armed female defiance.</p>
+          </div>
+
+          <div class="wom-card" data-movement="swadeshi">
+            <span class="wom-card-icon">🏴</span>
+            <h3>Swadeshi Movement (1905)</h3>
+                              <span class="wom-card-year">1905–1908 · Bengal, Madras</span>
+            <p>Sarojini Naidu delivered her first political speech in Barisal. Annie Besant championed boycott at the Madras session. University women organised spinning sessions and promoted khadi. The movement created the first generation of politically conscious women leaders.</p>
+          </div>
+
+          <div class="wom-card" data-movement="noncoop">
+            <span class="wom-card-icon">✊</span>
+            <h3>Non-Cooperation (1920–1922)</h3>
+            <span class="wom-card-year">1920–1922 · Nationwide</span>
+            <p>Kasturba Gandhi led protests in Ahmedabad and Delhi. Kamaladevi Chattopadhyay organised harijan women. Women picketed liquor shops and foreign cloth stores. Over 12,000 women were jailed in 1921 alone.</p>
+            </div>
+
+          <div class="wom-card" data-movement="civdis">
+            <span class="wom-card-icon">🏖️</span>
+            <h3>Civil Disobedience (1930)</h3>
+            <span class="wom-card-year">1930–1934 · Dandi, across India</span>
+            <p>Women led the Salt March extensions — Sarojini Naidu at the forefront in Gujarat. Thousands joined picketing and protests. Kasturba Gandhi was imprisoned multiple times. In South India, women formed the Madras Mahila Congress Committee.</p>
+          </div>
+
+          <div class="wom-card" data-movement="quitindia">
+            <span class="wom-card-icon">📢</span>
+            <h3>Quit India Movement (1942)</h3>
+            <span class="wom-card-year">1942 · Nationwide</span>
+            <p>Aruna Asaf Ali hoisted the Congress flag at the Gowalia Tank Maidan. Usha Mehta ran the Congress Radio underground. Students and housewives took to streets. Over 10,000 women were imprisoned — the largest detention of women in the freedom struggle.</p>
+          </div>
+
+          <div class="wom-card" data-movement="ina">
+            <span class="wom-card-icon">🪖</span>
+            <h3>INA & Rani of Jhansi Regiment</h3>
+            <span class="wom-card-year">1941–1945 · Singapore, Burma</span>
+            <p>Captain Lakshmi Sahgal formed the all-women INA regiment that marched into Burma. Over 1,500 women volunteered. They carried weapons, treated the wounded, and became symbols of a new kind of woman warrior — equal to any man on the battlefield.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Leaders -->
+    <section class="wom-section" id="leaders">
+      <div class="wom-container">
+        <div class="wom-section-header">
+          <span class="wom-eyebrow">Titans of Courage</span>
+          <h2>Major Women Leaders</h2>
+          <p>From queens who ruled kingdoms to students who stormed streets — explore the remarkable women whose courage defined an era.</p>
+        </div>
+
+        <div class="wom-leader-grid">
+          <div class="wom-leader-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="wom-modal">
+            <div class="wom-leader-img">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="20" y="10" width="60" height="70" rx="30" fill="#d9a441"/><circle cx="50" cy="40" r="16" fill="#241811"/><path d="M30 80 C30 70 40 62 50 62 C60 62 70 70 70 80 V88 H30 Z" fill="#241811"/></svg>
+            </div>
+            <h3>Rani Lakshmibai</h3>
+            <span class="wom-leader-role">Queen of Jhansi · 1828–1858</span>
+            <p>The warrior queen who became the icon of Indian resistance. Armed and mounted, she led her soldiers into battle during the 1857 Revolt, refusing to surrender her kingdom to the British.</p>
+          </div>
+
+          <div class="wom-leader-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="wom-modal">
+            <div class="wom-leader-img">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="28" r="18" fill="#d9a441"/><rect x="25" y="55" width="50" height="45" rx="8" fill="#241811"/></svg>
+            </div>
+            <h3>Begum Hazrat Mahal</h3>
+            <span class="wom-leader-role">Queen of Awadh · 1823–1889</span>
+            <p>Wife of Nawab Wajid Ali Shah, she led the resistance in Awadh after the 1857 Revolt, organised troops, raised funds, and continued the fight even after her husband's death.</p>
+          </div>
+
+          <div class="wom-leader-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="wom-modal">
+            <div class="wom-leader-img">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="22" r="16" fill="#d9a441"/><path d="M25 60 C25 50 35 42 50 42 C65 42 75 50 75 60 V72 H25 Z" fill="#241811"/><circle cx="50" cy="34" r="5" fill="#241811"/></svg>
+            </div>
+            <h3>Sarojini Naidu</h3>
+            <span class="wom-leader-role">Poet & Politician · 1877–1949</span>
+            <p>The Nightingale of India, a poet laureate who became a formidable political leader. She led the Salt March in Gujarat and was the first woman President of the Indian National Congress.</p>
+          </div>
+
+          <div class="wom-leader-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="wom-modal">
+            <div class="wom-leader-img">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="25" r="18" fill="#d9a441"/><rect x="20" y="55" width="60" height="45" rx="8" fill="#241811"/></svg>
+            </div>
+            <h3>Aruna Asaf Ali</h3>
+            <span class="wom-leader-role">Freedom Fighter · 1905–1996</span>
+            <p>Hoisted the Congress flag during Quit India at Gowalia Tank Maidan. A graduate of Delhi University, she went underground, ran secret radio broadcasts, and became a symbol of defiant youth.</p>
+          </div>
+
+          <div class="wom-leader-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="wom-modal">
+            <div class="wom-leader-img">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="24" r="18" fill="#d9a441"/><path d="M28 58 C28 50 38 42 50 42 C62 42 72 50 72 58 V72 H28 Z" fill="#241811"/><circle cx="50" cy="34" r="4" fill="#241811"/></svg>
+            </div>
+            <h3>Captain Lakshmi Sahgal</h3>
+            <span class="wom-leader-role">INA Officer · 1927–2012</span>
+            <p>Doctor and officer in the Indian National Army. She formed and commanded the all-women Rani of Jhansi Regiment that marched into Burma, proving women could fight as equals on the battlefield.</p>
+          </div>
+
+          <div class="wom-leader-card" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="wom-modal">
+            <div class="wom-leader-img">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="22" y="10" width="56" height="70" rx="10" fill="#d9a441"/><circle cx="50" cy="38" r="14" fill="#241811"/></svg>
+            </div>
+            <h3>Kamaladevi Chattopadhyay</h3>
+            <span class="wom-leader-role">Social Reformer · 1869–1972</span>
+            <p>A pioneer of the freedom struggle, social reformer, and champion of women's education. She led non-cooperation picketing and later became a founder of the All India Women's Conference.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Timeline -->
+    <section class="wom-section" id="timeline">
+      <div class="wom-container">
+        <div class="wom-section-header">
+          <span class="wom-eyebrow">Milestones</span>
+          <h2>Timeline of Women's Resistance</h2>
+          <p>From the warrior queens of 1857 to the underground radio operators of 1942 — a chronology of women whose courage changed history.</p>
+        </div>
+
+        <div class="wom-timeline">
+          <div class="wom-timeline-step">
+            <div class="wom-timeline-marker"></div>
+            <div class="wom-timeline-card">
+              <span class="wom-timeline-year">1857</span>
+              <h3>The Warrior Queens Rise</h3>
+              <p>Rani Lakshmibai of Jhansi, Begum Hazrat Mahal of Awadh, and other queen-ruled kingdoms lead the Revolt of 1857. Women fight alongside men in Delhi's Red Fort.</p>
+            </div>
+          </div>
+
+          <div class="wom-timeline-step">
+            <div class="wom-timeline-marker"></div>
+            <div class="wom-timeline-card">
+              <span class="wom-timeline-year">1905</span>
+              <h3>Swadeshi Sparks</h3>
+              <p>The anti-Partition protests see Sarojini Naidu's political debut in Barisal. Annie Besant champions the boycott in Madras. University women organise spinning and khadi promotion.</p>
+            </div>
+          </div>
+
+          <div class="wom-timeline-step">
+            <div class="wom-timeline-marker"></div>
+            <div class="wom-timeline-card">
+              <span class="wom-timeline-year">1921</span>
+              <h3>Non-Cooperation Arrests</h3>
+              <p>Kasturba Gandhi leads protests in Ahmedabad. Kamaladevi Chattopadhyay organises women's picketing. Over 12,000 women are jailed for defying British laws.</p>
+            </div>
+          </div>
+
+          <div class="wom-timeline-step">
+            <div class="wom-timeline-marker"></div>
+            <div class="wom-timeline-card">
+              <span class="wom-timeline-year">1930</span>
+              <h3>The Salt March Women</h3>
+              <p>Women lead Dandi March extensions. Sarojini Naidu commands the protest at the salt pans. Thousands of women are jailed for making salt in defiance of the law.</p>
+            </div>
+          </div>
+
+          <div class="wom-timeline-step">
+            <div class="wom-timeline-marker"></div>
+            <div class="wom-timeline-card">
+              <span class="wom-timeline-year">1942</span>
+              <h3>Quit India's Fearless Women</h3>
+              <p>Aruna Asaf Ali hoists the Congress flag at Gowalia Tank Maidan. Usha Mehta runs the underground Congress Radio. Students and housewives flood the streets.</p>
+            </div>
+          </div>
+
+          <div class="wom-timeline-step">
+            <div class="wom-timeline-marker"></div>
+            <div class="wom-timeline-card">
+              <span class="wom-timeline-year">1945</span>
+              <h3>The Rani of Jhansi Regiment</h3>
+              <p>Captain Lakshmi Sahgal leads the all-women INA regiment into Burma. Over 1,500 women serve as soldiers, medics, and instructors — rewriting the code of women's courage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Gallery -->
+    <section class="wom-section" id="gallery">
+      <div class="wom-container">
+        <div class="wom-section-header">
+          <span class="wom-eyebrow">Visual Tour</span>
+          <h2>Illustrations of Women's Resistance</h2>
+          <p>Impressionistic scenes from the 1857 battlefield, the 1905 boycott streets, and the 1942 underground — celebrating the visual legacy of women in the freedom struggle.</p>
+        </div>
+
+        <div class="wom-gallery-grid">
+          <div class="wom-gallery-item" data-title="Jhansi's War Elephant" data-desc="An illustrated impression of Rani Lakshmibai astride her war elephant, sword raised, leading the defence of Jhansi during the 1857 Revolt.">
+            <img src="../assets/revolutionary_feroz_shah_kotla.svg" alt="Illustrated impression of Rani Lakshmibai leading the defence of Jhansi" loading="lazy">
+            <div class="wom-gallery-overlay">
+              <h4>Jhansi's War Elephant</h4>
+              <p>1857 · Queen's valour</p>
+            </div>
+          </div>
+          <div class="wom-gallery-item" data-title="The 1905 Boycott" data-desc="An illustrated impression of women burning foreign cloth and hoisting the national flag during the Swadeshi protests of 1905.">
+            <img src="../assets/revolutionary_anushilan_akhara.svg" alt="Illustrated impression of 1905 Swadeshi boycott led by women" loading="lazy">
+            <div class="wom-gallery-overlay">
+              <h4>The 1905 Boycott</h4>
+              <p>Swadeshi · Women lead</p>
+            </div>
+          </div>
+          <div class="wom-gallery-item" data-title="Secret Radio Operator" data-desc="An illustrated impression of Usha Mehta operating the underground Congress Radio during Quit India, keeping the nation informed under British censorship.">
+            <img src="../assets/congress_radio_hero.svg" alt="Illustrated impression of underground radio during Quit India" loading="lazy">
+            <div class="wom-gallery-overlay">
+              <h4>Secret Radio</h4>
+              <p>1942 · Usha Mehta</p>
+            </div>
+          </div>
+          <div class="wom-gallery-item" data-title="The INA Regiment" data-desc="An illustrated impression of the Rani of Jhansi Regiment marching through the streets, armed and uniformed, breaking gender barriers in the fight for freedom.">
+            <img src="../assets/revolutionary_kakori_train.svg" alt="Illustrated impression of Rani of Jhansi Regiment marching" loading="lazy">
+            <div class="wom-gallery-overlay">
+              <h4>INA Regiment</h4>
+              <p>1945 · Women warriors</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: References -->
+    <section class="wom-section" id="references">
+      <div class="wom-container">
+        <div class="wom-references">
+          <h3>📚 References &amp; Further Reading</h3>
+          <ul>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Rani_Laxmibai" target="_blank" rel="noopener noreferrer">Rani Lakshmibai — Queen of Jhansi</a></em>.</li>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Begum_Hazrat_Mahal" target="_blank" rel="noopener noreferrer">Begum Hazrat Mahal — Queen of Awadh</a></em>.</li>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Sarojini_Naidu" target="_blank" rel="noopener noreferrer">Sarojini Naidu — Poet and Politician</a></em>.</li>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Aruna_Asaf_Ali" target="_blank" rel="noopener noreferrer">Aruna Asaf Ali — Freedom Fighter</a></em>.</li>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Lakshmi_Sahgal" target="_blank" rel="noopener noreferrer">Captain Lakshmi Sahgal — INA Officer</a></em>.</li>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Kamaladevi_Chattopadhyay" target="_blank" rel="noopener noreferrer">Kamaladevi Chattopadhyay — Social Reformer</a></em>.</li>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Rani_of_Jhansi_Regiment" target="_blank" rel="noopener noreferrer">Rani of Jhansi Regiment — INA Women's Unit</a></em>.</li>
+            <li><strong>Wikipedia</strong>. <em><a href="https://en.wikipedia.org/wiki/Women_in_the_Indian_independence_movement" target="_blank" rel="noopener noreferrer">Women in the Indian Independence Movement</a></em>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Detail Modal -->
+  <div class="museum-modal" id="wom-modal" role="dialog" aria-modal="true" aria-labelledby="wom-modal-title" aria-hidden="true">
+    <div class="museum-modal-card">
+      <button class="museum-modal-close" id="wom-modal-close" type="button" aria-label="Close details">✕</button>
+      <span class="modal-category" id="wom-modal-category">Leader</span>
+      <h2 id="wom-modal-title"></h2>
+      <p class="modal-location" id="wom-modal-role" style="color: var(--wom-gold-light);"></p>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 15px; padding-top: 15px;">
+        <p class="modal-description" id="wom-modal-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="wom-footer">
+    <div class="wom-container">
+      <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Celebrating the women who shaped India's freedom struggle.</p>
+    </div>
+  </footer>
+
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
+
+  <!-- JS Dependencies -->
+  <script src="../js-modules/config.js"></script>
+  <script src="../pages-common.js"></script>
+  <script src="../app.js" defer></script>
+  <script src="script.js"></script>
+  <script type="module" src="../firebase-config.js"></script>
+  <script type="module" src="../auth.js"></script>
+  <script src="../router.js" defer></script>
+  <script src="../js-modules/page-progress/page-progress.js"></script>
+</body>
+</html>

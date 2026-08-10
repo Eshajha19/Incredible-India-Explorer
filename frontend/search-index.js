@@ -650,6 +650,18 @@ window.indiaSearchIndex = [
     url: "frontend/revolutionary-network-explorer/index.html"
   },
   {
+    title: "Student & Youth Resistance Explorer",
+    category: "Freedom Struggle",
+    description: "Explore how students and young people shaped India's freedom movement — Swadeshi, National Education, Non-Cooperation, revolutionary youth, and Quit India.",
+    url: "frontend/student-youth-resistance-explorer/index.html"
+  },
+  {
+    title: "Women & Freedom Struggle Explorer",
+    category: "Freedom Struggle",
+    description: "Explore how Indian women participated across every phase of the freedom struggle — 1857, Swadeshi, Non-Cooperation, Civil Disobedience, Quit India, and the INA.",
+    url: "frontend/womens-participation-explorer/index.html"
+  },
+  {
     title: "Cellular Jail & Colonial Imprisonment Explorer",
     category: "Freedom Struggle",
     description: "Explore the Cellular Jail and other major colonial prisons — Yerawada, Aga Khan Palace, Alipore, Lahore Central Jail — and the freedom fighters held within them.",
