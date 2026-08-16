@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Kannada (ಕನ್ನಡ) — Kannada script, a verified greeting with pronunciation, common Kannada words, its Dravidian family, major regions, and short literary and cultural heritage notes."
+        />
+        <title>Kannada: ಕನ್ನಡ & Its Literary Heritage | Incredible India</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="kannada.css" />
+    </head>
+    <body class="kannada-main">
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+
+        <header class="navbar" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
+                        <div class="dropdown-menu">
+                            <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
+                            <a href="../../frontend/languages/languages.html" class="dropdown-item">Languages of India</a>
+                            <a href="../../frontend/kannada-explorer/index.html" class="dropdown-item">Kannada: ಕನ್ನಡ</a>
+                            <a href="../../frontend/bhojpuri-explorer/index.html" class="dropdown-item">Bhojpuri: भोजपुरी</a>
+                            <a href="../../frontend/awadhi-explorer/index.html" class="dropdown-item">Awadhi: अवधी</a>
+                            <a href="../../frontend/punjabi-explorer/index.html" class="dropdown-item">Punjabi: ਪੰਜਾਬੀ</a>
+                        </div>
+                    </div>
+                    <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="kannada-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill">🗣️ ~43.7 Million Speakers</span>
+                        <span class="hero-pill">📍 Karnataka</span>
+                        <span class="hero-pill">✍️ Kannada Script</span>
+                    </div>
+                    <h1>
+                        <span class="kannada-title">ಕನ್ನಡ</span>
+                        Kannada
+                        <span>Language of the Deccan and one of India's great classical traditions</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Kannada is a major Dravidian language of South India, spoken across Karnataka and neighboring regions,
+                        known for its ancient script, steady literary tradition, and strong link to temple culture, music, and public life.
+                    </p>
+                    <div id="stats-grid" class="stats-grid"></div>
+                </div>
+            </section>
+
+            <section class="kannada-greeting-section">
+                <div class="section-container">
+                    <h2 class="sec-title">Common Greeting</h2>
+                    <div class="info-card greeting-card">
+                        <div class="greeting-main">
+                            <span class="greeting-devanagari" id="greeting-devanagari">ನಮಸ್ಕಾರ</span>
+                            <span class="greeting-translit" id="greeting-translit">(Namaskāra)</span>
+                            <button class="pronounce-btn" id="pronounce-greeting-btn">🔊 Hear Pronunciation</button>
+                        </div>
+                        <p class="greeting-meaning" id="greeting-meaning"></p>
+                        <p class="audio-disclaimer" id="audio-disclaimer"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="kannada-script-section">
+                <div class="section-container">
+                    <h2 class="sec-title">Script</h2>
+                    <p class="script-intro" id="script-intro"></p>
+                    <div class="script-facts-grid" id="script-facts-grid"></div>
+                </div>
+            </section>
+
+            <section class="kannada-words-section">
+                <div class="section-container">
+                    <h2 class="sec-title">Common Kannada Words</h2>
+                    <p class="section-hint">Click 🔊 on any word to hear its approximate pronunciation.</p>
+                    <div class="words-grid" id="words-grid"></div>
+                </div>
+            </section>
+
+            <section class="kannada-classification-section">
+                <div class="section-container">
+                    <h2 class="sec-title">Dravidian Language Family</h2>
+                    <div class="info-card classification-card">
+                        <p class="classification-family" id="classification-family"></p>
+                        <div class="sibling-langs" id="sibling-langs"></div>
+                        <p class="classification-note" id="classification-note"></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="kannada-region-section">
+                <div class="section-container">
+                    <h2 class="sec-title">Major Regions</h2>
+                    <p class="region-intro" id="region-intro"></p>
+                    <div class="district-chips" id="district-chips"></div>
+                </div>
+            </section>
+
+            <section class="kannada-literature-section">
+                <div class="section-container">
+                    <h2 class="sec-title">Literary & Cultural Heritage</h2>
+                    <div class="literature-grid" id="literature-grid"></div>
+                </div>
+            </section>
+
+            <section class="kannada-culture-section">
+                <div class="section-container">
+                    <h2 class="sec-title">Cultural Notes</h2>
+                    <div class="culture-grid" id="culture-grid"></div>
+                </div>
+            </section>
+
+            <section class="references-section">
+                <div class="section-container">
+                    <h2>References & Sources</h2>
+                    <ul class="references-list" id="references-list"></ul>
+                </div>
+            </section>
+        </main>
+
+        <script src="kannada-data.js"></script>
+        <script src="kannada.js"></script>
+    </body>
+</html>

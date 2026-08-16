@@ -1,0 +1,297 @@
+:root {
+    --kannada-saffron: #ff9f1c;
+    --kannada-amber: #ffb703;
+    --kannada-deep: #102a43;
+    --kannada-card: rgba(17, 24, 39, 0.72);
+    --kannada-border: rgba(255, 255, 255, 0.1);
+    --kannada-text: #f5f7ff;
+    --kannada-mute: #d0d8ea;
+    --kannada-soft: #aab8d2;
+    --kannada-glow: rgba(255, 159, 28, 0.3);
+}
+
+body.kannada-main {
+    background:
+        radial-gradient(circle at top left, rgba(255, 191, 0, 0.15), transparent 28%),
+        linear-gradient(135deg, #0f172a 0%, #111827 45%, #172033 100%);
+    color: var(--kannada-text);
+    font-family: 'Outfit', sans-serif;
+}
+
+body.light-theme.kannada-main {
+    background: linear-gradient(180deg, #f5f4ef 0%, #f7f5ed 100%);
+    color: #111827;
+}
+
+.kannada-main .section-container {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+}
+
+.kannada-hero {
+    padding: 6.5rem 0 2rem;
+}
+
+.hero-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+}
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--kannada-border);
+}
+
+.kannada-hero h1 {
+    font-size: clamp(2.3rem, 4vw, 4.3rem);
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 800;
+}
+
+.kannada-hero h1 .kannada-title {
+    display: block;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    color: var(--kannada-saffron);
+    font-family: 'Noto Sans Kannada', sans-serif;
+    margin-bottom: 0.3rem;
+}
+
+.kannada-hero h1 span:last-child {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--kannada-mute);
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.hero-subtitle {
+    max-width: 760px;
+    font-size: 1.1rem;
+    color: var(--kannada-mute);
+    line-height: 1.8;
+    margin-top: 1.1rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    background: rgba(15, 23, 42, 0.35);
+    border: 1px solid var(--kannada-border);
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--kannada-saffron);
+}
+
+.stat-label {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--kannada-soft);
+    font-size: 0.82rem;
+}
+
+.kannada-main section {
+    padding: 1.25rem 0 2.5rem;
+}
+
+.sec-title {
+    font-size: clamp(1.6rem, 2vw, 2.3rem);
+    margin: 0 0 1rem;
+}
+
+.info-card,
+.script-fact-item,
+.word-card,
+.literature-item,
+.culture-item,
+.reference-item {
+    background: rgba(15, 23, 42, 0.48);
+    border: 1px solid var(--kannada-border);
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.greeting-card {
+    padding: 1.5rem;
+}
+
+.greeting-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.greeting-devanagari,
+.greeting-translit {
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    font-family: 'Noto Sans Kannada', sans-serif;
+}
+
+.greeting-devanagari {
+    color: var(--kannada-saffron);
+}
+
+.greeting-translit {
+    color: var(--kannada-mute);
+    font-family: 'Outfit', sans-serif;
+}
+
+.pronounce-btn,
+.word-pronounce-btn {
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--kannada-saffron), #ffb703);
+    color: #131313;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.7rem 1.1rem;
+}
+
+.greeting-meaning {
+    color: var(--kannada-mute);
+    line-height: 1.7;
+    margin: 0.5rem 0 0.7rem;
+}
+
+.audio-disclaimer {
+    color: var(--kannada-soft);
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.script-intro,
+.region-intro,
+.classification-family,
+.classification-note {
+    color: var(--kannada-mute);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.script-facts-grid,
+.words-grid,
+.literature-grid,
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.script-fact-item,
+.word-card,
+.literature-item,
+.culture-item {
+    padding: 1rem 1.1rem;
+}
+
+.script-fact-title,
+.literature-title,
+.culture-title {
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.script-fact-detail,
+.literature-desc,
+.culture-desc,
+.word-note,
+.word-meaning {
+    color: var(--kannada-mute);
+    line-height: 1.7;
+}
+
+.words-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.word-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.7rem;
+}
+
+.word-script {
+    font-family: 'Noto Sans Kannada', sans-serif;
+    font-size: 1.5rem;
+    color: var(--kannada-saffron);
+}
+
+.word-translit {
+    color: var(--kannada-text);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.sibling-langs,
+.district-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.sibling-chip,
+.district-chip {
+    display: inline-flex;
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 159, 28, 0.1);
+    border: 1px solid rgba(255, 159, 28, 0.3);
+    color: var(--kannada-mute);
+    font-size: 0.9rem;
+}
+
+.references-list {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+    color: var(--kannada-mute);
+    line-height: 1.8;
+}
+
+.references-list a {
+    color: #f8d98b;
+}
+
+@media (max-width: 700px) {
+    .stats-grid,
+    .script-facts-grid,
+    .literature-grid,
+    .culture-grid,
+    .words-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kannada-hero {
+        padding-top: 5.5rem;
+    }
+
+    .greeting-card {
+        padding: 1rem;
+    }
+}

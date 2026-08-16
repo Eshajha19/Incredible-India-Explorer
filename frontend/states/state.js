@@ -37,10 +37,35 @@ function initStatePage() {
     
     if (loc) {
         loadStoryTimeline(loc);
+        renderStateLanguageInfo(loc);
     }
     
     setupParticles();
     setupScrollEffects();
+}
+
+function renderStateLanguageInfo(loc) {
+    const section = document.getElementById('state-language-section');
+    const languageTitle = document.getElementById('state-language-title');
+    const languageText = document.getElementById('state-language-text');
+    const languageLink = document.getElementById('state-language-link');
+
+    if (!section || !languageTitle || !languageText || !languageLink) return;
+
+    const languageName = loc.language || '';
+    const languageNote = loc.languageNote || '';
+    const languageUrl = loc.languageExploreUrl || '';
+
+    if (!languageName || !languageNote || !languageUrl) {
+        section.style.display = 'none';
+        return;
+    }
+
+    languageTitle.textContent = `${languageName} in ${loc.name}`;
+    languageText.textContent = languageNote;
+    languageLink.href = languageUrl;
+    languageLink.textContent = `Explore ${languageName}`;
+    section.style.display = 'block';
 }
 
 function loadStoryTimeline(loc) {
