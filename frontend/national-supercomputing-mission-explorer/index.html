@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Supercomputing Mission (NSM) Explorer | Incredible India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-server icon"></i>
+                <span>Incredible<span class="highlight">India</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../national-awards/national-awards.html">National Awards</a>
+                <a href="#supercomputers">PARAM Supercomputers</a>
+                <a href="#calculator">FLOPs & AI Simulator</a>
+                <a href="#registry">NSM Grid Registry</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-server"></i> National Supercomputing Mission (NSM) | C-DAC & IISc</span>
+            <h1>National Supercomputing Mission Explorer</h1>
+            <p>Explore India's High-Performance Computing (HPC) grid—visualizing PARAM supercomputers (PARAM Siddhi-AI, PARAM Ananta, PARAM Porul, PARAM Ganga) driving weather forecasting, AI LLM training, molecular dynamics, and aerospace simulation.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">24+ PetaFLOPS</span>
+                    <span class="stat-label">Combined Installed Grid Capacity</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">Rudra</span>
+                    <span class="stat-label">Indigenously Designed Server Platform</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">Trinetra</span>
+                    <span class="stat-label">Indigenous Interconnect Fabric</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Explorer Section -->
+    <main class="dashboard-container">
+        <!-- Supercomputer Filter Controls -->
+        <section class="filter-section" id="supercomputers">
+            <h2><i class="fa-solid fa-sliders"></i> HPC Tier & Institution Filters</h2>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="hpc-search" placeholder="Search supercomputers (e.g. PARAM Siddhi-AI, PARAM Ananta, IIT Kharagpur, C-DAC)...">
+                </div>
+                <div class="category-filters" id="category-buttons">
+                    <button class="filter-btn active" data-type="all">All Systems</button>
+                    <button class="filter-btn" data-type="ai">AI / Deep Learning</button>
+                    <button class="filter-btn" data-type="petaflops">Multi-PetaFLOPS</button>
+                    <button class="filter-btn" data-type="institutional">Academic IIT Grid</button>
+                    <button class="filter-btn" data-type="weather">Weather & Climate HPC</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARAM Supercomputers Grid -->
+        <section class="grid-section">
+            <div class="section-title">
+                <h3><i class="fa-solid fa-microchip"></i> Flagship PARAM HPC Supercomputing Nodes</h3>
+                <span class="counter" id="active-count">Showing 6 PARAM Systems</span>
+            </div>
+            <div class="hpc-grid" id="hpc-cards-container">
+                <!-- Injected via script.js -->
+            </div>
+        </section>
+
+        <!-- Interactive Computational FLOPs & Time Simulator -->
+        <section class="calculator-section" id="calculator">
+            <div class="calc-card">
+                <div class="calc-header">
+                    <h2><i class="fa-solid fa-calculator"></i> Supercomputing Execution & Workload Simulator</h2>
+                    <p>Calculate compute runtimes and floating-point operations (TFLOPS/PFLOPS) for large-scale scientific workloads like climate modeling, genomic sequencing, and LLM training.</p>
+                </div>
+                <div class="calc-grid">
+                    <div class="form-group">
+                        <label for="calc-workload">Scientific Workload Type:</label>
+                        <select id="calc-workload" class="form-control">
+                            <option value="climate">High-Res Climate & Monsoon Simulation (10^18 FLOPs)</option>
+                            <option value="llm">100B Parameter LLM Training (10^21 FLOPs)</option>
+                            <option value="genomics">Whole Genome Alignment & Mutation Analysis (10^16 FLOPs)</option>
+                            <option value="aerospace">ISRO Rocket Engine CFD Fluid Dynamics (10^17 FLOPs)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calc-petaflops">Allocated Supercomputing Power (PetaFLOPS):</label>
+                        <input type="number" id="calc-petaflops" value="5.26" min="0.5" max="50" step="0.1" class="form-control">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button id="run-calc-btn" class="primary-btn">
+                            <i class="fa-solid fa-play"></i> Simulate Execution Time & Throughput
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Calculator Output Box -->
+                <div class="calc-result-box hidden" id="calc-result">
+                    <div class="res-header">
+                        <i class="fa-solid fa-circle-check text-cyan"></i>
+                        <h4 id="calc-title">Scientific Workload Benchmark Calculated</h4>
+                    </div>
+                    <div class="res-body">
+                        <div class="res-metric">
+                            <span class="m-label">Simulated Execution Time:</span>
+                            <span class="m-val" id="res-time">4.2 Hours</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Peak Computing Speed:</span>
+                            <span class="m-val" id="res-flops">5.26 PetaFLOPS (Rpeak)</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Energy Efficiency:</span>
+                            <span class="m-val" id="res-power">Green500 Standard (Direct Liquid Cooled)</span>
+                        </div>
+                        <p class="res-desc" id="res-desc">Grid job scheduled via C-DAC Trinetra high-speed interconnect architecture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NSM Approved Grid Registry Table -->
+        <section class="registry-section" id="registry">
+            <h2><i class="fa-solid fa-network-wired"></i> National Supercomputing Grid Node Registry</h2>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Node ID</th>
+                            <th>Supercomputer Name</th>
+                            <th>Host Institution</th>
+                            <th>Peak Performance (Rpeak)</th>
+                            <th>Interconnect / Server</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>NSM-HPC-01</code></td>
+                            <td>PARAM Siddhi-AI</td>
+                            <td>C-DAC Pune</td>
+                            <td>5.26 PetaFLOPS (210 AI PFLOPS)</td>
+                            <td>NVIDIA DGX SuperPOD / Trinetra</td>
+                            <td><span class="tag tag-online">Operational Grid Node</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>NSM-HPC-02</code></td>
+                            <td>PARAM Ananta</td>
+                            <td>IIT Gandhinagar</td>
+                            <td>838 TeraFLOPS</td>
+                            <td>Rudra Indigenous Server / Direct Liquid</td>
+                            <td><span class="tag tag-online">Operational Grid Node</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>NSM-HPC-03</code></td>
+                            <td>PARAM Porul</td>
+                            <td>NIT Tiruchirappalli</td>
+                            <td>838 TeraFLOPS</td>
+                            <td>Direct Liquid Cooling (DLC)</td>
+                            <td><span class="tag tag-online">Operational Grid Node</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>NSM-HPC-04</code></td>
+                            <td>PARAM Ganga</td>
+                            <td>IIT Roorkee</td>
+                            <td>1.66 PetaFLOPS</td>
+                            <td>C-DAC Rudra Blade Servers</td>
+                            <td><span class="tag tag-online">Operational Grid Node</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Supercomputing Grid Data Integration powered by C-DAC, IISc, and Department of Science and Technology (DST).</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
