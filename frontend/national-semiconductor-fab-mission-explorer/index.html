@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Semiconductor & Fab Mission Explorer | Incredible India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-microchip icon"></i>
+                <span>Incredible<span class="highlight">India</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../national-awards/national-awards.html">National Awards</a>
+                <a href="#fabs">Fab & OSAT Facilities</a>
+                <a href="#calculator">Yield & Node Simulator</a>
+                <a href="#registry">ISM Registry</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-microchip"></i> India Semiconductor Mission (ISM) & MeitY</span>
+            <h1>National Semiconductor & Fab Mission Explorer</h1>
+            <p>Track India's silicon sovereignty—exploring commercial semiconductor wafer fabs, advanced OSAT packaging plants, compound chip foundries, and chip design hubs across Dholera, Sanand, and Assam.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">$10 Billion</span>
+                    <span class="stat-label">ISM Financial Outlay</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">28 nm Node</span>
+                    <span class="stat-label">Dholera Commercial Fab Baseline</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">48 Million/Day</span>
+                    <span class="stat-label">Sanand OSAT Chip Capacity</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Explorer Section -->
+    <main class="dashboard-container">
+        <!-- Facility Filter Controls -->
+        <section class="filter-section" id="fabs">
+            <h2><i class="fa-solid fa-sliders"></i> Semiconductor Domain & Region Filters</h2>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="fab-search" placeholder="Search semiconductor facilities (e.g. Dholera Tata Fab, Micron Sanand, CG Power Assam)...">
+                </div>
+                <div class="category-filters" id="category-buttons">
+                    <button class="filter-btn active" data-type="all">All Facilities</button>
+                    <button class="filter-btn" data-type="foundry">Silicon Wafer Fabs</button>
+                    <button class="filter-btn" data-type="osat">OSAT & ATMP Packaging</button>
+                    <button class="filter-btn" data-type="compound">GaN / SiC Compound Fabs</button>
+                    <button class="filter-btn" data-type="design">Fabless Chip Design</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Semiconductor Facilities Grid -->
+        <section class="grid-section">
+            <div class="section-title">
+                <h3><i class="fa-solid fa-industry"></i> Flagship Semiconductor Megafabs & Packaging Hubs</h3>
+                <span class="counter" id="active-count">Showing 6 Semiconductor Facilities</span>
+            </div>
+            <div class="fab-grid" id="fab-cards-container">
+                <!-- Injected via script.js -->
+            </div>
+        </section>
+
+        <!-- Interactive Wafer Yield & Node Simulator -->
+        <section class="calculator-section" id="calculator">
+            <div class="calc-card">
+                <div class="calc-header">
+                    <h2><i class="fa-solid fa-gear"></i> Wafer Fabrication & Chip Production Simulator</h2>
+                    <p>Simulate monthly 300mm wafer starts (WPM) and die yield calculations based on process node technology and cleanroom class parameters.</p>
+                </div>
+                <div class="calc-grid">
+                    <div class="form-group">
+                        <label for="calc-wpm">Monthly Wafer Starts (300mm WPM):</label>
+                        <input type="number" id="calc-wpm" value="50000" min="5000" max="100000" step="5000" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calc-node">Process Technology Node:</label>
+                        <select id="calc-node" class="form-control">
+                            <option value="28nm">28nm Planar CMOS Node (Automotive & Industrial)</option>
+                            <option value="40nm">40nm / 65nm Embedded Flash & MCU Node</option>
+                            <option value="14nm">14nm FinFET Node (Mobile AP & Networking)</option>
+                            <option value="GaN">Gallium Nitride (GaN) Power RF Electronics</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button id="run-calc-btn" class="primary-btn">
+                            <i class="fa-solid fa-microchip"></i> Run Wafer Yield & Chip Calculation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Calculator Output Box -->
+                <div class="calc-result-box hidden" id="calc-result">
+                    <div class="res-header">
+                        <i class="fa-solid fa-circle-check text-indigo"></i>
+                        <h4 id="calc-title">Semiconductor Fabrication Yield Calculated</h4>
+                    </div>
+                    <div class="res-body">
+                        <div class="res-metric">
+                            <span class="m-label">Annual Manufactured Chips:</span>
+                            <span class="m-val" id="res-chips">384 Million Chips / Year</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Estimated Wafer Yield:</span>
+                            <span class="m-val" id="res-yield">92.4% Defect-Free Dies</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Target Industry Sector:</span>
+                            <span class="m-val" id="res-sector">Automotive & IoT Edge AI</span>
+                        </div>
+                        <p class="res-desc" id="res-desc">Production parameters align with India Semiconductor Mission (ISM) Phase-1 manufacturing milestones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ISM Approved Facility Registry Table -->
+        <section class="registry-section" id="registry">
+            <h2><i class="fa-solid fa-square-poll-vertical"></i> ISM Approved Semiconductor Projects Registry</h2>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Project Code</th>
+                            <th>Facility Name</th>
+                            <th>Lead Promoter</th>
+                            <th>Location</th>
+                            <th>Investment Outlay</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>ISM-FAB-01</code></td>
+                            <td>Dholera Commercial Semiconductor Fab</td>
+                            <td>Tata Electronics / PSMC</td>
+                            <td>Dholera SIR, Gujarat</td>
+                            <td>₹91,000 Crore ($11B)</td>
+                            <td><span class="tag tag-construction">Under Construction</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>ISM-OSAT-01</code></td>
+                            <td>Sanand ATMP Packaging Plant</td>
+                            <td>Micron Technology</td>
+                            <td>Sanand GIDC, Gujarat</td>
+                            <td>₹22,500 Crore ($2.75B)</td>
+                            <td><span class="tag tag-advanced">Pilot Production Active</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>ISM-OSAT-02</code></td>
+                            <td>Jagiroad Semiconductor Assembly Plant</td>
+                            <td>Tata Semiconductor Assembly</td>
+                            <td>Jagiroad, Assam</td>
+                            <td>₹27,000 Crore ($3.2B)</td>
+                            <td><span class="tag tag-construction">Under Construction</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>ISM-OSAT-03</code></td>
+                            <td>Sanand OSAT Packaging Facility</td>
+                            <td>CG Power / Renesas / Stars Micro</td>
+                            <td>Sanand GIDC, Gujarat</td>
+                            <td>₹7,600 Crore ($900M)</td>
+                            <td><span class="tag tag-construction">Groundbroken</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Semiconductor Data Integration powered by India Semiconductor Mission (ISM) & MeitY.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
