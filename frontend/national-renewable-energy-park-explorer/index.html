@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Renewable Energy Park Explorer | Incredible India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-solar-panel icon"></i>
+                <span>Incredible<span class="highlight">India</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../national-awards/national-awards.html">National Awards</a>
+                <a href="#parks">Clean Energy Parks</a>
+                <a href="#calculator">Carbon Savings Calculator</a>
+                <a href="#registry">Park Registry</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-seedling"></i> MNRE & SECI Clean Energy Infrastructure</span>
+            <h1>National Renewable Energy Park Explorer</h1>
+            <p>Explore India's landmark clean energy projects—mega solar parks, offshore wind turbines, green hydrogen hubs, and ultra-mega solar power plants driving India's Net-Zero 2070 mission.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-num">500 GW</span>
+                    <span class="stat-label">Target Non-Fossil Capacity by 2030</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">30,000 MW</span>
+                    <span class="stat-label">Khavda Renewable Energy Park</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">#4 Global</span>
+                    <span class="stat-label">Installed Renewable Capacity Rank</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Explorer Section -->
+    <main class="dashboard-container">
+        <!-- Energy Type Filter Controls -->
+        <section class="filter-section" id="parks">
+            <h2><i class="fa-solid fa-sliders"></i> Energy Technology & State Filters</h2>
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="park-search" placeholder="Search renewable parks (e.g. Bhadla, Khavda, Pavagada, Green Hydrogen)...">
+                </div>
+                <div class="category-filters" id="category-buttons">
+                    <button class="filter-btn active" data-type="all">All Tech</button>
+                    <button class="filter-btn" data-type="solar">Ultra Mega Solar</button>
+                    <button class="filter-btn" data-type="wind">Wind Energy</button>
+                    <button class="filter-btn" data-type="hybrid">Solar-Wind Hybrid</button>
+                    <button class="filter-btn" data-type="hydro">Green Hydrogen & Hydro</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Energy Parks Cards Grid -->
+        <section class="grid-section">
+            <div class="section-title">
+                <h3><i class="fa-solid fa-bolt"></i> Mega Renewable Energy Megastructures</h3>
+                <span class="counter" id="active-count">Showing 6 Energy Parks</span>
+            </div>
+            <div class="park-grid" id="park-cards-container">
+                <!-- Injected via script.js -->
+            </div>
+        </section>
+
+        <!-- Interactive Carbon Savings & Clean Output Calculator -->
+        <section class="calculator-section" id="calculator">
+            <div class="calc-card">
+                <div class="calc-header">
+                    <h2><i class="fa-solid fa-calculator"></i> National Clean Energy & Carbon Mitigation Calculator</h2>
+                    <p>Simulate power output generation and annual CO2 emission reductions by adjusting clean energy park capacity parameters.</p>
+                </div>
+                <div class="calc-grid">
+                    <div class="form-group">
+                        <label for="calc-capacity">Select Clean Power Capacity (MW):</label>
+                        <input type="number" id="calc-capacity" value="2250" min="100" max="50000" step="50" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="calc-type">Primary Generation Source:</label>
+                        <select id="calc-type" class="form-control">
+                            <option value="solar">Solar Photovoltaic (PV)</option>
+                            <option value="wind">Onshore/Offshore Wind Turbine</option>
+                            <option value="hybrid">Solar-Wind Hybrid System</option>
+                            <option value="hydro">Pumped Storage Hydroelectric</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button id="run-calc-btn" class="primary-btn">
+                            <i class="fa-solid fa-chart-line"></i> Calculate Annual Power & Carbon Abatement
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Calculator Output Box -->
+                <div class="calc-result-box hidden" id="calc-result">
+                    <div class="res-header">
+                        <i class="fa-solid fa-circle-check text-emerald"></i>
+                        <h4 id="calc-title">Simulated Clean Energy Output Calculated</h4>
+                    </div>
+                    <div class="res-body">
+                        <div class="res-metric">
+                            <span class="m-label">Annual Clean Power Generation:</span>
+                            <span class="m-val" id="res-power">4,927 GWh / year</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">CO2 Offsets (Carbon Mitigation):</span>
+                            <span class="m-val" id="res-co2">4.1 Million Tons / year</span>
+                        </div>
+                        <div class="res-metric">
+                            <span class="m-label">Equivalent Households Powered:</span>
+                            <span class="m-val" id="res-homes">1.35 Million Homes</span>
+                        </div>
+                        <p class="res-desc" id="res-desc">This capacity directly supports India's Panchamrit climate commitments announced at COP26.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- National Clean Energy Registry Table -->
+        <section class="registry-section" id="registry">
+            <h2><i class="fa-solid fa-building-circle-check"></i> MNRE Approved Solar & Wind Park Registry</h2>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Park Code</th>
+                            <th>Park Name</th>
+                            <th>Host State</th>
+                            <th>Nodal Implementing Agency</th>
+                            <th>Commissioned Capacity</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>RE-IND-01</code></td>
+                            <td>Khavda Renewable Energy Park</td>
+                            <td>Gujarat</td>
+                            <td>GIPCL / Adani Green / NTPC</td>
+                            <td>30,000 MW</td>
+                            <td><span class="tag tag-under-construction">Phased Expansion</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>RE-IND-02</code></td>
+                            <td>Bhadla Solar Park</td>
+                            <td>Rajasthan</td>
+                            <td>RUMSL / Adani Renewable</td>
+                            <td>2,245 MW</td>
+                            <td><span class="tag tag-operational">Fully Operational</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>RE-IND-03</code></td>
+                            <td>Pavagada Solar Park (Shakti Sthala)</td>
+                            <td>Karnataka</td>
+                            <td>KSPDCL / SECI</td>
+                            <td>2,050 MW</td>
+                            <td><span class="tag tag-operational">Fully Operational</span></td>
+                        </tr>
+                        <tr>
+                            <td><code>RE-IND-04</code></td>
+                            <td>Kurnool Ultra Mega Solar Park</td>
+                            <td>Andhra Pradesh</td>
+                            <td>APSPCL</td>
+                            <td>1,000 MW</td>
+                            <td><span class="tag tag-operational">Fully Operational</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Incredible India Explorer. Clean Energy Data Integration powered by Ministry of New and Renewable Energy (MNRE).</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
