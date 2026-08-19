@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chandrashekhar Azad Explorer | Fearless Revolutionary</title>
-    <meta name="description"
-        content="Explore Chandrashekhar Azad's revolutionary activities, leadership, and role in inspiring India's youth.">
+    <meta name="description" content="Explore Chandrashekhar Azad's revolutionary activities, leadership, and role in inspiring India's youth.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav">
+    <nav class="navbar explorer-nav" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
-                    class="gold">India</span> <span class="green">Explorer</span></a>
-            <nav class="nav-menu">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="#biography" class="nav-link">Biography</a>
                 <a href="#hsra" class="nav-link">HSRA</a>
@@ -28,7 +22,7 @@
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
     <main>
         <section class="hero-section azad-hero">
             <div class="hero-content animate-on-scroll">
@@ -58,12 +52,12 @@
                 </p>
             </div>
 
-            <div class="tab-content" id="timeline" role="tabpanel" hidden>
+            <div class="tab-content" id="timeline" role="tabpanel" hidden="">
                 <h2>Timeline of Defiance</h2>
                 <div class="timeline-container" id="timeline-container"></div>
             </div>
 
-            <div class="tab-content" id="organizations" role="tabpanel" hidden>
+            <div class="tab-content" id="organizations" role="tabpanel" hidden="">
                 <h2>Revolutionary Organizations</h2>
                 <div class="org-grid">
                     <div class="org-card">
@@ -83,17 +77,9 @@
 
             <h2 id="gallery">Gallery</h2>
             <div class="gallery-grid" role="list">
-                <div class="gallery-item" tabindex="0"
-                    data-img="https://placehold.co/800x600/333/fff?text=Azad+with+Pistol"
-                    data-caption="Chandrashekhar Azad in his iconic pose"><img
-                        src="https://placehold.co/300/333/fff?text=Azad" alt="Chandrashekhar Azad" loading="lazy"></div>
-                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/333/fff?text=Alfred+Park"
-                    data-caption="Alfred Park, Allahabad"><img src="https://placehold.co/300/333/fff?text=Park"
-                        alt="Alfred Park" loading="lazy"></div>
-                <div class="gallery-item" tabindex="0"
-                    data-img="https://placehold.co/800x600/333/fff?text=HSRA+Manifesto"
-                    data-caption="HSRA revolutionary manifesto"><img
-                        src="https://placehold.co/300/333/fff?text=Manifesto" alt="HSRA Manifesto" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/333/fff?text=Azad+with+Pistol" data-caption="Chandrashekhar Azad in his iconic pose"><img src="https://placehold.co/300/333/fff?text=Azad" alt="Chandrashekhar Azad" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/333/fff?text=Alfred+Park" data-caption="Alfred Park, Allahabad"><img src="https://placehold.co/300/333/fff?text=Park" alt="Alfred Park" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/333/fff?text=HSRA+Manifesto" data-caption="HSRA revolutionary manifesto"><img src="https://placehold.co/300/333/fff?text=Manifesto" alt="HSRA Manifesto" loading="lazy"></div>
             </div>
             <h2>References</h2>
             <ul class="reference-list">
@@ -103,15 +89,16 @@
     </main>
 
     <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">×</button>
         <img src="" alt="" class="lightbox-img" id="lightbox-img">
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer.</p>
+        <p>© 2026 Incredible India Explorer.</p>
     </footer>
-    <script src="../../journey.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../../journey.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

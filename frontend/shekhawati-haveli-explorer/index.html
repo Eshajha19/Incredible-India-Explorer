@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shekhawati Haveli Explorer | Incredible India</title>
     <meta name="description" content="Explore the intricate frescoes and courtyard-based architecture of the traditional Shekhawati havelis in Rajasthan.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
@@ -25,7 +23,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link">Home</a>
                 <a href="../../frontend/architecture-styles/index.html" class="nav-link">Architecture</a>
             </nav>
@@ -34,7 +32,7 @@
                 <span class="sun-icon">☀️</span>
             </button>
         </div>
-    </header>
+    </nav>
 
     <main class="shekhawati-main">
         <section class="shekhawati-hero">
@@ -81,45 +79,45 @@
                     <!-- SVG Interactive Diagram -->
                     <svg viewBox="0 0 800 600" class="shekhawati-svg" xmlns="http://www.w3.org/2000/svg">
                         <!-- Background building structure -->
-                        <path class="shekhawati-base" d="M100 100 L700 100 L700 550 L100 550 Z" fill="#e3cfa0" stroke="#b08d6a" stroke-width="4" />
-                        <path class="shekhawati-base" d="M90 90 L710 90 L710 110 L90 110 Z" fill="#ccb380" stroke="#a0805a" stroke-width="2" />
+                        <path class="shekhawati-base" d="M100 100 L700 100 L700 550 L100 550 Z" fill="#e3cfa0" stroke="#b08d6a" stroke-width="4"></path>
+                        <path class="shekhawati-base" d="M90 90 L710 90 L710 110 L90 110 Z" fill="#ccb380" stroke="#a0805a" stroke-width="2"></path>
                         
                         <!-- Jharokhas (Balconies) -->
                         <g class="shekhawati-feature" id="feature-jharokha" data-title="Jharokhas (Overhanging Balconies)" data-desc="Jharokhas are enclosed, overhanging balconies featuring intricate stone screens (jalis). They allow women to observe the street while maintaining privacy, and they catch the breeze to help cool the interior." tabindex="0" role="button" aria-label="Jharokha Balcony">
-                            <rect x="180" y="150" width="120" height="150" fill="#ccb380" stroke="#8a6b4a" stroke-width="3" />
-                            <path d="M170 150 L310 150 L240 100 Z" fill="#b08d6a" stroke="#8a6b4a" stroke-width="2" />
-                            <rect x="200" y="180" width="80" height="100" fill="#a0805a" />
+                            <rect x="180" y="150" width="120" height="150" fill="#ccb380" stroke="#8a6b4a" stroke-width="3"></rect>
+                            <path d="M170 150 L310 150 L240 100 Z" fill="#b08d6a" stroke="#8a6b4a" stroke-width="2"></path>
+                            <rect x="200" y="180" width="80" height="100" fill="#a0805a"></rect>
                         </g>
                         
                         <g class="shekhawati-feature" tabindex="-1">
-                            <rect x="500" y="150" width="120" height="150" fill="#ccb380" stroke="#8a6b4a" stroke-width="3" />
-                            <path d="M490 150 L630 150 L560 100 Z" fill="#b08d6a" stroke="#8a6b4a" stroke-width="2" />
-                            <rect x="520" y="180" width="80" height="100" fill="#a0805a" />
+                            <rect x="500" y="150" width="120" height="150" fill="#ccb380" stroke="#8a6b4a" stroke-width="3"></rect>
+                            <path d="M490 150 L630 150 L560 100 Z" fill="#b08d6a" stroke="#8a6b4a" stroke-width="2"></path>
+                            <rect x="520" y="180" width="80" height="100" fill="#a0805a"></rect>
                         </g>
 
                         <!-- Courtyard Indicator (Internal section shown through an arch) -->
                         <g class="shekhawati-feature" id="feature-courtyard" data-title="Chowk (Courtyard)" data-desc="The internal courtyard (chowk) acts as a cooling shaft in the hot desert climate, drawing hot air up and out. Havelis typically feature two courtyards: the outer 'mardana' for men and business, and the inner 'zanana' for women." tabindex="0" role="button" aria-label="Courtyard">
-                            <rect x="350" y="250" width="100" height="120" fill="#8c5a2b" stroke="#5a3b1c" stroke-width="2" />
-                            <path d="M350 250 Q 400 200, 450 250" fill="#e3cfa0" stroke="#5a3b1c" stroke-width="2" />
-                            <rect x="380" y="270" width="40" height="100" fill="#663c18" />
+                            <rect x="350" y="250" width="100" height="120" fill="#8c5a2b" stroke="#5a3b1c" stroke-width="2"></rect>
+                            <path d="M350 250 Q 400 200, 450 250" fill="#e3cfa0" stroke="#5a3b1c" stroke-width="2"></path>
+                            <rect x="380" y="270" width="40" height="100" fill="#663c18"></rect>
                         </g>
 
                         <!-- Main Entrance -->
                         <g class="shekhawati-feature" id="feature-entrance" data-title="Main Entrance (Torana)" data-desc="The imposing main entrance is typically made of massive timber doors, heavily studded with metal spikes to theoretically prevent elephant charges. The wooden doorframes are masterfully carved." tabindex="0" role="button" aria-label="Main Entrance">
-                            <rect x="300" y="400" width="200" height="150" fill="#5c3c20" stroke="#3d2815" stroke-width="4" />
-                            <path d="M300 400 Q 400 320, 500 400" fill="#5c3c20" stroke="#3d2815" stroke-width="4" />
-                            <rect x="395" y="400" width="10" height="150" fill="#3d2815" />
+                            <rect x="300" y="400" width="200" height="150" fill="#5c3c20" stroke="#3d2815" stroke-width="4"></rect>
+                            <path d="M300 400 Q 400 320, 500 400" fill="#5c3c20" stroke="#3d2815" stroke-width="4"></path>
+                            <rect x="395" y="400" width="10" height="150" fill="#3d2815"></rect>
                         </g>
                         
                         <!-- Fresco Paintings on Wall -->
                         <g class="shekhawati-feature" id="feature-frescoes" data-title="Fresco Paintings" data-desc="The defining feature of Shekhawati architecture is its frescoes. Created using natural pigments applied to wet plaster (arayish technique), they depict religious motifs, portraits, floral designs, and later, European influences like trains and gramophones." tabindex="0" role="button" aria-label="Fresco Paintings">
-                            <rect x="150" y="350" width="120" height="180" fill="none" stroke="#d47053" stroke-width="3" stroke-dasharray="5 5" />
-                            <circle cx="210" cy="400" r="20" fill="#d47053" opacity="0.6"/>
-                            <circle cx="210" cy="480" r="20" fill="#53a0d4" opacity="0.6"/>
+                            <rect x="150" y="350" width="120" height="180" fill="none" stroke="#d47053" stroke-width="3" stroke-dasharray="5 5"></rect>
+                            <circle cx="210" cy="400" r="20" fill="#d47053" opacity="0.6"></circle>
+                            <circle cx="210" cy="480" r="20" fill="#53a0d4" opacity="0.6"></circle>
                             
-                            <rect x="530" y="350" width="120" height="180" fill="none" stroke="#d47053" stroke-width="3" stroke-dasharray="5 5" />
-                            <circle cx="590" cy="400" r="20" fill="#53a0d4" opacity="0.6"/>
-                            <circle cx="590" cy="480" r="20" fill="#d47053" opacity="0.6"/>
+                            <rect x="530" y="350" width="120" height="180" fill="none" stroke="#d47053" stroke-width="3" stroke-dasharray="5 5"></rect>
+                            <circle cx="590" cy="400" r="20" fill="#53a0d4" opacity="0.6"></circle>
+                            <circle cx="590" cy="480" r="20" fill="#d47053" opacity="0.6"></circle>
                         </g>
                         
                         <text x="400" y="40" font-family="Outfit" font-size="20" fill="var(--text-color)" text-anchor="middle" font-weight="600">Select highlighted elements to explore</text>
@@ -148,7 +146,7 @@
         <section class="shekhawati-section" id="sources">
             <div class="shekhawati-container text-center">
                 <div class="shekhawati-section-header">
-                    <h2>Sources & Credits</h2>
+                    <h2>Sources &amp; Credits</h2>
                 </div>
                 <div class="shekhawati-highlight-box" style="text-align: left; max-width: 800px; margin: 0 auto;">
                     <p>The information on Shekhawati architecture is sourced from verified cultural and architectural records:</p>
@@ -164,11 +162,12 @@
 
     <footer>
         <div class="footer-container text-center" style="padding: 2rem; background: var(--bg-dark-modal, #111);">
-            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+            <p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
         </div>
     </footer>
 
     <script src="../../app.js"></script>
     <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

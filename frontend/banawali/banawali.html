@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Banawali — A Harappan Town Through Time</title>
@@ -247,20 +245,18 @@ footer .sources{font-family:var(--mono); font-size:.68rem; color:var(--bone-dim)
 </head>
 <body>
 
-<nav class="strata-rail" id="strataRail">
+<nav class="strata-rail" id="strataRail" aria-label="Navigation">
   <div class="layer" data-p="pre"><span class="tick">PERIOD I · PRE-HARAPPAN</span></div>
   <div class="layer" data-p="mature"><span class="tick">PERIOD II · MATURE HARAPPAN</span></div>
   <div class="layer" data-p="late"><span class="tick">PERIOD III · LATE / BARA</span></div>
-</nav>
-
-<div class="has-rail">
+</nav><main><div class="has-rail">
 
 <!-- HERO -->
 <header class="hero">
   <svg class="strata-bg" viewBox="0 0 1200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <rect y="600" width="1200" height="200" fill="#241a10"/>
-    <rect y="660" width="1200" height="140" fill="#2d2015"/>
-    <rect y="720" width="1200" height="80" fill="#3c2c1c"/>
+    <rect y="600" width="1200" height="200" fill="#241a10"></rect>
+    <rect y="660" width="1200" height="140" fill="#2d2015"></rect>
+    <rect y="720" width="1200" height="80" fill="#3c2c1c"></rect>
   </svg>
   <div class="wrap hero-grid">
     <div>
@@ -477,11 +473,13 @@ footer .sources{font-family:var(--mono); font-size:.68rem; color:var(--bone-dim)
   </div>
 </footer>
 
-</div>
+</div><div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBody" role="dialog" aria-modal="true"></div>
+</div></main>
 
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal" id="modalBody"></div>
-</div>
+
+
+
 
 <script>
 /* ---------- shared drawing helpers ---------- */
@@ -820,5 +818,6 @@ digs.forEach(d=>{
   digList.appendChild(item);
 });
 </script>
-</body>
-</html>
+
+
+</body></html>

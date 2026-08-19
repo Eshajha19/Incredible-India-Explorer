@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creative Rangoli Canvas & Pattern Sandbox | Incredible India Explorer</title>
+  <title>Creative Rangoli Canvas &amp; Pattern Sandbox | Incredible India Explorer</title>
   <meta name="description" content="Draw traditional Rangoli patterns with dot grids, symmetry tools, colour fill, gallery saving, and PNG export.">
   <link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="rangoli-canvas.css">
 </head>
 <body>
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -19,14 +17,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -41,7 +39,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -55,9 +53,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -86,7 +84,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 <main class="rangoli-page">
 <section class="rangoli-hero"><div class="hero-content"><span class="hero-kicker">Dot grid · symmetry · festival art</span><h1>Creative Rangoli <span>Canvas Sandbox</span></h1><p>Draw, colour, mirror, save, and export traditional Rangoli-inspired patterns using a guided dot-grid canvas.</p><div class="hero-stats"><div><strong id="stroke-count">0</strong><span>Strokes</span></div><div><strong id="axis-count">4</strong><span>Symmetry axes</span></div><div><strong id="gallery-count">0</strong><span>Saved</span></div></div><a href="#rangoli-studio" class="hero-cta">Open studio ↓</a></div></section>
 <section class="studio-section" id="rangoli-studio"><div class="studio-container"><div class="section-heading"><span class="section-badge">Creative canvas</span><h2>Connect dots and mirror your Rangoli</h2><p>Use draw mode to connect dots, fill mode to place colourful circles, and symmetry controls to create balanced festival patterns.</p></div><div class="studio-layout"><aside class="tool-panel"><div class="tool-group"><label for="mode-select">Mode</label><select id="mode-select"><option value="draw">Connect dots</option><option value="fill">Colour fill</option><option value="erase">Erase</option></select></div><div class="tool-group"><label for="axis-select">Symmetry</label><select id="axis-select"><option value="4">4 axes</option><option value="8">8 axes</option><option value="12">12 axes</option></select></div><div class="tool-group"><label for="color-picker">Colour</label><input id="color-picker" type="color" value="#ff9933"></div><div class="tool-group"><label for="brush-size">Brush size</label><input id="brush-size" type="range" min="2" max="18" value="6"><span id="brush-size-label">6px</span></div><div class="tool-actions"><button id="undo-button" type="button">Undo</button><button id="clear-button" type="button">Clear</button><button id="template-flower" type="button">Flower template</button><button id="template-diya" type="button">Diya template</button><button id="save-gallery" type="button">Save to gallery</button><button id="download-png" type="button">Download PNG</button></div><p class="tool-note">Tip: click dots in connect mode. Every stroke mirrors around the centre automatically.</p></aside><article class="canvas-card"><div class="canvas-top"><span id="canvas-status">Ready</span><span>Dot grid: 13 × 13</span></div><canvas id="rangoli-canvas" width="900" height="900" aria-label="Rangoli drawing canvas"></canvas></article></div><section class="gallery-panel"><div class="gallery-heading"><h3>Saved Rangoli Gallery</h3><button id="clear-gallery" type="button">Clear gallery</button></div><div class="gallery-grid" id="gallery-grid"></div></section></div></section>

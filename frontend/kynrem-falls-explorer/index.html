@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kynrem Falls Explorer | 305m Three-Tier Waterfall | Meghalaya</title>
   <meta name="description" content="Explore Kynrem Falls in Meghalaya (305m / 1,001 ft) — 7th highest waterfall in India. Interactive 3-tier cascade visualizer, seasonal monsoon flow, height comparison, and Thangkharang Park map.">
 
   <!-- Preload Critical Fonts -->
-  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
@@ -25,7 +23,7 @@
   </script>
 
   <!-- Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -37,7 +35,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../waterfalls-of-india/index.html" class="nav-link">Waterfalls Collection</a>
         <a href="#tier-visualization" class="nav-link active">3-Tier Structure</a>
@@ -47,7 +45,7 @@
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <main>
     <!-- HERO SECTION -->
@@ -88,7 +86,7 @@
               <div class="water-cascade cascade-2"></div>
             </div>
             <div class="tier-block tier-3" id="tier-block-3" tabindex="0" role="button" aria-label="Tier 3 Base Surge">
-              <span class="tier-badge">Tier 3: Base Surge & Pool (90m)</span>
+              <span class="tier-badge">Tier 3: Base Surge &amp; Pool (90m)</span>
               <div class="water-cascade cascade-3"></div>
             </div>
           </div>
@@ -109,7 +107,7 @@
               </div>
               <div class="meta-box">
                 <span class="meta-lbl">Geology:</span>
-                <span class="meta-val" id="meta-geo">Khasi Group Sandstone & Limestone</span>
+                <span class="meta-val" id="meta-geo">Khasi Group Sandstone &amp; Limestone</span>
               </div>
               <div class="meta-box">
                 <span class="meta-lbl">Ecology:</span>
@@ -126,7 +124,7 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Relative Scale</span>
-          <h2>Indian Waterfall & Monument Height Comparison</h2>
+          <h2>Indian Waterfall &amp; Monument Height Comparison</h2>
           <p>See how Kynrem Falls (305m) compares in scale with famous waterfalls and landmarks across India.</p>
         </div>
 
@@ -168,38 +166,38 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Geographic Surroundings</span>
-          <h2>Location & Nearby Attractions Map</h2>
+          <h2>Location &amp; Nearby Attractions Map</h2>
           <p>Explore Kynrem Falls' placement in East Khasi Hills and nearby wonders in the Sohra circuit.</p>
         </div>
 
         <div class="map-attractions-wrapper">
           <div class="kynrem-map-box">
             <svg viewBox="0 0 700 450" class="kynrem-svg">
-              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"/>
+              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"></rect>
               <!-- Bangladesh Plains border -->
-              <path d="M 50,380 L 650,380" stroke="#fbbf24" stroke-width="2" stroke-dasharray="8,4"/>
+              <path d="M 50,380 L 650,380" stroke="#fbbf24" stroke-width="2" stroke-dasharray="8,4"></path>
               <text x="350" y="415" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">Plain of Sylhet (Bangladesh Border)</text>
 
               <!-- Khasi Hills Plateau -->
-              <path d="M 80,100 L 620,100 L 580,360 L 120,360 Z" fill="rgba(34, 197, 94, 0.1)" stroke="rgba(34, 197, 94, 0.3)" stroke-width="2"/>
+              <path d="M 80,100 L 620,100 L 580,360 L 120,360 Z" fill="rgba(34, 197, 94, 0.1)" stroke="rgba(34, 197, 94, 0.3)" stroke-width="2"></path>
 
               <!-- Markers -->
               <!-- Kynrem Falls -->
               <g class="map-pin" data-pin="kynrem" tabindex="0" role="button" aria-label="Kynrem Falls Location">
-                <circle cx="350" cy="300" r="14" fill="rgba(56, 189, 248, 0.4)"/>
-                <circle cx="350" cy="300" r="8" fill="#38bdf8"/>
+                <circle cx="350" cy="300" r="14" fill="rgba(56, 189, 248, 0.4)"></circle>
+                <circle cx="350" cy="300" r="8" fill="#38bdf8"></circle>
                 <text x="350" y="280" fill="#ffffff" font-weight="bold" font-size="12" text-anchor="middle">Kynrem Falls (305m)</text>
               </g>
 
               <!-- Thangkharang Park -->
               <g class="map-pin" data-pin="thangkharang" tabindex="0" role="button" aria-label="Thangkharang Park Viewpoint">
-                <circle cx="320" cy="240" r="10" fill="#4ade80"/>
+                <circle cx="320" cy="240" r="10" fill="#4ade80"></circle>
                 <text x="320" y="225" fill="#4ade80" font-weight="bold" font-size="11" text-anchor="middle">Thangkharang Park</text>
               </g>
 
               <!-- Khoh Ramhah / Pillar Rock -->
               <g class="map-pin" data-pin="khohramhah" tabindex="0" role="button" aria-label="Khoh Ramhah Rock">
-                <circle cx="420" cy="250" r="10" fill="#fbbf24"/>
+                <circle cx="420" cy="250" r="10" fill="#fbbf24"></circle>
                 <text x="420" y="235" fill="#fbbf24" font-weight="bold" font-size="11" text-anchor="middle">Khoh Ramhah (Pillar Rock)</text>
               </g>
             </svg>
@@ -227,7 +225,7 @@
     <!-- SOURCES & REFERENCES -->
     <section class="sources-section">
       <div class="section-container">
-        <h2>Sources & Hydrological References</h2>
+        <h2>Sources &amp; Hydrological References</h2>
         <ul class="sources-list">
           <li>Meghalaya Tourism Development Corporation (MTDC) Official Records.</li>
           <li>Geological Survey of India (GSI) Meghalaya Circle Reports.</li>
@@ -249,5 +247,6 @@
   </footer>
 
   <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

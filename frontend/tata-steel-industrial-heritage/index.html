@@ -1,20 +1,15 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Explore the interactive profile and timeline of Tata Steel, documenting its role in India's industrial development."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore the interactive profile and timeline of Tata Steel, documenting its role in India's industrial development.">
         <title>Tata Steel: India's Industrial Heritage | Incredible India</title>
 
-        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
         
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body class="tatasteel-timeline-main">
@@ -26,7 +21,7 @@
             }
         })();
     </script>
-        <header class="navbar" id="navbar">
+        <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -38,12 +33,12 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
         <main>
             <section class="tatasteel-hero">
@@ -65,13 +60,8 @@
                     <div class="search-filter-wrapper glass-card">
                         <div class="search-box">
                             <span class="search-icon">🔍</span>
-                            <input
-                                type="text"
-                                id="milestone-search-input"
-                                placeholder="Search by year, category, or milestone..."
-                                aria-label="Search Tata Steel Milestones"
-                            />
-                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">&times;</button>
+                            <input type="text" id="milestone-search-input" placeholder="Search by year, category, or milestone..." aria-label="Search Tata Steel Milestones">
+                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">×</button>
                         </div>
 
                         <div class="filter-groups">
@@ -79,7 +69,7 @@
                                 <label for="category-filter">Category:</label>
                                 <select id="category-filter" class="custom-select">
                                     <option value="all">All Categories</option>
-                                    <option value="origin">Origin & Founding</option>
+                                    <option value="origin">Origin &amp; Founding</option>
                                     <option value="jamshedpur">Jamshedpur</option>
                                     <option value="production">Steel Production</option>
                                     <option value="development">Industrial Development</option>
@@ -101,7 +91,7 @@
 
             <div id="milestone-modal" class="milestone-modal hidden" role="dialog" aria-modal="true" aria-label="Milestone Details">
                 <div class="milestone-modal-content glass-card">
-                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Details">&times;</button>
+                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Details">×</button>
                     <div id="modal-body">
                         <!-- Populated by script.js -->
                     </div>
@@ -123,13 +113,14 @@
                 </div>
             </div>
             <div class="footer-credits footer-credits-center">
-                <p>&copy; 2026 Incredible India Explorer. Tata Steel Industrial Heritage.</p>
+                <p>© 2026 Incredible India Explorer. Tata Steel Industrial Heritage.</p>
             </div>
         </footer>
 
-        <script src="../js-modules/storage.js" defer></script>
-        <script src="../app.js" defer></script>
-        <script src="script.js" defer></script>
+        <script src="../js-modules/storage.js" defer=""></script>
+        <script src="../app.js" defer=""></script>
+        <script src="script.js" defer=""></script>
         <script type="module" src="../auth.js"></script>
-    </body>
-</html>
+    
+
+</body></html>

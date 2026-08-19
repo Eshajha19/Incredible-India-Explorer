@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kynshi Falls — The Waterfalls of the Kynshi River, Khasi Hills</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
   :root{
     --moss:#1b3328;
@@ -278,7 +276,7 @@
 </head>
 <body>
 
-<nav class="topnav">
+<nav class="topnav" aria-label="Navigation">
   <div class="topnav-inner">
     <span class="topnav-brand">Kynshi Falls ↳</span>
     <a href="#overview">Overview</a>
@@ -292,41 +290,12 @@
     <a href="#best-time">Best time</a>
     <a href="#sources">Sources</a>
   </div>
-</nav>
-
-<header class="hero" id="overview">
-  <div class="hero-media">
-    <img id="heroImg" src="https://commons.wikimedia.org/wiki/Special:FilePath/LANGSHIANG%20FALLS.jpg" alt="Langshiang Falls, the tallest waterfall fed by the Kynshi River, dropping through a forested gorge in the West Khasi Hills, Meghalaya" loading="eager">
-    <svg class="contour" viewBox="0 0 800 400" preserveAspectRatio="none">
-      <path d="M0,60 Q200,20 400,70 T800,50" stroke="white" stroke-width="1" fill="none"/>
-      <path d="M0,120 Q200,80 400,130 T800,110" stroke="white" stroke-width="1" fill="none"/>
-      <path d="M0,180 Q200,150 400,190 T800,170" stroke="white" stroke-width="1" fill="none"/>
-    </svg>
-  </div>
-  <div class="hero-copy">
-    <div class="eyebrow">
-      <span>Waterfalls of India</span><span class="sep">/</span><span>Meghalaya</span><span class="sep">/</span><span>Khasi Hills</span>
-    </div>
-    <h1>Kynshi Falls: the cascades of the Kynshi River</h1>
-    <p class="hero-sub">An interactive look at Langshiang Falls, Weinia Falls and the braided course of the Kynshi (Wah Kynshi) River as it drops off the West Khasi Hills plateau toward the Bangladesh plains.</p>
-  </div>
-  <div class="factstrip">
-    <div class="fact"><div class="k">District</div><div class="v">West Khasi Hills, ML</div></div>
-    <div class="fact"><div class="k">Watercourse</div><div class="v">Kynshi (Wah Kynshi) River</div></div>
-    <div class="fact"><div class="k">Primary cascade</div><div class="v">Langshiang Falls</div></div>
-    <div class="fact"><div class="k">Coordinates</div><div class="v">25.445°N, 91.229°E</div></div>
-  </div>
-</header>
-
-<div class="callout">
+</nav><main><div class="callout">
   <div class="callout-box">
     <span class="tag">A note on the name</span><br>
     <strong>"Kynshi Falls" is not a single, individually catalogued waterfall</strong> — Kynshi is the name of the river. On its way through the West Khasi Hills it splits around <strong>Nongkhnum River Island</strong> and forms two named cascades: <strong>Langshiang Falls</strong>, one of India's tallest, and the smaller <strong>Weinia Falls</strong> beside the island's entrance bridge. This page treats "Kynshi Falls" as the river system rather than inventing a single waterfall entry, so it can link out to a dedicated <em>Langshiang Falls</em> page if one already exists in the explorer, instead of duplicating it. Every figure below is flagged with how well it's sourced — several commonly quoted numbers (especially Langshiang's height) are disputed.
   </div>
-</div>
-
-<!-- LOCATION -->
-<section id="location">
+</div><section id="location">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">01 / Location</div>
@@ -341,10 +310,7 @@
     <div id="map"></div>
     <p class="map-note">Base map © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Marker coordinates sourced from Wikipedia/Wikidata infoboxes where noted; markers labelled "approximate" have no independently surveyed coordinates and are placed relative to sourced landmarks.</p>
   </div>
-</section>
-
-<!-- RIVER -->
-<section class="alt" id="river">
+</section><section class="alt" id="river">
   <div class="wrap">
     <div class="grid-2">
       <div>
@@ -358,22 +324,22 @@
       </div>
       <div class="river-diagram">
         <svg viewBox="0 0 360 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic diagram of the Kynshi River splitting around Nongkhnum River Island and rejoining before Langshiang Falls">
-          <path d="M180,10 C180,60 170,80 170,110" stroke="#5b7d89" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <path d="M170,110 C150,140 90,150 80,190 C70,230 90,260 130,270" stroke="#33505c" stroke-width="5" fill="none" stroke-linecap="round"/>
-          <path d="M170,110 C190,140 250,150 260,190 C270,230 250,260 210,270" stroke="#33505c" stroke-width="5" fill="none" stroke-linecap="round"/>
-          <ellipse cx="170" cy="190" rx="46" ry="60" fill="#ece5d3" stroke="#d8d0bd"/>
+          <path d="M180,10 C180,60 170,80 170,110" stroke="#5b7d89" stroke-width="6" fill="none" stroke-linecap="round"></path>
+          <path d="M170,110 C150,140 90,150 80,190 C70,230 90,260 130,270" stroke="#33505c" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <path d="M170,110 C190,140 250,150 260,190 C270,230 250,260 210,270" stroke="#33505c" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="170" cy="190" rx="46" ry="60" fill="#ece5d3" stroke="#d8d0bd"></ellipse>
           <text x="170" y="192" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5650">Nongkhnum</text>
           <text x="170" y="204" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5650">Island</text>
-          <circle cx="80" cy="190" r="5" fill="#b0532c"/>
+          <circle cx="80" cy="190" r="5" fill="#b0532c"></circle>
           <text x="60" y="175" font-family="IBM Plex Mono" font-size="10" fill="#182019">Weinia Falls</text>
           <text x="60" y="187" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">~60 m</text>
-          <circle cx="260" cy="190" r="5" fill="#b0532c"/>
+          <circle cx="260" cy="190" r="5" fill="#b0532c"></circle>
           <text x="245" y="175" font-family="IBM Plex Mono" font-size="10" fill="#182019">Thum Falls</text>
           <text x="245" y="187" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">~60 m (approx.)</text>
-          <path d="M130,270 C150,290 190,290 210,270" stroke="#33505c" stroke-width="6" fill="none" stroke-linecap="round"/>
-          <path d="M170,285 C170,320 170,340 170,360" stroke="#33505c" stroke-width="7" fill="none" stroke-linecap="round"/>
-          <path d="M170,360 L155,400 M170,360 L170,405 M170,360 L185,400" stroke="#5b7d89" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <circle cx="170" cy="360" r="6" fill="#b0532c"/>
+          <path d="M130,270 C150,290 190,290 210,270" stroke="#33505c" stroke-width="6" fill="none" stroke-linecap="round"></path>
+          <path d="M170,285 C170,320 170,340 170,360" stroke="#33505c" stroke-width="7" fill="none" stroke-linecap="round"></path>
+          <path d="M170,360 L155,400 M170,360 L170,405 M170,360 L185,400" stroke="#5b7d89" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <circle cx="170" cy="360" r="6" fill="#b0532c"></circle>
           <text x="185" y="385" font-family="IBM Plex Mono" font-size="10" fill="#182019">Langshiang Falls</text>
           <text x="185" y="397" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">quoted 337 m / disputed</text>
           <text x="30" y="30" font-family="IBM Plex Mono" font-size="9" fill="#4a5650">from the plateau</text>
@@ -386,10 +352,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- HEIGHT -->
-<section id="height">
+</section><section id="height">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">03 / Height, honestly</div>
@@ -407,10 +370,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- GEOLOGY -->
-<section class="alt" id="geology">
+</section><section class="alt" id="geology">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">04 / Geological setting</div>
@@ -435,10 +395,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- SEASONS -->
-<section id="seasons">
+</section><section id="seasons">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">05 / Seasonal variation</div>
@@ -499,10 +456,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- LANDSCAPE -->
-<section class="alt" id="landscape">
+</section><section class="alt" id="landscape">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">06 / Landscape explorer</div>
@@ -511,11 +465,11 @@
     </div>
     <div class="explorer">
       <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:linear-gradient(180deg,#cfe3da 0%,#9fbfae 40%,#3f6152 75%,#274236 100%)" role="img" aria-label="Illustrative diagram of the landscape surrounding Langshiang Falls">
-        <path d="M0,120 Q150,60 300,110 T600,90 T800,120 V0 H0 Z" fill="#274236" opacity="0.5"/>
-        <path d="M0,180 Q200,120 400,170 T800,150 V420 H0 Z" fill="#1f3d2c" opacity="0.55"/>
-        <path d="M300,60 C310,140 300,220 330,300 C340,330 345,360 340,400" stroke="#cfe8f0" stroke-width="10" fill="none" opacity="0.85"/>
-        <path d="M300,60 C310,140 300,220 330,300 C340,330 345,360 340,400" stroke="#fff" stroke-width="3" fill="none" opacity="0.6"/>
-        <ellipse cx="345" cy="405" rx="55" ry="14" fill="#5b7d89" opacity="0.5"/>
+        <path d="M0,120 Q150,60 300,110 T600,90 T800,120 V0 H0 Z" fill="#274236" opacity="0.5"></path>
+        <path d="M0,180 Q200,120 400,170 T800,150 V420 H0 Z" fill="#1f3d2c" opacity="0.55"></path>
+        <path d="M300,60 C310,140 300,220 330,300 C340,330 345,360 340,400" stroke="#cfe8f0" stroke-width="10" fill="none" opacity="0.85"></path>
+        <path d="M300,60 C310,140 300,220 330,300 C340,330 345,360 340,400" stroke="#fff" stroke-width="3" fill="none" opacity="0.6"></path>
+        <ellipse cx="345" cy="405" rx="55" ry="14" fill="#5b7d89" opacity="0.5"></ellipse>
       </svg>
       <div class="hotspot" style="left:38%;top:20%" data-key="plateau" tabindex="0">A</div>
       <div class="hotspot" style="left:41%;top:55%" data-key="gorge" tabindex="0">B</div>
@@ -529,10 +483,7 @@
       <p>Select a lettered point on the diagram above to read what's there.</p>
     </div>
   </div>
-</section>
-
-<!-- NEARBY -->
-<section id="nearby">
+</section><section id="nearby">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">07 / Nearby attractions</div>
@@ -567,10 +518,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- BEST TIME -->
-<section class="alt" id="best-time">
+</section><section class="alt" id="best-time">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">08 / Best visiting season</div>
@@ -589,10 +537,7 @@
       <span style="color:var(--ink-soft);">■</span> Monsoon-heavy or thin-flow months
     </p>
   </div>
-</section>
-
-<!-- LANDING CARD -->
-<section id="landing-card">
+</section><section id="landing-card">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">09 / Landing page card</div>
@@ -619,10 +564,7 @@
 &lt;/<span class="tag-name">a</span>&gt;</div>
     <button class="copy-btn" id="copySnippet">Copy snippet</button>
   </div>
-</section>
-
-<!-- SOURCES -->
-<section class="alt" id="sources">
+</section><section class="alt" id="sources">
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">10 / Image credits &amp; sources</div>
@@ -646,7 +588,63 @@
       <div class="credit-item"><span class="src">Regional best-season guidance for Meghalaya waterfalls</span><a href="https://wanderon.in/blogs/scenic-waterfalls-in-meghalaya" target="_blank" rel="noopener">Meghalaya waterfalls travel guide ↗</a></div>
     </div>
   </div>
-</section>
+</section></main>
+
+<header class="hero" id="overview">
+  <div class="hero-media">
+    <img id="heroImg" src="https://commons.wikimedia.org/wiki/Special:FilePath/LANGSHIANG%20FALLS.jpg" alt="Langshiang Falls, the tallest waterfall fed by the Kynshi River, dropping through a forested gorge in the West Khasi Hills, Meghalaya" loading="eager">
+    <svg class="contour" viewBox="0 0 800 400" preserveAspectRatio="none">
+      <path d="M0,60 Q200,20 400,70 T800,50" stroke="white" stroke-width="1" fill="none"></path>
+      <path d="M0,120 Q200,80 400,130 T800,110" stroke="white" stroke-width="1" fill="none"></path>
+      <path d="M0,180 Q200,150 400,190 T800,170" stroke="white" stroke-width="1" fill="none"></path>
+    </svg>
+  </div>
+  <div class="hero-copy">
+    <div class="eyebrow">
+      <span>Waterfalls of India</span><span class="sep">/</span><span>Meghalaya</span><span class="sep">/</span><span>Khasi Hills</span>
+    </div>
+    <h1>Kynshi Falls: the cascades of the Kynshi River</h1>
+    <p class="hero-sub">An interactive look at Langshiang Falls, Weinia Falls and the braided course of the Kynshi (Wah Kynshi) River as it drops off the West Khasi Hills plateau toward the Bangladesh plains.</p>
+  </div>
+  <div class="factstrip">
+    <div class="fact"><div class="k">District</div><div class="v">West Khasi Hills, ML</div></div>
+    <div class="fact"><div class="k">Watercourse</div><div class="v">Kynshi (Wah Kynshi) River</div></div>
+    <div class="fact"><div class="k">Primary cascade</div><div class="v">Langshiang Falls</div></div>
+    <div class="fact"><div class="k">Coordinates</div><div class="v">25.445°N, 91.229°E</div></div>
+  </div>
+</header>
+
+
+
+<!-- LOCATION -->
+
+
+<!-- RIVER -->
+
+
+<!-- HEIGHT -->
+
+
+<!-- GEOLOGY -->
+
+
+<!-- SEASONS -->
+
+
+<!-- LANDSCAPE -->
+
+
+<!-- NEARBY -->
+
+
+<!-- BEST TIME -->
+
+
+<!-- LANDING CARD -->
+
+
+<!-- SOURCES -->
+
 
 <footer>
   Built for issue "Kynshi Falls: Discover the Khasi Hills Cascade" — treats Kynshi Falls as the river system (Langshiang + Weinia) to avoid duplicating a standalone Langshiang Falls entry. Flag anything above that needs a better source.
@@ -798,5 +796,6 @@ document.getElementById('copySnippet').addEventListener('click', ()=>{
   });
 });
 </script>
-</body>
-</html>
+
+
+</body></html>

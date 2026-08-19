@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Culinary Dish Identification Quiz | Incredible India Explorer</title>
   <meta name="description" content="Guess iconic Indian dishes from images, ingredients, recipe hints, and state-of-origin clues.">
   <link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="culinary-quiz.css">
 </head>
 <body>
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -19,14 +17,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -41,7 +39,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -55,9 +53,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -86,7 +84,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 <main class="culinary-page">
 <section class="culinary-hero"><div class="hero-content"><span class="hero-kicker">Food quiz · state origin · recipe hints</span><h1>Culinary Dish <span>Identification Quiz</span></h1><p>Guess iconic Indian dishes from ingredient clues, food visuals, region hints, and state-of-origin matching.</p><div class="hero-stats"><div><strong id="dish-count">0</strong><span>Dishes</span></div><div><strong id="score-count">0</strong><span>Score</span></div><div><strong id="streak-count">0</strong><span>Streak</span></div></div><a href="#quiz-board" class="hero-cta">Start quiz ↓</a></div></section>
 <section class="quiz-section" id="quiz-board"><div class="quiz-container"><div class="section-heading"><span class="section-badge">Difficulty level 1</span><h2>Guess the dish and its state</h2><p>Use dish visuals, ingredient chips, and recipe hints. Answer either by dish name or origin state.</p></div><div class="quiz-layout"><article class="dish-card"><div class="round-row"><span id="round-label">Round 1</span><button id="new-dish" type="button">New dish</button></div><img id="dish-image" src="" alt="Dish visual clue"><div class="ingredient-row" id="ingredient-row"></div></article><article class="answer-card"><div class="hint-box"><h3>Recipe hints</h3><ul id="hint-list"></ul><button id="hint-button" type="button">Unlock hint</button></div><h3>Which dish is this?</h3><div class="choice-grid" id="dish-choices"></div><h3>Which state is it from?</h3><div class="choice-grid" id="state-choices"></div><div class="feedback-card" id="feedback-card" role="status" aria-live="polite"></div></article></div></div></section>

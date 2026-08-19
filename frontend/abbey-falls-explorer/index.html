@@ -1,26 +1,15 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Interactive explorer for Abbey Falls in Kodagu, Karnataka, connecting the Kaveri cascade with Coorg's coffee estates, seasonal flow, trail and nearby attractions."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Interactive explorer for Abbey Falls in Kodagu, Karnataka, connecting the Kaveri cascade with Coorg's coffee estates, seasonal flow, trail and nearby attractions.">
         <title>Abbey Falls Explorer | Incredible India</title>
-        <link rel="icon" href="data:," />
-        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link
-            rel="preload"
-            href="../../assets/fonts/PlayfairDisplay-400.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin
-        />
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+        <link rel="icon" href="data:,">
+        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
     </head>
     <body>
         <script>
@@ -32,44 +21,32 @@
                 if (theme === 'light') document.body.classList.add('light-theme');
             })();
         </script>
-        <header class="navbar" id="navbar">
+        <nav class="navbar" id="navbar" aria-label="Navigation">
             <div class="nav-container">
-                <a href="../../index.html#home" class="nav-logo"
-                    ><span class="saffron">Incredible</span><span class="gold">India</span
-                    ><span class="green">Explorer</span></a
-                >
+                <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
                     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </button>
-                <nav class="nav-menu" id="nav-menu">
+                <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                     <a href="../../index.html#home" class="nav-link">Home</a>
                     <div class="nav-dropdown">
                         <button class="nav-link dropdown-toggle">Nature ▾</button>
                         <div class="dropdown-menu">
-                            <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a
-                            ><a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls</a>
+                            <a href="../wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a><a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls</a>
                         </div>
                     </div>
                     <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
                 </nav>
             </div>
-        </header>
+        </nav>
         <nav class="af-section-nav" aria-label="Page sections">
             <div class="af-section-nav-inner">
-                <a href="#overview" class="af-nav-link active">Overview</a
-                ><a href="#landscape" class="af-nav-link">Landscape</a
-                ><a href="#seasonal" class="af-nav-link">Seasons</a><a href="#gallery" class="af-nav-link">Gallery</a
-                ><a href="#map" class="af-nav-link">Map</a><a href="#nearby" class="af-nav-link">Nearby</a
-                ><a href="#credits" class="af-nav-link">Sources</a>
+                <a href="#overview" class="af-nav-link active">Overview</a><a href="#landscape" class="af-nav-link">Landscape</a><a href="#seasonal" class="af-nav-link">Seasons</a><a href="#gallery" class="af-nav-link">Gallery</a><a href="#map" class="af-nav-link">Map</a><a href="#nearby" class="af-nav-link">Nearby</a><a href="#credits" class="af-nav-link">Sources</a>
             </div>
         </nav>
         <main class="af-main">
             <section class="af-hero" id="overview">
-                <div
-                    class="af-hero-image"
-                    role="img"
-                    aria-label="Abbey Falls cascading through the greenery of Coorg"
-                ></div>
+                <div class="af-hero-image" role="img" aria-label="Abbey Falls cascading through the greenery of Coorg"></div>
                 <div class="af-hero-overlay"></div>
                 <div class="af-hero-content reveal">
                     <span class="af-kicker">💧 Waterfall · Kodagu · Karnataka</span>
@@ -142,15 +119,13 @@
                     <div class="landscape-explorer reveal">
                         <div class="landscape-tabs" role="tablist" aria-label="Landscape layers">
                             <button class="landscape-tab active" data-layer="plantation" role="tab">
-                                Coffee & Spice</button
-                            ><button class="landscape-tab" data-layer="gorge" role="tab">Gorge & Rocks</button
-                            ><button class="landscape-tab" data-layer="river" role="tab">Kaveri Journey</button>
+                                Coffee &amp; Spice</button><button class="landscape-tab" data-layer="gorge" role="tab">Gorge &amp; Rocks</button><button class="landscape-tab" data-layer="river" role="tab">Kaveri Journey</button>
                         </div>
                         <div class="landscape-panel">
                             <div class="landscape-art" id="landscape-art" aria-hidden="true">🌿<span>☕</span>💧</div>
                             <div>
                                 <p class="landscape-eyebrow" id="landscape-eyebrow">PLANTATION EDGE</p>
-                                <h3 id="landscape-title">Coffee & spice estates</h3>
+                                <h3 id="landscape-title">Coffee &amp; spice estates</h3>
                                 <p id="landscape-description">
                                     The access route threads through private coffee plantations, with pepper vines and
                                     humid forest vegetation adding the layered green character associated with Coorg.
@@ -171,10 +146,7 @@
                         </p>
                     </div>
                     <div class="season-controls" role="tablist" aria-label="Season comparison">
-                        <button class="season-btn active" data-season="monsoon">Monsoon</button
-                        ><button class="season-btn" data-season="post">Post-monsoon</button
-                        ><button class="season-btn" data-season="winter">Winter</button
-                        ><button class="season-btn" data-season="summer">Summer</button>
+                        <button class="season-btn active" data-season="monsoon">Monsoon</button><button class="season-btn" data-season="post">Post-monsoon</button><button class="season-btn" data-season="winter">Winter</button><button class="season-btn" data-season="summer">Summer</button>
                     </div>
                     <div class="season-card reveal">
                         <div class="flow-meter"><span id="flow-level" style="height: 92%"></span></div>
@@ -186,8 +158,7 @@
                                 catchment is saturated and the broad cascade carries a heavy curtain of water.
                             </p>
                             <div class="season-chips">
-                                <span id="season-flow">High flow</span><span id="season-crowds">Popular</span
-                                ><span id="season-trail">Wet trail</span>
+                                <span id="season-flow">High flow</span><span id="season-crowds">Popular</span><span id="season-trail">Wet trail</span>
                             </div>
                         </div>
                     </div>
@@ -201,35 +172,19 @@
                     </div>
                     <div class="af-gallery">
                         <figure class="gallery-card reveal">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Abbey%20Falls.jpg"
-                                alt="Wide view of Abbey Falls in Coorg"
-                                loading="lazy"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Abbey%20Falls.jpg" alt="Wide view of Abbey Falls in Coorg" loading="lazy">
                             <figcaption><strong>The cascade</strong><span>Wide waterfall view</span></figcaption>
                         </figure>
                         <figure class="gallery-card reveal">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Abbey%20Falls%20%2851405093410%29.jpg"
-                                alt="Close-up view of water falling at Abbey Falls"
-                                loading="lazy"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Abbey%20Falls%20%2851405093410%29.jpg" alt="Close-up view of water falling at Abbey Falls" loading="lazy">
                             <figcaption><strong>Close-up</strong><span>Water and rock face</span></figcaption>
                         </figure>
                         <figure class="gallery-card reveal">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20hanging%20bridge%20constructed%20to%20enjoy%20the%20view%20of%20Abbey%20Falls%2C%20Madikeri%20%28Panorama%29.jpg"
-                                alt="Hanging bridge overlooking Abbey Falls"
-                                loading="lazy"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20hanging%20bridge%20constructed%20to%20enjoy%20the%20view%20of%20Abbey%20Falls%2C%20Madikeri%20%28Panorama%29.jpg" alt="Hanging bridge overlooking Abbey Falls" loading="lazy">
                             <figcaption><strong>Access trail</strong><span>Viewing bridge</span></figcaption>
                         </figure>
                         <figure class="gallery-card reveal">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20scenic%20Abbey%20Falls.jpg"
-                                alt="Scenic greenery surrounding Abbey Falls"
-                                loading="lazy"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20scenic%20Abbey%20Falls.jpg" alt="Scenic greenery surrounding Abbey Falls" loading="lazy">
                             <figcaption>
                                 <strong>Coorg landscape</strong><span>Greenery around the gorge</span>
                             </figcaption>
@@ -244,11 +199,7 @@
                         <h2>Find Abbey Falls in Kodagu</h2>
                         <p>Use the live map to pan and zoom around the falls, Madikeri and nearby landscape.</p>
                     </div>
-                    <div
-                        id="abbey-map"
-                        class="af-map reveal"
-                        aria-label="Interactive map showing Abbey Falls and nearby Kodagu landmarks"
-                    ></div>
+                    <div id="abbey-map" class="af-map reveal" aria-label="Interactive map showing Abbey Falls and nearby Kodagu landmarks"></div>
                     <div class="map-note">Map data © OpenStreetMap contributors.</div>
                 </div>
             </section>
@@ -262,12 +213,9 @@
                     <div class="nearby-layout reveal">
                         <div class="nearby-list" role="list">
                             <button class="nearby-item active" data-place="abbey" role="listitem">
-                                <strong>Abbey Falls</strong><span>Waterfall · 0 km</span></button
-                            ><button class="nearby-item" data-place="raja" role="listitem">
-                                <strong>Raja's Seat</strong><span>Viewpoint · ~7 km</span></button
-                            ><button class="nearby-item" data-place="omkareshwara" role="listitem">
-                                <strong>Omkareshwara Temple</strong><span>Madikeri · ~8 km</span></button
-                            ><button class="nearby-item" data-place="nisargadhama" role="listitem">
+                                <strong>Abbey Falls</strong><span>Waterfall · 0 km</span></button><button class="nearby-item" data-place="raja" role="listitem">
+                                <strong>Raja's Seat</strong><span>Viewpoint · ~7 km</span></button><button class="nearby-item" data-place="omkareshwara" role="listitem">
+                                <strong>Omkareshwara Temple</strong><span>Madikeri · ~8 km</span></button><button class="nearby-item" data-place="nisargadhama" role="listitem">
                                 <strong>Kaveri Nisargadhama</strong><span>River island · ~31 km</span>
                             </button>
                         </div>
@@ -278,7 +226,7 @@
             <section class="af-section" id="credits">
                 <div class="af-container">
                     <div class="af-section-head">
-                        <span class="af-tag">Sources & credits</span>
+                        <span class="af-tag">Sources &amp; credits</span>
                         <h2>Research trail</h2>
                     </div>
                     <div class="credits-grid">
@@ -289,17 +237,7 @@
                                 on Karnataka Tourism and the Kodagu district administration.
                             </p>
                             <p>
-                                <a
-                                    href="https://karnatakatourism.org/en/attractions/abbey-falls"
-                                    target="_blank"
-                                    rel="noopener"
-                                    >Karnataka Tourism — Abbey Falls</a
-                                ><br /><a
-                                    href="https://kodagu.nic.in/en/tourist-place/abbey-falls/"
-                                    target="_blank"
-                                    rel="noopener"
-                                    >Kodagu District Administration — Abbey Falls</a
-                                >
+                                <a href="https://karnatakatourism.org/en/attractions/abbey-falls" target="_blank" rel="noopener">Karnataka Tourism — Abbey Falls</a><br><a href="https://kodagu.nic.in/en/tourist-place/abbey-falls/" target="_blank" rel="noopener">Kodagu District Administration — Abbey Falls</a>
                             </p>
                         </article>
                         <article class="af-card">
@@ -310,12 +248,7 @@
                                 linked file page.
                             </p>
                             <p>
-                                <a
-                                    href="https://commons.wikimedia.org/wiki/Category:Abbey_Falls"
-                                    target="_blank"
-                                    rel="noopener"
-                                    >Wikimedia Commons — Abbey Falls category</a
-                                >
+                                <a href="https://commons.wikimedia.org/wiki/Category:Abbey_Falls" target="_blank" rel="noopener">Wikimedia Commons — Abbey Falls category</a>
                             </p>
                         </article>
                     </div>
@@ -325,5 +258,6 @@
         <footer class="af-footer"><p>Built for Incredible India Explorer · Abbey Falls, Kodagu, Karnataka</p></footer>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
         <script src="script.js"></script>
-    </body>
-</html>
+    
+
+</body></html>

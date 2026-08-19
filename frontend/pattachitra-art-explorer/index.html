@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pattachitra Art Exhibition | Odisha Scroll Painting</title>
-    <meta name="description"
-        content="Explore Pattachitra Art from Odisha. Discover mythological themes, brush techniques, and an interactive zoomable image viewer.">
+    <meta name="description" content="Explore Pattachitra Art from Odisha. Discover mythological themes, brush techniques, and an interactive zoomable image viewer.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav">
+    <nav class="navbar explorer-nav" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
-                    class="gold">India</span> <span class="green">Explorer</span></a>
-            <nav class="nav-menu">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="../indian-art-forms-visualizer/index.html" class="nav-link">Art Forms</a>
                 <a href="#viewer" class="nav-link">Interactive Viewer</a>
@@ -28,7 +22,7 @@
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
     <main>
         <section class="hero-section pattachitra-hero">
             <div class="hero-content animate-on-scroll">
@@ -41,9 +35,9 @@
 
         <section class="explorer-content">
             <div class="tabs" role="tablist">
-                <button class="tab-btn active" data-tab="history" role="tab">History & Background</button>
+                <button class="tab-btn active" data-tab="history" role="tab">History &amp; Background</button>
                 <button class="tab-btn" data-tab="themes" role="tab">Mythological Themes</button>
-                <button class="tab-btn" data-tab="technique" role="tab">Techniques & Colors</button>
+                <button class="tab-btn" data-tab="technique" role="tab">Techniques &amp; Colors</button>
             </div>
 
             <div class="tab-content active" id="history" role="tabpanel">
@@ -56,7 +50,7 @@
                     depth, giving it a distinctly two-dimensional, graphic quality that is instantly recognizable.</p>
             </div>
 
-            <div class="tab-content" id="themes" role="tabpanel" hidden>
+            <div class="tab-content" id="themes" role="tabpanel" hidden="">
                 <h2>Mythological Narratives</h2>
                 <p>The central theme of almost all Pattachitra paintings is the 'Badhia Thakura'—a stylized depiction of
                     Lord Jagannath, his brother Balabhadra, and sister Subhadra. Beyond this, artists depict:</p>
@@ -70,7 +64,7 @@
                         <p>The playful childhood and divine acts of Lord Krishna.</p>
                     </div>
                     <div class="theme-card">
-                        <h4>Ramayana & Mahabharata</h4>
+                        <h4>Ramayana &amp; Mahabharata</h4>
                         <p>Key battle scenes and moral dilemmas from the great epics.</p>
                     </div>
                     <div class="theme-card">
@@ -80,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="tab-content" id="technique" role="tabpanel" hidden>
+            <div class="tab-content" id="technique" role="tabpanel" hidden="">
                 <h2>Brushes and Natural Colors</h2>
                 <p>The creation of a Pattachitra is a meticulous, multi-stage process:</p>
                 <ol class="process-list">
@@ -104,8 +98,7 @@
             <p class="viewer-instruction">Explore the intricate details of a Pattachitra scroll. Click and drag to pan,
                 and use your mouse wheel to zoom in on the fine brushwork.</p>
             <div class="pattachitra-viewer" id="viewer-container" aria-label="Interactive zoomable artwork viewer">
-                <img src="https://placehold.co/800x600/b45309/fff?text=Pattachitra+Scroll+Art"
-                    alt="High resolution Pattachitra scroll" id="viewer-img" draggable="false">
+                <img src="https://placehold.co/800x600/b45309/fff?text=Pattachitra+Scroll+Art" alt="High resolution Pattachitra scroll" id="viewer-img" draggable="false">
             </div>
             <div class="viewer-controls">
                 <button id="zoom-in" aria-label="Zoom In">+</button>
@@ -115,12 +108,9 @@
 
             <h2>Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://placehold.co/300/b45309/fff" alt="Jagannath triad"
-                        loading="lazy"></div>
-                <div class="gallery-item"><img src="https://placehold.co/300/b45309/fff" alt="Dashavatara"
-                        loading="lazy"></div>
-                <div class="gallery-item"><img src="https://placehold.co/300/b45309/fff" alt="Tree of Life"
-                        loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/b45309/fff" alt="Jagannath triad" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/b45309/fff" alt="Dashavatara" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/b45309/fff" alt="Tree of Life" loading="lazy"></div>
             </div>
 
             <h2>References</h2>
@@ -130,10 +120,11 @@
         </section>
     </main>
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer.</p>
+        <p>© 2026 Incredible India Explorer.</p>
     </footer>
-    <script src="../../journey.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../../journey.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

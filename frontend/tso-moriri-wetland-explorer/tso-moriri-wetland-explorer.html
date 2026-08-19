@@ -1,24 +1,24 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="Tso Moriri Wetland Explorer - Explore the breathtaking high-altitude Himalayan lake and Ramsar Site in Ladakh, India." name="description"/>
-    <meta property="og:title" content="Tso Moriri Wetland Explorer | Incredible India"/>
-    <meta property="og:description" content="Discover the High-Altitude Ramsar Wetland of Ladakh, home to the Nomadic Changpa Community and the Black-necked Crane."/>
+<html lang="en"><head></head><body>﻿
+
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Tso Moriri Wetland Explorer - Explore the breathtaking high-altitude Himalayan lake and Ramsar Site in Ladakh, India." name="description">
+    <meta property="og:title" content="Tso Moriri Wetland Explorer | Incredible India">
+    <meta property="og:description" content="Discover the High-Altitude Ramsar Wetland of Ladakh, home to the Nomadic Changpa Community and the Black-necked Crane.">
     
     <title>Tso Moriri Wetland Explorer | Incredible India</title>
     
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     
-    <link href="../../styles.css"stylesheet"/>
-    <link href="../pages-common.css" rel="stylesheet"/>
-    <link href="tso-moriri-wetland-explorer.css" rel="stylesheet"/>
+    <link href="../../styles.css" stylesheet"="">
+    <link href="../pages-common.css" rel="stylesheet">
+    <link href="tso-moriri-wetland-explorer.css" rel="stylesheet">
     
     <script type="application/ld+json">
     {
@@ -33,8 +33,8 @@
       }
     }
     </script>
-</head>
-<body>
+
+
     <script>
         (function() {
             let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -43,7 +43,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -55,14 +55,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -77,7 +77,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -91,9 +91,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -122,7 +122,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main id="app-root" style="padding-top: 80px;">
         
@@ -175,13 +175,13 @@
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-badge" style="background: var(--saffron); color: black;">Life at 4,500m</span>
-                    <h2>Changpa Nomads & Rare Fauna</h2>
+                    <h2>Changpa Nomads &amp; Rare Fauna</h2>
                     <p class="section-subtitle">A sustainable coexistence in the harsh Changthang landscape.</p>
                 </div>
                 <div class="wildlife-grid">
                     <!-- Changpa Community -->
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Changpa_Nomads.jpg/800px-Changpa_Nomads.jpg" alt="Changpa Nomads" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1549216091-c277712cfa8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Changpa_Nomads.jpg/800px-Changpa_Nomads.jpg" alt="Changpa Nomads" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1549216091-c277712cfa8a?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Changpa Community</h3>
                             <span class="wildlife-status status-least-concern" style="background: #9c27b0; color: white;">Culture</span>
@@ -190,7 +190,7 @@
                     </div>
                     <!-- Black-necked Crane -->
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Black-necked_Crane_in_Ladakh.jpg/800px-Black-necked_Crane_in_Ladakh.jpg" alt="Black-necked Crane" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1444212477855-5c1dfb7681d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Black-necked_Crane_in_Ladakh.jpg/800px-Black-necked_Crane_in_Ladakh.jpg" alt="Black-necked Crane" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1444212477855-5c1dfb7681d4?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Black-necked Crane</h3>
                             <span class="wildlife-status status-vulnerable">Vulnerable</span>
@@ -199,7 +199,7 @@
                     </div>
                     <!-- Snow Leopard -->
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Snow_Leopard_in_Ladakh.jpg/800px-Snow_Leopard_in_Ladakh.jpg" alt="Snow Leopard" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1560644346-608b8b0e8c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Snow_Leopard_in_Ladakh.jpg/800px-Snow_Leopard_in_Ladakh.jpg" alt="Snow Leopard" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1560644346-608b8b0e8c1b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Snow Leopard</h3>
                             <span class="wildlife-status status-vulnerable">Vulnerable</span>
@@ -208,7 +208,7 @@
                     </div>
                     <!-- Himalayan Marmot -->
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Himalayan_Marmot.jpg/800px-Himalayan_Marmot.jpg" alt="Himalayan Marmot" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1618758814761-e00947742111?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Himalayan_Marmot.jpg/800px-Himalayan_Marmot.jpg" alt="Himalayan Marmot" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1618758814761-e00947742111?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Himalayan Marmot</h3>
                             <span class="wildlife-status status-least-concern">Least Concern</span>
@@ -253,16 +253,16 @@
                 </div>
                 <div class="gallery-grid" id="gallery-grid" role="region" aria-labelledby="gallery-heading">
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Lake Panorama">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1590050752118-2453e0294fcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lake panorama with crystal clear blue waters">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1590050752118-2453e0294fcb?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Lake panorama with crystal clear blue waters">
                     </div>
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Mountains">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1549216091-c277712cfa8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Himalayan mountains towering over the wetland">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1549216091-c277712cfa8a?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Himalayan mountains towering over the wetland">
                     </div>
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Black-necked Crane">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1444212477855-5c1dfb7681d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Black-necked Crane in flight">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1444212477855-5c1dfb7681d4?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Black-necked Crane in flight">
                     </div>
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Sunset">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1560644346-608b8b0e8c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sunset and sunrise lighting over the lake">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1560644346-608b8b0e8c1b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Sunset and sunrise lighting over the lake">
                     </div>
                 </div>
             </div>
@@ -284,7 +284,7 @@
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
-        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">×</span>
         <img id="lightbox-img" src="" alt="Enlarged view">
     </div>
 
@@ -292,5 +292,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="../pages-common.js"></script>
     <script src="tso-moriri-wetland-explorer.js"></script>
-</body>
-</html>
+
+
+</body></html>

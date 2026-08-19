@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Match classical Indian dance mudras with their meanings through drag-and-drop or keyboard interaction. Educational game covering Bharatanatyam, Kathak, Odissi, Kuchipudi, and Mohiniyattam mudras.">
+    <meta name="description" content="Match classical Indian dance mudras with their meanings through drag-and-drop or keyboard interaction. Educational game covering Bharatanatyam, Kathak, Odissi, Kuchipudi, and Mohiniyattam mudras.">
     <title>Dance Mudra Matcher | Incredible India</title>
     <link rel="icon" href="data:,">
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,13 +19,11 @@
         })();
     </script>
 
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span
-                    class="gold">India</span><span class="green">Explorer</span></a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span
-                    class="bar"></span><span class="bar"></span></button>
-            <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active">Home</a>
                 <div class="nav-dropdown"><button class="nav-link dropdown-toggle">Culture ▾</button>
                     <div class="dropdown-menu"><a href="../dance/dance.html" class="dropdown-item">Classical Dances</a>
@@ -38,7 +32,7 @@
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main class="mm-main" id="app-root">
         <section class="mm-hero" id="setup-screen">
@@ -51,28 +45,22 @@
                 <div class="mm-setup-panel glass-card">
                     <h2>Select Difficulty</h2>
                     <div class="difficulty-options" role="radiogroup" aria-label="Difficulty">
-                        <button class="diff-btn active" data-diff="easy" tabindex="0" role="radio"
-                            aria-checked="true"><span class="diff-label">Easy</span><span class="diff-desc">4
+                        <button class="diff-btn active" data-diff="easy" tabindex="0" role="radio" aria-checked="true"><span class="diff-label">Easy</span><span class="diff-desc">4
                                 pairs</span></button>
-                        <button class="diff-btn" data-diff="medium" tabindex="0" role="radio" aria-checked="false"><span
-                                class="diff-label">Medium</span><span class="diff-desc">6 pairs</span></button>
-                        <button class="diff-btn" data-diff="hard" tabindex="0" role="radio" aria-checked="false"><span
-                                class="diff-label">Hard</span><span class="diff-desc">8 pairs</span></button>
+                        <button class="diff-btn" data-diff="medium" tabindex="0" role="radio" aria-checked="false"><span class="diff-label">Medium</span><span class="diff-desc">6 pairs</span></button>
+                        <button class="diff-btn" data-diff="hard" tabindex="0" role="radio" aria-checked="false"><span class="diff-label">Hard</span><span class="diff-desc">8 pairs</span></button>
                     </div>
                     <button class="mm-start-btn" id="start-btn" tabindex="0">Start Game 💃</button>
                 </div>
             </div>
         </section>
 
-        <section class="mm-game-section" id="game-screen" hidden>
+        <section class="mm-game-section" id="game-screen" hidden="">
             <div class="mm-container">
                 <div class="mm-stats-row">
-                    <div class="mm-stat"><span class="stat-label">Score</span><span class="stat-value"
-                            id="score-display">0</span></div>
-                    <div class="mm-stat"><span class="stat-label">Matched</span><span class="stat-value"
-                            id="matched-display">0/4</span></div>
-                    <div class="mm-stat"><span class="stat-label">Remaining</span><span class="stat-value"
-                            id="remaining-display">4</span></div>
+                    <div class="mm-stat"><span class="stat-label">Score</span><span class="stat-value" id="score-display">0</span></div>
+                    <div class="mm-stat"><span class="stat-label">Matched</span><span class="stat-value" id="matched-display">0/4</span></div>
+                    <div class="mm-stat"><span class="stat-label">Remaining</span><span class="stat-value" id="remaining-display">4</span></div>
                 </div>
                 <div class="mm-board">
                     <div class="mm-column" id="mudra-col">
@@ -84,17 +72,17 @@
                         <div class="card-list" id="meaning-list" role="list" aria-label="Meaning cards"></div>
                     </div>
                 </div>
-                <div class="mm-feedback glass-card" id="feedback-panel" hidden aria-live="polite">
+                <div class="mm-feedback glass-card" id="feedback-panel" hidden="" aria-live="polite">
                     <div class="fb-icon" id="fb-icon"></div>
                     <h3 class="fb-title" id="fb-title"></h3>
                     <p class="fb-text" id="fb-text"></p>
                 </div>
-                <p class="mm-kb-hint">💡 Keyboard: Tab between cards, Enter/Space to pick up & drop. Escape to cancel.
+                <p class="mm-kb-hint">💡 Keyboard: Tab between cards, Enter/Space to pick up &amp; drop. Escape to cancel.
                 </p>
             </div>
         </section>
 
-        <div class="mm-modal" id="completion-modal" role="dialog" aria-modal="true" aria-labelledby="cm-title" hidden>
+        <div class="mm-modal" id="completion-modal" role="dialog" aria-modal="true" aria-labelledby="cm-title" hidden="">
             <div class="mm-modal-backdrop"></div>
             <div class="mm-modal-card glass-card">
                 <div class="modal-icon">🎉</div>
@@ -103,8 +91,7 @@
                 <div class="modal-stats">
                     <div class="ms-item"><span class="ms-label">Score</span><span class="ms-value" id="cm-score"></span>
                     </div>
-                    <div class="ms-item"><span class="ms-label">Accuracy</span><span class="ms-value"
-                            id="cm-accuracy"></span></div>
+                    <div class="ms-item"><span class="ms-label">Accuracy</span><span class="ms-value" id="cm-accuracy"></span></div>
                 </div>
                 <button class="mm-restart-btn" id="cm-restart" tabindex="0">Play Again ↻</button>
             </div>
@@ -113,19 +100,18 @@
 
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand"><a href="../../index.html#home" class="nav-logo"><span
-                        class="saffron">Incredible</span><span class="gold">India</span><span
-                        class="green">Explorer</span></a></div>
+            <div class="footer-brand"><a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a></div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer.</p>
+            <p>© 2026 Incredible India Explorer.</p>
         </div>
     </footer>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
-    <script src="../app.js" defer></script>
-    <script src="../router.js" defer></script>
-</body>
+    <script src="../app.js" defer=""></script>
+    <script src="../router.js" defer=""></script>
 
-</html>
+
+
+</body></html>

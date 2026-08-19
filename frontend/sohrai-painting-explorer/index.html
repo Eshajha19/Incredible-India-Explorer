@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sohrai Painting Explorer | Jharkhand Tribal Wall Art</title>
-    <meta name="description"
-        content="Explore Sohrai Painting — the ceremonial wall and floor art of Jharkhand's tribal communities. Discover its history, natural pigments, traditional motifs, an interactive wall-art visualizer, gallery, and references.">
+    <meta name="description" content="Explore Sohrai Painting — the ceremonial wall and floor art of Jharkhand's tribal communities. Discover its history, natural pigments, traditional motifs, an interactive wall-art visualizer, gallery, and references.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav">
+    <nav class="navbar explorer-nav" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
-                    class="gold">India</span> <span class="green">Explorer</span></a>
-            <nav class="nav-menu">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="../indian-art-forms-visualizer/index.html" class="nav-link">Art Forms</a>
                 <a href="#history" class="nav-link">History</a>
@@ -28,7 +22,7 @@
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
 
     <main>
         <section class="hero-section sohrai-hero">
@@ -57,21 +51,21 @@
             </div>
 
             <!-- ── NATURAL PIGMENTS ──────────────────────────────────────── -->
-            <div class="tab-content" id="pigments" role="tabpanel" hidden>
+            <div class="tab-content" id="pigments" role="tabpanel" hidden="">
                 <h2>Natural Pigments &amp; Materials</h2>
                 <p class="tab-intro">Sohrai paintings are created entirely with natural earth pigments collected from the forest and riverbeds. The colours are mixed with water and a natural binder and applied with fingers, cloth rags, and chewed twigs.</p>
                 <div id="pigments-grid" class="pigments-grid"></div>
             </div>
 
             <!-- ── TRADITIONAL MOTIFS ──────────────────────────────────────── -->
-            <div class="tab-content" id="motifs" role="tabpanel" hidden>
+            <div class="tab-content" id="motifs" role="tabpanel" hidden="">
                 <h2>Traditional Motifs</h2>
                 <p class="tab-intro">Sohrai motifs celebrate cattle, fertility, and forest life. Drawn freehand without preparatory sketches, each motif carries symbolic meaning tied to the agrarian cycle.</p>
                 <div id="motifs-grid" class="motifs-grid"></div>
             </div>
 
             <!-- ── WALL ART VISUALIZER ─────────────────────────────────────── -->
-            <div class="tab-content" id="visualizer" role="tabpanel" hidden>
+            <div class="tab-content" id="visualizer" role="tabpanel" hidden="">
                 <h2>Interactive Wall Art Visualizer</h2>
                 <p class="tab-intro">Choose a wall, pick a colour, and paint your own Sohrai-inspired design. Try the traditional motifs or draw freehand.</p>
                 <div class="visualizer-container">
@@ -94,7 +88,7 @@
                         </div>
                         <div class="tool-group">
                             <label for="brush-size">Brush Size</label>
-                            <input type="range" id="brush-size" min="2" max="30" value="8" aria-label="Brush size" />
+                            <input type="range" id="brush-size" min="2" max="30" value="8" aria-label="Brush size">
                         </div>
                         <div class="tool-group">
                             <button id="btn-clear" class="viz-btn viz-btn-danger" aria-label="Clear canvas">Clear</button>
@@ -109,13 +103,13 @@
             </div>
 
             <!-- ── GALLERY ─────────────────────────────────────────────── -->
-            <div class="tab-content" id="gallery" role="tabpanel" hidden>
+            <div class="tab-content" id="gallery" role="tabpanel" hidden="">
                 <h2>Gallery</h2>
                 <div id="gallery-grid" class="gallery-grid"></div>
             </div>
 
             <!-- ── REFERENCES ──────────────────────────────────────────── -->
-            <div class="tab-content" id="references" role="tabpanel" hidden>
+            <div class="tab-content" id="references" role="tabpanel" hidden="">
                 <h2>References &amp; Further Reading</h2>
                 <div id="references-list" class="references-list"></div>
             </div>
@@ -123,9 +117,9 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image viewer" hidden="">
         <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">×</button>
-        <img id="lightbox-img" src="" alt="" />
+        <img id="lightbox-img" src="" alt="">
         <div class="lightbox-caption">
             <h3 id="lightbox-title"></h3>
             <p id="lightbox-caption"></p>
@@ -138,6 +132,7 @@
 
     <script src="sohrai-data.js"></script>
     <script src="script.js"></script>
-</body>
 
-</html>
+
+
+</body></html>

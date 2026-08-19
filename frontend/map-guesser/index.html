@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Identify Indian states and union territories from their silhouettes. Geography quiz with typing and multiple-choice modes.">
+    <meta name="description" content="Identify Indian states and union territories from their silhouettes. Geography quiz with typing and multiple-choice modes.">
     <title>Map Outline Guesser | Incredible India</title>
     <link rel="icon" href="data:,">
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,22 +19,19 @@
         })();
     </script>
 
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span
-                    class="gold">India</span><span class="green">Explorer</span></a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span
-                    class="bar"></span><span class="bar"></span></button>
-            <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active">Home</a>
                 <div class="nav-dropdown"><button class="nav-link dropdown-toggle">Games ▾</button>
-                    <div class="dropdown-menu"><a href="../geo-guesser-india/index.html"
-                            class="dropdown-item">GeoGuesser</a></div>
+                    <div class="dropdown-menu"><a href="../geo-guesser-india/index.html" class="dropdown-item">GeoGuesser</a></div>
                 </div>
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main class="mg-main" id="app-root">
         <section class="mg-hero" id="setup-screen">
@@ -51,13 +44,10 @@
                 <div class="mg-setup-panel glass-card">
                     <h2>Select Difficulty</h2>
                     <div class="difficulty-options" role="radiogroup" aria-label="Difficulty">
-                        <button class="diff-btn active" data-diff="easy" tabindex="0" role="radio"
-                            aria-checked="true"><span class="diff-label">Easy</span><span class="diff-desc">Multiple
+                        <button class="diff-btn active" data-diff="easy" tabindex="0" role="radio" aria-checked="true"><span class="diff-label">Easy</span><span class="diff-desc">Multiple
                                 choice · Large states</span></button>
-                        <button class="diff-btn" data-diff="medium" tabindex="0" role="radio" aria-checked="false"><span
-                                class="diff-label">Medium</span><span class="diff-desc">Mixed modes</span></button>
-                        <button class="diff-btn" data-diff="hard" tabindex="0" role="radio" aria-checked="false"><span
-                                class="diff-label">Hard</span><span class="diff-desc">Type answer · All
+                        <button class="diff-btn" data-diff="medium" tabindex="0" role="radio" aria-checked="false"><span class="diff-label">Medium</span><span class="diff-desc">Mixed modes</span></button>
+                        <button class="diff-btn" data-diff="hard" tabindex="0" role="radio" aria-checked="false"><span class="diff-label">Hard</span><span class="diff-desc">Type answer · All
                                 states</span></button>
                     </div>
                     <button class="mg-start-btn" id="start-btn" tabindex="0">Start Quiz 🗺️</button>
@@ -65,19 +55,16 @@
             </div>
         </section>
 
-        <section class="mg-quiz-section" id="quiz-screen" hidden>
+        <section class="mg-quiz-section" id="quiz-screen" hidden="">
             <div class="mg-container">
                 <div class="mg-progress-bar" role="progressbar">
                     <div class="mg-progress-fill" id="progress-fill"></div>
                 </div>
                 <p class="mg-progress-text" id="progress-text">Question 1 of 5</p>
                 <div class="mg-stats-row">
-                    <div class="mg-stat"><span class="stat-label">Score</span><span class="stat-value"
-                            id="score-display">0</span></div>
-                    <div class="mg-stat"><span class="stat-label">Streak</span><span class="stat-value"
-                            id="streak-display">0</span></div>
-                    <div class="mg-stat"><span class="stat-label">Accuracy</span><span class="stat-value"
-                            id="accuracy-display">—</span></div>
+                    <div class="mg-stat"><span class="stat-label">Score</span><span class="stat-value" id="score-display">0</span></div>
+                    <div class="mg-stat"><span class="stat-label">Streak</span><span class="stat-value" id="streak-display">0</span></div>
+                    <div class="mg-stat"><span class="stat-label">Accuracy</span><span class="stat-value" id="accuracy-display">—</span></div>
                 </div>
                 <div class="mg-outline-container glass-card">
                     <div id="outline-display" class="outline-svg-wrapper" aria-label="State outline silhouette"></div>
@@ -85,16 +72,15 @@
                 <!-- Choice Mode -->
                 <div class="mg-options-grid" id="options-grid" role="group" aria-label="Answer options"></div>
                 <!-- Type Mode -->
-                <div class="mg-type-area" id="type-area" hidden>
+                <div class="mg-type-area" id="type-area" hidden="">
                     <div class="type-input-wrapper">
-                        <input type="text" id="type-input" class="mg-input" placeholder="Type the state name..."
-                            autocomplete="off" aria-label="Type state name" tabindex="0" />
-                        <div class="autocomplete-list" id="autocomplete-list" role="listbox" hidden></div>
+                        <input type="text" id="type-input" class="mg-input" placeholder="Type the state name..." autocomplete="off" aria-label="Type state name" tabindex="0">
+                        <div class="autocomplete-list" id="autocomplete-list" role="listbox" hidden=""></div>
                     </div>
                     <button class="mg-submit-btn" id="submit-btn" tabindex="0">Submit</button>
                 </div>
                 <!-- Feedback -->
-                <div class="mg-feedback glass-card" id="feedback-panel" hidden aria-live="polite">
+                <div class="mg-feedback glass-card" id="feedback-panel" hidden="" aria-live="polite">
                     <div class="fb-icon" id="fb-icon"></div>
                     <h3 class="fb-title" id="fb-title"></h3>
                     <div class="fb-info">
@@ -108,19 +94,16 @@
             </div>
         </section>
 
-        <section class="mg-results-section" id="results-screen" hidden>
+        <section class="mg-results-section" id="results-screen" hidden="">
             <div class="mg-container">
                 <div class="mg-results-card glass-card">
                     <div class="results-icon">🏆</div>
                     <h2 id="results-title"></h2>
                     <p class="results-score" id="results-score"></p>
                     <div class="results-stats">
-                        <div class="rs-item"><span class="rs-label">Correct</span><span class="rs-value"
-                                id="rs-correct"></span></div>
-                        <div class="rs-item"><span class="rs-label">Accuracy</span><span class="rs-value"
-                                id="rs-accuracy"></span></div>
-                        <div class="rs-item"><span class="rs-label">Best Streak</span><span class="rs-value"
-                                id="rs-streak"></span></div>
+                        <div class="rs-item"><span class="rs-label">Correct</span><span class="rs-value" id="rs-correct"></span></div>
+                        <div class="rs-item"><span class="rs-label">Accuracy</span><span class="rs-value" id="rs-accuracy"></span></div>
+                        <div class="rs-item"><span class="rs-label">Best Streak</span><span class="rs-value" id="rs-streak"></span></div>
                     </div>
                     <button class="mg-restart-btn" id="restart-btn" tabindex="0">Play Again ↻</button>
                 </div>
@@ -130,19 +113,18 @@
 
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand"><a href="../../index.html#home" class="nav-logo"><span
-                        class="saffron">Incredible</span><span class="gold">India</span><span
-                        class="green">Explorer</span></a></div>
+            <div class="footer-brand"><a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a></div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer.</p>
+            <p>© 2026 Incredible India Explorer.</p>
         </div>
     </footer>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
-    <script src="../app.js" defer></script>
-    <script src="../router.js" defer></script>
-</body>
+    <script src="../app.js" defer=""></script>
+    <script src="../router.js" defer=""></script>
 
-</html>
+
+
+</body></html>

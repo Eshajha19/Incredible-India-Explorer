@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Explore Indian classical and folk dances, regional traditions, movement styles, and performance heritage in Incredible India Explorer.">
+    <meta name="description" content="Explore Indian classical and folk dances, regional traditions, movement styles, and performance heritage in Incredible India Explorer.">
     <title>Indian Dance Explorer | Incredible India</title>
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="../../styles.css">
 
     <!-- Open Graph / Social Media Tags -->
@@ -42,7 +38,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -54,14 +50,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -76,7 +72,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -90,9 +86,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -121,7 +117,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main id="app-root" class="page-padding">
         <section class="sub-hero dance-hero" id="dance-hero">
@@ -147,7 +143,7 @@
         <section class="dance-catalog-section fade-in-section" id="dance-cards-section">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge">Rhythm & Grace</span>
+                    <span class="section-badge">Rhythm &amp; Grace</span>
                     <h2>Classical precision and folk celebration</h2>
                     <p class="section-subtitle">Filter by dance type and state or region, then open any card to explore
                         costume details, movement style, and cultural context.</p>
@@ -163,14 +159,13 @@
                     <div class="dance-filter-controls">
                         <div class="search-box-wrapper">
                             <label class="sr-only" for="dance-search-input">Search dances</label>
-                            <input type="search" id="dance-search-input" placeholder="Search dances, states, styles, or features..."
-                                class="search-input" aria-label="Search dances">
-                            <span class="search-icon">&#128269;</span>
+                            <input type="search" id="dance-search-input" placeholder="Search dances, states, styles, or features..." class="search-input" aria-label="Search dances">
+                            <span class="search-icon">🔍</span>
                         </div>
                         <div class="select-box-wrapper">
                             <label class="sr-only" for="dance-state-filter">Filter by state or region</label>
                             <select id="dance-state-filter" class="dance-select" aria-label="Filter by state or region">
-                                <option value="all">All States & Regions</option>
+                                <option value="all">All States &amp; Regions</option>
                             </select>
                         </div>
                     </div>
@@ -217,7 +212,7 @@
 
     <div class="modal-backdrop dance-modal" id="dance-modal" aria-hidden="true">
         <div class="modal-card dance-modal-card" role="dialog" aria-modal="true" aria-labelledby="dance-modal-title">
-            <button class="modal-close" id="dance-modal-close" aria-label="Close dance details">&times;</button>
+            <button class="modal-close" id="dance-modal-close" aria-label="Close dance details">×</button>
             <div class="dance-modal-layout">
                 <div class="dance-modal-hero">
                     <div class="dance-modal-visual classical" id="dance-modal-visual" aria-hidden="true"></div>
@@ -271,18 +266,19 @@
             </div>
         </div>
         <div class="footer-credits" style="align-self: center;">
-            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+            <p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
         </div>
     </footer>
 
-    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">↑</button>
 
-    <script src="../data.js" defer></script>
-    <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
+    <script src="../data.js" defer=""></script>
+    <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
     <script type="module" src="../firebase-config.js"></script>
     <script type="module" src="../auth.js"></script>
-    <script src="../router.js" defer></script>
-</body>
+    <script src="../router.js" defer=""></script>
 
-</html>
+
+
+</body></html>

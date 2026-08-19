@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <script>
         (function() {
             const theme = localStorage.getItem('theme') || 'dark';
@@ -15,8 +13,8 @@
     <title>Pochampally Ikat Explorer | Incredible India</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pages-common.css">
@@ -204,7 +202,7 @@
     </style>
 </head>
 <body>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -216,14 +214,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -238,7 +236,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -252,9 +250,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -283,7 +281,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main id="app-root" style="padding-top: 80px;">
         <section class="pochampally-hero scroll-section">
@@ -338,7 +336,7 @@
                 <div style="background: var(--bg-dark-card); padding: 30px; border-radius: var(--border-radius-lg); border: 1px solid rgba(255, 176, 31, 0.3);">
                     <ul style="color: var(--text-muted); line-height: 1.8; list-style-type: square; padding-left: 20px;">
                         <li>Geographical Indications Registry, Government of India - Pochampally Ikat.</li>
-                        <li>Crill, Rosemary (1998). "Indian Ikat Textiles". V&A Publications.</li>
+                        <li>Crill, Rosemary (1998). "Indian Ikat Textiles". V&amp;A Publications.</li>
                         <li>Telangana State Handloom Weavers Cooperative Society (TSCO).</li>
                     </ul>
                 </div>
@@ -348,12 +346,13 @@
 
     <div class="details-modal" id="details-modal">
         <div class="modal-content">
-            <button class="close-modal" id="close-modal">&times;</button>
+            <button class="close-modal" id="close-modal" aria-label="Close">×</button>
             <h3 id="modal-title" style="color: var(--primary-gold); margin-bottom: 15px; font-size: 1.8rem;"></h3>
             <p id="modal-desc" style="color: var(--text-muted); line-height: 1.6;"></p>
         </div>
     </div>
 
     <script src="pochampally.js"></script>
-</body>
-</html>
+
+
+</body></html>

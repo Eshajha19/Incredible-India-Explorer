@@ -1,21 +1,16 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Explore the interactive profile and timeline of T-Series, documenting its evolution from music publishing to a global digital entertainment brand."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore the interactive profile and timeline of T-Series, documenting its evolution from music publishing to a global digital entertainment brand.">
         <title>T-Series: Indian Music and Entertainment Brand | Incredible India</title>
 
         <!-- Preload Critical Fonts -->
-        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body class="tseries-timeline-main">
@@ -28,7 +23,7 @@
         })();
     </script>
         <!-- Site Navbar -->
-        <header class="navbar" id="navbar">
+        <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -40,7 +35,7 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
@@ -53,7 +48,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
         <main>
             <!-- Hero Section -->
@@ -77,13 +72,8 @@
                     <div class="search-filter-wrapper glass-card">
                         <div class="search-box">
                             <span class="search-icon">🔍</span>
-                            <input
-                                type="text"
-                                id="milestone-search-input"
-                                placeholder="Search by year, category, or milestone..."
-                                aria-label="Search T-Series Milestones"
-                            />
-                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">&times;</button>
+                            <input type="text" id="milestone-search-input" placeholder="Search by year, category, or milestone..." aria-label="Search T-Series Milestones">
+                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">×</button>
                         </div>
 
                         <div class="filter-groups">
@@ -91,7 +81,7 @@
                                 <label for="category-filter">Category:</label>
                                 <select id="category-filter" class="custom-select">
                                     <option value="all">All Categories</option>
-                                    <option value="origin">Origin & Early History</option>
+                                    <option value="origin">Origin &amp; Early History</option>
                                     <option value="music">Music Publishing</option>
                                     <option value="film">Film Production</option>
                                     <option value="digital">Digital Transformation</option>
@@ -115,7 +105,7 @@
             <!-- Detailed Milestone Modal -->
             <div id="milestone-modal" class="milestone-modal hidden" role="dialog" aria-modal="true" aria-label="Milestone Details">
                 <div class="milestone-modal-content glass-card">
-                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Details">&times;</button>
+                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Details">×</button>
                     <div id="modal-body">
                         <!-- Populated by script.js -->
                     </div>
@@ -138,14 +128,15 @@
                 </div>
             </div>
             <div class="footer-credits footer-credits-center">
-                <p>&copy; 2026 Incredible India Explorer. T-Series Brand Profile.</p>
+                <p>© 2026 Incredible India Explorer. T-Series Brand Profile.</p>
             </div>
         </footer>
 
         <!-- Scripts -->
-        <script src="../js-modules/storage.js" defer></script>
-        <script src="../app.js" defer></script>
-        <script src="script.js" defer></script>
+        <script src="../js-modules/storage.js" defer=""></script>
+        <script src="../app.js" defer=""></script>
+        <script src="script.js" defer=""></script>
         <script type="module" src="../auth.js"></script>
-    </body>
-</html>
+    
+
+</body></html>

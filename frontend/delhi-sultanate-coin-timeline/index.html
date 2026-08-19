@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore the numismatic history of the Delhi Sultanate. Interactive coin timeline, script decoder, and mint map.">
     <title>Delhi Sultanate Coin Timeline | Incredible India</title>
     <link rel="icon" href="data:,">
     
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
     
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../../frontend/navbar-redesign/navbar.css">
@@ -16,7 +14,7 @@
 </head>
 
 <body class="sultanate-body">
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -28,14 +26,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -50,7 +48,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -64,9 +62,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -95,7 +93,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="sultanate-page">
         <section class="hero-section">
@@ -105,7 +103,7 @@
                 
                 <div class="filter-bar">
                     <span class="filter-label">Filter by Metal:</span>
-                    <button class="btn filter-btn active" data-metal="all">All</button>
+                    <button class="btn filter-btn active" data-metal="all" aria-label="Filter">All</button>
                     <button class="btn filter-btn" data-metal="gold">Gold</button>
                     <button class="btn filter-btn" data-metal="silver">Silver</button>
                     <button class="btn filter-btn" data-metal="copper">Copper/Billon</button>
@@ -129,14 +127,14 @@
                     <div id="coin-visualizer" class="coin-visualizer">
                         <div class="coin-face obverse">
                             <svg viewBox="0 0 100 100" class="coin-svg">
-                                <circle cx="50" cy="50" r="48" fill="#c0c0c0" stroke="#a0a0a0" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="48" fill="#c0c0c0" stroke="#a0a0a0" stroke-width="2"></circle>
                                 <text x="50" y="55" font-size="12" text-anchor="middle" id="svg-obverse-text">Script</text>
                             </svg>
                             <span>Obverse</span>
                         </div>
                         <div class="coin-face reverse">
                             <svg viewBox="0 0 100 100" class="coin-svg">
-                                <circle cx="50" cy="50" r="48" fill="#c0c0c0" stroke="#a0a0a0" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="48" fill="#c0c0c0" stroke="#a0a0a0" stroke-width="2"></circle>
                                 <text x="50" y="55" font-size="12" text-anchor="middle" id="svg-reverse-text">Script</text>
                             </svg>
                             <span>Reverse</span>
@@ -169,9 +167,9 @@
                         <h2>Active Mints Map</h2>
                         <div class="mint-map-container" id="mint-map">
                             <svg viewBox="0 0 400 300" class="india-map-bg">
-                                <rect width="400" height="300" fill="#2a1f18"/>
+                                <rect width="400" height="300" fill="#2a1f18"></rect>
                                 <!-- Simplified Map Boundary -->
-                                <path d="M 150 50 L 250 50 L 300 150 L 250 250 L 150 250 L 100 150 Z" fill="none" stroke="#6b5b4a" stroke-width="2"/>
+                                <path d="M 150 50 L 250 50 L 300 150 L 250 250 L 150 250 L 100 150 Z" fill="none" stroke="#6b5b4a" stroke-width="2"></path>
                                 <g id="mint-nodes"></g>
                             </svg>
                         </div>
@@ -199,5 +197,6 @@
     </main>
 
     <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

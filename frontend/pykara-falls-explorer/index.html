@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pykara Falls Explorer | Incredible India Explorer</title>
-    <meta name="description"
-        content="Explore Pykara Falls near Ooty, Tamil Nadu. Discover the Pykara river's journey from Mukurthi peak through the Nilgiri Hills to its twin 55m and 61m cascades, seasonal flow, and nearby attractions.">
+    <meta name="description" content="Explore Pykara Falls near Ooty, Tamil Nadu. Discover the Pykara river's journey from Mukurthi peak through the Nilgiri Hills to its twin 55m and 61m cascades, seasonal flow, and nearby attractions.">
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 
     <!-- Leaflet CSS for Map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 
 <body>
@@ -28,7 +23,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
@@ -40,7 +35,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
                 <div class="nav-dropdown">
@@ -48,7 +43,7 @@
                         ▾</button>
                     <div class="dropdown-menu">
                         <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                         <a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls of India</a>
                         <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                         <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -64,11 +59,10 @@
                         <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                         <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                         <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                         <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical
                             Timeline</a>
-                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html"
-                            class="dropdown-item">National Symbols</a>
+                        <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     </div>
                 </div>
 
@@ -78,11 +72,11 @@
                     <div class="dropdown-menu">
                         <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National
                             Parks</a>
-                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                         <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife
                             Rescue</a>
                         <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic
-                            Flora & Fauna</a>
+                            Flora &amp; Fauna</a>
                     </div>
                 </div>
 
@@ -98,7 +92,7 @@
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main style="padding-top: 80px;">
 
@@ -117,7 +111,7 @@
         <section class="pykara-section alt-bg">
             <div class="pykara-container info-grid">
                 <div class="info-text">
-                    <span class="pykara-eyebrow">📍 Location & River</span>
+                    <span class="pykara-eyebrow">📍 Location &amp; River</span>
                     <h2>The Pykara River's Journey</h2>
                     <p class="lede">Pykara Falls lies about 19–21 km from Ooty on the Ooty–Mysore road, in the Nilgiris
                         district of Tamil Nadu. The Pykara river — the largest river in the Nilgiris and considered
@@ -161,7 +155,7 @@
                         <div class="flow-arrow">→</div>
                         <button class="flow-stage" data-stage="2">
                             <span class="flow-icon">💧</span>
-                            <span class="flow-text">2. Pykara Dam & Lake</span>
+                            <span class="flow-text">2. Pykara Dam &amp; Lake</span>
                         </button>
                         <div class="flow-arrow">→</div>
                         <button class="flow-stage" data-stage="3">
@@ -197,7 +191,7 @@
         <section class="pykara-section alt-bg">
             <div class="pykara-container">
                 <span class="pykara-eyebrow">🏞️ Gallery</span>
-                <h2>Nilgiri Landscape & River</h2>
+                <h2>Nilgiri Landscape &amp; River</h2>
                 <p class="lede">The Pykara valley is ringed by shola forest, eucalyptus groves and the rolling grassy
                     downs of Wenlock Downs, with Toda settlements scattered across the plateau.</p>
                 <div class="gallery-grid" id="gallery-grid"></div>
@@ -208,11 +202,10 @@
         <section class="pykara-section">
             <div class="pykara-container">
                 <span class="pykara-eyebrow">🗺️ Nearby Attraction Explorer</span>
-                <h2>Rest of Pykara & Ooty</h2>
+                <h2>Rest of Pykara &amp; Ooty</h2>
                 <div class="attractions-grid" id="attractions-grid"></div>
                 <div class="map-wrapper glass-card" style="margin-top: 30px;">
-                    <div id="attractions-map" class="interactive-map"
-                        aria-label="Interactive map showing Pykara Falls and nearby Nilgiri attractions"></div>
+                    <div id="attractions-map" class="interactive-map" aria-label="Interactive map showing Pykara Falls and nearby Nilgiri attractions"></div>
                 </div>
             </div>
         </section>
@@ -240,8 +233,7 @@
 
                 <div class="map-wrapper glass-card">
                     <!-- Leaflet map container -->
-                    <div id="pykara-map" class="interactive-map"
-                        aria-label="Interactive map showing the location of Pykara Falls"></div>
+                    <div id="pykara-map" class="interactive-map" aria-label="Interactive map showing the location of Pykara Falls"></div>
                 </div>
             </div>
         </section>
@@ -250,7 +242,7 @@
         <section class="pykara-section references-section">
             <div class="pykara-container">
                 <span class="pykara-eyebrow">📚 Sources</span>
-                <h2>References & Image Credits</h2>
+                <h2>References &amp; Image Credits</h2>
                 <ul class="references-list" id="references-list"></ul>
             </div>
         </section>
@@ -259,8 +251,7 @@
 
     <footer class="pykara-footer">
         <div class="footer-content">
-            <p>Part of the <a href="../waterfalls-of-india/index.html">Waterfalls of India Explorer</a> · <a
-                    href="../../index.html">Incredible India Explorer</a></p>
+            <p>Part of the <a href="../waterfalls-of-india/index.html">Waterfalls of India Explorer</a> · <a href="../../index.html">Incredible India Explorer</a></p>
             <p class="footer-credits">Images sourced from Unsplash for demonstration purposes; see references section
                 for credits and further reading.</p>
         </div>
@@ -269,13 +260,12 @@
     <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
 
     <!-- Leaflet JS for Map -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-    <script src="pykara-data.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
+    <script src="pykara-data.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+</body></html>

@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warli Art Explorer | Tribal Symbolism</title>
-    <meta name="description"
-        content="Explore Warli Painting from Maharashtra. Discover tribal symbols, pattern visualization, and the history of this ancient art form.">
+    <meta name="description" content="Explore Warli Painting from Maharashtra. Discover tribal symbols, pattern visualization, and the history of this ancient art form.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav">
+    <nav class="navbar explorer-nav" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
-                    class="gold">India</span> <span class="green">Explorer</span></a>
-            <nav class="nav-menu">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="../indian-art-forms-visualizer/index.html" class="nav-link">Art Forms</a>
                 <a href="#visualizer" class="nav-link">Pattern Visualizer</a>
@@ -28,7 +22,7 @@
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
     <main>
         <section class="hero-section warli-hero">
             <div class="hero-content animate-on-scroll">
@@ -41,7 +35,7 @@
 
         <section class="explorer-content">
             <div class="tabs" role="tablist">
-                <button class="tab-btn active" data-tab="history" role="tab">History & Overview</button>
+                <button class="tab-btn active" data-tab="history" role="tab">History &amp; Overview</button>
                 <button class="tab-btn" data-tab="symbols" role="tab">Tribal Symbols</button>
                 <button class="tab-btn" data-tab="materials" role="tab">Materials</button>
             </div>
@@ -58,7 +52,7 @@
                     represents mountains and conical trees, and the square represents a sacred plot of land.</p>
             </div>
 
-            <div class="tab-content" id="symbols" role="tabpanel" hidden>
+            <div class="tab-content" id="symbols" role="tabpanel" hidden="">
                 <h2>Decoding the Symbols</h2>
                 <div class="symbol-grid">
                     <div class="symbol-card">
@@ -88,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="tab-content" id="materials" role="tabpanel" hidden>
+            <div class="tab-content" id="materials" role="tabpanel" hidden="">
                 <h2>Traditional Materials</h2>
                 <p>Warli art is traditionally painted on the mud walls of tribal huts. The preparation is deeply
                     connected to the earth:</p>
@@ -104,32 +98,29 @@
             <p class="visualizer-desc">Experience the simplicity of Warli geometry. Click the canvas below to generate a
                 unique, randomized Warli pattern using only traditional triangles and circles.</p>
             <div class="canvas-container">
-                <canvas id="warli-canvas" width="600" height="400"
-                    aria-label="Interactive Warli Pattern Canvas"></canvas>
+                <canvas id="warli-canvas" width="600" height="400" aria-label="Interactive Warli Pattern Canvas"></canvas>
                 <button id="generate-btn" class="btn-generate">Generate New Pattern</button>
             </div>
 
             <h2 id="gallery">Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli wedding chauk"
-                        loading="lazy"></div>
-                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli harvest dance"
-                        loading="lazy"></div>
-                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli village scene"
-                        loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli wedding chauk" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli harvest dance" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/78350f/fff" alt="Warli village scene" loading="lazy"></div>
             </div>
 
             <h2>References</h2>
             <ul class="reference-list">
-                <li>Dhamija, P. (1994). "Painted Myths of India: Art & Craft of Warli."</li>
+                <li>Dhamija, P. (1994). "Painted Myths of India: Art &amp; Craft of Warli."</li>
             </ul>
         </section>
     </main>
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer.</p>
+        <p>© 2026 Incredible India Explorer.</p>
     </footer>
-    <script src="../../journey.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../../journey.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

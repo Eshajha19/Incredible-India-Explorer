@@ -1,21 +1,15 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Discover Vijayanagara Gold Coinage — interactive ruler selector, zoomable obverse/reverse coin viewer with symbol hotspots, territory map, coin comparison, and historical timeline." />
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Vijayanagara Gold Coinage — interactive ruler selector, zoomable obverse/reverse coin viewer with symbol hotspots, territory map, coin comparison, and historical timeline.">
     <title>Vijayanagara Gold Coinage Explorer | Incredible India</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
-        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="vijayanagara.css" />
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="vijayanagara.css">
 </head>
 
 <body class="vijayanagara-main">
@@ -28,7 +22,7 @@
         })();
     </script>
 
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
@@ -40,7 +34,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
                 <div class="nav-dropdown">
                     <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture
@@ -53,14 +47,13 @@
                             Gallery</a>
                         <a href="../../frontend/kushan-gold-coinage/index.html" class="dropdown-item">Kushan Gold
                             Coinage</a>
-                        <a href="../../frontend/vijayanagara-gold-coinage-explorer/index.html"
-                            class="dropdown-item">Vijayanagara Gold Coinage</a>
+                        <a href="../../frontend/vijayanagara-gold-coinage-explorer/index.html" class="dropdown-item">Vijayanagara Gold Coinage</a>
                     </div>
                 </div>
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main>
         <section class="vijayanagara-hero">
@@ -109,8 +102,7 @@
                                 <button class="zoom-btn" id="zoom-out-btn" aria-label="Zoom Out">−</button>
                                 <span class="zoom-level" id="zoom-level">100%</span>
                                 <button class="zoom-btn" id="zoom-in-btn" aria-label="Zoom In">+</button>
-                                <button class="zoom-btn zoom-reset-btn" id="zoom-reset-btn"
-                                    aria-label="Reset Zoom">Reset</button>
+                                <button class="zoom-btn zoom-reset-btn" id="zoom-reset-btn" aria-label="Reset Zoom">Reset</button>
                             </div>
                             <div class="viewer-toggle" id="viewer-toggle">
                                 <button class="viewer-toggle-btn active" data-side="obverse">Obverse</button>
@@ -131,7 +123,7 @@
                             <p class="viewer-face-text" id="viewer-face-text">
                                 Choose a coin from the collection above to inspect it.
                             </p>
-                            <div class="inscription-box" id="inscription-box" hidden>
+                            <div class="inscription-box" id="inscription-box" hidden="">
                                 <span class="inscription-label">📜 Inscription / Symbol Note</span>
                                 <p id="inscription-text"></p>
                             </div>
@@ -176,17 +168,15 @@
 
         <section class="vijayanagara-territory-section">
             <div class="section-container">
-                <h2 class="sec-title">Vijayanagara Territory & Mints</h2>
+                <h2 class="sec-title">Vijayanagara Territory &amp; Mints</h2>
                 <p class="section-desc">Click a mint marker to learn about its role in the empire's gold coinage.</p>
                 <div class="map-layout">
                     <div class="map-container">
                         <div class="map-wrapper" id="map-wrapper">
                             <svg class="india-map-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                                <path class="map-country-outline"
-                                    d="M 200,40 L 250,60 L 280,110 L 300,160 L 310,220 L 290,270 L 300,320 L 280,380 L 250,430 L 210,470 L 170,460 L 140,410 L 120,350 L 100,290 L 90,230 L 100,170 L 120,120 L 150,70 Z" />
-                                <path class="map-peak-extent"
-                                    d="M 190,80 L 230,95 L 255,140 L 265,190 L 255,240 L 265,290 L 245,340 L 215,390 L 185,420 L 160,400 L 140,350 L 130,300 L 125,250 L 135,190 L 155,140 L 175,100 Z" />
-                                <path class="map-river" d="M 110,180 Q 200,200 280,190" />
+                                <path class="map-country-outline" d="M 200,40 L 250,60 L 280,110 L 300,160 L 310,220 L 290,270 L 300,320 L 280,380 L 250,430 L 210,470 L 170,460 L 140,410 L 120,350 L 100,290 L 90,230 L 100,170 L 120,120 L 150,70 Z"></path>
+                                <path class="map-peak-extent" d="M 190,80 L 230,95 L 255,140 L 265,190 L 255,240 L 265,290 L 245,340 L 215,390 L 185,420 L 160,400 L 140,350 L 130,300 L 125,250 L 135,190 L 155,140 L 175,100 Z"></path>
+                                <path class="map-river" d="M 110,180 Q 200,200 280,190"></path>
                                 <g id="map-mint-markers"></g>
                             </svg>
                             <div id="map-tooltip" class="map-tooltip"></div>
@@ -205,7 +195,7 @@
 
         <section class="references-section">
             <div class="section-container">
-                <h2>References & Numismatic Catalogs</h2>
+                <h2>References &amp; Numismatic Catalogs</h2>
                 <ul class="references-list" id="references-list"></ul>
             </div>
         </section>
@@ -213,6 +203,6 @@
 
     <script src="vijayanagara-data.js"></script>
     <script src="vijayanagara.js"></script>
-</body>
 
-</html>
+
+</body></html>

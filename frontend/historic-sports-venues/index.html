@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Historic Sports Venues of India - Interactive map and archive showcasing Eden Gardens, Wankhede, Major Dhyan Chand National Stadium, Salt Lake Stadium, Motera, Chepauk, Kalinga Stadium, and historic venues across India.">
@@ -20,7 +18,7 @@
   </script>
 
   <!-- Sticky Navbar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -32,7 +30,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../sports/sports.html" class="nav-link active">Sports</a>
         <a href="#map" class="nav-link">Interactive Map</a>
@@ -40,7 +38,7 @@
         <a href="#quiz" class="nav-link">Venue Quiz</a>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="venue-hero" id="hero">
@@ -72,7 +70,7 @@
   </section>
 
   <!-- Sub-Navigation Sticky Bar -->
-  <nav class="subnav-bar">
+  <nav class="subnav-bar" aria-label="Navigation">
     <div class="subnav-container">
       <button class="subnav-btn active" data-target="map">Interactive Venues Map</button>
       <button class="subnav-btn" data-target="catalog">Venue Catalog</button>
@@ -94,7 +92,7 @@
         <div class="map-container-relative" id="map-canvas">
           <!-- India SVG outline / pin markers loaded by script.js -->
           <svg class="india-svg-bg" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
-            <path d="M250 50 L350 150 L400 250 L380 350 L300 480 L250 580 L200 480 L120 350 L100 250 L150 150 Z" fill="rgba(2,132,199,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="2"/>
+            <path d="M250 50 L350 150 L400 250 L380 350 L300 480 L250 580 L200 480 L120 350 L100 250 L150 150 Z" fill="rgba(2,132,199,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="2"></path>
           </svg>
           <div id="pins-container">
             <!-- Pins dynamically placed -->
@@ -107,7 +105,7 @@
     <section class="venue-section" id="catalog">
       <div class="section-header">
         <span class="section-tag">Venue Directory</span>
-        <h2>Explore Historic Venues & Stadiums</h2>
+        <h2>Explore Historic Venues &amp; Stadiums</h2>
         <p>Filter by sport, search by city or stadium name, and click any card for full match archives and major events.</p>
       </div>
 
@@ -159,7 +157,7 @@
   <!-- Venue Detail Modal Overlay -->
   <div class="modal-overlay" id="venue-modal">
     <div class="modal-content">
-      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <button class="close-modal-btn" id="modal-close-btn" aria-label="Close">×</button>
       <div id="modal-body-content">
         <!-- Rendered dynamically -->
       </div>
@@ -173,5 +171,6 @@
 
   <!-- Script Imports -->
   <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <script>
         (function () {
             const theme = localStorage.getItem('theme') || 'dark';
@@ -10,42 +8,33 @@
         })();
     </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Explore India's diverse film industries through languages, states, interactive industry cards, maps, and cinema statistics."
-    />
+    <meta name="description" content="Explore India's diverse film industries through languages, states, interactive industry cards, maps, and cinema statistics.">
 
     <title>Cinema of India Explorer | Incredible India</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
-        rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Cinema of India Explorer | Incredible India" />
-    <meta
-        property="og:description"
-        content="Discover India's diverse regional film industries through languages, states, interactive cards, maps, and cinema statistics."
-    />
-    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cinema of India Explorer | Incredible India">
+    <meta property="og:description" content="Discover India's diverse regional film industries through languages, states, interactive cards, maps, and cinema statistics.">
+    <meta property="og:type" content="website">
 </head>
 
 <body class="cinema-main">
 
     <!-- Site Navbar -->
-    <header class="navbar scrolled" id="navbar">
+    <nav class="navbar scrolled" id="navbar" aria-label="Navigation">
         <div class="nav-container">
 
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
@@ -54,14 +43,7 @@
                 <span class="green">Explorer</span>
             </a>
 
-            <button
-                class="menu-toggle"
-                id="menu-toggle"
-                type="button"
-                aria-label="Toggle Menu"
-                aria-expanded="false"
-                aria-controls="nav-menu"
-            >
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -77,19 +59,13 @@
                     Cinema of India
                 </a>
 
-                <button
-                    id="theme-toggle"
-                    class="btn-theme-toggle"
-                    type="button"
-                    aria-label="Toggle Dark/Light Mode"
-                    title="Toggle Light Mode"
-                >
+                <button id="theme-toggle" class="btn-theme-toggle" type="button" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
                     ☀️
                 </button>
 
             </nav>
         </div>
-    </header>
+    </nav>
 
 
     <main>
@@ -127,38 +103,19 @@
                 <!-- Search -->
                 <div class="cinema-search-wrap">
 
-                    <label
-                        for="cinema-search"
-                        class="visually-hidden"
-                    >
+                    <label for="cinema-search" class="visually-hidden">
                         Search film industries
                     </label>
 
                     <div class="cinema-search-box">
 
-                        <span
-                            class="search-icon"
-                            aria-hidden="true"
-                        >
+                        <span class="search-icon" aria-hidden="true">
                             🔎
                         </span>
 
-                        <input
-                            type="search"
-                            id="cinema-search"
-                            class="cinema-search"
-                            placeholder="Search film industries, languages, states..."
-                            autocomplete="off"
-                            aria-label="Search film industries"
-                        />
+                        <input type="search" id="cinema-search" class="cinema-search" placeholder="Search film industries, languages, states..." autocomplete="off" aria-label="Search film industries">
 
-                        <button
-                            type="button"
-                            class="clear-search"
-                            id="clear-search"
-                            aria-label="Clear search"
-                            hidden
-                        >
+                        <button type="button" class="clear-search" id="clear-search" aria-label="Clear search" hidden="">
                             ×
                         </button>
 
@@ -200,10 +157,7 @@
                             Language
                         </label>
 
-                        <select
-                            id="language-filter"
-                            aria-label="Filter by language"
-                        >
+                        <select id="language-filter" aria-label="Filter by language">
                             <option value="all">
                                 All Languages
                             </option>
@@ -218,10 +172,7 @@
                             State
                         </label>
 
-                        <select
-                            id="state-filter"
-                            aria-label="Filter by state"
-                        >
+                        <select id="state-filter" aria-label="Filter by state">
                             <option value="all">
                                 All States
                             </option>
@@ -230,33 +181,21 @@
                     </div>
 
 
-                    <button
-                        type="button"
-                        class="clear-filters-btn"
-                        id="clear-filters"
-                        aria-label="Clear cinema filters"
-                    >
+                    <button type="button" class="clear-filters-btn" id="clear-filters" aria-label="Clear cinema filters">
                         Clear Filters
                     </button>
 
                 </div>
 
 
-                <div
-                    class="filter-status"
-                    id="filter-status"
-                    aria-live="polite"
-                ></div>
+                <div class="filter-status" id="filter-status" aria-live="polite"></div>
 
             </div>
         </section>
 
 
         <!-- Interactive Map Section -->
-        <section
-            class="map-section"
-            id="cinema-map-section"
-        >
+        <section class="map-section" id="cinema-map-section">
             <div class="section-container">
 
                 <div class="section-header">
@@ -280,27 +219,13 @@
                 <div class="map-layout">
 
                     <!-- India Map -->
-                    <div
-                        class="cinema-map"
-                        id="cinema-map"
-                        role="application"
-                        aria-label="Interactive map of Indian film industries"
-                    >
+                    <div class="cinema-map" id="cinema-map" role="application" aria-label="Interactive map of Indian film industries">
 
                         <!-- India Map Background (replaced/rebuilt by script.js at runtime) -->
-                        <img
-                            class="india-map-bg"
-                            src="https://placehold.co/900x1000/1b1114/fbbf24?text=India&font=playfair-display"
-                            alt=""
-                            aria-hidden="true"
-                        />
+                        <img class="india-map-bg" src="https://placehold.co/900x1000/1b1114/fbbf24?text=India&amp;font=playfair-display" alt="" aria-hidden="true">
 
                         <!-- Map Markers -->
-                        <div
-                            class="map-markers"
-                            id="map-markers"
-                            aria-label="Film industry locations"
-                        >
+                        <div class="map-markers" id="map-markers" aria-label="Film industry locations">
                             <!-- Industry markers populated dynamically -->
                         </div>
 
@@ -308,18 +233,11 @@
 
 
                     <!-- Map Details -->
-                    <aside
-                        class="map-detail"
-                        id="map-detail"
-                        aria-live="polite"
-                    >
+                    <aside class="map-detail" id="map-detail" aria-live="polite">
 
                         <div class="map-detail-empty">
 
-                            <span
-                                class="map-detail-icon"
-                                aria-hidden="true"
-                            >
+                            <span class="map-detail-icon" aria-hidden="true">
                                 🎬
                             </span>
 
@@ -343,10 +261,7 @@
 
 
         <!-- Industry Cards Section -->
-        <section
-            class="industries-section"
-            id="industries"
-        >
+        <section class="industries-section" id="industries">
             <div class="section-container">
 
                 <div class="section-header">
@@ -367,26 +282,14 @@
                 </div>
 
 
-                <div
-                    class="industries-grid"
-                    id="industries-grid"
-                    aria-live="polite"
-                >
+                <div class="industries-grid" id="industries-grid" aria-live="polite">
                     <!-- Industry cards populated dynamically -->
                 </div>
 
 
-                <div
-                    class="no-results"
-                    id="no-results"
-                    aria-live="polite"
-                    hidden
-                >
+                <div class="no-results" id="no-results" aria-live="polite" hidden="">
 
-                    <span
-                        class="no-results-icon"
-                        aria-hidden="true"
-                    >
+                    <span class="no-results-icon" aria-hidden="true">
                         🎬
                     </span>
 
@@ -405,10 +308,7 @@
 
 
         <!-- Featured Industries Section -->
-        <section
-            class="featured-section"
-            id="featured-industries"
-        >
+        <section class="featured-section" id="featured-industries">
             <div class="section-container">
 
                 <div class="section-header">
@@ -429,10 +329,7 @@
                 </div>
 
 
-                <div
-                    class="featured-grid"
-                    id="featured-grid"
-                >
+                <div class="featured-grid" id="featured-grid">
                     <!-- Featured industries populated dynamically -->
                 </div>
 
@@ -441,10 +338,7 @@
 
 
         <!-- Statistics Section -->
-        <section
-            class="stats-section"
-            id="statistics"
-        >
+        <section class="stats-section" id="statistics">
             <div class="section-container">
 
                 <div class="section-header">
@@ -465,10 +359,7 @@
                 </div>
 
 
-                <div
-                    class="stats-grid"
-                    id="stats-grid"
-                >
+                <div class="stats-grid" id="stats-grid">
                     <!-- Statistics populated dynamically -->
                 </div>
 
@@ -521,7 +412,7 @@
             <div class="footer-bottom">
 
                 <p>
-                    &copy; 2026 Incredible India Explorer.
+                    © 2026 Incredible India Explorer.
                     Open Source Educational Platform.
                 </p>
 
@@ -533,10 +424,7 @@
 
 
     <!-- Scripts -->
-    <script
-        type="module"
-        src="script.js"
-    ></script>
+    <script type="module" src="script.js"></script>
 
-</body>
-</html>
+
+</body></html>

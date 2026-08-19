@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rani Lakshmibai Explorer | 1857 Revolt</title>
-    <meta name="description"
-        content="Explore Rani Lakshmibai of Jhansi, her leadership during the Revolt of 1857, and her enduring legacy.">
+    <meta name="description" content="Explore Rani Lakshmibai of Jhansi, her leadership during the Revolt of 1857, and her enduring legacy.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav">
+    <nav class="navbar explorer-nav" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
-                    class="gold">India</span> <span class="green">Explorer</span></a>
-            <nav class="nav-menu">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="#biography" class="nav-link">Biography</a>
                 <a href="#battles" class="nav-link">Battles</a>
@@ -28,7 +22,7 @@
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
     <main>
         <section class="hero-section rani-hero">
             <div class="hero-content animate-on-scroll">
@@ -57,12 +51,12 @@
                     the state of Jhansi in 1854. This injustice ignited her fierce resistance.</p>
             </div>
 
-            <div class="tab-content" id="timeline" role="tabpanel" hidden>
+            <div class="tab-content" id="timeline" role="tabpanel" hidden="">
                 <h2>Timeline of Resistance</h2>
                 <div class="timeline-container" id="timeline-container"></div>
             </div>
 
-            <div class="tab-content" id="battles" role="tabpanel" hidden>
+            <div class="tab-content" id="battles" role="tabpanel" hidden="">
                 <h2>Battles of the 1857 Revolt</h2>
                 <div class="battle-grid">
                     <div class="battle-card">
@@ -80,7 +74,7 @@
                 </div>
             </div>
 
-            <div class="tab-content" id="legacy" role="tabpanel" hidden>
+            <div class="tab-content" id="legacy" role="tabpanel" hidden="">
                 <h2>An Enduring Legacy</h2>
                 <p>Rani Lakshmibai became a potent symbol of Indian nationalism and female empowerment. Sir Hugh Rose,
                     her British adversary, famously described her as "the most dangerous of all Indian leaders" and "the
@@ -90,17 +84,9 @@
 
             <h2 id="gallery">Gallery</h2>
             <div class="gallery-grid" role="list">
-                <div class="gallery-item" tabindex="0"
-                    data-img="https://placehold.co/800x600/991b1b/fff?text=Rani+Lakshmibai"
-                    data-caption="Rani Lakshmibai on horseback"><img src="https://placehold.co/300/991b1b/fff?text=Rani"
-                        alt="Rani Lakshmibai" loading="lazy"></div>
-                <div class="gallery-item" tabindex="0"
-                    data-img="https://placehold.co/800x600/991b1b/fff?text=Jhansi+Fort"
-                    data-caption="The historic Jhansi Fort"><img src="https://placehold.co/300/991b1b/fff?text=Fort"
-                        alt="Jhansi Fort" loading="lazy"></div>
-                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/991b1b/fff?text=Sword"
-                    data-caption="The legendary sword of the Rani"><img
-                        src="https://placehold.co/300/991b1b/fff?text=Sword" alt="Sword" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/991b1b/fff?text=Rani+Lakshmibai" data-caption="Rani Lakshmibai on horseback"><img src="https://placehold.co/300/991b1b/fff?text=Rani" alt="Rani Lakshmibai" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/991b1b/fff?text=Jhansi+Fort" data-caption="The historic Jhansi Fort"><img src="https://placehold.co/300/991b1b/fff?text=Fort" alt="Jhansi Fort" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/991b1b/fff?text=Sword" data-caption="The legendary sword of the Rani"><img src="https://placehold.co/300/991b1b/fff?text=Sword" alt="Sword" loading="lazy"></div>
             </div>
             <h2>References</h2>
             <ul class="reference-list">
@@ -110,15 +96,16 @@
     </main>
 
     <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">×</button>
         <img src="" alt="" class="lightbox-img" id="lightbox-img">
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer.</p>
+        <p>© 2026 Incredible India Explorer.</p>
     </footer>
-    <script src="../../journey.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../../journey.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

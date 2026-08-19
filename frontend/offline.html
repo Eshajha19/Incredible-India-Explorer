@@ -1,10 +1,53 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline | Incredible India Explorer</title>
-    <meta name="description" content="You are currently offline. Explore cached Indian heritage content while you wait for your connection to restore.">
+<html lang="en"><head></head><body><main><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Offline | Incredible India Explorer</title><meta name="description" content="You are currently offline. Explore cached Indian heritage content while you wait for your connection to restore."><meta property="og:title" content="Offline | Incredible India Explorer"><meta property="og:description" content="You are currently offline. Explore cached Indian heritage content while you wait for your connection to restore."><meta property="og:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/Brihadeeswara_Temple.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://incredibleindiaexplorer.gov.in/offline.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Incredible India Explorer"><meta property="og:locale" content="en_IN"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Offline | Incredible India Explorer"><meta name="twitter:description" content="You are currently offline. Explore cached Indian heritage content while you wait for your connection to restore."><meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/Brihadeeswara_Temple.png"><link rel="canonical" href="https://incredibleindiaexplorer.gov.in/offline.html"><div class="container">
+        <div class="offline-badge" role="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="badge-text">Connection Lost</span>
+        </div>
+        <h1>You are Offline</h1>
+        <p class="subtitle">Your internet connection seems to have taken a short break. While you wait, here is a quick piece of Indian heritage trivia:</p>
+
+        <!-- Auto-reconnect status (aria-live) -->
+        <div class="connection-status" id="connection-status" aria-live="polite" aria-atomic="true">
+            <span id="reconnect-label">⏱ Checking connection every <span id="countdown">30</span>s</span>
+        </div>
+
+        <!-- Trivia Card -->
+        <div class="trivia-card">
+            <div class="trivia-header">
+                <span class="trivia-label">💡 Did You Know?</span>
+                <span class="trivia-counter" id="trivia-counter">1 / 20</span>
+            </div>
+            <p class="trivia-text" id="trivia-content">Loading fascinating trivia...</p>
+            <button class="trivia-next-btn" id="trivia-next" aria-label="Show next trivia fact">Next fact →</button>
+        </div>
+
+        <!-- Cached Pages Section -->
+        <div class="cached-card" id="cached-card">
+            <div class="cached-header">
+                <span>📂 Pages Available Offline</span>
+            </div>
+            <div class="cached-list" id="cached-list">
+                <span class="cached-empty">Scanning available pages...</span>
+            </div>
+        </div>
+
+        <p class="retry-info" id="retry-info" aria-live="polite"></p>
+
+        <div class="btn-group">
+            <button class="btn btn-primary" id="retry-btn" aria-label="Retry connecting to the internet">
+                🔄 Retry Connection
+            </button>
+            <a href="../index.html" class="btn btn-secondary" aria-label="Go to home page">
+                🏠 Go Home
+            </a>
+        </div>
+    </div></main>﻿
+
+
+    
+    
+    
+    
     <style>
         :root {
             --bg-color: #0b0c10;
@@ -320,26 +363,26 @@
 
     
     <!-- Open Graph / Social Media Tags -->
-    <meta property="og:title" content="Offline | Incredible India Explorer">
-    <meta property="og:description" content="You are currently offline. Explore cached Indian heritage content while you wait for your connection to restore.">
-    <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/Brihadeeswara_Temple.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/offline.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Incredible India Explorer">
-    <meta property="og:locale" content="en_IN">
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Offline | Incredible India Explorer">
-    <meta name="twitter:description" content="You are currently offline. Explore cached Indian heritage content while you wait for your connection to restore.">
-    <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/Brihadeeswara_Temple.png">
+    
+    
+    
+    
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/offline.html">
-</head>
-<body>
+    
+
+
     <script>
         (function() {
             let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -348,50 +391,7 @@
             }
         })();
     </script>
-    <div class="container">
-        <div class="offline-badge" role="status" aria-live="polite">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span id="badge-text">Connection Lost</span>
-        </div>
-        <h1>You are Offline</h1>
-        <p class="subtitle">Your internet connection seems to have taken a short break. While you wait, here is a quick piece of Indian heritage trivia:</p>
-
-        <!-- Auto-reconnect status (aria-live) -->
-        <div class="connection-status" id="connection-status" aria-live="polite" aria-atomic="true">
-            <span id="reconnect-label">⏱ Checking connection every <span id="countdown">30</span>s</span>
-        </div>
-
-        <!-- Trivia Card -->
-        <div class="trivia-card">
-            <div class="trivia-header">
-                <span class="trivia-label">💡 Did You Know?</span>
-                <span class="trivia-counter" id="trivia-counter">1 / 20</span>
-            </div>
-            <p class="trivia-text" id="trivia-content">Loading fascinating trivia...</p>
-            <button class="trivia-next-btn" id="trivia-next" aria-label="Show next trivia fact">Next fact →</button>
-        </div>
-
-        <!-- Cached Pages Section -->
-        <div class="cached-card" id="cached-card">
-            <div class="cached-header">
-                <span>📂 Pages Available Offline</span>
-            </div>
-            <div class="cached-list" id="cached-list">
-                <span class="cached-empty">Scanning available pages...</span>
-            </div>
-        </div>
-
-        <p class="retry-info" id="retry-info" aria-live="polite"></p>
-
-        <div class="btn-group">
-            <button class="btn btn-primary" id="retry-btn" aria-label="Retry connecting to the internet">
-                🔄 Retry Connection
-            </button>
-            <a href="../index.html" class="btn btn-secondary" aria-label="Go to home page">
-                🏠 Go Home
-            </a>
-        </div>
-    </div>
+    
 
     <script>
         (function () {
@@ -604,5 +604,6 @@
             })();
         })();
     </script>
-</body>
-</html>
+
+
+</body></html>

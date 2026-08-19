@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-    <head>
+<!DOCTYPE html><html lang="en"><head>
         <script>
             (function () {
                 let theme = 'dark';
@@ -10,24 +8,21 @@
                 }
             })();
         </script>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Explore Gingee Fort — the formidable 'Troy of the East' in Tamil Nadu. Discover its three hill citadels (Rajagiri, Krishnagiri, Chandrayandurg), 8-year Maratha siege history, Kalyana Mahal, and grand fortifications."
-        />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore Gingee Fort — the formidable 'Troy of the East' in Tamil Nadu. Discover its three hill citadels (Rajagiri, Krishnagiri, Chandrayandurg), 8-year Maratha siege history, Kalyana Mahal, and grand fortifications.">
         <title>Gingee Fort Explorer | Troy of the East | Incredible India</title>
 
         <!-- Preload Critical Fonts -->
-        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="gingee-fort.css" />
+        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="gingee-fort.css">
     </head>
     <body class="gingee-page">
         <!-- Main Navigation Bar -->
-        <header class="navbar" id="navbar">
+        <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -39,14 +34,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -61,7 +56,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -75,9 +70,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -106,7 +101,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
         <!-- Hero Banner -->
         <header class="gingee-hero">
@@ -148,7 +143,7 @@
             <div class="gingee-tabs-container" role="tablist" aria-label="Gingee Fort Explorer Navigation">
                 <button class="gingee-tab-btn active" data-tab="overview" role="tab" aria-selected="true"><span>🏰</span> Overview</button>
                 <button class="gingee-tab-btn" data-tab="history" role="tab" aria-selected="false"><span>📜</span> History</button>
-                <button class="gingee-tab-btn" data-tab="builder" role="tab" aria-selected="false"><span>👑</span> Builder & Rulers</button>
+                <button class="gingee-tab-btn" data-tab="builder" role="tab" aria-selected="false"><span>👑</span> Builder &amp; Rulers</button>
                 <button class="gingee-tab-btn" data-tab="architecture" role="tab" aria-selected="false"><span>🏛️</span> Architecture</button>
                 <button class="gingee-tab-btn" data-tab="three-hills" role="tab" aria-selected="false"><span>⛰️</span> Three Hill Forts</button>
                 <button class="gingee-tab-btn" data-tab="strategic" role="tab" aria-selected="false"><span>🛡️</span> Strategic Importance</button>
@@ -171,7 +166,7 @@
             <!-- 2. HISTORY SECTION -->
             <section id="history" class="gingee-section" data-tab="history">
                 <div class="section-header">
-                    <h2><span>📜</span> Historical Timeline & Eras</h2>
+                    <h2><span>📜</span> Historical Timeline &amp; Eras</h2>
                     <p>800 years of royal dynasties, great Maratha sieges, and heroics in Tamil Nadu.</p>
                 </div>
                 <div id="timeline-content" class="timeline-container"></div>
@@ -180,7 +175,7 @@
             <!-- 3. BUILDER SECTION -->
             <section id="builder" class="gingee-section" data-tab="builder">
                 <div class="section-header">
-                    <h2><span>👑</span> Builders & Rulers of Gingee</h2>
+                    <h2><span>👑</span> Builders &amp; Rulers of Gingee</h2>
                     <p>From founder Ananta Konar to Nayak builders, Shivaji Maharaj, and Raja Desingu.</p>
                 </div>
                 <div id="builder-content"></div>
@@ -207,7 +202,7 @@
             <!-- 6. STRATEGIC IMPORTANCE SECTION -->
             <section id="strategic" class="gingee-section" data-tab="strategic">
                 <div class="section-header">
-                    <h2><span>🛡️</span> Strategic & Military Importance</h2>
+                    <h2><span>🛡️</span> Strategic &amp; Military Importance</h2>
                     <p>The impenetrable defensive geography that defied armies for centuries.</p>
                 </div>
                 <div id="strategic-content"></div>
@@ -216,7 +211,7 @@
             <!-- 7. INTERESTING FACTS SECTION -->
             <section id="facts" class="gingee-section" data-tab="facts">
                 <div class="section-header">
-                    <h2><span>💡</span> Interesting Facts & Trivia</h2>
+                    <h2><span>💡</span> Interesting Facts &amp; Trivia</h2>
                     <p>Discover historical legends, engineering feats, and cultural folklore of Gingee Fort.</p>
                 </div>
                 <div id="facts-content"></div>
@@ -234,11 +229,11 @@
 
         <!-- Lightbox Modal for Gallery Images -->
         <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Image View Modal">
-            <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
-            <button class="lightbox-prev" aria-label="Previous Image">&#10094;</button>
-            <button class="lightbox-next" aria-label="Next Image">&#10095;</button>
+            <button class="lightbox-close" aria-label="Close Lightbox">×</button>
+            <button class="lightbox-prev" aria-label="Previous Image">❮</button>
+            <button class="lightbox-next" aria-label="Next Image">❯</button>
             <div class="lightbox-content">
-                <img id="lightbox-img" src="" alt="" />
+                <img id="lightbox-img" src="" alt="">
                 <div id="lightbox-caption" class="lightbox-caption"></div>
             </div>
         </div>
@@ -246,5 +241,6 @@
         <!-- Scripts -->
         <script src="gingee-data.js"></script>
         <script src="gingee-fort.js"></script>
-    </body>
-</html>
+    
+
+</body></html>

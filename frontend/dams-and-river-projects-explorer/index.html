@@ -1,16 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore India's major dams and river valley projects — Bhakra, Hirakud, Sardar Sarovar, Tehri and more — with dam types, basins, benefits, displacement, sedimentation, interstate disputes and dam safety." />
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore India's major dams and river valley projects — Bhakra, Hirakud, Sardar Sarovar, Tehri and more — with dam types, basins, benefits, displacement, sedimentation, interstate disputes and dam safety.">
   <title>Major Dams &amp; River Valley Projects of India | Incredible India</title>
   <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../styles.css" />
-  <link rel="stylesheet" href="style.css" />
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <script>
@@ -22,7 +20,7 @@
     })();
   </script>
 
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -34,14 +32,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -56,7 +54,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -70,9 +68,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -101,7 +99,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
   <main class="dm-page">
     <!-- ================= HERO ================= -->
@@ -178,7 +176,7 @@
       <div class="filter-bar glass-card">
         <div class="search-row">
           <label class="sr-only" for="dm-search">Search dams and projects</label>
-          <input type="search" id="dm-search" class="dm-search" placeholder="Search a dam, river, state or reservoir…" autocomplete="off" />
+          <input type="search" id="dm-search" class="dm-search" placeholder="Search a dam, river, state or reservoir…" autocomplete="off">
           <button type="button" id="reset-filters" class="btn-reset">Reset</button>
         </div>
         <div class="filter-row">
@@ -207,7 +205,7 @@
       </div>
 
       <div class="dam-grid" id="dam-grid"><!-- populated by script.js --></div>
-      <div class="empty-state" id="empty-state" hidden>
+      <div class="empty-state" id="empty-state" hidden="">
         <div class="big-icon">🔍</div>
         <h3>No projects match those filters</h3>
         <p>Try a different basin, or clear the search box.</p>
@@ -325,15 +323,15 @@
       </div>
     </div>
     <div class="footer-credits footer-credits-center">
-      <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
+      <p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
     </div>
   </footer>
 
   <!-- Project detail modal -->
-  <div class="dm-modal" id="dm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="dm-modal" id="dm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden="">
     <div class="dm-modal-backdrop" id="modal-backdrop"></div>
     <div class="dm-modal-card" role="document">
-      <button class="dm-modal-close" id="modal-close" aria-label="Close details">&times;</button>
+      <button class="dm-modal-close" id="modal-close" aria-label="Close details">×</button>
       <div class="dm-modal-head">
         <span class="dm-modal-icon" id="modal-icon">🌊</span>
         <div>
@@ -350,14 +348,15 @@
       <h4 class="dm-modal-subhead">Impact</h4>
       <p class="dm-modal-impact" id="modal-impact"></p>
 
-      <p class="dm-modal-note" id="modal-note" hidden></p>
+      <p class="dm-modal-note" id="modal-note" hidden=""></p>
     </div>
   </div>
 
-  <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-  <script src="data.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
+  <script src="data.js" defer=""></script>
+  <script src="script.js" defer=""></script>
   <script type="module" src="../auth.js"></script>
-</body>
-</html>
+
+
+</body></html>

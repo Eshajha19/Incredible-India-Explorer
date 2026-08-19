@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>India's Oldest Surviving Brands | Interactive Timeline</title>
-    <meta name="description"
-        content="Explore notable Indian-origin brands with long operating histories through an interactive decade-based timeline.">
+    <meta name="description" content="Explore notable Indian-origin brands with long operating histories through an interactive decade-based timeline.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav" role="banner">
+    <nav class="navbar explorer-nav" role="banner" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
-                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
-                    class="green">Explorer</span>
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
             </a>
-            <nav class="nav-menu" role="navigation">
+            <nav class="nav-menu" role="navigation" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="#timeline" class="nav-link">Timeline</a>
                 <a href="#industries" class="nav-link">Industries</a>
@@ -33,7 +26,7 @@
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main role="main">
         <!-- Hero Section -->
@@ -69,19 +62,18 @@
             <!-- Search and Filters -->
             <div class="filter-controls">
                 <div class="search-wrapper">
-                    <input type="text" id="brand-search" placeholder="Search brands, founders, or industries..."
-                        aria-label="Search brands">
+                    <input type="text" id="brand-search" placeholder="Search brands, founders, or industries..." aria-label="Search brands">
                 </div>
                 <div class="filter-wrapper">
                     <select id="industry-filter" aria-label="Filter by industry">
                         <option value="all">All Industries</option>
                         <option value="conglomerate">Conglomerate</option>
                         <option value="consumer">Consumer Goods</option>
-                        <option value="food">Food & Beverage</option>
+                        <option value="food">Food &amp; Beverage</option>
                         <option value="pharmaceutical">Pharmaceutical</option>
                         <option value="automotive">Automotive</option>
                         <option value="textiles">Textiles</option>
-                        <option value="banking">Banking & Finance</option>
+                        <option value="banking">Banking &amp; Finance</option>
                     </select>
                 </div>
             </div>
@@ -101,7 +93,7 @@
                 <!-- Populated by JS -->
             </div>
 
-            <p class="no-results" id="no-results" hidden>No brands match your current filters.</p>
+            <p class="no-results" id="no-results" hidden="">No brands match your current filters.</p>
         </section>
 
         <!-- Industries Section -->
@@ -124,7 +116,7 @@
                 </div>
                 <div class="industry-card animate-on-scroll">
                     <div class="industry-icon">🍽️</div>
-                    <h3>Food & Beverage</h3>
+                    <h3>Food &amp; Beverage</h3>
                     <p>From MTR (1924) to Haldiram's (1937), India's food brands preserved traditional recipes while
                         scaling nationally.</p>
                     <div class="industry-count">6+ Brands</div>
@@ -145,7 +137,7 @@
                 </div>
                 <div class="industry-card animate-on-scroll">
                     <div class="industry-icon">🏦</div>
-                    <h3>Banking & Finance</h3>
+                    <h3>Banking &amp; Finance</h3>
                     <p>Allahabad Bank (1865) and Punjab National Bank (1894) pioneered Indian-owned banking during
                         British rule.</p>
                     <div class="industry-count">4+ Brands</div>
@@ -181,7 +173,7 @@
                 <div class="legend-card animate-on-scroll">
                     <div class="legend-age">128 years</div>
                     <h3>Godrej</h3>
-                    <div class="legend-founder">Founded: 1897 by Pirojsha & Ardeshir Godrej</div>
+                    <div class="legend-founder">Founded: 1897 by Pirojsha &amp; Ardeshir Godrej</div>
                     <p>From India's first lock without keys to a diversified empire spanning real estate, appliances,
                         and consumer goods.</p>
                 </div>
@@ -190,7 +182,7 @@
 
         <!-- Sources -->
         <section class="sources-section">
-            <h2 class="section-title">Sources & References</h2>
+            <h2 class="section-title">Sources &amp; References</h2>
             <ul class="sources-list">
                 <li>Reserve Bank of India - Historical Banking Archives</li>
                 <li>Tata Central Archives - Corporate History Documentation</li>
@@ -206,7 +198,7 @@
     <!-- Brand Detail Modal -->
     <div class="brand-modal" id="brand-modal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="modal-content">
-            <button class="modal-close" id="modal-close" aria-label="Close Modal">&times;</button>
+            <button class="modal-close" id="modal-close" aria-label="Close Modal">×</button>
             <div class="modal-header">
                 <div class="modal-badge" id="modal-badge"></div>
                 <h2 class="modal-title" id="modal-title"></h2>
@@ -214,7 +206,7 @@
             </div>
             <div class="modal-body">
                 <div class="modal-section">
-                    <h3>Founder & Origin</h3>
+                    <h3>Founder &amp; Origin</h3>
                     <p id="modal-founder"></p>
                 </div>
                 <div class="modal-section">
@@ -230,11 +222,12 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer. India's Heritage Brands Archive.</p>
+        <p>© 2026 Incredible India Explorer. India's Heritage Brands Archive.</p>
     </footer>
 
-    <script src="../../journey.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../../journey.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

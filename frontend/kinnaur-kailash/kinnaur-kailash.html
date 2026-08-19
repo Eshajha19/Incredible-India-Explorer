@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore Kinnaur Kailash, a 6,050 m sacred mountain in the Kinnaur Kailash Range of Himachal Pradesh. Discover its religious significance, facts, map locations, image gallery, and nearby attractions.">
@@ -8,11 +6,11 @@
     <link rel="icon" href="data:,">
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <!-- Leaflet CSS for Map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="kinnaur-kailash.css">
@@ -49,7 +47,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -61,14 +59,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -83,7 +81,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -97,9 +95,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -128,18 +126,18 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="kinnaur-kailash-page" id="app-root">
         <!-- Hero Section -->
         <section class="kinnaur-kailash-hero" id="hero">
-            <div class="kinnaur-kailash-hero-bg" id="hero-bg" data-hero-bg></div>
+            <div class="kinnaur-kailash-hero-bg" id="hero-bg" data-hero-bg=""></div>
             <div class="kinnaur-kailash-hero-overlay"></div>
             <div class="kinnaur-kailash-hero-particles" id="hero-particles"></div>
             
             <a href="../mountains/index.html" class="kinnaur-kailash-back-link" aria-label="Back to Mountains of India">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    <path d="M19 12H5M12 19l-7-7 7-7"></path>
                 </svg>
                 <span>Back to Mountains</span>
             </a>
@@ -147,7 +145,7 @@
             <div class="kinnaur-kailash-hero-content">
                 <span class="kinnaur-kailash-hero-kicker anim-fade-up" style="animation-delay:0.1s">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M8 3.5V15M8 15l4 4M8 15l-4 4M20 3.5V15M20 15l-4 4M20 15l4 4M14 8v7"/>
+                        <path d="M8 3.5V15M8 15l4 4M8 15l-4 4M20 3.5V15M20 15l-4 4M20 15l4 4M14 8v7"></path>
                     </svg>
                     Kinnaur Kailash Range
                 </span>
@@ -175,7 +173,7 @@
                 
                 <div class="kinnaur-kailash-hero-scroll anim-fade-up" style="animation-delay:0.8s" aria-label="Scroll down to explore">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                        <path d="M12 5v14M19 12l-7 7-7-7"></path>
                     </svg>
                 </div>
             </div>
@@ -186,7 +184,7 @@
             <div class="kinnaur-kailash-container">
                 <div class="kinnaur-kailash-section-heading reveal">
                     <span class="kinnaur-kailash-section-badge">Sacred Significance</span>
-                    <h2>Religious Importance & Mythology</h2>
+                    <h2>Religious Importance &amp; Mythology</h2>
                     <p>Discover why Kinnaur Kailash is one of the holiest mountains in Hinduism.</p>
                 </div>
 
@@ -253,7 +251,7 @@
             <div class="kinnaur-kailash-container">
                 <div class="kinnaur-kailash-section-heading reveal">
                     <span class="kinnaur-kailash-section-badge">Peak Profile</span>
-                    <h2>Geography, Climate & History</h2>
+                    <h2>Geography, Climate &amp; History</h2>
                 </div>
 
                 <div class="kinnaur-kailash-overview-grid">
@@ -319,7 +317,7 @@
             <div class="kinnaur-kailash-container">
                 <div class="kinnaur-kailash-section-heading reveal">
                     <span class="kinnaur-kailash-section-badge">Image Gallery</span>
-                    <h2>Views of Kinnaur Kailash & Kinnaur Valley</h2>
+                    <h2>Views of Kinnaur Kailash &amp; Kinnaur Valley</h2>
                     <p>Explore the majestic beauty of the sacred peak and its surroundings. Click an image to view it larger.</p>
                 </div>
                 <div id="kinnaur-kailash-gallery-grid" class="kinnaur-kailash-gallery-grid"></div>
@@ -413,7 +411,7 @@
 
                     <div class="kinnaur-kailash-trek-card reveal" style="transition-delay:0.2s">
                         <div class="kinnaur-kailash-trek-icon">🗓️</div>
-                        <h3>Best Season & Permits</h3>
+                        <h3>Best Season &amp; Permits</h3>
                         <p>Best time: June to September (monsoon brings lush meadows). Inner Line Permit required for non-Himachalis. Local guide mandatory. August Yatra is most popular.</p>
                         <div class="kinnaur-kailash-trek-details">
                             <span class="trek-detail">🗓️ Jun-Sep</span>
@@ -457,9 +455,9 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div class="kinnaur-kailash-lightbox-overlay" id="kinnaur-kailash-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image Lightbox">
+    <div class="kinnaur-kailash-lightbox-overlay" id="kinnaur-kailash-lightbox" hidden="" role="dialog" aria-modal="true" aria-label="Image Lightbox">
         <div class="kinnaur-kailash-lightbox-content">
-            <button class="kinnaur-kailash-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">&times;</button>
+            <button class="kinnaur-kailash-lightbox-close" data-close-lightbox="true" aria-label="Close Lightbox">×</button>
             <button class="kinnaur-kailash-lightbox-nav prev" id="kinnaur-kailash-lightbox-prev" aria-label="Previous image">‹</button>
             <img id="kinnaur-kailash-lightbox-image" src="" alt="">
             <button class="kinnaur-kailash-lightbox-nav next" id="kinnaur-kailash-lightbox-next" aria-label="Next image">›</button>
@@ -488,21 +486,21 @@
             </div>
             <div class="footer-links">
                 <h4>Experiences</h4>
-                <a href="../travel/travel.html">Travel & Destinations</a>
+                <a href="../travel/travel.html">Travel &amp; Destinations</a>
                 <a href="../../index.html#peaks">Mountains of India</a>
                 <a href="../hill-stations/hill-stations.html">Hill Stations</a>
                 <a href="../spiritual/spiritual.html">Spiritual India</a>
             </div>
             <div class="footer-links">
                 <h4>Explore</h4>
-                <a href="../wildlife/wildlife.html">Nature & Wildlife</a>
+                <a href="../wildlife/wildlife.html">Nature &amp; Wildlife</a>
                 <a href="../heritage/heritage.html">Heritage Sites</a>
                 <a href="../coastal-india/coastal-india.html">Coastal India</a>
                 <a href="../personalities/personalities.html">Famous Personalities</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer. Celebrating India's natural wonders.</p>
+            <p>© 2026 Incredible India Explorer. Celebrating India's natural wonders.</p>
         </div>
     </footer>
 
@@ -514,5 +512,5 @@
     <!-- Local Javascript Module -->
     <script type="module" src="kinnaur-kailash.js"></script>
     <script src="../pages-common.js"></script>
-</body>
-</html>
+
+</body></html>

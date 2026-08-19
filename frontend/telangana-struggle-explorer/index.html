@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore the Telangana Armed Struggle of 1946–51: the peasant rising of Telangana against the jagirdari and vetti of the Nizam of Hyderabad, the rise of the Razakars, the Andhra Mahasabha and the communists, the villages of Nalgonda, Warangal and Khammam, Operation Polo of 1948, and the end of the princely-state phase.">
   <title>Telangana Armed Struggle (1946–51) | Incredible India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
@@ -38,7 +36,7 @@
   </script>
 
   <!-- Sticky Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -50,14 +48,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
                     <a href="../forts/forts.html" class="dropdown-item">Forts of India</a>
@@ -83,7 +81,7 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
                     <a href="../endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
@@ -114,7 +112,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- SPA Router Target Container -->
   <main id="app-root" class="ts-main">
@@ -930,7 +928,7 @@
 
   <!-- Gallery Lightbox -->
   <div class="ts-lightbox" id="ts-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
-    <div class="ts-lightbox-backdrop" data-lightbox-close></div>
+    <div class="ts-lightbox-backdrop" data-lightbox-close=""></div>
     <figure class="ts-lightbox-figure">
       <img id="ts-lightbox-img" src="" alt="">
       <figcaption id="ts-lightbox-caption"></figcaption>
@@ -980,7 +978,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Incredible India Explorer. From the vetti-bound villages of Nalgonda to the tanks of Operation Polo — the red earth of Telangana remembers.</p>
+      <p>© 2026 Incredible India Explorer. From the vetti-bound villages of Nalgonda to the tanks of Operation Polo — the red earth of Telangana remembers.</p>
     </div>
   </footer>
 
@@ -988,13 +986,14 @@
 
   <!-- JS Dependencies -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="../js-modules/storage.js" defer></script>
-  <script src="../app.js" defer></script>
-  <script src="../../frontend/journey/journey.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="../js-modules/storage.js" defer=""></script>
+  <script src="../app.js" defer=""></script>
+  <script src="../../frontend/journey/journey.js" defer=""></script>
+  <script src="script.js" defer=""></script>
   <script type="module" src="../firebase-config.js"></script>
   <script type="module" src="../auth.js"></script>
-  <script src="../router.js" defer></script>
+  <script src="../router.js" defer=""></script>
   <script src="../js-modules/page-progress/page-progress.js"></script>
-</body>
-</html>
+
+
+</body></html>

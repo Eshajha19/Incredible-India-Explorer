@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Explore India's heritage through an interactive camera-based AR experience."
-    >
+    <meta name="description" content="Explore India's heritage through an interactive camera-based AR experience.">
 
     <title>AR Heritage Explorer | Incredible India</title>
 
@@ -21,58 +13,33 @@
 
 <body>
 
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
 
     <div class="nav-container">
 
-        <a
-            href="../../index.html"
-            class="nav-logo"
-            aria-label="Incredible India Explorer Home"
-        >
+        <a href="../../index.html" class="nav-logo" aria-label="Incredible India Explorer Home">
             <span class="saffron">Incredible</span>
             <span class="gold">India</span>
             <span class="green">Explorer</span>
         </a>
 
-        <button
-            type="button"
-            class="menu-toggle"
-            id="menu-toggle"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-        >
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
 
-        <nav
-            class="nav-menu"
-            id="nav-menu"
-            aria-label="Main navigation"
-        >
+        <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
 
-            <a
-                href="../../index.html"
-                class="nav-link"
-            >
+            <a href="../../index.html" class="nav-link">
                 Home
             </a>
 
-            <a
-                href="../journey/journey.html"
-                class="nav-link"
-            >
+            <a href="../journey/journey.html" class="nav-link">
                 My Journey
             </a>
 
-            <button
-                type="button"
-                id="theme-toggle"
-                class="btn-theme-toggle"
-                aria-label="Toggle theme"
-            >
+            <button type="button" id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle theme">
                 ☀️
             </button>
 
@@ -80,7 +47,7 @@
 
     </div>
 
-</header>
+</nav>
 
 
 <main>
@@ -105,11 +72,7 @@
                 overlays.
             </p>
 
-            <button
-                type="button"
-                id="start-ar"
-                class="primary-button"
-            >
+            <button type="button" id="start-ar" class="primary-button">
                 Start AR Experience
             </button>
 
@@ -118,10 +81,7 @@
     </section>
 
 
-    <section
-        class="explorer-section"
-        id="explorer"
-    >
+    <section class="explorer-section" id="explorer">
 
         <div class="section-heading">
 
@@ -143,61 +103,34 @@
 
         <div class="location-toolbar">
 
-            <button
-                type="button"
-                id="detect-location"
-                class="secondary-button"
-            >
+            <button type="button" id="detect-location" class="secondary-button">
                 Detect My Location
             </button>
 
-            <span
-                id="location-status"
-                class="status-text"
-                aria-live="polite"
-            >
+            <span id="location-status" class="status-text" aria-live="polite">
                 Location not detected
             </span>
 
         </div>
 
 
-        <div
-            id="heritage-grid"
-            class="heritage-grid"
-        ></div>
+        <div id="heritage-grid" class="heritage-grid"></div>
 
     </section>
 
 
-    <section
-        id="ar-view"
-        class="ar-view"
-        hidden
-    >
+    <section id="ar-view" class="ar-view" hidden="">
 
         <div class="camera-container">
 
-            <video
-                id="camera-feed"
-                class="camera-feed"
-                autoplay
-                muted
-                playsinline
-                aria-label="Live camera feed"
-            ></video>
+            <video id="camera-feed" class="camera-feed" autoplay="" muted="" playsinline="" aria-label="Live camera feed"></video>
 
 
             <div class="camera-overlay">
 
                 <div class="ar-topbar">
 
-                    <button
-                        type="button"
-                        id="close-ar"
-                        class="icon-button"
-                        aria-label="Close AR experience"
-                    >
+                    <button type="button" id="close-ar" class="icon-button" aria-label="Close AR experience">
                         ×
                     </button>
 
@@ -211,22 +144,14 @@
 
                     </div>
 
-                    <button
-                        type="button"
-                        id="toggle-sound"
-                        class="icon-button"
-                        aria-label="Toggle narration"
-                    >
+                    <button type="button" id="toggle-sound" class="icon-button" aria-label="Toggle narration">
                         🔊
                     </button>
 
                 </div>
 
 
-                <div
-                    id="ar-points"
-                    class="ar-points"
-                ></div>
+                <div id="ar-points" class="ar-points"></div>
 
 
                 <div class="camera-center">
@@ -243,25 +168,13 @@
                 </div>
 
 
-                <div
-                    id="ar-info-card"
-                    class="ar-info-card"
-                    hidden
-                >
+                <div id="ar-info-card" class="ar-info-card" hidden="">
 
-                    <button
-                        type="button"
-                        id="close-info"
-                        class="info-close"
-                        aria-label="Close information"
-                    >
+                    <button type="button" id="close-info" class="info-close" aria-label="Close information">
                         ×
                     </button>
 
-                    <span
-                        id="info-category"
-                        class="info-category"
-                    >
+                    <span id="info-category" class="info-category">
                         Heritage
                     </span>
 
@@ -273,16 +186,9 @@
                         Heritage information will appear here.
                     </p>
 
-                    <div
-                        id="info-facts"
-                        class="info-facts"
-                    ></div>
+                    <div id="info-facts" class="info-facts"></div>
 
-                    <button
-                        type="button"
-                        id="open-details"
-                        class="primary-button small-button"
-                    >
+                    <button type="button" id="open-details" class="primary-button small-button">
                         Explore History
                     </button>
 
@@ -291,30 +197,16 @@
 
                 <div class="ar-bottom-bar">
 
-                    <button
-                        type="button"
-                        id="scan-button"
-                        class="scan-button"
-                    >
+                    <button type="button" id="scan-button" class="scan-button">
                         <span class="scan-icon">◉</span>
                         Scan Heritage
                     </button>
 
-                    <button
-                        type="button"
-                        id="favorite-button"
-                        class="round-action"
-                        aria-label="Save heritage experience"
-                    >
+                    <button type="button" id="favorite-button" class="round-action" aria-label="Save heritage experience">
                         ☆
                     </button>
 
-                    <button
-                        type="button"
-                        id="narrate-button"
-                        class="round-action"
-                        aria-label="Play narration"
-                    >
+                    <button type="button" id="narrate-button" class="round-action" aria-label="Play narration">
                         🔊
                     </button>
 
@@ -327,11 +219,7 @@
     </section>
 
 
-    <section
-        id="details-section"
-        class="details-section"
-        hidden
-    >
+    <section id="details-section" class="details-section" hidden="">
 
         <div class="details-header">
 
@@ -349,11 +237,7 @@
 
             </div>
 
-            <button
-                type="button"
-                id="details-favorite"
-                class="secondary-button"
-            >
+            <button type="button" id="details-favorite" class="secondary-button">
                 ☆ Save Experience
             </button>
 
@@ -379,10 +263,7 @@
                     Historical Timeline
                 </span>
 
-                <div
-                    id="timeline"
-                    class="timeline"
-                ></div>
+                <div id="timeline" class="timeline"></div>
 
             </article>
 
@@ -393,10 +274,7 @@
                     Architecture
                 </span>
 
-                <div
-                    id="architecture-list"
-                    class="architecture-list"
-                ></div>
+                <div id="architecture-list" class="architecture-list"></div>
 
             </article>
 
@@ -407,10 +285,7 @@
                     Heritage Facts
                 </span>
 
-                <ul
-                    id="facts-list"
-                    class="facts-list"
-                ></ul>
+                <ul id="facts-list" class="facts-list"></ul>
 
             </article>
 
@@ -439,10 +314,7 @@
 
             <div class="reconstruction-stage">
 
-                <div
-                    id="heritage-model"
-                    class="heritage-model"
-                >
+                <div id="heritage-model" class="heritage-model">
 
                     <div class="model-dome"></div>
 
@@ -461,19 +333,11 @@
 
             <div class="model-controls">
 
-                <button
-                    type="button"
-                    id="rotate-left"
-                    class="secondary-button"
-                >
+                <button type="button" id="rotate-left" class="secondary-button">
                     Rotate Left
                 </button>
 
-                <button
-                    type="button"
-                    id="rotate-right"
-                    class="secondary-button"
-                >
+                <button type="button" id="rotate-right" class="secondary-button">
                     Rotate Right
                 </button>
 
@@ -496,10 +360,7 @@
 
             </div>
 
-            <div
-                id="quiz-container"
-                class="quiz-container"
-            ></div>
+            <div id="quiz-container" class="quiz-container"></div>
 
         </div>
 
@@ -508,12 +369,7 @@
 </main>
 
 
-<div
-    id="toast"
-    class="toast"
-    role="status"
-    aria-live="polite"
-></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 
 <script src="../../app.js"></script>
@@ -521,5 +377,5 @@
 <script src="../journey/journey.js"></script>
 <script src="script.js"></script>
 
-</body>
-</html>
+
+</body></html>

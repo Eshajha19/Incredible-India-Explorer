@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kerala Mural Explorer | Temple Wall Art</title>
-    <meta name="description"
-        content="Explore Kerala Mural Painting — the sacred temple wall art of Kerala. Discover its history, natural pigments, traditional motifs, an interactive mural visualizer, gallery, and references.">
+    <meta name="description" content="Explore Kerala Mural Painting — the sacred temple wall art of Kerala. Discover its history, natural pigments, traditional motifs, an interactive mural visualizer, gallery, and references.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav">
+    <nav class="navbar explorer-nav" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
-                    class="gold">India</span> <span class="green">Explorer</span></a>
-            <nav class="nav-menu">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="../indian-art-forms-visualizer/index.html" class="nav-link">Art Forms</a>
                 <a href="#history" class="nav-link">History</a>
@@ -28,7 +22,7 @@
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
 
     <main>
         <section class="hero-section kerala-hero">
@@ -57,21 +51,21 @@
             </div>
 
             <!-- ── PIGMENT GUIDE ────────────────────────────────────── -->
-            <div class="tab-content" id="pigments" role="tabpanel" hidden>
+            <div class="tab-content" id="pigments" role="tabpanel" hidden="">
                 <h2>Natural Pigment Guide</h2>
                 <p class="tab-intro">Kerala murals use a strict palette of five natural pigments (Panchavarna) derived from minerals, roots, and soot — each colour carrying symbolic meaning.</p>
                 <div id="pigments-grid" class="pigments-grid"></div>
             </div>
 
             <!-- ── TEMPLE MURALS ────────────────────────────────────── -->
-            <div class="tab-content" id="temples" role="tabpanel" hidden>
+            <div class="tab-content" id="temples" role="tabpanel" hidden="">
                 <h2>Famous Temple Murals</h2>
                 <p class="tab-intro">Kerala's temples house some of the largest and oldest mural collections in India. Each temple's walls tell stories from the Ramayana, Mahabharata, and the Puranas.</p>
                 <div id="temples-grid" class="temples-grid"></div>
             </div>
 
             <!-- ── MURAL VISUALIZER ────────────────────────────────── -->
-            <div class="tab-content" id="visualizer" role="tabpanel" hidden>
+            <div class="tab-content" id="visualizer" role="tabpanel" hidden="">
                 <h2>Interactive Mural Visualizer</h2>
                 <p class="tab-intro">Choose a wall, pick a pigment, and paint your own Kerala-mural-inspired design. Try the traditional deity and motif stamps.</p>
                 <div class="visualizer-container">
@@ -93,7 +87,7 @@
                         </div>
                         <div class="tool-group">
                             <label for="brush-size">Brush Size</label>
-                            <input type="range" id="brush-size" min="2" max="30" value="8" aria-label="Brush size" />
+                            <input type="range" id="brush-size" min="2" max="30" value="8" aria-label="Brush size">
                         </div>
                         <div class="tool-group">
                             <button id="btn-clear" class="viz-btn viz-btn-danger" aria-label="Clear canvas">Clear</button>
@@ -108,14 +102,14 @@
             </div>
 
             <!-- ── GALLERY ─────────────────────────────────────────── -->
-            <div class="tab-content" id="gallery" role="tabpanel" hidden>
+            <div class="tab-content" id="gallery" role="tabpanel" hidden="">
                 <h2>Interactive Gallery</h2>
                 <div class="gallery-filters" id="gallery-filters"></div>
                 <div id="gallery-grid" class="gallery-grid"></div>
             </div>
 
             <!-- ── REFERENCES ──────────────────────────────────────── -->
-            <div class="tab-content" id="references" role="tabpanel" hidden>
+            <div class="tab-content" id="references" role="tabpanel" hidden="">
                 <h2>References &amp; Further Reading</h2>
                 <div id="references-list" class="references-list"></div>
             </div>
@@ -123,9 +117,9 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image viewer" hidden="">
         <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">×</button>
-        <img id="lightbox-img" src="" alt="" />
+        <img id="lightbox-img" src="" alt="">
         <div class="lightbox-caption">
             <h3 id="lightbox-title"></h3>
             <p id="lightbox-caption"></p>
@@ -138,6 +132,7 @@
 
     <script src="kerala-data.js"></script>
     <script src="script.js"></script>
-</body>
 
-</html>
+
+
+</body></html>

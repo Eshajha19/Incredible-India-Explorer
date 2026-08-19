@@ -1,17 +1,12 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Explore Kudlu Theertha Falls near Hebri, Karnataka through its forest trail, Sita River setting, seasonal flow, map, and nearby Western Ghats attractions."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore Kudlu Theertha Falls near Hebri, Karnataka through its forest trail, Sita River setting, seasonal flow, map, and nearby Western Ghats attractions.">
         <title>Kudlu Theertha Falls Explorer | Incredible India</title>
-        <link rel="icon" href="data:" />
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+        <link rel="icon" href="data:">
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
     </head>
     <body>
         <script>
@@ -23,34 +18,26 @@
                 if (theme === 'light') document.body.classList.add('light-theme');
             })();
         </script>
-        <header class="navbar">
+        <nav class="navbar" aria-label="Navigation">
             <div class="nav-container">
-                <a href="../../index.html#home" class="nav-logo"
-                    ><span class="saffron">Incredible</span><span class="gold">India</span
-                    ><span class="green">Explorer</span></a
-                ><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
                     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </button>
-                <nav class="nav-menu" id="nav-menu">
+                <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                     <a href="../../index.html#home" class="nav-link active">Home</a>
                     <div class="nav-dropdown">
                         <button class="nav-link dropdown-toggle">Nature ▾</button>
                         <div class="dropdown-menu">
-                            <a href="../wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a
-                            ><a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls</a>
+                            <a href="../wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a><a href="../waterfalls-of-india/index.html" class="dropdown-item">Waterfalls</a>
                         </div>
                     </div>
                     <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
                 </nav>
             </div>
-        </header>
+        </nav>
         <nav class="kt-section-nav" aria-label="Page sections">
             <div class="kt-section-nav-inner">
-                <a href="#overview" class="kt-nav-link active">Overview</a
-                ><a href="#journey" class="kt-nav-link">Trail → Forest → Falls</a
-                ><a href="#seasonal" class="kt-nav-link">Seasonal</a><a href="#gallery" class="kt-nav-link">Gallery</a
-                ><a href="#map" class="kt-nav-link">Location</a><a href="#nearby" class="kt-nav-link">Nearby</a
-                ><a href="#credits" class="kt-nav-link">Credits</a>
+                <a href="#overview" class="kt-nav-link active">Overview</a><a href="#journey" class="kt-nav-link">Trail → Forest → Falls</a><a href="#seasonal" class="kt-nav-link">Seasonal</a><a href="#gallery" class="kt-nav-link">Gallery</a><a href="#map" class="kt-nav-link">Location</a><a href="#nearby" class="kt-nav-link">Nearby</a><a href="#credits" class="kt-nav-link">Credits</a>
             </div>
         </nav>
         <main>
@@ -108,8 +95,7 @@
                                 rich bird and wildlife diversity.
                             </p>
                             <div class="chips">
-                                <span>Evergreen forest</span><span>Streams</span><span>Wildlife</span
-                                ><span>Rainforest</span>
+                                <span>Evergreen forest</span><span>Streams</span><span>Wildlife</span><span>Rainforest</span>
                             </div>
                             <p class="note">
                                 Karnataka Tourism advises visitors not to explore the dense sanctuary forest without an
@@ -128,10 +114,8 @@
                     </div>
                     <div class="journey-controls" role="tablist" aria-label="Trail journey stages">
                         <button class="journey-btn active" data-stage="trail" role="tab" aria-selected="true">
-                            01 · Trailhead</button
-                        ><button class="journey-btn" data-stage="forest" role="tab" aria-selected="false">
-                            02 · Forest</button
-                        ><button class="journey-btn" data-stage="waterfall" role="tab" aria-selected="false">
+                            01 · Trailhead</button><button class="journey-btn" data-stage="forest" role="tab" aria-selected="false">
+                            02 · Forest</button><button class="journey-btn" data-stage="waterfall" role="tab" aria-selected="false">
                             03 · Waterfall
                         </button>
                     </div>
@@ -150,12 +134,7 @@
                                 <li>Start with enough daylight for the return.</li>
                             </ul>
                         </div>
-                        <div
-                            class="journey-visual"
-                            id="journey-visual"
-                            role="img"
-                            aria-label="Forest trail leading toward Kudlu Theertha Falls"
-                        ></div>
+                        <div class="journey-visual" id="journey-visual" role="img" aria-label="Forest trail leading toward Kudlu Theertha Falls"></div>
                     </div>
                 </div>
             </section>
@@ -166,10 +145,7 @@
                         <h2>When the forest changes, the falls change</h2>
                     </div>
                     <div class="season-tabs" role="tablist" aria-label="Seasonal waterfall comparison">
-                        <button class="season-btn active" data-season="monsoon">Monsoon</button
-                        ><button class="season-btn" data-season="post">Post-monsoon</button
-                        ><button class="season-btn" data-season="winter">Winter</button
-                        ><button class="season-btn" data-season="summer">Summer</button>
+                        <button class="season-btn active" data-season="monsoon">Monsoon</button><button class="season-btn" data-season="post">Post-monsoon</button><button class="season-btn" data-season="winter">Winter</button><button class="season-btn" data-season="summer">Summer</button>
                     </div>
                     <div class="season-card reveal">
                         <div class="season-meter">
@@ -199,31 +175,19 @@
                     </div>
                     <div class="gallery-grid reveal">
                         <figure class="gallery-item gallery-hero">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Kudlu_theertha_falls.jpg"
-                                alt="Kudlu Theertha Falls plunging through a green forested setting"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kudlu_theertha_falls.jpg" alt="Kudlu Theertha Falls plunging through a green forested setting">
                             <figcaption>Waterfall view · Sushmitha S. Poojari · CC BY-SA 4.0</figcaption>
                         </figure>
                         <figure class="gallery-item">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2830%29.jpg"
-                                alt="Close view of the Koodlu Theertha waterfall and surrounding rock"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2830%29.jpg" alt="Close view of the Koodlu Theertha waterfall and surrounding rock">
                             <figcaption>Falls close-up · Vinayaraj · CC BY-SA 4.0</figcaption>
                         </figure>
                         <figure class="gallery-item">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2819%29.jpg"
-                                alt="Koodlu Theertha Falls framed by dense Western Ghats vegetation"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2819%29.jpg" alt="Koodlu Theertha Falls framed by dense Western Ghats vegetation">
                             <figcaption>Forest setting · Vinayaraj · CC BY-SA 4.0</figcaption>
                         </figure>
                         <figure class="gallery-item">
-                            <img
-                                src="https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2812%29.jpg"
-                                alt="Rocky watercourse and landscape around Koodlu Theertha Falls"
-                            />
+                            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koodlu_Theertha_Falls_-_Seetha_Falls_-_Seethanadi_-_Agumbe_%2812%29.jpg" alt="Rocky watercourse and landscape around Koodlu Theertha Falls">
                             <figcaption>Watercourse landscape · Vinayaraj · CC BY-SA 4.0</figcaption>
                         </figure>
                     </div>
@@ -273,14 +237,9 @@
                             change.
                         </p>
                     </div>
-                    <div
-                        id="kudlu-map"
-                        class="map-box reveal"
-                        aria-label="Interactive map showing Kudlu Theertha Falls and nearby attractions"
-                    ></div>
+                    <div id="kudlu-map" class="map-box reveal" aria-label="Interactive map showing Kudlu Theertha Falls and nearby attractions"></div>
                     <div class="map-note">
-                        <strong>Kudlu Theertha Falls</strong
-                        ><span>13.4847° N, 74.9766° E · near Hebri, Udupi district</span>
+                        <strong>Kudlu Theertha Falls</strong><span>13.4847° N, 74.9766° E · near Hebri, Udupi district</span>
                     </div>
                 </div>
             </section>
@@ -292,14 +251,9 @@
                     </div>
                     <div class="nearby-grid reveal">
                         <button class="nearby-card active" data-nearby="sanctuary">
-                            <strong>Someshwara Wildlife Sanctuary</strong
-                            ><span>Evergreen forest · wildlife · guided trekking</span></button
-                        ><button class="nearby-card" data-nearby="agumbe">
-                            <strong>Agumbe Sunset Viewpoint</strong
-                            ><span>Western Ghats ridge · sunset landscape</span></button
-                        ><button class="nearby-card" data-nearby="onake">
-                            <strong>Onake Abbi Falls</strong><span>Forest waterfall · trekking</span></button
-                        ><button class="nearby-card" data-nearby="jomlu">
+                            <strong>Someshwara Wildlife Sanctuary</strong><span>Evergreen forest · wildlife · guided trekking</span></button><button class="nearby-card" data-nearby="agumbe">
+                            <strong>Agumbe Sunset Viewpoint</strong><span>Western Ghats ridge · sunset landscape</span></button><button class="nearby-card" data-nearby="onake">
+                            <strong>Onake Abbi Falls</strong><span>Forest waterfall · trekking</span></button><button class="nearby-card" data-nearby="jomlu">
                             <strong>Jomlu Theertha</strong><span>Sita River · smaller forest cascade</span>
                         </button>
                     </div>
@@ -324,28 +278,13 @@
                             <h3>Factual sources</h3>
                             <ul>
                                 <li>
-                                    <a
-                                        href="https://www.udupitourism.com/explore/nature-and-wildlife/kudlu-theertha-waterfall"
-                                        target="_blank"
-                                        rel="noopener"
-                                        >Udupi Tourism · Kudlu Theertha Waterfall</a
-                                    >
+                                    <a href="https://www.udupitourism.com/explore/nature-and-wildlife/kudlu-theertha-waterfall" target="_blank" rel="noopener">Udupi Tourism · Kudlu Theertha Waterfall</a>
                                 </li>
                                 <li>
-                                    <a
-                                        href="https://karnatakatourism.org/en/attractions/someshwara-wildlife-sanctuary"
-                                        target="_blank"
-                                        rel="noopener"
-                                        >Karnataka Tourism · Someshwara Wildlife Sanctuary</a
-                                    >
+                                    <a href="https://karnatakatourism.org/en/attractions/someshwara-wildlife-sanctuary" target="_blank" rel="noopener">Karnataka Tourism · Someshwara Wildlife Sanctuary</a>
                                 </li>
                                 <li>
-                                    <a
-                                        href="https://www.karnataka.com/agumbe/koodlu-theertha-falls/"
-                                        target="_blank"
-                                        rel="noopener"
-                                        >Karnataka.com · Koodlu Theertha Falls route background</a
-                                    >
+                                    <a href="https://www.karnataka.com/agumbe/koodlu-theertha-falls/" target="_blank" rel="noopener">Karnataka.com · Koodlu Theertha Falls route background</a>
                                 </li>
                             </ul>
                         </div>
@@ -353,20 +292,10 @@
                             <h3>Image credits</h3>
                             <ul>
                                 <li>
-                                    <a
-                                        href="https://commons.wikimedia.org/wiki/File:Kudlu_theertha_falls.jpg"
-                                        target="_blank"
-                                        rel="noopener"
-                                        >Sushmitha.S Poojari · CC BY-SA 4.0</a
-                                    >
+                                    <a href="https://commons.wikimedia.org/wiki/File:Kudlu_theertha_falls.jpg" target="_blank" rel="noopener">Sushmitha.S Poojari · CC BY-SA 4.0</a>
                                 </li>
                                 <li>
-                                    <a
-                                        href="https://commons.wikimedia.org/wiki/Category:Koodlu_Theertha_Falls"
-                                        target="_blank"
-                                        rel="noopener"
-                                        >Vinayaraj · Koodlu Theertha Falls series · CC BY-SA 4.0</a
-                                    >
+                                    <a href="https://commons.wikimedia.org/wiki/Category:Koodlu_Theertha_Falls" target="_blank" rel="noopener">Vinayaraj · Koodlu Theertha Falls series · CC BY-SA 4.0</a>
                                 </li>
                             </ul>
                         </div>
@@ -380,5 +309,6 @@
         </main>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
         <script src="script.js"></script>
-    </body>
-</html>
+    
+
+</body></html>

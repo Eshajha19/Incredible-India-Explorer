@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Trip Planner - Generate a budget-optimized, multi-city India itinerary based on your budget, trip length, and travel preferences." name="description"/>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Trip Planner - Generate a budget-optimized, multi-city India itinerary based on your budget, trip length, and travel preferences." name="description">
 <title>Trip Planner | Incredible India</title>
 <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link href="../../styles.css" rel="stylesheet"/>
-<link href="trip-planner.css" rel="stylesheet"/>
-<link href="weather-planner.css" rel="stylesheet"/>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="../../styles.css" rel="stylesheet">
+<link href="trip-planner.css" rel="stylesheet">
+<link href="weather-planner.css" rel="stylesheet">
 
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Trip Planner | Incredible India Explorer">
@@ -44,7 +41,7 @@
         })();
     </script>
 <!-- Sticky Navigation Bar -->
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -56,14 +53,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -78,7 +75,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -92,9 +89,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -123,13 +120,13 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 <main id="app-root" style="padding-top: 80px;">
 <!-- Hero Section -->
 <section class="cuisine-hero scroll-section trip-planner-hero">
 <picture>
   <source srcset="../assets/travel_hero.webp" type="image/webp">
-  <img class="hero-video" src="../assets/travel_hero.png" alt="A scenic winding road through Indian mountains, symbolizing a planned journey" style="width: 100%; height: 100%; object-fit: cover;"/>
+  <img class="hero-video" src="../assets/travel_hero.png" alt="A scenic winding road through Indian mountains, symbolizing a planned journey" style="width: 100%; height: 100%; object-fit: cover;">
 </picture>
 <div class="hero-overlay"></div>
 <div class="hero-content">
@@ -154,20 +151,20 @@
 <div class="trip-form-grid">
 <div class="trip-form-field">
 <label for="trip-budget">Total Budget (INR)</label>
-<input type="number" id="trip-budget" name="budget" min="1000" step="500" placeholder="e.g. 40000" required=""/>
+<input type="number" id="trip-budget" name="budget" min="1000" step="500" placeholder="e.g. 40000" required="">
 <small>Total for the whole trip, all travelers combined.</small>
 </div>
 <div class="trip-form-field">
 <label for="trip-days">Number of Days</label>
-<input type="number" id="trip-days" name="days" min="1" max="30" placeholder="e.g. 7" required=""/>
+<input type="number" id="trip-days" name="days" min="1" max="30" placeholder="e.g. 7" required="">
 </div>
 <div class="trip-form-field">
 <label for="trip-travelers">Travelers</label>
-<input type="number" id="trip-travelers" name="travelers" min="1" max="20" value="1"/>
+<input type="number" id="trip-travelers" name="travelers" min="1" max="20" value="1">
 </div>
 <div class="trip-form-field">
 <label for="trip-start-date">Trip Start Date <span style="opacity:0.65; font-weight:400;">(optional — enables weather-aware suggestions)</span></label>
-<input type="date" id="trip-start-date" name="startDate"/>
+<input type="date" id="trip-start-date" name="startDate">
 </div>
 </div>
 
@@ -238,11 +235,11 @@
 </footer>
 <!-- Scroll To Top Button -->
 <button aria-label="Scroll to Top" class="btn-scroll-top" id="btn-scroll-top">↑</button>
-<script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
+<script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
 <script src="../firebase-config.js" type="module"></script>
 <script src="../auth.js" type="module"></script>
-<script src="../router.js" defer></script>
+<script src="../router.js" defer=""></script>
 
 <!-- Trip Planner + Weather-Aware Itinerary feature (js-modules/*.js are
      plain scripts, no bundler — see each file's header comment).
@@ -250,12 +247,12 @@
      helper, matching how this project's other standalone feature pages
      (Route Planner, Crowd Density Predictor, Offline Downloads) include
      their own scripts. -->
-<script src="../trip-data.js" defer></script>
-<script src="../js-modules/trip-planner.js" defer></script>
-<script src="../js-modules/weather-core.js" defer></script>
-<script src="../js-modules/weather-service.js" defer></script>
-<script src="../js-modules/weather-ui.js" defer></script>
-<script defer>
+<script src="../trip-data.js" defer=""></script>
+<script src="../js-modules/trip-planner.js" defer=""></script>
+<script src="../js-modules/weather-core.js" defer=""></script>
+<script src="../js-modules/weather-service.js" defer=""></script>
+<script src="../js-modules/weather-ui.js" defer=""></script>
+<script defer="">
     // All the scripts above are `defer`, so they execute in this exact
     // order, after the DOM is fully parsed but before DOMContentLoaded —
     // no need to wait for an extra event.
@@ -265,5 +262,6 @@
         console.error("[trip-planner.html] TripPlanner failed to load — the form will not respond.");
     }
 </script>
-</body>
-</html>
+
+
+</body></html>

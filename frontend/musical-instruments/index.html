@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Classical Indian Musical Instruments | Incredible India Explorer</title>
@@ -9,7 +7,7 @@
   <link rel="stylesheet" href="../../css/base.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
   <div class="app">
     <header class="app-header">
       <div class="header-left">
@@ -153,8 +151,8 @@
     <meta name="description" content="Explore traditional Indian classical music instruments including the Sitar, Tabla, Veena, and Flute.">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="style.css">
-</head>
-<body class="dark-theme">
+
+
     <script>
         (function() {
             let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -168,18 +166,18 @@
         })();
     </script>
     
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
                 <span class="gold">India</span>
                 <span class="green">Explorer</span>
             </a>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link">Home</a>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main class="container" style="padding-top: 100px;">
         <div class="instrument-header">
@@ -216,7 +214,7 @@
 
                     <div class="instrument-section">
                         <h3>Audio Demonstration</h3>
-                        <audio id="modal-instrument-audio" class="instrument-audio" controls preload="none">
+                        <audio id="modal-instrument-audio" class="instrument-audio" controls="" preload="none">
                             <source src="" type="audio/mpeg">
                             Your browser does not support HTML5 audio.
                         </audio>
@@ -232,12 +230,13 @@
 
     <footer>
         <div class="container text-center">
-            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+            <p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
         </div>
     </footer>
 
-    <script src="../../frontend/js-modules/storage.js" defer></script>
-    <script src="../../frontend/app.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
-</html>
+    <script src="../../frontend/js-modules/storage.js" defer=""></script>
+    <script src="../../frontend/app.js" defer=""></script>
+    <script src="script.js" defer=""></script>
+
+
+</body></html>

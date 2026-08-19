@@ -1,21 +1,16 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="India's Sporting Milestones: Interactive Timeline — Explore Olympic achievements, World Championships, historic athletes, and major tournament victories from pre-independence to today, filterable by year, sport, athlete, and event."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="India's Sporting Milestones: Interactive Timeline — Explore Olympic achievements, World Championships, historic athletes, and major tournament victories from pre-independence to today, filterable by year, sport, athlete, and event.">
         <title>India's Sporting Milestones: Interactive Timeline | Incredible India</title>
 
         <!-- Preload Critical Fonts -->
-        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body class="milestones-timeline-main">
@@ -28,7 +23,7 @@
         })();
     </script>
         <!-- Site Navbar -->
-        <header class="navbar" id="navbar">
+        <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -40,14 +35,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -62,7 +57,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -76,9 +71,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -107,7 +102,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
         <main>
             <!-- Hero Section -->
@@ -115,7 +110,7 @@
                 <div class="section-container">
                     <div class="hero-badges-row">
                         <span class="hero-pill pill-medal">🥇 41 Olympic Medals</span>
-                        <span class="hero-pill pill-trophy">🏆 Cricket & Hockey World Champions</span>
+                        <span class="hero-pill pill-trophy">🏆 Cricket &amp; Hockey World Champions</span>
                         <span class="hero-pill pill-history">📜 1900 – Present</span>
                     </div>
                     <h1>India's Sporting Milestones: <span>Interactive Timeline</span></h1>
@@ -132,13 +127,8 @@
                     <div class="search-filter-wrapper glass-card">
                         <div class="search-box">
                             <span class="search-icon">🔍</span>
-                            <input
-                                type="text"
-                                id="milestone-search-input"
-                                placeholder="Search by year, athlete, event, or milestone..."
-                                aria-label="Search Sporting Milestones"
-                            />
-                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">&times;</button>
+                            <input type="text" id="milestone-search-input" placeholder="Search by year, athlete, event, or milestone..." aria-label="Search Sporting Milestones">
+                            <button id="clear-search" class="clear-btn hidden" aria-label="Clear Search">×</button>
                         </div>
 
                         <div class="filter-groups">
@@ -193,7 +183,7 @@
             <!-- Detailed Milestone Modal -->
             <div id="milestone-modal" class="milestone-modal hidden" role="dialog" aria-modal="true" aria-label="Milestone Details">
                 <div class="milestone-modal-content glass-card">
-                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Details">&times;</button>
+                    <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close Details">×</button>
                     <div id="modal-body">
                         <!-- Populated by script.js -->
                     </div>
@@ -219,14 +209,14 @@
                 </div>
             </div>
             <div class="footer-credits footer-credits-center">
-                <p>&copy; 2026 Incredible India Explorer. India's Sporting Milestones.</p>
+                <p>© 2026 Incredible India Explorer. India's Sporting Milestones.</p>
             </div>
         </footer>
 
         <!-- Scripts -->
-        <script src="../js-modules/storage.js" defer></script>
-        <script src="../app.js" defer></script>
-        <script src="script.js" defer></script>
+        <script src="../js-modules/storage.js" defer=""></script>
+        <script src="../app.js" defer=""></script>
+        <script src="script.js" defer=""></script>
         <script type="module" src="../auth.js"></script>
-    </body>
-</html>
+    
+</body></html>

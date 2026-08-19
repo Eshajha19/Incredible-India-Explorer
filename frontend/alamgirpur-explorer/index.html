@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alamgirpur — The Eastern Edge of the Harappan World</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Source+Sans+3:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --soil-dark:#2b2620;
@@ -152,9 +150,9 @@
 
 <div class="hero">
   <svg class="strata" viewBox="0 0 1000 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <rect y="180" width="1000" height="80" fill="#3a3226"/>
-    <rect y="205" width="1000" height="55" fill="#332b21"/>
-    <rect y="230" width="1000" height="30" fill="#2b241b"/>
+    <rect y="180" width="1000" height="80" fill="#3a3226"></rect>
+    <rect y="205" width="1000" height="55" fill="#332b21"></rect>
+    <rect y="230" width="1000" height="30" fill="#2b241b"></rect>
   </svg>
   <div class="hero-inner">
     <div class="eyebrow">Harappan Archaeology · Meerut District, Uttar Pradesh</div>
@@ -169,7 +167,7 @@
   </div>
 </div>
 
-<nav><div class="nav-inner">
+<nav aria-label="Navigation"><div class="nav-inner">
   <button class="tab active" data-tab="overview">Overview</button>
   <button class="tab" data-tab="strata">Stratigraphy</button>
   <button class="tab" data-tab="map">Geographic Spread</button>
@@ -491,5 +489,6 @@ const connections = [
 ];
 document.getElementById('connList').innerHTML = connections.map(c=>`<div class="conn-item"><div class="dist mono">${c.dist}</div><div><h4 style="font-size:15.5px;">${c.title}</h4><p>${c.text}</p></div></div>`).join('');
 </script>
-</body>
-</html>
+
+
+</body></html>

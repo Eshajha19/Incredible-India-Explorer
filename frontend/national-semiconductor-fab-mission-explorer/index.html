@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Semiconductor & Fab Mission Explorer | Incredible India</title>
+    <title>National Semiconductor &amp; Fab Mission Explorer | Incredible India</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Cinzel:wght@600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar Header -->
-    <header class="navbar">
+    <nav class="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html" class="logo">
                 <i class="fa-solid fa-microchip icon"></i>
                 <span>Incredible<span class="highlight">India</span></span>
             </a>
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Navigation">
                 <a href="../../index.html">Home</a>
                 <a href="../national-awards/national-awards.html">National Awards</a>
-                <a href="#fabs">Fab & OSAT Facilities</a>
-                <a href="#calculator">Yield & Node Simulator</a>
+                <a href="#fabs">Fab &amp; OSAT Facilities</a>
+                <a href="#calculator">Yield &amp; Node Simulator</a>
                 <a href="#registry">ISM Registry</a>
             </nav>
             <div class="nav-actions">
@@ -29,13 +27,13 @@
                 </button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Banner -->
     <section class="hero-section">
         <div class="hero-content">
-            <span class="badge"><i class="fa-solid fa-microchip"></i> India Semiconductor Mission (ISM) & MeitY</span>
-            <h1>National Semiconductor & Fab Mission Explorer</h1>
+            <span class="badge"><i class="fa-solid fa-microchip"></i> India Semiconductor Mission (ISM) &amp; MeitY</span>
+            <h1>National Semiconductor &amp; Fab Mission Explorer</h1>
             <p>Track India's silicon sovereignty—exploring commercial semiconductor wafer fabs, advanced OSAT packaging plants, compound chip foundries, and chip design hubs across Dholera, Sanand, and Assam.</p>
             <div class="hero-stats">
                 <div class="stat-card">
@@ -58,7 +56,7 @@
     <main class="dashboard-container">
         <!-- Facility Filter Controls -->
         <section class="filter-section" id="fabs">
-            <h2><i class="fa-solid fa-sliders"></i> Semiconductor Domain & Region Filters</h2>
+            <h2><i class="fa-solid fa-sliders"></i> Semiconductor Domain &amp; Region Filters</h2>
             <div class="filter-controls">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -67,7 +65,7 @@
                 <div class="category-filters" id="category-buttons">
                     <button class="filter-btn active" data-type="all">All Facilities</button>
                     <button class="filter-btn" data-type="foundry">Silicon Wafer Fabs</button>
-                    <button class="filter-btn" data-type="osat">OSAT & ATMP Packaging</button>
+                    <button class="filter-btn" data-type="osat">OSAT &amp; ATMP Packaging</button>
                     <button class="filter-btn" data-type="compound">GaN / SiC Compound Fabs</button>
                     <button class="filter-btn" data-type="design">Fabless Chip Design</button>
                 </div>
@@ -77,7 +75,7 @@
         <!-- Semiconductor Facilities Grid -->
         <section class="grid-section">
             <div class="section-title">
-                <h3><i class="fa-solid fa-industry"></i> Flagship Semiconductor Megafabs & Packaging Hubs</h3>
+                <h3><i class="fa-solid fa-industry"></i> Flagship Semiconductor Megafabs &amp; Packaging Hubs</h3>
                 <span class="counter" id="active-count">Showing 6 Semiconductor Facilities</span>
             </div>
             <div class="fab-grid" id="fab-cards-container">
@@ -89,7 +87,7 @@
         <section class="calculator-section" id="calculator">
             <div class="calc-card">
                 <div class="calc-header">
-                    <h2><i class="fa-solid fa-gear"></i> Wafer Fabrication & Chip Production Simulator</h2>
+                    <h2><i class="fa-solid fa-gear"></i> Wafer Fabrication &amp; Chip Production Simulator</h2>
                     <p>Simulate monthly 300mm wafer starts (WPM) and die yield calculations based on process node technology and cleanroom class parameters.</p>
                 </div>
                 <div class="calc-grid">
@@ -101,16 +99,16 @@
                     <div class="form-group">
                         <label for="calc-node">Process Technology Node:</label>
                         <select id="calc-node" class="form-control">
-                            <option value="28nm">28nm Planar CMOS Node (Automotive & Industrial)</option>
-                            <option value="40nm">40nm / 65nm Embedded Flash & MCU Node</option>
-                            <option value="14nm">14nm FinFET Node (Mobile AP & Networking)</option>
+                            <option value="28nm">28nm Planar CMOS Node (Automotive &amp; Industrial)</option>
+                            <option value="40nm">40nm / 65nm Embedded Flash &amp; MCU Node</option>
+                            <option value="14nm">14nm FinFET Node (Mobile AP &amp; Networking)</option>
                             <option value="GaN">Gallium Nitride (GaN) Power RF Electronics</option>
                         </select>
                     </div>
 
                     <div class="form-group full-width">
                         <button id="run-calc-btn" class="primary-btn">
-                            <i class="fa-solid fa-microchip"></i> Run Wafer Yield & Chip Calculation
+                            <i class="fa-solid fa-microchip"></i> Run Wafer Yield &amp; Chip Calculation
                         </button>
                     </div>
                 </div>
@@ -132,7 +130,7 @@
                         </div>
                         <div class="res-metric">
                             <span class="m-label">Target Industry Sector:</span>
-                            <span class="m-val" id="res-sector">Automotive & IoT Edge AI</span>
+                            <span class="m-val" id="res-sector">Automotive &amp; IoT Edge AI</span>
                         </div>
                         <p class="res-desc" id="res-desc">Production parameters align with India Semiconductor Mission (ISM) Phase-1 manufacturing milestones.</p>
                     </div>
@@ -197,10 +195,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p>&copy; 2026 Incredible India Explorer. Semiconductor Data Integration powered by India Semiconductor Mission (ISM) & MeitY.</p>
+            <p>© 2026 Incredible India Explorer. Semiconductor Data Integration powered by India Semiconductor Mission (ISM) &amp; MeitY.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

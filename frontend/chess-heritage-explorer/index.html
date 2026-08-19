@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore India's Chess Heritage - Interactive archive of Indian National Chess Championship history, Grandmasters directory, women's championships, iconic games replay, and chess evolution from Chaturanga to the 2024 Olympiad Double Gold.">
@@ -20,7 +18,7 @@
   </script>
 
   <!-- Sticky Navbar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -32,7 +30,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../sports/sports.html" class="nav-link active">Sports</a>
         <a href="#championships" class="nav-link">Championships</a>
@@ -40,7 +38,7 @@
         <a href="#historic-games" class="nav-link">Interactive Games</a>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="chess-hero" id="hero">
@@ -73,7 +71,7 @@
   </section>
 
   <!-- Sub-Navigation Sticky Bar -->
-  <nav class="subnav-bar">
+  <nav class="subnav-bar" aria-label="Navigation">
     <div class="subnav-container">
       <button class="subnav-btn active" data-target="evolution">Evolution</button>
       <button class="subnav-btn" data-target="championships">National Championships</button>
@@ -90,7 +88,7 @@
     <!-- Section 1: Evolution of Chess in India -->
     <section class="chess-section" id="evolution">
       <div class="section-header">
-        <span class="section-tag">Timeline & Roots</span>
+        <span class="section-tag">Timeline &amp; Roots</span>
         <h2>The Evolution of Indian Chess</h2>
         <p>Trace the legendary journey from ancient 6th-century Chaturanga to the 2024 Olympiad sweep.</p>
       </div>
@@ -103,9 +101,9 @@
     <!-- Section 2: National Championship Archive -->
     <section class="chess-section" id="championships">
       <div class="section-header">
-        <span class="section-tag">Archive & Records</span>
+        <span class="section-tag">Archive &amp; Records</span>
         <h2>National Chess Championship History</h2>
-        <p>Complete historical records of the National Premier Chess Championships (Men's & Women's) since 1955.</p>
+        <p>Complete historical records of the National Premier Chess Championships (Men's &amp; Women's) since 1955.</p>
       </div>
 
       <!-- Category Filter Tabs -->
@@ -153,7 +151,7 @@
     <section class="chess-section" id="champions">
       <div class="section-header">
         <span class="section-tag">Hall of Fame</span>
-        <h2>Major Champions & Icons</h2>
+        <h2>Major Champions &amp; Icons</h2>
         <p>Meet the trailblazers who forged India's chess legacy on the global stage.</p>
       </div>
 
@@ -212,7 +210,7 @@
               <th>State / Region</th>
               <th>Year Title Awarded</th>
               <th>Peak FIDE Rating</th>
-              <th>Career Achievements & Notes</th>
+              <th>Career Achievements &amp; Notes</th>
             </tr>
           </thead>
           <tbody id="gm-tbody">
@@ -293,7 +291,7 @@
   <!-- Champion Detail Modal Overlay -->
   <div class="modal-overlay" id="champion-modal">
     <div class="modal-content">
-      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <button class="close-modal-btn" id="modal-close-btn" aria-label="Close">×</button>
       <div id="modal-body-content">
         <!-- Rendered dynamically -->
       </div>
@@ -307,5 +305,6 @@
 
   <!-- Script Imports -->
   <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

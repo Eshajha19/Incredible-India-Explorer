@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore how each state's culture influences other states through migration, cuisine, music, language, architecture, cinema, textiles, and festivals across India.">
@@ -8,9 +6,9 @@
     <link rel="icon" href="data:,">
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="cultural-footprint.css">
 </head>
@@ -24,7 +22,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -36,14 +34,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -58,7 +56,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -72,9 +70,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -103,7 +101,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="footprint-page">
         <!-- Hero Section -->
@@ -144,14 +142,14 @@
                         <label for="domain-filter">Cultural Domain</label>
                         <select id="domain-filter">
                             <option value="all">All Domains (8)</option>
-                            <option value="cuisine">Cuisine & Delicacies</option>
-                            <option value="music">Music & Performing Arts</option>
-                            <option value="language">Language & Literature</option>
-                            <option value="architecture">Architecture & Sculpture</option>
-                            <option value="cinema">Cinema & Theater</option>
-                            <option value="textiles">Textiles & Handicrafts</option>
-                            <option value="festivals">Festivals & Celebrations</option>
-                            <option value="migration">Migration & Diaspora</option>
+                            <option value="cuisine">Cuisine &amp; Delicacies</option>
+                            <option value="music">Music &amp; Performing Arts</option>
+                            <option value="language">Language &amp; Literature</option>
+                            <option value="architecture">Architecture &amp; Sculpture</option>
+                            <option value="cinema">Cinema &amp; Theater</option>
+                            <option value="textiles">Textiles &amp; Handicrafts</option>
+                            <option value="festivals">Festivals &amp; Celebrations</option>
+                            <option value="migration">Migration &amp; Diaspora</option>
                         </select>
                     </div>
 
@@ -191,13 +189,13 @@
 
                         <svg id="footprint-map" class="footprint-svg-graph" viewBox="0 0 900 600" width="100%" height="100%">
                             <!-- Background Map Grids -->
-                            <rect width="100%" height="100%" fill="var(--graph-bg, #080c18)" />
+                            <rect width="100%" height="100%" fill="var(--graph-bg, #080c18)"></rect>
                             <defs>
                                 <pattern id="graph-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1" />
+                                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"></path>
                                 </pattern>
                             </defs>
-                            <rect width="100%" height="100%" fill="url(#graph-grid)" />
+                            <rect width="100%" height="100%" fill="url(#graph-grid)"></rect>
 
                             <!-- Interactive Network Container -->
                             <g class="graph-main-g">
@@ -220,7 +218,7 @@
                     </div>
 
                     <!-- State Inspector Side Panel -->
-                    <aside class="inspector-panel" id="inspector-panel" hidden>
+                    <aside class="inspector-panel" id="inspector-panel" hidden="">
                         <div class="inspector-header">
                             <span class="inspector-badge" id="inspector-region">Region</span>
                             <h2 id="inspector-title" class="inspector-state-title">State Name</h2>
@@ -279,11 +277,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer. Open Source State Cultural Footprint Initiative.</p>
+            <p>© 2026 Incredible India Explorer. Open Source State Cultural Footprint Initiative.</p>
         </div>
     </footer>
 
     <script type="module" src="cultural-footprint.js"></script>
     <script src="../pages-common.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>India's Coins Through Time | Interactive Numismatic Explorer</title>
   <meta name="description" content="Explore 2,500+ years of Indian numismatic history — from ancient Punch-Marked coins and Indo-Greek silver drachms to Satavahana ships, Gupta gold dinaras, and Mughal mohurs.">
 
   <!-- Preload Critical Fonts -->
-  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
   
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
@@ -25,7 +23,7 @@
   </script>
 
   <!-- Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -37,7 +35,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="#discover" class="nav-link">Categories</a>
         <a href="#map-section" class="nav-link">Mint Map</a>
@@ -45,7 +43,7 @@
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Theme">☀️</button>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <main>
     <!-- HERO SECTION -->
@@ -54,7 +52,7 @@
       <div class="hero-container">
         <div class="hero-text">
           <div class="hero-badge">
-            <span class="badge-icon">🪙</span> 2,500+ Years of Currency & Heritage
+            <span class="badge-icon">🪙</span> 2,500+ Years of Currency &amp; Heritage
           </div>
           <h1>India's Coins <span>Through Time</span></h1>
           <p class="hero-description">
@@ -125,21 +123,21 @@
 
           <article class="category-card" data-category="indo-greek">
             <div class="category-icon">🏛️</div>
-            <h3>Indo-Greek & Kushan</h3>
-            <p>Helmets, realistic royal portraiture, bilingual Greek/Kharosthi legends, and Kushan gold coins depicting Shiva & Buddha.</p>
+            <h3>Indo-Greek &amp; Kushan</h3>
+            <p>Helmets, realistic royal portraiture, bilingual Greek/Kharosthi legends, and Kushan gold coins depicting Shiva &amp; Buddha.</p>
             <span class="category-era">c. 180 BCE – 350 CE</span>
           </article>
 
           <article class="category-card" data-category="dynastic">
             <div class="category-icon">👑</div>
             <h3>Classical Dynastic</h3>
-            <p>Gupta archer dinaras, Satavahana twin-masted ships & Ujjain symbols, and Chola tiger-fish-bow triumvirate coins.</p>
+            <p>Gupta archer dinaras, Satavahana twin-masted ships &amp; Ujjain symbols, and Chola tiger-fish-bow triumvirate coins.</p>
             <span class="category-era">c. 200 BCE – 1200 CE</span>
           </article>
 
           <article class="category-card" data-category="medieval">
             <div class="category-icon">🕌</div>
-            <h3>Medieval & Sultanates</h3>
+            <h3>Medieval &amp; Sultanates</h3>
             <p>Delhi Sultanate tankas, Vijayanagara pagoda gold coins, and Mughal Emperor Jahangir's famous Zodiac mohurs.</p>
             <span class="category-era">c. 1206 CE – 1707 CE</span>
           </article>
@@ -166,7 +164,7 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Geographical Circulation</span>
-          <h2>Interactive Indian Mint & Hoard Map</h2>
+          <h2>Interactive Indian Mint &amp; Hoard Map</h2>
           <p>Click on major historical minting centers and archaeological coin hoard sites to filter coins by region.</p>
         </div>
 
@@ -175,55 +173,55 @@
             <!-- SVG Map of India with Hotspots -->
             <svg viewBox="0 0 800 900" class="svg-map" aria-label="Map of Historical Coin Mints in India">
               <!-- Background outline of India -->
-              <path class="map-landmass" d="M 280,100 L 350,90 L 410,120 L 460,100 L 520,130 L 550,180 L 650,220 L 730,240 L 750,280 L 680,310 L 620,330 L 540,340 L 520,380 L 490,440 L 450,520 L 410,600 L 380,680 L 350,780 L 340,820 L 320,780 L 280,680 L 240,580 L 190,500 L 160,420 L 140,360 L 110,320 L 150,260 L 190,220 L 220,160 Z" />
+              <path class="map-landmass" d="M 280,100 L 350,90 L 410,120 L 460,100 L 520,130 L 550,180 L 650,220 L 730,240 L 750,280 L 680,310 L 620,330 L 540,340 L 520,380 L 490,440 L 450,520 L 410,600 L 380,680 L 350,780 L 340,820 L 320,780 L 280,680 L 240,580 L 190,500 L 160,420 L 140,360 L 110,320 L 150,260 L 190,220 L 220,160 Z"></path>
               
               <!-- Hotspots -->
               <!-- Taxila (North-West) -->
               <g class="mint-hotspot" data-region="North" data-dynasty="Indo-Greek" tabindex="0" role="button" aria-label="Taxila Mint Site">
-                <circle cx="260" cy="150" r="14" class="hotspot-pulse" />
-                <circle cx="260" cy="150" r="8" class="hotspot-core" />
+                <circle cx="260" cy="150" r="14" class="hotspot-pulse"></circle>
+                <circle cx="260" cy="150" r="8" class="hotspot-core"></circle>
                 <text x="260" y="130" class="hotspot-label">Taxila (Indo-Greek Silver)</text>
               </g>
 
               <!-- Ujjain (Central India) -->
               <g class="mint-hotspot" data-region="Central" data-dynasty="Satavahana" tabindex="0" role="button" aria-label="Ujjain Mint Site">
-                <circle cx="340" cy="400" r="14" class="hotspot-pulse" />
-                <circle cx="340" cy="400" r="8" class="hotspot-core" />
-                <text x="340" y="380" class="hotspot-label">Ujjain (Ujjain Symbol & Avanti)</text>
+                <circle cx="340" cy="400" r="14" class="hotspot-pulse"></circle>
+                <circle cx="340" cy="400" r="8" class="hotspot-core"></circle>
+                <text x="340" y="380" class="hotspot-label">Ujjain (Ujjain Symbol &amp; Avanti)</text>
               </g>
 
               <!-- Amaravati / Paithan (Deccan) -->
-              <g class="mint-hotspot" data-region="Deccan" data-dynasty="Satavahana" tabindex="0" role="button" aria-label="Pratishthana & Amaravati">
-                <circle cx="380" cy="520" r="14" class="hotspot-pulse" />
-                <circle cx="380" cy="520" r="8" class="hotspot-core" />
+              <g class="mint-hotspot" data-region="Deccan" data-dynasty="Satavahana" tabindex="0" role="button" aria-label="Pratishthana &amp; Amaravati">
+                <circle cx="380" cy="520" r="14" class="hotspot-pulse"></circle>
+                <circle cx="380" cy="520" r="8" class="hotspot-core"></circle>
                 <text x="380" y="500" class="hotspot-label">Pratishthana / Amaravati (Satavahana)</text>
               </g>
 
               <!-- Bayana (Rajasthan / North - Gupta Hoard) -->
               <g class="mint-hotspot" data-region="North" data-dynasty="Gupta" tabindex="0" role="button" aria-label="Bayana Gupta Hoard">
-                <circle cx="350" cy="300" r="14" class="hotspot-pulse" />
-                <circle cx="350" cy="300" r="8" class="hotspot-core" />
+                <circle cx="350" cy="300" r="14" class="hotspot-pulse"></circle>
+                <circle cx="350" cy="300" r="8" class="hotspot-core"></circle>
                 <text x="350" y="280" class="hotspot-label">Bayana (Gupta Gold Hoard)</text>
               </g>
 
               <!-- Thanjavur / Madurai (South) -->
               <g class="mint-hotspot" data-region="South" data-dynasty="Chola" tabindex="0" role="button" aria-label="Thanjavur Chola Mint">
-                <circle cx="360" cy="720" r="14" class="hotspot-pulse" />
-                <circle cx="360" cy="720" r="8" class="hotspot-core" />
-                <text x="360" y="700" class="hotspot-label">Thanjavur & Madurai (Chola/Pandya)</text>
+                <circle cx="360" cy="720" r="14" class="hotspot-pulse"></circle>
+                <circle cx="360" cy="720" r="8" class="hotspot-core"></circle>
+                <text x="360" y="700" class="hotspot-label">Thanjavur &amp; Madurai (Chola/Pandya)</text>
               </g>
 
               <!-- Agra / Delhi (Mughal) -->
               <g class="mint-hotspot" data-region="North" data-dynasty="Mughal" tabindex="0" role="button" aria-label="Agra Mughal Mint">
-                <circle cx="370" cy="260" r="14" class="hotspot-pulse" />
-                <circle cx="370" cy="260" r="8" class="hotspot-core" />
+                <circle cx="370" cy="260" r="14" class="hotspot-pulse"></circle>
+                <circle cx="370" cy="260" r="8" class="hotspot-core"></circle>
                 <text x="370" y="240" class="hotspot-label">Agra / Shahjahanabad (Mughal Mints)</text>
               </g>
             </svg>
           </div>
 
           <div class="map-info-panel" id="map-info-panel">
-            <h3>Mint & Hoard Details</h3>
+            <h3>Mint &amp; Hoard Details</h3>
             <p id="map-info-desc">Click any pulsing marker on the map to inspect historical minting activities and filter the collection.</p>
             <div id="map-info-details" class="map-details-box">
               <span class="placeholder-text">Select a location on the map to begin.</span>
@@ -260,8 +258,8 @@
               <select id="period-filter" class="filter-select">
                 <option value="all">All Periods</option>
                 <option value="ancient">Ancient (Punch-Marked / Janapadas)</option>
-                <option value="classical">Classical & Dynastic</option>
-                <option value="medieval">Medieval & Sultanates</option>
+                <option value="classical">Classical &amp; Dynastic</option>
+                <option value="medieval">Medieval &amp; Sultanates</option>
                 <option value="princely">Princely States</option>
               </select>
             </div>
@@ -287,7 +285,7 @@
               <select id="region-filter" class="filter-select">
                 <option value="all">All Regions</option>
                 <option value="North">North India / Gandhara</option>
-                <option value="Deccan">Deccan & Maharashtra</option>
+                <option value="Deccan">Deccan &amp; Maharashtra</option>
                 <option value="South">South India (Tamil/Kerala)</option>
                 <option value="Central">Central India (Malwa/Avanti)</option>
                 <option value="East">East India (Bengal/Bihar)</option>
@@ -326,12 +324,13 @@
       <div class="footer-links">
         <a href="../../index.html#home">Home</a>
         <a href="#hero">Back to Top</a>
-        <a href="../../frontend/sources/sources.html">Sources & References</a>
+        <a href="../../frontend/sources/sources.html">Sources &amp; References</a>
       </div>
     </div>
   </footer>
 
   <script src="coins-data.js"></script>
   <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

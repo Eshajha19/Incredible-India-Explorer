@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hogenakkal Falls Explorer | Kaveri River & Carbonatite Rocks | Tamil Nadu</title>
+  <title>Hogenakkal Falls Explorer | Kaveri River &amp; Carbonatite Rocks | Tamil Nadu</title>
   <meta name="description" content="Explore Hogenakkal Falls in Dharmapuri, Tamil Nadu — the Smoking Rocks of the Kaveri River. Interactive river flow map, world's oldest carbonatite geological visualizer, seasonal flow comparison, coracle guides, and responsible tourism.">
 
   <!-- Preload Critical Fonts -->
-  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
@@ -25,7 +23,7 @@
   </script>
 
   <!-- Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -37,18 +35,18 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../waterfalls-of-india/index.html" class="nav-link">Waterfalls Collection</a>
         <a href="#river-map-section" class="nav-link active">River-Flow Map</a>
         <a href="#geology-section" class="nav-link">Carbonatite Geology</a>
         <a href="#seasonal-section" class="nav-link">Seasonal Flow</a>
-        <a href="#viewpoints-section" class="nav-link">Attractions & Boating</a>
+        <a href="#viewpoints-section" class="nav-link">Attractions &amp; Boating</a>
         <a href="#responsible-tourism-section" class="nav-link">Responsible Tourism</a>
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <main>
     <!-- HERO SECTION -->
@@ -62,7 +60,7 @@
         <div class="hero-pills">
           <span class="pill">🏞️ Carbonatite Rock Formations (2.4 Ga)</span>
           <span class="pill">🛶 Parisal Coracle Boat Rides</span>
-          <span class="pill">🌿 Herbal Oil Massages & Medicinal Waters</span>
+          <span class="pill">🌿 Herbal Oil Massages &amp; Medicinal Waters</span>
           <span class="pill">📍 Tamil Nadu – Karnataka Border</span>
         </div>
       </div>
@@ -73,59 +71,59 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">River Flow Dynamics</span>
-          <h2>Interactive Kaveri River & Gorge Flow Map</h2>
+          <h2>Interactive Kaveri River &amp; Gorge Flow Map</h2>
           <p>Click on key geographical and tourism points along the Kaveri gorge to discover river pathways, safe bathing zones, Parisal jetties, and viewing watchtowers.</p>
         </div>
 
         <div class="river-map-wrapper">
           <div class="river-svg-box">
             <svg viewBox="0 0 800 500" class="river-svg" aria-label="Interactive map of Kaveri river flow at Hogenakkal Falls">
-              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"/>
+              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"></rect>
               
               <!-- Kaveri River Inflow Splitting into Channels -->
-              <path class="kaveri-river" d="M 50,220 C 150,200 240,160 340,180 C 420,195 480,140 560,160 L 720,180" fill="none" stroke="#38bdf8" stroke-width="28" opacity="0.35"/>
-              <path class="kaveri-river-branch" d="M 340,180 C 380,240 440,320 540,340 C 620,360 680,310 750,320" fill="none" stroke="#38bdf8" stroke-width="22" opacity="0.35"/>
+              <path class="kaveri-river" d="M 50,220 C 150,200 240,160 340,180 C 420,195 480,140 560,160 L 720,180" fill="none" stroke="#38bdf8" stroke-width="28" opacity="0.35"></path>
+              <path class="kaveri-river-branch" d="M 340,180 C 380,240 440,320 540,340 C 620,360 680,310 750,320" fill="none" stroke="#38bdf8" stroke-width="22" opacity="0.35"></path>
               
-              <path class="kaveri-river-core" d="M 50,220 C 150,200 240,160 340,180 C 420,195 480,140 560,160 L 720,180" fill="none" stroke="#0284c7" stroke-width="12"/>
-              <path class="kaveri-river-branch-core" d="M 340,180 C 380,240 440,320 540,340 C 620,360 680,310 750,320" fill="none" stroke="#0284c7" stroke-width="10"/>
+              <path class="kaveri-river-core" d="M 50,220 C 150,200 240,160 340,180 C 420,195 480,140 560,160 L 720,180" fill="none" stroke="#0284c7" stroke-width="12"></path>
+              <path class="kaveri-river-branch-core" d="M 340,180 C 380,240 440,320 540,340 C 620,360 680,310 750,320" fill="none" stroke="#0284c7" stroke-width="10"></path>
 
               <!-- Gorge Canyon Boundaries -->
-              <path d="M 280,100 Q 420,110 520,90" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4"/>
-              <path d="M 310,400 Q 460,420 580,390" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4"/>
+              <path d="M 280,100 Q 420,110 520,90" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4"></path>
+              <path d="M 310,400 Q 460,420 580,390" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4"></path>
 
               <!-- Map Pins -->
               <!-- Main Cascade Rim -->
-              <g class="river-pin" data-spot="main-falls" tabindex="0" role="button" aria-label="Main Cascade & Gorge Rim">
-                <circle cx="480" cy="155" r="16" fill="rgba(245, 158, 11, 0.4)"/>
-                <circle cx="480" cy="155" r="8" fill="#f59e0b"/>
+              <g class="river-pin" data-spot="main-falls" tabindex="0" role="button" aria-label="Main Cascade &amp; Gorge Rim">
+                <circle cx="480" cy="155" r="16" fill="rgba(245, 158, 11, 0.4)"></circle>
+                <circle cx="480" cy="155" r="8" fill="#f59e0b"></circle>
                 <text x="480" y="130" fill="#ffffff" font-weight="bold" font-size="12" text-anchor="middle">Main Smoke Cascade</text>
               </g>
 
               <!-- Coracle / Parisal Launch Jetty -->
               <g class="river-pin" data-spot="coracle-jetty" tabindex="0" role="button" aria-label="Parisal Coracle Jetty">
-                <circle cx="280" cy="185" r="14" fill="rgba(56, 189, 248, 0.4)"/>
-                <circle cx="280" cy="185" r="7" fill="#38bdf8"/>
+                <circle cx="280" cy="185" r="14" fill="rgba(56, 189, 248, 0.4)"></circle>
+                <circle cx="280" cy="185" r="7" fill="#38bdf8"></circle>
                 <text x="280" y="215" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Parisal Coracle Jetty</text>
               </g>
 
               <!-- Cine Falls & Gorge Canyon -->
               <g class="river-pin" data-spot="cine-falls" tabindex="0" role="button" aria-label="Cine Falls and Deep Chasm">
-                <circle cx="580" cy="335" r="14" fill="rgba(168, 85, 247, 0.4)"/>
-                <circle cx="580" cy="335" r="7" fill="#a855f7"/>
+                <circle cx="580" cy="335" r="14" fill="rgba(168, 85, 247, 0.4)"></circle>
+                <circle cx="580" cy="335" r="7" fill="#a855f7"></circle>
                 <text x="580" y="365" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Cine Falls Canyon</text>
               </g>
 
               <!-- Hanging Watchtower Bridge -->
-              <g class="river-pin" data-spot="hanging-bridge" tabindex="0" role="button" aria-label="Hanging Bridge & View Tower">
-                <circle cx="410" cy="225" r="14" fill="rgba(34, 197, 94, 0.4)"/>
-                <circle cx="410" cy="225" r="7" fill="#22c55e"/>
-                <text x="410" y="255" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Hanging Bridge & Tower</text>
+              <g class="river-pin" data-spot="hanging-bridge" tabindex="0" role="button" aria-label="Hanging Bridge &amp; View Tower">
+                <circle cx="410" cy="225" r="14" fill="rgba(34, 197, 94, 0.4)"></circle>
+                <circle cx="410" cy="225" r="7" fill="#22c55e"></circle>
+                <text x="410" y="255" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Hanging Bridge &amp; Tower</text>
               </g>
 
               <!-- Melagiri Hills Ridge -->
               <g class="river-pin" data-spot="melagiri" tabindex="0" role="button" aria-label="Melagiri Hills Backdrop">
-                <circle cx="150" cy="110" r="14" fill="rgba(239, 68, 68, 0.4)"/>
-                <circle cx="150" cy="110" r="7" fill="#ef4444"/>
+                <circle cx="150" cy="110" r="14" fill="rgba(239, 68, 68, 0.4)"></circle>
+                <circle cx="150" cy="110" r="7" fill="#ef4444"></circle>
                 <text x="150" y="90" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Melagiri Forest Hills</text>
               </g>
             </svg>
@@ -152,7 +150,7 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Geological Heritage</span>
-          <h2>World's Oldest Carbonatite Rocks & Fluvial Potholes</h2>
+          <h2>World's Oldest Carbonatite Rocks &amp; Fluvial Potholes</h2>
           <p>Hogenakkal is home to rare carbonatite igneous rocks dating back over 2.4 billion years (Paleoproterozoic Era), studied worldwide by geologists.</p>
         </div>
 
@@ -200,13 +198,13 @@
         </div>
 
         <div class="season-display-card" id="season-display-card">
-          <h3 id="s-card-title">Post-Monsoon Peak & Coracle Safaris (October – February)</h3>
+          <h3 id="s-card-title">Post-Monsoon Peak &amp; Coracle Safaris (October – February)</h3>
           <p id="s-card-desc">The ideal time to explore Hogenakkal. River flow is robust yet calm enough for licensed parisal (coracle) boat rides to navigate through the deep gorge. Weather is pleasant, fish markets are vibrant, and all viewpoints and footbridges are accessible.</p>
           
           <div class="season-pills-row">
-            <span class="sp-badge" id="sp-flow">Flow: Moderate, Crystal & Roaring</span>
+            <span class="sp-badge" id="sp-flow">Flow: Moderate, Crystal &amp; Roaring</span>
             <span class="sp-badge" id="sp-boat">Boating: 100% Operational (Full Gorge Circuit)</span>
-            <span class="sp-badge" id="sp-highlight">Highlights: Parisal rides, Oil massage & Fresh river fish</span>
+            <span class="sp-badge" id="sp-highlight">Highlights: Parisal rides, Oil massage &amp; Fresh river fish</span>
           </div>
         </div>
       </div>
@@ -216,8 +214,8 @@
     <section class="viewpoints-section" id="viewpoints-section">
       <div class="section-container">
         <div class="section-header">
-          <span class="section-tag">Viewpoints & Excursions</span>
-          <h2>Key Viewpoints & Local Attractions</h2>
+          <span class="section-tag">Viewpoints &amp; Excursions</span>
+          <h2>Key Viewpoints &amp; Local Attractions</h2>
           <p>Top spots to visit around the Hogenakkal falls complex.</p>
         </div>
 
@@ -242,13 +240,13 @@
 
           <div class="viewpoint-card">
             <span class="vp-icon">🌳</span>
-            <h3>Melagiri Hill Forests & Wildlife Sanctuary</h3>
+            <h3>Melagiri Hill Forests &amp; Wildlife Sanctuary</h3>
             <p>The adjoining forest sanctuary connects the Western and Eastern Ghats, sheltering wild Asian elephants, leopards, and medicinal flora.</p>
           </div>
 
           <div class="viewpoint-card">
             <span class="vp-icon">🐟</span>
-            <h3>Fresh Catch River Market & Fish Fry Stalls</h3>
+            <h3>Fresh Catch River Market &amp; Fish Fry Stalls</h3>
             <p>Local fishermen sell fresh Kaveri catch (Katla, Rohu, Keluthi) freshly marinated in regional spices and prepared beside the riverside.</p>
           </div>
 
@@ -266,7 +264,7 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Eco Guidelines</span>
-          <h2>Responsible Tourism & Safety Protocol</h2>
+          <h2>Responsible Tourism &amp; Safety Protocol</h2>
           <p>Help preserve the pristine Kaveri ecosystem and ensure a safe, sustainable journey.</p>
         </div>
 
@@ -301,7 +299,7 @@
     <!-- SOURCES & REFERENCES -->
     <section class="sources-section">
       <div class="section-container">
-        <h2>Sources & Geological References</h2>
+        <h2>Sources &amp; Geological References</h2>
         <ul class="sources-list">
           <li>Tamil Nadu Tourism Development Corporation (TTDC) – Hogenakkal Official Tourism Guide.</li>
           <li>Geological Survey of India (GSI) – Carbonatite Complex of Hogenakkal, Dharmapuri District.</li>
@@ -323,5 +321,6 @@
   </footer>
 
   <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

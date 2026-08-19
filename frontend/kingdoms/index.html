@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore India's greatest kingdoms — from the Mauryas and Guptas to the Cholas, Vijayanagara, Mughals and Marathas — through an interactive timeline, maps and dynasty profiles.">
   <title>Ancient Kingdoms Explorer | Incredible India</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&amp;family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Devanagari:wght@500;700&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="kingdoms.css">
@@ -22,11 +20,11 @@
     })();
   </script>
 
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link active">Home</a>
         <div class="nav-dropdown">
           <button class="nav-link dropdown-toggle">Culture ▾</button>
@@ -39,7 +37,7 @@
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Theme">☀️</button>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <main class="kingdoms-page">
 
@@ -48,9 +46,9 @@
       <div class="hero-ornament" aria-hidden="true">
         <svg viewBox="0 0 400 400" class="wheel-svg">
           <g class="wheel-group">
-            <circle class="wheel-outer" cx="200" cy="200" r="180"/>
-            <circle class="wheel-inner" cx="200" cy="200" r="140"/>
-            <circle class="wheel-core" cx="200" cy="200" r="50"/>
+            <circle class="wheel-outer" cx="200" cy="200" r="180"></circle>
+            <circle class="wheel-inner" cx="200" cy="200" r="140"></circle>
+            <circle class="wheel-core" cx="200" cy="200" r="50"></circle>
             <g class="wheel-spokes" id="wheel-spokes"></g>
           </g>
         </svg>
@@ -124,13 +122,13 @@
 
         <div class="results-bar">
           <p id="result-status" aria-live="polite">Showing all kingdoms</p>
-          <span class="compare-indicator" id="compare-ind" hidden>
+          <span class="compare-indicator" id="compare-ind" hidden="">
             <b id="compare-count">0</b>/2 selected · <button id="open-compare">Compare →</button>
           </span>
         </div>
 
         <div class="grid" id="kingdom-grid"></div>
-        <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-state" id="empty-state" hidden="">
           <span class="empty-icon">🏛️</span>
           <h3>No kingdoms match</h3>
           <p>Try a different era, region or keyword.</p>
@@ -183,7 +181,7 @@
         <div class="quiz-panel" id="quiz-panel">
           <div class="quiz-progress"><i id="quiz-bar"></i></div>
           <div class="quiz-stage" id="quiz-stage"></div>
-          <div class="quiz-result" id="quiz-result" hidden></div>
+          <div class="quiz-result" id="quiz-result" hidden=""></div>
         </div>
       </div>
     </section>
@@ -207,10 +205,10 @@
   </main>
 
   <!-- ============ MODAL ============ -->
-  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-    <div class="modal-backdrop" data-close></div>
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden="">
+    <div class="modal-backdrop" data-close=""></div>
     <article class="modal-card">
-      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <button class="modal-close" data-close="" aria-label="Close">✕</button>
       <div class="modal-hero">
         <div class="modal-hero-img" id="modal-img"></div>
         <div class="modal-hero-content">
@@ -220,16 +218,16 @@
           <p class="modal-tagline" id="modal-tagline"></p>
         </div>
       </div>
-      <nav class="modal-tabs">
+      <nav class="modal-tabs" aria-label="Navigation">
         <button class="tab active" data-tab="overview">Overview</button>
         <button class="tab" data-tab="rulers">Rulers</button>
         <button class="tab" data-tab="legacy">Legacy</button>
         <button class="tab" data-tab="architecture">Architecture</button>
       </nav>
       <div class="modal-pane" id="tab-overview"></div>
-      <div class="modal-pane" id="tab-rulers" hidden></div>
-      <div class="modal-pane" id="tab-legacy" hidden></div>
-      <div class="modal-pane" id="tab-architecture" hidden></div>
+      <div class="modal-pane" id="tab-rulers" hidden=""></div>
+      <div class="modal-pane" id="tab-legacy" hidden=""></div>
+      <div class="modal-pane" id="tab-architecture" hidden=""></div>
     </article>
   </div>
 
@@ -241,5 +239,5 @@
 
   <script type="module" src="kingdoms.js"></script>
   <script src="../pages-common.js"></script>
-</body>
-</html>
+
+</body></html>

@@ -1,22 +1,22 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head></head><body class="rajgir-page">﻿
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover Rajgir: the ancient Magadhan capital nestled in five sacred hills — interactive map, historical timeline, Cyclopean Wall, Gridhrakuta, Saptaparni Cave, and Buddhist & Jain heritage explorer.">
+  <meta name="description" content="Discover Rajgir: the ancient Magadhan capital nestled in five sacred hills — interactive map, historical timeline, Cyclopean Wall, Gridhrakuta, Saptaparni Cave, and Buddhist &amp; Jain heritage explorer.">
   <title>Rajgir Sacred Landscape Explorer | Incredible India</title>
   <link rel="icon" href="data:,">
 
   <!-- Fonts -->
-  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
-</head>
 
-<body class="rajgir-page">
+
+
   <!-- Instant theme application -->
   <script>
     (function(){
@@ -27,7 +27,7 @@
   </script>
 
   <!-- ─── Navbar ─────────────────────────────────────────────────────── -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -37,13 +37,13 @@
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link" id="link-home">Home</a>
         <div class="nav-dropdown">
           <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
           <div class="dropdown-menu">
             <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-            <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+            <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
             <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
             <a href="../../frontend/ancient-cities/ancient-cities.html" class="dropdown-item">Ancient Cities Explorer</a>
           </div>
@@ -58,12 +58,12 @@
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- ─── Hero ───────────────────────────────────────────────────────── -->
   <section class="rj-hero" aria-label="Rajgir introduction">
     <div class="rj-hero-content">
-      <span class="rj-kicker">🏔️ Magadha Capital · Buddhist & Jain Sacred Landscape · Bihar, India</span>
+      <span class="rj-kicker">🏔️ Magadha Capital · Buddhist &amp; Jain Sacred Landscape · Bihar, India</span>
       <h1>
         Rajgir
         <span class="accent">From Fortress Capital to Sacred Landscape</span>
@@ -98,7 +98,7 @@
     <!-- Section 1 · Layer Filter Controls -->
     <section class="rj-section" id="rj-filter-section" aria-label="Layer filter controls">
       <div class="rj-section-header">
-        <h2>Filter by <span>Tradition & Theme</span></h2>
+        <h2>Filter by <span>Tradition &amp; Theme</span></h2>
         <p>Use the layer controls to highlight Buddhist, Jain, or Political/Historical aspects across all sections.</p>
       </div>
       <div class="rj-layer-controls" role="group" aria-label="Layer filter buttons">
@@ -112,7 +112,7 @@
     <!-- Section 2 · Geography Map -->
     <section class="rj-section" id="rj-map-section" aria-label="Rajgir interactive geography map">
       <div class="rj-section-header">
-        <h2>Rajgir <span>Geography & Sacred Sites</span></h2>
+        <h2>Rajgir <span>Geography &amp; Sacred Sites</span></h2>
         <p>Click on map markers to jump to site details. The five hills encircle the ancient valley capital.</p>
       </div>
       <div class="rj-map-card">
@@ -121,42 +121,42 @@
           <svg id="rj-map-svg" class="rj-map-svg" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated map of Rajgir valley and sacred hills">
             <defs>
               <radialGradient id="valleyGrad" cx="50%" cy="55%" r="55%">
-                <stop offset="0%" stop-color="#1a3a2a"/>
-                <stop offset="100%" stop-color="#0d1f17"/>
+                <stop offset="0%" stop-color="#1a3a2a"></stop>
+                <stop offset="100%" stop-color="#0d1f17"></stop>
               </radialGradient>
               <radialGradient id="hillGrad" cx="50%" cy="40%" r="60%">
-                <stop offset="0%" stop-color="#2d5a1b"/>
-                <stop offset="100%" stop-color="#1a3a10"/>
+                <stop offset="0%" stop-color="#2d5a1b"></stop>
+                <stop offset="100%" stop-color="#1a3a10"></stop>
               </radialGradient>
-              <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
             </defs>
 
             <!-- Background valley -->
-            <rect width="800" height="420" fill="url(#valleyGrad)" rx="16"/>
+            <rect width="800" height="420" fill="url(#valleyGrad)" rx="16"></rect>
 
             <!-- Surrounding hills (five hills of Rajgir) -->
             <!-- Vaibhara Hill - West -->
-            <ellipse class="rj-hill" cx="100" cy="200" rx="110" ry="80" fill="url(#hillGrad)" opacity="0.9"/>
+            <ellipse class="rj-hill" cx="100" cy="200" rx="110" ry="80" fill="url(#hillGrad)" opacity="0.9"></ellipse>
             <text x="100" y="175" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Vaibhara</text>
 
             <!-- Ratnagiri - North-West -->
-            <ellipse class="rj-hill" cx="240" cy="70" rx="100" ry="60" fill="url(#hillGrad)" opacity="0.85"/>
+            <ellipse class="rj-hill" cx="240" cy="70" rx="100" ry="60" fill="url(#hillGrad)" opacity="0.85"></ellipse>
             <text x="240" y="50" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Ratnagiri</text>
 
             <!-- Udayagiri - North-East -->
-            <ellipse class="rj-hill" cx="560" cy="60" rx="100" ry="60" fill="url(#hillGrad)" opacity="0.85"/>
+            <ellipse class="rj-hill" cx="560" cy="60" rx="100" ry="60" fill="url(#hillGrad)" opacity="0.85"></ellipse>
             <text x="560" y="40" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Udayagiri</text>
 
             <!-- Sonagiri - South-East -->
-            <ellipse class="rj-hill" cx="660" cy="300" rx="110" ry="70" fill="url(#hillGrad)" opacity="0.85"/>
+            <ellipse class="rj-hill" cx="660" cy="300" rx="110" ry="70" fill="url(#hillGrad)" opacity="0.85"></ellipse>
             <text x="660" y="282" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Sonagiri</text>
 
             <!-- Vipulgiri - South -->
-            <ellipse class="rj-hill" cx="400" cy="380" rx="130" ry="55" fill="url(#hillGrad)" opacity="0.85"/>
+            <ellipse class="rj-hill" cx="400" cy="380" rx="130" ry="55" fill="url(#hillGrad)" opacity="0.85"></ellipse>
             <text x="400" y="368" text-anchor="middle" fill="#90c070" font-size="11" font-family="Outfit,sans-serif" font-weight="700">Vipulgiri</text>
 
             <!-- Cyclopean Wall (dashed outline) -->
-            <ellipse cx="400" cy="210" rx="320" ry="180" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="12 6" opacity="0.6"/>
+            <ellipse cx="400" cy="210" rx="320" ry="180" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="12 6" opacity="0.6"></ellipse>
             <text x="400" y="30" text-anchor="middle" fill="#f59e0b" font-size="10" font-family="Outfit,sans-serif" opacity="0.8">— Cyclopean Wall circuit (approx.) —</text>
 
             <!-- Inner valley label -->
@@ -169,49 +169,49 @@
             <!-- Site Markers -->
             <!-- Gridhrakuta -->
             <g class="rj-site-marker" data-site="gridhrakuta" data-layer="buddhist" filter="url(#glow)" tabindex="0" role="button" aria-label="Gridhrakuta Vulture Peak">
-              <circle cx="180" cy="155" r="18" fill="hsla(158,58%,30%,0.85)" stroke="#34d399" stroke-width="2.5" class="rj-pulse"/>
+              <circle cx="180" cy="155" r="18" fill="hsla(158,58%,30%,0.85)" stroke="#34d399" stroke-width="2.5" class="rj-pulse"></circle>
               <text x="180" y="161" text-anchor="middle" font-size="13">🦅</text>
               <text x="180" y="131" text-anchor="middle" fill="#34d399" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Gridhrakuta</text>
             </g>
 
             <!-- Son Bhandar -->
             <g class="rj-site-marker" data-site="son-bhandar" data-layer="jain" filter="url(#glow)" tabindex="0" role="button" aria-label="Son Bhandar Caves">
-              <circle cx="620" cy="180" r="18" fill="hsla(265,60%,30%,0.85)" stroke="#a78bfa" stroke-width="2.5" class="rj-pulse"/>
+              <circle cx="620" cy="180" r="18" fill="hsla(265,60%,30%,0.85)" stroke="#a78bfa" stroke-width="2.5" class="rj-pulse"></circle>
               <text x="620" y="186" text-anchor="middle" font-size="13">🪨</text>
               <text x="620" y="156" text-anchor="middle" fill="#a78bfa" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Son Bhandar</text>
             </g>
 
             <!-- Bimbisara Jail -->
             <g class="rj-site-marker" data-site="bimbisara-jail" data-layer="political" filter="url(#glow)" tabindex="0" role="button" aria-label="Bimbisara Prison">
-              <circle cx="150" cy="270" r="18" fill="hsla(16,80%,25%,0.85)" stroke="#fb923c" stroke-width="2.5" class="rj-pulse"/>
+              <circle cx="150" cy="270" r="18" fill="hsla(16,80%,25%,0.85)" stroke="#fb923c" stroke-width="2.5" class="rj-pulse"></circle>
               <text x="150" y="276" text-anchor="middle" font-size="13">⛓️</text>
               <text x="150" y="246" text-anchor="middle" fill="#fb923c" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Bimbisara Jail</text>
             </g>
 
             <!-- Saptaparni Cave -->
             <g class="rj-site-marker" data-site="saptaparni" data-layer="buddhist" filter="url(#glow)" tabindex="0" role="button" aria-label="Saptaparni Cave">
-              <circle cx="100" cy="330" r="18" fill="hsla(158,58%,30%,0.85)" stroke="#34d399" stroke-width="2.5" class="rj-pulse"/>
+              <circle cx="100" cy="330" r="18" fill="hsla(158,58%,30%,0.85)" stroke="#34d399" stroke-width="2.5" class="rj-pulse"></circle>
               <text x="100" y="336" text-anchor="middle" font-size="13">🪔</text>
               <text x="100" y="308" text-anchor="middle" fill="#34d399" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Saptaparni</text>
             </g>
 
             <!-- Maniyar Math -->
             <g class="rj-site-marker" data-site="maniyar-math" data-layer="political" filter="url(#glow)" tabindex="0" role="button" aria-label="Maniyar Math temple mound">
-              <circle cx="480" cy="225" r="18" fill="hsla(28,100%,25%,0.85)" stroke="#fb923c" stroke-width="2.5" class="rj-pulse"/>
+              <circle cx="480" cy="225" r="18" fill="hsla(28,100%,25%,0.85)" stroke="#fb923c" stroke-width="2.5" class="rj-pulse"></circle>
               <text x="480" y="231" text-anchor="middle" font-size="13">🐍</text>
               <text x="480" y="203" text-anchor="middle" fill="#fb923c" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Maniyar Math</text>
             </g>
 
             <!-- Cyclopean Wall marker -->
             <g class="rj-site-marker" data-site="cyclopean-wall" data-layer="political" filter="url(#glow)" tabindex="0" role="button" aria-label="Cyclopean Wall">
-              <circle cx="680" cy="130" r="18" fill="hsla(36,95%,25%,0.85)" stroke="#fbbf24" stroke-width="2.5" class="rj-pulse"/>
+              <circle cx="680" cy="130" r="18" fill="hsla(36,95%,25%,0.85)" stroke="#fbbf24" stroke-width="2.5" class="rj-pulse"></circle>
               <text x="680" y="136" text-anchor="middle" font-size="13">🧱</text>
               <text x="680" y="108" text-anchor="middle" fill="#fbbf24" font-size="9.5" font-family="Outfit,sans-serif" font-weight="700">Cyclopean Wall</text>
             </g>
 
             <!-- Vishwa Shanti Stupa (modern) -->
             <g tabindex="0" role="img" aria-label="Vishwa Shanti Stupa (modern)">
-              <circle cx="400" cy="340" r="14" fill="hsla(211,86%,30%,0.75)" stroke="#60a5fa" stroke-width="2"/>
+              <circle cx="400" cy="340" r="14" fill="hsla(211,86%,30%,0.75)" stroke="#60a5fa" stroke-width="2"></circle>
               <text x="400" y="346" text-anchor="middle" font-size="11">☸️</text>
               <text x="400" y="320" text-anchor="middle" fill="#60a5fa" font-size="9" font-family="Outfit,sans-serif">Vishwa Shanti Stupa</text>
             </g>
@@ -322,7 +322,7 @@
         </div>
         <div class="rj-context-card">
           <div class="ctx-icon">📿</div>
-          <h3>Mahavira & Jain Heritage</h3>
+          <h3>Mahavira &amp; Jain Heritage</h3>
           <p>The 24th Tirthankara, Vardhamana Mahavira, visited Rajagriha multiple times and delivered discourses here. The Son Bhandar Caves contain Brahmi inscriptions linking them to Jain traditions, 
             and several Jain temples on the hills commemorate Tirthankaras who are said to have attained moksha in this region.</p>
         </div>
@@ -344,7 +344,7 @@
     <!-- Section 7 · Sources & References -->
     <section class="rj-section" id="rj-sources-section" aria-label="Sources and references">
       <div class="rj-section-header">
-        <h2>Sources & <span>References</span></h2>
+        <h2>Sources &amp; <span>References</span></h2>
         <p>All content is based on credible archaeological, textual, and historical sources.</p>
       </div>
       <div class="rj-sources-list">
@@ -365,7 +365,7 @@
         <div class="rj-source-item">
           <div class="rj-source-num">3</div>
           <div class="rj-source-text">
-            <strong>Archaeological Survey of India. List of Monuments — Bihar & Jharkhand.</strong>
+            <strong>Archaeological Survey of India. List of Monuments — Bihar &amp; Jharkhand.</strong>
             Official protected monument records for Rajgir, including Maniyar Math, Son Bhandar Caves, and the Cyclopean Wall.
           </div>
         </div>
@@ -415,11 +415,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Incredible India Explorer. Open Source Archaeological Heritage Initiative.</p>
+      <p>© 2026 Incredible India Explorer. Open Source Archaeological Heritage Initiative.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
   <script src="../pages-common.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-    <head>
+<!DOCTYPE html><html lang="en"><head>
         <script>
             (function () {
                 const theme = localStorage.getItem('theme') || 'dark';
@@ -9,26 +7,20 @@
                 }
             })();
         </script>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Explore the Federation Cup Athletics Championships — India's premier national athletics event featuring elite athletes, historic records, disciplines, venues, and champions since 1991."
-        />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore the Federation Cup Athletics Championships — India's premier national athletics event featuring elite athletes, historic records, disciplines, venues, and champions since 1991.">
         <title>Federation Cup Athletics Explorer | Incredible India</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
-            rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&amp;display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="federation.css" />
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="federation.css">
     </head>
     <body class="fed-main">
-        <header class="navbar scrolled" id="navbar">
+        <nav class="navbar scrolled" id="navbar" aria-label="Navigation">
             <div class="nav-container">
                 <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                     <span class="saffron">Incredible</span>
@@ -40,7 +32,7 @@
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
-                <nav class="nav-menu" id="nav-menu">
+                <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                     <a href="../../index.html#home" class="nav-link">Home</a>
                     <a href="index.html" class="nav-link active" style="color: var(--saffron)">Federation Cup</a>
                     <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
@@ -48,7 +40,7 @@
                     </button>
                 </nav>
             </div>
-        </header>
+        </nav>
 
         <main>
             <section class="fed-hero">
@@ -79,7 +71,7 @@
                     <h2 class="sec-title">National Records Set at Federation Cup</h2>
                     <div class="records-grid" id="records-grid"></div>
 
-                    <h2 class="sec-title">Past Champions & Highlights</h2>
+                    <h2 class="sec-title">Past Champions &amp; Highlights</h2>
                     <div class="timeline-container" id="timeline-container"></div>
 
                     <h2 class="sec-title">Historic Venues</h2>
@@ -89,7 +81,7 @@
 
             <section class="references-section">
                 <div class="section-container">
-                    <h2>References & Sources</h2>
+                    <h2>References &amp; Sources</h2>
                     <ul class="references-list" id="references-list"></ul>
                 </div>
             </section>
@@ -97,5 +89,6 @@
 
         <script src="federation-data.js"></script>
         <script src="federation.js"></script>
-    </body>
-</html>
+    
+
+</body></html>

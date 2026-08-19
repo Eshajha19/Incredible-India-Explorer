@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="Explore India's shift toward solar and wind energy with animated capacity-growth charts." name="description"/>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Explore India's shift toward solar and wind energy with animated capacity-growth charts." name="description">
     <title>India's Renewable Energy Growth | Incredible India Explorer</title>
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link href="../../styles.css" rel="stylesheet"/>
-    <link href="renewable-energy.css" rel="stylesheet"/>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="../../styles.css" rel="stylesheet">
+    <link href="renewable-energy.css" rel="stylesheet">
     
     <!-- Chart.js for data visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -24,7 +22,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -36,14 +34,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -58,7 +56,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -72,9 +70,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -103,7 +101,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="page-container">
         <section class="hero-section">
@@ -124,17 +122,17 @@
             <div class="icon-container" id="sun-container">
                 <!-- Animated Sun SVG -->
                 <svg viewBox="0 0 100 100" class="animated-sun" id="animated-sun">
-                    <circle cx="50" cy="50" r="20" fill="#FDB813" />
+                    <circle cx="50" cy="50" r="20" fill="#FDB813"></circle>
                     <!-- Rays -->
                     <g stroke="#FDB813" stroke-width="4" stroke-linecap="round">
-                        <line x1="50" y1="10" x2="50" y2="20" />
-                        <line x1="50" y1="80" x2="50" y2="90" />
-                        <line x1="10" y1="50" x2="20" y2="50" />
-                        <line x1="80" y1="50" x2="90" y2="50" />
-                        <line x1="21" y1="21" x2="28" y2="28" />
-                        <line x1="72" y1="72" x2="79" y2="79" />
-                        <line x1="21" y1="79" x2="28" y2="72" />
-                        <line x1="72" y1="28" x2="79" y2="21" />
+                        <line x1="50" y1="10" x2="50" y2="20"></line>
+                        <line x1="50" y1="80" x2="50" y2="90"></line>
+                        <line x1="10" y1="50" x2="20" y2="50"></line>
+                        <line x1="80" y1="50" x2="90" y2="50"></line>
+                        <line x1="21" y1="21" x2="28" y2="28"></line>
+                        <line x1="72" y1="72" x2="79" y2="79"></line>
+                        <line x1="21" y1="79" x2="28" y2="72"></line>
+                        <line x1="72" y1="28" x2="79" y2="21"></line>
                     </g>
                 </svg>
             </div>
@@ -145,13 +143,13 @@
                 <!-- Animated Wind Turbine SVG -->
                 <svg viewBox="0 0 100 100" class="animated-turbine" id="animated-turbine">
                     <!-- Base/Tower -->
-                    <polygon points="48,100 52,100 51,45 49,45" fill="#B0BEC5" />
+                    <polygon points="48,100 52,100 51,45 49,45" fill="#B0BEC5"></polygon>
                     <!-- Blades Group -->
                     <g id="turbine-blades" transform="translate(50, 45)">
-                        <circle cx="0" cy="0" r="4" fill="#90A4AE" />
-                        <path d="M 0,-4 Q -5,-20 0,-40 Q 5,-20 0,-4" fill="#CFD8DC" />
-                        <path d="M 3.46,2 Q 17.32,10 34.64,20 Q 17.32,0 3.46,2" fill="#CFD8DC" />
-                        <path d="M -3.46,2 Q -17.32,10 -34.64,20 Q -17.32,0 -3.46,2" fill="#CFD8DC" />
+                        <circle cx="0" cy="0" r="4" fill="#90A4AE"></circle>
+                        <path d="M 0,-4 Q -5,-20 0,-40 Q 5,-20 0,-4" fill="#CFD8DC"></path>
+                        <path d="M 3.46,2 Q 17.32,10 34.64,20 Q 17.32,0 3.46,2" fill="#CFD8DC"></path>
+                        <path d="M -3.46,2 Q -17.32,10 -34.64,20 Q -17.32,0 -3.46,2" fill="#CFD8DC"></path>
                     </g>
                 </svg>
             </div>
@@ -191,5 +189,6 @@
     <!-- App JS -->
     <script type="module" src="app.js"></script>
     <script src="renewable-energy.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore Indian Table Tennis - Interactive archive of National Table Tennis Championship history, Singles, Doubles, Mixed Doubles, 10x Champion Sharath Kamal, Manika Batra, Indu Puri, and historic Olympic breakthroughs.">
@@ -20,7 +18,7 @@
   </script>
 
   <!-- Sticky Navbar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -32,15 +30,15 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../sports/sports.html" class="nav-link active">Sports</a>
         <a href="#championships" class="nav-link">Championships</a>
         <a href="#champions" class="nav-link">Major Champions</a>
-        <a href="#tactics" class="nav-link">Tactics & Rallies</a>
+        <a href="#tactics" class="nav-link">Tactics &amp; Rallies</a>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="tt-hero" id="hero">
@@ -59,11 +57,11 @@
       </div>
       <div class="stat-card">
         <div class="stat-number">8</div>
-        <div class="stat-label">National Titles (Indu Puri & Kamlesh Mehta)</div>
+        <div class="stat-label">National Titles (Indu Puri &amp; Kamlesh Mehta)</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">1937</div>
-        <div class="stat-label">TTFI Founding & 1st National</div>
+        <div class="stat-label">TTFI Founding &amp; 1st National</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">2024</div>
@@ -73,13 +71,13 @@
   </section>
 
   <!-- Sub-Navigation Sticky Bar -->
-  <nav class="subnav-bar">
+  <nav class="subnav-bar" aria-label="Navigation">
     <div class="subnav-container">
       <button class="subnav-btn active" data-target="evolution">Evolution</button>
       <button class="subnav-btn" data-target="championships">National Championships</button>
       <button class="subnav-btn" data-target="champions">Major Champions</button>
       <button class="subnav-btn" data-target="womens-tt">Women's Heritage</button>
-      <button class="subnav-btn" data-target="tactics">Tactics & Spin</button>
+      <button class="subnav-btn" data-target="tactics">Tactics &amp; Spin</button>
       <button class="subnav-btn" data-target="quiz">Table Tennis Quiz</button>
     </div>
   </nav>
@@ -89,7 +87,7 @@
     <!-- Section 1: Evolution of Indian Table Tennis -->
     <section class="tt-section" id="evolution">
       <div class="section-header">
-        <span class="section-tag">Timeline & Evolution</span>
+        <span class="section-tag">Timeline &amp; Evolution</span>
         <h2>The Story of Indian Table Tennis</h2>
         <p>Trace the historic evolution of table tennis in India across 8 decades of competitive excellence.</p>
       </div>
@@ -102,7 +100,7 @@
     <!-- Section 2: National Championship Archive -->
     <section class="tt-section" id="championships">
       <div class="section-header">
-        <span class="section-tag">Archive & Records</span>
+        <span class="section-tag">Archive &amp; Records</span>
         <h2>Senior National Championship Archive</h2>
         <p>Complete historical records of Men's Singles, Women's Singles, Doubles, and Mixed Doubles championships since 1937.</p>
       </div>
@@ -111,7 +109,7 @@
       <div class="filter-tabs">
         <button class="tab-btn active" id="tab-mens-singles">Men's Singles (1937 - Present)</button>
         <button class="tab-btn" id="tab-womens-singles">Women's Singles (1937 - Present)</button>
-        <button class="tab-btn" id="tab-doubles">Doubles & Mixed Doubles</button>
+        <button class="tab-btn" id="tab-doubles">Doubles &amp; Mixed Doubles</button>
       </div>
 
       <!-- Search & Filters -->
@@ -139,7 +137,7 @@
               <th>Champion</th>
               <th>Runner-Up</th>
               <th>State</th>
-              <th>Notes & Milestones</th>
+              <th>Notes &amp; Milestones</th>
             </tr>
           </thead>
           <tbody id="tt-tbody">
@@ -153,7 +151,7 @@
     <section class="tt-section" id="champions">
       <div class="section-header">
         <span class="section-tag">Hall of Legends</span>
-        <h2>Major Champions & Icons</h2>
+        <h2>Major Champions &amp; Icons</h2>
         <p>Discover the legendary players who elevated Indian table tennis onto the world stage.</p>
       </div>
 
@@ -178,8 +176,8 @@
     <!-- Section 5: Interactive Tactics & Spin Showcase -->
     <section class="tt-section" id="tactics">
       <div class="section-header">
-        <span class="section-tag">Mechanics & Strategy</span>
-        <h2>Interactive Tactics & Spin Showcase</h2>
+        <span class="section-tag">Mechanics &amp; Strategy</span>
+        <h2>Interactive Tactics &amp; Spin Showcase</h2>
         <p>Learn how grip styles, rubber pimple variations, and 9,000 RPM topspin rotation shape elite table tennis.</p>
       </div>
 
@@ -207,7 +205,7 @@
   <!-- Champion Detail Modal Overlay -->
   <div class="modal-overlay" id="champion-modal">
     <div class="modal-content">
-      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <button class="close-modal-btn" id="modal-close-btn" aria-label="Close">×</button>
       <div id="modal-body-content">
         <!-- Rendered dynamically -->
       </div>
@@ -221,5 +219,6 @@
 
   <!-- Script Imports -->
   <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

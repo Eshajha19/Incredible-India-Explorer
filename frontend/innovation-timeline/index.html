@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indian Innovation Timeline — 7,000 Years of Breakthroughs</title>
     <meta name="description" content="An interactive journey through India's scientific and technological contributions — from the first cotton thread and the invention of zero to Mangalyaan, UPI and the lunar south pole.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&amp;family=Mukta:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -54,7 +52,7 @@
                 <input type="search" id="search-input" placeholder="Search innovations… (e.g. zero, Mars, UPI)" aria-label="Search innovations">
             </div>
             <div class="chips" role="group" aria-label="Filter by era">
-                <button class="chip active" data-era="all">All <b id="count-all"></b></button>
+                <button class="chip active" data-era="all" aria-label="Button">All <b id="count-all"></b></button>
                 <button class="chip" data-era="ancient">Ancient <b id="count-ancient"></b></button>
                 <button class="chip" data-era="medieval">Medieval <b id="count-medieval"></b></button>
                 <button class="chip" data-era="modern">Modern <b id="count-modern"></b></button>
@@ -71,7 +69,7 @@
             <div class="tl-progress" id="tl-progress" aria-hidden="true"></div>
             <!-- items injected by script.js -->
         </div>
-        <div class="empty-state" id="empty-state" hidden>
+        <div class="empty-state" id="empty-state" hidden="">
             <span>🔭</span>
             <p>No innovations match — try another era or keyword.</p>
         </div>
@@ -82,10 +80,10 @@
     </footer>
 
     <!-- ============ MODAL ============ -->
-    <div class="modal" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-        <div class="modal-backdrop" data-close></div>
+    <div class="modal" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden="">
+        <div class="modal-backdrop" data-close=""></div>
         <div class="modal-card">
-            <button class="modal-close" data-close aria-label="Close">✕</button>
+            <button class="modal-close" data-close="" aria-label="Close">✕</button>
             <div class="modal-head">
                 <span class="modal-icon" id="modal-icon">♾️</span>
                 <div class="modal-meta">
@@ -106,6 +104,6 @@
 
     <button id="btn-top" class="btn-top" aria-label="Back to top">↑</button>
 
-    <script src="script.js" defer></script>
-</body>
-</html>
+    <script src="script.js" defer=""></script>
+
+</body></html>

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soochipara Falls Explorer | Sentinel Rock Waterfalls | Wayanad, Kerala</title>
   <meta name="description" content="Explore Soochipara Falls (Sentinel Rock Waterfalls) in Vellarimala, Wayanad, Kerala — an interactive 3-tier cascade explorer with rainforest maps, seasonal flow guide, trekking trails, and rock climbing peaks.">
 
   <!-- Preload Critical Fonts -->
-  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
@@ -25,7 +23,7 @@
   </script>
 
   <!-- Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -37,18 +35,18 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../waterfalls-of-india/index.html" class="nav-link">Waterfalls Collection</a>
         <a href="#tier-section" class="nav-link active">3-Tier Cascade</a>
-        <a href="#forest-map-section" class="nav-link">Forest & Trail Map</a>
+        <a href="#forest-map-section" class="nav-link">Forest &amp; Trail Map</a>
         <a href="#seasonal-section" class="nav-link">Seasonal Flow</a>
         <a href="#attractions-section" class="nav-link">Nearby Attractions</a>
-        <a href="#trek-info-section" class="nav-link">Trek & Safety</a>
+        <a href="#trek-info-section" class="nav-link">Trek &amp; Safety</a>
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <main>
     <!-- HERO SECTION -->
@@ -96,7 +94,7 @@
             <!-- Tier 3: Bottom Plunge Pool -->
             <div class="tier-block tier-3" data-tier="tier3" tabindex="0" role="button" aria-label="Tier 3: Plunge Pool Cascade (65m)">
               <div class="tier-badge">Tier 3 · 65m</div>
-              <h4>Lower Plunge & Pool</h4>
+              <h4>Lower Plunge &amp; Pool</h4>
               <p>Plunges into a wide, boulder-strewn natural pool popular for rafting and swimming.</p>
             </div>
           </div>
@@ -109,7 +107,7 @@
             </div>
             <div class="tier-meta-grid">
               <div><strong>Elevation Drop:</strong> <span id="tier-drop">Approx. 70 meters</span></div>
-              <div><strong>Surrounding Habitat:</strong> <span id="tier-habitat">Wet Evergreen & Shola Forests</span></div>
+              <div><strong>Surrounding Habitat:</strong> <span id="tier-habitat">Wet Evergreen &amp; Shola Forests</span></div>
               <div><strong>Key Highlight:</strong> <span id="tier-highlight">Roaring white curtain through tree ferns</span></div>
             </div>
           </div>
@@ -122,59 +120,59 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Forest Geography</span>
-          <h2>Interactive Wayanad Forest & Trek Trail Map</h2>
+          <h2>Interactive Wayanad Forest &amp; Trek Trail Map</h2>
           <p>Explore key geographical landmarks, trail checkpoints, and surrounding tea estates in the Vellarimala range.</p>
         </div>
 
         <div class="forest-map-wrapper">
           <div class="forest-svg-box">
             <svg viewBox="0 0 800 500" class="forest-svg" aria-label="Interactive map of Soochipara Falls forest and trekking trail">
-              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"/>
+              <rect width="100%" height="100%" fill="rgba(15, 23, 42, 0.4)"></rect>
               
               <!-- Forest Contour Rings -->
-              <ellipse cx="400" cy="250" rx="350" ry="200" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.15"/>
-              <ellipse cx="400" cy="250" rx="260" ry="140" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.25"/>
+              <ellipse cx="400" cy="250" rx="350" ry="200" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.15"></ellipse>
+              <ellipse cx="400" cy="250" rx="260" ry="140" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.25"></ellipse>
 
               <!-- River Pathway -->
-              <path class="chaliyar-path" d="M 120,80 Q 280,180 440,240 T 700,420" fill="none" stroke="#38bdf8" stroke-width="20" opacity="0.35"/>
-              <path class="chaliyar-core" d="M 120,80 Q 280,180 440,240 T 700,420" fill="none" stroke="#0284c7" stroke-width="10"/>
+              <path class="chaliyar-path" d="M 120,80 Q 280,180 440,240 T 700,420" fill="none" stroke="#38bdf8" stroke-width="20" opacity="0.35"></path>
+              <path class="chaliyar-core" d="M 120,80 Q 280,180 440,240 T 700,420" fill="none" stroke="#0284c7" stroke-width="10"></path>
 
               <!-- Trek Trail Line -->
-              <path d="M 160,380 L 260,320 L 350,280 L 440,240" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="6,4"/>
+              <path d="M 160,380 L 260,320 L 350,280 L 440,240" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="6,4"></path>
 
               <!-- Map Pins -->
               <!-- Soochipara Falls Core Drop -->
               <g class="map-pin" data-spot="falls" tabindex="0" role="button" aria-label="Soochipara Falls Drop">
-                <circle cx="440" cy="240" r="16" fill="rgba(245, 158, 11, 0.4)"/>
-                <circle cx="440" cy="240" r="8" fill="#f59e0b"/>
+                <circle cx="440" cy="240" r="16" fill="rgba(245, 158, 11, 0.4)"></circle>
+                <circle cx="440" cy="240" r="8" fill="#f59e0b"></circle>
                 <text x="440" y="215" fill="#ffffff" font-weight="bold" font-size="12" text-anchor="middle">Soochipara Falls (200m)</text>
               </g>
 
               <!-- Sentinel Rock Cliff -->
               <g class="map-pin" data-spot="sentinel-rock" tabindex="0" role="button" aria-label="Sentinel Rock Peak">
-                <circle cx="530" cy="180" r="14" fill="rgba(239, 68, 68, 0.4)"/>
-                <circle cx="530" cy="180" r="7" fill="#ef4444"/>
+                <circle cx="530" cy="180" r="14" fill="rgba(239, 68, 68, 0.4)"></circle>
+                <circle cx="530" cy="180" r="7" fill="#ef4444"></circle>
                 <text x="530" y="155" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Sentinel Rock Cliff</text>
               </g>
 
               <!-- Forest Entry Gate & Parking -->
-              <g class="map-pin" data-spot="entry-gate" tabindex="0" role="button" aria-label="Forest Entry & Ticket Counter">
-                <circle cx="160" cy="380" r="14" fill="rgba(34, 197, 94, 0.4)"/>
-                <circle cx="160" cy="380" r="7" fill="#22c55e"/>
+              <g class="map-pin" data-spot="entry-gate" tabindex="0" role="button" aria-label="Forest Entry &amp; Ticket Counter">
+                <circle cx="160" cy="380" r="14" fill="rgba(34, 197, 94, 0.4)"></circle>
+                <circle cx="160" cy="380" r="7" fill="#22c55e"></circle>
                 <text x="160" y="410" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Forest Gate (Trek Start)</text>
               </g>
 
               <!-- Chembra Peak Range Backdrop -->
               <g class="map-pin" data-spot="chembra" tabindex="0" role="button" aria-label="Chembra Peak Watershed">
-                <circle cx="280" cy="110" r="14" fill="rgba(168, 85, 247, 0.4)"/>
-                <circle cx="280" cy="110" r="7" fill="#a855f7"/>
+                <circle cx="280" cy="110" r="14" fill="rgba(168, 85, 247, 0.4)"></circle>
+                <circle cx="280" cy="110" r="7" fill="#a855f7"></circle>
                 <text x="280" y="90" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Chembra Watershed</text>
               </g>
 
               <!-- Meenmutty Link -->
               <g class="map-pin" data-spot="meenmutty" tabindex="0" role="button" aria-label="Meenmutty Falls Range">
-                <circle cx="680" cy="340" r="14" fill="rgba(56, 189, 248, 0.4)"/>
-                <circle cx="680" cy="340" r="7" fill="#38bdf8"/>
+                <circle cx="680" cy="340" r="14" fill="rgba(56, 189, 248, 0.4)"></circle>
+                <circle cx="680" cy="340" r="7" fill="#38bdf8"></circle>
                 <text x="680" y="370" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Meenmutty Falls (12 km)</text>
               </g>
             </svg>
@@ -201,7 +199,7 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Visiting Guide</span>
-          <h2>Best Visiting Season & Seasonal Dynamics</h2>
+          <h2>Best Visiting Season &amp; Seasonal Dynamics</h2>
           <p>Plan your visit according to river flow strength, monsoon safety restrictions, and weather clarity.</p>
         </div>
 
@@ -212,13 +210,13 @@
         </div>
 
         <div class="season-display-card" id="season-display-card">
-          <h3 id="s-card-title">Post-Monsoon & Winter Peak (September to February)</h3>
+          <h3 id="s-card-title">Post-Monsoon &amp; Winter Peak (September to February)</h3>
           <p id="s-card-desc">The ideal season to explore Soochipara Falls. The waterfall flows with immense volume and crystal-clear emerald water. Lush green shola forests thrive, trekking paths are safe and dry, and visitors can enjoy bathing under the lower plunge pool.</p>
           
           <div class="season-pills-row">
-            <span class="sp-badge" id="sp-flow">Flow: Robust, Clear & Roaring</span>
-            <span class="sp-badge" id="sp-trek">Trek Trail: Safe, Dry & Picturesque</span>
-            <span class="sp-badge" id="sp-highlight">Highlights: Natural pool swimming, rock photography & tea estate walk</span>
+            <span class="sp-badge" id="sp-flow">Flow: Robust, Clear &amp; Roaring</span>
+            <span class="sp-badge" id="sp-trek">Trek Trail: Safe, Dry &amp; Picturesque</span>
+            <span class="sp-badge" id="sp-highlight">Highlights: Natural pool swimming, rock photography &amp; tea estate walk</span>
           </div>
         </div>
       </div>
@@ -254,7 +252,7 @@
 
           <div class="attraction-card">
             <span class="a-icon">🍃</span>
-            <h3>Meppadi & Vellarimala Tea Gardens</h3>
+            <h3>Meppadi &amp; Vellarimala Tea Gardens</h3>
             <p>Vast rolling emerald tea and coffee plantations offering scenic photo stops, estate tours, and fresh tea tasting.</p>
           </div>
         </div>
@@ -266,14 +264,14 @@
       <div class="section-container">
         <div class="section-header">
           <span class="section-tag">Travel Logistics</span>
-          <h2>Trek Information, Access & Safety</h2>
+          <h2>Trek Information, Access &amp; Safety</h2>
           <p>Essential practical details for visitors preparing for the downhill forest walk.</p>
         </div>
 
         <div class="trek-grid">
           <div class="trek-card">
             <span class="t-icon">🥾</span>
-            <h4>Trail Route & Difficulty</h4>
+            <h4>Trail Route &amp; Difficulty</h4>
             <p>2 km downhill walk from the forest checkpost through well-laid concrete steps. Moderate difficulty returning uphill.</p>
           </div>
 
@@ -285,13 +283,13 @@
 
           <div class="trek-card">
             <span class="t-icon">⏰</span>
-            <h4>Timings & Entry Fees</h4>
+            <h4>Timings &amp; Entry Fees</h4>
             <p>Open daily from 9:00 AM to 5:00 PM (Entry closes by 4:00 PM). Forest department permits issued at the counter.</p>
           </div>
 
           <div class="trek-card">
             <span class="t-icon">🛡️</span>
-            <h4>Eco & Plastic-Free Protocol</h4>
+            <h4>Eco &amp; Plastic-Free Protocol</h4>
             <p>Plastic bottles are tagged or restricted at the forest entry checkpoint to protect indigenous wildlife.</p>
           </div>
         </div>
@@ -301,10 +299,10 @@
     <!-- SOURCES & REFERENCES -->
     <section class="sources-section">
       <div class="section-container">
-        <h2>Sources & Forest References</h2>
+        <h2>Sources &amp; Forest References</h2>
         <ul class="sources-list">
           <li>Kerala Tourism Official Portal – Soochipara Falls (Sentinel Rock) Destination Guide.</li>
-          <li>Department of Forests & Wildlife, Government of Kerala – Wayanad South Forest Division.</li>
+          <li>Department of Forests &amp; Wildlife, Government of Kerala – Wayanad South Forest Division.</li>
           <li>District Tourism Promotion Council (DTPC) Wayanad – Ecotourism Circuit Documentation.</li>
         </ul>
       </div>
@@ -323,5 +321,6 @@
   </footer>
 
   <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Explore the Indian National Army (INA) - from POW camps in Singapore to the jungles of Imphal, under Subhas Chandra Bose's Azad Hind Government.">
+    <meta name="description" content="Explore the Indian National Army (INA) - from POW camps in Singapore to the jungles of Imphal, under Subhas Chandra Bose's Azad Hind Government.">
     <title>Indian National Army (INA) Explorer | Incredible India</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css?v=2.0">
     <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
 
     <meta property="og:title" content="Indian National Army (INA) Explorer | Incredible India Explorer">
-    <meta property="og:description"
-        content="From POW camps in Singapore to the jungles of Imphal - trace the INA's formation, Azad Hind Government, campaigns, and Red Fort Trials.">
+    <meta property="og:description" content="From POW camps in Singapore to the jungles of Imphal - trace the INA's formation, Azad Hind Government, campaigns, and Red Fort Trials.">
     <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/frontend/assets/ina_explorer_banner.png">
     <meta property="og:url" content="https://incredibleindiaexplorer.gov.in/frontend/indian-national-army-explorer/index.html">
     <meta property="og:type" content="website">
@@ -30,7 +26,7 @@
   })();
 </script>
 
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
   <div class="nav-container">
     <a href="../../index.html#home" class="nav-logo" id="nav-logo">
       <span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span>
@@ -38,14 +34,14 @@
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
-    <nav class="nav-menu" id="nav-menu">
+    <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
       <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
       <div class="nav-dropdown"><button class="nav-link dropdown-toggle">Destinations ▾</button><div class="dropdown-menu"><a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a><a href="../../frontend/forts/forts.html" class="dropdown-item">Forts of India</a></div></div>
       <div class="nav-dropdown"><button class="nav-link dropdown-toggle">Culture ▾</button><div class="dropdown-menu"><a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a><a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a></div></div>
       <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
     </nav>
   </div>
-</header>
+</nav>
 
 <main id="app-root" class="ina-main">
 
@@ -75,18 +71,18 @@
         <svg viewBox="0 0 240 240" class="emblem-svg">
           <defs>
             <radialGradient id="emb-glow" cx="50%" cy="50%">
-              <stop offset="0%" stop-color="#ffb347" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="#ff6a00" stop-opacity="0"/>
+              <stop offset="0%" stop-color="#ffb347" stop-opacity="0.8"></stop>
+              <stop offset="100%" stop-color="#ff6a00" stop-opacity="0"></stop>
             </radialGradient>
             <linearGradient id="emb-ring" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#f6c453"/><stop offset="100%" stop-color="#c9923b"/>
+              <stop offset="0%" stop-color="#f6c453"></stop><stop offset="100%" stop-color="#c9923b"></stop>
             </linearGradient>
           </defs>
-          <circle cx="120" cy="120" r="115" fill="url(#emb-glow)"/>
-          <circle cx="120" cy="120" r="90" fill="none" stroke="url(#emb-ring)" stroke-width="1.5"/>
-          <circle cx="120" cy="120" r="70" fill="none" stroke="url(#emb-ring)" stroke-width="0.6" stroke-dasharray="2 4"/>
+          <circle cx="120" cy="120" r="115" fill="url(#emb-glow)"></circle>
+          <circle cx="120" cy="120" r="90" fill="none" stroke="url(#emb-ring)" stroke-width="1.5"></circle>
+          <circle cx="120" cy="120" r="70" fill="none" stroke="url(#emb-ring)" stroke-width="0.6" stroke-dasharray="2 4"></circle>
           <g class="spinning-spring" style="transform-origin:120px 120px">
-            <circle cx="120" cy="120" r="50" fill="none" stroke="#f6c453" stroke-width="0.8"/>
+            <circle cx="120" cy="120" r="50" fill="none" stroke="#f6c453" stroke-width="0.8"></circle>
             <text x="120" y="80" text-anchor="middle" font-family="Playfair Display" font-size="9" fill="#f6c453" font-weight="700">JAI HIND</text>
             <text x="120" y="168" text-anchor="middle" font-family="Playfair Display" font-size="9" fill="#f6c453" font-weight="700">آزاد ہند</text>
           </g>
@@ -130,7 +126,7 @@
       </div>
       <div class="ina-cards-grid">
         <div class="ina-info-card"><span class="ina-info-icon">🤝</span><h3>F Kikan Contact</h3><p>Major Fujiwara Iwaichi persuaded Mohan Singh to organise willing POWs into an independence army.</p></div>
-        <div class="ina-info-card"><span class="ina-info-icon">🏛️</span><h3>Bangkok & Tokyo</h3><p>The Indian Independence League, led by Rash Behari Bose, formally endorsed the plan in mid-1942.</p></div>
+        <div class="ina-info-card"><span class="ina-info-icon">🏛️</span><h3>Bangkok &amp; Tokyo</h3><p>The Indian Independence League, led by Rash Behari Bose, formally endorsed the plan in mid-1942.</p></div>
         <div class="ina-info-card"><span class="ina-info-icon">⚠️</span><h3>Growing Distrust</h3><p>Mohan Singh suspected Japan intended to use the INA as a token force under its own command.</p></div>
         <div class="ina-info-card"><span class="ina-info-icon">🛑</span><h3>Dissolution</h3><p>In December 1942, he ordered the First INA disbanded. He was arrested by the Japanese.</p></div>
       </div>
@@ -286,43 +282,43 @@
         <svg class="map-svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet">
           <defs>
             <linearGradient id="sea-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0b1a2e"/><stop offset="100%" stop-color="#102947"/>
+              <stop offset="0%" stop-color="#0b1a2e"></stop><stop offset="100%" stop-color="#102947"></stop>
             </linearGradient>
             <linearGradient id="land-grad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#2d3f2a"/><stop offset="100%" stop-color="#1f2d1c"/>
+              <stop offset="0%" stop-color="#2d3f2a"></stop><stop offset="100%" stop-color="#1f2d1c"></stop>
             </linearGradient>
             <pattern id="map-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(246,196,83,0.08)" stroke-width="0.5"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(246,196,83,0.08)" stroke-width="0.5"></path>
             </pattern>
             <marker id="route-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto">
-              <path d="M0 0 L10 5 L0 10 z" fill="#ff9933"/>
+              <path d="M0 0 L10 5 L0 10 z" fill="#ff9933"></path>
             </marker>
           </defs>
 
-          <rect width="800" height="500" fill="url(#sea-grad)"/>
-          <rect width="800" height="500" fill="url(#map-grid)"/>
+          <rect width="800" height="500" fill="url(#sea-grad)"></rect>
+          <rect width="800" height="500" fill="url(#map-grid)"></rect>
 
           <!-- India subcontinent -->
-          <path class="land" d="M 80,120 Q 130,100 180,110 Q 240,115 270,140 L 295,180 Q 305,210 295,245 L 275,295 Q 260,330 235,360 Q 205,390 175,410 Q 150,415 135,400 Q 115,370 100,340 Q 85,300 75,255 Q 70,205 75,165 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="1"/>
+          <path class="land" d="M 80,120 Q 130,100 180,110 Q 240,115 270,140 L 295,180 Q 305,210 295,245 L 275,295 Q 260,330 235,360 Q 205,390 175,410 Q 150,415 135,400 Q 115,370 100,340 Q 85,300 75,255 Q 70,205 75,165 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="1"></path>
 
           <!-- Burma -->
-          <path class="land" d="M 320,175 Q 355,180 375,215 L 385,265 Q 390,305 375,335 Q 355,360 335,355 Q 320,335 315,300 L 310,240 Q 310,205 320,175 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="1"/>
+          <path class="land" d="M 320,175 Q 355,180 375,215 L 385,265 Q 390,305 375,335 Q 355,360 335,355 Q 320,335 315,300 L 310,240 Q 310,205 320,175 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="1"></path>
 
           <!-- Malaya -->
-          <path class="land" d="M 410,290 Q 430,295 440,330 L 445,385 Q 440,420 425,430 Q 410,425 405,395 L 400,345 Q 402,310 410,290 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="1"/>
+          <path class="land" d="M 410,290 Q 430,295 440,330 L 445,385 Q 440,420 425,430 Q 410,425 405,395 L 400,345 Q 402,310 410,290 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="1"></path>
 
           <!-- Thailand -->
-          <path class="land" d="M 385,220 Q 415,225 430,260 L 430,285 Q 420,290 405,285 Q 385,265 380,240 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.3)" stroke-width="0.7"/>
+          <path class="land" d="M 385,220 Q 415,225 430,260 L 430,285 Q 420,290 405,285 Q 385,265 380,240 Z" fill="url(#land-grad)" stroke="rgba(246,196,83,0.3)" stroke-width="0.7"></path>
 
           <!-- Andaman & Nicobar -->
-          <ellipse class="land" cx="330" cy="380" rx="8" ry="20" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="0.8"/>
-          <ellipse class="land" cx="335" cy="420" rx="6" ry="14" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="0.8"/>
+          <ellipse class="land" cx="330" cy="380" rx="8" ry="20" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="0.8"></ellipse>
+          <ellipse class="land" cx="335" cy="420" rx="6" ry="14" fill="url(#land-grad)" stroke="rgba(246,196,83,0.4)" stroke-width="0.8"></ellipse>
 
           <!-- Sumatra (background) -->
-          <path class="land far" d="M 420,445 Q 470,460 510,485 Q 510,495 470,490 Q 430,475 420,460 Z" fill="rgba(45,63,42,0.45)" stroke="rgba(246,196,83,0.2)" stroke-width="0.5"/>
+          <path class="land far" d="M 420,445 Q 470,460 510,485 Q 510,495 470,490 Q 430,475 420,460 Z" fill="rgba(45,63,42,0.45)" stroke="rgba(246,196,83,0.2)" stroke-width="0.5"></path>
 
           <!-- Animated INA route -->
-          <path class="ina-route" d="M 430,400 Q 415,370 385,300 Q 360,245 355,225 Q 340,200 310,200" fill="none" stroke="#ff9933" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round" marker-end="url(#route-arrow)"/>
+          <path class="ina-route" d="M 430,400 Q 415,370 385,300 Q 360,245 355,225 Q 340,200 310,200" fill="none" stroke="#ff9933" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round" marker-end="url(#route-arrow)"></path>
 
           <!-- Sea labels -->
           <text x="215" y="340" class="sea-label" fill="rgba(246,196,83,0.5)" font-size="10" letter-spacing="3">BAY OF BENGAL</text>
@@ -330,8 +326,8 @@
 
           <!-- Compass -->
           <g transform="translate(720,60)" class="compass">
-            <circle r="26" fill="rgba(0,0,0,0.35)" stroke="rgba(246,196,83,0.5)" stroke-width="1"/>
-            <path d="M0 -20 L4 0 L0 20 L-4 0 Z" fill="#f6c453" opacity="0.85"/>
+            <circle r="26" fill="rgba(0,0,0,0.35)" stroke="rgba(246,196,83,0.5)" stroke-width="1"></circle>
+            <path d="M0 -20 L4 0 L0 20 L-4 0 Z" fill="#f6c453" opacity="0.85"></path>
             <text y="-30" text-anchor="middle" font-family="Playfair Display" font-size="10" fill="#f6c453" font-weight="700">N</text>
           </g>
         </svg>
@@ -430,8 +426,8 @@
           <span class="cc-badge">Netaji</span>
           <div class="cc-portrait" data-initials="SCB">
             <svg viewBox="0 0 120 120" preserveAspectRatio="xMidYMid slice">
-              <defs><radialGradient id="p1" cx="50%" cy="40%"><stop offset="0%" stop-color="#ff9933"/><stop offset="100%" stop-color="#6b2d05"/></radialGradient></defs>
-              <rect width="120" height="120" fill="url(#p1)"/>
+              <defs><radialGradient id="p1" cx="50%" cy="40%"><stop offset="0%" stop-color="#ff9933"></stop><stop offset="100%" stop-color="#6b2d05"></stop></radialGradient></defs>
+              <rect width="120" height="120" fill="url(#p1)"></rect>
               <text x="60" y="72" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="700" fill="#fff8e7">SCB</text>
             </svg>
           </div>
@@ -440,21 +436,21 @@
         <a class="commander-card" href="../rash-behari-bose-explorer/index.html">
           <span class="cc-badge">Veteran</span>
           <div class="cc-portrait" data-initials="RBB">
-            <svg viewBox="0 0 120 120"><defs><radialGradient id="p2" cx="50%" cy="40%"><stop offset="0%" stop-color="#f6c453"/><stop offset="100%" stop-color="#6e4a12"/></radialGradient></defs><rect width="120" height="120" fill="url(#p2)"/><text x="60" y="72" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="700" fill="#fff8e7">RBB</text></svg>
+            <svg viewBox="0 0 120 120"><defs><radialGradient id="p2" cx="50%" cy="40%"><stop offset="0%" stop-color="#f6c453"></stop><stop offset="100%" stop-color="#6e4a12"></stop></radialGradient></defs><rect width="120" height="120" fill="url(#p2)"></rect><text x="60" y="72" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="700" fill="#fff8e7">RBB</text></svg>
           </div>
           <div class="cc-body"><h3>Rash Behari Bose</h3><p>President, Indian Independence League · 1886–1945</p><small>Explore in depth →</small></div>
         </a>
         <a class="commander-card" href="../captain-lakshmi-sahgal-explorer/index.html">
           <span class="cc-badge">Captain</span>
           <div class="cc-portrait" data-initials="LS">
-            <svg viewBox="0 0 120 120"><defs><radialGradient id="p3" cx="50%" cy="40%"><stop offset="0%" stop-color="#37a45d"/><stop offset="100%" stop-color="#0d3c1a"/></radialGradient></defs><rect width="120" height="120" fill="url(#p3)"/><text x="60" y="72" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="700" fill="#fff8e7">LS</text></svg>
+            <svg viewBox="0 0 120 120"><defs><radialGradient id="p3" cx="50%" cy="40%"><stop offset="0%" stop-color="#37a45d"></stop><stop offset="100%" stop-color="#0d3c1a"></stop></radialGradient></defs><rect width="120" height="120" fill="url(#p3)"></rect><text x="60" y="72" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="700" fill="#fff8e7">LS</text></svg>
           </div>
           <div class="cc-body"><h3>Captain Lakshmi Sahgal</h3><p>Commander, Rani of Jhansi Regiment · 1914–2012</p><small>Explore in depth →</small></div>
         </a>
         <div class="commander-card">
           <span class="cc-badge">Founder</span>
           <div class="cc-portrait" data-initials="MS">
-            <svg viewBox="0 0 120 120"><defs><radialGradient id="p4" cx="50%" cy="40%"><stop offset="0%" stop-color="#8b7355"/><stop offset="100%" stop-color="#3a2f1e"/></radialGradient></defs><rect width="120" height="120" fill="url(#p4)"/><text x="60" y="72" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="700" fill="#fff8e7">MS</text></svg>
+            <svg viewBox="0 0 120 120"><defs><radialGradient id="p4" cx="50%" cy="40%"><stop offset="0%" stop-color="#8b7355"></stop><stop offset="100%" stop-color="#3a2f1e"></stop></radialGradient></defs><rect width="120" height="120" fill="url(#p4)"></rect><text x="60" y="72" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="700" fill="#fff8e7">MS</text></svg>
           </div>
           <div class="cc-body"><h3>Captain Mohan Singh</h3><p>Founder, First INA · 1909–1989</p><small>Raised the first army in 1942</small></div>
         </div>
@@ -516,7 +512,7 @@
         <h2>Did You Know?</h2>
       </div>
       <div class="accordion" id="trivia-accordion">
-        <details class="acc-item" open>
+        <details class="acc-item" open="">
           <summary><span class="acc-icon">🏝️</span>The INA briefly "governed" Indian territory</summary>
           <div class="acc-body">After Japan transferred nominal sovereignty over the Andaman and Nicobar Islands in December 1943, Azad Hind renamed them <b>Shaheed</b> (Martyr) and <b>Swaraj</b> (Self-Rule) Islands — the only Indian soil ever under the INA flag.</div>
         </details>
@@ -579,12 +575,12 @@
 
 <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
 
-<script src="../app.js" defer></script>
-<script src="../../frontend/journey/journey.js" defer></script>
-<script src="script.js" defer></script>
+<script src="../app.js" defer=""></script>
+<script src="../../frontend/journey/journey.js" defer=""></script>
+<script src="script.js" defer=""></script>
 <script type="module" src="../firebase-config.js"></script>
 <script type="module" src="../auth.js"></script>
-<script src="../router.js" defer></script>
+<script src="../router.js" defer=""></script>
 <script src="../js-modules/page-progress/page-progress.js"></script>
-</body>
-</html>
+
+</body></html>

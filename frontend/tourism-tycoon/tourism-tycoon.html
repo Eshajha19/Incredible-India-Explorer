@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>India Tourism Tycoon Simulation Game | Incredible India Explorer</title>
   <meta name="description" content="Build and manage Indian tourism infrastructure while balancing revenue, happiness, cleanliness, amenities, random events, and tourist growth.">
   <link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="tourism-tycoon.css">
 </head>
 <body>
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -19,14 +17,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -41,7 +39,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -55,9 +53,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -86,10 +84,11 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 <main class="tycoon-page">
 <section class="tycoon-hero"><div class="hero-content"><span class="hero-kicker">Economic simulation · infrastructure · events</span><h1>India Tourism <span>Tycoon</span></h1><p>Build hotels, airports, eco-parks, and local transport networks across Indian states while balancing revenue, tourist happiness, cleanliness, amenities, and surprise events.</p><div class="hero-stats"><div><strong id="cash-hero">₹0</strong><span>Cash</span></div><div><strong id="happiness-hero">0%</strong><span>Happiness</span></div><div><strong id="month-hero">1</strong><span>Month</span></div></div><a href="#simulation-board" class="hero-cta">Start managing ↓</a></div></section>
 <section class="simulation-section" id="simulation-board"><div class="simulation-container"><div class="section-heading"><span class="section-badge">Difficulty level 3</span><h2>Manage a destination like a tourism board</h2><p>Choose a state, build infrastructure, tune pricing and cleanliness, respond to events, and end each month with a smarter tourism economy.</p></div><div class="dashboard-grid"><aside class="state-panel"><label for="state-select">Tourism destination</label><select id="state-select"></select><div id="state-card" class="state-card"></div><div class="policy-group"><label for="ticket-price">Ticket price index</label><input id="ticket-price" type="range" min="60" max="160" value="100"><span id="ticket-label">100</span></div><div class="policy-group"><label for="cleanliness-spend">Cleanliness spend</label><input id="cleanliness-spend" type="range" min="0" max="12000" step="1000" value="4000"><span id="cleanliness-label">₹4,000</span></div></aside><article class="management-panel"><div class="metric-grid"><div><span>Cash</span><strong id="cash">₹0</strong></div><div><span>Tourists</span><strong id="tourists">0</strong></div><div><span>Revenue</span><strong id="revenue">₹0</strong></div><div><span>Happiness</span><strong id="happiness">0%</strong></div><div><span>Cleanliness</span><strong id="cleanliness">0%</strong></div><div><span>Amenities</span><strong id="amenities">0</strong></div></div><h3>Build Infrastructure</h3><div class="build-grid" id="build-grid"></div><div class="turn-actions"><button id="next-month" type="button">Run next month</button><button id="reset-game" type="button">Reset simulation</button><button id="save-game" type="button">Save game</button></div><div class="event-card" id="event-card" role="status" aria-live="polite"></div></article></div><section class="portfolio-panel"><div class="portfolio-heading"><h3>Infrastructure Portfolio</h3><span id="portfolio-score">Score: 0</span></div><div id="portfolio-list" class="portfolio-list"></div></section></div></section>
 </main>
 <footer class="tycoon-footer"><p>Part of <a href="../../index.html">Incredible India Explorer</a> · Economic simulation for tourism planning.</p></footer><button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button><script src="app.js"></script><script src="tourism-tycoon.js"></script>
+
 </body></html>

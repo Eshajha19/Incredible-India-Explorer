@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <script>
         (function() {
             let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -16,9 +14,9 @@
     <link rel="icon" href="data:,">
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 
@@ -31,7 +29,7 @@
 
 <body class="khelratna-page-body">
     <!-- Navbar Header -->
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -43,14 +41,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -65,7 +63,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -79,9 +77,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -110,7 +108,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="khelratna-main">
         <!-- Hero Banner -->
@@ -124,7 +122,7 @@
                 <span class="khelratna-kicker">🏆 India's Highest Sporting Honour</span>
                 <h1>Major Dhyan Chand <span>Khel Ratna</span></h1>
                 <p>The crown jewel of Indian sport — conferred for the most spectacular and outstanding international performance over a four-year cycle, from chess grandmasters and Olympic gold medallists to para-athletic champions.</p>
-                <p class="khelratna-type-line">Celebrating — <span class="khelratna-type" data-words='["Chess Grandmasters","Olympic Gold Medallists","Para Champions","World Champions","Hockey Legends","Team India Heroes"]'></span></p>
+                <p class="khelratna-type-line">Celebrating — <span class="khelratna-type" data-words="[&quot;Chess Grandmasters&quot;,&quot;Olympic Gold Medallists&quot;,&quot;Para Champions&quot;,&quot;World Champions&quot;,&quot;Hockey Legends&quot;,&quot;Team India Heroes&quot;]"></span></p>
 
                 <div class="khelratna-hero-stats">
                     <div class="khelratna-hero-stat">
@@ -182,7 +180,7 @@
                         <p>In its early years the award evaluated a single year of performance. Following the suggestions of the 2014 award selection committee, the criteria were revised in <strong>February 2015</strong> to evaluate a sportsperson's performance over a <strong>period of four years</strong> at the international level. Today the Khel Ratna sits at the apex of India's six-part National Sports Awards framework, alongside the Arjuna Award, Dronacharya Award, Major Dhyan Chand Award (lifetime), Rashtriya Khel Protsahan Puruskar, and the MAKA Trophy.</p>
                     </div>
                     <figure class="khelratna-figure float-slow">
-                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800" alt="Sprinter powering down a running track at a stadium" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Sprinter powering down a running track at a stadium" loading="lazy">
                         <figcaption>29 August — National Sports Day — the traditional setting for India's apex sporting honours</figcaption>
                     </figure>
                 </div>
@@ -197,7 +195,7 @@
             <div class="khelratna-content-card">
                 <h2>🔄 Renaming History — In Honour of the Wizard</h2>
                 <figure class="khelratna-banner">
-                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1200" alt="Floodlit stadium arena during a major sporting contest" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" alt="Floodlit stadium arena during a major sporting contest" loading="lazy">
                 </figure>
                 <div class="khelratna-content">
                     <p>For thirty years the award was known as the <strong>Rajiv Gandhi Khel Ratna Award</strong>. On <strong>6 August 2021</strong>, the Government of India renamed it the <strong>Major Dhyan Chand Khel Ratna Award</strong>, honouring one of the greatest sportspersons the country has ever produced. Announcing the decision, Prime Minister <strong>Narendra Modi</strong> noted that he was responding to <strong>"many requests from citizens across India."</strong></p>
@@ -322,28 +320,28 @@
                     <div class="khelratna-category-cards">
                         <div class="khelratna-category-card">
                             <div class="khelratna-category-img">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800" alt="Young athlete training outdoors on a sports ground" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Young athlete training outdoors on a sports ground" loading="lazy">
                             </div>
                             <h3>🥇 Olympic Sports</h3>
                             <p>Shooting, badminton, athletics, wrestling, boxing, hockey, tennis, table tennis, gymnastics, and chess — the disciplines through which India's modern sporting resurgence has been built.</p>
                         </div>
                         <div class="khelratna-category-card">
                             <div class="khelratna-category-img">
-                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800" alt="Athlete running in the morning light" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Athlete running in the morning light" loading="lazy">
                             </div>
                             <h3>🏃 Paralympic Sports</h3>
                             <p>Para-athletics, para-shooting, para-badminton, and para high jump — with an unbroken run of para champions honoured from 2017 onwards, including Devendra Jhajharia and Avani Lekhara.</p>
                         </div>
                         <div class="khelratna-category-card">
                             <div class="khelratna-category-img">
-                                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=800" alt="Ball sport in play on a court" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Ball sport in play on a court" loading="lazy">
                             </div>
                             <h3>🎱 Non-Olympic Sports</h3>
                             <p>Billiards and snooker, and yachting — proof that the honour celebrates world-beating excellence beyond the Olympic roster, as with Geet Sethi and Pankaj Advani.</p>
                         </div>
                         <div class="khelratna-category-card">
                             <div class="khelratna-category-img">
-                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" alt="Formal awards ceremony stage lit for honourees" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Formal awards ceremony stage lit for honourees" loading="lazy">
                             </div>
                             <h3>👥 Individuals, Pairs &amp; Teams</h3>
                             <p>Mostly an individual honour, the Khel Ratna has also recognised pairs and teams — from the yachting duo of Motivala and Garg to the badminton world No. 1 pair, Satwiksairaj Rankireddy and Chirag Shetty.</p>
@@ -375,21 +373,21 @@
                         <svg class="khelratna-medal-svg" viewBox="0 0 220 260" role="img" aria-label="Illustration of the Khel Ratna medallion featuring the national emblem and ribbon">
                             <defs>
                                 <linearGradient id="kr-gold" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0%" stop-color="#FFD700"/>
-                                    <stop offset="45%" stop-color="#D4AF37"/>
-                                    <stop offset="100%" stop-color="#B8860B"/>
+                                    <stop offset="0%" stop-color="#FFD700"></stop>
+                                    <stop offset="45%" stop-color="#D4AF37"></stop>
+                                    <stop offset="100%" stop-color="#B8860B"></stop>
                                 </linearGradient>
                                 <linearGradient id="kr-ribbon" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stop-color="#FF9933"/>
-                                    <stop offset="50%" stop-color="#FFFFFF"/>
-                                    <stop offset="100%" stop-color="#138808"/>
+                                    <stop offset="0%" stop-color="#FF9933"></stop>
+                                    <stop offset="50%" stop-color="#FFFFFF"></stop>
+                                    <stop offset="100%" stop-color="#138808"></stop>
                                 </linearGradient>
                             </defs>
-                            <rect x="78" y="0" width="64" height="78" rx="4" fill="url(#kr-ribbon)"/>
-                            <path d="M78 78 Q110 60 142 78 L142 92 L110 84 L78 92 Z" fill="#C0C0C0"/>
-                            <circle cx="110" cy="150" r="74" fill="url(#kr-gold)" stroke="#8B6914" stroke-width="4"/>
-                            <circle cx="110" cy="150" r="60" fill="none" stroke="#FFF8DC" stroke-width="2" stroke-dasharray="4 4"/>
-                            <circle cx="110" cy="150" r="44" fill="none" stroke="#7a5c10" stroke-width="2"/>
+                            <rect x="78" y="0" width="64" height="78" rx="4" fill="url(#kr-ribbon)"></rect>
+                            <path d="M78 78 Q110 60 142 78 L142 92 L110 84 L78 92 Z" fill="#C0C0C0"></path>
+                            <circle cx="110" cy="150" r="74" fill="url(#kr-gold)" stroke="#8B6914" stroke-width="4"></circle>
+                            <circle cx="110" cy="150" r="60" fill="none" stroke="#FFF8DC" stroke-width="2" stroke-dasharray="4 4"></circle>
+                            <circle cx="110" cy="150" r="44" fill="none" stroke="#7a5c10" stroke-width="2"></circle>
                             <text x="110" y="162" text-anchor="middle" font-size="30" fill="#5b4308">🏆</text>
                         </svg>
                         <p class="khelratna-medal-caption">Medallion · Citation · Cash Prize</p>
@@ -567,7 +565,7 @@
                     <div class="khelratna-gallery">
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=600" alt="Sprinter racing down a running track" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Sprinter racing down a running track" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Athletics</h3>
@@ -577,7 +575,7 @@
 
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=600" alt="Floodlit cricket stadium during a match" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Floodlit cricket stadium during a match" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Team Arenas</h3>
@@ -587,7 +585,7 @@
 
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=600" alt="Formal awards ceremony stage lit for honourees" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Formal awards ceremony stage lit for honourees" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Investiture</h3>
@@ -597,7 +595,7 @@
 
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=600" alt="Young athlete in training" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Young athlete in training" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Budding Talent</h3>
@@ -607,7 +605,7 @@
 
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=600" alt="Athlete running in the morning light" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Athlete running in the morning light" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Endurance &amp; Para Sport</h3>
@@ -617,7 +615,7 @@
 
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=600" alt="Training equipment at a sports facility" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Training equipment at a sports facility" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Preparation</h3>
@@ -627,7 +625,7 @@
 
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=600" alt="Football on a green pitch" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Football on a green pitch" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>The Beautiful Game</h3>
@@ -637,7 +635,7 @@
 
                         <figure class="khelratna-gallery-item">
                             <div class="khelratna-gallery-img">
-                                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=600" alt="Basketball resting on a court" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Basketball resting on a court" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Racket &amp; Ball Sports</h3>
@@ -706,7 +704,7 @@
             </div>
         </div>
         <div class="khelratna-footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer · Created with Vanilla HTML, CSS &amp; JavaScript</p>
+            <p>© 2026 Incredible India Explorer · Created with Vanilla HTML, CSS &amp; JavaScript</p>
             <p>Major Dhyan Chand Khel Ratna Award · Instituted 1991–92 · Ministry of Youth Affairs &amp; Sports</p>
         </div>
     </footer>
@@ -715,5 +713,6 @@
 
     <!-- Client Script -->
     <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

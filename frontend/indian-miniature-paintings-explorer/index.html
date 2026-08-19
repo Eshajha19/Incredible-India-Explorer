@@ -1,28 +1,20 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta
-            name="description"
-            content="Explore the schools, materials and visual traditions of Indian miniature painting."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Explore the schools, materials and visual traditions of Indian miniature painting.">
         <title>Indian Miniature Paintings Explorer | Incredible India</title>
-        <link rel="stylesheet" href="../styles.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="navbar">
+        <nav class="navbar" aria-label="Navigation">
             <div class="nav-container">
-                <a href="../../index.html#home" class="nav-logo">Incredible India Explorer</a
-                ><button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">☰</button>
-                <nav id="nav-menu" class="nav-menu">
-                    <a href="../../index.html#home">Home</a><a href="#overview">Overview</a
-                    ><a href="#gallery">Gallery</a><a href="#schools">Schools</a><a href="#materials">Materials</a
-                    ><a href="#references">References</a>
+                <a href="../../index.html#home" class="nav-logo">Incredible India Explorer</a><button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">☰</button>
+                <nav id="nav-menu" class="nav-menu" aria-label="Navigation">
+                    <a href="../../index.html#home">Home</a><a href="#overview">Overview</a><a href="#gallery">Gallery</a><a href="#schools">Schools</a><a href="#materials">Materials</a><a href="#references">References</a>
                 </nav>
             </div>
-        </header>
+        </nav>
         <main class="miniature">
             <section class="hero">
                 <div class="hero-content">
@@ -36,8 +28,7 @@
                 </div>
             </section>
             <nav class="section-nav" aria-label="Explorer sections">
-                <a href="#overview">Overview</a><a href="#gallery">Gallery</a><a href="#schools">Schools</a
-                ><a href="#materials">Materials</a><a href="#references">References</a>
+                <a href="#overview">Overview</a><a href="#gallery">Gallery</a><a href="#schools">Schools</a><a href="#materials">Materials</a><a href="#references">References</a>
             </nav>
             <section id="overview" class="section">
                 <div class="container">
@@ -100,8 +91,7 @@
                             <button id="viewer-close" class="close" aria-label="Close artwork viewer">×</button>
                             <div id="artwork" class="artwork"></div>
                             <div class="viewer-controls">
-                                <button id="zoom-out">−</button><span id="zoom-value">100%</span
-                                ><button id="zoom-in">+</button><button id="zoom-reset">Reset</button>
+                                <button id="zoom-out" aria-label="Button">−</button><span id="zoom-value">100%</span><button id="zoom-in" aria-label="Button">+</button><button id="zoom-reset">Reset</button>
                             </div>
                             <h3 id="viewer-title"></h3>
                             <p id="viewer-text"></p>
@@ -141,11 +131,12 @@
                 <p>Incredible India Explorer — Discover India's history and heritage.</p>
             </div>
         </footer>
-        <script src="../app.js" defer></script>
-        <script src="../journey/journey.js" defer></script>
-        <script src="script.js" defer></script>
+        <script src="../app.js" defer=""></script>
+        <script src="../journey/journey.js" defer=""></script>
+        <script src="script.js" defer=""></script>
         <script type="module" src="../firebase-config.js"></script>
         <script type="module" src="../auth.js"></script>
-        <script src="../router.js" defer></script>
-    </body>
-</html>
+        <script src="../router.js" defer=""></script>
+    
+
+</body></html>

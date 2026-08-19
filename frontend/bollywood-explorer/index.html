@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head></head><body>﻿
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore Bollywood, India's Hindi-language film industry headquartered in Mumbai: from Raja Harishchandra (1913) and Alam Ara (1931) to global icons, legendary music, and Oscar-recognised soundtracks.">
   <title>Bollywood (Hindi Cinema) Explorer | Incredible India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
@@ -25,8 +25,8 @@
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/frontend/bollywood-explorer/index.html">
-</head>
-<body>
+
+
   <script>
     (function() {
       const theme = localStorage.getItem('theme') || 'dark';
@@ -37,7 +37,7 @@
   </script>
 
   <!-- Sticky Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -49,11 +49,11 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations &#9662;</button>
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
                     <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
@@ -65,12 +65,12 @@
             </div>
 
             <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture &#9662;</button>
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Culture ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                             <a href="../bengali-cinema-explorer/index.html" class="dropdown-item">Bengali Cinema (Tollywood)</a>
                     <a href="../../frontend/indian-cinema-timeline/index.html" class="dropdown-item">Indian Cinema Timeline</a>
@@ -93,7 +93,7 @@
             </div>
 
             <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature &#9662;</button>
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
                     <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games &#9662;</button>
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Games ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a>
                     <a href="../../frontend/culinary-game/culinary-game.html" class="dropdown-item">Culinary Challenge</a>
@@ -117,17 +117,17 @@
             </div>
 
             <div class="nav-dropdown">
-                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community &#9662;</button>
+                <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Community ▾</button>
                 <div class="dropdown-menu">
                     <button class="dropdown-item" id="contributors-link">Contributors</button>
                     <a href="../../frontend/world-records-india/index.html" class="dropdown-item">World Records</a>
                 </div>
             </div>
 
-            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">&#9728;&#65039;</button>
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- SPA Router Target Container -->
   <main id="app-root" class="bollywood-main">
@@ -135,18 +135,18 @@
     <!-- Hero Banner -->
     <section class="bollywood-hero">
       <div class="bollywood-hero-content">
-        <span class="bollywood-kicker">&#127916; Mumbai &middot; 1913 &ndash; Present</span>
+        <span class="bollywood-kicker">🎬 Mumbai · 1913 – Present</span>
         <h1>Bollywood <span>Explorer</span></h1>
-        <p>Step into the world of Hindi cinema &mdash; from Dadasaheb Phalke's silent-era <em>Raja Harishchandra</em> (1913) to the multiplex-and-streaming era of today. Discover the films, legends, music, and milestones behind the world's most prolific film industry by output.</p>
+        <p>Step into the world of Hindi cinema — from Dadasaheb Phalke's silent-era <em>Raja Harishchandra</em> (1913) to the multiplex-and-streaming era of today. Discover the films, legends, music, and milestones behind the world's most prolific film industry by output.</p>
         <div class="bollywood-hero-badges">
-          <span class="bollywood-badge">&#127909; 1,500+ Films a Year</span>
-          <span class="bollywood-badge">&#127925; Global Music Export</span>
-          <span class="bollywood-badge">&#127942; Oscar-Recognised</span>
-          <span class="bollywood-badge">&#128198; 110+ Years of Legacy</span>
+          <span class="bollywood-badge">🎥 1,500+ Films a Year</span>
+          <span class="bollywood-badge">🎵 Global Music Export</span>
+          <span class="bollywood-badge">🏆 Oscar-Recognised</span>
+          <span class="bollywood-badge">📆 110+ Years of Legacy</span>
         </div>
         <div class="bollywood-bookmark-container">
           <button class="bollywood-bookmark-btn journey-bookmark-btn" type="button" data-bookmark-id="bollywood-cinema-main" aria-pressed="false" aria-label="Bookmark Bollywood Explorer">
-            &#9825; Save to Journey
+            ♡ Save to Journey
           </button>
         </div>
       </div>
@@ -162,7 +162,7 @@
           <p>Dadasaheb Phalke's <em>Raja Harishchandra</em> (1913) is widely regarded as India's first full-length feature film, earning Phalke the title "Father of Indian Cinema." Sound arrived with Ardeshir Irani's <em>Alam Ara</em> (1931), India's first talkie, launching a Hindi-language studio era that would grow into a global cultural export.</p>
         </div>
         <div class="bollywood-highlight-box">
-          <h3>&#127902;&#65039; At a Glance</h3>
+          <h3>🎞️ At a Glance</h3>
           <ul>
             <li><strong>First feature film:</strong> Raja Harishchandra (1913), directed by Dadasaheb Phalke.</li>
             <li><strong>First talkie:</strong> Alam Ara (1931), directed by Ardeshir Irani.</li>
@@ -184,32 +184,32 @@
 
         <div class="bollywood-card-grid">
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127916;</span>
+            <span class="bollywood-card-icon">🎬</span>
             <h3>Alam Ara (1931)</h3>
             <p>Directed by Ardeshir Irani, India's first talkie. Its arrival marked the beginning of the Hindi sound-film era and the birth of playback-driven musical storytelling.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127806;</span>
+            <span class="bollywood-card-icon">🌾</span>
             <h3>Mother India (1957)</h3>
             <p>Directed by Mehboob Khan, this epic drama became India's first submission to earn an Academy Award nomination for Best Foreign Language Film.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#128299;</span>
+            <span class="bollywood-card-icon">🔫</span>
             <h3>Sholay (1975)</h3>
             <p>Directed by Ramesh Sippy, this action-adventure "curry western" is frequently cited as the most influential Hindi film ever made, its dialogue still quoted decades later.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#128142;</span>
+            <span class="bollywood-card-icon">💎</span>
             <h3>Dilwale Dulhania Le Jayenge (1995)</h3>
             <p>Directed by Aditya Chopra, this romance became a cultural phenomenon and holds the record for the longest continuous theatrical run in Indian cinema history.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127942;</span>
+            <span class="bollywood-card-icon">🏆</span>
             <h3>Lagaan (2001)</h3>
             <p>Directed by Ashutosh Gowariker, this period sports drama earned an Academy Award nomination for Best Foreign Language Film, one of only three Hindi films to do so.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#129509;</span>
+            <span class="bollywood-card-icon">🧥</span>
             <h3>Dangal (2016)</h3>
             <p>Directed by Nitesh Tiwari and starring Aamir Khan, this sports drama became one of the highest-grossing Indian films worldwide, especially popular across China.</p>
           </div>
@@ -228,32 +228,32 @@
 
         <div class="bollywood-card-grid">
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127775;</span>
+            <span class="bollywood-card-icon">🌟</span>
             <h3>Dilip Kumar</h3>
             <p>Known as the "Tragedy King," his naturalistic acting style in the 1940s-60s influenced generations of performers and earned him a record number of Filmfare Best Actor awards.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#128081;</span>
+            <span class="bollywood-card-icon">👑</span>
             <h3>Amitabh Bachchan</h3>
             <p>Dubbed the "Angry Young Man" of 1970s cinema, his commanding screen presence across five decades made him one of the most recognisable figures in Indian popular culture.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127917;</span>
+            <span class="bollywood-card-icon">🎭</span>
             <h3>Sridevi</h3>
             <p>A pan-Indian superstar celebrated for her range and screen charisma, she remains one of the most acclaimed actresses in the history of Hindi and South Indian cinema.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#9889;</span>
+            <span class="bollywood-card-icon">⚡</span>
             <h3>Shah Rukh Khan</h3>
             <p>Known as the "King of Bollywood," his romantic-hero roles in the 1990s and 2000s made him one of the most commercially successful actors in film history by audience reach.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127919;</span>
+            <span class="bollywood-card-icon">🎯</span>
             <h3>Aamir Khan</h3>
             <p>Known for selective, socially conscious roles in films like Lagaan and Dangal, he is celebrated for pushing Hindi cinema toward global box-office milestones.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#128142;</span>
+            <span class="bollywood-card-icon">💎</span>
             <h3>Deepika Padukone</h3>
             <p>A leading actress of the contemporary era, recognised for a range spanning period epics to intimate dramas, and a prominent voice for mental-health awareness in India.</p>
           </div>
@@ -265,7 +265,7 @@
     <section class="bollywood-section" id="directors">
       <div class="bollywood-container bollywood-grid-2col">
         <div class="bollywood-highlight-box" style="background: rgba(200, 30, 78, 0.06); border-color: rgba(200, 30, 78, 0.22);">
-          <h3>&#127916; Visionary Directors</h3>
+          <h3>🎬 Visionary Directors</h3>
           <ul>
             <li><strong>Dadasaheb Phalke:</strong> Directed Raja Harishchandra (1913), the founding moment of Indian feature filmmaking.</li>
             <li><strong>Raj Kapoor:</strong> Actor-director whose 1950s films carried Indian cinema's popularity across the Soviet Union and the Middle East.</li>
@@ -295,17 +295,17 @@
 
         <div class="bollywood-card-grid">
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127925;</span>
+            <span class="bollywood-card-icon">🎵</span>
             <h3>Lata Mangeshkar</h3>
             <p>The most celebrated playback singer in Indian film history, her voice defined the sound of Hindi cinema across seven decades and thousands of songs.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127928;</span>
+            <span class="bollywood-card-icon">🎸</span>
             <h3>R.D. Burman</h3>
             <p>A composer renowned for fusing Western orchestration and rhythm with Hindi film music, his scores from the 1970s–80s remain widely sampled and remixed today.</p>
           </div>
           <div class="bollywood-card">
-            <span class="bollywood-card-icon">&#127911;</span>
+            <span class="bollywood-card-icon">🎧</span>
             <h3>A.R. Rahman</h3>
             <p>A two-time Academy Award winner for Slumdog Millionaire, Rahman's genre-blending scores brought Indian film music to an international audience.</p>
           </div>
@@ -342,7 +342,7 @@
           <div class="bollywood-timeline-step">
             <div class="bollywood-timeline-marker"></div>
             <div class="bollywood-timeline-card">
-              <span class="bollywood-timeline-year">1940s&ndash;1960s</span>
+              <span class="bollywood-timeline-year">1940s–1960s</span>
               <h3>The Golden Age</h3>
               <p>Raj Kapoor, Dilip Kumar, and Guru Dutt define an era of studio-built stardom, poetic realism, and songs that carried Indian cinema's popularity abroad.</p>
             </div>
@@ -366,7 +366,7 @@
           <div class="bollywood-timeline-step">
             <div class="bollywood-timeline-marker"></div>
             <div class="bollywood-timeline-card">
-              <span class="bollywood-timeline-year">2001&ndash;2016</span>
+              <span class="bollywood-timeline-year">2001–2016</span>
               <h3>Global Recognition</h3>
               <p>Lagaan (2001) earns an Oscar nomination; Slumdog Millionaire's A.R. Rahman score wins two Academy Awards; Dangal (2016) becomes a worldwide box-office hit.</p>
             </div>
@@ -394,32 +394,32 @@
 
         <div class="bollywood-awards-grid">
           <div class="bollywood-award-card">
-            <div class="bollywood-award-icon">&#127942;</div>
+            <div class="bollywood-award-icon">🏆</div>
             <h3>Dadasaheb Phalke Award</h3>
             <p>India's highest award in cinema, presented annually by the Government of India for lifetime contribution to Indian film, named after the father of Indian cinema himself.</p>
           </div>
           <div class="bollywood-award-card">
-            <div class="bollywood-award-icon">&#127894;&#65039;</div>
+            <div class="bollywood-award-icon">🎖️</div>
             <h3>National Film Awards</h3>
             <p>Bollywood films and artists have won across categories including Best Actor, Best Film, and Best Direction, recognising artistic merit alongside commercial success.</p>
           </div>
           <div class="bollywood-award-card">
-            <div class="bollywood-award-icon">&#127916;</div>
+            <div class="bollywood-award-icon">🎬</div>
             <h3>Filmfare Awards</h3>
             <p>Instituted in 1954, the Filmfare Awards are among Hindi cinema's oldest and most prominent annual honours, often called Bollywood's answer to the Oscars.</p>
           </div>
           <div class="bollywood-award-card">
-            <div class="bollywood-award-icon">&#127758;</div>
+            <div class="bollywood-award-icon">🌎</div>
             <h3>Academy Award Recognition</h3>
             <p>Mother India, Lagaan, and Salaam Bombay! all earned Academy Award nominations, while A.R. Rahman won two Oscars for Slumdog Millionaire's score and song.</p>
           </div>
           <div class="bollywood-award-card">
-            <div class="bollywood-award-icon">&#128176;</div>
+            <div class="bollywood-award-icon">💰</div>
             <h3>Box Office Milestones</h3>
             <p>Films like Dangal and Dilwale Dulhania Le Jayenge set records for worldwide gross and continuous theatrical runs, extending Bollywood's commercial reach globally.</p>
           </div>
           <div class="bollywood-award-card">
-            <div class="bollywood-award-icon">&#127885;</div>
+            <div class="bollywood-award-icon">🎍</div>
             <h3>Padma Awards</h3>
             <p>Numerous Bollywood actors, directors, and composers — including Lata Mangeshkar and Amitabh Bachchan — hold India's highest civilian honours for their contribution to the arts.</p>
           </div>
@@ -439,7 +439,7 @@
         <div class="bollywood-gallery-grid">
           <div class="bollywood-gallery-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="bollywood-modal" data-title="Raja Harishchandra, 1913" data-desc="Dadasaheb Phalke's Raja Harishchandra is widely regarded as India's first full-length feature film. Its production marked the beginning of a domestic film industry and earned Phalke recognition as the father of Indian cinema." data-subtitle="The First Feature Film">
             <div class="bollywood-gallery-placeholder bollywood-gallery-bg-1">
-              <div class="bollywood-gallery-icon">&#127909;</div>
+              <div class="bollywood-gallery-icon">🎥</div>
             </div>
             <div class="bollywood-gallery-overlay">
               <h4>Raja Harishchandra</h4>
@@ -448,16 +448,16 @@
           </div>
           <div class="bollywood-gallery-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="bollywood-modal" data-title="The Golden Age of Bollywood" data-desc="The 1940s-60s golden age brought poetic realism and studio-built stardom to Hindi screens. Raj Kapoor, Dilip Kumar, and Guru Dutt defined an era whose songs and stories still resonate today." data-subtitle="1940s-60s Legends">
             <div class="bollywood-gallery-placeholder bollywood-gallery-bg-2">
-              <div class="bollywood-gallery-icon">&#127775;</div>
+              <div class="bollywood-gallery-icon">🌟</div>
             </div>
             <div class="bollywood-gallery-overlay">
               <h4>The Golden Age</h4>
-              <p>1940s&ndash;60s Legends</p>
+              <p>1940s–60s Legends</p>
             </div>
           </div>
           <div class="bollywood-gallery-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="bollywood-modal" data-title="Sholay and the Masala Era" data-desc="Ramesh Sippy's Sholay (1975) cemented the 'masala' formula of action, comedy, romance, and music as Bollywood's defining commercial template — a blueprint still felt in Hindi cinema today." data-subtitle="1975 - A Cultural Landmark">
             <div class="bollywood-gallery-placeholder bollywood-gallery-bg-3">
-              <div class="bollywood-gallery-icon">&#128299;</div>
+              <div class="bollywood-gallery-icon">🔫</div>
             </div>
             <div class="bollywood-gallery-overlay">
               <h4>Sholay &amp; the Masala Era</h4>
@@ -466,7 +466,7 @@
           </div>
           <div class="bollywood-gallery-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="bollywood-modal" data-title="Global Recognition" data-desc="A.R. Rahman's score for Slumdog Millionaire won two Academy Awards in 2009, placing Bollywood's musical tradition on the world stage and inspiring a new generation of internationally minded Hindi filmmakers." data-subtitle="Two Oscars, 2009">
             <div class="bollywood-gallery-placeholder bollywood-gallery-bg-4">
-              <div class="bollywood-gallery-icon">&#127942;</div>
+              <div class="bollywood-gallery-icon">🏆</div>
             </div>
             <div class="bollywood-gallery-overlay">
               <h4>Global Recognition</h4>
@@ -481,7 +481,7 @@
     <section class="bollywood-section" id="references">
       <div class="bollywood-container">
         <div class="bollywood-references">
-          <h3>&#128218; References &amp; Further Reading</h3>
+          <h3>📚 References &amp; Further Reading</h3>
           <ul>
             <li><strong>Directorate of Film Festivals, Government of India.</strong> <em>National Film Awards Archives — Hindi Cinema</em>.</li>
             <li><strong>Encyclopaedia of Indian Cinema</strong>. <em>History of Hindi Cinema and the Bombay Studio System</em>.</li>
@@ -498,7 +498,7 @@
   <!-- Interactive Detail Modal -->
   <div class="museum-modal" id="bollywood-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="museum-modal-card">
-      <button class="museum-modal-close" id="bollywood-modal-close" type="button" aria-label="Close details">&#x2715;</button>
+      <button class="museum-modal-close" id="bollywood-modal-close" type="button" aria-label="Close details">✕</button>
       <span class="modal-category" id="modal-category">Gallery Highlight</span>
       <h2 id="modal-title"></h2>
       <p class="modal-location" style="color: var(--bollywood-gold-light);" id="modal-heading"></p>
@@ -511,21 +511,22 @@
   <!-- Footer -->
   <footer class="bollywood-footer">
     <div class="bollywood-container">
-      <p>Part of <a href="../../index.html">Incredible India Explorer</a> &middot; Explore the regional cinema traditions of India.</p>
+      <p>Part of <a href="../../index.html">Incredible India Explorer</a> · Explore the regional cinema traditions of India.</p>
     </div>
   </footer>
 
-  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">&#8593;</button>
+  <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
 
   <!-- JS Dependencies -->
   <script src="../js-modules/config.js"></script>
   <script src="../pages-common.js"></script>
-  <script src="../app.js" defer></script>
-  <script src="../../frontend/journey/journey.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="../app.js" defer=""></script>
+  <script src="../../frontend/journey/journey.js" defer=""></script>
+  <script src="script.js" defer=""></script>
   <script type="module" src="../firebase-config.js"></script>
   <script type="module" src="../auth.js"></script>
-  <script src="../router.js" defer></script>
+  <script src="../router.js" defer=""></script>
   <script src="../js-modules/page-progress/page-progress.js"></script>
-</body>
-</html>
+
+
+</body></html>

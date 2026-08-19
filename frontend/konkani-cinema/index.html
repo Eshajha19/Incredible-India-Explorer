@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore Konkani Cinema: from Mogacho Aunddo (1950), the first Konkani film, to National Award-winning classics and the artists who shaped its vibrant regional legacy.">
@@ -8,8 +6,8 @@
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
@@ -33,7 +31,7 @@
   </script>
 
   <!-- Sticky Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo">
             <span class="saffron">Incredible</span>
@@ -43,7 +41,7 @@
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
             <span class="bar"></span><span class="bar"></span><span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link">Home</a>
             <!-- Dropdowns kept same as original for brevity -->
             <div class="nav-dropdown">
@@ -55,7 +53,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-  </header>
+  </nav>
 
   <main id="app-root" class="konkani-main">
 
@@ -248,9 +246,9 @@
             <img src="../assets/dhollywood_national_award.svg" alt="National Award trophy illustration" loading="lazy">
             <div class="overlay"><h4>National Honours</h4><p>Critical Acclaim</p></div>
           </div>
-          <div class="gallery-item" onclick="openModal('Cinematic Reels & Tiatr', 'A tribute to traditional folk theatre (Tiatr) and cinematic film reels that preserve Konkani artistic heritage.')">
+          <div class="gallery-item" onclick="openModal('Cinematic Reels &amp; Tiatr', 'A tribute to traditional folk theatre (Tiatr) and cinematic film reels that preserve Konkani artistic heritage.')">
             <img src="../assets/dhollywood_film_reel.svg" alt="Film reel and cultural roots" loading="lazy">
-            <div class="overlay"><h4>Reels & Tiatr</h4><p>The Artistic Craft</p></div>
+            <div class="overlay"><h4>Reels &amp; Tiatr</h4><p>The Artistic Craft</p></div>
           </div>
         </div>
       </div>
@@ -274,9 +272,9 @@
   </main>
 
   <!-- Interactive Detail Modal -->
-  <div id="konkani-modal" class="modal">
+  <div id="konkani-modal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <span class="close-btn" onclick="closeModal()">×</span>
       <span class="modal-category">Gallery Highlight</span>
       <h2 id="modal-title"></h2>
       <p class="modal-description" id="modal-description"></p>
@@ -295,8 +293,8 @@
   <!-- JS Dependencies -->
   <script src="../js-modules/config.js"></script>
   <script src="../pages-common.js"></script>
-  <script src="../app.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="../app.js" defer=""></script>
+  <script src="script.js" defer=""></script>
   <script src="../js-modules/page-progress/page-progress.js"></script>
-</body>
-</html>
+
+</body></html>

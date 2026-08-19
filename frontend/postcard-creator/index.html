@@ -1,36 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Postcard Creator | Incredible India</title>
-    <meta name="description"
-        content="Design personalized digital postcards featuring iconic Indian monuments and download them as keepsakes.">
+    <meta name="description" content="Design personalized digital postcards featuring iconic Indian monuments and download them as keepsakes.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Caveat:wght@400;700&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar creator-nav" role="banner">
+    <nav class="navbar creator-nav" role="banner" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
-                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
-                    class="green">Explorer</span>
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
             </a>
-            <nav class="nav-menu" role="navigation">
+            <nav class="nav-menu" role="navigation" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="#monuments" class="nav-link">Monuments</a>
                 <a href="#editor" class="nav-link">Editor</a>
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
 
     <main role="main">
         <section class="hero-section creator-hero">
@@ -56,8 +49,7 @@
                 <fieldset class="control-group">
                     <legend>2. Your Message</legend>
                     <label for="postcard-message" class="sr-only">Postcard Message</label>
-                    <textarea id="postcard-message" maxlength="150"
-                        placeholder="Greetings from Rajasthan! The palaces are breathtaking...">Greetings from Incredible India! Wishing you were here to see this marvel.</textarea>
+                    <textarea id="postcard-message" maxlength="150" placeholder="Greetings from Rajasthan! The palaces are breathtaking...">Greetings from Incredible India! Wishing you were here to see this marvel.</textarea>
                     <div class="char-count"><span id="char-count">0</span>/150</div>
                 </fieldset>
 
@@ -82,9 +74,8 @@
                     <div class="control-row toggle-row">
                         <label>Styles</label>
                         <div class="toggle-btns">
-                            <button type="button" class="style-btn" id="btn-bold" aria-pressed="false"><b>B</b></button>
-                            <button type="button" class="style-btn" id="btn-italic"
-                                aria-pressed="false"><i>I</i></button>
+                            <button type="button" class="style-btn" id="btn-bold" aria-pressed="false" aria-label="Button"><b>B</b></button>
+                            <button type="button" class="style-btn" id="btn-italic" aria-pressed="false" aria-label="Button"><i>I</i></button>
                         </div>
                     </div>
                 </fieldset>
@@ -94,12 +85,9 @@
                     <div class="control-row toggle-row">
                         <label>Elements</label>
                         <div class="toggle-btns">
-                            <button type="button" class="deco-btn active" data-deco="stamp"
-                                aria-pressed="true">Stamp</button>
-                            <button type="button" class="deco-btn" data-deco="border"
-                                aria-pressed="false">Border</button>
-                            <button type="button" class="deco-btn" data-deco="mandala"
-                                aria-pressed="false">Mandala</button>
+                            <button type="button" class="deco-btn active" data-deco="stamp" aria-pressed="true">Stamp</button>
+                            <button type="button" class="deco-btn" data-deco="border" aria-pressed="false">Border</button>
+                            <button type="button" class="deco-btn" data-deco="mandala" aria-pressed="false">Mandala</button>
                         </div>
                     </div>
                 </fieldset>
@@ -112,8 +100,7 @@
             <!-- Live Preview Panel -->
             <section class="preview-panel">
                 <div class="canvas-wrapper">
-                    <canvas id="postcard-canvas" width="1400" height="900"
-                        aria-label="Live preview of your postcard"></canvas>
+                    <canvas id="postcard-canvas" width="1400" height="900" aria-label="Live preview of your postcard"></canvas>
                     <p class="sr-only" id="canvas-desc">A digital postcard featuring a monument with a custom message.
                     </p>
                 </div>
@@ -128,11 +115,12 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer. Virtual Postcard Creator.</p>
+        <p>© 2026 Incredible India Explorer. Virtual Postcard Creator.</p>
     </footer>
 
-    <script src="templates.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="templates.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

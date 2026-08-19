@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chhatrapati Shivaji Maharaj Terminus | Incredible India Explorer</title>
@@ -13,8 +11,8 @@
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="frontend/navbar-redesign/navbar.css">
 
@@ -290,7 +288,7 @@
 <body>
 
 <!-- ============ SITE HEADER & NAVIGATION ============ -->
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron" style="color:#FF9933;">Incredible</span>
@@ -302,14 +300,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="index.html#home" class="nav-link" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -324,7 +322,7 @@
                     <a href="frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -338,9 +336,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -369,60 +367,21 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">🌙</button>
         </nav>
     </div>
-</header>
-
-<button class="theme-toggle-floating" id="themeToggleFloating" aria-label="Toggle dark mode">🌙</button>
-
-<!-- ============ HERO ============ -->
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="hero-eyebrow">Mumbai, Maharashtra · Est. 1887</div>
-      <h1>Chhatrapati Shivaji<br><em>Maharaj Terminus</em></h1>
-      <p class="hero-sub">A working railway station carved like a cathedral — where British Gothic Revival stonework and Indian craftsmanship were built, quite literally, side by side.</p>
-      <div class="hero-meta">
-        <div><div class="num mono">1878–1887</div><div class="lbl">Built over a decade</div></div>
-        <div><div class="num mono">2004</div><div class="lbl">UNESCO inscription</div></div>
-        <div><div class="num mono">3M+</div><div class="lbl">Commuters daily</div></div>
-      </div>
-    </div>
-    <div>
-      <div class="clockface">
-        <svg viewBox="0 0 200 200">
-          <circle class="clock-ring" cx="100" cy="100" r="92"></circle>
-          <circle class="clock-ring-inner" cx="100" cy="100" r="78"></circle>
-          <g id="ticks"></g>
-          <line class="clock-hand" x1="100" y1="100" x2="100" y2="48" stroke-width="4"></line>
-          <line class="clock-hand" x1="100" y1="100" x2="140" y2="100" stroke-width="3"></line>
-          <circle class="clock-hub" cx="100" cy="100" r="6"></circle>
-        </svg>
-        <div class="clock-label">The 10-ft station clock</div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- ============ LOCATION ============ -->
-<div class="wrap">
+</nav><main><button class="theme-toggle-floating" id="themeToggleFloating" aria-label="Toggle dark mode">🌙</button><div class="wrap">
   <div class="location-strip reveal">
     <div class="cell"><div class="val">Fort, Mumbai</div><div class="key">Neighbourhood</div></div>
     <div class="cell"><div class="val">Maharashtra, 400001</div><div class="key">State / PIN</div></div>
     <div class="cell"><div class="val">18.9398°N, 72.8354°E</div><div class="key">Coordinates</div></div>
     <div class="cell"><div class="val">Central Railway HQ</div><div class="key">Current role</div></div>
   </div>
-</div>
-
-<!-- ============ THE NAMESAKE ============ -->
-<section id="namesake">
+</div><section id="namesake">
   <div class="wrap">
     <div class="eyebrow reveal">The Namesake</div>
     <h2 class="section-title reveal">Chhatrapati Shivaji Maharaj</h2>
     <div class="grid-2" style="align-items:center;">
       <div class="reveal">
         <div class="card" style="padding:0; overflow:hidden;">
-          <img src="assets/shivaji-maharaj-portrait.jpg"
-               alt="Portrait of Chhatrapati Shivaji Maharaj, founder of the Maratha Empire"
-               style="width:100%; aspect-ratio:3/4; object-fit:cover; display:block;">
+          <img src="assets/shivaji-maharaj-portrait.jpg" alt="Portrait of Chhatrapati Shivaji Maharaj, founder of the Maratha Empire" style="width:100%; aspect-ratio:3/4; object-fit:cover; display:block;">
         </div>
         <p class="gallery-note">Portrait of Chhatrapati Shivaji Maharaj (1630–1680), founder and sovereign of the Maratha Empire.</p>
       </div>
@@ -432,10 +391,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ RAILWAY HISTORY ============ -->
-<section id="history">
+</section><section id="history">
   <div class="wrap">
     <div class="eyebrow reveal">Railway History</div>
     <h2 class="section-title reveal">Built to be the grandest gateway in the East</h2>
@@ -454,10 +410,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ ARCHITECTURAL STYLE ============ -->
-<section id="architecture" style="background:var(--surface);">
+</section><section id="architecture" style="background:var(--surface);">
   <div class="wrap">
     <div class="eyebrow reveal">Architectural Style</div>
     <h2 class="section-title reveal">A style with no name but its own — Bombay Gothic</h2>
@@ -478,10 +431,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ VICTORIAN GOTHIC FEATURES ============ -->
-<section id="gothic-features">
+</section><section id="gothic-features">
   <div class="wrap">
     <div class="eyebrow reveal">Victorian Gothic Features</div>
     <h2 class="section-title reveal">Façade, dome, arches, and every gargoyle in between</h2>
@@ -493,7 +443,7 @@
     </div>
     <div class="feature-row reveal">
       <div class="feature-mark">02</div>
-      <div><h3>Pointed arches & turrets</h3><p>Sharply pointed Gothic arches frame the windows and entrances, while slender corner turrets and pinnacles break up the roofline in true High Victorian fashion.</p></div>
+      <div><h3>Pointed arches &amp; turrets</h3><p>Sharply pointed Gothic arches frame the windows and entrances, while slender corner turrets and pinnacles break up the roofline in true High Victorian fashion.</p></div>
     </div>
     <div class="feature-row reveal">
       <div class="feature-mark">03</div>
@@ -501,17 +451,14 @@
     </div>
     <div class="feature-row reveal">
       <div class="feature-mark">04</div>
-      <div><h3>Gargoyles & grotesques</h3><p>Drainage spouts carved as dogs, crocodiles, rams, and lizards line the dome and roofline — a hallmark Gothic device repurposed with distinctly Indian fauna.</p></div>
+      <div><h3>Gargoyles &amp; grotesques</h3><p>Drainage spouts carved as dogs, crocodiles, rams, and lizards line the dome and roofline — a hallmark Gothic device repurposed with distinctly Indian fauna.</p></div>
     </div>
     <div class="feature-row reveal">
       <div class="feature-mark">05</div>
-      <div><h3>Stained glass & ironwork</h3><p>Coloured stained-glass windows and elaborate wrought-iron and brass railings run throughout the interior, a level of decorative detail rare in a functioning transit building.</p></div>
+      <div><h3>Stained glass &amp; ironwork</h3><p>Coloured stained-glass windows and elaborate wrought-iron and brass railings run throughout the interior, a level of decorative detail rare in a functioning transit building.</p></div>
     </div>
   </div>
-</section>
-
-<!-- ============ INDIAN INFLUENCES ============ -->
-<section id="indian-influences" style="background:var(--surface);">
+</section><section id="indian-influences" style="background:var(--surface);">
   <div class="wrap">
     <div class="eyebrow reveal">Indian Influences</div>
     <h2 class="section-title reveal">Where British stonework met Indian hands</h2>
@@ -540,10 +487,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ MUMBAI'S RAILWAY HERITAGE ============ -->
-<section id="mumbai-heritage">
+</section><section id="mumbai-heritage">
   <div class="wrap">
     <div class="eyebrow reveal">Mumbai's Railway Heritage</div>
     <h2 class="section-title reveal">The engine room of a city, still running</h2>
@@ -556,10 +500,7 @@
       <div class="fact"><div class="num">#2</div><div class="txt">Most photographed monument in India</div></div>
     </div>
   </div>
-</section>
-
-<!-- ============ UNESCO RECOGNITION ============ -->
-<section id="unesco" style="background:var(--surface);">
+</section><section id="unesco" style="background:var(--surface);">
   <div class="wrap">
     <div class="eyebrow reveal">UNESCO Recognition</div>
     <div class="unesco-panel reveal">
@@ -570,10 +511,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ INTERESTING FACTS / HISTORICAL TIMELINE ============ -->
-<section id="timeline">
+</section><section id="timeline">
   <div class="wrap">
     <div class="eyebrow reveal">Historical Timeline</div>
     <h2 class="section-title reveal">The terminus, on the departure board</h2>
@@ -618,10 +556,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<!-- ============ GALLERY ============ -->
-<section id="gallery" style="background:var(--surface);">
+</section><section id="gallery" style="background:var(--surface);">
   <div class="wrap">
     <div class="eyebrow reveal">Gallery</div>
     <h2 class="section-title reveal">The station in stone and light</h2>
@@ -659,7 +594,68 @@
     </div>
     <p class="gallery-note">Photographic showcase of Chhatrapati Shivaji Maharaj Terminus, Mumbai.</p>
   </div>
-</section>
+</section></main>
+
+
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">Mumbai, Maharashtra · Est. 1887</div>
+      <h1>Chhatrapati Shivaji<br><em>Maharaj Terminus</em></h1>
+      <p class="hero-sub">A working railway station carved like a cathedral — where British Gothic Revival stonework and Indian craftsmanship were built, quite literally, side by side.</p>
+      <div class="hero-meta">
+        <div><div class="num mono">1878–1887</div><div class="lbl">Built over a decade</div></div>
+        <div><div class="num mono">2004</div><div class="lbl">UNESCO inscription</div></div>
+        <div><div class="num mono">3M+</div><div class="lbl">Commuters daily</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="clockface">
+        <svg viewBox="0 0 200 200">
+          <circle class="clock-ring" cx="100" cy="100" r="92"></circle>
+          <circle class="clock-ring-inner" cx="100" cy="100" r="78"></circle>
+          <g id="ticks"></g>
+          <line class="clock-hand" x1="100" y1="100" x2="100" y2="48" stroke-width="4"></line>
+          <line class="clock-hand" x1="100" y1="100" x2="140" y2="100" stroke-width="3"></line>
+          <circle class="clock-hub" cx="100" cy="100" r="6"></circle>
+        </svg>
+        <div class="clock-label">The 10-ft station clock</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ LOCATION ============ -->
+
+
+<!-- ============ THE NAMESAKE ============ -->
+
+
+<!-- ============ RAILWAY HISTORY ============ -->
+
+
+<!-- ============ ARCHITECTURAL STYLE ============ -->
+
+
+<!-- ============ VICTORIAN GOTHIC FEATURES ============ -->
+
+
+<!-- ============ INDIAN INFLUENCES ============ -->
+
+
+<!-- ============ MUMBAI'S RAILWAY HERITAGE ============ -->
+
+
+<!-- ============ UNESCO RECOGNITION ============ -->
+
+
+<!-- ============ INTERESTING FACTS / HISTORICAL TIMELINE ============ -->
+
+
+<!-- ============ GALLERY ============ -->
+
 
 <!-- ============ FOOTER ============ -->
 <footer class="csmt-footer">
@@ -744,5 +740,6 @@
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
-</body>
-</html>
+
+
+</body></html>

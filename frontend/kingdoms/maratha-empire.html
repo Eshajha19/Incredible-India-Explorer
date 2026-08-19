@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <script>
     (function() {
       let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -43,7 +41,7 @@
   </style>
 </head>
 <body>
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -55,14 +53,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -77,7 +75,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -91,9 +89,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -122,7 +120,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
   <main>
     <section class="explorer-header">
@@ -169,7 +167,7 @@
       </div>
 
       <div class="content-block">
-        <h2>Major Rulers & Leaders</h2>
+        <h2>Major Rulers &amp; Leaders</h2>
         <div class="grid-layout">
           <div class="card-item">
             <h3>Chhatrapati Shivaji Maharaj</h3>
@@ -187,7 +185,7 @@
       </div>
 
       <div class="content-block">
-        <h2>Military Achievements & Strategy</h2>
+        <h2>Military Achievements &amp; Strategy</h2>
         <p>The Maratha military was defined by its incredible mobility and reliance on light cavalry. They perfected <strong>Ganimi Kava</strong> (guerrilla warfare), utilizing the rugged terrain of the Western Ghats to launch surprise attacks and rapidly retreat to their impregnable hill forts.</p>
         <p>They were also one of the first native Indian powers to realize the importance of a strong navy to protect the coastline. Under Admiral Kanhoji Angre, the Maratha Navy successfully defended the western coast against European powers, including the Portuguese, Dutch, and British.</p>
       </div>
@@ -199,7 +197,7 @@
       </div>
       
       <div class="content-block">
-        <h2>Cultural & Historical Legacy</h2>
+        <h2>Cultural &amp; Historical Legacy</h2>
         <p>The Maratha Empire played a crucial role in preventing the complete Islamization of the Indian subcontinent by halting the Mughal expansion. They actively promoted Marathi and Sanskrit languages over Persian in administration.</p>
         <p>The empire left behind a massive network of over 300 forts in Maharashtra, including Raigad, Pratapgad, and Sindhudurg. These forts stand today as a testament to their engineering prowess and strategic brilliance.</p>
       </div>
@@ -214,7 +212,7 @@
       </div>
 
       <div class="content-block">
-        <h2>References & Sources</h2>
+        <h2>References &amp; Sources</h2>
         <ul class="ref-list">
           <li><em>A History of the Mahrattas</em> by James Grant Duff.</li>
           <li><em>Shivaji and His Times</em> by Jadunath Sarkar.</li>
@@ -250,5 +248,6 @@
       }
     });
   </script>
-</body>
-</html>
+
+
+</body></html>

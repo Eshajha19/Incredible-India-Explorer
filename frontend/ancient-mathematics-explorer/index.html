@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ancient Indian Mathematics Explorer</title>
     <link rel="stylesheet" href="../traditional-games/style.css">
 </head>
-<body>
-    <script>
-        (function() {
-            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
-            if (theme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        })();
-    </script>
-    <div class="container">
+<body><main><div class="container">
         <header>
             <h1>Ancient Indian Mathematics Explorer</h1>
             <p class="subtitle">Discover India's Rich Mathematical Heritage</p>
@@ -36,7 +25,7 @@
 
         <div class="detail-modal" id="detail-modal">
             <div class="modal-content">
-                <button class="close-btn" id="close-modal">&times;</button>
+                <button class="close-btn" id="close-modal" aria-label="Close">×</button>
                 <div id="modal-body"></div>
             </div>
         </div>
@@ -44,8 +33,18 @@
         <footer>
             <p>Exploring the legacy of ancient Indian mathematicians who shaped the world of mathematics.</p>
         </footer>
-    </div>
+    </div></main>
+    <script>
+        (function() {
+            let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        })();
+    </script>
+    
 
-    <script src="../traditional-games/script.js" defer></script>
-</body>
-</html>
+    <script src="../traditional-games/script.js" defer=""></script>
+
+
+</body></html>

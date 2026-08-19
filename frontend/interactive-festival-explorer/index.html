@@ -1,30 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Festival Explorer | Colors, Traditions & Celebrations of India</title>
-    <meta name="description"
-        content="Explore the vibrant festivals of India by region, month, season, category, and state. Discover traditions, lunar calendar dates, mouth-watering delicacies, and mythological stories.">
+    <title>Interactive Festival Explorer | Colors, Traditions &amp; Celebrations of India</title>
+    <meta name="description" content="Explore the vibrant festivals of India by region, month, season, category, and state. Discover traditions, lunar calendar dates, mouth-watering delicacies, and mythological stories.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <!-- Navbar -->
-    <header class="navbar explorer-nav" role="banner">
+    <nav class="navbar explorer-nav" role="banner" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
-                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
-                    class="green">Explorer</span>
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
             </a>
-            <nav class="nav-menu" role="navigation">
+            <nav class="nav-menu" role="navigation" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="#map-section" class="nav-link">Region Map</a>
                 <a href="#calendar-section" class="nav-link">Festival Calendar</a>
@@ -36,7 +29,7 @@
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Theme">🌙</button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main role="main">
         <!-- Hero Section -->
@@ -63,7 +56,7 @@
                     </div>
                     <div class="stat-box">
                         <span class="stat-number">28</span>
-                        <span class="stat-label">States & UTs</span>
+                        <span class="stat-label">States &amp; UTs</span>
                     </div>
                 </div>
 
@@ -101,53 +94,53 @@
                         <svg class="india-regional-svg" viewBox="0 0 600 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of Indian Cultural Regions">
                             <defs>
                                 <linearGradient id="grad-north" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#3B82F6" />
-                                    <stop offset="100%" stop-color="#1D4ED8" />
+                                    <stop offset="0%" stop-color="#3B82F6"></stop>
+                                    <stop offset="100%" stop-color="#1D4ED8"></stop>
                                 </linearGradient>
                                 <linearGradient id="grad-south" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#10B981" />
-                                    <stop offset="100%" stop-color="#047857" />
+                                    <stop offset="0%" stop-color="#10B981"></stop>
+                                    <stop offset="100%" stop-color="#047857"></stop>
                                 </linearGradient>
                                 <linearGradient id="grad-east" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#F59E0B" />
-                                    <stop offset="100%" stop-color="#D97706" />
+                                    <stop offset="0%" stop-color="#F59E0B"></stop>
+                                    <stop offset="100%" stop-color="#D97706"></stop>
                                 </linearGradient>
                                 <linearGradient id="grad-west" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#EC4899" />
-                                    <stop offset="100%" stop-color="#BE185D" />
+                                    <stop offset="0%" stop-color="#EC4899"></stop>
+                                    <stop offset="100%" stop-color="#BE185D"></stop>
                                 </linearGradient>
                                 <linearGradient id="grad-central" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#8B5CF6" />
-                                    <stop offset="100%" stop-color="#6D28D9" />
+                                    <stop offset="0%" stop-color="#8B5CF6"></stop>
+                                    <stop offset="100%" stop-color="#6D28D9"></stop>
                                 </linearGradient>
                                 <linearGradient id="grad-ne" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#06B6D4" />
-                                    <stop offset="100%" stop-color="#0E7490" />
+                                    <stop offset="0%" stop-color="#06B6D4"></stop>
+                                    <stop offset="100%" stop-color="#0E7490"></stop>
                                 </linearGradient>
                             </defs>
 
                             <!-- Region 1: North India (JK, HP, Punjab, HR, UK, Delhi) -->
-                            <path class="region-path" data-region="north" d="M 220,50 L 320,40 L 350,110 L 310,210 L 210,200 L 190,120 Z" fill="url(#grad-north)" opacity="0.85" />
+                            <path class="region-path" data-region="north" d="M 220,50 L 320,40 L 350,110 L 310,210 L 210,200 L 190,120 Z" fill="url(#grad-north)" opacity="0.85"></path>
                             <text x="250" y="120" class="map-label">NORTH</text>
 
                             <!-- Region 2: West India (Rajasthan, Gujarat, Goa, MH) -->
-                            <path class="region-path" data-region="west" d="M 120,200 L 210,200 L 230,330 L 160,420 L 90,320 L 110,230 Z" fill="url(#grad-west)" opacity="0.85" />
+                            <path class="region-path" data-region="west" d="M 120,200 L 210,200 L 230,330 L 160,420 L 90,320 L 110,230 Z" fill="url(#grad-west)" opacity="0.85"></path>
                             <text x="140" y="290" class="map-label">WEST</text>
 
                             <!-- Region 3: Central India (MP, Chhattisgarh) -->
-                            <path class="region-path" data-region="central" d="M 230,210 L 340,210 L 360,330 L 250,340 Z" fill="url(#grad-central)" opacity="0.85" />
+                            <path class="region-path" data-region="central" d="M 230,210 L 340,210 L 360,330 L 250,340 Z" fill="url(#grad-central)" opacity="0.85"></path>
                             <text x="270" y="270" class="map-label">CENTRAL</text>
 
                             <!-- Region 4: East India (WB, Odisha, Bihar, Jharkhand) -->
-                            <path class="region-path" data-region="east" d="M 340,210 L 420,200 L 440,340 L 350,350 Z" fill="url(#grad-east)" opacity="0.85" />
+                            <path class="region-path" data-region="east" d="M 340,210 L 420,200 L 440,340 L 350,350 Z" fill="url(#grad-east)" opacity="0.85"></path>
                             <text x="375" y="275" class="map-label">EAST</text>
 
                             <!-- Region 5: North-East India (Assam, Meghalaya, Nagaland, Manipur, Mizoram, Tripura, Arunachal, Sikkim) -->
-                            <path class="region-path" data-region="northeast" d="M 425,180 L 550,150 L 570,250 L 460,260 Z" fill="url(#grad-ne)" opacity="0.85" />
+                            <path class="region-path" data-region="northeast" d="M 425,180 L 550,150 L 570,250 L 460,260 Z" fill="url(#grad-ne)" opacity="0.85"></path>
                             <text x="475" y="205" class="map-label">N-EAST</text>
 
                             <!-- Region 6: South India (TN, Kerala, Karnataka, AP, Telangana) -->
-                            <path class="region-path" data-region="south" d="M 165,425 L 255,345 L 345,355 L 290,560 L 210,570 Z" fill="url(#grad-south)" opacity="0.85" />
+                            <path class="region-path" data-region="south" d="M 165,425 L 255,345 L 345,355 L 290,560 L 210,570 Z" fill="url(#grad-south)" opacity="0.85"></path>
                             <text x="235" y="450" class="map-label">SOUTH</text>
                         </svg>
                     </div>
@@ -178,7 +171,7 @@
         <section class="explorer-section bg-alt" id="calendar-section">
             <div class="container">
                 <div class="section-header text-center animate-on-scroll">
-                    <span class="section-tagline">12-Month Calendar & 6 Ritus</span>
+                    <span class="section-tagline">12-Month Calendar &amp; 6 Ritus</span>
                     <h2 class="section-title">Month-Wise Festival Calendar</h2>
                     <p class="section-description">Browse festivals according to the Gregorian calendar months and traditional Indian Ritus (Seasons) tied to cosmic solstices and harvest cycles.</p>
                 </div>
@@ -217,31 +210,31 @@
             <div class="container">
                 <div class="section-header text-center animate-on-scroll">
                     <span class="section-tagline">Multi-Criteria Filtering</span>
-                    <h2 class="section-title">Discover by Category & State</h2>
+                    <h2 class="section-title">Discover by Category &amp; State</h2>
                     <p class="section-description">Filter celebrations by thematic category or select a specific state of India.</p>
                 </div>
 
                 <!-- Category Filters Bar -->
                 <div class="category-tabs animate-on-scroll">
                     <button class="cat-tab active" data-cat="all">All Categories</button>
-                    <button class="cat-tab" data-cat="harvest">🌾 Harvest & Agricultural</button>
-                    <button class="cat-tab" data-cat="light-color">🪔 Lights, Colors & Devotion</button>
-                    <button class="cat-tab" data-cat="chariot">🛕 Temple & Rath Yatra</button>
-                    <button class="cat-tab" data-cat="new-year">🌅 New Year & Solar Transit</button>
-                    <button class="cat-tab" data-cat="cultural">💃 Folk, Dance & Music</button>
-                    <button class="cat-tab" data-cat="tribal">🏹 Tribal & Indigenous Heritage</button>
+                    <button class="cat-tab" data-cat="harvest">🌾 Harvest &amp; Agricultural</button>
+                    <button class="cat-tab" data-cat="light-color">🪔 Lights, Colors &amp; Devotion</button>
+                    <button class="cat-tab" data-cat="chariot">🛕 Temple &amp; Rath Yatra</button>
+                    <button class="cat-tab" data-cat="new-year">🌅 New Year &amp; Solar Transit</button>
+                    <button class="cat-tab" data-cat="cultural">💃 Folk, Dance &amp; Music</button>
+                    <button class="cat-tab" data-cat="tribal">🏹 Tribal &amp; Indigenous Heritage</button>
                 </div>
 
                 <!-- State Dropdown Selector -->
                 <div class="state-filter-wrapper animate-on-scroll">
                     <label for="state-select" class="filter-label">📍 Select Specific State / UT:</label>
                     <select id="state-select" class="state-dropdown" aria-label="Select State or Union Territory">
-                        <option value="all">All States & Union Territories (28 States)</option>
+                        <option value="all">All States &amp; Union Territories (28 States)</option>
                         <option value="Assam">Assam</option>
                         <option value="Bihar">Bihar</option>
                         <option value="Gujarat">Gujarat</option>
                         <option value="Himachal Pradesh">Himachal Pradesh</option>
-                        <option value="Jammu & Kashmir / Ladakh">Jammu & Kashmir / Ladakh</option>
+                        <option value="Jammu &amp; Kashmir / Ladakh">Jammu &amp; Kashmir / Ladakh</option>
                         <option value="Karnataka">Karnataka</option>
                         <option value="Kerala">Kerala</option>
                         <option value="Madhya Pradesh">Madhya Pradesh</option>
@@ -311,17 +304,18 @@
                 <ul>
                     <li><a href="../classical-dances/index.html">Classical Dances of India</a></li>
                     <li><a href="../folk-dances/index.html">Folk Dances Explorer</a></li>
-                    <li><a href="../cuisine-discovery-hub/index.html">Cuisine & Regional Thalis</a></li>
+                    <li><a href="../cuisine-discovery-hub/index.html">Cuisine &amp; Regional Thalis</a></li>
                     <li><a href="../godrej-brand-explorer/index.html">Godrej Brand Evolution</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; Incredible India Explorer • Celebrating the Festivals & Traditions of India</p>
+            <p>© Incredible India Explorer • Celebrating the Festivals &amp; Traditions of India</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
 
-</html>
+
+
+</body></html>

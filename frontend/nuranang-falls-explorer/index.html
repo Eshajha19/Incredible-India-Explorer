@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuranang Falls Explorer | Incredible India Explorer</title>
     <meta name="description" content="Explore Nuranang Falls in Arunachal Pradesh. Follow the Himalayan Waterfall Route, learn about its mountain source, river path, and seasonal beauty.">
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
     
     <!-- Leaflet CSS for Map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
     <script>
@@ -24,7 +22,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
@@ -36,14 +34,14 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
                 <div class="nav-dropdown">
                     <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                     <div class="dropdown-menu">
                         <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                         <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                         <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                         <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -58,7 +56,7 @@
                         <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                         <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                         <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                         <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                         <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                         <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -72,9 +70,9 @@
                     <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                     <div class="dropdown-menu">
                         <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                         <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                         <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                         <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                         <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -103,7 +101,7 @@
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main style="padding-top: 80px;">
 
@@ -140,21 +138,21 @@
                     
                     <div class="flow-content-area glass-card">
                         <div class="flow-panel active" id="panel-mountain">
-                            <img src="https://images.unsplash.com/photo-1544258849-573514a51e62?auto=format&fit=crop&q=80&w=800" alt="Snow-capped Himalayan peaks of Sela Pass" class="flow-img" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1544258849-573514a51e62?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Snow-capped Himalayan peaks of Sela Pass" class="flow-img" loading="lazy">
                             <div class="flow-desc">
                                 <h3>High-Altitude Origins</h3>
                                 <p>The journey begins near the towering Sela Pass at an altitude of over 13,000 feet. Here, melting snow and glacial runoff from the Eastern Himalayas gather to form pristine mountain streams. The extreme altitude and freezing temperatures keep this source pure and cold year-round.</p>
                             </div>
                         </div>
                         <div class="flow-panel hidden" id="panel-river">
-                            <img src="https://images.unsplash.com/photo-1627914095454-e0c25a5d2e05?auto=format&fit=crop&q=80&w=800" alt="A river flowing through a lush green valley" class="flow-img" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1627914095454-e0c25a5d2e05?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="A river flowing through a lush green valley" class="flow-img" loading="lazy">
                             <div class="flow-desc">
                                 <h3>The Nuranang River</h3>
                                 <p>As the streams descend from Sela Pass, they converge into the Nuranang River. Flowing through steep valleys lined with dense alpine forests and rhododendrons, the river gains momentum before merging eventually with the larger Tawang Chu river down in the valley.</p>
                             </div>
                         </div>
                         <div class="flow-panel hidden" id="panel-waterfall">
-                            <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&fit=crop&q=80&w=800" alt="Close up of a powerful waterfall cascading down rocks" class="flow-img" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Close up of a powerful waterfall cascading down rocks" class="flow-img" loading="lazy">
                             <div class="flow-desc">
                                 <h3>The Spectacular Drop</h3>
                                 <p>Before meeting the Tawang Chu, the Nuranang River plunges dramatically over a steep cliff, creating the majestic Nuranang Falls. The nearly 100-metre drop scatters a fine mist across the surrounding greenery, making it one of the most picturesque locations in Arunachal Pradesh.</p>
@@ -169,7 +167,7 @@
         <section class="nuranang-section alt-bg">
             <div class="nuranang-container info-grid">
                 <div class="info-text">
-                    <span class="nuranang-eyebrow">📍 Location & Scale</span>
+                    <span class="nuranang-eyebrow">📍 Location &amp; Scale</span>
                     <h2>A hidden gem of the Northeast</h2>
                     <p class="lede">Located in the Tawang district of Arunachal Pradesh, Nuranang Falls is approximately 2 km from Jang town. Its sheer height and raw volume make it a prominent feature of the local landscape.</p>
                     
@@ -213,7 +211,7 @@
                 <div class="season-comparison">
                     <div class="season-card glass-card">
                         <div class="season-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600" alt="Waterfall during monsoon, very full and powerful" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Waterfall during monsoon, very full and powerful" loading="lazy">
                             <span class="season-badge badge-monsoon">Monsoon (Jul-Sep)</span>
                         </div>
                         <div class="season-info">
@@ -224,7 +222,7 @@
                     
                     <div class="season-card glass-card">
                         <div class="season-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600" alt="Waterfall during winter, calmer flow" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Waterfall during winter, calmer flow" loading="lazy">
                             <span class="season-badge badge-winter">Winter (Dec-Feb)</span>
                         </div>
                         <div class="season-info">
@@ -274,8 +272,9 @@
     <!-- Leaflet JS for Map -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
-    <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
-</html>
+    <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
+    <script src="script.js" defer=""></script>
+
+
+</body></html>

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Guess the Uttar Pradesh District Game - Educational quiz where users identify UP districts based on clues across Easy, Medium, Hard, and Timed Challenge modes.">
@@ -8,9 +6,9 @@
     <link rel="icon" href="data:,">
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="guess-up-district.css">
 </head>
@@ -24,7 +22,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -36,14 +34,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -58,7 +56,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -72,9 +70,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -103,13 +101,13 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="district-game-page">
         <!-- Hero Section -->
         <section class="game-hero">
             <div class="hero-content">
-                <span class="hero-kicker">🎯 Educational Quiz · 4 Game Modes · Hints & Badges</span>
+                <span class="hero-kicker">🎯 Educational Quiz · 4 Game Modes · Hints &amp; Badges</span>
                 <h1>Guess the <span>Uttar Pradesh District</span></h1>
                 <p>Test your knowledge of Uttar Pradesh geography, famous handicrafts (ODOP), historical landmarks, and rivers by identifying districts from clues!</p>
 
@@ -167,7 +165,7 @@
                         </div>
 
                         <div class="mode-desc-box">
-                            <p id="mode-desc-text">3 clear clues & 4 choices. Perfect for beginners!</p>
+                            <p id="mode-desc-text">3 clear clues &amp; 4 choices. Perfect for beginners!</p>
                         </div>
 
                         <!-- High Scores Panel -->
@@ -249,7 +247,7 @@
                 <div class="game-results-area" id="game-results-area" style="display: none;">
                     <div class="results-card">
                         <span class="results-badge">🎉 Quiz Completed!</span>
-                        <h2>Game Results & Performance</h2>
+                        <h2>Game Results &amp; Performance</h2>
 
                         <div id="high-score-notice" class="high-score-notice" style="display: none;">
                             🏆 Outstanding! You set a New High Score Record for this mode!
@@ -302,18 +300,19 @@
                 <h4>Quick Links</h4>
                 <a href="../../index.html">Home</a>
                 <a href="../culture/culture.html">Culture</a>
-                <a href="../learn/learn.html">Learn & Quiz</a>
+                <a href="../learn/learn.html">Learn &amp; Quiz</a>
                 <a href="guess-up-district.html">Guess UP District</a>
                 <a href="../state-jigsaw/state-jigsaw.html">State Jigsaw Puzzle</a>
                 <a href="../state-challenge/state-challenge.html">Borders Challenge</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer. Open Source Uttar Pradesh District Game Initiative.</p>
+            <p>© 2026 Incredible India Explorer. Open Source Uttar Pradesh District Game Initiative.</p>
         </div>
     </footer>
 
     <script type="module" src="guess-up-district.js"></script>
     <script src="../pages-common.js"></script>
-</body>
-</html>
+
+
+</body></html>

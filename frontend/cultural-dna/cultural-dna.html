@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore India's Cultural DNA with an interactive network graph showing how languages, architecture, music, cuisine, clothing, and philosophy connect and influence one another.">
@@ -8,16 +6,16 @@
     <link rel="icon" href="data:,">
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="cultural-dna.css">
 
     
     <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Indian Cultural DNA Explorer | Incredible India Explorer">
-    <meta property="og:description" content="Explore India&#39;s Cultural DNA with an interactive network graph showing how languages, architecture, music, cuisine, clothing, and philosophy connect and influen">
+    <meta property="og:description" content="Explore India's Cultural DNA with an interactive network graph showing how languages, architecture, music, cuisine, clothing, and philosophy connect and influen">
     <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -29,7 +27,7 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Indian Cultural DNA Explorer | Incredible India Explorer">
-    <meta name="twitter:description" content="Explore India&#39;s Cultural DNA with an interactive network graph showing how languages, architecture, music, cuisine, clothing, and philosophy connect and influen">
+    <meta name="twitter:description" content="Explore India's Cultural DNA with an interactive network graph showing how languages, architecture, music, cuisine, clothing, and philosophy connect and influen">
     <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
 
     <!-- Canonical URL -->
@@ -45,7 +43,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -57,14 +55,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -79,7 +77,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -93,9 +91,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -124,7 +122,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="dna-page">
         <!-- Hero Section -->
@@ -202,8 +200,8 @@
                         <svg id="dna-graph" class="dna-svg-graph" viewBox="0 0 900 700" width="100%" height="100%">
                             <defs>
                                 <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                                    <feGaussianBlur stdDeviation="6" result="blur" />
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    <feGaussianBlur stdDeviation="6" result="blur"></feGaussianBlur>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
                                 </filter>
                             </defs>
                             <!-- Interactive Container for Zoom & Pan -->
@@ -226,8 +224,8 @@
                     </div>
 
                     <!-- Inspector Panel -->
-                    <aside class="node-inspector" id="node-inspector" hidden>
-                        <button class="inspector-close-btn" id="inspector-close" aria-label="Close Inspector">&times;</button>
+                    <aside class="node-inspector" id="node-inspector" hidden="">
+                        <button class="inspector-close-btn" id="inspector-close" aria-label="Close Inspector">×</button>
                         
                         <div class="inspector-header">
                             <span class="inspector-category" id="inspector-category">Category</span>
@@ -335,11 +333,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer. Open Source Cross-Cultural DNA Initiative.</p>
+            <p>© 2026 Incredible India Explorer. Open Source Cross-Cultural DNA Initiative.</p>
         </div>
     </footer>
 
     <script type="module" src="cultural-dna.js"></script>
     <script src="../pages-common.js"></script>
-</body>
-</html>
+
+
+</body></html>

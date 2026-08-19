@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reconstruct Dholavira: The Harappan City of Water — Interactive historical explorer showcasing Harappan urban planning, sophisticated water management reservoirs, channels, fortifications, trade, and the ten-signboard inscription.">
     <title>Dholavira: The Harappan City of Water | Incredible India</title>
 
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
@@ -24,7 +22,7 @@
     </script>
 
     <!-- Navbar -->
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
@@ -36,16 +34,16 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link">Home</a>
                 <a href="#layout" class="nav-link">City Layout</a>
                 <a href="#water-system" class="nav-link active">Water Management</a>
                 <a href="#timeline" class="nav-link">Timeline</a>
-                <a href="#discoveries" class="nav-link">Signboard & Discoveries</a>
-                <a href="#decline" class="nav-link">Decline & Legacy</a>
+                <a href="#discoveries" class="nav-link">Signboard &amp; Discoveries</a>
+                <a href="#decline" class="nav-link">Decline &amp; Legacy</a>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main id="main-content">
         <!-- Hero Section -->
@@ -64,35 +62,35 @@
             <div class="dholavira-container">
                 <div class="dholavira-section-header">
                     <span class="dholavira-tag">Urban Architecture</span>
-                    <h2>Tripartite City Divisions & Layout Map</h2>
+                    <h2>Tripartite City Divisions &amp; Layout Map</h2>
                     <p>Unlike other Indus Valley cities built with sun-dried bricks, Dholavira was constructed entirely using dressed stone blocks.</p>
                 </div>
 
                 <div class="dholavira-map-wrapper">
                     <div class="dholavira-map-box">
                         <svg viewBox="0 0 700 500" class="dholavira-svg-map">
-                            <rect width="100%" height="100%" fill="#1e293b" rx="10"/>
+                            <rect width="100%" height="100%" fill="#1e293b" rx="10"></rect>
                             <!-- Stream channels -->
-                            <path d="M 50 50 L 650 50" stroke="#0ea5e9" stroke-width="8" opacity="0.6"/>
+                            <path d="M 50 50 L 650 50" stroke="#0ea5e9" stroke-width="8" opacity="0.6"></path>
                             <text x="60" y="40" fill="#0ea5e9" font-size="12">Manhar Stream</text>
-                            <path d="M 50 450 L 650 450" stroke="#0ea5e9" stroke-width="8" opacity="0.6"/>
+                            <path d="M 50 450 L 650 450" stroke="#0ea5e9" stroke-width="8" opacity="0.6"></path>
                             <text x="60" y="470" fill="#0ea5e9" font-size="12">Mansar Stream</text>
 
                             <!-- City Sectors -->
                             <g class="dholavira-sector" onclick="selectDholaviraSector('citadel')" transform="translate(150, 150)">
-                                <rect width="180" height="200" fill="#334155" stroke="#f59e0b" stroke-width="3" rx="6"/>
+                                <rect width="180" height="200" fill="#334155" stroke="#f59e0b" stroke-width="3" rx="6"></rect>
                                 <text x="30" y="105" fill="#f59e0b" font-weight="bold" font-size="16">Citadel (Castle)</text>
                             </g>
                             <g class="dholavira-sector" onclick="selectDholaviraSector('bailey')" transform="translate(350, 150)">
-                                <rect width="120" height="200" fill="#334155" stroke="#38bdf8" stroke-width="2" rx="6"/>
+                                <rect width="120" height="200" fill="#334155" stroke="#38bdf8" stroke-width="2" rx="6"></rect>
                                 <text x="25" y="105" fill="#38bdf8" font-weight="bold" font-size="14">Bailey</text>
                             </g>
                             <g class="dholavira-sector" onclick="selectDholaviraSector('middle')" transform="translate(150, 360)">
-                                <rect width="320" height="70" fill="#334155" stroke="#10b981" stroke-width="2" rx="6"/>
+                                <rect width="320" height="70" fill="#334155" stroke="#10b981" stroke-width="2" rx="6"></rect>
                                 <text x="100" y="40" fill="#10b981" font-weight="bold" font-size="14">Middle Town</text>
                             </g>
                             <g class="dholavira-sector" onclick="selectDholaviraSector('lower')" transform="translate(500, 150)">
-                                <rect width="140" height="280" fill="#334155" stroke="#a855f7" stroke-width="2" rx="6"/>
+                                <rect width="140" height="280" fill="#334155" stroke="#a855f7" stroke-width="2" rx="6"></rect>
                                 <text x="25" y="145" fill="#a855f7" font-weight="bold" font-size="14">Lower Town</text>
                             </g>
                         </svg>
@@ -111,8 +109,8 @@
             <div class="dholavira-container">
                 <div class="dholavira-section-header">
                     <span class="dholavira-tag">Hydraulic Engineering</span>
-                    <h2>Reservoirs, Dams & Water-Flow System</h2>
-                    <p>Situated in an arid zone between two seasonal streams (Manhar & Mansar), Dholavira built 16 massive stone-cut reservoirs storing up to 250,000 cubic meters of water.</p>
+                    <h2>Reservoirs, Dams &amp; Water-Flow System</h2>
+                    <p>Situated in an arid zone between two seasonal streams (Manhar &amp; Mansar), Dholavira built 16 massive stone-cut reservoirs storing up to 250,000 cubic meters of water.</p>
                 </div>
 
                 <div class="dholavira-grid-3">
@@ -128,7 +126,7 @@
                     </div>
                     <div class="dholavira-card">
                         <div class="dholavira-card-icon">🏰</div>
-                        <h3>Fortified Dams & Aqueducts</h3>
+                        <h3>Fortified Dams &amp; Aqueducts</h3>
                         <p>Thick masonry check-dams constructed across the Manhar and Mansar rivulets diverted floodwaters into underground stone conduits.</p>
                     </div>
                 </div>
@@ -153,7 +151,7 @@
             <div class="dholavira-container">
                 <div class="dholavira-section-header">
                     <span class="dholavira-tag">Archaeological Evidence</span>
-                    <h2>The Dholavira Signboard & Discoveries</h2>
+                    <h2>The Dholavira Signboard &amp; Discoveries</h2>
                 </div>
 
                 <div class="dholavira-grid-2">
@@ -162,7 +160,7 @@
                         <p>Found near the Northern Gate of the Citadel, featuring ten large Indus script symbols (approx 37 cm high) made of crystalline gypsum inlay. Believed to be a public advertisement or ceremonial billboard.</p>
                     </div>
                     <div class="dholavira-card">
-                        <h3>Craft & Trade Artifacts</h3>
+                        <h3>Craft &amp; Trade Artifacts</h3>
                         <p>Copper workshops, shell bangles, semi-precious carnelian beads, gold ornaments, and Harappan seals indicating thriving trade networks with Mesopotamia and Oman.</p>
                     </div>
                 </div>
@@ -174,11 +172,11 @@
             <div class="dholavira-container">
                 <div class="dholavira-section-header">
                     <span class="dholavira-tag">End of Metropolis</span>
-                    <h2>Decline, Abandonment & Archaeological Sources</h2>
+                    <h2>Decline, Abandonment &amp; Archaeological Sources</h2>
                 </div>
                 <div class="dholavira-grid-2">
                     <div class="dholavira-card">
-                        <h3>Climatic Aridity & Decline</h3>
+                        <h3>Climatic Aridity &amp; Decline</h3>
                         <p>Drying up of seasonal streams, shifting monsoon patterns, and seismic disruptions around 1900 BCE led to gradual depopulation and late-Harappan rural transformation.</p>
                     </div>
                     <div class="dholavira-card">
@@ -198,10 +196,11 @@
 
     <footer class="dholavira-footer">
         <div class="dholavira-container">
-            <p>&copy; 2026 Incredible India Explorer. Reconstructing the hydraulic genius of Dholavira.</p>
+            <p>© 2026 Incredible India Explorer. Reconstructing the hydraulic genius of Dholavira.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

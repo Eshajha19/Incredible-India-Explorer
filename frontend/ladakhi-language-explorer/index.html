@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ladakhi Language Explorer | Languages of Ladakh (Bhoti Heritage)</title>
-    <meta name="description" content="Explore Ladakhi (ལ་དྭགས་སྐད།)—a Western Archaic Tibetic language spoken in Ladakh (Leh, Nubra, Changthang, Zanskar, Kargil). Discover Tibetan Uchen & Yuged scripts, verified audio greetings, 4-step vocab visualizer, Gesar epic, and monastery heritage.">
+    <meta name="description" content="Explore Ladakhi (ལ་དྭགས་སྐད།)—a Western Archaic Tibetic language spoken in Ladakh (Leh, Nubra, Changthang, Zanskar, Kargil). Discover Tibetan Uchen &amp; Yuged scripts, verified audio greetings, 4-step vocab visualizer, Gesar epic, and monastery heritage.">
     
     <script>
         // Ensure trailing slash for proper relative asset resolution
@@ -15,8 +13,8 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Serif+Tibetan:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Noto+Serif+Tibetan:wght@400;600;700&amp;display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../../styles.css">
@@ -25,14 +23,14 @@
 <body class="dark-theme">
 
     <!-- Global Navigation Header -->
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
                 <span class="gold">India</span>
                 <span class="green">Explorer</span>
             </a>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link">Home</a>
                 <a href="../languages/languages.html" class="nav-link">Languages of India</a>
                 <a href="#interactive-section" class="nav-link">Vocab Visualizer</a>
@@ -45,7 +43,7 @@
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️ Theme</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
     <main>
@@ -54,8 +52,8 @@
         <section class="hero-section">
             <!-- Mountain Range Background Silhouette -->
             <svg class="hero-mountain-bg" viewBox="0 0 1440 240" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,240 L0,140 L180,60 L360,150 L540,40 L720,130 L900,30 L1080,120 L1260,50 L1440,110 L1440,240 Z" fill="rgba(245, 158, 11, 0.15)"/>
-                <path d="M0,240 L0,180 L240,110 L480,190 L720,90 L960,170 L1200,100 L1440,160 L1440,240 Z" fill="rgba(56, 189, 248, 0.12)"/>
+                <path d="M0,240 L0,140 L180,60 L360,150 L540,40 L720,130 L900,30 L1080,120 L1260,50 L1440,110 L1440,240 Z" fill="rgba(245, 158, 11, 0.15)"></path>
+                <path d="M0,240 L0,180 L240,110 L480,190 L720,90 L960,170 L1200,100 L1440,160 L1440,240 Z" fill="rgba(56, 189, 248, 0.12)"></path>
             </svg>
 
             <div class="container" style="position: relative; z-index: 2;">
@@ -167,11 +165,11 @@
                     <div class="map-container">
                         <svg class="ladakh-map-svg" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
                             <!-- River Network (Indus, Shyok, Zanskar) -->
-                            <path d="M 720 180 Q 560 220 440 270 T 160 320" fill="none" stroke="rgba(56, 189, 248, 0.4)" stroke-width="2.5" stroke-dasharray="4 4"/>
+                            <path d="M 720 180 Q 560 220 440 270 T 160 320" fill="none" stroke="rgba(56, 189, 248, 0.4)" stroke-width="2.5" stroke-dasharray="4 4"></path>
                             
                             <!-- Kargil / Lower Ladakh -->
                             <path class="region-path" data-id="kargil" d="M 140 220 L 260 160 L 320 280 L 180 340 Z">
-                                <title>Lower Ladakh & Purik Border (Kargil, Drass, Sankoo)</title>
+                                <title>Lower Ladakh &amp; Purik Border (Kargil, Drass, Sankoo)</title>
                             </path>
                             <!-- Nubra Valley -->
                             <path class="region-path" data-id="nubra" d="M 280 140 L 480 80 L 520 200 L 340 240 Z">
@@ -179,7 +177,7 @@
                             </path>
                             <!-- Central Ladakh & Leh -->
                             <path class="region-path active" data-id="central" d="M 320 260 L 480 200 L 560 310 L 380 360 Z">
-                                <title>Central Ladakh & Leh (Indus Valley, Hemis, Thiksey)</title>
+                                <title>Central Ladakh &amp; Leh (Indus Valley, Hemis, Thiksey)</title>
                             </path>
                             <!-- Zanskar -->
                             <path class="region-path" data-id="zanskar" d="M 180 340 L 340 300 L 380 430 L 220 440 Z">
@@ -201,7 +199,7 @@
 
                     <div class="map-info-card">
                         <div class="region-header">
-                            <h3 class="region-title" id="map-region-title">Central Ladakh & Leh</h3>
+                            <h3 class="region-title" id="map-region-title">Central Ladakh &amp; Leh</h3>
                             <span class="region-badge" id="map-region-badge" style="background-color: var(--accent-gold);">approx. 140,000</span>
                         </div>
                         <div id="map-region-desc">
@@ -226,7 +224,7 @@
                         <div class="culture-card-body">
                             <div class="culture-icon">📜</div>
                             <h3 class="culture-title">Uchen Script (དབུ་ཅན། - Headed Block Script)</h3>
-                            <p class="culture-text">Meaning 'with a head', Uchen is the block calligraphy style standard across Buddhist scriptures (Kangyur & Tengyur), monastery frescoes, school education, and public road signs across Ladakh.</p>
+                            <p class="culture-text">Meaning 'with a head', Uchen is the block calligraphy style standard across Buddhist scriptures (Kangyur &amp; Tengyur), monastery frescoes, school education, and public road signs across Ladakh.</p>
                             <div style="margin-top: 18px; padding: 14px; background: rgba(0,0,0,0.35); border-radius: 10px; font-family: var(--font-tibetan); font-size: 1.5rem; color: var(--accent-gold); border: 1px solid var(--border-color);">
                                 ལ་དྭགས་སྐད་ཁམས་བཟང་ཡོད།
                             </div>
@@ -257,8 +255,7 @@
                 </div>
 
                 <div style="max-width: 460px; margin: 0 auto 36px;">
-                    <input type="text" id="greeting-search" placeholder="🔍 Search greetings (e.g. Julley, Khamzang, Thukjeche)..." 
-                           style="width: 100%; padding: 14px 20px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.95rem; outline: none;">
+                    <input type="text" id="greeting-search" placeholder="🔍 Search greetings (e.g. Julley, Khamzang, Thukjeche)..." style="width: 100%; padding: 14px 20px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.95rem; outline: none;">
                 </div>
 
                 <div class="greetings-grid" id="greetings-grid">
@@ -272,13 +269,12 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Everyday Lexicon</span>
-                    <h2 class="section-title">Common Ladakhi Words & Etymology</h2>
+                    <h2 class="section-title">Common Ladakhi Words &amp; Etymology</h2>
                     <p class="section-desc">10+ fundamental words spanning mountain elements, homestead, fauna, and traditional culinary staples.</p>
                 </div>
 
                 <div style="max-width: 460px; margin: 0 auto 28px;">
-                    <input type="text" id="vocab-search" placeholder="🔍 Search words (e.g. Water, Mountain, Yak, Tsampa)..." 
-                           style="width: 100%; padding: 12px 18px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.92rem; outline: none;">
+                    <input type="text" id="vocab-search" placeholder="🔍 Search words (e.g. Water, Mountain, Yak, Tsampa)..." style="width: 100%; padding: 12px 18px; border-radius: 100px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-primary); font-size: 0.92rem; outline: none;">
                 </div>
 
                 <div class="matrix-wrapper">
@@ -288,7 +284,7 @@
                                 <th>Concept</th>
                                 <th>Tibetan Script (Uchen)</th>
                                 <th>Transliteration</th>
-                                <th>Pronunciation & IPA</th>
+                                <th>Pronunciation &amp; IPA</th>
                                 <th>English Meaning</th>
                                 <th>Audio</th>
                             </tr>
@@ -306,7 +302,7 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Living Traditions</span>
-                    <h2 class="section-title">Ladakhi Cultural & Literary Heritage</h2>
+                    <h2 class="section-title">Ladakhi Cultural &amp; Literary Heritage</h2>
                     <p class="section-desc">From oral bardic performances of the Gesar Epic to sacred woodblock manuscripts in ancient Gompas.</p>
                 </div>
 
@@ -336,7 +332,7 @@
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Academic Citations</span>
-                    <h2 class="section-title">Sources & References</h2>
+                    <h2 class="section-title">Sources &amp; References</h2>
                     <p class="section-desc">Linguistic and historical research sourced from recognized publications, grammar surveys, and UNESCO records.</p>
                 </div>
 
@@ -359,5 +355,6 @@
     <!-- Scripts -->
     <script src="data.js"></script>
     <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

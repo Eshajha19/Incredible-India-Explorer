@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <script>
         (function() {
             let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -16,9 +14,9 @@
     <link rel="icon" href="data:,">
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 
@@ -31,7 +29,7 @@
 
 <body class="rkpp-page-body">
     <!-- Navbar Header -->
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -43,14 +41,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -65,7 +63,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -79,9 +77,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -110,7 +108,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main class="rkpp-main">
         <!-- Hero Banner -->
@@ -124,7 +122,7 @@
                 <span class="rkpp-kicker">🏆 National Sports Promotion Award</span>
                 <h1>Rashtriya Khel <span>Protsahan</span> Puruskar</h1>
                 <p>Discover the honour that celebrates the organisations behind India's sporting rise — corporates, sports control boards, and NGOs that nurture talent, build infrastructure, and drive sports for development.</p>
-                <p class="rkpp-type-line">Honouring the forces behind the game — <span class="rkpp-type" data-words='["Corporate Champions","Talent Nurseries","Sports Boards","Academy Builders","Community Catalysts"]'></span></p>
+                <p class="rkpp-type-line">Honouring the forces behind the game — <span class="rkpp-type" data-words="[&quot;Corporate Champions&quot;,&quot;Talent Nurseries&quot;,&quot;Sports Boards&quot;,&quot;Academy Builders&quot;,&quot;Community Catalysts&quot;]"></span></p>
 
                 <div class="rkpp-hero-stats">
                     <div class="rkpp-hero-stat">
@@ -181,7 +179,7 @@
                         <p>The award was <strong>first conferred on 29 August 2009</strong> at Rashtrapati Bhavan by the President of India, alongside the other National Sports Awards. The inaugural recipients were <strong>Tata Steel</strong> and the <strong>Railways Sports Promotion Board</strong>. The award scheme was subsequently revised in <strong>2015</strong>, reorganising the categories into the four that exist today.</p>
                     </div>
                     <figure class="rkpp-figure float-slow">
-                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800" alt="Sprinter powering down a running track at a stadium" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Sprinter powering down a running track at a stadium" loading="lazy">
                         <figcaption>29 August — National Sports Day — the traditional date for the awards ceremony</figcaption>
                     </figure>
                 </div>
@@ -189,7 +187,7 @@
                 <h3>One of the Six National Sports Awards</h3>
                 <p>The Rashtriya Khel Protsahan Puruskar is one of the <strong>six core awards</strong> that constitute India's National Sports Awards framework, alongside the <strong>Major Dhyan Chand Khel Ratna</strong>, the <strong>Arjuna Award</strong>, the <strong>Dronacharya Award</strong>, the <strong>Major Dhyan Chand Award</strong> (lifetime achievement), and the <strong>Maulana Abul Kalam Azad (MAKA) Trophy</strong>. It is the only one of the six that honours <em>organisations</em> rather than individuals.</p>
 
-                <h3>Growth & Legacy</h3>
+                <h3>Growth &amp; Legacy</h3>
                 <p>Since its inception, the award has grown into a coveted institutional honour. As of 2024, <strong>55 awards</strong> have been bestowed upon <strong>42 different organisations and individuals</strong>. Several bodies — including the <strong>Services Sports Control Board</strong> (four awards), <strong>Tata Steel</strong> (three awards), and the <strong>Railways Sports Promotion Board</strong> — have won the honour multiple times, reflecting sustained, year-on-year commitment to sport.</p>
             </div>
         </section>
@@ -197,9 +195,9 @@
         <!-- Purpose Section -->
         <section id="purpose" class="rkpp-section">
             <div class="rkpp-content-card">
-                <h2>🎯 Purpose & Objective</h2>
+                <h2>🎯 Purpose &amp; Objective</h2>
                 <figure class="rkpp-banner">
-                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=1200" alt="Sports equipment laid out across a training ground" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" alt="Sports equipment laid out across a training ground" loading="lazy">
                 </figure>
                 <div class="rkpp-content">
                     <p>The objective of the award, as stated in the official scheme, is to <strong>"encourage and promote the involvement of corporates, voluntary organisations, sports control boards, etc., in the promotion and development of sports in the country."</strong></p>
@@ -283,28 +281,28 @@
                     <div class="category-cards">
                         <div class="category-card">
                             <div class="category-img">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800" alt="Young athlete training outdoors on a sports ground" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Young athlete training outdoors on a sports ground" loading="lazy">
                             </div>
-                            <h3>👦 Identification & Nurturing of Budding Talent</h3>
+                            <h3>👦 Identification &amp; Nurturing of Budding Talent</h3>
                             <p>Awarded to entities that systematically identify, train, and mentor young sportspersons — often 50 or more every year — building the grassroots pipeline for Indian sport. Notable winners include Tata Steel and the GoSports Foundation.</p>
                         </div>
                         <div class="category-card">
                             <div class="category-img">
-                                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=800" alt="Cricket stadium bathed in floodlights during a match" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Cricket stadium bathed in floodlights during a match" loading="lazy">
                             </div>
                             <h3>🤝 Encouragement to Sports through Corporate Social Responsibility</h3>
                             <p>Recognises companies that channel CSR funds into sports — a minimum of 5% of gross profit or ₹2 crore across three financial years. Recipients include ONGC, Odisha Mining Corporation, and Rashtriya Ispat Nigam.</p>
                         </div>
                         <div class="category-card">
                             <div class="category-img">
-                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=800" alt="Athlete running in the morning light" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Athlete running in the morning light" loading="lazy">
                             </div>
-                            <h3>💼 Employment of Sportspersons & Welfare Measures</h3>
+                            <h3>💼 Employment of Sportspersons &amp; Welfare Measures</h3>
                             <p>Honours organisations that provide careers and welfare to sportspersons — recruiting at least 50 over three years, with promotions and support structures. The Railways and Services Sports Control Boards excel in this category.</p>
                         </div>
                         <div class="category-card">
                             <div class="category-img">
-                                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&q=80&w=800" alt="Track and field ground at a sports complex" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Track and field ground at a sports complex" loading="lazy">
                             </div>
                             <h3>🌱 Sports for Development</h3>
                             <p>For NGOs using sport as a tool for social development — safe play environments, school physical-education capacity, and peace-building programmes. Winners include the Ladakh Ski &amp; Snowboard Association and Subroto Mukerjee Sports Education Society.</p>
@@ -368,10 +366,10 @@
                         <h3>Evaluation Focus Areas</h3>
                         <ul>
                             <li><strong>Scale of Impact:</strong> Number of athletes identified, nurtured, or employed</li>
-                            <li><strong>Investment & Resources:</strong> CSR outlays and non-commercial contributions to sport</li>
+                            <li><strong>Investment &amp; Resources:</strong> CSR outlays and non-commercial contributions to sport</li>
                             <li><strong>Infrastructure Development:</strong> Creation and upgradation of training facilities</li>
                             <li><strong>Community Reach:</strong> Programmes that make sport accessible and inclusive</li>
-                            <li><strong>Longevity & Sustainability:</strong> Consistent commitment over the preceding three years</li>
+                            <li><strong>Longevity &amp; Sustainability:</strong> Consistent commitment over the preceding three years</li>
                         </ul>
                     </div>
                 </div>
@@ -396,7 +394,7 @@
                         <div class="awardee-card">
                             <div class="awardee-avatar">🚂</div>
                             <h3>Railways Sports Promotion Board</h3>
-                            <p class="awardee-year">2009 · 2012 · Employment & Welfare</p>
+                            <p class="awardee-year">2009 · 2012 · Employment &amp; Welfare</p>
                             <p>A perennial champion of sportsperson employment, giving athletes across disciplines secure careers within Indian Railways.</p>
                         </div>
 
@@ -410,13 +408,13 @@
                         <div class="awardee-card">
                             <div class="awardee-avatar">⛽</div>
                             <h3>Petroleum Sports Promotion Board</h3>
-                            <p class="awardee-year">2011 · 2013 · CSR & Welfare</p>
+                            <p class="awardee-year">2011 · 2013 · CSR &amp; Welfare</p>
                             <p>Recognised for channelling the public-sector petroleum industry's resources into elite sports and athlete welfare.</p>
                         </div>
 
                         <div class="awardee-card">
                             <div class="awardee-avatar">🛢️</div>
-                            <h3>Oil & Natural Gas Corporation (ONGC)</h3>
+                            <h3>Oil &amp; Natural Gas Corporation (ONGC)</h3>
                             <p class="awardee-year">2014 · 2020 · CSR Support</p>
                             <p>Celebrated for its sustained corporate social responsibility funding of sports development and infrastructure across India.</p>
                         </div>
@@ -424,7 +422,7 @@
                         <div class="awardee-card">
                             <div class="awardee-avatar">🏅</div>
                             <h3>GoSports Foundation</h3>
-                            <p class="awardee-year">Identification & Nurturing</p>
+                            <p class="awardee-year">Identification &amp; Nurturing</p>
                             <p>The foundation behind dozens of Olympic and Paralympic medallists — honoured for identifying and nurturing budding young talent.</p>
                         </div>
 
@@ -451,7 +449,7 @@
 
                         <div class="awardee-card">
                             <div class="awardee-avatar">🏂</div>
-                            <h3>Ladakh Ski & Snowboard Association</h3>
+                            <h3>Ladakh Ski &amp; Snowboard Association</h3>
                             <p class="awardee-year">2022 · Sports for Development</p>
                             <p>A mountain-state pioneer recognised for using winter sport as a tool for community development and youth engagement.</p>
                         </div>
@@ -459,7 +457,7 @@
                         <div class="awardee-card">
                             <div class="awardee-avatar">🏦</div>
                             <h3>Reserve Bank of India</h3>
-                            <p class="awardee-year">Employment & Welfare</p>
+                            <p class="awardee-year">Employment &amp; Welfare</p>
                             <p>Honoured for its programmes employing sportspersons and supporting sports welfare measures.</p>
                         </div>
 
@@ -550,7 +548,7 @@
                     <div class="gallery-grid">
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=600" alt="Sprinter racing down a running track" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Sprinter racing down a running track" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Athletics</h3>
@@ -560,7 +558,7 @@
 
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=600" alt="Basketball resting on a court" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Basketball resting on a court" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Ball Sports</h3>
@@ -570,7 +568,7 @@
 
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=600" alt="Floodlit cricket stadium during a match" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Floodlit cricket stadium during a match" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Stadiums</h3>
@@ -580,7 +578,7 @@
 
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=600" alt="Young athlete in training" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Young athlete in training" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Budding Talent</h3>
@@ -590,7 +588,7 @@
 
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=600" alt="Runner training on an open road" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Runner training on an open road" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Sportsperson Welfare</h3>
@@ -600,7 +598,7 @@
 
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=600" alt="Training equipment at a sports facility" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Training equipment at a sports facility" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Infrastructure</h3>
@@ -610,7 +608,7 @@
 
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=600" alt="Football on a green pitch" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Football on a green pitch" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Community Sport</h3>
@@ -620,7 +618,7 @@
 
                         <figure class="gallery-item">
                             <div class="gallery-img">
-                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=600" alt="Formal awards ceremony stage lit for honourees" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Formal awards ceremony stage lit for honourees" loading="lazy">
                             </div>
                             <figcaption>
                                 <h3>Investiture</h3>
@@ -630,7 +628,7 @@
                     </div>
 
                     <div class="media-highlights">
-                        <h3>Recognition & Legacy</h3>
+                        <h3>Recognition &amp; Legacy</h3>
                         <ul>
                             <li>The award was instituted in 2009 by the Ministry of Youth Affairs &amp; Sports</li>
                             <li>It is one of the six core National Sports Awards of India</li>
@@ -688,7 +686,7 @@
             </div>
         </div>
         <div class="rkpp-footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer · Created with Vanilla HTML, CSS &amp; JavaScript</p>
+            <p>© 2026 Incredible India Explorer · Created with Vanilla HTML, CSS &amp; JavaScript</p>
             <p>Rashtriya Khel Protsahan Puruskar (National Sports Promotion Award) · Instituted 2009 · Ministry of Youth Affairs &amp; Sports</p>
         </div>
     </footer>
@@ -697,5 +695,6 @@
 
     <!-- Client Script -->
     <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

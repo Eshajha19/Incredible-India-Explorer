@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explore Vaduvur Wetland (Vaduvur Bird Sanctuary) — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. Human-made irrigation tank wetland hosting over 20,000 wintering migratory birds." />
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Vaduvur Wetland (Vaduvur Bird Sanctuary) — Ramsar Site No. 2480 in Tiruvarur, Tamil Nadu. Human-made irrigation tank wetland hosting over 20,000 wintering migratory birds.">
     <title>Vaduvur Wetland Explorer | Incredible India</title>
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="vaduvur.css" />
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="vaduvur.css">
 </head>
 <body class="vaduvur-main">
     <script>
@@ -25,7 +23,7 @@
 
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -37,14 +35,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -59,7 +57,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -73,9 +71,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -104,7 +102,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main>
         <!-- Hero Section -->
@@ -144,7 +142,7 @@
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-kicker">Century of Ecological Growth</span>
-                    <h2>History & Evolution</h2>
+                    <h2>History &amp; Evolution</h2>
                     <p class="section-subtitle">How a 1919 irrigation reservoir evolved into an international bird sanctuary.</p>
                 </div>
                 <div class="history-content-grid" id="history-grid"></div>
@@ -188,11 +186,11 @@
                 <div class="filter-controls-row">
                     <div class="category-buttons" id="bird-category-filters">
                         <button class="filter-btn active" data-category="all">All Species</button>
-                        <button class="filter-btn" data-category="waterfowl">Waterfowl & Ducks</button>
-                        <button class="filter-btn" data-category="wading-birds">Wading Birds & Storks</button>
+                        <button class="filter-btn" data-category="waterfowl">Waterfowl &amp; Ducks</button>
+                        <button class="filter-btn" data-category="wading-birds">Wading Birds &amp; Storks</button>
                     </div>
                     <div class="search-box">
-                        <input type="text" id="bird-search" placeholder="Search bird species..." aria-label="Search bird species" />
+                        <input type="text" id="bird-search" placeholder="Search bird species..." aria-label="Search bird species">
                     </div>
                 </div>
 
@@ -204,7 +202,7 @@
         <section id="biodiversity" class="vaduvur-section" data-tab="biodiversity">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-kicker">Freshwater Flora & Fauna</span>
+                    <span class="section-kicker">Freshwater Flora &amp; Fauna</span>
                     <h2>Aquatic Biodiversity</h2>
                     <p class="section-subtitle">Submerged macrophytes, carps, and frogs supporting a thriving food chain.</p>
                 </div>
@@ -216,7 +214,7 @@
         <section id="conservation" class="vaduvur-section" data-tab="conservation">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-kicker">Forest Dept & Local Guardianship</span>
+                    <span class="section-kicker">Forest Dept &amp; Local Guardianship</span>
                     <h2>Conservation Efforts</h2>
                     <p class="section-subtitle">Community firecracker bans, anti-poaching vigilance, and habitat restoration.</p>
                 </div>
@@ -238,18 +236,18 @@
                     <div class="interactive-map-wrapper">
                         <div class="svg-map-canvas" id="svg-map-canvas">
                             <svg viewBox="0 0 800 500" class="wetland-svg-map">
-                                <rect width="800" height="500" rx="12" fill="#0d1b2a" />
+                                <rect width="800" height="500" rx="12" fill="#0d1b2a"></rect>
                                 <!-- Tank Water Body -->
-                                <path d="M 120 180 C 220 100, 500 120, 680 200 C 720 280, 600 420, 380 430 C 200 440, 90 320, 120 180 Z" fill="rgba(32, 140, 200, 0.35)" stroke="#38bdf8" stroke-width="3" />
-                                <path d="M 180 220 C 260 160, 460 180, 580 240 C 600 300, 520 380, 360 380 C 240 380, 160 300, 180 220 Z" fill="rgba(56, 189, 248, 0.2)" stroke="#7dd3fc" stroke-dasharray="4 4" stroke-width="1.5" />
+                                <path d="M 120 180 C 220 100, 500 120, 680 200 C 720 280, 600 420, 380 430 C 200 440, 90 320, 120 180 Z" fill="rgba(32, 140, 200, 0.35)" stroke="#38bdf8" stroke-width="3"></path>
+                                <path d="M 180 220 C 260 160, 460 180, 580 240 C 600 300, 520 380, 360 380 C 240 380, 160 300, 180 220 Z" fill="rgba(56, 189, 248, 0.2)" stroke="#7dd3fc" stroke-dasharray="4 4" stroke-width="1.5"></path>
                                 
                                 <!-- Earthen Bund Trail Line -->
-                                <path d="M 100 170 C 210 80, 520 100, 700 180 C 740 270, 620 440, 380 450 C 180 460, 70 330, 100 170 Z" fill="none" stroke="#eab308" stroke-dasharray="6 6" stroke-width="2.5" />
+                                <path d="M 100 170 C 210 80, 520 100, 700 180 C 740 270, 620 440, 380 450 C 180 460, 70 330, 100 170 Z" fill="none" stroke="#eab308" stroke-dasharray="6 6" stroke-width="2.5"></path>
                                 
                                 <!-- Tree Islet Circles -->
-                                <circle cx="320" cy="240" r="28" fill="#15803d" opacity="0.8" />
-                                <circle cx="440" cy="270" r="34" fill="#15803d" opacity="0.8" />
-                                <circle cx="390" cy="320" r="22" fill="#15803d" opacity="0.8" />
+                                <circle cx="320" cy="240" r="28" fill="#15803d" opacity="0.8"></circle>
+                                <circle cx="440" cy="270" r="34" fill="#15803d" opacity="0.8"></circle>
+                                <circle cx="390" cy="320" r="22" fill="#15803d" opacity="0.8"></circle>
                                 
                                 <text x="320" y="244" text-anchor="middle" fill="#ffffff" font-size="10">Acacia Islet 1</text>
                                 <text x="440" y="274" text-anchor="middle" fill="#ffffff" font-size="10">Acacia Islet 2</text>
@@ -300,8 +298,8 @@
     <!-- Lightbox Modal -->
     <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true" role="dialog">
         <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
-            <img id="lightbox-img" src="" alt="" />
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">×</button>
+            <img id="lightbox-img" src="" alt="">
             <p id="lightbox-caption" class="lightbox-caption"></p>
         </div>
     </div>
@@ -315,5 +313,6 @@
 
     <script src="vaduvur-data.js"></script>
     <script src="vaduvur.js"></script>
-</body>
-</html>
+
+
+</body></html>

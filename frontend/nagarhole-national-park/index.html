@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nagarhole National Park Explorer | Incredible India Explorer</title>
   <meta name="description" content="Explore Nagarhole National Park with history, Kabini River, wildlife, tiger reserve, elephants, birds, safari, gallery and interactive map.">
   <link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -19,14 +17,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -41,7 +39,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -55,9 +53,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -86,7 +84,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
   <main class="nagarhole-page">
     <section class="nagarhole-hero"><div class="hero-content">
@@ -105,7 +103,7 @@
     <section class="facts-section"><div class="page-container"><div class="section-heading"><span class="section-badge">Quick facts</span><h2>Nagarhole at a glance</h2></div><div class="facts-grid" id="facts-grid"></div></div></section>
     <section class="history-section"><div class="page-container"><div class="section-heading"><span class="section-badge">History</span><h2>Conservation and safari identity</h2></div><div class="history-grid" id="history-grid"></div></div></section>
     <section class="wildlife-section"><div class="page-container"><div class="section-heading"><span class="section-badge">Wildlife</span><h2>Tigers, elephants, birds and river life</h2><p>Filter the cards to explore flagship species and biodiversity groups.</p></div>
-      <div class="filter-row" role="group" aria-label="Wildlife filters"><button class="filter-btn active" data-filter="All" type="button">All</button><button class="filter-btn" data-filter="Tiger Reserve" type="button">Tiger</button><button class="filter-btn" data-filter="Elephant" type="button">Elephants</button><button class="filter-btn" data-filter="Predator" type="button">Predators</button><button class="filter-btn" data-filter="Herbivore" type="button">Herbivores</button><button class="filter-btn" data-filter="Bird" type="button">Birds</button></div>
+      <div class="filter-row" role="group" aria-label="Wildlife filters"><button class="filter-btn active" data-filter="All" type="button" aria-label="Filter">All</button><button class="filter-btn" data-filter="Tiger Reserve" type="button">Tiger</button><button class="filter-btn" data-filter="Elephant" type="button">Elephants</button><button class="filter-btn" data-filter="Predator" type="button">Predators</button><button class="filter-btn" data-filter="Herbivore" type="button">Herbivores</button><button class="filter-btn" data-filter="Bird" type="button">Birds</button></div>
       <div class="wildlife-grid" id="wildlife-grid"></div></div></section>
     <section class="kabini-section"><div class="page-container"><div class="section-heading"><span class="section-badge">Kabini River</span><h2>The water system that shapes wildlife movement</h2></div><div class="kabini-grid" id="kabini-grid"></div></div></section>
     <section class="map-section"><div class="page-container"><div class="section-heading"><span class="section-badge">Interactive map</span><h2>Explore river, forest and safari zones</h2><p>Tap each point to learn about Kabini, tiger habitat, elephant movement, safari interpretation and birding edges.</p></div><div class="map-layout"><div class="nagarhole-map" id="nagarhole-map" aria-label="Interactive Nagarhole map"><div class="forest-shape"></div><div class="river-line"></div><div class="backwater-shape"></div><div id="map-pins"></div></div><aside class="map-info" id="map-info"><span>Selected point</span><h3>Tap a map pin</h3><p>Map points explain Kabini, safari zones, tiger habitats, elephants, birding zones and forest edges.</p></aside></div></div></section>
@@ -118,5 +116,5 @@
   <footer class="nagarhole-footer"><p>Part of <a href="../../index.html">Incredible India Explorer</a> · Dedicated national park explorer for Nagarhole.</p></footer>
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
   <script src="../app.js"></script><script src="script.js"></script>
-</body>
-</html>
+
+</body></html>

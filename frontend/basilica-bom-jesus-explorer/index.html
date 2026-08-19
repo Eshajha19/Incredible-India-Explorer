@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Incredible India Explorer - An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
+    <meta name="description" content="Incredible India Explorer - An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
     <!-- Security headers (defense-in-depth for CSP, MIME sniffing, referrer) -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
@@ -305,8 +301,7 @@
 
     <!-- Open Graph / Social Meta Tags -->
     <meta property="og:title" content="Incredible India Explorer">
-    <meta property="og:description"
-        content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
+    <meta property="og:description" content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
     <meta property="og:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -317,16 +312,15 @@
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Incredible India Explorer">
-    <meta name="twitter:description"
-        content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
+    <meta name="twitter:description" content="An interactive, animated digital tour of India's states, cuisines, festivals, dances, and vibrant culture.">
     <meta name="twitter:image" content="https://incredibleindiaexplorer.gov.in/assets/Brihadeeswara_Temple.png">
     <!-- Canonical URL -->
     <link rel="canonical" href="https://incredibleindiaexplorer.gov.in/">
     <!-- Google Fonts -->
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="./assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="./assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="frontend/navbar-redesign/navbar.css">
@@ -362,7 +356,7 @@
     </div>
 
     <!-- Sticky Navigation Bar -->
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -374,14 +368,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
                     <a href="frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports</a>
@@ -410,9 +404,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -443,7 +437,7 @@
             </div>
         </nav>
     </div>
-</header>
+</nav>
 
     <!-- Loading Overlay (shown during SPA page transitions) -->
     <div id="app-loading-overlay" class="app-loading-overlay" style="display:none;" role="status" aria-live="polite">
@@ -460,14 +454,14 @@
 
         <!-- Hero Section -->
         <section id="home" class="hero-section scroll-section">
-            <video autoplay muted loop class="hero-video" poster="frontend/assets/hero_banner.png">
+            <video autoplay="" muted="" loop="" class="hero-video" poster="frontend/assets/hero_banner.png">
 
             </video>
             <div class="hero-overlay" style="background: linear-gradient(180deg, rgba(5,10,21,0.1) 0%, rgba(5,10,21,0.6) 100%);"></div>
 
             <div class="hero-content premium-glass-card animate-premium-slide-up" style="max-width: 800px; text-align: center; margin: 0 20px;">
                 <span class="hero-tagline animate-fade-in" data-i18n="home.heroTagline">Discover the land of diversity,
-                    spices & heritage</span>
+                    spices &amp; heritage</span>
                 <h1 class="hero-title animate-slide-up">Namaste, Welcome to <br><span class="highlight">Incredible
                         India</span></h1>
                 <p class="hero-description animate-fade-in-delayed">
@@ -493,7 +487,7 @@
         <section id="map" class="map-section scroll-section fade-in-section">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge">Geography & Heritage</span>
+                    <span class="section-badge">Geography &amp; Heritage</span>
                     <h2 data-i18n="home.exploreStatesTitle">Explore the States of India</h2>
                     <p class="section-subtitle">Hover over the map to view regions. Click a state or union territory to
                         unlock its cultural profile, famous foods, and festivals.</p>
@@ -533,8 +527,7 @@
                             <div class="map-action-box">
                                 <button class="btn btn-gold ripple" id="btn-random-state">Explore a Random
                                     State</button>
-                                <button class="btn btn-gold ripple hidden" id="btn-sidebar-view-more"
-                                    style="margin-top: 10px; width: 100%;">View Detailed Page</button>
+                                <button class="btn btn-gold ripple hidden" id="btn-sidebar-view-more" style="margin-top: 10px; width: 100%;">View Detailed Page</button>
                             </div>
                         </div>
 
@@ -548,10 +541,10 @@
                                 side-by-side.</p>
                             <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
                                 <select id="compare-state-a" class="compare-select">
-                                    <option value="" disabled selected>Select First State</option>
+                                    <option value="" disabled="" selected="">Select First State</option>
                                 </select>
                                 <select id="compare-state-b" class="compare-select">
-                                    <option value="" disabled selected>Select Second State</option>
+                                    <option value="" disabled="" selected="">Select Second State</option>
                                 </select>
                             </div>
                             <div class="map-action-box">
@@ -594,7 +587,7 @@
         <section id="festivals" class="festivals-section scroll-section fade-in-section">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge">Colors & Joy</span>
+                    <span class="section-badge">Colors &amp; Joy</span>
                     <h2>Grand Festivals</h2>
                     <p class="section-subtitle">Experience the major celebrations that bind India together in unity and
                         spiritual joy.</p>
@@ -611,15 +604,15 @@
         <section id="culture" class="culture-section scroll-section fade-in-section">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge">Art Forms & Attires</span>
-                    <h2>Dances, Music & Clothing</h2>
+                    <span class="section-badge">Art Forms &amp; Attires</span>
+                    <h2>Dances, Music &amp; Clothing</h2>
                     <p class="section-subtitle">Explore India's timeless classical and folk art traditions, garments,
                         and rhythmic instruments.</p>
                 </div>
 
                 <!-- Custom Slider Outer -->
                 <div class="slider-wrapper">
-                    <button class="slider-control prev" id="slider-prev" aria-label="Previous Slide">&#10094;</button>
+                    <button class="slider-control prev" id="slider-prev" aria-label="Previous Slide">❮</button>
 
                     <div class="slider-container" id="slider-container">
                         <div class="slider-track" id="slider-track">
@@ -627,7 +620,7 @@
                         </div>
                     </div>
 
-                    <button class="slider-control next" id="slider-next" aria-label="Next Slide">&#10095;</button>
+                    <button class="slider-control next" id="slider-next" aria-label="Next Slide">❯</button>
                 </div>
 
                 <!-- Slider Navigation Dots -->
@@ -642,7 +635,7 @@
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-badge">Test Your Knowledge</span>
-                    <h2>Food & State Quiz</h2>
+                    <h2>Food &amp; State Quiz</h2>
                     <p class="section-subtitle">Can you guess the origin of these famous dishes? Challenge yourself and
                         score 8/8!</p>
                 </div>
@@ -714,9 +707,9 @@
             </div>
 
             <div class="footer-links">
-                <h3>Legal & Support</h3>
+                <h3>Legal &amp; Support</h3>
                 <ul>
-                    <li><a href="frontend/support/support.html">Help & Support</a></li>
+                    <li><a href="frontend/support/support.html">Help &amp; Support</a></li>
                     <li><a href="frontend/changelog/changelog.html">What's New</a></li>
                     <li><a href="frontend/newsletter/newsletter.html">Newsletter</a></li>
                     <li><a href="frontend/terms/terms.html">Terms of Service</a></li>
@@ -725,7 +718,7 @@
             </div>
         </div>
         <div class="footer-credits footer-credits-center">
-            <p>&copy; 2026 Incredible India Explorer. Created with Vanilla HTML, CSS & JavaScript.</p>
+            <p>© 2026 Incredible India Explorer. Created with Vanilla HTML, CSS &amp; JavaScript.</p>
         </div>
     </footer>
 
@@ -734,7 +727,7 @@
         <!-- Controls Header: Close overlay & Audio Toggle -->
         <div class="story-controls-header">
             <button class="story-back-btn" id="state-story-back-btn">
-                <span class="arrow">&larr;</span> Return to Map
+                <span class="arrow">←</span> Return to Map
             </button>
             <button class="story-audio-btn" id="state-story-audio-btn">
                 <span class="audio-icon">🔊</span> Listen to Soundscape
@@ -775,13 +768,10 @@
                     </div>
 
                     <!-- State Overlay Tab Switcher -->
-                    <div class="state-overlay-tabs" id="state-overlay-tabs"
-                        style="display: flex; gap: 15px; margin: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">
-                        <button class="state-tab-btn active" data-tab="overview"
-                            style="background: none; border: none; color: var(--primary-gold); font-weight: bold; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Overview</button>
-                        <button class="state-tab-btn" data-tab="highlights"
-                            style="background: none; border: none; color: var(--muted-text); font-weight: normal; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Culture
-                            & Cuisine</button>
+                    <div class="state-overlay-tabs" id="state-overlay-tabs" style="display: flex; gap: 15px; margin: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">
+                        <button class="state-tab-btn active" data-tab="overview" style="background: none; border: none; color: var(--primary-gold); font-weight: bold; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Overview</button>
+                        <button class="state-tab-btn" data-tab="highlights" style="background: none; border: none; color: var(--muted-text); font-weight: normal; cursor: pointer; font-family: var(--font-family); font-size: 0.95rem; padding: 5px 10px;">Culture
+                            &amp; Cuisine</button>
                     </div>
 
                     <!-- Tab Panel: Overview -->
@@ -797,7 +787,7 @@
                     <div class="state-tab-panel hidden" id="state-tab-highlights">
                         <!-- Highlights Box -->
                         <div class="story-highlights-box" style="margin-top: 0;">
-                            <h3>Cultural & Culinary Highlights</h3>
+                            <h3>Cultural &amp; Culinary Highlights</h3>
                             <div class="highlights-grid" id="state-story-highlights-grid">
                                 <!-- Injected by JS -->
                             </div>
@@ -812,24 +802,20 @@
     <div class="story-overlay" id="state-comparison-overlay">
         <div class="story-controls-header">
             <button class="story-back-btn" id="comparison-back-btn">
-                <span class="arrow">&larr;</span> Return to Map
+                <span class="arrow">←</span> Return to Map
             </button>
-            <h3
-                style="margin: 0; color: var(--primary-gold); font-family: var(--font-family); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 1.1rem;">
+            <h3 style="margin: 0; color: var(--primary-gold); font-family: var(--font-family); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: 1.1rem;">
                 State Comparison</h3>
         </div>
 
-        <div class="comparison-split-grid"
-            style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 40px; box-sizing: border-box; height: calc(100% - 60px); overflow-y: auto;">
+        <div class="comparison-split-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 40px; box-sizing: border-box; height: calc(100% - 60px); overflow-y: auto;">
             <!-- State A Details -->
-            <div class="comparison-column glass-card" id="comparison-column-a"
-                style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
+            <div class="comparison-column glass-card" id="comparison-column-a" style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
                 <!-- Populated by JS -->
             </div>
 
             <!-- State B Details -->
-            <div class="comparison-column glass-card" id="comparison-column-b"
-                style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
+            <div class="comparison-column glass-card" id="comparison-column-b" style="padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
                 <!-- Populated by JS -->
             </div>
         </div>
@@ -867,7 +853,7 @@
     </div>
 
     <!-- Scroll To Top Button -->
-    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">↑</button>
 
     <!-- Bharat Guide AI FAB & Chat Window -->
     <div class="bharat-guide-container">
@@ -887,7 +873,7 @@
                         <span class="online-status">Online • Ask about India</span>
                     </div>
                 </div>
-                <button class="btn-icon" id="btn-close-chat" aria-label="Close Chat">&times;</button>
+                <button class="btn-icon" id="btn-close-chat" aria-label="Close Chat">×</button>
             </div>
 
             <div class="chat-messages" id="chat-messages">
@@ -899,8 +885,7 @@
             </div>
 
             <div class="chat-input-area">
-                <select id="chat-lang-select" class="chat-lang-select" aria-label="Select Language"
-                    title="Select Voice/Speech Language">
+                <select id="chat-lang-select" class="chat-lang-select" aria-label="Select Language" title="Select Voice/Speech Language">
                     <option value="en-IN">🇬🇧 English</option>
                     <option value="hi-IN">🇮🇳 हिन्दी (Hindi)</option>
                     <option value="ta-IN">🇮🇳 தமிழ் (Tamil)</option>
@@ -916,17 +901,17 @@
     </div>
 
     <!-- JavaScript Files -->
-    <script src="frontend/dist/map-data.js" defer></script>
-    <script src="frontend/dist/home-data.js" defer></script>
-    <script src="frontend/chatbot-data.js" defer></script>
-    <script src="frontend/sw-register.js" defer></script>
-    <script src="frontend/js-modules/config.js" defer></script>
-    <script src="frontend/js-modules/storage.js" defer></script>
-    <script src="frontend/app.js" defer></script>
+    <script src="frontend/dist/map-data.js" defer=""></script>
+    <script src="frontend/dist/home-data.js" defer=""></script>
+    <script src="frontend/chatbot-data.js" defer=""></script>
+    <script src="frontend/sw-register.js" defer=""></script>
+    <script src="frontend/js-modules/config.js" defer=""></script>
+    <script src="frontend/js-modules/storage.js" defer=""></script>
+    <script src="frontend/app.js" defer=""></script>
     <script type="module" src="frontend/firebase-config.js"></script>
     <script type="module" src="frontend/auth.js"></script>
-    <script src="frontend/router.js" defer></script>
-    <script src="frontend/navbar-redesign/navbar.js" defer></script>
+    <script src="frontend/router.js" defer=""></script>
+    <script src="frontend/navbar-redesign/navbar.js" defer=""></script>
 
     <!-- SW Update handler – runs after sw-register.js -->
     <script>
@@ -958,13 +943,13 @@
     <script type="module" src="frontend/js-modules/command-palette.js"></script>
     <script type="module" src="frontend/js-modules/language-switcher.js"></script>
     <button id="install-pwa-btn" class="pwa-install-btn" style="display:none;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
         Install App
     </button>
-</body>
-</html>
+
+
+</body></html>

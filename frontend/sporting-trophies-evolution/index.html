@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Evolution of Indian Sporting Trophies - Interactive timeline showing how Indian trophies evolved from British sterling silver urns to indigenous bronze statuettes and 24K gold-plated modern trophies with Sanskrit mottos.">
@@ -20,7 +18,7 @@
   </script>
 
   <!-- Sticky Navbar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -32,15 +30,15 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../sports/sports.html" class="nav-link active">Sports</a>
         <a href="#timeline" class="nav-link">Interactive Timeline</a>
-        <a href="#materials" class="nav-link">Design & Materials</a>
+        <a href="#materials" class="nav-link">Design &amp; Materials</a>
         <a href="#renaming" class="nav-link">Renaming Archive</a>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="evolution-hero" id="hero">
@@ -72,10 +70,10 @@
   </section>
 
   <!-- Sub-Navigation Sticky Bar -->
-  <nav class="subnav-bar">
+  <nav class="subnav-bar" aria-label="Navigation">
     <div class="subnav-container">
       <button class="subnav-btn active" data-target="timeline">Interactive Timeline</button>
-      <button class="subnav-btn" data-target="materials">Design & Material Shift</button>
+      <button class="subnav-btn" data-target="materials">Design &amp; Material Shift</button>
       <button class="subnav-btn" data-target="renaming">Renaming Archive</button>
       <button class="subnav-btn" data-target="quiz">Evolution Quiz</button>
     </div>
@@ -94,7 +92,7 @@
       <!-- Era Filter Tabs -->
       <div class="filter-tabs">
         <button class="tab-btn active" id="filter-all">All Eras (1850 - Present)</button>
-        <button class="tab-btn" id="filter-earliest">Earliest & Traditional</button>
+        <button class="tab-btn" id="filter-earliest">Earliest &amp; Traditional</button>
         <button class="tab-btn" id="filter-colonial">Colonial Era (1888-1946)</button>
         <button class="tab-btn" id="filter-post">Post-Independence (1947-1989)</button>
         <button class="tab-btn" id="filter-modern">Modern Era (1990-Present)</button>
@@ -108,8 +106,8 @@
     <!-- Section 2: Design & Material Shift -->
     <section class="evolution-section" id="materials">
       <div class="section-header">
-        <span class="section-tag">Artistry & Craftsmanship</span>
-        <h2>Design & Material Transformation</h2>
+        <span class="section-tag">Artistry &amp; Craftsmanship</span>
+        <h2>Design &amp; Material Transformation</h2>
         <p>Trace the shift from British silver urns and shields to indigenous bronze statuettes and modern gold-plated ribbons.</p>
       </div>
 
@@ -122,7 +120,7 @@
     <section class="evolution-section" id="renaming">
       <div class="section-header">
         <span class="section-tag">Identity Shifts</span>
-        <h2>Trophy Renaming & Naming History</h2>
+        <h2>Trophy Renaming &amp; Naming History</h2>
         <p>Documenting how Indian trophies and national awards were renamed to honor sporting heroes.</p>
       </div>
 
@@ -130,9 +128,9 @@
         <table class="data-table" id="renaming-table">
           <thead>
             <tr>
-              <th>Original Name & Year</th>
+              <th>Original Name &amp; Year</th>
               <th>New / Current Name</th>
-              <th>Historical Reason & Significance</th>
+              <th>Historical Reason &amp; Significance</th>
             </tr>
           </thead>
           <tbody id="renaming-tbody">
@@ -161,7 +159,7 @@
   <!-- Timeline Detail Modal Overlay -->
   <div class="modal-overlay" id="timeline-modal">
     <div class="modal-content">
-      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <button class="close-modal-btn" id="modal-close-btn" aria-label="Close">×</button>
       <div id="modal-body-content">
         <!-- Rendered dynamically -->
       </div>
@@ -175,5 +173,6 @@
 
   <!-- Script Imports -->
   <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

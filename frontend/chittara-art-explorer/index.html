@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chittara Art Explorer | Geometric Folk Art of Karnataka</title>
-    <meta name="description"
-        content="Explore Chittara Painting, a traditional folk art of Karnataka created using natural pigments and geometric motifs.">
+    <meta name="description" content="Explore Chittara Painting, a traditional folk art of Karnataka created using natural pigments and geometric motifs.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav">
+    <nav class="navbar explorer-nav" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span
-                    class="gold">India</span> <span class="green">Explorer</span></a>
-            <nav class="nav-menu">
+            <a href="../../index.html" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></a>
+            <nav class="nav-menu" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="../indian-art-forms-visualizer/index.html" class="nav-link">Art Forms</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
@@ -28,7 +22,7 @@
             </nav>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
         </div>
-    </header>
+    </nav>
     <main>
         <section class="hero-section chittara-hero">
             <div class="hero-content animate-on-scroll">
@@ -40,9 +34,9 @@
 
         <section class="explorer-content">
             <div class="tabs" role="tablist">
-                <button class="tab-btn active" data-tab="history" role="tab">History & Region</button>
-                <button class="tab-btn" data-tab="materials" role="tab">Materials & Colors</button>
-                <button class="tab-btn" data-tab="motifs" role="tab">Motifs & Patterns</button>
+                <button class="tab-btn active" data-tab="history" role="tab">History &amp; Region</button>
+                <button class="tab-btn" data-tab="materials" role="tab">Materials &amp; Colors</button>
+                <button class="tab-btn" data-tab="motifs" role="tab">Motifs &amp; Patterns</button>
             </div>
 
             <div class="tab-content active" id="history" role="tabpanel">
@@ -59,7 +53,7 @@
                 </p>
             </div>
 
-            <div class="tab-content" id="materials" role="tabpanel" hidden>
+            <div class="tab-content" id="materials" role="tabpanel" hidden="">
                 <h2>Traditional Color Palette</h2>
                 <p>Chittara art strictly uses natural, earth-derived pigments. The base is typically the red mud of the
                     region, while the patterns are drawn using:</p>
@@ -77,7 +71,7 @@
                     with a smooth layer of cow dung and clay.</p>
             </div>
 
-            <div class="tab-content" id="motifs" role="tabpanel" hidden>
+            <div class="tab-content" id="motifs" role="tabpanel" hidden="">
                 <h2>Geometric Motifs</h2>
                 <p>Unlike narrative art forms, Chittara is purely geometric and symbolic. The patterns are composed of
                     interconnected lines, triangles, and squares that represent elements of nature and agriculture:</p>
@@ -97,19 +91,15 @@
             <p class="visualizer-desc">Experience the mathematical precision of Chittara art. Click the button below to
                 generate a unique, randomized geometric wall pattern using traditional motifs.</p>
             <div class="canvas-container">
-                <canvas id="chittara-canvas" width="800" height="400"
-                    aria-label="Interactive Chittara Pattern Canvas"></canvas>
+                <canvas id="chittara-canvas" width="800" height="400" aria-label="Interactive Chittara Pattern Canvas"></canvas>
                 <button id="generate-btn" class="btn-generate">Generate New Wall Pattern</button>
             </div>
 
             <h2 id="gallery">Artwork Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Chittara+Wall"
-                        alt="Chittara wall painting" loading="lazy"></div>
-                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Geometric+Grid"
-                        alt="Chittara geometric grid" loading="lazy"></div>
-                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Paddy+Sheaf"
-                        alt="Chittara paddy motif" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Chittara+Wall" alt="Chittara wall painting" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Geometric+Grid" alt="Chittara geometric grid" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://placehold.co/300/8B4513/fff?text=Paddy+Sheaf" alt="Chittara paddy motif" loading="lazy"></div>
             </div>
 
             <h2>References</h2>
@@ -120,10 +110,11 @@
         </section>
     </main>
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer.</p>
+        <p>© 2026 Incredible India Explorer.</p>
     </footer>
-    <script src="../../journey.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../../journey.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

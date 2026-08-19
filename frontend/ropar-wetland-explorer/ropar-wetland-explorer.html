@@ -1,24 +1,24 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta content="Ropar Wetland Explorer - Discover the Ramsar Wetland formed by the Sutlej River in Punjab, India. A rich ecosystem supporting migratory birds and aquatic biodiversity." name="description"/>
-    <meta property="og:title" content="Ropar Wetland Explorer | Incredible India"/>
-    <meta property="og:description" content="Explore Ropar Wetland, a Ramsar Site of international importance located on the Sutlej River in Punjab."/>
+<html lang="en"><head></head><body>﻿
+
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Ropar Wetland Explorer - Discover the Ramsar Wetland formed by the Sutlej River in Punjab, India. A rich ecosystem supporting migratory birds and aquatic biodiversity." name="description">
+    <meta property="og:title" content="Ropar Wetland Explorer | Incredible India">
+    <meta property="og:description" content="Explore Ropar Wetland, a Ramsar Site of international importance located on the Sutlej River in Punjab.">
     
     <title>Ropar Wetland Explorer | Incredible India</title>
     
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     
-    <link href="../../styles.css"stylesheet"/>
-    <link href="../pages-common.css" rel="stylesheet"/>
-    <link href="ropar-wetland-explorer.css" rel="stylesheet"/>
+    <link href="../../styles.css" stylesheet"="">
+    <link href="../pages-common.css" rel="stylesheet">
+    <link href="ropar-wetland-explorer.css" rel="stylesheet">
     
     <script type="application/ld+json">
     {
@@ -34,8 +34,8 @@
       }
     }
     </script>
-</head>
-<body>
+
+
     <script>
         (function() {
             let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -44,7 +44,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -56,14 +56,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -78,7 +78,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -92,9 +92,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -123,7 +123,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main id="app-root" style="padding-top: 80px;">
         
@@ -150,12 +150,12 @@
         <section class="content-section fade-in-section">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge gold-bg">Heritage & Hydrology</span>
+                    <span class="section-badge gold-bg">Heritage &amp; Hydrology</span>
                     <h2>A Riverine Ecosystem</h2>
                 </div>
                 <div class="info-grid">
                     <div class="info-card">
-                        <h3><i class="fa-solid fa-clock-rotate-left"></i> Origin & History</h3>
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> Origin &amp; History</h3>
                         <p>Originating from the construction of the Ropar Barrage over the Sutlej River, this wetland has evolved significantly. What started as an infrastructure project transformed into a vital protected wetland, becoming ecologically and culturally important for local communities and regional agriculture.</p>
                     </div>
                     <div class="info-card">
@@ -180,7 +180,7 @@
                     </div>
                     <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">Ropar's freshwater ecosystem offers crucial environmental services.</p>
                     <ul>
-                        <li><strong>Marshes & Floodplains:</strong> Extensive marshlands and floodplain habitats act as natural sponges, regulating river flow and mitigating floods.</li>
+                        <li><strong>Marshes &amp; Floodplains:</strong> Extensive marshlands and floodplain habitats act as natural sponges, regulating river flow and mitigating floods.</li>
                         <li><strong>Nutrient Cycling:</strong> The dense aquatic vegetation naturally filters water, promoting nutrient cycling and maintaining water quality.</li>
                         <li><strong>Climate Regulation:</strong> The large water body and surrounding vegetation play a vital role in local micro-climate regulation.</li>
                     </ul>
@@ -193,8 +193,8 @@
                     <p style="margin-bottom: 20px; color: var(--text-muted); line-height: 1.6;">A complex food chain sustains a healthy ecological balance.</p>
                     <ul>
                         <li><strong>Freshwater Fish:</strong> The reservoir supports numerous native fish species, which form the base of the wetland's food web.</li>
-                        <li><strong>Amphibians & Reptiles:</strong> The muddy banks are ideal habitats for various amphibians and water-loving reptiles.</li>
-                        <li><strong>Flora & Invertebrates:</strong> Submerged plants and aquatic invertebrates provide essential breeding grounds and food sources.</li>
+                        <li><strong>Amphibians &amp; Reptiles:</strong> The muddy banks are ideal habitats for various amphibians and water-loving reptiles.</li>
+                        <li><strong>Flora &amp; Invertebrates:</strong> Submerged plants and aquatic invertebrates provide essential breeding grounds and food sources.</li>
                     </ul>
                 </div>
             </div>
@@ -211,7 +211,7 @@
                 
                 <div class="wildlife-grid">
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Northern_Pintail.jpg/800px-Northern_Pintail.jpg" alt="Northern Pintail" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1616781297597-402a5a0fb773?auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Northern_Pintail.jpg/800px-Northern_Pintail.jpg" alt="Northern Pintail" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1616781297597-402a5a0fb773?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Northern Pintail</h3>
                             <span class="wildlife-status status-least-concern">Winter Migrant</span>
@@ -219,7 +219,7 @@
                         </div>
                     </div>
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bar-headed_goose_%28Anser_indicus%29.jpg/800px-Bar-headed_goose_%28Anser_indicus%29.jpg" alt="Bar-headed Goose" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bar-headed_goose_%28Anser_indicus%29.jpg/800px-Bar-headed_goose_%28Anser_indicus%29.jpg" alt="Bar-headed Goose" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Bar-headed Goose</h3>
                             <span class="wildlife-status status-least-concern">High-Altitude Migrant</span>
@@ -227,7 +227,7 @@
                         </div>
                     </div>
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Purple_Heron_-_Ardea_purpurea_2.jpg/800px-Purple_Heron_-_Ardea_purpurea_2.jpg" alt="Purple Heron" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Purple_Heron_-_Ardea_purpurea_2.jpg/800px-Purple_Heron_-_Ardea_purpurea_2.jpg" alt="Purple Heron" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Purple Heron</h3>
                             <span class="wildlife-status status-least-concern">Resident/Migrant</span>
@@ -235,7 +235,7 @@
                         </div>
                     </div>
                     <div class="wildlife-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Black_winged_stilt.jpg/800px-Black_winged_stilt.jpg" alt="Black-winged Stilt" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1534005085871-3316dbfc2577?auto=format&fit=crop&w=800&q=80'">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Black_winged_stilt.jpg/800px-Black_winged_stilt.jpg" alt="Black-winged Stilt" class="wildlife-img" onerror="this.src='https://images.unsplash.com/photo-1534005085871-3316dbfc2577?auto=format&amp;fit=crop&amp;w=800&amp;q=80'">
                         <div class="wildlife-info">
                             <h3 class="wildlife-name">Black-winged Stilt</h3>
                             <span class="wildlife-status status-least-concern">Wader</span>
@@ -287,16 +287,16 @@
                 </div>
                 <div class="gallery-grid" id="gallery-grid" role="region" aria-labelledby="gallery-heading">
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Wetland Landscape">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&fit=crop&w=800&q=80" alt="Beautiful wetland landscape on the Sutlej River">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Beautiful wetland landscape on the Sutlej River">
                     </div>
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Migratory Birds">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&fit=crop&w=800&q=80" alt="Flock of migratory birds in flight">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1555541655-081b22306c59?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Flock of migratory birds in flight">
                     </div>
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Birdwatching">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Birdwatchers observing from the banks">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Birdwatchers observing from the banks">
                     </div>
                     <div class="gallery-item" tabindex="0" role="button" aria-label="View Sunset">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=800&q=80" alt="Sunset over Ropar Wetland">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Sunset over Ropar Wetland">
                     </div>
                 </div>
             </div>
@@ -318,7 +318,7 @@
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
-        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</span>
+        <span class="lightbox-close" id="lightbox-close" aria-label="Close image">×</span>
         <img id="lightbox-img" src="" alt="Enlarged view">
     </div>
 
@@ -326,5 +326,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/frontend/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="../pages-common.js"></script>
     <script src="ropar-wetland-explorer.js"></script>
-</body>
-</html>
+
+
+</body></html>

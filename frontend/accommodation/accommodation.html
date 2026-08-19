@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Discover personalized hotels, hostels and homestays across India."
-    >
+    <meta name="description" content="Discover personalized hotels, hostels and homestays across India.">
 
     <title>Smart Accommodation Explorer | Incredible India</title>
 
-    <link rel="preload"
-          href="../../assets/fonts/Outfit-400.woff2"
-          as="font"
-          type="font/woff2"
-          crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
 
-    <link rel="preload"
-          href="../../assets/fonts/Outfit-700.woff2"
-          as="font"
-          type="font/woff2"
-          crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
 
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="accommodation.css">
@@ -46,7 +33,7 @@
 })();
 </script>
 
-<header class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
 
         <a href="../../index.html#home" class="nav-logo">
@@ -55,17 +42,13 @@
             <span class="green">Explorer</span>
         </a>
 
-        <button
-            class="menu-toggle"
-            id="menu-toggle"
-            aria-label="Toggle Menu"
-        >
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
 
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
 
             <a href="../../index.html#home" class="nav-link">
                 Home
@@ -75,18 +58,14 @@
                 My Journey
             </a>
 
-            <button
-                id="theme-toggle"
-                class="btn-theme-toggle"
-                aria-label="Toggle Dark/Light Mode"
-            >
+            <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">
                 ☀️
             </button>
 
         </nav>
 
     </div>
-</header>
+</nav>
 
 <main>
 
@@ -117,10 +96,7 @@
     </section>
 
 
-    <section
-        class="accommodation-section"
-        id="accommodation-explorer"
-    >
+    <section class="accommodation-section" id="accommodation-explorer">
 
         <div class="section-heading">
 
@@ -268,47 +244,27 @@
             </span>
 
             <label>
-                <input
-                    type="checkbox"
-                    value="wifi"
-                    class="amenity-checkbox"
-                >
+                <input type="checkbox" value="wifi" class="amenity-checkbox">
                 Wi-Fi
             </label>
 
             <label>
-                <input
-                    type="checkbox"
-                    value="pool"
-                    class="amenity-checkbox"
-                >
+                <input type="checkbox" value="pool" class="amenity-checkbox">
                 Pool
             </label>
 
             <label>
-                <input
-                    type="checkbox"
-                    value="parking"
-                    class="amenity-checkbox"
-                >
+                <input type="checkbox" value="parking" class="amenity-checkbox">
                 Parking
             </label>
 
             <label>
-                <input
-                    type="checkbox"
-                    value="restaurant"
-                    class="amenity-checkbox"
-                >
+                <input type="checkbox" value="restaurant" class="amenity-checkbox">
                 Restaurant
             </label>
 
             <label>
-                <input
-                    type="checkbox"
-                    value="ac"
-                    class="amenity-checkbox"
-                >
+                <input type="checkbox" value="ac" class="amenity-checkbox">
                 AC
             </label>
 
@@ -329,28 +285,17 @@
 
             </div>
 
-            <button
-                type="button"
-                id="clear-filters"
-                class="secondary-button"
-            >
+            <button type="button" id="clear-filters" class="secondary-button">
                 Clear Filters
             </button>
 
         </div>
 
 
-        <div
-            id="accommodation-grid"
-            class="accommodation-grid"
-        ></div>
+        <div id="accommodation-grid" class="accommodation-grid"></div>
 
 
-        <div
-            id="empty-state"
-            class="empty-state"
-            hidden
-        >
+        <div id="empty-state" class="empty-state" hidden="">
 
             <h3>
                 No stays match your preferences
@@ -360,10 +305,7 @@
                 Try increasing your budget or removing an amenity filter.
             </p>
 
-            <button
-                id="empty-clear"
-                class="hero-button"
-            >
+            <button id="empty-clear" class="hero-button">
                 Reset Filters
             </button>
 
@@ -374,11 +316,7 @@
 </main>
 
 
-<div
-    id="comparison-panel"
-    class="comparison-panel"
-    hidden
->
+<div id="comparison-panel" class="comparison-panel" hidden="">
 
     <div class="comparison-header">
 
@@ -394,30 +332,18 @@
 
         </div>
 
-        <button
-            id="close-comparison"
-            class="close-button"
-            aria-label="Close comparison"
-        >
+        <button id="close-comparison" class="close-button" aria-label="Close comparison">
             ×
         </button>
 
     </div>
 
-    <div
-        id="comparison-content"
-        class="comparison-content"
-    ></div>
+    <div id="comparison-content" class="comparison-content"></div>
 
 </div>
 
 
-<div
-    id="toast"
-    class="toast"
-    role="status"
-    aria-live="polite"
-></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 
 <script src="../../app.js"></script>
@@ -426,5 +352,5 @@
 <script src="accommodation-data.js"></script>
 <script src="accommodation.js"></script>
 
-</body>
-</html>
+
+</body></html>

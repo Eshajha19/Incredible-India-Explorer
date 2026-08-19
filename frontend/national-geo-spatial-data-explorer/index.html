@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Geo-Spatial Data Explorer | Incredible India</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Cinzel:wght@600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Header -->
-    <header class="navbar">
+    <nav class="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html" class="logo">
                 <i class="fa-solid fa-earth-asia icon"></i>
                 <span>Incredible<span class="highlight">India</span></span>
             </a>
-            <nav class="nav-links">
+            <nav class="nav-links" aria-label="Navigation">
                 <a href="../../index.html">Home</a>
                 <a href="../national-awards/national-awards.html">National Awards</a>
                 <a href="#layers">GIS Layers</a>
@@ -29,13 +27,13 @@
                 </button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Banner -->
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="badge"><i class="fa-solid fa-layer-group"></i> ISRO Bhuvan & Survey of India GIS Portal</span>
+            <span class="badge"><i class="fa-solid fa-layer-group"></i> ISRO Bhuvan &amp; Survey of India GIS Portal</span>
             <h1>National Geo-Spatial Data Explorer</h1>
             <p>Explore India's comprehensive geospatial data infrastructure—mapping topography, forest canopy, satellite remote sensing, river basins, and urban infrastructure node networks.</p>
             <div class="hero-stats">
@@ -59,7 +57,7 @@
     <main class="dashboard-container">
         <!-- Interactive Layer Selector Bar -->
         <section class="filter-section" id="layers">
-            <h2><i class="fa-solid fa-sliders"></i> Geospatial Layer & Domain Filters</h2>
+            <h2><i class="fa-solid fa-sliders"></i> Geospatial Layer &amp; Domain Filters</h2>
             <div class="filter-controls">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -67,10 +65,10 @@
                 </div>
                 <div class="category-filters" id="category-buttons">
                     <button class="filter-btn active" data-category="all">All Layers</button>
-                    <button class="filter-btn" data-category="topography">Topography & Relief</button>
-                    <button class="filter-btn" data-category="hydrology">Hydrology & River Basins</button>
-                    <button class="filter-btn" data-category="vegetation">Forest & Agro-Ecology</button>
-                    <button class="filter-btn" data-category="urban">Urban & Infrastructure</button>
+                    <button class="filter-btn" data-category="topography">Topography &amp; Relief</button>
+                    <button class="filter-btn" data-category="hydrology">Hydrology &amp; River Basins</button>
+                    <button class="filter-btn" data-category="vegetation">Forest &amp; Agro-Ecology</button>
+                    <button class="filter-btn" data-category="urban">Urban &amp; Infrastructure</button>
                 </div>
             </div>
         </section>
@@ -97,7 +95,7 @@
                     <div class="form-group">
                         <label for="sim-region">Select Geographic Region:</label>
                         <select id="sim-region" class="form-control">
-                            <option value="Himalayan Ecology Belt">Himalayan Ecology & Glacier Belt</option>
+                            <option value="Himalayan Ecology Belt">Himalayan Ecology &amp; Glacier Belt</option>
                             <option value="Indo-Gangetic Alluvial Plains">Indo-Gangetic Alluvial Plains</option>
                             <option value="Deccan Plateau Volcanic Region">Deccan Plateau Volcanic Region</option>
                             <option value="Western Ghats Biodiversity Hotspot">Western Ghats Biodiversity Hotspot</option>
@@ -108,10 +106,10 @@
                     <div class="form-group">
                         <label for="sim-domain">Select GIS Analytics Engine:</label>
                         <select id="sim-domain" class="form-control">
-                            <option value="NDVI Forest Canopy Index">NDVI Forest Canopy & Vegetation Index</option>
-                            <option value="Elevation Contours & Slope Relief">Elevation Contours & DEM Slope Relief</option>
+                            <option value="NDVI Forest Canopy Index">NDVI Forest Canopy &amp; Vegetation Index</option>
+                            <option value="Elevation Contours &amp; Slope Relief">Elevation Contours &amp; DEM Slope Relief</option>
                             <option value="Hydrological Flood Inundation">Hydrological Flood Inundation Radar</option>
-                            <option value="Urban Sprawl & Impervious Surface">Urban Sprawl & Impervious Surface Growth</option>
+                            <option value="Urban Sprawl &amp; Impervious Surface">Urban Sprawl &amp; Impervious Surface Growth</option>
                         </select>
                     </div>
 
@@ -189,7 +187,7 @@
                         </tr>
                         <tr>
                             <td><code>GIS-IND-104</code></td>
-                            <td>Urban Sprawl & PM GatiShakti Corridor</td>
+                            <td>Urban Sprawl &amp; PM GatiShakti Corridor</td>
                             <td>Survey of India (SoI)</td>
                             <td>GeoJSON Vector</td>
                             <td>Sub-meter Vector</td>
@@ -204,10 +202,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p>&copy; 2026 Incredible India Explorer. Interactive Geospatial Telemetry Portal (Simulated Demonstration Environment based on ISRO Bhuvan & Survey of India Specifications).</p>
+            <p>© 2026 Incredible India Explorer. Interactive Geospatial Telemetry Portal (Simulated Demonstration Environment based on ISRO Bhuvan &amp; Survey of India Specifications).</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

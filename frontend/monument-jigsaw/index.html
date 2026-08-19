@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Rebuild India's iconic monuments by arranging shuffled puzzle pieces. Drag-and-drop jigsaw game with multiple monuments and difficulty levels.">
+    <meta name="description" content="Rebuild India's iconic monuments by arranging shuffled puzzle pieces. Drag-and-drop jigsaw game with multiple monuments and difficulty levels.">
     <title>Monument Jigsaw Puzzle | Incredible India</title>
     <link rel="icon" href="data:,">
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,22 +20,19 @@
         })();
     </script>
 
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
-            <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span
-                    class="gold">India</span><span class="green">Explorer</span></a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span
-                    class="bar"></span><span class="bar"></span></button>
-            <nav class="nav-menu" id="nav-menu">
+            <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active">Home</a>
                 <div class="nav-dropdown"><button class="nav-link dropdown-toggle">Games ▾</button>
-                    <div class="dropdown-menu"><a href="../passport-quest/passport-quest.html"
-                            class="dropdown-item">Passport Quest</a></div>
+                    <div class="dropdown-menu"><a href="../passport-quest/passport-quest.html" class="dropdown-item">Passport Quest</a></div>
                 </div>
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main class="mj-main" id="app-root">
         <!-- SETUP SCREEN -->
@@ -59,14 +52,11 @@
                     <div class="setup-group">
                         <label class="setup-label">Difficulty</label>
                         <div class="difficulty-options" role="radiogroup" aria-label="Puzzle difficulty">
-                            <button class="diff-btn active" data-diff="easy" tabindex="0" role="radio"
-                                aria-checked="true"><span class="diff-label">Easy</span><span class="diff-desc">3×3 · 9
+                            <button class="diff-btn active" data-diff="easy" tabindex="0" role="radio" aria-checked="true"><span class="diff-label">Easy</span><span class="diff-desc">3×3 · 9
                                     pieces</span></button>
-                            <button class="diff-btn" data-diff="medium" tabindex="0" role="radio"
-                                aria-checked="false"><span class="diff-label">Medium</span><span class="diff-desc">4×4 ·
+                            <button class="diff-btn" data-diff="medium" tabindex="0" role="radio" aria-checked="false"><span class="diff-label">Medium</span><span class="diff-desc">4×4 ·
                                     16 pieces</span></button>
-                            <button class="diff-btn" data-diff="hard" tabindex="0" role="radio"
-                                aria-checked="false"><span class="diff-label">Hard</span><span class="diff-desc">5×5 ·
+                            <button class="diff-btn" data-diff="hard" tabindex="0" role="radio" aria-checked="false"><span class="diff-label">Hard</span><span class="diff-desc">5×5 ·
                                     25 pieces</span></button>
                         </div>
                     </div>
@@ -76,17 +66,16 @@
         </section>
 
         <!-- GAME SCREEN -->
-        <section class="mj-game-section" id="game-screen" hidden>
+        <section class="mj-game-section" id="game-screen" hidden="">
             <div class="mj-container">
                 <div class="mj-game-layout">
                     <!-- Reference Panel -->
                     <aside class="mj-reference glass-card" id="reference-panel">
                         <div class="ref-toggle-row">
                             <h3>Reference</h3>
-                            <button class="ref-toggle-btn" id="ref-toggle" tabindex="0"
-                                aria-pressed="true">Hide</button>
+                            <button class="ref-toggle-btn" id="ref-toggle" tabindex="0" aria-pressed="true">Hide</button>
                         </div>
-                        <img id="ref-image" class="ref-img" alt="Completed monument reference" />
+                        <img id="ref-image" class="ref-img" alt="Completed monument reference">
                         <div class="ref-info" id="ref-info">
                             <h4 id="ref-name"></h4>
                             <p id="ref-location"></p>
@@ -98,23 +87,19 @@
                     <!-- Puzzle Board -->
                     <div class="mj-board-wrapper">
                         <div class="mj-stats-row">
-                            <div class="mj-stat"><span class="stat-label">Moves</span><span class="stat-value"
-                                    id="moves-display">0</span></div>
-                            <div class="mj-stat"><span class="stat-label">Time</span><span class="stat-value"
-                                    id="timer-display">00:00</span></div>
-                            <div class="mj-stat"><span class="stat-label">Done</span><span class="stat-value"
-                                    id="completion-display">0%</span></div>
+                            <div class="mj-stat"><span class="stat-label">Moves</span><span class="stat-value" id="moves-display">0</span></div>
+                            <div class="mj-stat"><span class="stat-label">Time</span><span class="stat-value" id="timer-display">00:00</span></div>
+                            <div class="mj-stat"><span class="stat-label">Done</span><span class="stat-value" id="completion-display">0%</span></div>
                         </div>
                         <div class="mj-board" id="puzzle-board" role="grid" aria-label="Puzzle board"></div>
-                        <p class="mj-kb-hint">💡 Keyboard: Tab to navigate, Enter/Space to pick up & drop pieces</p>
+                        <p class="mj-kb-hint">💡 Keyboard: Tab to navigate, Enter/Space to pick up &amp; drop pieces</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- COMPLETION MODAL -->
-        <div class="mj-modal" id="completion-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"
-            hidden>
+        <div class="mj-modal" id="completion-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden="">
             <div class="mj-modal-backdrop" id="modal-backdrop"></div>
             <div class="mj-modal-card glass-card">
                 <div class="modal-icon">🎉</div>
@@ -133,22 +118,21 @@
 
     <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand"><a href="../../index.html#home" class="nav-logo"><span
-                        class="saffron">Incredible</span><span class="gold">India</span><span
-                        class="green">Explorer</span></a></div>
+            <div class="footer-brand"><a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span><span class="gold">India</span><span class="green">Explorer</span></a></div>
             <div class="footer-links">
                 <h4>Quick Links</h4><a href="../../index.html">Home</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Incredible India Explorer.</p>
+            <p>© 2026 Incredible India Explorer.</p>
         </div>
     </footer>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
-    <script src="../app.js" defer></script>
-    <script src="../router.js" defer></script>
-</body>
+    <script src="../app.js" defer=""></script>
+    <script src="../router.js" defer=""></script>
 
-</html>
+
+
+</body></html>

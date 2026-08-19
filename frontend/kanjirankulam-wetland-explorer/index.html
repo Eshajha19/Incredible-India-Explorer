@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanjirankulam Wetland Explorer | Seasonal Bird Sanctuary</title>
-    <meta name="description"
-        content="Explore Kanjirankulam Wetland, a seasonal bird sanctuary in Tamil Nadu famous for nesting Painted Storks and Spot-billed Pelicans.">
+    <meta name="description" content="Explore Kanjirankulam Wetland, a seasonal bird sanctuary in Tamil Nadu famous for nesting Painted Storks and Spot-billed Pelicans.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="navbar explorer-nav" role="banner">
+    <nav class="navbar explorer-nav" role="banner" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
-                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
-                    class="green">Explorer</span>
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span>
             </a>
-            <nav class="nav-menu" role="navigation">
+            <nav class="nav-menu" role="navigation" aria-label="Navigation">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="../wetlands-explorer/index.html" class="nav-link">Wetlands</a>
                 <a href="#nesting" class="nav-link">Nesting</a>
@@ -33,7 +27,7 @@
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main role="main">
         <section class="hero-section kanjirankulam-hero" id="home">
@@ -49,7 +43,7 @@
 
         <section class="explorer-content">
             <div class="tabs" role="tablist" aria-label="Wetland Sections">
-                <button class="tab-btn active" data-tab="history" role="tab" aria-selected="true">History &
+                <button class="tab-btn active" data-tab="history" role="tab" aria-selected="true">History &amp;
                     Habitat</button>
                 <button class="tab-btn" data-tab="nesting" role="tab" aria-selected="false">Bird Nesting</button>
                 <button class="tab-btn" data-tab="ecosystem" role="tab" aria-selected="false">Aquatic Ecosystem</button>
@@ -69,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="tab-content" id="nesting" role="tabpanel" hidden>
+            <div class="tab-content" id="nesting" role="tabpanel" hidden="">
                 <h2>Colonial Nesting Behavior</h2>
                 <p>Kanjirankulam is famous for its mixed-species nesting colonies. It is a spectacular sight to see
                     hundreds of large birds sharing the same trees, building massive stick nests, and raising their
@@ -93,8 +87,8 @@
                 </div>
             </div>
 
-            <div class="tab-content" id="ecosystem" role="tabpanel" hidden>
-                <h2>Aquatic Ecosystem & Biodiversity</h2>
+            <div class="tab-content" id="ecosystem" role="tabpanel" hidden="">
+                <h2>Aquatic Ecosystem &amp; Biodiversity</h2>
                 <p>The seasonal filling of the tank triggers a rapid explosion of aquatic life. Phytoplankton and
                     zooplankton multiply, supporting small fish and amphibians, which in turn feed the nesting birds and
                     their chicks.</p>
@@ -108,8 +102,8 @@
                 </ul>
             </div>
 
-            <div class="tab-content" id="conservation" role="tabpanel" hidden>
-                <h2>Conservation & Community Efforts</h2>
+            <div class="tab-content" id="conservation" role="tabpanel" hidden="">
+                <h2>Conservation &amp; Community Efforts</h2>
                 <p>The survival of Kanjirankulam relies on a delicate balance between water management for agriculture
                     and the needs of the birds. Conservationists work with local panchayats to ensure the tank is not
                     drained prematurely before the chicks can fly.</p>
@@ -125,7 +119,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">Oct - Nov</div>
                     <div class="timeline-content">
-                        <h4>Arrival & Courtship</h4>
+                        <h4>Arrival &amp; Courtship</h4>
                         <p>Migratory birds arrive as the tank fills. Courtship displays and nest building begin in the
                             canopy.</p>
                     </div>
@@ -141,7 +135,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">Feb - Mar</div>
                     <div class="timeline-content">
-                        <h4>Fledging & Departure</h4>
+                        <h4>Fledging &amp; Departure</h4>
                         <p>Chicks learn to fly. As the water levels drop and food becomes scarce, the colonies disperse
                             and migratory birds leave.</p>
                     </div>
@@ -149,8 +143,7 @@
             </div>
 
             <h2 id="map" class="section-title">Interactive Location Map</h2>
-            <div class="map-container animate-on-scroll" role="img"
-                aria-label="Map showing Kanjirankulam Wetland location">
+            <div class="map-container animate-on-scroll" role="img" aria-label="Map showing Kanjirankulam Wetland location">
                 <div class="map-placeholder">
                     <div class="map-pin" title="Kanjirankulam Bird Sanctuary">📍</div>
                     <p>Sivaganga District, Tamil Nadu</p>
@@ -159,34 +152,26 @@
 
             <h2 class="section-title">Image Gallery</h2>
             <div class="gallery-grid" role="list">
-                <div class="gallery-item" tabindex="0"
-                    data-img="https://placehold.co/800x600/0d9488/fff?text=Kanjirankulam+Tank"
-                    data-caption="The seasonal tank"><img src="https://placehold.co/300/0d9488/fff?text=Tank"
-                        alt="Kanjirankulam Tank" loading="lazy"></div>
-                <div class="gallery-item" tabindex="0"
-                    data-img="https://placehold.co/800x600/0d9488/fff?text=Pelican+Nest"
-                    data-caption="Spot-billed Pelican nest"><img src="https://placehold.co/300/0d9488/fff?text=Pelican"
-                        alt="Pelican Nest" loading="lazy"></div>
-                <div class="gallery-item" tabindex="0"
-                    data-img="https://placehold.co/800x600/0d9488/fff?text=Stork+Colony"
-                    data-caption="Painted Stork colony"><img src="https://placehold.co/300/0d9488/fff?text=Stork"
-                        alt="Stork Colony" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/0d9488/fff?text=Kanjirankulam+Tank" data-caption="The seasonal tank"><img src="https://placehold.co/300/0d9488/fff?text=Tank" alt="Kanjirankulam Tank" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/0d9488/fff?text=Pelican+Nest" data-caption="Spot-billed Pelican nest"><img src="https://placehold.co/300/0d9488/fff?text=Pelican" alt="Pelican Nest" loading="lazy"></div>
+                <div class="gallery-item" tabindex="0" data-img="https://placehold.co/800x600/0d9488/fff?text=Stork+Colony" data-caption="Painted Stork colony"><img src="https://placehold.co/300/0d9488/fff?text=Stork" alt="Stork Colony" loading="lazy"></div>
             </div>
         </section>
     </main>
 
     <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">×</button>
         <img src="" alt="" class="lightbox-img" id="lightbox-img">
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
     <footer class="footer">
-        <p>&copy; 2026 Incredible India Explorer. Kanjirankulam Wetland Profile.</p>
+        <p>© 2026 Incredible India Explorer. Kanjirankulam Wetland Profile.</p>
     </footer>
 
-    <script src="../../journey.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
+    <script src="../../journey.js" defer=""></script>
+    <script src="script.js" defer=""></script>
 
-</html>
+
+
+</body></html>

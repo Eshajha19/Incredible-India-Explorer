@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Discover authentic Indian cuisine and get personalized local food recommendations."
-    >
+    <meta name="description" content="Discover authentic Indian cuisine and get personalized local food recommendations.">
 
     <title>Local Cuisine Explorer | Incredible India Explorer</title>
 
@@ -30,7 +25,7 @@
                 </span>
             </a>
 
-            <nav class="main-nav">
+            <nav class="main-nav" aria-label="Navigation">
                 <a href="index.html">Home</a>
                 <a href="#discover">Discover Food</a>
                 <a href="#recommendations">Recommendations</a>
@@ -115,7 +110,7 @@
                         📍 Where are you travelling?
                     </label>
 
-                    <select id="destination" name="destination" required>
+                    <select id="destination" name="destination" required="">
 
                         <option value="">
                             Select a destination
@@ -132,7 +127,7 @@
                             </option>
                             <option value="haryana">Haryana</option>
                             <option value="jammu-kashmir">
-                                Jammu & Kashmir
+                                Jammu &amp; Kashmir
                             </option>
                         </optgroup>
 
@@ -152,7 +147,7 @@
                             <option value="telangana">Telangana</option>
                         </optgroup>
 
-                        <optgroup label="East & Northeast India">
+                        <optgroup label="East &amp; Northeast India">
                             <option value="west-bengal">
                                 West Bengal
                             </option>
@@ -317,56 +312,32 @@
                     <div class="interest-grid">
 
                         <label class="interest-option">
-                            <input
-                                type="checkbox"
-                                name="interest"
-                                value="traditional"
-                            >
+                            <input type="checkbox" name="interest" value="traditional">
                             <span>🏺 Traditional</span>
                         </label>
 
                         <label class="interest-option">
-                            <input
-                                type="checkbox"
-                                name="interest"
-                                value="street-food"
-                            >
+                            <input type="checkbox" name="interest" value="street-food">
                             <span>🌮 Street Food</span>
                         </label>
 
                         <label class="interest-option">
-                            <input
-                                type="checkbox"
-                                name="interest"
-                                value="royal"
-                            >
+                            <input type="checkbox" name="interest" value="royal">
                             <span>👑 Royal Cuisine</span>
                         </label>
 
                         <label class="interest-option">
-                            <input
-                                type="checkbox"
-                                name="interest"
-                                value="healthy"
-                            >
+                            <input type="checkbox" name="interest" value="healthy">
                             <span>🌱 Healthy</span>
                         </label>
 
                         <label class="interest-option">
-                            <input
-                                type="checkbox"
-                                name="interest"
-                                value="spicy"
-                            >
+                            <input type="checkbox" name="interest" value="spicy">
                             <span>🌶️ Spicy</span>
                         </label>
 
                         <label class="interest-option">
-                            <input
-                                type="checkbox"
-                                name="interest"
-                                value="sweet"
-                            >
+                            <input type="checkbox" name="interest" value="sweet">
                             <span>🍬 Sweet</span>
                         </label>
 
@@ -377,19 +348,12 @@
 
                 <div class="form-actions">
 
-                    <button
-                        type="submit"
-                        class="recommend-button"
-                    >
+                    <button type="submit" class="recommend-button">
                         <span>✨</span>
                         Find My Food
                     </button>
 
-                    <button
-                        type="button"
-                        id="resetButton"
-                        class="reset-button"
-                    >
+                    <button type="button" id="resetButton" class="reset-button">
                         Reset
                     </button>
 
@@ -416,58 +380,40 @@
 
             <div class="quick-grid">
 
-                <button
-                    class="quick-card"
-                    data-destination="delhi"
-                >
+                <button class="quick-card" data-destination="delhi">
                     <span>🥘</span>
                     <strong>Delhi</strong>
-                    <small>Chaat & Mughlai</small>
+                    <small>Chaat &amp; Mughlai</small>
                 </button>
 
-                <button
-                    class="quick-card"
-                    data-destination="rajasthan"
-                >
+                <button class="quick-card" data-destination="rajasthan">
                     <span>🍛</span>
                     <strong>Rajasthan</strong>
-                    <small>Royal & traditional</small>
+                    <small>Royal &amp; traditional</small>
                 </button>
 
-                <button
-                    class="quick-card"
-                    data-destination="west-bengal"
-                >
+                <button class="quick-card" data-destination="west-bengal">
                     <span>🐟</span>
                     <strong>West Bengal</strong>
                     <small>Bengali cuisine</small>
                 </button>
 
-                <button
-                    class="quick-card"
-                    data-destination="kerala"
-                >
+                <button class="quick-card" data-destination="kerala">
                     <span>🥥</span>
                     <strong>Kerala</strong>
                     <small>Coastal flavours</small>
                 </button>
 
-                <button
-                    class="quick-card"
-                    data-destination="punjab"
-                >
+                <button class="quick-card" data-destination="punjab">
                     <span>🫓</span>
                     <strong>Punjab</strong>
-                    <small>Rich & hearty</small>
+                    <small>Rich &amp; hearty</small>
                 </button>
 
-                <button
-                    class="quick-card"
-                    data-destination="goa"
-                >
+                <button class="quick-card" data-destination="goa">
                     <span>🌴</span>
                     <strong>Goa</strong>
-                    <small>Coastal & Portuguese</small>
+                    <small>Coastal &amp; Portuguese</small>
                 </button>
 
             </div>
@@ -479,10 +425,7 @@
              RECOMMENDATIONS
         ========================== -->
 
-        <section
-            id="recommendations"
-            class="recommendations-section"
-        >
+        <section id="recommendations" class="recommendations-section">
 
             <div class="results-header">
 
@@ -508,10 +451,7 @@
             </div>
 
 
-            <div
-                id="recommendationGrid"
-                class="recommendation-grid"
-            >
+            <div id="recommendationGrid" class="recommendation-grid">
 
                 <div class="empty-state">
 
@@ -553,20 +493,14 @@
                     </p>
                 </div>
 
-                <button
-                    id="clearJourney"
-                    class="clear-button"
-                >
+                <button id="clearJourney" class="clear-button">
                     Clear saved food
                 </button>
 
             </div>
 
 
-            <div
-                id="journeyList"
-                class="journey-list"
-            >
+            <div id="journeyList" class="journey-list">
                 <div class="journey-empty">
                     <span>🧳</span>
                     <p>
@@ -608,21 +542,13 @@
 
 
     <!-- Recommendation details modal -->
-    <div
-        id="foodModal"
-        class="modal"
-        aria-hidden="true"
-    >
+    <div id="foodModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
 
         <div class="modal-backdrop"></div>
 
         <div class="modal-content">
 
-            <button
-                id="closeModal"
-                class="modal-close"
-                aria-label="Close"
-            >
+            <button id="closeModal" class="modal-close" aria-label="Close">
                 ×
             </button>
 
@@ -635,5 +561,6 @@
 
     <script src="food.js"></script>
 
-</body>
-</html>
+
+
+</body></html>

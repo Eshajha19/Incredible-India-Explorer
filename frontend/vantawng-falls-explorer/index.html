@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vantawng Falls Explorer | Incredible India Explorer</title>
     <meta name="description" content="Explore Vantawng Falls, Mizoram's tallest waterfall. Discover its two-tiered 229m drop, the Vanva river source, and the surrounding lush bamboo forests.">
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
     
     <!-- Leaflet CSS for Map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
     <script>
@@ -24,7 +22,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
@@ -36,14 +34,14 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
                 <div class="nav-dropdown">
                     <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                     <div class="dropdown-menu">
                         <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                         <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                         <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                         <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -58,7 +56,7 @@
                         <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                         <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                         <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                         <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                         <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                         <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -72,9 +70,9 @@
                     <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                     <div class="dropdown-menu">
                         <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                         <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                         <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                         <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                         <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -103,7 +101,7 @@
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main style="padding-top: 80px;">
 
@@ -119,7 +117,7 @@
         <section class="vantawng-section">
             <div class="vantawng-container info-grid">
                 <div class="info-text">
-                    <span class="vantawng-eyebrow">📍 Location & Scale</span>
+                    <span class="vantawng-eyebrow">📍 Location &amp; Scale</span>
                     <h2>A breathtaking two-tiered cascade</h2>
                     <p class="lede">Hidden in the deep valleys near Thenzawl, the Vanva River creates a spectacular two-tiered waterfall, surrounded by the verdant Mizo Hills.</p>
                     
@@ -173,21 +171,21 @@
                     
                     <div class="landscape-content-area glass-card">
                         <div class="landscape-panel active" id="tab-forest">
-                            <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=800" alt="Lush green bamboo forest" class="landscape-img" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Lush green bamboo forest" class="landscape-img" loading="lazy">
                             <div class="landscape-desc">
                                 <h3>The Bamboo Grooves</h3>
                                 <p>The hills surrounding Vantawng are deeply forested with vast stretches of bamboo. Due to the dense and rugged terrain, the base of the waterfall is inaccessible, ensuring the surrounding ecosystem remains largely untouched.</p>
                             </div>
                         </div>
                         <div class="landscape-panel hidden" id="tab-river">
-                            <img src="https://images.unsplash.com/photo-1627914095454-e0c25a5d2e05?auto=format&fit=crop&q=80&w=800" alt="River winding through tropical hills" class="landscape-img" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1627914095454-e0c25a5d2e05?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="River winding through tropical hills" class="landscape-img" loading="lazy">
                             <div class="landscape-desc">
                                 <h3>The Vanva River</h3>
                                 <p>Flowing through the Serchhip district, the Vanva River gathers strength as it weaves through the hills before plunging 229 metres down a spectacular cliff face, creating the iconic two-tiered drop.</p>
                             </div>
                         </div>
                         <div class="landscape-panel hidden" id="tab-hills">
-                            <img src="https://images.unsplash.com/photo-1596409867990-2ee2aefc8ea9?auto=format&fit=crop&q=80&w=800" alt="Mist covered rolling hills" class="landscape-img" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1596409867990-2ee2aefc8ea9?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Mist covered rolling hills" class="landscape-img" loading="lazy">
                             <div class="landscape-desc">
                                 <h3>Mizo Hills (Lushai Hills)</h3>
                                 <p>The steep, folding ridges of the Mizo Hills create the perfect geography for dramatic waterfalls. The viewpoint for Vantawng is situated across a deep gorge, offering a panoramic view of the cascading water against the green mountain backdrop.</p>
@@ -208,7 +206,7 @@
                 <div class="season-comparison">
                     <div class="season-card glass-card">
                         <div class="season-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=600" alt="Waterfall during monsoon, very full and powerful" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Waterfall during monsoon, very full and powerful" loading="lazy">
                             <span class="season-badge badge-monsoon">Monsoon (Jun-Aug)</span>
                         </div>
                         <div class="season-info">
@@ -219,7 +217,7 @@
                     
                     <div class="season-card glass-card">
                         <div class="season-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=600" alt="Waterfall during post-monsoon, distinct tiers visible" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Waterfall during post-monsoon, distinct tiers visible" loading="lazy">
                             <span class="season-badge badge-winter">Post-Monsoon (Sep-Jan)</span>
                         </div>
                         <div class="season-info">
@@ -269,8 +267,9 @@
     <!-- Leaflet JS for Map -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
-    <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
-</html>
+    <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
+    <script src="script.js" defer=""></script>
+
+
+</body></html>

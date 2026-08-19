@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Indian Sporting Trophies Named After Historical Figures - Interactive digital archive showcasing Ranji Trophy, Durand Cup, Major Dhyan Chand Khel Ratna, Santosh Trophy, Vijay Hazare, Subroto Cup, Nehru Trophy Boat Race, and more.">
@@ -20,7 +18,7 @@
   </script>
 
   <!-- Sticky Navbar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -32,7 +30,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <a href="../sports/sports.html" class="nav-link active">Sports</a>
         <a href="#catalog" class="nav-link">Trophy Catalog</a>
@@ -40,7 +38,7 @@
         <a href="#quiz" class="nav-link">Trophy Quiz</a>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="trophy-hero" id="hero">
@@ -54,7 +52,7 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-number">16+</div>
-        <div class="stat-label">Historic Trophies & Awards</div>
+        <div class="stat-label">Historic Trophies &amp; Awards</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">1888</div>
@@ -72,7 +70,7 @@
   </section>
 
   <!-- Sub-Navigation Sticky Bar -->
-  <nav class="subnav-bar">
+  <nav class="subnav-bar" aria-label="Navigation">
     <div class="subnav-container">
       <button class="subnav-btn active" data-target="catalog">Trophy Catalog</button>
       <button class="subnav-btn" data-target="matching-game">Namesake Matching Game</button>
@@ -86,8 +84,8 @@
     <section class="archive-section" id="catalog">
       <div class="section-header">
         <span class="section-tag">Archive Catalog</span>
-        <h2>Explore Historic Trophies & Their Namesakes</h2>
-        <p>Filter by sport, search by trophy name or historical figure, and click any card for detailed biography & historical significance.</p>
+        <h2>Explore Historic Trophies &amp; Their Namesakes</h2>
+        <p>Filter by sport, search by trophy name or historical figure, and click any card for detailed biography &amp; historical significance.</p>
       </div>
 
       <!-- Search & Category Filters -->
@@ -103,9 +101,9 @@
         </select>
         <select id="namesake-filter" class="select-filter">
           <option value="all">All Namesake Categories</option>
-          <option value="Royalty & Pioneers">Royalty & Royal Patrons</option>
-          <option value="Sports Legends">Sports Legends & Champions</option>
-          <option value="Freedom Fighters">Freedom Fighters & Leaders</option>
+          <option value="Royalty &amp; Pioneers">Royalty &amp; Royal Patrons</option>
+          <option value="Sports Legends">Sports Legends &amp; Champions</option>
+          <option value="Freedom Fighters">Freedom Fighters &amp; Leaders</option>
           <option value="Military Pioneers">Military Pioneers</option>
         </select>
       </div>
@@ -167,7 +165,7 @@
   <!-- Trophy Detail Modal Overlay -->
   <div class="modal-overlay" id="trophy-modal">
     <div class="modal-content">
-      <button class="close-modal-btn" id="modal-close-btn">&times;</button>
+      <button class="close-modal-btn" id="modal-close-btn" aria-label="Close">×</button>
       <div id="modal-body-content">
         <!-- Rendered dynamically -->
       </div>
@@ -176,10 +174,11 @@
 
   <!-- Footer -->
   <footer style="text-align:center; padding:40px 20px; background:#070a10; border-top:1px solid rgba(255,255,255,0.08); font-size:0.9rem; color:var(--text-muted);">
-    <p>© 2026 Incredible India Explorer. Celebrating Indian Sporting Trophies & Historical Legends.</p>
+    <p>© 2026 Incredible India Explorer. Celebrating Indian Sporting Trophies &amp; Historical Legends.</p>
   </footer>
 
   <!-- Script Imports -->
   <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

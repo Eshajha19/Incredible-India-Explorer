@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jonha Falls — The Gunga River Valley Cascade | Incredible India Explorer</title>
 <meta name="description" content="An interactive guide to Jonha Falls (Gautamdhara Falls), Jharkhand — its hanging-valley geology, the Gunga–Raru river system, the 722-step descent, seasonal moods and nearby attractions of the Ranchi plateau.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;0,9..144,680;1,9..144,500&amp;family=Work+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -280,7 +278,7 @@ footer{padding:30px 0; text-align:center; font-family:var(--mono); font-size:.75
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Navigation">
   <div class="wrap">
     <a class="brand" href="#top">Incredible India Explorer <span>/ Jonha Falls</span></a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
@@ -344,17 +342,17 @@ footer{padding:30px 0; text-align:center; font-family:var(--mono); font-size:.75
           <title>Hanging valley cross-section</title>
           <defs>
             <linearGradient id="plateauGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b0502e" stop-opacity=".85"/>
-              <stop offset="1" stop-color="#8a3d21" stop-opacity=".85"/>
+              <stop offset="0" stop-color="#b0502e" stop-opacity=".85"></stop>
+              <stop offset="1" stop-color="#8a3d21" stop-opacity=".85"></stop>
             </linearGradient>
           </defs>
           <!-- plateau block -->
-          <path d="M0,120 L230,120 L270,60 L520,60 L520,20 L0,20 Z" fill="url(#plateauGrad)"/>
+          <path d="M0,120 L230,120 L270,60 L520,60 L520,20 L0,20 Z" fill="url(#plateauGrad)"></path>
           <!-- lower valley floor -->
-          <path d="M0,220 L520,220 L520,190 L270,190 L230,120 L0,120 Z" fill="#264a34" opacity=".55"/>
+          <path d="M0,220 L520,220 L520,190 L270,190 L230,120 L0,120 Z" fill="#264a34" opacity=".55"></path>
           <!-- water -->
-          <path d="M255,60 C262,90 250,110 240,120 C230,135 232,160 245,190" stroke="#3fa19a" stroke-width="7" fill="none" stroke-linecap="round"/>
-          <path d="M255,60 C262,90 250,110 240,120 C230,135 232,160 245,190" stroke="#eaf6f5" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/>
+          <path d="M255,60 C262,90 250,110 240,120 C230,135 232,160 245,190" stroke="#3fa19a" stroke-width="7" fill="none" stroke-linecap="round"></path>
+          <path d="M255,60 C262,90 250,110 240,120 C230,135 232,160 245,190" stroke="#eaf6f5" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"></path>
           <!-- labels -->
           <text x="70" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#0f1e19">GUNGA RIVER (upper)</text>
           <text x="330" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#0f1e19">RANCHI PLATEAU SURFACE</text>
@@ -468,11 +466,11 @@ footer{padding:30px 0; text-align:center; font-family:var(--mono); font-size:.75
       <div class="season-visual">
         <svg viewBox="0 0 400 220" id="seasonSvg" role="img" aria-label="Illustration comparing water flow between monsoon and dry season">
           <title>Seasonal flow comparison</title>
-          <rect x="0" y="0" width="400" height="220" fill="#eee6d3"/>
-          <path d="M170,10 L230,10 L245,60 L400,60 L400,0 L170,0 Z" fill="#8a3d21" opacity=".8"/>
-          <path id="flowPath" d="M195,10 C205,50 190,80 180,110 C170,140 178,180 200,215" stroke="#2c7a78" stroke-width="30" fill="none" stroke-linecap="round"/>
-          <path d="M195,10 C205,50 190,80 180,110 C170,140 178,180 200,215" stroke="#eaf6f5" stroke-width="6" fill="none" stroke-linecap="round" opacity=".55"/>
-          <ellipse cx="200" cy="205" rx="70" ry="14" fill="#2c7a78" id="poolShape" opacity=".65"/>
+          <rect x="0" y="0" width="400" height="220" fill="#eee6d3"></rect>
+          <path d="M170,10 L230,10 L245,60 L400,60 L400,0 L170,0 Z" fill="#8a3d21" opacity=".8"></path>
+          <path id="flowPath" d="M195,10 C205,50 190,80 180,110 C170,140 178,180 200,215" stroke="#2c7a78" stroke-width="30" fill="none" stroke-linecap="round"></path>
+          <path d="M195,10 C205,50 190,80 180,110 C170,140 178,180 200,215" stroke="#eaf6f5" stroke-width="6" fill="none" stroke-linecap="round" opacity=".55"></path>
+          <ellipse cx="200" cy="205" rx="70" ry="14" fill="#2c7a78" id="poolShape" opacity=".65"></ellipse>
         </svg>
       </div>
       <div>
@@ -663,7 +661,7 @@ footer{padding:30px 0; text-align:center; font-family:var(--mono); font-size:.75
           <li><b>Access stairway — "Staircase to Jonha Falls, Jharkhand, India 02.jpg"</b> · Wikimedia Commons</li>
           <li><b>Waterfall — "Jonha falls.jpg"</b> · Wikimedia Commons</li>
         </ul>
-        <p style="font-size:.8rem; margin-top:16px; color:rgba(238,230,211,.55);">All photographs via <a href="https://commons.wikimedia.org/wiki/Category:Jonha_Falls" target="_blank" rel="noopener">Wikimedia Commons, Category:Jonha Falls</a>. Verify each file's individual licence/attribution terms on its Commons file page before redistribution. Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, rendered with <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a>.</p>
+        <p style="font-size:.8rem; margin-top:16px; color:rgba(238,230,211,.55);">All photographs via <a href="https://commons.wikimedia.org/wiki/Category:Jonha_Falls" target="_blank" rel="noopener">Wikimedia Commons, Category:Jonha Falls</a>. Verify each file's individual licence/attribution terms on its Commons file page before redistribution. Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, rendered with <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a>.</p>
       </div>
     </div>
   </div>
@@ -785,5 +783,6 @@ document.getElementById('navToggle').addEventListener('click', function(){
 })();
 </script>
 
-</body>
-</html>
+
+
+</body></html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore the Kakori Train Action of 9 August 1925 — the Hindustan Republican Association, the railway robbery that shook British India, the Kakori Conspiracy Case, and the executions that remade the revolutionary movement.">
   <title>Kakori Train Action Explorer | Incredible India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="../js-modules/page-progress/page-progress.css">
@@ -37,7 +35,7 @@
   </script>
 
   <!-- Sticky Navigation Bar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -49,14 +47,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -71,7 +69,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -85,9 +83,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -116,7 +114,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
   <!-- SPA Router Target Container -->
   <main id="app-root" class="kakori-main">
@@ -170,41 +168,41 @@
           <svg class="kakori-route-map" viewBox="0 0 900 340" role="img" aria-label="Schematic railway route from Saharanpur to Lucknow with Kakori marked">
             <defs>
               <linearGradient id="kakori-rail" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#b08d2c" />
-                <stop offset="100%" stop-color="#7d6116" />
+                <stop offset="0%" stop-color="#b08d2c"></stop>
+                <stop offset="100%" stop-color="#7d6116"></stop>
               </linearGradient>
               <marker id="kakori-arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#b08d2c" />
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#b08d2c"></path>
               </marker>
             </defs>
-            <line x1="40" y1="220" x2="860" y2="220" stroke="url(#kakori-rail)" stroke-width="6" stroke-dasharray="2 8" marker-end="url(#kakori-arrowhead)" />
-            <line x1="40" y1="228" x2="860" y2="228" stroke="url(#kakori-rail)" stroke-width="6" stroke-dasharray="2 8" />
+            <line x1="40" y1="220" x2="860" y2="220" stroke="url(#kakori-rail)" stroke-width="6" stroke-dasharray="2 8" marker-end="url(#kakori-arrowhead)"></line>
+            <line x1="40" y1="228" x2="860" y2="228" stroke="url(#kakori-rail)" stroke-width="6" stroke-dasharray="2 8"></line>
             <g class="kakori-route-station" data-station="saharanpur" role="button" tabindex="0" aria-label="Saharanpur station">
-              <circle cx="60" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3" />
+              <circle cx="60" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3"></circle>
               <text x="60" y="195" text-anchor="middle">Saharanpur</text>
             </g>
             <g class="kakori-route-station" data-station="moradabad" role="button" tabindex="0" aria-label="Moradabad station">
-              <circle cx="230" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3" />
+              <circle cx="230" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3"></circle>
               <text x="230" y="195" text-anchor="middle">Moradabad</text>
             </g>
             <g class="kakori-route-station" data-station="bareilly" role="button" tabindex="0" aria-label="Bareilly station">
-              <circle cx="400" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3" />
+              <circle cx="400" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3"></circle>
               <text x="400" y="195" text-anchor="middle">Bareilly</text>
             </g>
             <g class="kakori-route-station" data-station="shahjahanpur" role="button" tabindex="0" aria-label="Shahjahanpur station">
-              <circle cx="560" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3" />
+              <circle cx="560" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3"></circle>
               <text x="560" y="195" text-anchor="middle">Shahjahanpur</text>
             </g>
             <g class="kakori-route-station" data-station="hardoi" role="button" tabindex="0" aria-label="Hardoi station">
-              <circle cx="700" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3" />
+              <circle cx="700" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3"></circle>
               <text x="700" y="195" text-anchor="middle">Hardoi</text>
             </g>
             <g class="kakori-route-station kakori-route-station-action" data-station="kakori" role="button" tabindex="0" aria-label="Kakori — the site of the train action">
-              <circle cx="790" cy="224" r="14" fill="#c25b16" stroke="#e07b35" stroke-width="3" />
+              <circle cx="790" cy="224" r="14" fill="#c25b16" stroke="#e07b35" stroke-width="3"></circle>
               <text x="790" y="195" text-anchor="middle" font-weight="700" fill="#e07b35">Kakori ⚡</text>
             </g>
             <g class="kakori-route-station" data-station="lucknow" role="button" tabindex="0" aria-label="Lucknow Junction">
-              <circle cx="860" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3" />
+              <circle cx="860" cy="224" r="10" fill="#141a20" stroke="#b08d2c" stroke-width="3"></circle>
               <text x="860" y="275" text-anchor="end">Lucknow Jn</text>
             </g>
           </svg>
@@ -485,12 +483,13 @@
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
 
   <!-- JS Dependencies -->
-  <script src="../app.js" defer></script>
-  <script src="../../frontend/journey/journey.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="../app.js" defer=""></script>
+  <script src="../../frontend/journey/journey.js" defer=""></script>
+  <script src="script.js" defer=""></script>
   <script type="module" src="../firebase-config.js"></script>
   <script type="module" src="../auth.js"></script>
-  <script src="../router.js" defer></script>
+  <script src="../router.js" defer=""></script>
   <script src="../js-modules/page-progress/page-progress.js"></script>
-</body>
-</html>
+
+
+</body></html>

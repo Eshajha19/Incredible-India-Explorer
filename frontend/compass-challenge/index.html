@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indian Compass Challenge | Incredible India Explorer</title>
@@ -9,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -21,14 +19,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -43,7 +41,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -57,9 +55,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -88,7 +86,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
   <main class="compass-page">
     <section class="compass-hero">
       <div class="hero-content">
@@ -107,14 +105,14 @@
             <h3>Mission Control</h3>
             <label for="difficulty-select">Difficulty</label>
             <select id="difficulty-select"><option value="All">All levels</option><option value="Easy">Easy</option><option value="Medium">Medium</option><option value="Hard">Hard</option></select>
-            <div class="mission-card"><span id="level-label">Level</span><h4 id="mission-title">Mission loading...</h4><p id="mission-clue"></p><button id="hint-button" type="button">Show hint</button><p id="mission-hint" hidden></p></div>
+            <div class="mission-card"><span id="level-label">Level</span><h4 id="mission-title">Mission loading...</h4><p id="mission-clue"></p><button id="hint-button" type="button">Show hint</button><p id="mission-hint" hidden=""></p></div>
             <div class="status-grid"><div><span>Start</span><strong id="start-city">---</strong></div><div><span>Moves</span><strong id="move-count">0</strong></div><div><span>Needed</span><strong id="needed-count">0</strong></div><div><span>Target</span><strong id="target-status">Hidden</strong></div></div>
             <div class="actions"><button id="new-puzzle" type="button">New puzzle</button><button id="undo-move" type="button">Undo move</button><button id="reset-progress" type="button">Reset score</button></div>
           </aside>
           <article class="map-panel">
             <div class="map-top"><span id="map-status">Choose compass directions</span><button id="reveal-target" type="button">Reveal target</button></div>
             <div class="india-map" id="india-map" aria-label="Interactive India compass map"></div>
-            <div class="compass-pad" aria-label="Compass direction controls"><button type="button" data-direction="northwest">NW</button><button type="button" data-direction="north">N</button><button type="button" data-direction="northeast">NE</button><button type="button" data-direction="west">W</button><div class="compass-center">🧭</div><button type="button" data-direction="east">E</button><button type="button" data-direction="southwest">SW</button><button type="button" data-direction="south">S</button><button type="button" data-direction="southeast">SE</button></div>
+            <div class="compass-pad" aria-label="Compass direction controls"><button type="button" data-direction="northwest" aria-label="Button">NW</button><button type="button" data-direction="north" aria-label="Button">N</button><button type="button" data-direction="northeast" aria-label="Button">NE</button><button type="button" data-direction="west" aria-label="Button">W</button><div class="compass-center">🧭</div><button type="button" data-direction="east" aria-label="Button">E</button><button type="button" data-direction="southwest" aria-label="Button">SW</button><button type="button" data-direction="south" aria-label="Button">S</button><button type="button" data-direction="southeast" aria-label="Button">SE</button></div>
             <div class="feedback-card" id="feedback-card" role="status" aria-live="polite"></div>
           </article>
         </div>
@@ -126,5 +124,6 @@
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
   <script src="../app.js"></script>
   <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

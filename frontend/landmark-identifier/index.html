@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head></head><body>﻿
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landmark Identifier | Incredible India Explorer</title>
   <meta name="description" content="Upload a photo of a monument, temple, or historical site and identify famous Indian landmarks with confidence scores, history, and nearby attractions.">
-  <link rel="stylesheet" href="../../styles.css"stylesheet" href="style.css">
-</head>
-<body>
-  <header class="navbar" id="navbar">
+  <link rel="stylesheet" href="../../styles.css" stylesheet"="">
+
+
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -20,14 +20,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -42,7 +42,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -56,9 +56,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -87,7 +87,7 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
   <main class="landmark-page">
     <section class="landmark-hero">
@@ -96,7 +96,7 @@
         <h1>Landmark <span>Identifier</span></h1>
         <p>
           Upload a photo of a monument, temple, fort, or historical site and we'll match it against
-          a curated database of famous Indian landmarks &mdash; with history, significance, and
+          a curated database of famous Indian landmarks — with history, significance, and
           nearby places to explore.
         </p>
       </div>
@@ -112,18 +112,18 @@
 
         <form id="upload-form" class="upload-card">
           <label for="landmark-file" class="drop-zone" id="drop-zone">
-            <input type="file" id="landmark-file" name="landmark-file" accept="image/jpeg,image/png,image/webp" hidden>
+            <input type="file" id="landmark-file" name="landmark-file" accept="image/jpeg,image/png,image/webp" hidden="">
             <div class="drop-zone-inner" id="drop-zone-inner">
               <span class="drop-icon" aria-hidden="true">📷</span>
               <strong>Click to choose a photo</strong>
               <span>or drag and drop it here</span>
             </div>
-            <img id="preview-image" class="preview-image" alt="" hidden>
+            <img id="preview-image" class="preview-image" alt="" hidden="">
           </label>
 
           <div class="upload-actions">
-            <button type="submit" id="identify-btn" class="btn-primary" disabled>Identify landmark</button>
-            <button type="button" id="clear-btn" class="btn-secondary" hidden>Choose a different photo</button>
+            <button type="submit" id="identify-btn" class="btn-primary" disabled="">Identify landmark</button>
+            <button type="button" id="clear-btn" class="btn-secondary" hidden="">Choose a different photo</button>
           </div>
 
           <p class="upload-status" id="upload-status" role="status" aria-live="polite"></p>
@@ -131,14 +131,14 @@
       </div>
     </section>
 
-    <section class="results-section" id="results-section" hidden>
+    <section class="results-section" id="results-section" hidden="">
       <div class="results-container">
         <div class="section-heading">
           <span class="section-badge">Step 2</span>
           <h2>Results</h2>
         </div>
 
-        <article class="result-card" id="best-match-card" hidden>
+        <article class="result-card" id="best-match-card" hidden="">
           <div class="result-media">
             <img id="result-image" src="" alt="">
           </div>
@@ -174,12 +174,12 @@
           </div>
         </article>
 
-        <div class="low-confidence-notice" id="low-confidence-notice" role="status" hidden>
+        <div class="low-confidence-notice" id="low-confidence-notice" role="status" hidden="">
           <strong>No confident match found.</strong>
           <p>The closest matches are shown below, but none met our confidence threshold. Try a clearer, closer-up photo of the landmark's main facade.</p>
         </div>
 
-        <div class="alt-matches" id="alt-matches" hidden>
+        <div class="alt-matches" id="alt-matches" hidden="">
           <h4>Other possible matches</h4>
           <div class="alt-match-grid" id="alt-match-grid"></div>
         </div>
@@ -192,7 +192,7 @@
           <h3>Recent searches</h3>
           <button id="clear-history-btn" type="button">Clear history</button>
         </div>
-        <p class="history-empty" id="history-empty">No searches yet &mdash; identify a landmark to see it here.</p>
+        <p class="history-empty" id="history-empty">No searches yet — identify a landmark to see it here.</p>
         <ul class="history-list" id="history-list"></ul>
       </div>
     </section>
@@ -202,7 +202,7 @@
         <div class="section-heading">
           <span class="section-badge">Reference database</span>
           <h2>Landmarks we can currently recognize</h2>
-          <p>This curated set will keep growing &mdash; more monuments, temples, and natural sites are added over time.</p>
+          <p>This curated set will keep growing — more monuments, temples, and natural sites are added over time.</p>
         </div>
         <div class="library-grid" id="library-grid"></div>
       </div>
@@ -217,8 +217,9 @@
 
   <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Scroll to top">↑</button>
   <script src="../app.js</script>
-  <script src="../trip-data.js</script>
+  <script src=" ..="" trip-data.js<="" script="">
   <script src="../../frontend/js-modules/landmark-data.js"></script>
   <script type="module" src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

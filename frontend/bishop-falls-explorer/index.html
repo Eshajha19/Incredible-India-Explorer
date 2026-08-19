@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bishop Falls Explorer | Incredible India Explorer</title>
     <meta name="description" content="Explore Bishop Falls, one of Shillong's breathtaking twin cascades. Compare it with its sister, Beadon Falls, and discover the stunning Meghalayan landscape.">
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="style.css">
     
     <!-- Leaflet CSS for Map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
     <script>
@@ -24,7 +22,7 @@
             }
         })();
     </script>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
         <div class="nav-container">
             <a href="../../index.html#home" class="nav-logo" id="nav-logo">
                 <span class="saffron">Incredible</span>
@@ -36,14 +34,14 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            <nav class="nav-menu" id="nav-menu">
+            <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                 <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
                 <div class="nav-dropdown">
                     <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                     <div class="dropdown-menu">
                         <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                        <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                         <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                         <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                         <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -58,7 +56,7 @@
                         <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                         <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                         <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                        <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                         <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                         <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                         <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -72,9 +70,9 @@
                     <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                     <div class="dropdown-menu">
                         <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                        <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                         <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                        <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                         <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                         <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                         <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -103,7 +101,7 @@
                 <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
             </nav>
         </div>
-    </header>
+    </nav>
 
     <main style="padding-top: 80px;">
 
@@ -120,7 +118,7 @@
         <section class="bishop-section">
             <div class="bishop-container info-grid">
                 <div class="info-text">
-                    <span class="bishop-eyebrow">📍 Location & Scale</span>
+                    <span class="bishop-eyebrow">📍 Location &amp; Scale</span>
                     <h2>A Breathtaking Three-Tiered Drop</h2>
                     <p class="lede">Located in the dense, rocky valleys of Shillong, Bishop Falls and its twin, Beadon Falls, crash into the same deep gorge from opposite sides.</p>
                     
@@ -134,7 +132,7 @@
                 </div>
                 
                 <div class="glass-card">
-                    <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=600" alt="Lush green valley in Meghalaya, characteristic of the area surrounding Bishop Falls" class="landscape-img" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Lush green valley in Meghalaya, characteristic of the area surrounding Bishop Falls" class="landscape-img" loading="lazy">
                 </div>
             </div>
         </section>
@@ -161,7 +159,7 @@
                         <div class="comparison-panel active" id="tab-bishop">
                             <div class="panel-layout">
                                 <div class="panel-image">
-                                    <img src="https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&fit=crop&q=80&w=800" alt="Bishop Falls cascading down a three-tiered drop" loading="lazy">
+                                    <img src="https://images.unsplash.com/photo-1601249969186-53819e0750fc?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Bishop Falls cascading down a three-tiered drop" loading="lazy">
                                 </div>
                                 <div class="panel-details">
                                     <h3>Bishop Falls</h3>
@@ -179,7 +177,7 @@
                         <div class="comparison-panel hidden" id="tab-beadon">
                             <div class="panel-layout">
                                 <div class="panel-image">
-                                    <img src="https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&fit=crop&q=80&w=800" alt="Beadon Falls crashing through rocky obstacles" loading="lazy">
+                                    <img src="https://images.unsplash.com/photo-1596773229676-e13d98fb8a76?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Beadon Falls crashing through rocky obstacles" loading="lazy">
                                 </div>
                                 <div class="panel-details">
                                     <h3>Beadon Falls</h3>
@@ -207,7 +205,7 @@
                 <div class="season-comparison">
                     <div class="season-card glass-card">
                         <div class="season-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1596409867990-2ee2aefc8ea9?auto=format&fit=crop&q=80&w=600" alt="Misty, heavily flowing waterfall during the monsoon" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1596409867990-2ee2aefc8ea9?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Misty, heavily flowing waterfall during the monsoon" loading="lazy">
                             <span class="season-badge badge-monsoon">Monsoon</span>
                         </div>
                         <div class="season-info">
@@ -218,7 +216,7 @@
                     
                     <div class="season-card glass-card">
                         <div class="season-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1627914095454-e0c25a5d2e05?auto=format&fit=crop&q=80&w=600" alt="Calmer, clearer waterfall flow post-monsoon" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1627914095454-e0c25a5d2e05?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Calmer, clearer waterfall flow post-monsoon" loading="lazy">
                             <span class="season-badge badge-winter">Post-Monsoon</span>
                         </div>
                         <div class="season-info">
@@ -268,8 +266,9 @@
     <!-- Leaflet JS for Map -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
-    <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-    <script src="script.js" defer></script>
-</body>
-</html>
+    <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
+    <script src="script.js" defer=""></script>
+
+
+</body></html>

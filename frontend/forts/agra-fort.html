@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <script>
         (function() {
             let theme = 'dark'; try { theme = JSON.parse(localStorage.getItem('iie_storage') || '{}').theme || 'dark'; } catch(e) {}
@@ -18,14 +16,14 @@
     <meta property="og:type" content="website">
 
     <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="agra-fort.css">
 </head>
 <body>
-    <header class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
         <a href="../../index.html#home" class="nav-logo" id="nav-logo">
             <span class="saffron">Incredible</span>
@@ -37,14 +35,14 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav class="nav-menu" id="nav-menu">
+        <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
             <a href="../../index.html#home" class="nav-link active" id="link-home">Home</a>
 
             <div class="nav-dropdown">
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../index.html#map" class="dropdown-item">Interactive Map</a>
-                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel & Destinations</a>
+                    <a href="../../frontend/travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a>
                     <a href="../../frontend/ancient-ports-explorer/index.html" class="dropdown-item">Ancient Ports of India</a>
                     <a href="../../frontend/islands/islands.html" class="dropdown-item">Islands of India</a>
                     <a href="../../frontend/heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
@@ -59,7 +57,7 @@
                     <a href="../../frontend/culture/culture.html" class="dropdown-item">Culture Overview</a>
                     <a href="../../frontend/cuisine/cuisine.html" class="dropdown-item">Cuisine</a>
                     <a href="../../frontend/festivals/festivals.html" class="dropdown-item">Festivals</a>
-                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival & Event Discovery</a>
+                    <a href="../../frontend/event-discovery/index.html" class="dropdown-item">Festival &amp; Event Discovery</a>
                     <a href="../../frontend/historical-timeline/index.html" class="dropdown-item">Historical Timeline</a>
                     <a href="../../frontend/national-symbols-gallery/national-symbols-gallery.html" class="dropdown-item">National Symbols</a>
                     <a href="../../frontend/cuisine-discovery-hub/index.html" class="dropdown-item">UP Cuisine</a>
@@ -73,9 +71,9 @@
                 <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Nature ▾</button>
                 <div class="dropdown-menu">
                     <a href="../../frontend/national-parks-explorer/index.html" class="dropdown-item">National Parks</a>
-                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature & Wildlife</a>
+                    <a href="../../frontend/wildlife/wildlife.html" class="dropdown-item">Nature &amp; Wildlife</a>
                     <a href="../../frontend/wildlife-rescue/wildlife-rescue.html" class="dropdown-item">Wildlife Rescue</a>
-                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora & Fauna</a>
+                    <a href="../../frontend/endemic-flora-fauna-explorer/index.html" class="dropdown-item">Endemic Flora &amp; Fauna</a>
                     <a href="../../frontend/harike-wetland/harike-wetland.html" class="dropdown-item">Harike Wetland</a>
                     <a href="../../frontend/wular-lake/wular-lake.html" class="dropdown-item">Wular Lake</a>
                     <a href="../../frontend/crowd-density/index.html" class="dropdown-item">Crowd Density Predictor</a>
@@ -104,13 +102,13 @@
             <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
         </nav>
     </div>
-</header>
+</nav>
 
     <main>
         <!-- Overview / Hero -->
         <section class="hero-section" id="overview">
             <div class="hero-bg">
-                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&q=80" alt="Agra Fort red sandstone ramparts" class="hero-image">
+                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=1600&amp;q=80" alt="Agra Fort red sandstone ramparts" class="hero-image">
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content">
@@ -133,7 +131,7 @@
         <div class="container main-content-wrapper">
             <!-- Sidebar Navigation -->
             <aside class="sidebar-nav">
-                <nav class="sticky-nav">
+                <nav class="sticky-nav" aria-label="Navigation">
                     <ul>
                         <li><a href="#overview">Overview</a></li>
                         <li><a href="#history">History</a></li>
@@ -192,7 +190,7 @@
                     <ul>
                         <li><strong>Red Sandstone Walls:</strong> Massive double-walled ramparts rising about 70 feet, built by Akbar for defence.</li>
                         <li><strong>Marble Pavilions:</strong> Shah Jahan's additions, such as the Khas Mahal and Sheesh Mahal, feature delicate marble screens and mirror-work.</li>
-                        <li><strong>Persian & Timurid Influence:</strong> Symmetrical layouts, arched gateways, and formal gardens reflect Central Asian design traditions adapted to Indian craftsmanship.</li>
+                        <li><strong>Persian &amp; Timurid Influence:</strong> Symmetrical layouts, arched gateways, and formal gardens reflect Central Asian design traditions adapted to Indian craftsmanship.</li>
                         <li><strong>Semi-Circular Plan:</strong> The fort is built in the shape of a semicircle, with its straight side facing the Yamuna river.</li>
                     </ul>
                 </section>
@@ -219,7 +217,7 @@
                     <h2>Major Attractions</h2>
                     <ul>
                         <li><strong>Jahangir Mahal:</strong> A grand red sandstone palace built by Akbar, blending Hindu and Central Asian styles.</li>
-                        <li><strong>Diwan-i-Am & Diwan-i-Khas:</strong> The halls of public and private audience, used by the emperor to meet subjects and nobles.</li>
+                        <li><strong>Diwan-i-Am &amp; Diwan-i-Khas:</strong> The halls of public and private audience, used by the emperor to meet subjects and nobles.</li>
                         <li><strong>Sheesh Mahal:</strong> The "Mirror Palace," once used as a royal dressing room, with walls embedded with tiny mirrored glass pieces.</li>
                         <li><strong>Musamman Burj:</strong> An octagonal marble tower where Shah Jahan was held captive, offering a distant view of the Taj Mahal.</li>
                         <li><strong>Moti Masjid:</strong> The "Pearl Mosque," a serene white marble mosque built by Shah Jahan for the royal household.</li>
@@ -251,16 +249,16 @@
                     <h2>Image Gallery</h2>
                     <div class="gallery-grid">
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&q=80" alt="Agra Fort outer walls" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&amp;q=80" alt="Agra Fort outer walls" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=500&q=80" alt="Fort gateway" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=500&amp;q=80" alt="Fort gateway" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1609766856923-7e0a0c0622d4?w=500&q=80" alt="Marble palace interior" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1609766856923-7e0a0c0622d4?w=500&amp;q=80" alt="Marble palace interior" loading="lazy">
                         </div>
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=500&q=80" alt="Riverside view of the fort" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?w=500&amp;q=80" alt="Riverside view of the fort" loading="lazy">
                         </div>
                     </div>
                 </section>
@@ -311,16 +309,16 @@
             </div>
         </div>
         <div class="footer-credits footer-credits-center">
-            <p>&copy; 2026 Incredible India Explorer. Agra Fort Explorer.</p>
+            <p>© 2026 Incredible India Explorer. Agra Fort Explorer.</p>
         </div>
     </footer>
 
     <!-- Scroll To Top Button -->
-    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">&#8593;</button>
+    <button class="btn-scroll-top" id="btn-scroll-top" aria-label="Scroll to Top">↑</button>
 
-    <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-    <script src="../router.js" defer></script>
+    <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
+    <script src="../router.js" defer=""></script>
     <script type="module" src="../auth.js"></script>
-</body>
-</html>
+
+</body></html>

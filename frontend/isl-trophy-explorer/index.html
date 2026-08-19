@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore the ISL Trophy: India's top-tier football league championship. Discover league history, participating clubs, champions, final venues, Golden Boot winners, major milestones, and an interactive season-by-season timeline.">
   <title>ISL Trophy: Indian Super League History &amp; Champions | Incredible India Explorer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="style.css">
 
@@ -30,7 +28,7 @@
   </script>
 
   <!-- Navbar -->
-  <header class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation">
     <div class="nav-container">
       <a href="../../index.html#home" class="nav-logo" id="nav-logo">
         <span class="saffron">Incredible</span>
@@ -42,7 +40,7 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <nav class="nav-menu" id="nav-menu">
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
         <a href="../../index.html#home" class="nav-link">Home</a>
         <div class="nav-dropdown">
           <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">Sports ▾</button>
@@ -55,14 +53,14 @@
         <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
       </nav>
     </div>
-  </header>
+  </nav>
 
   <main id="app-root" class="isl-main">
     <!-- Hero Section -->
     <section class="isl-hero" id="hero">
       <div class="isl-hero-container">
         <div class="isl-hero-text">
-          <span class="isl-kicker">⚽ India's Top-Flight Football League &middot; Est. 2014</span>
+          <span class="isl-kicker">⚽ India's Top-Flight Football League · Est. 2014</span>
           <h1 class="isl-title">The ISL Trophy <span>Glorious Pinnacle of Indian Football</span></h1>
           <p class="isl-subtitle">
             Crafted with artisanal silver excellence, the <strong>Indian Super League (ISL) Trophy</strong> represents the zenith of professional club football in India. Explore the fierce rivalries, iconic clubs, Golden Boot legends, and thrilling season finales.
@@ -85,40 +83,40 @@
             <svg class="isl-trophy-svg" viewBox="0 0 240 280" role="img" aria-label="ISL Trophy Vector Illustration">
               <defs>
                 <linearGradient id="islSilver" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#ffffff"/>
-                  <stop offset="25%" stop-color="#e2e8f0"/>
-                  <stop offset="70%" stop-color="#94a3b8"/>
-                  <stop offset="100%" stop-color="#475569"/>
+                  <stop offset="0%" stop-color="#ffffff"></stop>
+                  <stop offset="25%" stop-color="#e2e8f0"></stop>
+                  <stop offset="70%" stop-color="#94a3b8"></stop>
+                  <stop offset="100%" stop-color="#475569"></stop>
                 </linearGradient>
                 <linearGradient id="islBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#0284c7"/>
-                  <stop offset="50%" stop-color="#0369a1"/>
-                  <stop offset="100%" stop-color="#082f49"/>
+                  <stop offset="0%" stop-color="#0284c7"></stop>
+                  <stop offset="50%" stop-color="#0369a1"></stop>
+                  <stop offset="100%" stop-color="#082f49"></stop>
                 </linearGradient>
                 <linearGradient id="goldBoot" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#fef08a"/>
-                  <stop offset="50%" stop-color="#eab308"/>
-                  <stop offset="100%" stop-color="#854d0e"/>
+                  <stop offset="0%" stop-color="#fef08a"></stop>
+                  <stop offset="50%" stop-color="#eab308"></stop>
+                  <stop offset="100%" stop-color="#854d0e"></stop>
                 </linearGradient>
               </defs>
               <!-- Base Plinth -->
-              <rect x="65" y="240" width="110" height="26" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="2"/>
-              <rect x="80" y="224" width="80" height="18" rx="3" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
-              <rect x="92" y="247" width="56" height="12" rx="2" fill="url(#islBlue)"/>
+              <rect x="65" y="240" width="110" height="26" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="2"></rect>
+              <rect x="80" y="224" width="80" height="18" rx="3" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"></rect>
+              <rect x="92" y="247" width="56" height="12" rx="2" fill="url(#islBlue)"></rect>
               <text x="120" y="256" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="bold" fill="#fff" text-anchor="middle">ISL TROPHY</text>
               <!-- Vase-style modern Fluted Silver Cup -->
-              <path d="M70,60 C70,140 100,224 120,224 C140,224 170,140 170,60 Z" fill="url(#islSilver)" stroke="#ffffff" stroke-width="2"/>
-              <ellipse cx="120" cy="60" rx="50" ry="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
-              <ellipse cx="120" cy="60" rx="44" ry="8" fill="#1e293b"/>
+              <path d="M70,60 C70,140 100,224 120,224 C140,224 170,140 170,60 Z" fill="url(#islSilver)" stroke="#ffffff" stroke-width="2"></path>
+              <ellipse cx="120" cy="60" rx="50" ry="12" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"></ellipse>
+              <ellipse cx="120" cy="60" rx="44" ry="8" fill="#1e293b"></ellipse>
               <!-- Fluted side rib accents -->
-              <path d="M85,70 Q105,150 115,220" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
-              <path d="M155,70 Q135,150 125,220" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+              <path d="M85,70 Q105,150 115,220" stroke="#cbd5e1" stroke-width="1.5" fill="none"></path>
+              <path d="M155,70 Q135,150 125,220" stroke="#cbd5e1" stroke-width="1.5" fill="none"></path>
               <!-- Central ISL Football Emblem -->
-              <circle cx="120" cy="118" r="16" fill="#0369a1" stroke="#fff" stroke-width="2"/>
+              <circle cx="120" cy="118" r="16" fill="#0369a1" stroke="#fff" stroke-width="2"></circle>
               <!-- Hexagon pattern -->
-              <polygon points="120,108 128,113 128,123 120,128 112,123 112,113" fill="#ffffff"/>
+              <polygon points="120,108 128,113 128,123 120,128 112,123 112,113" fill="#ffffff"></polygon>
               <!-- Crown Band -->
-              <path d="M72,75 Q120,95 168,75" stroke="url(#goldBoot)" stroke-width="3" fill="none"/>
+              <path d="M72,75 Q120,95 168,75" stroke="url(#goldBoot)" stroke-width="3" fill="none"></path>
             </svg>
           </div>
           <div class="trophy-meta-box">
@@ -156,8 +154,8 @@
             <li><span>Inaugural Match:</span> <strong>Oct 12, 2014 (ATK 3–0 Mumbai City at Salt Lake Stadium)</strong></li>
             <li><span>Current Clubs:</span> <strong>13 Top-Flight Clubs (Including Kolkata Giants Mohun Bagan &amp; East Bengal)</strong></li>
             <li><span>Most ISL Cup Titles:</span> <strong>ATK / Mohun Bagan SG (4 Titles)</strong></li>
-            <li><span>All-Time Top Scorer:</span> <strong>Bartholomew Ogbeche &middot; 63 Goals</strong></li>
-            <li><span>All-Time Indian Top Scorer:</span> <strong>Sunil Chhetri &middot; 61 Goals</strong></li>
+            <li><span>All-Time Top Scorer:</span> <strong>Bartholomew Ogbeche · 63 Goals</strong></li>
+            <li><span>All-Time Indian Top Scorer:</span> <strong>Sunil Chhetri · 61 Goals</strong></li>
           </ul>
         </div>
       </div>
@@ -220,19 +218,19 @@
           <div class="milestone-card">
             <div class="milestone-badge">Golden Boot Connection</div>
             <h3>Elano Blumer (2014)</h3>
-            <p class="ms-sub">Chennaiyin FC &middot; 8 Goals in 11 Games</p>
+            <p class="ms-sub">Chennaiyin FC · 8 Goals in 11 Games</p>
             <p class="ms-detail">The former Brazilian international set the benchmark for free-kick mastery and prolific goalscoring in the inaugural season.</p>
           </div>
           <div class="milestone-card">
             <div class="milestone-badge">Record Golden Boot Season</div>
             <h3>Ferran Corominas (2017–18 &amp; 2018–19)</h3>
-            <p class="ms-sub">FC Goa &middot; 18 Goals (2017–18) &amp; 16 Goals (2018–19)</p>
+            <p class="ms-sub">FC Goa · 18 Goals (2017–18) &amp; 16 Goals (2018–19)</p>
             <p class="ms-detail">The first back-to-back Golden Boot winner in league history, orchestrating the most ruthless attacking side.</p>
           </div>
           <div class="milestone-card">
             <div class="milestone-badge">The Indian Icon</div>
-            <h3>Sunil Chhetri &middot; 61+ Goals</h3>
-            <p class="ms-sub">Bengaluru FC &middot; ISL Champion (2018–19)</p>
+            <h3>Sunil Chhetri · 61+ Goals</h3>
+            <p class="ms-sub">Bengaluru FC · ISL Champion (2018–19)</p>
             <p class="ms-detail">Captain Fantastic has scored in every single ISL campaign since 2015, inspiring a generation of Indian footballers.</p>
           </div>
           <div class="milestone-card">
@@ -277,10 +275,11 @@
       </div>
     </div>
     <div class="footer-credits align-center">
-      <p>&copy; 2026 Incredible India Explorer. Built with Vanilla HTML5, CSS3 &amp; JavaScript.</p>
+      <p>© 2026 Incredible India Explorer. Built with Vanilla HTML5, CSS3 &amp; JavaScript.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>

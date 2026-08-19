@@ -1,29 +1,21 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Open Source Contributors Leaderboard — Celebrating everyone who makes Incredible India Explorer better through open-source contributions."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Open Source Contributors Leaderboard — Celebrating everyone who makes Incredible India Explorer better through open-source contributions.">
         <title>Contributors Leaderboard | Incredible India Explorer</title>
 
         <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="contributors.css" />
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="contributors.css">
 
-        <meta property="og:title" content="Contributors Leaderboard | Incredible India Explorer" />
-        <meta
-            property="og:description"
-            content="Open Source Contributors Leaderboard — Celebrating everyone who makes this project better."
-        />
-        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Contributors Leaderboard | Incredible India Explorer">
+        <meta property="og:description" content="Open Source Contributors Leaderboard — Celebrating everyone who makes this project better.">
+        <meta property="og:type" content="website">
     </head>
     <body class="clb-page" data-page="contributors">
     <script>
@@ -45,7 +37,7 @@
                         <span class="clb-green">Explorer</span>
                     </span>
                 </a>
-                <nav class="clb-nav-links" id="clb-nav-links">
+                <nav class="clb-nav-links" id="clb-nav-links" aria-label="Navigation">
                     <a href="../../index.html#home" class="clb-nav-link">Home</a>
                     <a href="contributors.html" class="clb-nav-link active">Contributors</a>
                 </nav>
@@ -53,13 +45,7 @@
                     <button class="clb-icon-btn" id="clb-search-toggle" aria-label="Search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                    <a
-                        href="https://github.com/Eshajha19/Incredible-India-Explorer"
-                        class="clb-icon-btn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="GitHub Repository"
-                    >
+                    <a href="https://github.com/Eshajha19/Incredible-India-Explorer" class="clb-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
                         <i class="fa-brands fa-github"></i>
                     </a>
                     <button id="theme-toggle" class="clb-icon-btn" aria-label="Toggle Theme">
@@ -113,12 +99,7 @@
                     <div class="clb-filters-bar">
                         <div class="clb-search-box">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input
-                                type="text"
-                                id="clb-search"
-                                placeholder="Search contributors..."
-                                aria-label="Search contributors"
-                            />
+                            <input type="text" id="clb-search" placeholder="Search contributors..." aria-label="Search contributors">
                         </div>
                         <div class="clb-filter-controls">
                             <select id="clb-sort" class="clb-select" aria-label="Sort by">
@@ -127,7 +108,7 @@
                                 <option value="username">Sort: Username</option>
                             </select>
                             <div class="clb-badge-filters" id="clb-badge-filters">
-                                <button class="clb-badge-btn active" data-badge="all">All</button>
+                                <button class="clb-badge-btn active" data-badge="all" aria-label="Button">All</button>
                                 <button class="clb-badge-btn" data-badge="maintainer">Maintainers</button>
                                 <button class="clb-badge-btn" data-badge="ecsoc">ECSoC</button>
                             </div>
@@ -151,7 +132,7 @@
                         <div class="clb-podium-card clb-silver" id="podium-2">
                             <div class="clb-podium-rank"><i class="fa-solid fa-medal"></i> #2</div>
                             <div class="clb-podium-avatar-wrap">
-                                <img src="" alt="" class="clb-podium-avatar" />
+                                <img src="" alt="" class="clb-podium-avatar">
                                 <div class="clb-podium-ring"></div>
                             </div>
                             <div class="clb-podium-name" id="podium-2-name">—</div>
@@ -173,7 +154,7 @@
                             </div>
                             <div class="clb-podium-rank"><i class="fa-solid fa-crown"></i> #1</div>
                             <div class="clb-podium-avatar-wrap">
-                                <img src="" alt="" class="clb-podium-avatar" />
+                                <img src="" alt="" class="clb-podium-avatar">
                                 <div class="clb-podium-ring"></div>
                             </div>
                             <div class="clb-podium-name" id="podium-1-name">—</div>
@@ -193,7 +174,7 @@
                         <div class="clb-podium-card clb-bronze" id="podium-3">
                             <div class="clb-podium-rank"><i class="fa-solid fa-medal"></i> #3</div>
                             <div class="clb-podium-avatar-wrap">
-                                <img src="" alt="" class="clb-podium-avatar" />
+                                <img src="" alt="" class="clb-podium-avatar">
                                 <div class="clb-podium-ring"></div>
                             </div>
                             <div class="clb-podium-name" id="podium-3-name">—</div>
@@ -347,28 +328,13 @@
                             Every contribution matters.
                         </p>
                         <div class="clb-cta-actions">
-                            <a
-                                href="https://github.com/Eshajha19/Incredible-India-Explorer/blob/main/CONTRIBUTING.md"
-                                class="clb-btn-primary"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://github.com/Eshajha19/Incredible-India-Explorer/blob/main/CONTRIBUTING.md" class="clb-btn-primary" target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-book-open"></i> Contributing Guide
                             </a>
-                            <a
-                                href="https://github.com/Eshajha19/Incredible-India-Explorer/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"
-                                class="clb-btn-secondary"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://github.com/Eshajha19/Incredible-India-Explorer/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" class="clb-btn-secondary" target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-seedling"></i> Good First Issues
                             </a>
-                            <a
-                                href="https://github.com/Eshajha19/Incredible-India-Explorer/issues"
-                                class="clb-btn-outline"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://github.com/Eshajha19/Incredible-India-Explorer/issues" class="clb-btn-outline" target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-ear-listen"></i> Open Issues
                             </a>
                         </div>
@@ -388,9 +354,7 @@
                     <div class="clb-footer-links">
                         <a href="../../index.html#home">Home</a>
                         <a href="https://github.com/Eshajha19/Incredible-India-Explorer">GitHub</a>
-                        <a href="https://github.com/Eshajha19/Incredible-India-Explorer/blob/main/CONTRIBUTING.md"
-                            >Docs</a
-                        >
+                        <a href="https://github.com/Eshajha19/Incredible-India-Explorer/blob/main/CONTRIBUTING.md">Docs</a>
                         <a href="https://github.com/Eshajha19/Incredible-India-Explorer/issues">Issues</a>
                     </div>
                     <div class="clb-footer-copy">
@@ -404,8 +368,9 @@
             <i class="fa-solid fa-arrow-up"></i>
         </button>
 
-        <script src="../js-modules/storage.js" defer></script>
-    <script src="../app.js" defer></script>
-        <script src="contributors.js" defer></script>
-    </body>
-</html>
+        <script src="../js-modules/storage.js" defer=""></script>
+    <script src="../app.js" defer=""></script>
+        <script src="contributors.js" defer=""></script>
+    
+
+</body></html>

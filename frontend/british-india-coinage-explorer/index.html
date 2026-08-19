@@ -1,39 +1,30 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Interactive timeline of British India coinage, from East India Company and Presidency issues through the British Raj and independence."
-        />
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Interactive timeline of British India coinage, from East India Company and Presidency issues through the British Raj and independence.">
         <title>British India Coinage Timeline | Incredible India Explorer</title>
-        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="stylesheet" href="../../styles.css" />
-        <link rel="stylesheet" href="../../frontend/navbar-redesign/navbar.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+        <link rel="stylesheet" href="../../styles.css">
+        <link rel="stylesheet" href="../../frontend/navbar-redesign/navbar.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="navbar" id="navbar">
+        <nav class="navbar" id="navbar" aria-label="Navigation">
             <div class="nav-container">
-                <a href="../../index.html#home" class="nav-logo"
-                    ><span class="saffron">Incredible</span> <span class="gold">India</span>
-                    <span class="green">Explorer</span></a
-                >
+                <a href="../../index.html#home" class="nav-logo"><span class="saffron">Incredible</span> <span class="gold">India</span>
+                    <span class="green">Explorer</span></a>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
                     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                 </button>
-                <nav class="nav-menu" id="nav-menu">
+                <nav class="nav-menu" id="nav-menu" aria-label="Navigation">
                     <a href="../../index.html#home" class="nav-link">Home</a>
                     <div class="nav-dropdown">
                         <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                             Destinations ▾
                         </button>
                         <div class="dropdown-menu">
-                            <a href="../../index.html#map" class="dropdown-item">Interactive Map</a
-                            ><a href="../travel/travel.html" class="dropdown-item">Travel & Destinations</a
-                            ><a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
+                            <a href="../../index.html#map" class="dropdown-item">Interactive Map</a><a href="../travel/travel.html" class="dropdown-item">Travel &amp; Destinations</a><a href="../heritage/heritage.html" class="dropdown-item">Heritage Sites</a>
                         </div>
                     </div>
                     <div class="nav-dropdown">
@@ -41,10 +32,7 @@
                             Culture ▾
                         </button>
                         <div class="dropdown-menu">
-                            <a href="../historical-timeline/index.html" class="dropdown-item">Historical Timeline</a
-                            ><a href="../indias-coins-through-time/index.html" class="dropdown-item"
-                                >India's Coins Through Time</a
-                            >
+                            <a href="../historical-timeline/index.html" class="dropdown-item">Historical Timeline</a><a href="../indias-coins-through-time/index.html" class="dropdown-item">India's Coins Through Time</a>
                         </div>
                     </div>
                     <div class="nav-dropdown">
@@ -52,16 +40,13 @@
                             History ▾
                         </button>
                         <div class="dropdown-menu">
-                            <a href="../mughal-coinage/index.html" class="dropdown-item">Mughal Coinage</a
-                            ><a href="../delhi-sultanate-coin-timeline/index.html" class="dropdown-item"
-                                >Delhi Sultanate Coin Timeline</a
-                            >
+                            <a href="../mughal-coinage/index.html" class="dropdown-item">Mughal Coinage</a><a href="../delhi-sultanate-coin-timeline/index.html" class="dropdown-item">Delhi Sultanate Coin Timeline</a>
                         </div>
                     </div>
                     <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
                 </nav>
             </div>
-        </header>
+        </nav>
 
         <main class="british-page">
             <section class="hero">
@@ -73,29 +58,20 @@
                         currency and the coinage inherited at independence.
                     </p>
                     <div class="hero-actions">
-                        <a class="primary-btn" href="#timeline">Explore the timeline</a
-                        ><a class="secondary-btn" href="#sources">View sources</a>
+                        <a class="primary-btn" href="#timeline">Explore the timeline</a><a class="secondary-btn" href="#sources">View sources</a>
                     </div>
                 </div>
                 <div class="hero-coin" aria-label="Illustrated British India rupee">
                     <svg viewBox="0 0 220 220" role="img">
                         <defs>
                             <radialGradient id="silver">
-                                <stop offset="0" stop-color="#f5f2e9" />
-                                <stop offset=".75" stop-color="#c7c5bf" />
-                                <stop offset="1" stop-color="#817f7a" />
+                                <stop offset="0" stop-color="#f5f2e9"></stop>
+                                <stop offset=".75" stop-color="#c7c5bf"></stop>
+                                <stop offset="1" stop-color="#817f7a"></stop>
                             </radialGradient>
                         </defs>
-                        <circle cx="110" cy="110" r="92" fill="url(#silver)" stroke="#8f8a7d" stroke-width="5" />
-                        <circle
-                            cx="110"
-                            cy="110"
-                            r="80"
-                            fill="none"
-                            stroke="#8f8a7d"
-                            stroke-width="2"
-                            stroke-dasharray="2 5"
-                        />
+                        <circle cx="110" cy="110" r="92" fill="url(#silver)" stroke="#8f8a7d" stroke-width="5"></circle>
+                        <circle cx="110" cy="110" r="80" fill="none" stroke="#8f8a7d" stroke-width="2" stroke-dasharray="2 5"></circle>
                         <text x="110" y="94" text-anchor="middle" class="coin-royal">VICTORIA</text>
                         <text x="110" y="117" text-anchor="middle" class="coin-title">ONE RUPEE</text>
                         <text x="110" y="138" text-anchor="middle" class="coin-small">INDIA · 1877</text>
@@ -119,10 +95,7 @@
                     </p>
                 </div>
                 <div class="era-tabs" role="tablist" aria-label="Timeline era">
-                    <button class="era-btn active" data-era="all">All</button
-                    ><button class="era-btn" data-era="presidency">Company & Presidencies</button
-                    ><button class="era-btn" data-era="crown">Crown coinage</button
-                    ><button class="era-btn" data-era="reform">Reforms & war</button>
+                    <button class="era-btn active" data-era="all" aria-label="Button">All</button><button class="era-btn" data-era="presidency">Company &amp; Presidencies</button><button class="era-btn" data-era="crown">Crown coinage</button><button class="era-btn" data-era="reform">Reforms &amp; war</button>
                 </div>
                 <div class="timeline" id="timeline-list"></div>
             </section>
@@ -144,16 +117,8 @@
                         <p>Click a mint to inspect its role and active period.</p>
                     </div>
                     <div class="mint-map-wrap">
-                        <svg
-                            id="mint-map"
-                            viewBox="0 0 620 440"
-                            role="img"
-                            aria-label="Schematic map of British India coin mints"
-                        >
-                            <path
-                                class="india-outline"
-                                d="M175 58 L255 45 332 76 390 117 462 154 500 212 474 275 414 306 395 365 331 390 285 351 225 360 187 319 145 280 119 222 135 165Z"
-                            />
+                        <svg id="mint-map" viewBox="0 0 620 440" role="img" aria-label="Schematic map of British India coin mints">
+                            <path class="india-outline" d="M175 58 L255 45 332 76 390 117 462 154 500 212 474 275 414 306 395 365 331 390 285 351 225 360 187 319 145 280 119 222 135 165Z"></path>
                             <g id="mint-nodes"></g>
                         </svg>
                     </div>
@@ -173,8 +138,7 @@
                     <div class="coin-stage">
                         <div class="coin-large" id="coin-large"></div>
                         <div class="viewer-controls">
-                            <label for="coin-select">Coin type</label
-                            ><select id="coin-select"></select>
+                            <label for="coin-select">Coin type</label><select id="coin-select"></select>
                         </div>
                     </div>
                     <article class="coin-info" id="coin-info"></article>
@@ -188,9 +152,7 @@
                     <p>Select two denominations to compare value, metal, weight standard and design purpose.</p>
                 </div>
                 <div class="compare-selectors">
-                    <select id="denom-a"></select
-                    ><span>VS</span
-                    ><select id="denom-b"></select>
+                    <select id="denom-a"></select><span>VS</span><select id="denom-b"></select>
                 </div>
                 <div class="compare-grid">
                     <article id="compare-a" class="compare-card"></article>
@@ -211,18 +173,9 @@
                     <div class="design-header">
                         <strong id="design-year">1835</strong><span id="design-era">Company uniform coinage</span>
                     </div>
-                    <input
-                        id="design-slider"
-                        type="range"
-                        min="0"
-                        max="4"
-                        value="0"
-                        step="1"
-                        aria-label="British India rupee design evolution"
-                    />
+                    <input id="design-slider" type="range" min="0" max="4" value="0" step="1" aria-label="British India rupee design evolution">
                     <div class="design-stops">
-                        <span>William IV</span><span>Victoria Queen</span><span>Victoria Empress</span
-                        ><span>George V</span><span>George VI</span>
+                        <span>William IV</span><span>Victoria Queen</span><span>Victoria Empress</span><span>George V</span><span>George VI</span>
                     </div>
                     <div class="design-compare">
                         <div id="design-coin-a"></div>
@@ -238,31 +191,15 @@
                     <p>Sources used for the timeline and coinage facts.</p>
                 </div>
                 <div class="sources-grid">
-                    <a
-                        href="https://systemhealth.rbi.org.in/Scripts/mc_british.aspx%281%29.html"
-                        target="_blank"
-                        rel="noopener"
-                        >Reserve Bank of India Monetary Museum<span>British India Coinage overview and reforms</span></a
-                    >
-                    <a
-                        href="https://production.royalmintmuseum.org.uk/stories/collect/numismatics/empire-to-independence-six-coin-rupee-set/"
-                        target="_blank"
-                        rel="noopener"
-                        >Royal Mint Museum<span>Empire-to-independence rupee set and design history</span></a
-                    >
-                    <a href="https://www.pcgs.com/news/british-colonial-india" target="_blank" rel="noopener"
-                        >PCGS · British Colonial India<span>Dates, denominations and mint marks</span></a
-                    >
-                    <a
-                        href="https://www.museumsvictoria.com.au/collections/items/1879/calcutta-mint-medal-coin-makers-kolkata-india-1757-1952/"
-                        target="_blank"
-                        rel="noopener"
-                        >Museums Victoria<span>Calcutta Mint history and 1835 production</span></a
-                    >
+                    <a href="https://systemhealth.rbi.org.in/Scripts/mc_british.aspx%281%29.html" target="_blank" rel="noopener">Reserve Bank of India Monetary Museum<span>British India Coinage overview and reforms</span></a>
+                    <a href="https://production.royalmintmuseum.org.uk/stories/collect/numismatics/empire-to-independence-six-coin-rupee-set/" target="_blank" rel="noopener">Royal Mint Museum<span>Empire-to-independence rupee set and design history</span></a>
+                    <a href="https://www.pcgs.com/news/british-colonial-india" target="_blank" rel="noopener">PCGS · British Colonial India<span>Dates, denominations and mint marks</span></a>
+                    <a href="https://www.museumsvictoria.com.au/collections/items/1879/calcutta-mint-medal-coin-makers-kolkata-india-1757-1952/" target="_blank" rel="noopener">Museums Victoria<span>Calcutta Mint history and 1835 production</span></a>
                 </div>
             </section>
         </main>
         <script src="../../frontend/navbar-redesign/navbar.js"></script>
         <script src="script.js"></script>
-    </body>
-</html>
+    
+
+</body></html>

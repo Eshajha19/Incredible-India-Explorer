@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Virtual Museum of Indian Sports Trophies</title>
@@ -318,10 +316,10 @@ footer a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div>
 
-<nav class="topnav">
-  <div class="brand"><span class="mark">&#9832;</span> Museum of Indian Sports Trophies</div>
+
+<nav class="topnav" aria-label="Navigation">
+  <div class="brand"><span class="mark">♨</span> Museum of Indian Sports Trophies</div>
   <div class="navlinks">
     <a href="#galleries">Galleries</a>
     <a href="#timeline">Timeline</a>
@@ -329,11 +327,58 @@ footer a:hover{ text-decoration:underline; }
     <a href="#quiz">Quiz Zone</a>
     <a href="#credits">Credits</a>
   </div>
-</nav>
+</nav><main><div class="grain" aria-hidden="true"></div><section id="galleries">
+  <div class="eyebrow">Sport Galleries</div>
+  <h2 class="section-title">Browse the trophy collection</h2>
+  <p class="section-desc">Search by name or story, or step into a gallery wing by sport. Select any exhibit to open its full display case.</p>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+      <input id="searchInput" type="text" placeholder="Search trophies, namesakes, champions..." aria-label="Search trophies">
+    </div>
+    <div class="filters" id="filterChips" role="group" aria-label="Filter by sport">
+      <button class="chip active" data-sport="all">All Sports</button>
+      <button class="chip" data-sport="Cricket">🏏 Cricket</button>
+      <button class="chip" data-sport="Football">⚽ Football</button>
+      <button class="chip" data-sport="Hockey">🏒 Hockey</button>
+    </div>
+  </div>
+
+  <div class="results-note" id="resultsNote"></div>
+  <div class="gallery" id="gallery"></div>
+</section><section id="timeline">
+  <div class="eyebrow">Historical Timeline</div>
+  <h2 class="section-title">Founding years, in order</h2>
+  <p class="section-desc">From an army amusement in the Shimla hills to the pinnacle of state cricket — scroll through when each trophy entered India's sporting life.</p>
+  <div class="timeline-wrap">
+    <div class="timeline-scroll" id="timelineScroll"></div>
+  </div>
+</section><section id="legends">
+  <div class="eyebrow">Legends Gallery</div>
+  <h2 class="section-title">The names behind the trophies, and on them</h2>
+  <p class="section-desc">Some trophies are named after their donors and patrons; others were made legendary by the champions who played for them.</p>
+  <div class="legends-grid" id="legendsGrid"></div>
+</section><section id="quiz">
+  <div class="eyebrow">Quiz Zone</div>
+  <h2 class="section-title">Test what you've learned</h2>
+  <p class="section-desc">Seven questions drawn straight from the exhibits above.</p>
+  <div class="quiz-box" id="quizBox"></div>
+</section><section id="credits" style="padding-top:60px; padding-bottom:60px;">
+  <div class="eyebrow">Credits</div>
+  <h2 class="section-title" style="font-size:1.6rem;">Images &amp; External Assets</h2>
+  <p class="section-desc" style="margin-bottom:24px;">Photographs used in this museum are hosted on Wikimedia Commons and credited individually below, with a link to each file's page for full licensing details. Trophy icons without a listed photo credit are original SVG illustrations drawn for this museum.</p>
+  <div class="gallery" id="creditsGrid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px;"></div>
+</section><div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modalContent" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close exhibit">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div></main>
 
 <!-- ENTRANCE -->
 <header class="entrance" id="entrance">
-  <div class="ticket">Admission Free &middot; Est. Visiting Hours: Always Open</div>
+  <div class="ticket">Admission Free · Est. Visiting Hours: Always Open</div>
   <h1>Trophies that carry <em>India's</em> sporting memory</h1>
   <p class="sub">Walk through the cups, shields and trophies that have shaped Indian cricket, football and hockey since the 1880s — who they're named for, who has lifted them, and the stories behind the silver.</p>
   <div class="cta-row">
@@ -349,60 +394,18 @@ footer a:hover{ text-decoration:underline; }
 </header>
 
 <!-- GALLERIES -->
-<section id="galleries">
-  <div class="eyebrow">Sport Galleries</div>
-  <h2 class="section-title">Browse the trophy collection</h2>
-  <p class="section-desc">Search by name or story, or step into a gallery wing by sport. Select any exhibit to open its full display case.</p>
 
-  <div class="controls">
-    <div class="search-wrap">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input id="searchInput" type="text" placeholder="Search trophies, namesakes, champions..." aria-label="Search trophies">
-    </div>
-    <div class="filters" id="filterChips" role="group" aria-label="Filter by sport">
-      <button class="chip active" data-sport="all">All Sports</button>
-      <button class="chip" data-sport="Cricket">&#127951; Cricket</button>
-      <button class="chip" data-sport="Football">&#9917; Football</button>
-      <button class="chip" data-sport="Hockey">&#127954; Hockey</button>
-    </div>
-  </div>
-
-  <div class="results-note" id="resultsNote"></div>
-  <div class="gallery" id="gallery"></div>
-</section>
 
 <!-- TIMELINE -->
-<section id="timeline">
-  <div class="eyebrow">Historical Timeline</div>
-  <h2 class="section-title">Founding years, in order</h2>
-  <p class="section-desc">From an army amusement in the Shimla hills to the pinnacle of state cricket — scroll through when each trophy entered India's sporting life.</p>
-  <div class="timeline-wrap">
-    <div class="timeline-scroll" id="timelineScroll"></div>
-  </div>
-</section>
+
 
 <!-- LEGENDS -->
-<section id="legends">
-  <div class="eyebrow">Legends Gallery</div>
-  <h2 class="section-title">The names behind the trophies, and on them</h2>
-  <p class="section-desc">Some trophies are named after their donors and patrons; others were made legendary by the champions who played for them.</p>
-  <div class="legends-grid" id="legendsGrid"></div>
-</section>
+
 
 <!-- QUIZ -->
-<section id="quiz">
-  <div class="eyebrow">Quiz Zone</div>
-  <h2 class="section-title">Test what you've learned</h2>
-  <p class="section-desc">Seven questions drawn straight from the exhibits above.</p>
-  <div class="quiz-box" id="quizBox"></div>
-</section>
 
-<section id="credits" style="padding-top:60px; padding-bottom:60px;">
-  <div class="eyebrow">Credits</div>
-  <h2 class="section-title" style="font-size:1.6rem;">Images &amp; External Assets</h2>
-  <p class="section-desc" style="margin-bottom:24px;">Photographs used in this museum are hosted on Wikimedia Commons and credited individually below, with a link to each file's page for full licensing details. Trophy icons without a listed photo credit are original SVG illustrations drawn for this museum.</p>
-  <div class="gallery" id="creditsGrid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px;"></div>
-</section>
+
+
 
 <footer>
   <div>A fan-made virtual museum built for the Incredible India Explorer project.</div>
@@ -410,12 +413,7 @@ footer a:hover{ text-decoration:underline; }
 </footer>
 
 <!-- MODAL -->
-<div class="modal-backdrop" id="modalBackdrop">
-  <div class="modal" id="modalContent" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="modal-close" id="modalClose" aria-label="Close exhibit">&times;</button>
-    <div id="modalBody"></div>
-  </div>
-</div>
+
 
 <script>
 /* ============ ICONS (original vector illustrations, no external images) ============ */
@@ -706,5 +704,6 @@ document.getElementById('creditList').innerHTML =
 renderGallery();
 renderQuiz();
 </script>
-</body>
-</html>
+
+
+</body></html>

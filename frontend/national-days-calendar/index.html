@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Indian National Days Calendar | Incredible India Explorer</title>
 
 <!-- Preload Critical Fonts -->
-    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="nd-navbar">
-  <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+  <a href="../../index.html" class="back-link">← Back to Home</a>
   <div class="nav-brand">
     <span class="saffron">Incredible</span>
     <span class="gold">India</span>
@@ -22,25 +20,20 @@
   </div>
 </header>
 
-<section class="hero-section">
+
+
+<!-- Month Filter -->
+<nav class="month-filter" id="monthFilter" aria-label="Navigation">
+  <button class="month-chip active" data-month="all">All Months</button>
+</nav><main><section class="hero-section">
   <span class="section-badge">Observances • Commemorations • Pride</span>
   <h1>📅 Indian National Days Calendar</h1>
   <p class="hero-text">From Republic Day to Children's Day — explore the dates that mark India's history, values, and achievements throughout the year.</p>
-</section>
-
-<!-- Month Filter -->
-<nav class="month-filter" id="monthFilter">
-  <button class="month-chip active" data-month="all">All Months</button>
-</nav>
-
-<div class="container">
+</section><div class="container">
   <div class="calendar-grid" id="calendarGrid"></div>
-</div>
-
-<!-- Day Detail Modal -->
-<div class="day-modal-overlay" id="dayModalOverlay">
+</div><div class="day-modal-overlay" id="dayModalOverlay">
   <div class="day-modal" role="dialog" aria-modal="true" aria-labelledby="modalDayTitle">
-    <button class="day-modal-close" id="dayModalClose" aria-label="Close day details">&times;</button>
+    <button class="day-modal-close" id="dayModalClose" aria-label="Close day details">×</button>
     <div class="day-modal-date" id="modalDayDate">26 January</div>
     <div class="day-modal-icon" id="modalDayIcon">🇮🇳</div>
     <h2 class="day-modal-title" id="modalDayTitle">Day Name</h2>
@@ -61,12 +54,17 @@
       <ul id="modalDayTimeline"></ul>
     </div>
   </div>
-</div>
+</div></main>
+
+
+
+<!-- Day Detail Modal -->
+
 
 <footer class="nd-footer">
-  <p>&copy; 2026 Incredible India Explorer. Indian National Days Calendar.</p>
+  <p>© 2026 Incredible India Explorer. Indian National Days Calendar.</p>
 </footer>
 
 <script src="script.js"></script>
-</body>
-</html>
+
+</body></html>
