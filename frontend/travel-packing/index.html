@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Smart Travel Packing Assistant for personalized destination, weather and activity based packing checklists."
+    >
+
+    <title>Smart Travel Packing Assistant | Incredible India Explorer</title>
+
+    <link rel="stylesheet" href="packing.css">
+
+    <!-- Existing project stylesheet -->
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+
+<main class="packing-page">
+
+    <div class="packing-container">
+
+        <header class="packing-hero">
+
+            <span class="packing-badge">
+                Smart Travel Utility
+            </span>
+
+            <h1>
+                Pack Smarter.
+                <span>Travel Better.</span>
+            </h1>
+
+            <p>
+                Build a personalized packing checklist based on your
+                destination, travel dates, weather and activities.
+                Your checklist automatically adapts to your trip.
+            </p>
+
+        </header>
+
+
+        <!-- Trip Planner -->
+
+        <section class="trip-planner-card">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="destination">
+                        Destination
+                    </label>
+
+                    <select id="destination">
+                        <option value="">
+                            Choose destination
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="start-date">
+                        Start Date
+                    </label>
+
+                    <input
+                        id="start-date"
+                        type="date"
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="end-date">
+                        End Date
+                    </label>
+
+                    <input
+                        id="end-date"
+                        type="date"
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="activity-section">
+
+                <h3>
+                    What are you planning to do?
+                </h3>
+
+                <div
+                    class="activity-options"
+                    id="activity-options"
+                ></div>
+
+            </div>
+
+
+            <div class="planner-actions">
+
+                <button
+                    class="btn btn-primary"
+                    id="generate-list"
+                    type="button"
+                >
+                    Generate Smart Checklist
+                </button>
+
+                <button
+                    class="btn btn-secondary"
+                    id="save-list"
+                    type="button"
+                >
+                    💾 Save List
+                </button>
+
+                <button
+                    class="btn btn-secondary"
+                    id="export-list"
+                    type="button"
+                >
+                    📤 Export
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Summary -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+                <div class="summary-icon">🧳</div>
+                <strong id="total-items">0</strong>
+                <span>Total Items</span>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">✅</div>
+                <strong id="packed-items">0</strong>
+                <span>Packed</span>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">📅</div>
+                <strong id="trip-duration">1 day</strong>
+                <span>Trip Duration</span>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">🌦️</div>
+
+                <div
+                    class="weather-summary"
+                    id="weather-summary"
+                >
+                    <strong>—</strong>
+                    <span>Generate a checklist</span>
+                </div>
+            </div>
+
+
+            <div class="summary-card progress-card">
+
+                <span>Packing Progress</span>
+
+                <strong id="progress-percentage">
+                    0%
+                </strong>
+
+                <div class="progress-track">
+                    <div
+                        class="progress-fill"
+                        id="packing-progress"
+                    ></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Main Content -->
+
+        <div class="packing-layout">
+
+            <section class="packing-main">
+
+                <div class="packing-toolbar">
+
+                    <h2>
+                        Your Packing Checklist
+                    </h2>
+
+                    <div class="toolbar-actions">
+
+                        <button
+                            type="button"
+                            id="clear-list"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div id="packing-list">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            🧳
+                        </div>
+
+                        <h3>
+                            Your packing list is empty
+                        </h3>
+
+                        <p>
+                            Choose your trip details and
+                            generate your checklist.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Sidebar -->
+
+            <aside class="sidebar">
+
+                <section class="sidebar-card">
+
+                    <h3>
+                        ➕ Add Custom Item
+                    </h3>
+
+                    <div class="custom-item-input">
+
+                        <input
+                            type="text"
+                            id="custom-item"
+                            placeholder="e.g. Travel adapter"
+                        >
+
+                        <select id="custom-category">
+
+                            <option value="misc">
+                                Miscellaneous
+                            </option>
+
+                            <option value="clothing">
+                                Clothing
+                            </option>
+
+                            <option value="footwear">
+                                Footwear
+                            </option>
+
+                            <option value="toiletries">
+                                Toiletries
+                            </option>
+
+                            <option value="documents">
+                                Documents
+                            </option>
+
+                            <option value="electronics">
+                                Electronics
+                            </option>
+
+                            <option value="health">
+                                Health & Personal
+                            </option>
+
+                            <option value="weather">
+                                Weather Essentials
+                            </option>
+
+                            <option value="activity">
+                                Activity Gear
+                            </option>
+
+                            <option value="safety">
+                                Safety
+                            </option>
+
+                        </select>
+
+                        <button
+                            type="button"
+                            id="add-item"
+                        >
+                            Add Item
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <section class="sidebar-card">
+
+                    <h3>
+                        💾 Saved Packing Lists
+                    </h3>
+
+                    <div
+                        class="saved-lists"
+                        id="saved-lists"
+                    ></div>
+
+                </section>
+
+
+                <section class="sidebar-card">
+
+                    <h3>
+                        💡 Packing Tips
+                    </h3>
+
+                    <ul>
+                        <li>
+                            Keep important documents accessible.
+                        </li>
+
+                        <li>
+                            Pack medicines in your hand luggage.
+                        </li>
+
+                        <li>
+                            Check weather before leaving.
+                        </li>
+
+                        <li>
+                            Carry a reusable water bottle.
+                        </li>
+
+                        <li>
+                            Keep electronic chargers together.
+                        </li>
+                    </ul>
+
+                </section>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<script
+    type="module"
+    src="./packing.js"
+></script>
+
+</body>
+</html>
