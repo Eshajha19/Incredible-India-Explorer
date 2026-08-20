@@ -1,0 +1,19 @@
+export const omBeach = {
+  name: "Om Beach",
+  location: "Gokarna, Uttara Kannada District, Karnataka",
+  overview: "Om Beach is one of the most famous coastal gems along the Arabian Sea, blending spiritual heritage with a laid-back beach culture.",
+  distinctiveShape: "Formed by the natural merging of two crescent-shaped landmasses that curve together to mimic the sacred Hindu and Buddhist symbol 'Om' (ॐ).",
+  naturalSurroundings: "Flanked by rugged, rocky cliffs, verdant green hillocks, and fine golden-white sand with clear turquoise waters.",
+  activities: [
+    "Water sports (jet skiing, banana boats, speed boating, and kayaking)",
+    "Coastal trekking trails connecting to Kudle, Half Moon, and Paradise beaches",
+    "Early morning dolphin spotting boat tours",
+    "Beachfront yoga and wellness retreats"
+  ],
+  nearbyAttractions: [
+    "Half Moon Beach & Paradise Beach",
+    "Kudle Beach",
+    "Mahabaleshwar Temple, Gokarna",
+    "Mirjan Fort"
+  ]
+};
