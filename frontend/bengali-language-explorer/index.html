@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Bengali (বাংলা) — Classical language status, Nomoskar greetings, audio pronunciations, vocabulary, Rabindranath Tagore, and Nazrul Islam."
+        />
+        <title>Bengali Language Explorer | Incredible India</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="bengali.css" />
+    </head>
+    <body class="bengali-main">
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../languages/languages.html" class="nav-link">Languages of India</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Bengali</a>
+                    <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="bengali-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-classical">🏛️ Classical Language (2024)</span>
+                        <span class="hero-pill pill-global">🌐 7th Most Spoken in the World</span>
+                        <span class="hero-pill pill-nobel">🏆 Rabindranath Tagore Nobel (1913)</span>
+                    </div>
+                    <h1>Bengali <span>(বাংলা — Literary Heritage & Melody)</span></h1>
+                    <p class="hero-subtitle">
+                        Discover the lyrical beauty, emotional resonance, and world-renowned literary legacy of Bengali — exploring its Eastern Nagari script, spoken vocabulary, and Renaissance masters.
+                    </p>
+                    
+                    <div class="greeting-banner">
+                        <div class="greeting-native" lang="bn">নমস্কার / শুভদিন</div>
+                        <div class="greeting-translit">Nomoskar / Shubhodin</div>
+                        <div class="greeting-meaning">"Respectful Greetings / Good Day"</div>
+                        <button id="greeting-audio-btn" class="btn-audio-play" aria-label="Play Bengali greeting audio">
+                            🔊 Listen Pronunciation
+                        </button>
+                    </div>
+
+                    <div id="stats-grid" class="stats-grid"></div>
+                </div>
+            </section>
+
+            <section class="bengali-info-section">
+                <div class="section-container">
+                    <h2>Essential Spoken Bengali Vocabulary</h2>
+                    <div class="vocab-grid" id="vocab-grid"></div>
+
+                    <h2 class="sec-title">Nobel Laureates, Rebel Poets & Novelists</h2>
+                    <div class="legends-grid" id="legends-grid"></div>
+                </div>
+            </section>
+
+            <section class="references-section">
+                <div class="section-container">
+                    <h2>References & Literary Academies</h2>
+                    <ul class="references-list" id="references-list"></ul>
+                </div>
+            </section>
+        </main>
+
+        <script src="bengali-data.js"></script>
+        <script src="bengali.js"></script>
+    </body>
+</html>
