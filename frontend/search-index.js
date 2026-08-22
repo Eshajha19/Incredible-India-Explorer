@@ -5956,5 +5956,13 @@ window.indiaSearchIndex = [
         keywords: "kumara parvatha, trek, karnataka, pushpagiri, western ghats, kukke subramanya",
         description: "Explore the Kumara Parvatha Trek (1,712m) in Karnataka's Pushpagiri Wildlife Sanctuary. Detailed route information, safety guidelines, and gear checklist.",
         url: "frontend/kumara-parvatha-trek/index.html"
+    },
+    // --- feat/tamil-language-explorer ---
+    {
+        title: "Tamil: Explore \u0ba4\u0bae\u0bbf\u0bb4\u0bcd and Its Literary Heritage",
+        category: "Languages & Literature",
+        description:
+            "Explore Tamil (\u0ba4\u0bae\u0bbf\u0bb4\u0bcd) \u2014 2,500+ years of classical Dravidian heritage, Vanakkam greetings, audio pronunciations, vocabulary, and Thirukkural literature.",
+        url: "frontend/tamil-language-explorer/index.html"
     }
 ];
