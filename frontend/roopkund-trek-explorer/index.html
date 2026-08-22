@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+            (function () {
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            })();
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Explore Roopkund Trek in Uttarakhand — 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas."
+        />
+        <title>Roopkund Trek Explorer | Incredible India</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../../styles.css" />
+        <link rel="stylesheet" href="roopkund.css" />
+    </head>
+    <body class="roopkund-main">
+        <header class="navbar scrolled" id="navbar">
+            <div class="nav-container">
+                <a href="../../index.html#home" class="nav-logo" id="nav-logo">
+                    <span class="saffron">Incredible</span>
+                    <span class="gold">India</span>
+                    <span class="green">Explorer</span>
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="../../index.html#home" class="nav-link">Home</a>
+                    <a href="../mountains-and-treks/index.html" class="nav-link">Himalayan Treks</a>
+                    <a href="index.html" class="nav-link active" style="color: var(--saffron)">Roopkund Trek</a>
+                    <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Light Mode">
+                        ☀️
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="roopkund-hero">
+                <div class="section-container">
+                    <div class="hero-badges-row">
+                        <span class="hero-pill pill-alt">🏔️ 5,029m (16,499 ft) Glacial Tarn</span>
+                        <span class="hero-pill pill-mystery">💀 Mystery Skeleton Lake</span>
+                        <span class="hero-pill pill-bugyal">🌿 Ali & Bedni Bugyals</span>
+                    </div>
+                    <h1>Roopkund Trek <span>(The Mystery Skeleton Lake)</span></h1>
+                    <p class="hero-subtitle">
+                        Discover the high-altitude glacial lake nestled at the base of Mount Trishul in the Garhwal Himalayas — famous for its 9th-century skeletal enigma, expansive alpine meadows, and sacred pilgrimage heritage.
+                    </p>
+                    <div id="stats-grid" class="stats-grid"></div>
+                </div>
+            </section>
+
+            <section class="roopkund-info-section">
+                <div class="section-container">
+                    <h2>Day-by-Day Expedition Trail</h2>
+                    <div class="campsites-grid" id="campsites-grid"></div>
+
+                    <h2 class="sec-title">The Scientific & Historical Mystery of the Skeletons</h2>
+                    <div class="mysteries-grid" id="mysteries-grid"></div>
+                </div>
+            </section>
+
+            <section class="references-section">
+                <div class="section-container">
+                    <h2>References & Scientific Literature</h2>
+                    <ul class="references-list" id="references-list"></ul>
+                </div>
+            </section>
+        </main>
+
+        <script src="roopkund-data.js"></script>
+        <script src="roopkund.js"></script>
+    </body>
+</html>

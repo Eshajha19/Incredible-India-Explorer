@@ -5956,5 +5956,13 @@ window.indiaSearchIndex = [
         keywords: "kumara parvatha, trek, karnataka, pushpagiri, western ghats, kukke subramanya",
         description: "Explore the Kumara Parvatha Trek (1,712m) in Karnataka's Pushpagiri Wildlife Sanctuary. Detailed route information, safety guidelines, and gear checklist.",
         url: "frontend/kumara-parvatha-trek/index.html"
+    },
+    // --- feat/roopkund-trek-explorer ---
+    {
+        title: "Add Roopkund Trek \u2014 Uttarakhand",
+        category: "Mountains & Treks",
+        description:
+            "Explore Roopkund Trek in Uttarakhand \u2014 5,029m Mystery Skeleton Lake, Ali & Bedni Bugyals, Junargali Ridge, and Mount Trishul panoramas.",
+        url: "frontend/roopkund-trek-explorer/index.html"
     }
 ];
