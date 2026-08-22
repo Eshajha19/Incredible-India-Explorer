@@ -1,0 +1,234 @@
+.urdu-main {
+    background-color: var(--bg-primary, #092e20);
+    color: var(--text-primary, #d1fae5);
+    font-family: 'Outfit', sans-serif;
+}
+
+.urdu-hero {
+    padding: 6rem 1.5rem 3rem;
+    background: linear-gradient(135deg, rgba(9, 46, 32, 0.95), rgba(13, 94, 66, 0.85));
+    text-align: center;
+}
+
+.hero-badges-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.hero-pill {
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.urdu-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.urdu-hero h1 span {
+    color: #6ee7b7;
+    font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+.hero-subtitle {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    color: #a7f3d0;
+    line-height: 1.6;
+}
+
+.greeting-banner {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(110, 231, 183, 0.3);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    backdrop-filter: blur(8px);
+}
+
+.greeting-native {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 2.25rem;
+    color: #6ee7b7;
+    margin-bottom: 0.25rem;
+    direction: rtl;
+}
+
+.greeting-translit {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.greeting-meaning {
+    font-size: 0.95rem;
+    color: #a7f3d0;
+    margin-bottom: 1rem;
+}
+
+.btn-audio-play {
+    background: #059669;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-audio-play:hover {
+    background: #10b981;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    background: rgba(5, 150, 105, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.stat-val {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #6ee7b7;
+}
+
+.stat-lbl {
+    font-size: 0.85rem;
+    color: #a7f3d0;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.section-container h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #d1fae5;
+}
+
+.sec-title {
+    margin-top: 2.5rem;
+}
+
+.vocab-grid, .legends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.vocab-card, .legend-card {
+    background: rgba(5, 150, 105, 0.25);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.vocab-card:hover, .legend-card:hover {
+    transform: translateY(-4px);
+}
+
+.vocab-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.vocab-native {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.6rem;
+    color: #6ee7b7;
+    direction: rtl;
+}
+
+.vocab-speak-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.vocab-speak-btn:hover {
+    background: #059669;
+}
+
+.vocab-translit {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.05rem;
+}
+
+.vocab-meaning {
+    color: #a7f3d0;
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+}
+
+.vocab-ipa {
+    color: #6ee7b7;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.legend-title {
+    color: #6ee7b7;
+    margin-bottom: 0.5rem;
+}
+
+.references-list {
+    list-style: none;
+    padding: 0;
+}
+
+.references-list li {
+    margin-bottom: 0.75rem;
+}
+
+.references-list a {
+    color: #6ee7b7;
+    text-decoration: none;
+}
+
+.references-list a:hover {
+    text-decoration: underline;
+}
