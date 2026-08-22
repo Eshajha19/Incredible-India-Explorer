@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudle Beach: Gokarna's Crescent Paradise | Incredible India</title>
+    <meta name="description"
+        content="Explore Kudle Beach, Gokarna's serene crescent-shaped paradise known for yoga retreats, pristine coastline, and spiritual coastal setting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar kudle-nav" role="banner">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo" aria-label="Return to Home">
+                <span class="saffron">Incredible</span> <span class="gold">India</span> <span
+                    class="green">Explorer</span>
+            </a>
+            <nav class="nav-menu" role="navigation">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="#nature" class="nav-link">Nature</a>
+                <a href="#wellness" class="nav-link">Wellness</a>
+                <a href="#nearby" class="nav-link">Nearby</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+            </nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="hero-section kudle-hero" id="home">
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-content animate-on-scroll">
+                <h1 class="hero-title">Kudle: <span class="accent">Gokarna's Crescent</span></h1>
+                <p class="hero-subtitle">A serene crescent-shaped beach where yoga, spirituality, and pristine nature
+                    meet along Karnataka's sacred coastline.</p>
+                <button class="btn-bookmark" id="bookmark-btn" aria-label="Add to My Journey">🔖 Bookmark to My
+                    Journey</button>
+            </div>
+        </section>
+
+        <section class="explorer-content">
+            <div class="tabs" role="tablist" aria-label="Kudle Sections">
+                <button class="tab-btn active" data-tab="overview" role="tab" aria-selected="true">Overview</button>
+                <button class="tab-btn" data-tab="nature" role="tab" aria-selected="false">Natural Setting</button>
+                <button class="tab-btn" data-tab="wellness" role="tab" aria-selected="false">Wellness & Culture</button>
+                <button class="tab-btn" data-tab="nearby" role="tab" aria-selected="false">Nearby</button>
+                <button class="tab-btn" data-tab="gallery" role="tab" aria-selected="false">Gallery</button>
+            </div>
+
+            <div class="tab-content active" id="overview" role="tabpanel">
+                <h2>Gokarna's Hidden Crescent</h2>
+                <p>Kudle Beach is one of the five pristine beaches of Gokarna in Karnataka's Uttara Kannada district.
+                    Shaped like a perfect crescent, it offers a quieter, more meditative alternative to the popular Om
+                    Beach, attracting yoga practitioners, spiritual seekers, and travelers seeking tranquility.</p>
+                <div class="info-card">
+                    <h3>Geographic & Spiritual Location</h3>
+                    <p><strong>Coordinates:</strong> 14.55°N, 74.32°E<br>
+                        <strong>District:</strong> Uttara Kannada, Karnataka<br>
+                        <strong>Coastline:</strong> Karavali Coast, Arabian Sea<br>
+                        <strong>Nearest Town:</strong> Gokarna (2 km), Kumta (25 km)<br>
+                        <strong>Nearest Airport:</strong> Dabolim, Goa (140 km) / Mangaluru (180 km)<br>
+                        <strong>Best Season:</strong> October to March (pleasant weather, calm seas)
+                    </p>
+                </div>
+                <p>The beach is part of the sacred Gokarna coastline, a region revered in Hindu tradition as one of the
+                    seven Mukti Sthalas (places of liberation). Lord Shiva is believed to have manifested here as the
+                    Atmalinga, making the entire region spiritually significant.</p>
+            </div>
+
+            <div class="tab-content" id="nature" role="tabpanel" hidden>
+                <h2>Natural Setting</h2>
+                <div class="features-grid" id="nature-grid">
+                    <!-- Populated by components.js -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="wellness" role="tabpanel" hidden>
+                <h2>Wellness & Spiritual Culture</h2>
+                <p>Kudle has emerged as one of India's leading yoga and wellness destinations, with numerous shalas
+                    (schools), retreat centers, and meditation spaces dotting the cliff-side overlooking the beach.</p>
+                <div class="features-grid" id="wellness-grid">
+                    <!-- Populated by components.js -->
+                </div>
+                <h3>Local Coastal Highlights</h3>
+                <div class="features-grid" id="coastal-grid">
+                    <!-- Populated by components.js -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="nearby" role="tabpanel" hidden>
+                <h2>Nearby Attractions</h2>
+                <div class="features-grid" id="nearby-grid">
+                    <!-- Populated by components.js -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="gallery" role="tabpanel" hidden>
+                <h2>Visual Gallery</h2>
+                <div class="gallery-grid" id="gallery-grid" role="list">
+                    <!-- Populated by components.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Incredible India Explorer. Kudle Beach Profile.</p>
+    </footer>
+
+    <script src="../../journey.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="components.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
