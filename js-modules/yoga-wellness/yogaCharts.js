@@ -1,0 +1,369 @@
+// Yoga Charts - Vanilla JS Canvas API chart components for Yoga & Wellness Guide
+import { ASANA_CATEGORIES, CHAKRAS } from './yogaTypes.js';
+
+// Base Chart Class
+class BaseChart {
+  constructor(canvas, options = {}) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.width = canvas.width;
+    this.height = canvas.height;
+    this.padding = options.padding || { top: 40, right: 20, bottom: 40, left: 60 };
+    this.colors = options.colors || ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F'];
+  }
+
+  clear() {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+  }
+
+  drawTitle(title) {
+    this.ctx.fillStyle = '#f1f5f9';
+    this.ctx.font = 'bold 14px Inter, sans-serif';
+    this.ctx.textAlign = 'left';
+    this.ctx.fillText(title, this.padding.left, 24);
+  }
+
+  getChartArea() {
+    return {
+      x: this.padding.left,
+      y: this.padding.top,
+      width: this.width - this.padding.left - this.padding.right,
+      height: this.height - this.padding.top - this.padding.bottom
+    };
+  }
+}
+
+// Bar Chart
+export class BarChart extends BaseChart {
+  draw(data, options = {}) {
+    this.clear();
+    this.drawTitle(options.title || 'Bar Chart');
+
+    const chartArea = this.getChartArea();
+    const maxValue = Math.max(...data.map(d => d.value)) * 1.1;
+    const barWidth = (chartArea.width / data.length) * 0.7;
+    const gap = (chartArea.width / data.length) * 0.3;
+
+    this.ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    this.ctx.lineWidth = 1;
+    for (let i = 0; i <= 5; i++) {
+      const y = chartArea.y + (chartArea.height / 5) * i;
+      this.ctx.beginPath();
+      this.ctx.moveTo(chartArea.x, y);
+      this.ctx.lineTo(chartArea.x + chartArea.width, y);
+      this.ctx.stroke();
+
+      this.ctx.fillStyle = '#94a3b8';
+      this.ctx.font = '11px Inter, sans-serif';
+      this.ctx.textAlign = 'right';
+      this.ctx.fillText(Math.round(maxValue - (maxValue / 5) * i), chartArea.x - 8, y + 4);
+    }
+
+    data.forEach((d, i) => {
+      const x = chartArea.x + i * (barWidth + gap) + gap / 2;
+      const barHeight = (d.value / maxValue) * chartArea.height;
+      const y = chartArea.y + chartArea.height - barHeight;
+
+      const gradient = this.ctx.createLinearGradient(x, y, x, chartArea.y + chartArea.height);
+      gradient.addColorStop(0, d.color || this.colors[i % this.colors.length]);
+      gradient.addColorStop(1, (d.color || this.colors[i % this.colors.length]) + '66');
+
+      this.ctx.fillStyle = gradient;
+      this.ctx.beginPath();
+      this.ctx.roundRect(x, y, barWidth, barHeight, [4, 4, 0, 0]);
+      this.ctx.fill();
+
+      this.ctx.fillStyle = '#f1f5f9';
+      this.ctx.font = 'bold 11px Inter, sans-serif';
+      this.ctx.textAlign = 'center';
+      this.ctx.fillText(d.value, x + barWidth / 2, y - 8);
+
+      this.ctx.fillStyle = '#94a3b8';
+      this.ctx.font = '10px Inter, sans-serif';
+      this.ctx.fillText(d.label, x + barWidth / 2, chartArea.y + chartArea.height + 20);
+    });
+
+    return this;
+  }
+}
+
+// Pie Chart
+export class PieChart extends BaseChart {
+  draw(data, options = {}) {
+    this.clear();
+    this.drawTitle(options.title || 'Pie Chart');
+
+    const centerX = this.width / 2;
+    const centerY = this.height / 2 + 20;
+    const radius = Math.min(this.width, this.height) / 2 - 60;
+    const total = data.reduce((sum, d) => sum + d.value, 0);
+
+    let startAngle = -Math.PI / 2;
+
+    data.forEach((d, i) => {
+      const sliceAngle = (d.value / total) * Math.PI * 2;
+
+      this.ctx.beginPath();
+      this.ctx.moveTo(centerX, centerY);
+      this.ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+      this.ctx.closePath();
+      this.ctx.fillStyle = d.color || this.colors[i % this.colors.length];
+      this.ctx.fill();
+
+      this.ctx.strokeStyle = '#1e293b';
+      this.ctx.lineWidth = 2;
+      this.ctx.stroke();
+
+      const midAngle = startAngle + sliceAngle / 2;
+      const labelRadius = radius * 0.7;
+      const labelX = centerX + Math.cos(midAngle) * labelRadius;
+      const labelY = centerY + Math.sin(midAngle) * labelRadius;
+
+      if (sliceAngle > 0.3) {
+        this.ctx.fillStyle = '#fff';
+        this.ctx.font = 'bold 12px Inter, sans-serif';
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+        this.ctx.fillText(d.label, labelX, labelY - 8);
+        this.ctx.font = '11px Inter, sans-serif';
+        this.ctx.fillText(`${Math.round((d.value / total) * 100)}%`, labelX, labelY + 8);
+      }
+
+      startAngle += sliceAngle;
+    });
+
+    const legendX = this.width - 120;
+    let legendY = this.padding.top + 10;
+    data.forEach((d, i) => {
+      this.ctx.fillStyle = d.color || this.colors[i % this.colors.length];
+      this.ctx.fillRect(legendX, legendY, 12, 12);
+      this.ctx.fillStyle = '#94a3b8';
+      this.ctx.font = '11px Inter, sans-serif';
+      this.ctx.textAlign = 'left';
+      this.ctx.fillText(d.label, legendX + 18, legendY + 10);
+      legendY += 20;
+    });
+
+    return this;
+  }
+}
+
+// Horizontal Bar Chart
+export class HorizontalBarChart extends BaseChart {
+  draw(data, options = {}) {
+    this.clear();
+    this.drawTitle(options.title || 'Horizontal Bar Chart');
+
+    const chartArea = this.getChartArea();
+    const maxValue = Math.max(...data.map(d => d.value)) * 1.1;
+    const barHeight = (chartArea.height / data.length) * 0.7;
+    const gap = (chartArea.height / data.length) * 0.3;
+    const labelWidth = 120;
+
+    data.forEach((d, i) => {
+      const y = chartArea.y + i * (barHeight + gap) + gap / 2;
+      const barWidth = (d.value / maxValue) * (chartArea.width - labelWidth);
+
+      this.ctx.fillStyle = '#cbd5e1';
+      this.ctx.font = '12px Inter, sans-serif';
+      this.ctx.textAlign = 'right';
+      this.ctx.textBaseline = 'middle';
+      this.ctx.fillText(d.label, chartArea.x + labelWidth - 10, y + barHeight / 2);
+
+      this.ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      this.ctx.beginPath();
+      this.ctx.roundRect(chartArea.x + labelWidth, y, chartArea.width - labelWidth, barHeight, 4);
+      this.ctx.fill();
+
+      const gradient = this.ctx.createLinearGradient(chartArea.x + labelWidth, y, chartArea.x + labelWidth + barWidth, y);
+      gradient.addColorStop(0, d.color || this.colors[i % this.colors.length]);
+      gradient.addColorStop(1, (d.color || this.colors[i % this.colors.length]) + '88');
+      this.ctx.fillStyle = gradient;
+      this.ctx.beginPath();
+      this.ctx.roundRect(chartArea.x + labelWidth, y, barWidth, barHeight, 4);
+      this.ctx.fill();
+
+      this.ctx.fillStyle = '#f1f5f9';
+      this.ctx.font = 'bold 11px Inter, sans-serif';
+      this.ctx.textAlign = 'left';
+      this.ctx.fillText(d.value + (options.suffix || ''), chartArea.x + labelWidth + barWidth + 8, y + barHeight / 2);
+    });
+
+    return this;
+  }
+}
+
+// Donut Chart
+export class DonutChart extends BaseChart {
+  draw(data, options = {}) {
+    this.clear();
+    this.drawTitle(options.title || 'Donut Chart');
+
+    const centerX = this.width / 2;
+    const centerY = this.height / 2 + 20;
+    const outerRadius = Math.min(this.width, this.height) / 2 - 60;
+    const innerRadius = outerRadius * 0.6;
+    const total = data.reduce((sum, d) => sum + d.value, 0);
+
+    let startAngle = -Math.PI / 2;
+
+    data.forEach((d, i) => {
+      const sliceAngle = (d.value / total) * Math.PI * 2;
+
+      this.ctx.beginPath();
+      this.ctx.arc(centerX, centerY, outerRadius, startAngle, startAngle + sliceAngle);
+      this.ctx.arc(centerX, centerY, innerRadius, startAngle + sliceAngle, startAngle, true);
+      this.ctx.closePath();
+      this.ctx.fillStyle = d.color || this.colors[i % this.colors.length];
+      this.ctx.fill();
+
+      startAngle += sliceAngle;
+    });
+
+    this.ctx.fillStyle = '#f1f5f9';
+    this.ctx.font = 'bold 24px Inter, sans-serif';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText(options.centerValue || total, centerX, centerY - 8);
+    this.ctx.fillStyle = '#94a3b8';
+    this.ctx.font = '12px Inter, sans-serif';
+    this.ctx.fillText(options.centerLabel || 'Total', centerX, centerY + 16);
+
+    let legendY = this.padding.top + 10;
+    data.forEach((d, i) => {
+      this.ctx.fillStyle = d.color || this.colors[i % this.colors.length];
+      this.ctx.fillRect(this.padding.left, legendY, 12, 12);
+      this.ctx.fillStyle = '#94a3b8';
+      this.ctx.font = '11px Inter, sans-serif';
+      this.ctx.textAlign = 'left';
+      this.ctx.fillText(`${d.label}: ${d.value}`, this.padding.left + 18, legendY + 10);
+      legendY += 20;
+    });
+
+    return this;
+  }
+}
+
+// Radar Chart
+export class RadarChart extends BaseChart {
+  draw(data, options = {}) {
+    this.clear();
+    this.drawTitle(options.title || 'Radar Chart');
+
+    const centerX = this.width / 2;
+    const centerY = this.height / 2 + 20;
+    const radius = Math.min(this.width, this.height) / 2 - 60;
+    const sides = data.length;
+    const angleStep = (Math.PI * 2) / sides;
+
+    for (let ring = 1; ring <= 5; ring++) {
+      const ringRadius = (radius / 5) * ring;
+      this.ctx.beginPath();
+      for (let i = 0; i <= sides; i++) {
+        const angle = i * angleStep - Math.PI / 2;
+        const x = centerX + Math.cos(angle) * ringRadius;
+        const y = centerY + Math.sin(angle) * ringRadius;
+        if (i === 0) this.ctx.moveTo(x, y);
+        else this.ctx.lineTo(x, y);
+      }
+      this.ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+      this.ctx.lineWidth = 1;
+      this.ctx.stroke();
+    }
+
+    data.forEach((d, i) => {
+      const angle = i * angleStep - Math.PI / 2;
+      const x = centerX + Math.cos(angle) * radius;
+      const y = centerY + Math.sin(angle) * radius;
+
+      this.ctx.beginPath();
+      this.ctx.moveTo(centerX, centerY);
+      this.ctx.lineTo(x, y);
+      this.ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+      this.ctx.stroke();
+
+      const labelX = centerX + Math.cos(angle) * (radius + 20);
+      const labelY = centerY + Math.sin(angle) * (radius + 20);
+      this.ctx.fillStyle = '#cbd5e1';
+      this.ctx.font = '11px Inter, sans-serif';
+      this.ctx.textAlign = 'center';
+      this.ctx.textBaseline = 'middle';
+      this.ctx.fillText(d.label, labelX, labelY);
+    });
+
+    this.ctx.beginPath();
+    data.forEach((d, i) => {
+      const angle = i * angleStep - Math.PI / 2;
+      const valueRadius = (d.value / 100) * radius;
+      const x = centerX + Math.cos(angle) * valueRadius;
+      const y = centerY + Math.sin(angle) * valueRadius;
+      if (i === 0) this.ctx.moveTo(x, y);
+      else this.ctx.lineTo(x, y);
+    });
+    this.ctx.closePath();
+
+    const gradient = this.ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
+    gradient.addColorStop(0, (options.color || '#FF6B6B') + '66');
+    gradient.addColorStop(1, (options.color || '#FF6B6B') + '22');
+    this.ctx.fillStyle = gradient;
+    this.ctx.fill();
+
+    this.ctx.strokeStyle = options.color || '#FF6B6B';
+    this.ctx.lineWidth = 2;
+    this.ctx.stroke();
+
+    data.forEach((d, i) => {
+      const angle = i * angleStep - Math.PI / 2;
+      const valueRadius = (d.value / 100) * radius;
+      const x = centerX + Math.cos(angle) * valueRadius;
+      const y = centerY + Math.sin(angle) * valueRadius;
+
+      this.ctx.beginPath();
+      this.ctx.arc(x, y, 5, 0, Math.PI * 2);
+      this.ctx.fillStyle = options.color || '#FF6B6B';
+      this.ctx.fill();
+      this.ctx.strokeStyle = '#1e293b';
+      this.ctx.lineWidth = 2;
+      this.ctx.stroke();
+    });
+
+    return this;
+  }
+}
+
+// Create Yoga-specific charts using the base chart classes
+export function createCategoryPieChart(canvas, data) {
+  return new PieChart(canvas).draw(data, { title: '🧘 Asana Categories' });
+}
+
+export function createDifficultyBarChart(canvas, data) {
+  return new BarChart(canvas).draw(data, { title: '📊 Difficulty Distribution' });
+}
+
+export function createChakraDonut(canvas, data) {
+  return new DonutChart(canvas).draw(data, { title: '🔮 Chakra Focus', centerLabel: 'Chakras' });
+}
+
+export function createCategoryBarChart(canvas, data) {
+  return new HorizontalBarChart(canvas).draw(data, { title: '📋 Category Breakdown' });
+}
+
+export function createBenefitRadar(canvas, data) {
+  return new RadarChart(canvas).draw(data, { title: '✨ Wellness Benefits', color: '#4ECDC4' });
+}
+
+// Export chart classes
+export const YogaCharts = {
+  BarChart,
+  PieChart,
+  HorizontalBarChart,
+  DonutChart,
+  RadarChart,
+  createCategoryPieChart,
+  createDifficultyBarChart,
+  createChakraDonut,
+  createCategoryBarChart,
+  createBenefitRadar
+};
+
+export default YogaCharts;
