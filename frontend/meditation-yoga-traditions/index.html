@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Meditation & Yoga Traditions | Incredible India Explorer</title>
+    <meta name="description" content="Explore the rich heritage of Indian meditation and yoga traditions — from ancient Vedic practices to modern global movements.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>🧘 Indian Meditation & Yoga Traditions</h1>
+    <p>Explore thousands of years of spiritual wisdom — yoga lineages, meditation techniques, chakra system, pranayama, and the sages who shaped them.</p>
+</section>
+
+<!-- Tabs -->
+<nav class="tab-nav" aria-label="Content sections">
+    <button class="tab-btn active" data-tab="traditions">🕉️ Yoga Traditions</button>
+    <button class="tab-btn" data-tab="meditation">🧘 Meditation</button>
+    <button class="tab-btn" data-tab="chakras">🔮 Chakra System</button>
+    <button class="tab-btn" data-tab="pranayama">🌬️ Pranayama</button>
+    <button class="tab-btn" data-tab="sages">📜 Sages & Texts</button>
+    <button class="tab-btn" data-tab="timer">⏱️ Meditation Timer</button>
+    <button class="tab-btn" data-tab="insights">💡 Insights</button>
+</nav>
+
+<!-- Tab Content -->
+<main class="container">
+
+    <!-- Yoga Traditions Tab -->
+    <section id="tab-traditions" class="tab-content">
+        <div class="card">
+            <div class="card-title">🕉️ Yoga Lineages of India</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                India is the birthplace of yoga — a 5,000-year-old tradition that has evolved into diverse schools, each offering a unique path to physical health, mental clarity, and spiritual awakening.
+            </p>
+            <div class="popularity-chart" id="popularity-chart"></div>
+        </div>
+        <div class="grid-3" id="traditions-grid"></div>
+    </section>
+
+    <!-- Meditation Tab -->
+    <section id="tab-meditation" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🧘 Meditation Techniques</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Meditation (Dhyana) is the 7th limb of Patanjali's Ashtanga Yoga. These ancient techniques offer paths to inner peace, heightened awareness, and liberation.
+            </p>
+        </div>
+        <div id="meditation-techniques"></div>
+    </section>
+
+    <!-- Chakras Tab -->
+    <section id="tab-chakras" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🔮 The Seven Chakras</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Chakras are energy centers along the spine. Each governs specific physical, emotional, and spiritual aspects. Meditation and yoga practices aim to balance and activate these energy centers.
+            </p>
+        </div>
+        <div class="grid-2">
+            <div id="chakra-wheel-container"></div>
+            <div id="chakra-detail" class="chakra-detail" style="border-left: 4px solid #ef4444;">
+                <div class="title">Select a Chakra</div>
+                <div class="subtitle">Click on the wheel to explore each energy center</div>
+            </div>
+        </div>
+        <div id="chakra-cards" class="grid-3" style="margin-top: 24px;"></div>
+    </section>
+
+    <!-- Pranayama Tab -->
+    <section id="tab-pranayama" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🌬️ Pranayama — Breath Control</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Pranayama is the 4th limb of yoga — the conscious regulation of prana (life force) through breathing techniques. These practices directly influence the nervous system and mental state.
+            </p>
+        </div>
+        <div id="pranayama-techniques"></div>
+    </section>
+
+    <!-- Sages Tab -->
+    <section id="tab-sages" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">📜 Yoga Sutras of Patanjali</div>
+            <div id="yoga-sutras"></div>
+        </div>
+        <div class="card" style="margin-top: 24px;">
+            <div class="card-title">🙏 Masters & Modern Gurus</div>
+            <div id="practitioners"></div>
+        </div>
+    </section>
+
+    <!-- Timer Tab -->
+    <section id="tab-timer" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">⏱️ Meditation Timer</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Set your intention, close your eyes, and let the timer guide your practice. Ringing bowls sound at intervals.
+            </p>
+            <div class="timer-display">
+                <div class="time" id="timer-display">10:00</div>
+                <div style="margin-bottom: 16px;">
+                    <label style="color: var(--text-secondary); font-size: 0.85rem;">Duration (minutes):</label>
+                    <select id="timer-duration" style="padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-primary); font-size: 1rem; margin-left: 8px;">
+                        <option value="3">3 min</option>
+                        <option value="5">5 min</option>
+                        <option value="10" selected>10 min</option>
+                        <option value="15">15 min</option>
+                        <option value="20">20 min</option>
+                        <option value="30">30 min</option>
+                        <option value="45">45 min</option>
+                        <option value="60">60 min</option>
+                    </select>
+                </div>
+                <div class="controls">
+                    <button class="timer-btn start" id="timer-start">▶ Start</button>
+                    <button class="timer-btn pause" id="timer-pause" style="display: none;">⏸ Pause</button>
+                    <button class="timer-btn reset" id="timer-reset">↺ Reset</button>
+                </div>
+                <div id="timer-status" style="margin-top: 16px; color: var(--accent-gold); font-size: 0.9rem; font-weight: 600;">Ready to begin your practice</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Tab -->
+    <section id="tab-insights" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">💡 The Living Tradition</div>
+            <div id="insights"></div>
+        </div>
+        <div class="card" style="margin-top: 24px;">
+            <div class="card-title">🌍 Yoga by the Numbers</div>
+            <div class="grid-3" id="yoga-stats"></div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>🧘 Indian Meditation & Yoga Traditions · Incredible India Explorer</p>
+    <p style="margin-top: 8px; font-size: 0.75rem;">Based on traditional texts and contemporary research · Data as of 2026</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+/* Indian Meditation & Yoga Traditions — Styles */
+
+:root {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-card: #16213e;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent-gold: #f59e0b;
+  --accent-saffron: #ff6b35;
+  --accent-green: #22c55e;
+  --accent-blue: #06b6d4;
+  --accent-purple: #a855f7;
+  --accent-red: #ef4444;
+  --border: #2d3748;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  padding: 80px 20px 60px;
+  text-align: center;
+  background: linear-gradient(135deg, #1a0a2e 0%, #0a1628 50%, #0f1a2f 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f59e0b, #ff6b35, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.hero p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(15, 15, 26, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+}
+
+.navbar .logo { font-weight: 700; color: var(--accent-gold); }
+
+/* Tabs */
+.tab-nav {
+  display: flex;
+  gap: 8px;
+  padding: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 56px;
+  background: var(--bg-primary);
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.tab-btn:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+.tab-btn.active { background: rgba(245, 158, 11, 0.15); border-color: var(--accent-gold); color: var(--accent-gold); }
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Grid */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; margin-bottom: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+
+/* Tradition Cards */
+.tradition-card {
+  background: rgba(22, 33, 62, 0.8);
+  border-radius: 16px;
+  padding: 24px;
+  border-left: 4px solid var(--card-color, var(--accent-gold));
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tradition-card:hover { background: rgba(22, 33, 62, 1); }
+
+.tradition-card .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.tradition-card .name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tradition-card .origin {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.tradition-card .desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.tradition-card .meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.tradition-card .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Chakra Visualization */
+.chakra-viz {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.chakra-wheel {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  background: conic-gradient(
+    #ef4444 0deg, #f97316 51.4deg, #eab308 102.8deg,
+    #22c55e 154.3deg, #06b6d4 205.7deg, #6366f1 257.1deg,
+    #a855f7 308.5deg, #ef4444 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chakra-center {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.chakra-center:hover { background: var(--bg-secondary); }
+
+.chakra-center .icon { font-size: 2rem; margin-bottom: 4px; }
+.chakra-center .label { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+
+/* Chakra Detail Panel */
+.chakra-detail {
+  background: var(--bg-secondary);
+  border-radius: 16px;
+  padding: 24px;
+  border-left: 4px solid var(--detail-color, var(--accent-gold));
+}
+
+.chakra-detail .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.chakra-detail .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* Progress Bars */
+.progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+/* Techniques */
+.technique-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+  border-left: 4px solid var(--tech-color, var(--accent-blue));
+}
+
+.technique-card .name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.technique-card .english {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.technique-card .desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Sutra Cards */
+.sutra-card {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(245, 158, 11, 0.05));
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.sutra-card .sanskrit {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+
+.sutra-card .translation {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.sutra-card .meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Practitioner Cards */
+.practitioner-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.practitioner-card .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-purple));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bg-primary);
+  flex-shrink: 0;
+}
+
+.practitioner-card .info { flex: 1; }
+.practitioner-card .name { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+.practitioner-card .era { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; }
+.practitioner-card .contribution { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* Popularity Chart */
+.pop-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.pop-bar .label {
+  width: 160px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.pop-bar .track {
+  flex: 1;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.pop-bar .fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--bg-primary);
+}
+
+/* Insight Cards */
+.insight-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--insight-color, var(--accent-green));
+  margin-bottom: 12px;
+}
+
+.insight-card .title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.insight-card .body {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Meditation Timer */
+.timer-display {
+  text-align: center;
+  padding: 40px;
+}
+
+.timer-display .time {
+  font-size: 4rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+}
+
+.timer-display .controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.timer-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.timer-btn.start { background: var(--accent-green); color: #fff; }
+.timer-btn.pause { background: var(--accent-gold); color: var(--bg-primary); }
+.timer-btn.reset { background: var(--border); color: var(--text-primary); }
+.timer-btn:hover { transform: scale(1.05); }
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse { animation: pulse 2s ease-in-out infinite; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.5s ease-out; }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 1.8rem; }
+  .tab-nav { top: 50px; padding: 12px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .container { padding: 16px; }
+  .chakra-wheel { width: 240px; height: 240px; }
+  .chakra-center { width: 140px; height: 140px; }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
