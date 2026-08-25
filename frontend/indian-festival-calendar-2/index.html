@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Festival Calendar Explorer | Incredible India Explorer</title>
+    <meta name="description" content="Explore India's vibrant festival calendar — Diwali, Holi, Eid, Christmas, Navratri, and 100+ celebrations across all religions and regions.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+    <h1>🎉 Indian Festival Calendar Explorer</h1>
+    <p>India celebrates 100+ festivals across every season, religion, and region. From Diwali's million diyas to Eid's grand feasts — experience the world's most colorful celebration calendar.</p>
+</section>
+
+<nav class="tab-nav" aria-label="Content sections">
+    <button class="tab-btn active" data-tab="calendar">📅 Monthly Calendar</button>
+    <button class="tab-btn" data-tab="festivals">🎊 Major Festivals</button>
+    <button class="tab-btn" data-tab="regional">🗺️ Regional Festivals</button>
+    <button class="tab-btn" data-tab="categories">🏷️ By Religion</button>
+    <button class="tab-btn" data-tab="stats">📊 By the Numbers</button>
+    <button class="tab-btn" data-tab="insights">💡 Insights</button>
+</nav>
+
+<main class="container">
+
+    <section id="tab-calendar" class="tab-content">
+        <div class="card">
+            <div class="card-title">📅 Month-by-Month Festival Calendar</div>
+            <p style="color: var(--text-secondary); margin-bottom: 16px;">Click any month to see its festivals and celebrations</p>
+            <div class="month-grid" id="month-grid"></div>
+        </div>
+        <div id="month-detail" class="card" style="display: none;"></div>
+    </section>
+
+    <section id="tab-festivals" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🎊 Major Festivals of India</div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Hindu">Hindu</button>
+                <button class="filter-btn" data-filter="Muslim">Muslim</button>
+                <button class="filter-btn" data-filter="Christian">Christian</button>
+                <button class="filter-btn" data-filter="Sikh">Sikh</button>
+                <button class="filter-btn" data-filter="Buddhist">Buddhist</button>
+            </div>
+        </div>
+        <div class="grid-2" id="festivals-grid"></div>
+    </section>
+
+    <section id="tab-regional" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🗺️ Regional & Community Festivals</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">Beyond the national celebrations, every state and community has unique festivals reflecting local culture, history, and beliefs.</p>
+        </div>
+        <div class="grid-3" id="regional-grid"></div>
+    </section>
+
+    <section id="tab-categories" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🏷️ Festivals by Religion & Community</div>
+        </div>
+        <div id="category-sections"></div>
+    </section>
+
+    <section id="tab-stats" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">📊 Indian Festivals — By the Numbers</div>
+        </div>
+        <div class="grid-3" id="stats-grid"></div>
+    </section>
+
+    <section id="tab-insights" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">💡 The Spirit of Indian Festivals</div>
+            <div id="insights-container"></div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>🎉 Indian Festival Calendar Explorer · Incredible India Explorer</p>
+    <p style="margin-top: 8px; font-size: 0.75rem;">Celebrating 100+ festivals · 1.4 billion celebrants · One incredible nation</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
