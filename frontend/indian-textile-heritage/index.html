@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Textile Heritage Explorer | Incredible India</title>
+    <meta name="description" content="Explore India's rich textile heritage — handloom weaving traditions, embroidery arts, block printing, and sustainable fashion crafts spanning 2,500+ years.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+    <h1>🧵 Indian Textile Heritage Explorer</h1>
+    <p>From Banarasi silk to Kantha quilts — explore 2,500 years of handloom weaving, embroidery, and textile arts that clothe a nation and inspire the world.</p>
+</section>
+
+<nav class="tab-nav" aria-label="Content sections">
+    <button class="tab-btn active" data-tab="weaving">🧵 Handloom Traditions</button>
+    <button class="tab-btn" data-tab="embroidery">🪡 Embroidery Arts</button>
+    <button class="tab-btn" data-tab="crafts">🎨 Textile Crafts</button>
+    <button class="tab-btn" data-tab="process">⚙️ Weaving Process</button>
+    <button class="tab-btn" data-tab="sustainability">🌱 Sustainability</button>
+    <button class="tab-btn" data-tab="stats">📊 By the Numbers</button>
+    <button class="tab-btn" data-tab="insights">💡 Insights</button>
+</nav>
+
+<main class="container">
+
+    <!-- Handloom Traditions Tab -->
+    <section id="tab-weaving" class="tab-content">
+        <div class="card">
+            <div class="card-title">🧵 Handloom Weaving Traditions of India</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                India is the world's largest producer of handloom textiles. Each region has evolved distinct weaving techniques, motifs, and fabrics over millennia, creating a tapestry of cultural identity.
+            </p>
+        </div>
+        <div class="grid-3" id="weaving-grid"></div>
+    </section>
+
+    <!-- Embroidery Arts Tab -->
+    <section id="tab-embroidery" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🪡 Embroidery & Needlework Traditions</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Indian embroidery is among the most diverse and intricate in the world. Each region has developed unique stitches, motifs, and techniques passed down through generations.
+            </p>
+        </div>
+        <div class="grid-2" id="embroidery-grid"></div>
+    </section>
+
+    <!-- Textile Crafts Tab -->
+    <section id="tab-crafts" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🎨 Textile Craft Techniques</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Beyond weaving and embroidery, India's textile heritage includes block printing, dyeing, and finishing techniques that create the final, unique character of each fabric.
+            </p>
+        </div>
+        <div class="grid-2" id="crafts-grid"></div>
+    </section>
+
+    <!-- Weaving Process Tab -->
+    <section id="tab-process" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">⚙️ The Handloom Weaving Process</div>
+            <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                From raw fiber to finished fabric — each handloom textile passes through 10-25 distinct stages, many requiring specialized artisans.
+            </p>
+            <div class="process-timeline" id="process-steps"></div>
+        </div>
+    </section>
+
+    <!-- Sustainability Tab -->
+    <section id="tab-sustainability" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">🌱 Sustainable Fashion — India's Handloom Legacy</div>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Long before the sustainability movement, Indian textiles were inherently eco-friendly — hand-powered, naturally dyed, and fully biodegradable.
+            </p>
+        </div>
+        <div class="grid-2" id="sustainability-grid"></div>
+    </section>
+
+    <!-- Stats Tab -->
+    <section id="tab-stats" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">📊 Indian Textiles — By the Numbers</div>
+        </div>
+        <div class="grid-3" id="stats-grid"></div>
+    </section>
+
+    <!-- Insights Tab -->
+    <section id="tab-insights" class="tab-content" style="display: none;">
+        <div class="card">
+            <div class="card-title">💡 The Living Thread — Textile Heritage Insights</div>
+            <div id="insights-container"></div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>🧵 Indian Textile Heritage Explorer · Incredible India Explorer</p>
+    <p style="margin-top: 8px; font-size: 0.75rem;">Celebrating India's handloom traditions · Supporting artisan livelihoods</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
