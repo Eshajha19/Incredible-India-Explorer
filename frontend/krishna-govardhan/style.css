@@ -1,0 +1,301 @@
+/* ==========================================================================
+   KRISHNA GOVARDHAN STORY PAGE STYLESHEET
+   ========================================================================== */
+
+:root {
+    --govardhan-bg: #064e3b;
+    /* Deep forest green */
+    --govardhan-card-bg: rgba(6, 78, 59, 0.85);
+    --govardhan-text: #ecfdf5;
+    --govardhan-text-muted: #a7f3d0;
+    --govardhan-border: rgba(167, 243, 208, 0.2);
+    --govardhan-accent: #f59e0b;
+    /* Gold for divinity */
+    --govardhan-accent-secondary: #3b82f6;
+    /* Blue for Krishna */
+}
+
+body.light-theme {
+    --govardhan-bg: #f0fdf4;
+    --govardhan-card-bg: rgba(255, 255, 255, 0.95);
+    --govardhan-text: #064e3b;
+    --govardhan-text-muted: #047857;
+    --govardhan-border: rgba(6, 78, 59, 0.15);
+    --govardhan-accent: #d97706;
+    --govardhan-accent-secondary: #2563eb;
+}
+
+body.krishna-govardhan-page {
+    background-color: var(--govardhan-bg);
+    color: var(--govardhan-text);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+.govardhan-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(59, 130, 246, 0.15));
+    border: 1px solid var(--govardhan-border);
+    border-radius: 1.25rem;
+    padding: 3.5rem 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--govardhan-accent);
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.govardhan-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.75rem;
+    color: var(--govardhan-text);
+}
+
+.govardhan-hero .accent {
+    color: var(--govardhan-accent);
+}
+
+.govardhan-hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--govardhan-accent-secondary);
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.govardhan-hero .hero-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--govardhan-text-muted);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.info-card,
+.hub-section {
+    background: var(--govardhan-card-bg);
+    border: 1px solid var(--govardhan-border);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.info-card h2,
+.hub-section h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--govardhan-text);
+    border-bottom: 2px solid var(--govardhan-accent);
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+/* Timeline Styles */
+.timeline-track {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 3px solid var(--govardhan-accent);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.45rem;
+    top: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--govardhan-accent);
+    border-radius: 50%;
+    border: 3px solid var(--govardhan-bg);
+}
+
+.timeline-day {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--govardhan-accent-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--govardhan-text);
+}
+
+.timeline-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--govardhan-text-muted);
+    line-height: 1.6;
+}
+
+/* Characters Grid */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.character-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--govardhan-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+body.light-theme .character-card {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--govardhan-accent);
+}
+
+.character-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--govardhan-accent), var(--govardhan-accent-secondary));
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.character-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--govardhan-text);
+}
+
+.character-card .role {
+    font-size: 0.8rem;
+    color: var(--govardhan-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.character-card p {
+    font-size: 0.9rem;
+    color: var(--govardhan-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Festival Details */
+.festival-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.festival-card {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid var(--govardhan-accent);
+    padding: 1.5rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.festival-card h4 {
+    margin-top: 0;
+    color: var(--govardhan-accent);
+    margin-bottom: 0.75rem;
+}
+
+.festival-card p {
+    margin: 0;
+    color: var(--govardhan-text-muted);
+    line-height: 1.6;
+}
+
+/* Cultural Grid */
+.cultural-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cultural-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--govardhan-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+body.light-theme .cultural-item {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.cultural-item h4 {
+    color: var(--govardhan-accent-secondary);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.cultural-item p {
+    color: var(--govardhan-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--govardhan-text-muted);
+    border-top: 1px solid var(--govardhan-border);
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+
+    .info-card,
+    .hub-section {
+        padding: 1.5rem;
+    }
+
+    .characters-grid,
+    .festival-details,
+    .cultural-grid {
+        grid-template-columns: 1fr;
+    }
+}
