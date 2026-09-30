@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore the Luni — River of the Thar Desert | Incredible India</title>
+    <link rel="stylesheet" href="luni-river.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-section">
+        <nav class="top-nav">
+            <a href="../index.html" class="back-link">← Back to Explorer</a>
+            <div class="journey-nav-search">
+                <input type="text" id="luni-search" placeholder="Search basin...">
+                <button id="journey-bookmark">🧭 My Journey</button>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <h1>The Luni River</h1>
+            <p class="subtitle">The Lifeline of the Thar Desert</p>
+            <div class="scroll-indicator">↓ Scroll to Explore</div>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <!-- Origin Section -->
+        <section id="origin" class="content-section">
+            <div class="text-content">
+                <h2>Origin & Name</h2>
+                <p>The Luni River rises in the Pushkar valley of the Aravalli Range, near Ajmer. Originally known as Sagarmati, it takes the name Luni after meeting its tributary Sarasvati.</p>
+                <p>The name "Luni" is derived from the Sanskrit word <em>Lavanavari</em>, which translates to "Salt River". This is due to its high salinity, gathered as it flows through the salt-rich soils of the Thar Desert.</p>
+            </div>
+            <div class="visual-content salt-theme">
+                <div class="glass-card">
+                    <h3>Etymology</h3>
+                    <ul>
+                        <li><strong>Sanskrit:</strong> Lavanavari</li>
+                        <li><strong>Meaning:</strong> Salt River</li>
+                        <li><strong>Initial Name:</strong> Sagarmati</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geography Section -->
+        <section id="geography" class="content-section reversed">
+            <div class="text-content">
+                <h2>Desert Geography & Seasonal Nature</h2>
+                <p>Unlike most major rivers, the Luni is endorheic. It does not flow into an ocean but terminates in the marshy lands of the Rann of Kutch in Gujarat. It is an ephemeral river, meaning it flows primarily during the monsoon season.</p>
+                <p>The soil along its banks is heavily alkaline. While the water is fresh near the origin in Ajmer, it turns increasingly saline as it reaches Balotra, making it unsuitable for irrigation beyond that point.</p>
+            </div>
+            <div class="visual-content desert-theme">
+                <svg viewBox="0 0 400 400" class="river-map" id="river-map">
+                    <path class="river-path" d="M 50,50 Q 150,150 200,250 T 350,380" />
+                    <circle cx="50" cy="50" r="5" class="map-point origin-point"/>
+                    <text x="60" y="55" class="map-label">Pushkar (Origin)</text>
+                    <circle cx="200" cy="250" r="5" class="map-point salinity-point"/>
+                    <text x="210" y="255" class="map-label">Balotra (Turns Saline)</text>
+                    <circle cx="350" cy="380" r="5" class="map-point end-point"/>
+                    <text x="250" y="390" class="map-label">Rann of Kutch</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Tributaries Section -->
+        <section id="tributaries" class="content-section">
+            <div class="text-content">
+                <h2>The Tributaries</h2>
+                <p>The Luni basin is supported by several key tributaries, almost all of which join from the left bank (originating in the Aravalli hills). Only the Jojari river joins from the right.</p>
+            </div>
+            <div class="tributary-grid" id="tributary-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="content-section">
+            <div class="text-content full-width">
+                <h2>Historical & Cultural Importance</h2>
+                <p>The Luni River basin has been a critical lifeline for the Marwar region for centuries. In ancient times, it supported early settlements in a harsh arid climate and provided water for the historic trade routes traversing the Thar Desert. The river was essential for the survival of both wildlife and the nomadic pastoralist communities of Rajasthan.</p>
+                <div class="timeline-container">
+                    <div class="timeline-event">
+                        <h4>Ancient Era</h4>
+                        <p>Early settlements along the upper fresh-water reaches.</p>
+                    </div>
+                    <div class="timeline-event">
+                        <h4>Medieval Marwar</h4>
+                        <p>Essential water source for fort cities and trade caravans.</p>
+                    </div>
+                    <div class="timeline-event">
+                        <h4>Modern Day</h4>
+                        <p>Focus of arid-zone hydrology and desertification studies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../journey.js"></script>
+    <script src="luni-river.js"></script>
+</body>
+</html>
+
+        <section id="ecology" class="content-section reversed">
+            <div class="text-content">
+                <h2>Wildlife & Desert Ecology</h2>
+                <p>The intermittent pools formed by the Luni River serve as vital oases for desert wildlife. During the dry months, these remaining water bodies sustain local populations of blackbuck, chinkara, and numerous migratory birds.</p>
+                <p>The high salinity of the surrounding soil creates unique micro-ecosystems where halophytic (salt-tolerant) plants thrive, preventing further desertification of the Marwar region.</p>
+            </div>
+            <div class="visual-content">
+                <div class="glass-card">
+                    <h3>Key Species</h3>
+                    <ul>
+                        <li><strong>Mammals:</strong> Blackbuck, Chinkara (Indian Gazelle)</li>
+                        <li><strong>Birds:</strong> Demoiselle Cranes, Sandgrouse</li>
+                        <li><strong>Flora:</strong> Halophytes, Khejri trees</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
