@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Decode the Names of India's Rivers — linguistic, historical, and cultural meanings of river names across India.">
+    <title>River Names Decoder | Incredible India Explorer</title>
+    <link rel="preload" href="../../assets/fonts/Outfit-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Outfit-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/PlayfairDisplay-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="rnd-navbar">
+    <a href="../../index.html" class="back-link">&larr; Back to Home</a>
+    <div class="nav-brand"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></div>
+    <nav class="rnd-nav-links">
+        <a href="#search-section">Search</a>
+        <a href="#rivers">Rivers</a>
+        <a href="#map-section">Map</a>
+        <a href="#etymology">Etymology</a>
+        <a href="#references">References</a>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="rnd-hero" id="rndHero">
+    <div class="rnd-hero-bg"><div class="rnd-particles" id="rndParticles"></div></div>
+    <div class="rnd-hero-overlay"></div>
+    <div class="rnd-hero-content">
+        <span class="rnd-section-badge">📜 Linguistic Heritage</span>
+        <h1 class="rnd-hero-title">Decode the Names<br>of India's Rivers</h1>
+        <p class="rnd-hero-subtitle">
+            Every Indian river name carries centuries of linguistic evolution — from Sanskrit roots to Prakrit
+            transformations to regional variations. Discover the hidden meanings behind these sacred waters.
+        </p>
+        <div class="rnd-hero-stats">
+            <div class="rnd-stat-item"><span class="rnd-stat-number">30+</span><span class="rnd-stat-label">Rivers Decoded</span></div>
+            <div class="rnd-stat-item"><span class="rnd-stat-number">8</span><span class="rnd-stat-label">Languages</span></div>
+            <div class="rnd-stat-item"><span class="rnd-stat-number">4000+</span><span class="rnd-stat-label">Years of History</span></div>
+        </div>
+        <a href="#search-section" class="rnd-cta-btn">Start Exploring ↓</a>
+    </div>
+    <div class="rnd-scroll-indicator"><div class="rnd-scroll-mouse"><div class="rnd-scroll-wheel"></div></div></div>
+</section>
+
+<!-- Search -->
+<section class="rnd-section" id="search-section">
+    <div class="rnd-container">
+        <div class="rnd-section-header">
+            <span class="rnd-section-badge">🔍 Search</span>
+            <h2>Search River Names</h2>
+            <p class="rnd-section-subtitle">Search by modern name, ancient name, meaning, or region.</p>
+        </div>
+        <div class="rnd-search-wrapper">
+            <input type="text" id="searchInput" class="rnd-search-input" placeholder="Search rivers by name, meaning, region, or language..." autocomplete="off">
+            <div class="rnd-search-count" id="searchCount"></div>
+        </div>
+        <div class="rnd-grid" id="riverGrid"></div>
+    </div>
+</section>
+
+<!-- Map -->
+<section class="rnd-section rnd-dark-section" id="map-section">
+    <div class="rnd-container">
+        <div class="rnd-section-header">
+            <span class="rnd-section-badge">🗺️ Name-Origin Map</span>
+            <h2>Where River Names Began</h2>
+            <p class="rnd-section-subtitle">Click markers to explore the linguistic origins of each river name.</p>
+        </div>
+        <div class="rnd-map-wrapper">
+            <div class="rnd-map-container">
+                <svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg" id="rndMapSvg">
+                    <path d="M200,80 L280,50 L350,60 L420,40 L500,55 L560,80 L600,120 L620,180 L640,240 L660,300 L650,360 L630,400 L600,440 L570,470 L540,500 L500,530 L460,550 L420,570 L380,580 L340,560 L300,540 L260,500 L230,460 L210,420 L190,380 L170,340 L160,280 L170,220 L180,160 L190,120 Z" fill="none" stroke="var(--rnd-border)" stroke-width="1.5"/>
+                    <g id="rndMapMarkers"></g>
+                </svg>
+                <div class="rnd-map-legend">
+                    <h4>Name Origin Language</h4>
+                    <div class="rnd-legend-item"><span class="rnd-legend-dot" style="background:#f59e0b"></span> Sanskrit</div>
+                    <div class="rnd-legend-item"><span class="rnd-legend-dot" style="background:#3b82f6"></span> Dravidian</div>
+                    <div class="rnd-legend-item"><span class="rnd-legend-dot" style="background:#10b981"></span> Tibeto-Burman</div>
+                    <div class="rnd-legend-item"><span class="rnd-legend-dot" style="background:#8b5cf6"></span> Mixed/Debated</div>
+                </div>
+            </div>
+            <div class="rnd-map-info-panel">
+                <div class="rnd-map-info-default" id="rndInfoDefault">
+                    <div class="rnd-map-info-icon">📜</div>
+                    <h3>Explore River Names</h3>
+                    <p>Click a map marker to decode the name origin of that river.</p>
+                </div>
+                <div class="rnd-map-info-content" id="rndInfoContent" style="display:none;">
+                    <button class="rnd-info-close" id="rndInfoClose">&times;</button>
+                    <div class="rnd-info-icon" id="rndInfoIcon">🌊</div>
+                    <span class="rnd-info-tag" id="rndInfoTag">Origin</span>
+                    <h3 id="rndInfoName">Name</h3>
+                    <p class="rnd-info-desc" id="rndInfoDesc"></p>
+                    <div class="rnd-info-section"><h4>📜 Etymology</h4><p id="rndInfoEtymology"></p></div>
+                    <div class="rnd-info-section"><h4>🏛️ Ancient Name</h4><p id="rndInfoAncient"></p></div>
+                    <div class="rnd-info-section"><h4>🌍 Language Family</h4><p id="rndInfoLanguage"></p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Etymology Patterns -->
+<section class="rnd-section" id="etymology">
+    <div class="rnd-container">
+        <div class="rnd-section-header">
+            <span class="rnd-section-badge">📖 Etymology Patterns</span>
+            <h2>Common Name Patterns</h2>
+            <p class="rnd-section-subtitle">Many Indian river names share linguistic roots and naming patterns.</p>
+        </div>
+        <div class="rnd-grid-3" id="patternGrid"></div>
+    </div>
+</section>
+
+<!-- References -->
+<section class="rnd-section rnd-dark-section" id="references">
+    <div class="rnd-container">
+        <div class="rnd-section-header">
+            <span class="rnd-section-badge">📚 References</span>
+            <h2>Sources & Further Reading</h2>
+        </div>
+        <div class="rnd-grid-3" id="sourcesGrid"></div>
+    </div>
+</section>
+
+<footer class="rnd-footer">
+    <div class="rnd-footer-content">
+        <div class="rnd-footer-brand"><span class="saffron">Incredible</span> <span class="gold">India</span> <span class="green">Explorer</span></div>
+        <p class="rnd-footer-text">Decode the linguistic heritage of India's rivers — from Sanskrit to regional tongues.</p>
+        <p class="rnd-footer-copy">&copy; 2026 Incredible India Explorer. River Names Decoder.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
