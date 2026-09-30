@@ -1,0 +1,424 @@
+/* ==========================================================================
+   ARJUNA FISH EYE STORY PAGE STYLESHEET
+   Supports dark (default) and light themes
+   ========================================================================== */
+
+:root {
+    --arjuna-bg: #0f172a;
+    --arjuna-card-bg: rgba(30, 41, 59, 0.85);
+    --arjuna-text: #f1f5f9;
+    --arjuna-text-muted: #94a3b8;
+    --arjuna-border: rgba(148, 163, 184, 0.2);
+    --arjuna-accent: #f59e0b;
+    /* Gold for excellence */
+    --arjuna-accent-secondary: #3b82f6;
+    /* Blue for focus */
+    --arjuna-success: #10b981;
+    /* Green for success */
+}
+
+body.light-theme {
+    --arjuna-bg: #f8fafc;
+    --arjuna-card-bg: rgba(255, 255, 255, 0.95);
+    --arjuna-text: #0f172a;
+    --arjuna-text-muted: #475569;
+    --arjuna-border: rgba(15, 23, 42, 0.15);
+    --arjuna-accent: #d97706;
+    --arjuna-accent-secondary: #2563eb;
+    --arjuna-success: #059669;
+}
+
+body.arjuna-fish-eye-page {
+    background-color: var(--arjuna-bg);
+    color: var(--arjuna-text);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* Hero Section */
+.arjuna-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(59, 130, 246, 0.1));
+    border: 1px solid var(--arjuna-border);
+    border-radius: 1.25rem;
+    padding: 3.5rem 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.arjuna-hero::before {
+    content: '🎯';
+    position: absolute;
+    font-size: 20rem;
+    opacity: 0.03;
+    top: -5rem;
+    right: -5rem;
+    transform: rotate(-15deg);
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--arjuna-accent);
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.arjuna-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.75rem;
+    color: var(--arjuna-text);
+    line-height: 1.2;
+}
+
+.arjuna-hero .accent {
+    color: var(--arjuna-accent);
+}
+
+.arjuna-hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--arjuna-accent-secondary);
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.arjuna-hero .hero-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--arjuna-text-muted);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* Content Grid */
+.content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.info-card,
+.hub-section {
+    background: var(--arjuna-card-bg);
+    border: 1px solid var(--arjuna-border);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.info-card h2,
+.hub-section h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--arjuna-text);
+    border-bottom: 2px solid var(--arjuna-accent);
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .grid-2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.callout-box {
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 4px solid var(--arjuna-accent-secondary);
+    padding: 1.5rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.callout-box h3 {
+    margin-top: 0;
+    color: var(--arjuna-accent-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Method Steps */
+.method-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.method-step {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--arjuna-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    padding-left: 3.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light-theme .method-step {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.method-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+}
+
+.step-number {
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--arjuna-accent);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.method-step h4 {
+    margin: 0 0 0.75rem;
+    color: var(--arjuna-accent);
+    font-size: 1.1rem;
+}
+
+.method-step p {
+    margin: 0;
+    color: var(--arjuna-text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Participants Grid */
+.participants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.participant-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--arjuna-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+body.light-theme .participant-card {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.participant-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--arjuna-accent);
+}
+
+.participant-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--arjuna-accent), var(--arjuna-accent-secondary));
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.participant-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--arjuna-text);
+    font-size: 1.1rem;
+}
+
+.participant-card .role {
+    font-size: 0.8rem;
+    color: var(--arjuna-accent-secondary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.participant-card p {
+    font-size: 0.9rem;
+    color: var(--arjuna-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Lesson Section */
+.lesson-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--arjuna-text-muted);
+}
+
+.lesson-box {
+    background: rgba(245, 158, 11, 0.1);
+    border: 2px solid var(--arjuna-accent);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.lesson-box h3 {
+    margin-top: 0;
+    color: var(--arjuna-accent);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-box p {
+    margin: 0;
+    color: var(--arjuna-text);
+    line-height: 1.7;
+}
+
+/* Interactive Section */
+.section-intro {
+    color: var(--arjuna-text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.interactive-container {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--arjuna-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body.light-theme .interactive-container {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Gallery */
+.gallery-section {
+    padding: 1rem 0;
+}
+
+.gallery-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--arjuna-text);
+    border-bottom: 2px solid var(--arjuna-accent);
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-card-item {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--arjuna-border);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card-item:hover {
+    transform: scale(1.02);
+}
+
+.visual-placeholder {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.visual-placeholder p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.gallery-caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 1.5rem 1rem 1rem;
+    color: #ffffff;
+}
+
+.gallery-caption-overlay h4 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+    color: var(--arjuna-accent);
+}
+
+.gallery-caption-overlay p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #cbd5e1;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--arjuna-text-muted);
+    border-top: 1px solid var(--arjuna-border);
+    margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .info-card,
+    .hub-section {
+        padding: 1.5rem;
+    }
+
+    .method-steps,
+    .participants-grid {
+        grid-template-columns: 1fr;
+    }
+}
