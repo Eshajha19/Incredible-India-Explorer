@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the ancient traditional board games of India, including Chaturanga, Moksha Patam, and Pachisi, and their profound global influence.">
+  <meta name="keywords" content="Indian board games, Chaturanga, Chess origin, Snakes and Ladders, Moksha Patam, Pachisi, ancient Indian games">
+  <meta name="theme-color" content="#4c1d95">
+  
+  <title>Traditional Games Explorer | Incredible India</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- External Stylesheets Only -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="app-header">
+    <div class="header-container">
+      <a href="../../index.html" class="back-link" aria-label="Return to Incredible India Explorer Home">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Explorer
+      </a>
+      <div class="header-center">
+        <h1 class="page-title">Traditional Games</h1>
+        <span class="header-badge">Kreeda & Vidya</span>
+      </div>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../culture/culture.html">Culture</a></li>
+        <li aria-current="page">Traditional Games</li>
+      </ol>
+    </nav>
+
+    <section class="games-hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">The Cradle of Board Games</h1>
+      <p class="hero-subtitle">Long before modern board games conquered the world, ancient India was designing intricate games of strategy, mathematics, and philosophy. Discover the origins of Chess, Snakes & Ladders, and Ludo.</p>
+    </section>
+
+    <section class="games-section" aria-labelledby="grid-heading">
+      <h2 id="grid-heading" class="section-title">Ancient Games of India</h2>
+      <p class="section-subtitle">Click on a game to explore its history, rules, and global legacy.</p>
+      
+      <!-- Dynamic Grid: Populated by script.js -->
+      <div class="games-grid" id="games-grid" role="list">
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton-image"></div>
+          <div class="skeleton-text short"></div>
+          <div class="skeleton-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="philosophy-section" aria-labelledby="philosophy-heading">
+      <h2 id="philosophy-heading" class="section-title">More Than Just Play</h2>
+      <div class="philosophy-grid">
+        <article class="philosophy-card">
+          <i class="fas fa-chess-knight philosophy-icon" aria-hidden="true"></i>
+          <h3>Strategy & Warfare</h3>
+          <p>Games like Chaturanga simulated ancient Indian military divisions (infantry, cavalry, elephantry, chariotry), teaching tactical foresight.</p>
+        </article>
+        <article class="philosophy-card">
+          <i class="fas fa-yin-yang philosophy-icon" aria-hidden="true"></i>
+          <h3>Karma & Destiny</h3>
+          <p>Moksha Patam (Snakes & Ladders) was designed to teach moral lessons, where ladders represented virtues and snakes represented vices.</p>
+        </article>
+        <article class="philosophy-card">
+          <i class="fas fa-calculator philosophy-icon" aria-hidden="true"></i>
+          <h3>Mathematics & Logic</h3>
+          <p>Counting games like Pallanguzhi and Ayutha required rapid mental arithmetic, serving as educational tools for children and merchants.</p>
+        </article>
+        <article class="philosophy-card">
+          <i class="fas fa-crown philosophy-icon" aria-hidden="true"></i>
+          <h3>Royal Leisure</h3>
+          <p>Pachisi was a favorite of Mughal emperors like Akbar, who famously played life-sized versions with courtiers as pieces on grand courtyards.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="game-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close game details">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <span id="modal-origin" class="modal-origin"></span>
+      </div>
+      <img id="modal-image" class="modal-image" src="" alt="">
+      <div class="modal-body">
+        <p id="modal-description" class="modal-description"></p>
+        <div class="modal-stats">
+          <div class="stat-item">
+            <span class="stat-label">Era</span>
+            <span id="modal-era" class="stat-value"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Global Equivalent</span>
+            <span id="modal-global" class="stat-value"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Core Skill</span>
+            <span id="modal-skill" class="stat-value"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Incredible India Explorer</h3>
+        <p>Preserving the intellectual heritage and playful genius of ancient India.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../culture/culture.html">Cultural Heritage</a></li>
+          <li><a href="../martial-arts-explorer/index.html">Martial Arts</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Incredible India Explorer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- External JavaScript Only -->
+  <script src="script.js" defer></script>
+</body>
+</html>
