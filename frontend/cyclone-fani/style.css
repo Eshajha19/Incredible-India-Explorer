@@ -1,0 +1,347 @@
+/* ============================================================
+   Cyclone Fani 2019 Explorer — style.css
+   Uses the shared design tokens defined in ../styles.css
+   ============================================================ */
+
+.cyclone-fani-page {
+  overflow-x: hidden;
+}
+
+.cyclone-fani-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Hero ---------- */
+.cyclone-fani-hero {
+  position: relative;
+  padding: 100px 24px 70px;
+  text-align: center;
+  background: var(--bg-dark-deep);
+}
+
+.cyclone-fani-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cyclone-fani-hero .eyebrow {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--gradient-saffron-gold);
+  color: #1a1200;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.cyclone-fani-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 18px;
+  color: var(--text-light);
+}
+
+.cyclone-fani-hero h1 span {
+  background: var(--gradient-saffron-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cyclone-fani-hero p {
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.cyclone-fani-hero .primary {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--primary-saffron);
+  color: #1a1200;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-snappy);
+}
+
+.cyclone-fani-hero .primary:hover {
+  background: var(--primary-gold);
+  color: #000;
+}
+
+/* ---------- Section ---------- */
+.cyclone-fani-section {
+  padding: 60px 0;
+}
+
+.cyclone-fani-section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 32px;
+}
+
+.cyclone-fani-section-heading h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  color: var(--text-light);
+  margin-bottom: 14px;
+}
+
+.cyclone-fani-section-heading p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---------- Two-column layout ---------- */
+.cyclone-fani-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ---------- Specs / Facts lists ---------- */
+.cyclone-fani-specs {
+  list-style: none;
+  padding: 0;
+}
+
+.cyclone-fani-specs div {
+  margin-bottom: 16px;
+}
+
+.cyclone-fani-specs dt {
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: 12px;
+  display: inline-block;
+  min-width: 100px;
+}
+
+.cyclone-fani-specs dd {
+  color: var(--text-light);
+  display: inline-block;
+}
+
+.cyclone-fani-facts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cyclone-fani-facts li {
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cyclone-fani-specs dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 24px;
+  margin-bottom: 16px;
+}
+
+.cyclone-fani-specs dl div {
+  margin-bottom: 0;
+}
+
+/* ---------- Two-column content panels ---------- */
+.cyclone-fani-panel {
+  background: var(--bg-dark-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+}
+
+.cyclone-fani-panel h3 {
+  color: var(--primary-gold);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+}
+
+.cyclone-fani-panel p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.cyclone-fani-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.cyclone-fani-panel ul li {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.cyclone-fani-panel ul li::before {
+  content: "🌊";
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+.cyclone-fani-panel ol {
+  padding-left: 20px;
+  margin: 0 0 16px 0;
+}
+
+.cyclone-fani-panel ol li {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+/* ---------- Aside / sidebar style ---------- */
+.cyclone-fani-facts {
+  background: var(--bg-dark-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.cyclone-fani-facts h3 {
+  color: var(--primary-gold);
+  font-size: 1.15rem;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+}
+
+.cyclone-fani-facts dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 16px;
+  margin: 0 0 16px 0;
+}
+
+.cyclone-fani-facts dt {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.cyclone-fani-facts dd {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* ---------- Navigation section links ---------- */
+.cyclone-fani-section-nav {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.cyclone-fani-section-nav a {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition-snappy);
+  border: 1px solid var(--glass-border);
+}
+
+.cyclone-fani-section-nav a:hover,
+.cyclone-fani-section-nav a.active {
+  color: var(--primary-saffron);
+  border-color: var(--primary-saffron);
+  background: rgba(255, 176, 31, 0.1);
+}
+
+/* ---------- Source panels ---------- */
+.cyclone-fani-sources .three {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.cyclone-fani-sources .panel {
+  background: var(--bg-dark-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+}
+
+.cyclone-fani-sources h3 {
+  color: var(--primary-gold);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+/* ---------- Map styles ---------- */
+#fani-map {
+  height: 480px;
+  width: 100%;
+  background: var(--bg-dark-deep);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-buffer);
+  margin-top: 32px;
+}
+
+.map-note {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .cyclone-fani-two {
+    grid-template-columns: 1fr;
+  }
+
+  .cyclone-fani-section {
+    padding: 40px 0;
+  }
+
+  #fani-map {
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cyclone-fani-hero {
+    padding: 70px 16px 50px;
+  }
+
+  .cyclone-fani-section-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cyclone-fani-section-nav a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cyclone-fani-sources .three {
+    grid-template-columns: 1fr;
+  }
+}
