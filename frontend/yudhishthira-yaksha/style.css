@@ -1,0 +1,284 @@
+/* ==========================================================================
+   YUDHISHTHIRA YAKSHA STORY PAGE STYLESHEET
+   ========================================================================== */
+
+:root {
+    --yaksha-bg: #1e1b4b;
+    /* Deep indigo */
+    --yaksha-card-bg: rgba(30, 27, 75, 0.85);
+    --yaksha-text: #f8fafc;
+    --yaksha-text-muted: #94a3b8;
+    --yaksha-border: rgba(148, 163, 184, 0.2);
+    --yaksha-accent: #f59e0b;
+    /* Gold for wisdom */
+    --yaksha-accent-secondary: #8b5cf6;
+    /* Purple for mystery */
+}
+
+body.light-theme {
+    --yaksha-bg: #f8fafc;
+    --yaksha-card-bg: rgba(255, 255, 255, 0.95);
+    --yaksha-text: #1e1b4b;
+    --yaksha-text-muted: #475569;
+    --yaksha-border: rgba(30, 27, 75, 0.15);
+    --yaksha-accent: #d97706;
+    --yaksha-accent-secondary: #7c3aed;
+}
+
+body.yudhishthira-yaksha-page {
+    background-color: var(--yaksha-bg);
+    color: var(--yaksha-text);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+.yaksha-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(139, 92, 246, 0.15));
+    border: 1px solid var(--yaksha-border);
+    border-radius: 1.25rem;
+    padding: 3.5rem 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--yaksha-accent);
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.yaksha-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.75rem;
+    color: var(--yaksha-text);
+}
+
+.yaksha-hero .accent {
+    color: var(--yaksha-accent);
+}
+
+.yaksha-hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--yaksha-accent-secondary);
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.yaksha-hero .hero-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--yaksha-text-muted);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.info-card,
+.hub-section {
+    background: var(--yaksha-card-bg);
+    border: 1px solid var(--yaksha-border);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.info-card h2,
+.hub-section h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--yaksha-text);
+    border-bottom: 2px solid var(--yaksha-accent);
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Timeline */
+.timeline-track {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 3px solid var(--yaksha-accent);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.45rem;
+    top: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--yaksha-accent);
+    border-radius: 50%;
+    border: 3px solid var(--yaksha-bg);
+}
+
+.timeline-phase {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--yaksha-accent-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--yaksha-text);
+}
+
+.timeline-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--yaksha-text-muted);
+    line-height: 1.6;
+}
+
+/* Q&A Container */
+.section-intro {
+    color: var(--yaksha-text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.qa-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.qa-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid var(--yaksha-accent);
+    padding: 1.5rem;
+    border-radius: 0 1rem 1rem 0;
+    transition: transform 0.3s ease;
+}
+
+body.light-theme .qa-item {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.qa-item:hover {
+    transform: translateX(5px);
+}
+
+.qa-item .question {
+    font-weight: 700;
+    color: var(--yaksha-accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.qa-item .question::before {
+    content: "Q: ";
+}
+
+.qa-item .answer {
+    color: var(--yaksha-text-muted);
+    line-height: 1.7;
+    padding-left: 1.5rem;
+}
+
+.qa-item .answer::before {
+    content: "A: ";
+    font-weight: 600;
+    color: var(--yaksha-accent-secondary);
+}
+
+/* Wisdom Grid */
+.wisdom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.wisdom-card {
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid var(--yaksha-accent-secondary);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.wisdom-card h4 {
+    margin: 0 0 0.75rem;
+    color: var(--yaksha-accent-secondary);
+    font-size: 1.2rem;
+}
+
+.wisdom-card p {
+    margin: 0;
+    color: var(--yaksha-text-muted);
+    line-height: 1.6;
+}
+
+.context-box {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid var(--yaksha-accent);
+    padding: 1.5rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    margin-top: 1.5rem;
+}
+
+.context-box h3 {
+    margin-top: 0;
+    color: var(--yaksha-accent);
+    margin-bottom: 0.75rem;
+}
+
+.context-box p {
+    margin: 0;
+    color: var(--yaksha-text-muted);
+    line-height: 1.6;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--yaksha-text-muted);
+    border-top: 1px solid var(--yaksha-border);
+    margin-top: 3rem;
+}
+
