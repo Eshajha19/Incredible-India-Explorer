@@ -1,0 +1,270 @@
+/* ==========================================================================
+   SITA SWAYAMVARA STORY PAGE STYLESHEET
+   ========================================================================== */
+
+:root {
+    --sita-bg: #451a03;
+    /* Deep earthy brown/maroon */
+    --sita-card-bg: rgba(69, 26, 3, 0.85);
+    --sita-text: #fef3c7;
+    --sita-text-muted: #d6d3d1;
+    --sita-border: rgba(254, 243, 199, 0.2);
+    --sita-accent: #f59e0b;
+    /* Gold for royalty */
+    --sita-accent-secondary: #ef4444;
+    /* Red for the bow's power */
+}
+
+body.light-theme {
+    --sita-bg: #fffbeb;
+    --sita-card-bg: rgba(255, 255, 255, 0.95);
+    --sita-text: #451a03;
+    --sita-text-muted: #78716c;
+    --sita-border: rgba(69, 26, 3, 0.15);
+    --sita-accent: #d97706;
+    --sita-accent-secondary: #dc2626;
+}
+
+body.sita-swayamvara-page {
+    background-color: var(--sita-bg);
+    color: var(--sita-text);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+.swayamvara-hero {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.1));
+    border: 1px solid var(--sita-border);
+    border-radius: 1.25rem;
+    padding: 3.5rem 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--sita-accent);
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.swayamvara-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.75rem;
+    color: var(--sita-text);
+}
+
+.swayamvara-hero .accent {
+    color: var(--sita-accent);
+}
+
+.swayamvara-hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--sita-accent-secondary);
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.swayamvara-hero .hero-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--sita-text-muted);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.info-card,
+.hub-section {
+    background: var(--sita-card-bg);
+    border: 1px solid var(--sita-border);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.info-card h2,
+.hub-section h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--sita-text);
+    border-bottom: 2px solid var(--sita-accent);
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Challenge Details */
+.challenge-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.challenge-step {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--sita-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+body.light-theme .challenge-step {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.step-number {
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--sita-accent);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.challenge-step h4 {
+    margin: 0 0 0.75rem;
+    color: var(--sita-accent);
+}
+
+.challenge-step p {
+    margin: 0;
+    color: var(--sita-text-muted);
+    line-height: 1.6;
+}
+
+/* Participants Grid */
+.participants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.participant-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--sita-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+body.light-theme .participant-card {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.participant-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--sita-accent);
+}
+
+.participant-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sita-accent), var(--sita-accent-secondary));
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.participant-card h4 {
+    margin: 0 0 0.5rem;
+    color: var(--sita-text);
+}
+
+.participant-card .kingdom {
+    font-size: 0.8rem;
+    color: var(--sita-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.participant-card p {
+    font-size: 0.9rem;
+    color: var(--sita-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Cultural Grid */
+.cultural-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cultural-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid var(--sita-accent);
+    padding: 1.5rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+}
+
+body.light-theme .cultural-item {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.cultural-item h4 {
+    margin-top: 0;
+    color: var(--sita-accent);
+    margin-bottom: 0.75rem;
+}
+
+.cultural-item p {
+    margin: 0;
+    color: var(--sita-text-muted);
+    line-height: 1.6;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--sita-text-muted);
+    border-top: 1px solid var(--sita-border);
+    margin-top: 3rem;
+}
