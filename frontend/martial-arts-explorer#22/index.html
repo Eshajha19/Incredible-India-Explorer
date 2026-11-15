@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Shastra Vidya: The ancient and diverse martial arts of India, including Kalaripayattu, Gatka, Silambam, and Thang-Ta.">
+  <meta name="keywords" content="Indian martial arts, Kalaripayattu, Gatka, Silambam, Thang-Ta, Shastra Vidya, Indian combat techniques">
+  <meta name="theme-color" content="#7f1d1d">
+  
+  <title>Martial Arts Explorer | Incredible India</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- External Stylesheets Only -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="app-header">
+    <div class="header-container">
+      <a href="../../index.html" class="back-link" aria-label="Return to Incredible India Explorer Home">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Explorer
+      </a>
+      <div class="header-center">
+        <h1 class="page-title">Martial Arts Explorer</h1>
+        <span class="header-badge">Shastra Vidya</span>
+      </div>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../culture/culture.html">Culture</a></li>
+        <li aria-current="page">Martial Arts Explorer</li>
+      </ol>
+    </nav>
+
+    <section class="martial-hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">The Warrior Traditions of India</h1>
+      <p class="hero-subtitle">From the jungle gyms of Kerala to the plains of Punjab, India's martial arts (Shastra Vidya) are a profound synthesis of combat, spirituality, and physical mastery, dating back thousands of years.</p>
+    </section>
+
+    <section class="arts-section" aria-labelledby="grid-heading">
+      <h2 id="grid-heading" class="section-title">Regional Combat Styles</h2>
+      <p class="section-subtitle">Click on a martial art to explore its history, region of origin, and signature techniques.</p>
+      
+      <!-- Dynamic Grid: Populated by script.js -->
+      <div class="arts-grid" id="arts-grid" role="list">
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton-image"></div>
+          <div class="skeleton-text short"></div>
+          <div class="skeleton-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="weapons-section" aria-labelledby="weapons-heading">
+      <h2 id="weapons-heading" class="section-title">Traditional Weapons (Astras & Shastras)</h2>
+      <div class="weapons-grid">
+        <article class="weapon-card">
+          <i class="fas fa-circle-notch weapon-icon" aria-hidden="true"></i>
+          <h3>Urumi</h3>
+          <p>The flexible sword of Kalaripayattu, acting like a whip made of highly flexible steel blades.</p>
+        </article>
+        <article class="weapon-card">
+          <i class="fas fa-shield-alt weapon-icon" aria-hidden="true"></i>
+          <h3>Gatka Stick</h3>
+          <p>Wooden sticks used in the Sikh martial art of Gatka, simulating swords for rapid, flowing strikes.</p>
+        </article>
+        <article class="weapon-card">
+          <i class="fas fa-bolt weapon-icon" aria-hidden="true"></i>
+          <h3>Silambam Staff</h3>
+          <p>A long bamboo or wooden staff used in the Tamil art of Silambam, focusing on distance and agility.</p>
+        </article>
+        <article class="weapon-card">
+          <i class="fas fa-fan weapon-icon" aria-hidden="true"></i>
+          <h3>Thang-Ta Sword</h3>
+          <p>The ceremonial sword and spear used in Manipur's Huyen Langlon, combining grace with lethal precision.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="art-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close martial art details">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <span id="modal-region" class="modal-region"></span>
+      </div>
+      <img id="modal-image" class="modal-image" src="" alt="">
+      <div class="modal-body">
+        <p id="modal-description" class="modal-description"></p>
+        <div class="modal-stats">
+          <div class="stat-item">
+            <span class="stat-label">Origin Era</span>
+            <span id="modal-era" class="stat-value"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Focus</span>
+            <span id="modal-focus" class="stat-value"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Signature Weapon</span>
+            <span id="modal-weapon" class="stat-value"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Incredible India Explorer</h3>
+        <p>Preserving the warrior spirit and martial heritage of India.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../culture/culture.html">Cultural Heritage</a></li>
+          <li><a href="../stepwell-explorer/index.html">Architectural Marvels</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Incredible India Explorer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- External JavaScript Only -->
+  <script src="script.js" defer></script>
+</body>
+</html>
