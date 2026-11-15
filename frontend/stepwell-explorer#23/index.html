@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the architectural marvels of India's ancient stepwells (Baolis and Vavs). Discover their history, geometry, and water conservation ingenuity.">
+  <meta name="keywords" content="Indian stepwells, Baoli, Vav, Rani ki Vav, Chand Baori, ancient water conservation, Indian architecture">
+  <meta name="theme-color" content="#78350f">
+  
+  <title>Stepwell Explorer | Incredible India</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- External Stylesheets Only -->
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="app-header">
+    <div class="header-container">
+      <a href="../../index.html" class="back-link" aria-label="Return to Incredible India Explorer Home">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Explorer
+      </a>
+      <div class="header-center">
+        <h1 class="page-title">Stepwell Explorer</h1>
+        <span class="header-badge">Architectural Heritage</span>
+      </div>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+      <ol class="breadcrumb-list">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../heritage/heritage.html">Heritage Sites</a></li>
+        <li aria-current="page">Stepwell Explorer</li>
+      </ol>
+    </nav>
+
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">India's Subterranean Marvels</h1>
+      <p class="hero-subtitle">Stepwells (Baolis in the North, Vavs in the West) are not just water sources; they are intricate, multi-story architectural masterpieces designed for water conservation, social gathering, and spiritual retreat.</p>
+    </section>
+
+    <section class="explorer-section" aria-labelledby="grid-heading">
+      <h2 id="grid-heading" class="section-title">Famous Stepwells of India</h2>
+      <p class="section-subtitle">Click on a stepwell to explore its history, architectural style, and unique features.</p>
+      
+      <!-- Dynamic Grid: Populated by script.js -->
+      <div class="stepwell-grid" id="stepwell-grid" role="list">
+        <div class="skeleton-card" aria-hidden="true">
+          <div class="skeleton-image"></div>
+          <div class="skeleton-text short"></div>
+          <div class="skeleton-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture-section" aria-labelledby="arch-heading">
+      <h2 id="arch-heading" class="section-title">Anatomy of a Stepwell</h2>
+      <div class="anatomy-grid">
+        <article class="anatomy-card">
+          <i class="fas fa-layer-group anatomy-icon" aria-hidden="true"></i>
+          <h3>Pavilions (Mandapas)</h3>
+          <p>Ornate, pillared halls on the upper levels that provided shade and served as community gathering spaces.</p>
+        </article>
+        <article class="anatomy-card">
+          <i class="fas fa-stairs anatomy-icon" aria-hidden="true"></i>
+          <h3>Staircases (Somasar)</h3>
+          <p>Steep, zigzagging, or straight flights of stairs leading down to the water table, adjusting to seasonal fluctuations.</p>
+        </article>
+        <article class="anatomy-card">
+          <i class="fas fa-water anatomy-icon" aria-hidden="true"></i>
+          <h3>Water Reservoir (Kund)</h3>
+          <p>The deepest point, often octagonal or circular, designed to minimize evaporation and maximize water storage.</p>
+        </article>
+        <article class="anatomy-card">
+          <i class="fas fa-paint-brush anatomy-icon" aria-hidden="true"></i>
+          <h3>Sculptural Detail</h3>
+          <p>Intricate carvings of deities, mythological scenes, and geometric patterns adorning the walls and pillars.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="stepwell-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close-btn" aria-label="Close stepwell details">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <span id="modal-location" class="modal-location"></span>
+      </div>
+      <img id="modal-image" class="modal-image" src="" alt="">
+      <div class="modal-body">
+        <p id="modal-description" class="modal-description"></p>
+        <div class="modal-stats">
+          <div class="stat-item">
+            <span class="stat-label">Era</span>
+            <span id="modal-era" class="stat-value"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Style</span>
+            <span id="modal-style" class="stat-value"></span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Steps</span>
+            <span id="modal-steps" class="stat-value"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Incredible India Explorer</h3>
+        <p>Preserving the stories of India's engineering and architectural genius.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../heritage/heritage.html">Heritage Sites</a></li>
+          <li><a href="../ancient-ports-explorer/index.html">Ancient Ports</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Incredible India Explorer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- External JavaScript Only -->
+  <script src="script.js" defer></script>
+</body>
+</html>
